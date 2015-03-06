@@ -15,5 +15,6 @@ public class MultiArray {
             }
             System.out.println();
         }
+        System.out.println(array[0][2]);
     }
 }
