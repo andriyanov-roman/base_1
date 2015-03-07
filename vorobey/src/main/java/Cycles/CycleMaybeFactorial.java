@@ -1,8 +1,6 @@
 package Cycles;
 
-/**
- * Created by Stas on 07.03.2015.
- */
+
 public class CycleMaybeFactorial {
     public static void main(String args[]) {
         int a = 5;//example
