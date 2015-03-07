@@ -10,7 +10,7 @@ public class MassivMiddle {
         int i=0;
         double sr1=0,sr2=0;
         int sum=0,sum2=0;
-        int x;
+        int x,indexNegative=0;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         do {
             System.out.println("Введите четное положительное число: ");
@@ -47,9 +47,24 @@ public class MassivMiddle {
                         System.out.print(mas[i]+" ");
                     }
                 }
-            }else{
+        System.out.println();
+//***************************************************************************************************************
+        System.out.println("***********************************************");
+
+        //﻿Найти индексы отрицательных чисел и сумму положительных чисел в одномерном массиве
+
+            System.out.print("Индексы отрицательных элементов массива: ");
+            for(i=0;i<mas.length;i++){
+                if(mas[i]<0){
+                    indexNegative=i;
+                    System.out.print(indexNegative+", ");
+                }
+            }
+
+
+
+        }else{
             System.out.println("Вы ввели отрицательное число!");
         }
-
     }
 }
