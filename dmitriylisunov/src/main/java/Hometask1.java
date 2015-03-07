@@ -72,7 +72,5 @@ public class Hometask1 {
             System.out.println("Sum of RIGHT PART more than sum of left part.");
         }
 
-
-
     }
 }
