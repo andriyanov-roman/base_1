@@ -7,11 +7,22 @@ public class MassivMiddle {
 
     public static void main(String[] args) throws IOException {
 
-
+        int i=0;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Введите четное положительное число: ");
-        String s = br.readLine();
-        int x=Integer.parseInt(s);
-        int[] mas = new int[];
+        do {
+            System.out.println("Введите четное положительное число: ");
+            String s = br.readLine();
+            int x = Integer.parseInt(s);
+        }while(x%2 !=0);
+
+        if(x>0 && x%2==0){
+            int[] mas = new int[x];
+            for(i=0;i<mas.length;i++){
+                mas[i]=(int)(Math.random()*21-10);
+            }
+        }else{
+            System.out.println("Вы ввели отрицательное число!");
+        }
+
     }
 }
