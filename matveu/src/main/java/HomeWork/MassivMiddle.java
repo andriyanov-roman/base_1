@@ -135,6 +135,31 @@ public class MassivMiddle {
             for(i=0;i<masNew.length;i++){
                 System.out.print(masNew[i]+" ");
             }
+       System.out.println();
+//*********************************************************************************************************
+        System.out.println("************************************************");
+
+            // Написать программу, которая выводит на экран элементы одномерного массива,
+            // которые расположены до минимального элемента всего массива
+
+            System.out.print("Исходный массив: ");
+            for(i=0;i<mas.length;i++){
+                System.out.print(mas[i]+" ");
+            }
+            int min=mas[0];
+            int indexMin=0;
+            for(i=0;i<mas.length;i++){
+                if(mas[i]<min){
+                    min=mas[i];
+                    indexMin=i;
+                }
+            }
+            System.out.println();
+            System.out.print("Конечный массив: ");
+            for(i=0;i<indexMin;i++){
+                System.out.print(mas[i]+" ");
+            }
+
 
         }else{
             System.out.println("Вы ввели отрицательное число!");
