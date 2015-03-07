@@ -3,4 +3,5 @@
  */
 public class Main {
     /// commit 2
+    System.out.println("w");
 }
