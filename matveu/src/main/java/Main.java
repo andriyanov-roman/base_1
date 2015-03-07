@@ -8,10 +8,11 @@ public class Main {
     public static void main(String [] args) throws IOException {
         int summa=0;
         BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Введите число! ");
+        System.out.println("Введите число: ");
         String s=br.readLine();
         int x=Integer.parseInt(s);
         int[] mas=new int[x];
+        int max=mas[0];
         for(int i=0;i<mas.length;i++){
             mas[i]=(int)(Math.random()*21-10);
             System.out.print(mas[i]+" ");
@@ -19,9 +20,14 @@ public class Main {
         System.out.println();
         for(int i=0;i<mas.length;i++){
             summa=summa+mas[i];
-
         }
-        System.out.println("Сумма элементов массива= "+summa);
+        for(int i=0;i<mas.length;i++){
+        if(mas[i]>max){
+            max=mas[i];
+        }
+        }
+        System.out.println("Максимальное число массива = "+max);
+        System.out.println("Сумма элементов массива = "+summa);
 
     }
 }
