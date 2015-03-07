@@ -14,10 +14,6 @@ public class MassivMiddle {
         int x,indexNegative=0;
         int SummaPositiv=0;
 
-
-        // Вывести в консоль половину массива, среднеарифметическое которых является наибольшим
-
-
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         do {
             System.out.println("Введите четное положительное число: ");
@@ -32,6 +28,9 @@ public class MassivMiddle {
                 System.out.print(mas[i]+" ");
             }
             System.out.println();
+
+            // Вывести в консоль половину массива, среднеарифметическое которых является наибольшим
+
             for(i=0;i<mas.length/2;i++){
                 sum=sum+mas[i];
                 sr1=sum/(double)(mas.length/2);
