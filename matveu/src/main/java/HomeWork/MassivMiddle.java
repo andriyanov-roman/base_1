@@ -77,7 +77,18 @@ public class MassivMiddle {
         // Дан массив чисел, среди которых имеется один ноль. Вывести на печать все числа до нуля включительно
 
         int[] mas2={12,-3,4,11,54,-7,0,29,61,-7};
-
-
+        int indexZero=0;
+        System.out.print("Исходный массив: ");
+        for(i=0;i<mas2.length;i++){
+            System.out.print(mas2[i]+" ");
+            if(mas2[i]==0){
+                indexZero=i;
+            }
+        }
+        System.out.println();
+        System.out.print("Элементы массива до нуля включительно: ");
+        for(i=0;i<=indexZero;i++){
+            System.out.print(mas2[i]+" ");
+        }
     }
 }
