@@ -3,7 +3,7 @@
  */
 public class Makitra {
     public static void main (String [] Args){
-        System.out.println("Commit my project");
+        System.out.println("Commit my project!!");
     }
 
 }
