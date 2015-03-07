@@ -35,8 +35,19 @@ public class MassivMiddle {
                 sr2=sum2/(double)(mas.length/2);
             }
             System.out.println("Среднеарифметическое второй половины: "+sr2);
-
-        }else{
+            if(sr1==sr2){
+                System.out.println("Среднеарифметические правой и левой половины массива РАВНЫ !!!");
+                }
+            if(sr1>sr2) {
+                for (i = 0; i < mas.length / 2; i++) {
+                    System.out.print(mas[i] + " ");
+                }
+            }else{
+                    for(i=mas.length/2;i<mas.length;i++){
+                        System.out.print(mas[i]+" ");
+                    }
+                }
+            }else{
             System.out.println("Вы ввели отрицательное число!");
         }
 
