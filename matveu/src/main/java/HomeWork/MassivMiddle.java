@@ -8,8 +8,8 @@ public class MassivMiddle {
     public static void main(String[] args) throws IOException {
 
         int i=0;
-        double sr1=0;
-        int sum=0;
+        double sr1=0,sr2=0;
+        int sum=0,sum2=0;
         int x;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         do {
@@ -24,12 +24,17 @@ public class MassivMiddle {
                 mas[i]=(int)(Math.random()*21-10);
                 System.out.print(mas[i]+" ");
             }
+            System.out.println();
             for(i=0;i<mas.length/2;i++){
                 sum=sum+mas[i];
                 sr1=sum/(double)(mas.length/2);
             }
             System.out.println("Среднеарифметическое первой половины: "+sr1);
-
+            for(i=mas.length/2;i<mas.length;i++){
+                sum2=sum2+mas[i];
+                sr2=sum2/(double)(mas.length/2);
+            }
+            System.out.println("Среднеарифметическое второй половины: "+sr2);
 
         }else{
             System.out.println("Вы ввели отрицательное число!");
