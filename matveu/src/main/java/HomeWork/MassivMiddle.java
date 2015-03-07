@@ -13,6 +13,7 @@ public class MassivMiddle {
         int x,indexNegative=0;
         int SummaPositiv=0;
 
+
         // Пользователь вводит положительное четное число, программа создает массив указаного размера,
         // из случайных чисел,в промежутке [-10;10].
 
@@ -98,10 +99,43 @@ public class MassivMiddle {
 
         //Написать программу, меняющую местами два наибольших элемента одномерного массива с первым и последним.
 
+            int max=0;
+            int indexMax=0;
+
             System.out.print("Исходный массив: ");
         for(i=0;i< mas.length;i++){
             System.out.print(mas[i]+" ");
-        }
+            }
+            System.out.println();
+            System.out.print("Конечный массив: ");
+            for(i=0;i<mas.length;i++){
+                if(mas[i]>max) {
+                    max = mas[i];
+                    indexMax = i;
+                }
+            }
+            int k=mas[mas.length-1];
+            mas[mas.length-1]=max;
+            mas[indexMax]=k;
+            int maxNew=0;
+            int indexMaxNew=0;
+            int[] masNew = new int[mas.length];
+            for(i=0;i<masNew.length;i++) {
+                masNew[i]=mas[i];
+                }
+            for(i=0;i<(masNew.length)-1;i++){
+                if(masNew[i]>maxNew){
+                    maxNew=masNew[i];
+                    indexMaxNew=i;
+                }
+            }
+            int p=masNew[0];
+            masNew[0]=maxNew;
+            masNew[indexMaxNew]=p;
+            for(i=0;i<masNew.length;i++){
+                System.out.print(masNew[i]+" ");
+            }
+
         }else{
             System.out.println("Вы ввели отрицательное число!");
         }
