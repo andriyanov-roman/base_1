@@ -1,8 +1,6 @@
 package Arrays;
 
-/**
- * Created by Stas on 07.03.2015.
- */
+
 public class ArraySummaLeftSummaRight {
     public static void main(String[] args) {
         int i, summaLeft = 0, summaRight = 0;
