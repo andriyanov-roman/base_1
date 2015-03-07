@@ -3,7 +3,7 @@ package Arrays;
 /**
  * Created by Stas on 07.03.2015.
  */
-public class ArrayChoiceMinMaxIndex {
+public class ArrayTotalBeetwinMinMax {
     public static void main(String[] args) {
         int i, k, n, max = 0, min = 100, maxi = 0, mini = 0, sum = 0;
         int[] mas = {5, 6, 6, 4, 5, 12, 1, 3, 55, 88, 56, 77};
@@ -23,10 +23,9 @@ public class ArrayChoiceMinMaxIndex {
                 maxi = i;
             }
         }
-        System.out.print("Максимальный элемент: " + max + " с индексом: " + maxi
-                + " Минимальный элемент: " + min + " с индексом: " + mini);
+        System.out.print("Максимальный элемент: " + max + " индекс: " + maxi
+                + " Минимальный элемент: " + min + " индекс: " + mini);
         System.out.println();
-
 
 
         if (mini < maxi) {
