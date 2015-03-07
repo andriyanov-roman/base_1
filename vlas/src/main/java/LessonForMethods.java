@@ -24,12 +24,12 @@ public class LessonForMethods {
                     counter++;
                 }
             }
-                if (counter == 1) {
-                } else {
-                    System.out.println(array[i] + " " + counter);
-                }
-                counter = 0;
+            if (counter == 1) {
+            } else {
+                System.out.println(array[i] + " " + counter);
             }
+            counter = 0;
         }
     }
+}
 
