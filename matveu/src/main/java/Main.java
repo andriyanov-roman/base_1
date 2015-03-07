@@ -19,6 +19,7 @@ public class Main {
         System.out.println();
         for(int i=0;i<mas.length;i++){
             summa=summa+mas[i];
+            
         }
         System.out.println("Сумма элементов массива= "+summa);
 
