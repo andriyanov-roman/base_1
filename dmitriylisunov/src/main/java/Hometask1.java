@@ -36,12 +36,6 @@ public class Hometask1 {
         int left_part=0, right_part=0,center_id=0;
         if (arr.length%2==0) {
             System.out.println ("Array has even quantity of elements.");
-           /* for (int i = 0; i <arr.length/2 ; i++) {
-                left_part+=Math.abs(arr[i]);
-            }
-            for (int i = arr.length/2; i <arr.length ; i++) {
-                right_part+=Math.abs(arr[i]);
-            }*/
         } else {
             System.out.print("Array has odd quantity of elements. ");
             if (arr.length>1) {
