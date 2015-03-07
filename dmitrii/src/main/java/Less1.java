@@ -1,8 +1,8 @@
 /**
- * Created by Dmitriy Lisunov on 06.03.2015.
+ * Created by Dmitriy on 07.03.2015.
  */
 import java.util.Scanner;
-public class Hometask1 {
+public class Less1 {
     public static void main (String[] args){
         Scanner inp = new Scanner(System.in);
         inp.useDelimiter("\n"); // if number will be like "125 555 999". It parses whole input
