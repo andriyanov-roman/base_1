@@ -22,9 +22,12 @@ public class Main {
             summa=summa+mas[i];
         }
         for(int i=0;i<mas.length;i++){
-
+        if(mas[i]>max){
+            max=mas[i];
         }
-        System.out.println("Сумма элементов массива= "+summa);
+        }
+        System.out.println("Максимальное число массива = "+max);
+        System.out.println("Сумма элементов массива = "+summa);
 
     }
 }
