@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Введите Ваше число!");
         summa(sc.nextInt(), sc.nextInt());
 
     }
@@ -13,5 +14,7 @@ public class Main {
     static void summa(int a, int b) {
         int c = a + b;
         System.out.println(c);
+
+
     }
 }
