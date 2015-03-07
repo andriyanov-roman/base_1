@@ -3,5 +3,8 @@
  */
 public class Main {
     /// commit 2
-    System.out.println("w");
+    public static void main {
+        System.out.println("w");
+    }
+
 }
