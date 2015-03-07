@@ -11,6 +11,7 @@ public class MassivMiddle {
         double sr1=0,sr2=0;
         int sum=0,sum2=0;
         int x,indexNegative=0;
+        int SummaPositiv=0;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         do {
             System.out.println("Введите четное положительное число: ");
@@ -58,8 +59,12 @@ public class MassivMiddle {
                 if(mas[i]<0){
                     indexNegative=i;
                     System.out.print(indexNegative+", ");
+                }else{
+                    SummaPositiv=SummaPositiv+mas[i];
                 }
             }
+            System.out.println();
+            System.out.println("Сумма положительных элементов массива равна: "+SummaPositiv);
 
 
 
