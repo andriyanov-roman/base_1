@@ -1,8 +1,6 @@
 import java.util.Scanner;
 
-/**
- * Created by Администратор on 06.03.2015.
- */
+//Example on the lesson
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
