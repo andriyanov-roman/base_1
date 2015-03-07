@@ -21,7 +21,7 @@ public class ArrayMinMaxIminImax {
         }
         System.out.println("Наибольшее число: " + Biggest
                 + " и его индекс: " + iBiggest);
-        // �����
+
 
         for (i = 0; i < mas.length; i++) {
             if (mas[i] > Big && mas[i] < Biggest) {
@@ -35,12 +35,9 @@ public class ArrayMinMaxIminImax {
 
         q = mas[iBiggest];
         mas[iBiggest] = mas[mas.length - 1];
-        mas[mas.length - 1] = q; // ������������ ������� ������ ������� �
-        // ���������.��������� ���������������
-        // ����������
+        mas[mas.length - 1] = q; // Использоание вспомогательных переменных
 
-        w = mas[iBig]; // ������ �� �������� ������� ������ ������� �
-        // ������.��������� ��������������� ����������
+        w = mas[iBig];
         mas[iBig] = mas[0];
         mas[0] = w;
 
