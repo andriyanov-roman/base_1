@@ -9,6 +9,6 @@ public class Main {
 
     static void summa(int a, int b) {
         int c = a + b;
-        System.out.println(c);
+          System.out.println(c);
     }
 }
