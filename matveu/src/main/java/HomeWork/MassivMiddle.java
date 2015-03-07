@@ -1,9 +1,10 @@
 package HomeWork;
 import java.io.*;
 
-public class MassivMiddle {
+        // Пользователь вводит положительное четное число, программа создает массив указаного размера,
+        // из случайных чисел,в промежутке [-10;10].
 
-    // Вывести в консоль половину массива, среднеарифметическое которых является наибольшим
+public class MassivMiddle {
 
     public static void main(String[] args) throws IOException {
 
@@ -14,8 +15,8 @@ public class MassivMiddle {
         int SummaPositiv=0;
 
 
-        // Пользователь вводит положительное четное число, программа создает массив указаного размера,
-        // из случайных чисел,в промежутке [-10;10].
+        // Вывести в консоль половину массива, среднеарифметическое которых является наибольшим
+
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         do {
@@ -159,8 +160,6 @@ public class MassivMiddle {
             for(i=0;i<indexMin;i++){
                 System.out.print(mas[i]+" ");
             }
-
-
         }else{
             System.out.println("Вы ввели отрицательное число!");
         }
