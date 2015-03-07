@@ -3,4 +3,8 @@
  */
 public class FirstTest {
     // first test Mihael commit
+
+    public static void main {
+        System.out.println("t");
+    }
 }
