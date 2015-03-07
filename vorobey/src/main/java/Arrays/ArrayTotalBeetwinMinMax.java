@@ -1,8 +1,6 @@
 package Arrays;
 
-/**
- * Created by Stas on 07.03.2015.
- */
+
 public class ArrayTotalBeetwinMinMax {
     public static void main(String[] args) {
         int i, k, n, max = 0, min = 100, maxi = 0, mini = 0, sum = 0;
