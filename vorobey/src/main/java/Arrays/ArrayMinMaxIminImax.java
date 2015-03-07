@@ -1,8 +1,5 @@
 package Arrays;
 
-/**
- * Created by Stas on 07.03.2015.
- */
 public class ArrayMinMaxIminImax {
     public static void main(String[] args) {
         int i, k, q, w, iBiggest = 0, iBig = 0, Biggest = 0, Big = 0;// q,w-используем как вспомогательные переменные
