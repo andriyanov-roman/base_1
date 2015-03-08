@@ -40,8 +40,11 @@ public class MassivExtraHard {
             if (mas[i] >= a && mas[i] <= b) {
                 element = mas[i];
                 index = i;
+                mas[i]=mas[0+count];
+                mas[0+count]=element;
                 count=count +1;
             }
+            System.out.print(mas[i]+" ");
         }
 
 
