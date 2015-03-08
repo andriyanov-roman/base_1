@@ -13,8 +13,7 @@ public class MassivExtraHard {
 
         BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
         int x,i,a,b;
-        int element;   //элемент попадающий в отрезок [a;b]
-        int index;     //индекс этого элемента
+        int element=0;   //элемент попадающий в отрезок [a;b]
         int count=0;   //счетчик кол-ва элементов попадающих в отрезок [a;b]
         do{
             System.out.println("Введите размер массива: ");
@@ -30,24 +29,24 @@ public class MassivExtraHard {
             b=Integer.parseInt(s2);
         }while (a>b);
 
+        System.out.print("Исходный массив: ");
         int[] mas=new int[x];
         for(i=0;i<mas.length;i++){
             mas[i]=(int)(Math.random()*41-20);
-            System.out.print(mas[i]+" ");
+            System.out.printf("%3d" + " ", mas[i]);
         }
         System.out.println();
         for(i=0;i<mas.length;i++) {
             if (mas[i] >= a && mas[i] <= b) {
                 element = mas[i];
-                index = i;
                 mas[i]=mas[0+count];
                 mas[0+count]=element;
-                count=count +1;
+                count=count+1;
             }
-            System.out.print(mas[i]+" ");
         }
-
-
-
+        System.out.print("Конечный массив: ");
+        for(i=mas.length-1;i>=0;i--){
+            System.out.printf("%3d" + " ", mas[i]);
+        }
     }
 }
