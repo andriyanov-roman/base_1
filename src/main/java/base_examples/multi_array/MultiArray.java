@@ -1,4 +1,4 @@
-package base_examples;
+package base_examples.multi_array;
 
 
 public class MultiArray {
