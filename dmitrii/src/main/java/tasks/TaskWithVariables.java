@@ -1,4 +1,4 @@
-package base_HomeTasks;
+package tasks;
 
 /**
  * Created by Dmitriy Lisunov on 09.03.2015.
