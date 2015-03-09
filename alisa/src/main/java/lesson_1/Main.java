@@ -44,7 +44,7 @@ public class Main {
         User[] users = UsersUtil.getUsers();
         for (int i = 0; i < users.length; i++) {
             for (int j = 0; j < users.length; j++) {
-                if(users[i].name.equals(users[j].name)) {
+                if(users[i].name.equals(users[j].login)) {
 
                 }
             }

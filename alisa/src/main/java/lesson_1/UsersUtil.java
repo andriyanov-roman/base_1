@@ -26,7 +26,7 @@ public class UsersUtil {
         u3.id = 3L;
         u3.login = "Zhora";
         u3.password = "pass45";
-        u3.name = "Zhenia";
+        u3.name = "Zhora";
         u3.secondName = "Woker";
 
         User u4 = new User();
@@ -34,7 +34,7 @@ public class UsersUtil {
         u4.id = 4L;
         u4.login = "Santiago";
         u4.password = "password";
-        u4.name = "Sasha";
+        u4.name = "Jack";
         u4.secondName = "Smith";
 
         User[] users = new User[4];
