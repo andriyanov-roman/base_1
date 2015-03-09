@@ -3,6 +3,11 @@
  */
 public class Main1 {
     public static void main(String[] args) {
+        getUsers();
+
+    }
+
+    public static User[] getUsers() {
         User u1 = new User();
         u1.age = 30;
         u1.id = 1L;
@@ -19,6 +24,11 @@ public class Main1 {
         u2.login = "Matveu";
         u2.name = "Ihor";
         u2.secondName = "Matveychusk";
+
+        User[] users = new User[12];
+        users[0] = u1;
+        users[1] = u1;
+        return users;
 
 
     }
