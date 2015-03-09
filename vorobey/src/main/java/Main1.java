@@ -12,5 +12,14 @@ public class Main1 {
         u1.secondName = "Vorobey";
 
 
+        User u2 = new User();
+        u2.age = 25;
+        u2.id = 2L;
+        u2.passsword = "password";
+        u2.login = "Matveu";
+        u2.name = "Ihor";
+        u2.secondName = "Matveychusk";
+
+
     }
 }
