@@ -36,17 +36,19 @@ public class Main1 {
     public static void checkUser() {
         User[] users = UsersUtil.getUsers();
         for (int i = 0; i < users.length; i++) {
-            if (users[i].name.equals(users[i].secondName)) {
-                System.out.println("Имя и Фамилия совпадают");
-            } else {
-                System.out.println("Не совпадают");
+            for (int j = 0; j < users.length; j++) {
+                if (users[i].name.equals(users[j].secondName)) {
+                    System.out.println("Имя и Фамилия совпадают");
+                } else {
+                    System.out.println("Не совпадают");
+                }
             }
-        }
-        System.out.println();
+            System.out.println();
 
+
+        }
 
     }
-
 }
 
 

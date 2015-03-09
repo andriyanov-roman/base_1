@@ -9,7 +9,7 @@ public class UsersUtil {
         u1.passsword = "pass";
         u1.login = "Vorobey";
         u1.name = "Jack";
-        u1.secondName = "Vorobey";
+        u1.secondName = "Jack";
 
 
         User u2 = new User();
@@ -17,7 +17,7 @@ public class UsersUtil {
         u2.id = 2L;
         u2.passsword = "password";
         u2.login = "Matveu";
-        u2.name = "Ihor";
+        u2.name = "Jack";
         u2.secondName = "Matveychusk";
 
 
