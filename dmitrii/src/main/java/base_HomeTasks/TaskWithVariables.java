@@ -45,10 +45,5 @@ public class TaskWithVariables {
         f = f + g; // станет 5
         g = f - g; // станет 2
         f = f - g; // станет 3
-
-
-
-
-
     }
 }
