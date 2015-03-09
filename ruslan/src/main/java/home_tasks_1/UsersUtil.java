@@ -6,7 +6,7 @@ public class UsersUtil {
         User u1 = new User();
         u1.age = 30;
         u1.id = 1L;
-        u1.login = "Vorobey";
+        u1.login = "Jack";
         u1.password = "pass";
         u1.name = "Jack";
         u1.secondName = "Vorobey";
