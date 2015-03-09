@@ -35,7 +35,7 @@ public class Main {
     public static void checkUsers() {
         User[] users = UsersUtil.getUsers();
         for (int i = 0; i < users.length; i++) {
-            //for (int j = 0; j < users.length; j++)
+            //for (int j = 0; j < users.le ngth; j++)
             if (users[i].name.equals(users[i].login)) {
                 System.out.println(" same ");
             } else {
