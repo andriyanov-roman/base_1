@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 
 public class Methods {
-    public static void scan(){
+
+    public static void start() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter command key!");
         System.out.println("1. Show all users");
@@ -36,20 +37,21 @@ public class Methods {
     }
 
     public static void sovpadenue() {
-        int count=0;
+        int count = 0;
         UserMatveu[] users = UsersUtil.getUsers();
         for (int i = 0; i < users.length; i++) {
             if (users[i].login.equals(users[i].name)) {
-                System.out.println("Логин совпадает с именем: "+users[i].name);
+                System.out.println("Логин совпадает с именем: " + users[i].name);
                 count++;
             }
             if (users[i].login.equals(users[i].secondName)) {
-                System.out.println("Логин совпадает с фамилией: "+users[i].secondName);
+                System.out.println("Логин совпадает с фамилией: " + users[i].secondName);
                 count++;
             }
 
         }
-        System.out.println("Количество совпадений: "+count);
+        System.out.println("Количество совпадений: " + count);
 
     }
 }
+
