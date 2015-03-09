@@ -1,4 +1,4 @@
-package tasks1_8;
+package tasks;
 
 /**
  * Created by Dmitriy Lisunov on 09.03.2015.
