@@ -37,6 +37,14 @@ public class UsersUtil {
         u4.name = "Vasyl";
         u4.secondName = "Petrov";
 
+        User u5 = new User();
+        u5.age = 27;
+        u5.id = 5L;
+        u5.login = "superAdmin";
+        u5.password = "pass666";
+        u5.name = "Ivan";
+        u5.secondName = "Karman";
+
         //User[] users = new User[2];
         //users[0]= u1;
         //users[1] = u2;
