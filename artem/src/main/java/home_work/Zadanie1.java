@@ -1,8 +1,7 @@
-/**
+package home_work; /**
  * Created by R-Tem on 04.03.2015.
  */
 
-import java.util.Random;
 import java.util.Scanner;
 public class Zadanie1 {
     public static void main(String[] args){
