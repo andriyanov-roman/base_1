@@ -5,13 +5,11 @@ import java.util.Scanner;
 
 import java.util.Scanner;
 
-public class Main {
+public class Main extends Methods {
     public static void main(String[] args) {
-
-
-
-
+        showUsers();
+        sovpadenue();
+        scan();
     }
-
 }
 
