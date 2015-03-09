@@ -8,12 +8,17 @@ import java.util.Scanner;
 public class Main {
     public static void main (String [] args){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter comman key");
+        System.out.println("Enter comman key" +
+                "1. Schow all users");
         while (scanner.hasNext()){
             switch (scanner.next()){
                 case "1":
                     showUsers();
                 break;
+
+                case "Exit":
+                    System.exit(0);
+
                 default:
                     System.out.println("No such case");
             }
