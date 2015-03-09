@@ -1,9 +1,19 @@
 package lesson_1;
 
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        showUsers();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter comman key");
+        while (scanner.hasNext()) {
+            switch (scanner.next()) {
+                case "1":
+                    showUsers();
+                    break;
+            }
+        }
     }
 
     public static void showUsers() {
