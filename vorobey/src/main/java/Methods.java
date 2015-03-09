@@ -3,6 +3,8 @@
  */
 public class Methods {
     public static void Start() {
+        User[] users = UsersUtil.getUsers();
+
 
     }
 }
