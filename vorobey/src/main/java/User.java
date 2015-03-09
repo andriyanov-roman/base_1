@@ -5,7 +5,7 @@ public class User {
     public Long id;
     public String name;
     public String secondName;
-    public String lohin;
+    public String login;
     public String passsword;
     public int age;
 }
