@@ -23,18 +23,17 @@ public class Main {
                     break;
                 case "2":
                     showSovUsers();
+                    break;
                 case "3":
                     showObschFamiliiUsers();
+                    break;
                 case "Exit":
                     System.exit(0);
-
                 default:
                     System.out.println("No such case");
             }
 
         }
-        //showUsers();
-        showSovUsers();
 
 
     }
