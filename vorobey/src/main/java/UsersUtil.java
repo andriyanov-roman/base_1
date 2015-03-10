@@ -22,7 +22,7 @@ public class UsersUtil {
 
         User u3 = new User();
         u3.age = 23;
-        u3.id = 4L;
+        u3.id = 3L;
         u3.passsword = "password1";
         u3.login = "Vlad";
         u3.name = "Vlad";
@@ -30,7 +30,7 @@ public class UsersUtil {
 
         User u4 = new User();
         u4.age = 35;
-        u4.id = 8L;
+        u4.id = 4L;
         u4.passsword = "password2";
         u4.login = "someMan";
         u4.name = "Alex";
@@ -38,7 +38,7 @@ public class UsersUtil {
 
         User u5 = new User();
         u5.age = 25;
-        u5.id = 2L;
+        u5.id = 5L;
         u5.passsword = "password";
         u5.login = "Peter";
         u5.name = "Jack";

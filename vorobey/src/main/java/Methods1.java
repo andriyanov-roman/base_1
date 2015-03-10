@@ -67,5 +67,21 @@ public class Methods1 {
                 System.out.println(users[i].name + "," + users[i].secondName + ".");
         }
     }
-}
 
+    public static void sort() {
+        User[] users = UsersUtil.getUsers();
+        for (int i = users.length - 1; i >= 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (users[j].id < users[j + 1].id) {
+                    User u = users[j];
+                    users[j] = users[j + 1];
+                    users[j + 1] = u;
+
+
+                }
+
+            }
+            System.out.print(users[i].name + " ");
+        }
+    }
+}
