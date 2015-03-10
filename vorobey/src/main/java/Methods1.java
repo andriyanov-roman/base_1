@@ -9,6 +9,7 @@ public class Methods1 {
         System.out.println("1.Для получения информации об участниках,нажмите '1' ");
         System.out.println("2.Чтобы узнать,у каких участников совпадает логин с Именем или Фамилией,нажмите '2' ");
         System.out.println("3.Чтобы узнать,у каких участников совпадает Имя и Фамилия,нажмите '3'");
+        System.out.println("4.Чтобы отсортировать участников по id в порядке возростания,нажмите '4'");
 
 
         while (sc.hasNext()) {
@@ -21,6 +22,10 @@ public class Methods1 {
                     break;
                 case "3":
                     checkUser();
+                    break;
+                case "4":
+                    sort();
+                    break;
 
                 case "Exit":
                     System.exit(0);
@@ -36,9 +41,9 @@ public class Methods1 {
     public static void showUser() {
         User[] users = UsersUtil.getUsers();
         for (int i = 0; i < users.length; i++) {
-            System.out.print(users[i].name + " " + users[i].secondName + ",");
+            System.out.println((i+1) + "." + users[i].name + " " + users[i].secondName + ", age: " + users[i].age + ", id: " + users[i].id + ", Login: " + users[i].login);
         }
-        System.out.println();
+
 
     }
 
