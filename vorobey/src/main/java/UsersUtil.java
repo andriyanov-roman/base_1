@@ -9,7 +9,7 @@ public class UsersUtil {
         u1.passsword = "pass";
         u1.login = "Jack";
         u1.name = "Jack";
-        u1.secondName = "Vorobey";
+        u1.secondName = "Jack";
 
 
         User u2 = new User();
@@ -37,12 +37,12 @@ public class UsersUtil {
         u4.secondName = "Davletov";
 
         User u5 = new User();
-        u2.age = 25;
-        u2.id = 2L;
-        u2.passsword = "password";
-        u2.login = "Jack";
-        u2.name = "Jack";
-        u2.secondName = "Spirrow";
+        u5.age = 25;
+        u5.id = 2L;
+        u5.passsword = "password";
+        u5.login = "Jack";
+        u5.name = "Jack";
+        u5.secondName = "Spirrow";
 
 
         return new User[]{u1, u2, u3, u4, u5};
