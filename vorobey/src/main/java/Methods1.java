@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class Methods1 {
     public static void start() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("For obtaining information of users, press button  1");
-        System.out.println("Whether the name and a surname of the user coincides, press button  2");
+        System.out.println("1.For obtaining information of users, press button  1");
+        System.out.println("2.Whether the name and a surname of the user coincides, press button  2");
         System.out.println();
 
 
@@ -60,6 +60,14 @@ public class Methods1 {
 
             }
 
+        }
+    }
+
+    public static void checkUsersLogin() {
+        User[] users = UsersUtil.getUsers();
+        for (int i = 0; i < users.length; i++) {
+            if (users[i].login.equals(users[i].name) || users[i].login.equals(users[i].secondName))
+                System.out.println("Логин и Имя(Фамилия) совпадают:  " + users[i].name + "," + users[i].secondName);
         }
     }
 }

@@ -40,7 +40,7 @@ public class UsersUtil {
         u5.age = 25;
         u5.id = 2L;
         u5.passsword = "password";
-        u5.login = "Jack";
+        u5.login = "Peter";
         u5.name = "Jack";
         u5.secondName = "Spirrow";
 
