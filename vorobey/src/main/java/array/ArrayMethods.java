@@ -122,5 +122,16 @@ public class ArrayMethods {
 
     }
 
+    public static void min() {
+        int min = 500, imin = 0;
+        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < min) {
+                min = array[i];
+                imin = i;
+            }
 
+        }
+
+    }
 }
