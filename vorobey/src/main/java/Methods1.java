@@ -12,6 +12,7 @@ public class Methods1 {
         System.out.println("4.Чтобы отсортировать участников по id в порядке возростания,нажмите '4'");
         System.out.println("5.Для получения информации о сотрудниках компании,нажмите '5' ");
         System.out.println("6.Чтобы узнать,у кого из сотрудников самая большая зарплата,нажмите '6' ");
+        System.out.println("7.Чтобы отсортировать сотруников по ЗП в порядке возростания,нажмите '7'");
 
 
         while (sc.hasNext()) {
@@ -33,6 +34,9 @@ public class Methods1 {
                     break;
                 case "6":
                     maxSalary();
+                    break;
+                case "7":
+                    sortSalary();
                     break;
 
 
@@ -125,5 +129,24 @@ public class Methods1 {
         }
 
 
+    }
+
+    public static void sortSalary() {
+        Employee[] empl = EmployeeUtil.getEmployees();
+        for (int i = empl.length - 1; i >= 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (empl[j].salary < empl[j + 1].salary) {
+                    Employee e = empl[j];
+                    empl[j] = empl[j + 1];
+                    empl[j + 1] = e;
+
+
+                }
+
+
+            }
+            System.out.print(empl[i].name + ": " + empl[i].salary + "/");
+
+        }
     }
 }
