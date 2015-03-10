@@ -45,24 +45,26 @@ public class Methods1 {
     public static void checkUser() {
 
         User[] users = UsersUtil.getUsers();
+        System.out.println("Имя и Фамилимя совпадают у: ");
         for (int i = 0; i < users.length; i++) {
             for (int j = 0; j < 1; j++) {
                 if (users[i].name.equals(users[i].secondName)) {
-                    System.out.println("Имя и Фамилия совпадают: " + users[i].name + "  " + users[i].secondName);
+                    System.out.println(users[i].name + "  " + users[i].secondName + ".");
                 }
 
 
             }
-
-
         }
+
+
     }
 
     public static void checkUsersLogin() {
         User[] users = UsersUtil.getUsers();
+        System.out.println("Логин и Имя(Фамилия) совпадают у: ");
         for (int i = 0; i < users.length; i++) {
             if (users[i].login.equals(users[i].name) || users[i].login.equals(users[i].secondName))
-                System.out.println("Логин и Имя(Фамилия) совпадают:  " + users[i].name + "," + users[i].secondName);
+                System.out.println(users[i].name + "," + users[i].secondName + ".");
         }
     }
 }
