@@ -4,12 +4,18 @@ import java.util.Scanner;
  * Created by user on 09.03.2015.
  */
 public class Methods1 {
-    public static void start() {
-        Scanner scanner = new Scanner(System.in);
+    public static void start(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("For obtaining information of users, press button  1");
+        System.out.println("Whether the name and a surname of the user coincides, press button  2");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
 
 
-        while (scanner.hasNext()) {
-            switch (scanner.next()) {
+        while (sc.hasNext()) {
+            switch (sc.next()) {
                 case "1":
                     showUser();
                 case "2":
