@@ -7,8 +7,8 @@ public class Methods1 {
     public static void start() {
         Scanner sc = new Scanner(System.in);
         System.out.println("1.Для получения информации об участниках,нажмите '1' ");
-        System.out.println("2.Чтобы узнать,у каких участников совпадает логин с именем или фамлией,нажмите '2' ");
-        System.out.println();
+        System.out.println("2.Чтобы узнать,у каких участников совпадает логин с Именем или Фамилией,нажмите '2' ");
+        System.out.println("3.Чтобы узнать,у каких участников совпадает Имя и Фамилия,нажмите '3'");
 
 
         while (sc.hasNext()) {
