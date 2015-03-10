@@ -3,9 +3,10 @@ import java.util.Scanner;
 /**
  * Created by user on 09.03.2015.
  */
-public class Main extends Methods1 {
+public class Main {
     public static void main(String[] args) {
-        start();
+        Methods1.start();
+
     }
 
 }
