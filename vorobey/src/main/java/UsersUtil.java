@@ -7,9 +7,9 @@ public class UsersUtil {
         u1.age = 30;
         u1.id = 1L;
         u1.passsword = "pass";
-        u1.login = "Vorobey";
+        u1.login = "Jack";
         u1.name = "Jack";
-        u1.secondName = "Jack";
+        u1.secondName = "Vorobey";
 
 
         User u2 = new User();
@@ -17,10 +17,34 @@ public class UsersUtil {
         u2.id = 2L;
         u2.passsword = "password";
         u2.login = "Matveu";
-        u2.name = "Jack";
+        u2.name = "Ihor";
         u2.secondName = "Matveychusk";
 
+        User u3 = new User();
+        u3.age = 23;
+        u3.id = 4L;
+        u3.passsword = "password1";
+        u3.login = "Vlad";
+        u3.name = "Vlad";
+        u3.secondName = "Popov";
 
-        return new User[]{u1, u2};
+        User u4 = new User();
+        u4.age = 35;
+        u4.id = 8L;
+        u4.passsword = "password2";
+        u4.login = "someMan";
+        u4.name = "Alex";
+        u4.secondName = "Davletov";
+
+        User u5 = new User();
+        u2.age = 25;
+        u2.id = 2L;
+        u2.passsword = "password";
+        u2.login = "Jack";
+        u2.name = "Jack";
+        u2.secondName = "Spirrow";
+
+
+        return new User[]{u1, u2, u3, u4, u5};
     }
 }

@@ -1,4 +1,4 @@
-package Cycles;
+package loop;
 
 
 public class CycleMultiplication2Next {

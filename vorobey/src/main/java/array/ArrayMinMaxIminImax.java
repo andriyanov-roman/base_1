@@ -1,4 +1,4 @@
-package Arrays;
+package array;
 
 public class ArrayMinMaxIminImax {
     public static void main(String[] args) {

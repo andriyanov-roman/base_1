@@ -4,7 +4,7 @@ import java.util.Scanner;
  * Created by user on 09.03.2015.
  */
 public class Methods1 {
-    public static void start(String[] args) {
+    public static void start() {
         Scanner scanner = new Scanner(System.in);
 
 
