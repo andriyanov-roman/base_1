@@ -60,9 +60,7 @@ public class ArrayMethods {
         int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
         int k, min = 500;
 
-        for (int i = 0; i < array.length; i++)
-            System.out.printf("%4d", array[i]);
-        System.out.println();
+
         for (int i = 0; i < array.length; i++) {
             if (array[i] < min)
                 min = array[i];
@@ -78,8 +76,28 @@ public class ArrayMethods {
     }
 
     public static void arrayMinBeforeHalf() {
+        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+        int i, imin = 0, min = 500;
+
+        for (i = 0; i < array.length; i++) {
+            if (array[i] < min) { // Нахождение минимального элемента
+                min = array[i];
+                imin = i;
+            }
+        }
+
+        if (i < array.length / 2) {
+            for (i = 0; i < array.length / 2; i++) {
+                System.out.printf("%5d", array[i]);
+            }
+        } else {
+            for (i = array.length / 2; i < array.length; i++)
+                System.out.printf("%5d", array[i]);
+
+        }
 
     }
+
 
     public static void arrayMinMaxIminImax() {
 
