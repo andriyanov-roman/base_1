@@ -41,7 +41,7 @@ public class Methods1 {
     public static void showUser() {
         User[] users = UsersUtil.getUsers();
         for (int i = 0; i < users.length; i++) {
-            System.out.println((i+1) + "." + users[i].name + " " + users[i].secondName + ", age: " + users[i].age + ", id: " + users[i].id + ", Login: " + users[i].login);
+            System.out.println((i + 1) + "." + users[i].name + " " + users[i].secondName + ", age: " + users[i].age + ", id: " + users[i].id + ", Login: " + users[i].login);
         }
 
 
@@ -85,8 +85,10 @@ public class Methods1 {
 
                 }
 
+
             }
-            System.out.print(users[i].name + " ");
+            System.out.print(users[i].name + '/');
+
         }
     }
 }
