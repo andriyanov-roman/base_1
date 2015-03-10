@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class Methods1 {
     public static void start() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("1.For obtaining information of users, press button  1");
-        System.out.println("2.Whether the name and a surname of the user coincides, press button  2");
+        System.out.println("1.Для получения информации об участниках,нажмите '1' ");
+        System.out.println("2.Чтобы узнать,у каких участников совпадает логин с именем или фамлией,нажмите '2' ");
         System.out.println();
 
 
@@ -17,8 +17,10 @@ public class Methods1 {
                     showUser();
                     break;
                 case "2":
-                    checkUser();
+                    checkUsersLogin();
                     break;
+                case "3":
+                    checkUser();
 
                 case "Exit":
                     System.exit(0);
@@ -43,22 +45,15 @@ public class Methods1 {
     public static void checkUser() {
 
         User[] users = UsersUtil.getUsers();
-        for (int i = 0; i < 1; i++) {
-            for (int j = 0; j < users.length; j++) {
-                if (users[i].name.equals(users[j].secondName)) {
-                    System.out.println("Имя и Фамилия совпадают");
-                    System.out.println(users[i].name + "  " + users[i].secondName);
-
-
-                } else {
-                    System.out.println("Имя и Фамилия не совпадают");
-                    System.out.println(users[j].name + "  " + users[j].secondName);
-
-
+        for (int i = 0; i < users.length; i++) {
+            for (int j = 0; j < 1; j++) {
+                if (users[i].name.equals(users[i].secondName)) {
+                    System.out.println("Имя и Фамилия совпадают: " + users[i].name + "  " + users[i].secondName);
                 }
 
 
             }
+
 
         }
     }

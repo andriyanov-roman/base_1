@@ -34,7 +34,7 @@ public class UsersUtil {
         u4.passsword = "password2";
         u4.login = "someMan";
         u4.name = "Alex";
-        u4.secondName = "Davletov";
+        u4.secondName = "Alex";
 
         User u5 = new User();
         u5.age = 25;
