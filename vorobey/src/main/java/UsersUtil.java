@@ -8,7 +8,7 @@ public class UsersUtil {
         u1.id = 1L;
         u1.passsword = "pass";
         u1.login = "Jack";
-        u1.name = "Jack";
+        u1.name = "Vorobey";
         u1.secondName = "Vorobey";
 
 
