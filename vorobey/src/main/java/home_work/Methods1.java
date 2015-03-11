@@ -151,4 +151,17 @@ public class Methods1 {
 
         }
     }
+
+    public static void sameEmployee() {
+        int count = 0;
+        Employee[] empl = EmployeeUtil.getEmployees();
+        for (int i = 0; i < empl.length; i++) {
+            for (int j = i + 1; j < empl.length; ++j) {
+                if (empl[i].name == empl[j].name) {
+                    System.out.println("Количество одинаковых сотрудников: " + count + ": " + empl[i].name + " и" + empl[j].name);
+                } else System.out.println("Одинаковых сотрудников нет");
+            }
+        }
+
+    }
 }
