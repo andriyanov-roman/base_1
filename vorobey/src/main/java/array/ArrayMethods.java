@@ -12,32 +12,40 @@ public class ArrayMethods {
         System.out.println("4.Чтобы вывести на печать все числа до нуля включительно,нажмите 4");
         System.out.println("5.Чтобы вывести массив,в котором заменены местами два наибольших элемента  с первым и последним,нажмите 5");
         System.out.println("6.Чтобы вывести  на экран элементы одномерного массива, которые расположены до минимального элемента всего массива,нажмите 6");
-        System.out.println("7.Чтобы сумму всех чисел находящихся между минимальным и максимальным числом в массиве,нажмите 7");
+        System.out.println("7.Чтобы вывести сумму всех чисел находящихся между минимальным и максимальным числом в массиве,нажмите 7");
         System.out.println("8.Чтобы вывести  в консоль половину массива в которой находиться наименьшее число массива,нажмите 8");
         System.out.println("9.Чтобы вывести в консоль массив,элементы которого,попадающие в промежуток о -5 до 5,перемещены в конец,нажмите 9");
         while (sc.hasNext()) {
             switch (sc.next()) {
                 case "1":
-
+                    arrayShow();
                     break;
                 case "2":
-
+                    arraySummaLeftSummaRight();
                     break;
                 case "3":
-
+                    arraySummaOtrizal();
                     break;
                 case "4":
-
+                    arrayBeforeNull();
                     break;
                 case "5":
-
+                    arrayBigMaxIbigImax();
                     break;
                 case "6":
-
+                    arrayBeforeMin();
                     break;
                 case "7":
-
+                    arraySummaBeetwinMinMax();
                     break;
+                case "8":
+                    arrayMinBeforeHalf();
+                    break;
+                case "9":
+                    arrayChange();
+                    break;
+                default:
+                    System.out.println("No such case!");
 
 
             }
@@ -82,7 +90,7 @@ public class ArrayMethods {
 
     }
 
-    public static void arrayMin() {
+    public static void arrayBeforeMin() {
 
         int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
         int k, min = 500;
@@ -126,7 +134,7 @@ public class ArrayMethods {
     }
 
 
-    public static void arrayMinMaxIminImax() {
+    public static void arrayBigMaxIbigImax() {
 
         int i, k, q, w, iBiggest = 0, iBig = 0, Biggest = 0, Big = 0;// q,w-используем как вспомогательные переменные
         int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
