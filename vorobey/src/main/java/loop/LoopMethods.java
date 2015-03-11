@@ -50,7 +50,7 @@ public class LoopMethods {
                     loopDel();
                     break;
                 default:
-                    System.out.println("No such case!");
+                    System.out.println("No such case!!");
 
 
             }
