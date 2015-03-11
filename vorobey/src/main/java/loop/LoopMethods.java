@@ -60,6 +60,40 @@ public class LoopMethods {
         }
     }
 
+    public static void loopClock() {
+        int i, j, count = 0;
+        for (i = 0; i < 24; i++) {
+            for (j = 0; j < 60; j++) {
+                if ((i / 10) == (j % 10) && (i % 10) == (j / 10))
+                    count++;// Количество совпадений
+            }
+        }
+    }
+
+    public static void loppHappyTicket() {
+        int i, count = 0, sumLeft = 0, sumRight = 0;
+        for (i = 000001; i < 1000000; i++) {
+            sumLeft = ((i / 100000) + ((i / 10000) % 10)) + ((i / 1000) % 10);
+            sumRight = ((i % 10) + ((i / 10) % 10) + ((i / 100) % 10));
+            if (sumLeft == sumRight)
+                count++;
+        }
+        System.out.println("Количество счастливых билетов: " + count);
+    }
+
+    public static void loopInstanceOf13() {
+        int i, count = 0;
+        for (i = 0; i < 1000000; i++) {
+            String s = String.valueOf(i);
+            if (s.indexOf("13") != -1) {
+                count++;
+            }
+
+        }
+        System.out.println("Количество чисел ,включающих 13: " + count);
+    }
+
+
 }
 
 
