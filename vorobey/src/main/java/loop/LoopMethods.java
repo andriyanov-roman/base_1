@@ -10,6 +10,10 @@ public class LoopMethods {
         System.out.println("3.Если хотите увидеть последовательность всех неотрицательных чисел 90,85,80 и т.д.,нажмите 3");
         System.out.println("4.Если хотите увидеть первые 20 элементов последовательности  2,4,8 и т.д.,нажмите 4");
         System.out.println("5.Если хотите вычислить Факториал,например,числа 5,нажмите '5'");
+        System.out.println("6.Чтобы вывести последовательность первых 20 чисел Фибаначчи,нажмите '6'");
+        System.out.println("7.Чтобы вывести количество счастливых билетов(от 1 до 999999),нажмите '7'");
+        System.out.println("8.Чтобы вывести количество совпадений цифр часов(например,02:20),нажмите '8'");
+        System.out.println("9.Чтобы вывести количество номерных знаков от 1 до 999999,содержащих '13',нажмите '9'");
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
             switch (sc.next()) {
@@ -28,10 +32,18 @@ public class LoopMethods {
                 case "5":
                     loopFactorial();
                     break;
-
-
-
-
+                case "6":
+                    loopFibana44i();
+                    break;
+                case "7":
+                    loopHappyTicket();
+                    break;
+                case "8":
+                    loopClock();
+                    break;
+                case "9":
+                    loopInstanceOf13();
+                    break;
 
 
             }
@@ -106,7 +118,7 @@ public class LoopMethods {
         }
     }
 
-    public static void loppHappyTicket() {
+    public static void loopHappyTicket() {
         int i, count = 0, sumLeft = 0, sumRight = 0;
         for (i = 000001; i < 1000000; i++) {
             sumLeft = ((i / 100000) + ((i / 10000) % 10)) + ((i / 1000) % 10);
