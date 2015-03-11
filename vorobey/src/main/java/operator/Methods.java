@@ -18,6 +18,7 @@ public class Methods {
                     transfer();
                     break;
                 case "3":
+                    maxOfFour();
 
                     break;
                 default:
@@ -61,10 +62,23 @@ public class Methods {
     }
 
     public static void maxOfFour() {
+        int max = 0, maxFirst = 0, maxFinal = 0;
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите последовательно четыре целых числа: ");
         int a = sc.nextInt(), b = sc.nextInt(), c = sc.nextInt(), d = sc.nextInt();
-
+        if (a > b)
+            max = a;
+        else
+            max = b;
+        if (c > d)
+            maxFirst = c;
+        else
+            maxFirst = d;
+        if (max > maxFirst)
+            maxFinal = max;
+        else
+            maxFinal = maxFirst;
+        System.out.println("Максимальное число: " + maxFinal);
 
     }
 
