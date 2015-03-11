@@ -5,7 +5,7 @@ package home_work;
  */
 public class Main {
     public static void main(String[] args) {
-        Methods1.sameEmployee();
+        Methods1.start();
     }
 }
 

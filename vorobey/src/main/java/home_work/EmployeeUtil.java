@@ -6,8 +6,8 @@ package home_work;
 public class EmployeeUtil {
     public static Employee[] getEmployees() {
         Employee e1 = new Employee();
-        e1.name = "Vlad";
-        e1.secondName = "Sokolov";
+        e1.name = "Roman";
+        e1.secondName = "Andersson";
         e1.salary = 2300;
 
         Employee e2 = new Employee();
@@ -16,8 +16,8 @@ public class EmployeeUtil {
         e2.salary = 1500;
 
         Employee e3 = new Employee();
-        e3.name = "Tim";
-        e3.secondName = "Johnson";
+        e3.name = "Vlad";
+        e3.secondName = "Sokolov";
         e3.salary = 1300;
 
         Employee e4 = new Employee();

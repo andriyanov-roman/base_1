@@ -15,6 +15,7 @@ public class Methods1 {
         System.out.println("5.Для получения информации о сотрудниках компании,нажмите '5' ");
         System.out.println("6.Чтобы узнать,у кого из сотрудников самая большая зарплата,нажмите '6' ");
         System.out.println("7.Чтобы отсортировать сотруников по ЗП в порядке возростания,нажмите '7'");
+        System.out.println("8.Чтобы узнать,есть ли одинаковые сотрудники(полные тески),нажмите '8'");
 
 
         while (sc.hasNext()) {
@@ -39,6 +40,9 @@ public class Methods1 {
                     break;
                 case "7":
                     sortSalary();
+                    break;
+                case "8":
+                    sameEmployee();
                     break;
 
 
