@@ -41,6 +41,25 @@ public class LoopMethods {
 
         System.out.println("Bye!");
     }
+
+    public static void loopAfter5() {
+        for (int i = 90; i >= 0; i -= 5) {
+
+            System.out.print(" " + i);
+        }
+    }
+
+    public static void loopFibana44i() {
+        int a = 2, b = 3, total;
+
+        for (int i = 0; i < 20; i++) {
+            total = a + b;
+            a = b;
+            b = total;
+            System.out.print("  " + total);
+        }
+    }
+
 }
 
 

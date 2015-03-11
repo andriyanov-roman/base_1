@@ -5,7 +5,7 @@ package loop;
  */
 public class Main {
     public static void main(String[] args) {
-        LoopMethods.loopFactorial();
+        LoopMethods.loop1000();
 
     }
 }
