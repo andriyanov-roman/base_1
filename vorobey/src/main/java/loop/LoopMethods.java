@@ -116,6 +116,7 @@ public class LoopMethods {
                     count++;// Количество совпадений
             }
         }
+        System.out.println(count);
     }
 
     public static void loopHappyTicket() {
