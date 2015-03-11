@@ -52,6 +52,23 @@ public class ArrayMethods {
     }
 
     public static void arrayChange() {
+        int i;
+        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+
+        int a = -5, b = 5;
+        int q = array[0];
+        int count = 0;
+        for (i = 0; i < array.length; i++) {
+            if (array[i] >= a && array[i] <= b) {
+                q = array[i];
+                array[i] = array[0 + count];
+                array[0 + count] = q;
+                count += count;
+            }
+        }
+        for (i = array.length - 1; i >= 0; i--) {
+            System.out.printf("%5d", array[i]);
+        }
 
 
     }
