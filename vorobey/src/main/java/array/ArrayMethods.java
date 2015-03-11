@@ -57,9 +57,9 @@ public class ArrayMethods {
     }
 
     public static void arrayMin() {
+
         int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
         int k, min = 500;
-
 
         for (int i = 0; i < array.length; i++) {
             if (array[i] < min)
@@ -76,6 +76,7 @@ public class ArrayMethods {
     }
 
     public static void arrayMinBeforeHalf() {
+
         int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
         int i, imin = 0, min = 500;
 
@@ -100,6 +101,7 @@ public class ArrayMethods {
 
 
     public static void arrayMinMaxIminImax() {
+
         int i, k, q, w, iBiggest = 0, iBig = 0, Biggest = 0, Big = 0;// q,w-используем как вспомогательные переменные
         int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
         for (i = 0; i < array.length; i++) {
@@ -132,6 +134,42 @@ public class ArrayMethods {
     }
 
     public static void arraySummaLeftSummaRight() {
+
+        int i, summaLeft = 0, summaRight = 0;
+        double saLeft = 0, saRight = 0;
+        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+
+        for (i = 0; i < array.length / 2; i++) {
+            summaLeft += array[i];
+            saLeft = (double) (summaLeft += array[i]) / (array.length);// СА левой части
+            System.out.print("  " + array[i]);
+        }
+
+        System.out.println();
+
+        for (i = array.length / 2; i < array.length; i++) {
+            summaRight += array[i];
+
+            saRight = (double) (summaRight += array[i]) / (array.length);// СА правой части
+
+            System.out.print("  " + array[i]);
+        }
+
+        System.out.println();
+        System.out.println(saLeft);
+        System.out.println(saRight);
+        System.out.println();
+
+        if (saLeft > saRight) { // Если СА левой части больше СА правой
+
+            for (i = 0; i < array.length / 2; i++)
+                System.out.print(" " + array[i]);
+        } else {
+            for (i = array.length / 2; i < array.length; i++)
+
+
+                System.out.print(" " + array[i]);
+        }
 
     }
 
