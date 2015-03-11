@@ -1,6 +1,7 @@
 package loop;
 
 
+import javax.xml.bind.SchemaOutputResolver;
 import java.util.Scanner;
 
 public class LoopMethods {
@@ -14,6 +15,7 @@ public class LoopMethods {
         System.out.println("7.Чтобы вывести количество счастливых билетов(от 1 до 999999),нажмите '7'");
         System.out.println("8.Чтобы вывести количество совпадений цифр часов(например,02:20),нажмите '8'");
         System.out.println("9.Чтобы вывести количество номерных знаков от 1 до 999999,содержащих '13',нажмите '9'");
+        System.out.println("10.Чтобы вывести общие целые делители двух чисел,например 20 и 90,нажмите '10'");
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
             switch (sc.next()) {
@@ -44,6 +46,11 @@ public class LoopMethods {
                 case "9":
                     loopInstanceOf13();
                     break;
+                case "10":
+                    loopDel();
+                    break;
+                default:
+                    System.out.println("No such case!");
 
 
             }
@@ -140,6 +147,19 @@ public class LoopMethods {
 
         }
         System.out.println("Количество чисел ,включающих 13: " + count);
+    }
+
+    public static void loopDel() {
+        int i, k;
+
+
+        int a = 20;
+        int b = 90;
+        for (i = 1; i < 10; i++) {
+            if (a % i == 0 && b % i == 0 && a % i == b % i)
+                System.out.print(i + ", ");
+        }
+
     }
 
 
