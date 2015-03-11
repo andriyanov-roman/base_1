@@ -1,6 +1,8 @@
 package loop;
 
 
+import java.util.Scanner;
+
 public class LoopMethods {
     public static void loop1000() {
         for (int i = 1000; i < 10000; i += 3) {
@@ -25,6 +27,19 @@ public class LoopMethods {
             System.out.print(" " + k);
 
         }
+    }
+
+    public static void loopFactorial() {
+        int a = 5;//example
+        System.out.println("Факториал числа,например '5',равен: ");
+        int result = 1;
+        for (int i = 2; i <= a; i++)
+            result *= i;
+        System.out.println(result);
+        if (a == 0 || a == 1)
+            System.out.println(result);
+
+        System.out.println("Bye!");
     }
 }
 
