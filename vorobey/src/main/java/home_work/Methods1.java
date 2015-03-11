@@ -154,14 +154,20 @@ public class Methods1 {
 
     public static void sameEmployee() {
         int count = 0;
+        String sameName = "";
+        String sameSecondName = "";
         Employee[] empl = EmployeeUtil.getEmployees();
         for (int i = 0; i < empl.length; i++) {
             for (int j = i + 1; j < empl.length; ++j) {
-                if (empl[i].name == empl[j].name && empl[i].secondName == empl[j].secondName)
+                if (empl[i].name == empl[j].name && empl[i].secondName == empl[j].secondName) {
                     count++;
+                    sameName = empl[i].name;
+                    sameSecondName = empl[i].secondName;
+                }
             }
+
         }
-        System.out.println("Количество одинаковых сотрудников: " + count);
+        System.out.println("Количество одинаковых сотрудников: " + count + "  " + sameName + " " + sameSecondName);
 
     }
 }
