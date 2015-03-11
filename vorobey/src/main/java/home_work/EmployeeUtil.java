@@ -8,7 +8,7 @@ public class EmployeeUtil {
         Employee e1 = new Employee();
         e1.name = "Roman";
         e1.secondName = "Andersson";
-        e1.salary = 2300;
+        e1.salary = 2400;
 
         Employee e2 = new Employee();
         e2.name = "Vlad";
