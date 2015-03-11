@@ -4,6 +4,29 @@ package loop;
 import java.util.Scanner;
 
 public class LoopMethods {
+    public static void LaunchLoop() {
+        System.out.println("1.Если хотите увидеть последовательность всех четырехзначных чисел 1000,1003,1006 и т.д.,нажмите 1");
+        System.out.println("2.Если хотите увидеть первых 55 элементов  последовательности 1 3 5 7 и т.д.,нажмите 2");
+        System.out.println("1.Если хотите увидеть последовательность всех четрехзначных чисел 1000,1003,1006 и т.д.,нажмите 1");
+        System.out.println("1.Если хотите увидеть последовательность всех четрехзначных чисел 1000,1003,1006 и т.д.,нажмите 1");
+        System.out.println("1.Если хотите увидеть последовательность всех четрехзначных чисел 1000,1003,1006 и т.д.,нажмите 1");
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            switch (sc.next()) {
+                case "1":
+                    loop1000();
+                    break;
+                case "2":
+                    loopFirst55();
+                    break;
+
+
+            }
+
+        }
+    }
+
+
     public static void loop1000() {
         for (int i = 1000; i < 10000; i += 3) {
             System.out.print(" " + i);
@@ -12,7 +35,7 @@ public class LoopMethods {
 
     }
 
-    public static void loopReverse() {
+    public static void loopFirst55() {
         int k = -1;
         for (int i = 0; i < 55; i++) {
             k += 2;
