@@ -1,4 +1,4 @@
-package IfElse;
+package operator;
 
 
 public class IfElseBinary {
