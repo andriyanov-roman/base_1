@@ -100,6 +100,34 @@ public class ArrayMethods {
 
 
     public static void arrayMinMaxIminImax() {
+        int i, k, q, w, iBiggest = 0, iBig = 0, Biggest = 0, Big = 0;// q,w-используем как вспомогательные переменные
+        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+        for (i = 0; i < array.length; i++) {
+            if (array[i] > Biggest) {
+                Biggest = array[i];
+                iBiggest = i;
+            }
+        }
+        System.out.println("Наибольшее число: " + Biggest
+                + " и его индекс: " + iBiggest);
+
+        for (i = 0; i < array.length; i++) {
+            if (array[i] > Big && array[i] < Biggest) {
+                Big = array[i];
+                iBig = i;
+            }
+        }
+        System.out.println("Второе по величине число: " + Big
+                + " и его индекс:  " + iBig);
+
+        q = array[iBiggest];
+        array[iBiggest] = array[array.length - 1];
+        array[array.length - 1] = q; // Использоание вспомогательных переменных
+        w = array[iBig];
+        array[iBig] = array[0];
+        array[0] = w;
+        for (i = 0; i < array.length; i++)
+            System.out.print("  " + array[i]);
 
     }
 
