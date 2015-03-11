@@ -7,9 +7,9 @@ public class LoopMethods {
     public static void LaunchLoop() {
         System.out.println("1.Если хотите увидеть последовательность всех четырехзначных чисел 1000,1003,1006 и т.д.,нажмите 1");
         System.out.println("2.Если хотите увидеть первых 55 элементов  последовательности 1 3 5 7 и т.д.,нажмите 2");
-        System.out.println("1.Если хотите увидеть последовательность всех четрехзначных чисел 1000,1003,1006 и т.д.,нажмите 1");
-        System.out.println("1.Если хотите увидеть последовательность всех четрехзначных чисел 1000,1003,1006 и т.д.,нажмите 1");
-        System.out.println("1.Если хотите увидеть последовательность всех четрехзначных чисел 1000,1003,1006 и т.д.,нажмите 1");
+        System.out.println("3.Если хотите увидеть последовательность всех неотрицательных чисел 90,85,80 и т.д.,нажмите 3");
+        System.out.println("4.Если хотите увидеть первые 20 элементов последовательности  2,4,8 и т.д.,нажмите 4");
+        System.out.println("5.Если хотите вычислить Факториал,например,числа 5,нажмите '5'");
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
             switch (sc.next()) {
@@ -19,6 +19,19 @@ public class LoopMethods {
                 case "2":
                     loopFirst55();
                     break;
+                case "3":
+                    loopAfter5();
+                    break;
+                case "4":
+                    loopMultiplicationToNext();
+                    break;
+                case "5":
+                    loopFactorial();
+                    break;
+
+
+
+
 
 
             }
