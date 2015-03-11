@@ -134,10 +134,10 @@ public class ArrayMethods {
     }
 
     public static void arraySummaLeftSummaRight() {
+        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
 
         int i, summaLeft = 0, summaRight = 0;
         double saLeft = 0, saRight = 0;
-        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
 
         for (i = 0; i < array.length / 2; i++) {
             summaLeft += array[i];
@@ -174,10 +174,56 @@ public class ArrayMethods {
     }
 
     public static void arraySummaOtrizal() {
+        int i, iPoloj, summaOtrizatel = 0;
+        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+
+        for (i = 0; i < array.length; i++) {
+            if (array[i] >= 0)
+                System.out.printf("%6d", i);//Ввод положительных элементов
+        }
+
+        for (i = 0; i < array.length; i++) {
+            if (array[i] < 0)
+                summaOtrizatel += array[i];// Вывод суммы отрицательных элементов
+
+        }
+        System.out.println();
+        System.out.print("Сумма отрицательных элементов: " + summaOtrizatel);
 
     }
 
     public static void arraySummaBeetwinMinMax() {
+        int i, k, n, max = 0, min = 100, maxi = 0, mini = 0, sum = 0;
+        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+
+        for (i = 0; i < array.length; i++) {
+            if (array[i] < min) {
+                min = array[i];
+                mini = i;
+            }
+
+            if (array[i] > max) {
+                max = array[i];
+                maxi = i;
+            }
+        }
+        System.out.print("Максимальный элемент: " + max + " индекс: " + maxi
+                + " Минимальный элемент: " + min + " индекс: " + mini);
+        System.out.println();
+
+
+        if (mini < maxi) {
+            for (i = mini + 1; i < maxi; i++)
+
+                sum += array[i];
+
+        } else {
+            for (i = maxi + 1; i < mini; i++)
+
+                sum += array[i];
+
+        }
+        System.out.println(sum);
 
     }
 
