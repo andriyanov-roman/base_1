@@ -11,7 +11,7 @@ public class EmployeeUtil {
         e1.salary = 2300;
 
         Employee e2 = new Employee();
-        e2.name = "Peter";
+        e2.name = "Vlad";
         e2.secondName = "Sokolov";
         e2.salary = 1500;
 

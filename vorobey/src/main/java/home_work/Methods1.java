@@ -157,11 +157,11 @@ public class Methods1 {
         Employee[] empl = EmployeeUtil.getEmployees();
         for (int i = 0; i < empl.length; i++) {
             for (int j = i + 1; j < empl.length; ++j) {
-                if (empl[i].name == empl[j].name) {
-                    System.out.println("Количество одинаковых сотрудников: " + count + ": " + empl[i].name + " и" + empl[j].name);
-                } else System.out.println("Одинаковых сотрудников нет");
+                if (empl[i].name == empl[j].name && empl[i].secondName == empl[j].secondName)
+                    count++;
             }
         }
+        System.out.println("Количество одинаковых сотрудников: " + count);
 
     }
 }
