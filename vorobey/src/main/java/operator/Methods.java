@@ -6,9 +6,9 @@ import java.util.Scanner;
 public class Methods {
     public static void launch() {
         Scanner sc = new Scanner(System.in);
-        System.out.println();
-        System.out.println();
-        System.out.println();
+        System.out.println("1.Для нахождения максимального числа из трех введенных,нажмите 1");
+        System.out.println("2.Для перевода введенного числа в двоичный код,нажмите 2");
+        System.out.println("3.Для нахождения максимального числа из 4-х,нажмите 3");
         while (sc.hasNext()) {
             switch (sc.next()) {
                 case "1":
