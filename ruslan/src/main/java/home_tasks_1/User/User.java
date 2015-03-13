@@ -1,4 +1,4 @@
-package home_tasks_1;
+package home_tasks_1.User;
 
 /**
  * Created by user on 09.03.2015.
