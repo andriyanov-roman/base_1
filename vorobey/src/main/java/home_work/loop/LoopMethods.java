@@ -1,7 +1,6 @@
-package loop;
+package home_work.loop;
 
 
-import javax.xml.bind.SchemaOutputResolver;
 import java.util.Scanner;
 
 public class LoopMethods {
