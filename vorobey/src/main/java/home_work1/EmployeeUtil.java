@@ -1,23 +1,21 @@
-package home_work;
+package home_work1;
 
-/**
- * Created by Stas on 10.03.2015.
- */
+
 public class EmployeeUtil {
     public static Employee[] getEmployees() {
         Employee e1 = new Employee();
-        e1.name = "Vlad";
-        e1.secondName = "Sokolov";
-        e1.salary = 2300;
+        e1.name = "Roman";
+        e1.secondName = "Andersson";
+        e1.salary = 2400;
 
         Employee e2 = new Employee();
-        e2.name = "Peter";
+        e2.name = "Vlad";
         e2.secondName = "Sokolov";
         e2.salary = 1500;
 
         Employee e3 = new Employee();
-        e3.name = "Tim";
-        e3.secondName = "Johnson";
+        e3.name = "Vlad";
+        e3.secondName = "Sokolov";
         e3.salary = 1300;
 
         Employee e4 = new Employee();

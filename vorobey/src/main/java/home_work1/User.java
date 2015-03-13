@@ -1,4 +1,4 @@
-package home_tasks_1;
+package home_work1;
 
 /**
  * Created by user on 09.03.2015.
@@ -8,8 +8,6 @@ public class User {
     public String name;
     public String secondName;
     public String login;
-    public String password;
+    public String passsword;
     public int age;
-
-    }
-
+}

@@ -1,4 +1,4 @@
-package home_work;
+package home_work1;
 
 import java.util.Scanner;
 
@@ -15,6 +15,7 @@ public class Methods1 {
         System.out.println("5.Для получения информации о сотрудниках компании,нажмите '5' ");
         System.out.println("6.Чтобы узнать,у кого из сотрудников самая большая зарплата,нажмите '6' ");
         System.out.println("7.Чтобы отсортировать сотруников по ЗП в порядке возростания,нажмите '7'");
+        System.out.println("8.Чтобы узнать,есть ли одинаковые сотрудники(полные тески),нажмите '8'");
 
 
         while (sc.hasNext()) {
@@ -39,6 +40,9 @@ public class Methods1 {
                     break;
                 case "7":
                     sortSalary();
+                    break;
+                case "8":
+                    sameEmployee();
                     break;
 
 
@@ -150,5 +154,24 @@ public class Methods1 {
             System.out.print(empl[i].name + ": " + empl[i].salary + "/");
 
         }
+    }
+
+    public static void sameEmployee() {
+        int count = 0;
+        String sameName = "";
+        String sameSecondName = "";
+        Employee[] empl = EmployeeUtil.getEmployees();
+        for (int i = 0; i < empl.length; i++) {
+            for (int j = i + 1; j < empl.length; ++j) {
+                if (empl[i].name == empl[j].name && empl[i].secondName == empl[j].secondName) {
+                    count++;
+                    sameName = empl[i].name;
+                    sameSecondName = empl[i].secondName;
+                }
+            }
+
+        }
+        System.out.println("Количество одинаковых сотрудников: " + count + "  " + sameName + " " + sameSecondName);
+
     }
 }

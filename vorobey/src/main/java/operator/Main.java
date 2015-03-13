@@ -1,13 +1,10 @@
-package home_work;
+package operator;
 
 /**
- * Created by user on 09.03.2015.
+ * Created by Stas on 11.03.2015.
  */
 public class Main {
     public static void main(String[] args) {
-        Methods1.start();
+        Methods.launch();
     }
 }
-
-
-

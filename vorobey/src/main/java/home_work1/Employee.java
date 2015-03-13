@@ -1,8 +1,6 @@
-package home_work;
+package home_work1;
 
-/**
- * Created by Stas on 10.03.2015.
- */
+
 public class Employee {
     public String name;
     public String secondName;
