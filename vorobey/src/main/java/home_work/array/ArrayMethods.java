@@ -4,7 +4,9 @@ package home_work.array;
 import java.util.Scanner;
 
 public class ArrayMethods {
+
     public static void arrayStart() {
+        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
         Scanner sc = new Scanner(System.in);
         System.out.println("1.Чтобы увидеть данный массив,нажмите 1");
         System.out.println("2.Чтоб вывести в консоль половину массива, среднеарифметическое которых является наибольшим,нажмите 2");
@@ -18,31 +20,31 @@ public class ArrayMethods {
         while (sc.hasNext()) {
             switch (sc.next()) {
                 case "1":
-                    arrayShow();
+                    arrayShow(array);
                     break;
                 case "2":
-                    arraySummaLeftSummaRight();
+                    arraySummaLeftSummaRight(array);
                     break;
                 case "3":
-                    arraySummaOtrizal();
+                    arraySummaOtrizal(array);
                     break;
                 case "4":
-                    arrayBeforeNull();
+                    arrayBeforeNull(array);
                     break;
                 case "5":
-                    arrayBigMaxIbigImax();
+                    arrayBigMaxIbigImax(array);
                     break;
                 case "6":
-                    arrayBeforeMin();
+                    arrayBeforeMin(array);
                     break;
                 case "7":
-                    arraySummaBeetwinMinMax();
+                    arraySummaBeetwinMinMax(array);
                     break;
                 case "8":
-                    arrayMinBeforeHalf();
+                    arrayMinBeforeHalf(array);
                     break;
                 case "9":
-                    arrayChange();
+                    arrayChange(array);
                     break;
                 default:
                     System.out.println("No such case!");
@@ -54,8 +56,8 @@ public class ArrayMethods {
 
     }
 
-    public static void arrayBeforeNull() {
-        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+    public static void arrayBeforeNull(int[] array) {
+
 
         for (int i = 0; i < array.length; i++) {
             if (array[i] == 0) {
@@ -68,9 +70,9 @@ public class ArrayMethods {
 
     }
 
-    public static void arrayChange() {
+    public static void arrayChange(int[] array) {
         int i;
-        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+
 
         int a = -5, b = 5;
         int q = array[0];
@@ -90,9 +92,9 @@ public class ArrayMethods {
 
     }
 
-    public static void arrayBeforeMin() {
+    public static void arrayBeforeMin(int[] array) {
 
-        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+
         int k, min = 500;
 
         for (int i = 0; i < array.length; i++) {
@@ -109,9 +111,9 @@ public class ArrayMethods {
 
     }
 
-    public static void arrayMinBeforeHalf() {
+    public static void arrayMinBeforeHalf(int[] array) {
 
-        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+
         int i, imin = 0, min = 500;
 
         for (i = 0; i < array.length; i++) {
@@ -134,10 +136,10 @@ public class ArrayMethods {
     }
 
 
-    public static void arrayBigMaxIbigImax() {
+    public static void arrayBigMaxIbigImax(int[] array) {
 
         int i, k, q, w, iBiggest = 0, iBig = 0, Biggest = 0, Big = 0;// q,w-используем как вспомогательные переменные
-        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+
         for (i = 0; i < array.length; i++) {
             if (array[i] > Biggest) {
                 Biggest = array[i];
@@ -167,8 +169,8 @@ public class ArrayMethods {
 
     }
 
-    public static void arraySummaLeftSummaRight() {
-        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+    public static void arraySummaLeftSummaRight(int[] array) {
+
 
         int i, summaLeft = 0, summaRight = 0;
         double saLeft = 0, saRight = 0;
@@ -207,9 +209,9 @@ public class ArrayMethods {
 
     }
 
-    public static void arraySummaOtrizal() {
+    public static void arraySummaOtrizal(int[] array) {
         int i, iPoloj, summaOtrizatel = 0;
-        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+
 
         for (i = 0; i < array.length; i++) {
             if (array[i] >= 0)
@@ -226,9 +228,9 @@ public class ArrayMethods {
 
     }
 
-    public static void arraySummaBeetwinMinMax() {
+    public static void arraySummaBeetwinMinMax(int[] array) {
         int i, k, n, max = 0, min = 100, maxi = 0, mini = 0, sum = 0;
-        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+
 
         for (i = 0; i < array.length; i++) {
             if (array[i] < min) {
@@ -261,16 +263,16 @@ public class ArrayMethods {
 
     }
 
-    public static void arrayShow() {
-        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+    public static void arrayShow(int[] array) {
+
         for (int i = 0; i < array.length; i++)
             System.out.print(array[i] + " ");
 
     }
 
-    public static void min() {
+    public static void min(int[] array) {
         int min = 500, imin = 0;
-        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+
         for (int i = 0; i < array.length; i++) {
             if (array[i] < min) {
                 min = array[i];
