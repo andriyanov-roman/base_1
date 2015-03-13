@@ -170,8 +170,6 @@ public class ArrayMethods {
     }
 
     public static void arraySummaLeftSummaRight(int[] array) {
-
-
         int i, summaLeft = 0, summaRight = 0;
         double saLeft = 0, saRight = 0;
 
@@ -280,6 +278,36 @@ public class ArrayMethods {
             }
 
         }
+
+    }
+
+    public static void max(int[] array) {
+        int max = 0, imax = 0, tmp;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+                imax = i;
+
+            }
+        }
+        tmp = array[array.length - 1];
+        array[array.length - 1] = array[imax];
+        array[imax] = tmp;
+
+    }
+
+    public static void maxAfterMax(int[] array) {
+        int max = 0, imax = 0, tmp;
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i] > max) {
+                max = array[i];
+                imax = i;
+
+            }
+        }
+        tmp = array[0];
+        array[0] = array[imax];
+        array[imax] = array[0];
 
     }
 }
