@@ -1,10 +1,12 @@
-package array;
+package home_work.array;
 
 
 import java.util.Scanner;
 
 public class ArrayMethods {
+
     public static void arrayStart() {
+        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
         Scanner sc = new Scanner(System.in);
         System.out.println("1.Чтобы увидеть данный массив,нажмите 1");
         System.out.println("2.Чтоб вывести в консоль половину массива, среднеарифметическое которых является наибольшим,нажмите 2");
@@ -18,32 +20,34 @@ public class ArrayMethods {
         while (sc.hasNext()) {
             switch (sc.next()) {
                 case "1":
-                    arrayShow();
+                    arrayShow(array);
                     break;
                 case "2":
-                    arraySummaLeftSummaRight();
+                    arraySummaLeftSummaRight(array);
                     break;
                 case "3":
-                    arraySummaOtrizal();
+                    arraySummaOtrizal(array);
                     break;
                 case "4":
-                    arrayBeforeNull();
+                    arrayBeforeNull(array);
                     break;
                 case "5":
                     arrayBigMaxIbigImax();
                     break;
                 case "6":
-                    arrayBeforeMin();
+                    arrayBeforeMin(array);
                     break;
                 case "7":
-                    arraySummaBeetwinMinMax();
+                    arraySummaBeetwinMinMax(array);
                     break;
                 case "8":
-                    arrayMinBeforeHalf();
+                    arrayMinBeforeHalf(array);
                     break;
                 case "9":
-                    arrayChange();
+                    arrayChange(array);
                     break;
+                case "Exit":
+                    System.exit(0);
                 default:
                     System.out.println("No such case!");
 
@@ -54,13 +58,12 @@ public class ArrayMethods {
 
     }
 
-    public static void arrayBeforeNull() {
-        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+    public static void arrayBeforeNull(int[] array) {
 
         for (int i = 0; i < array.length; i++) {
             if (array[i] == 0) {
                 for (int k = 0; k < i; k++)// Вывод массива елементов,находяшихся перед 0
-                    System.out.print(" " + array[k]);
+                    System.out.printf("%5d", array[k]);
             }
 
         }
@@ -68,9 +71,8 @@ public class ArrayMethods {
 
     }
 
-    public static void arrayChange() {
+    public static void arrayChange(int[] array) {
         int i;
-        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
 
         int a = -5, b = 5;
         int q = array[0];
@@ -90,9 +92,8 @@ public class ArrayMethods {
 
     }
 
-    public static void arrayBeforeMin() {
+    public static void arrayBeforeMin(int[] array) {
 
-        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
         int k, min = 500;
 
         for (int i = 0; i < array.length; i++) {
@@ -102,18 +103,15 @@ public class ArrayMethods {
         for (int i = 0; i < array.length; i++) {// Вывод массива до минимального элемента
             if (array[i] == min) {
                 for (k = 0; k < i; k++)
-                    System.out.printf("%4d", array[k]);
+                    System.out.printf("%5d", array[k]);
             }
         }
 
 
     }
 
-    public static void arrayMinBeforeHalf() {
-
-        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+    public static void arrayMinBeforeHalf(int[] array) {
         int i, imin = 0, min = 500;
-
         for (i = 0; i < array.length; i++) {
             if (array[i] < min) { // Нахождение минимального элемента
                 min = array[i];
@@ -135,48 +133,20 @@ public class ArrayMethods {
 
 
     public static void arrayBigMaxIbigImax() {
-
-        int i, k, q, w, iBiggest = 0, iBig = 0, Biggest = 0, Big = 0;// q,w-используем как вспомогательные переменные
         int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
-        for (i = 0; i < array.length; i++) {
-            if (array[i] > Biggest) {
-                Biggest = array[i];
-                iBiggest = i;
-            }
-        }
-        System.out.println("Наибольшее число: " + Biggest
-                + " и его индекс: " + iBiggest);
-
-        for (i = 0; i < array.length; i++) {
-            if (array[i] > Big && array[i] < Biggest) {
-                Big = array[i];
-                iBig = i;
-            }
-        }
-        System.out.println("Второе по величине число: " + Big
-                + " и его индекс:  " + iBig);
-
-        q = array[iBiggest];
-        array[iBiggest] = array[array.length - 1];
-        array[array.length - 1] = q; // Использоание вспомогательных переменных
-        w = array[iBig];
-        array[iBig] = array[0];
-        array[0] = w;
-        for (i = 0; i < array.length; i++)
-            System.out.print("  " + array[i]);
+        max(array);
+        maxAfterMax(array);
 
     }
 
-    public static void arraySummaLeftSummaRight() {
-        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
-
+    public static void arraySummaLeftSummaRight(int[] array) {
         int i, summaLeft = 0, summaRight = 0;
         double saLeft = 0, saRight = 0;
 
         for (i = 0; i < array.length / 2; i++) {
             summaLeft += array[i];
             saLeft = (double) (summaLeft += array[i]) / (array.length);// СА левой части
-            System.out.print("  " + array[i]);
+            System.out.printf("%5d", array[i]);
         }
 
         System.out.println();
@@ -186,7 +156,7 @@ public class ArrayMethods {
 
             saRight = (double) (summaRight += array[i]) / (array.length);// СА правой части
 
-            System.out.print("  " + array[i]);
+            System.out.printf("%5d", array[i]);
         }
 
         System.out.println();
@@ -197,20 +167,18 @@ public class ArrayMethods {
         if (saLeft > saRight) { // Если СА левой части больше СА правой
 
             for (i = 0; i < array.length / 2; i++)
-                System.out.print(" " + array[i]);
+                System.out.printf("%5d", array[i]);
         } else {
             for (i = array.length / 2; i < array.length; i++)
 
 
-                System.out.print(" " + array[i]);
+                System.out.printf("%5d", array[i]);
         }
 
     }
 
-    public static void arraySummaOtrizal() {
+    public static void arraySummaOtrizal(int[] array) {
         int i, iPoloj, summaOtrizatel = 0;
-        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
-
         for (i = 0; i < array.length; i++) {
             if (array[i] >= 0)
                 System.out.printf("%6d", i);//Ввод положительных элементов
@@ -226,9 +194,8 @@ public class ArrayMethods {
 
     }
 
-    public static void arraySummaBeetwinMinMax() {
+    public static void arraySummaBeetwinMinMax(int[] array) {
         int i, k, n, max = 0, min = 100, maxi = 0, mini = 0, sum = 0;
-        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
 
         for (i = 0; i < array.length; i++) {
             if (array[i] < min) {
@@ -261,22 +228,77 @@ public class ArrayMethods {
 
     }
 
-    public static void arrayShow() {
-        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+    public static void arrayShow(int[] array) {
+
         for (int i = 0; i < array.length; i++)
-            System.out.print(array[i] + " ");
+            System.out.printf("%5d", array[i]);
 
     }
 
-    public static void min() {
+    public static void min(int[] array) {
         int min = 500, imin = 0;
-        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+
         for (int i = 0; i < array.length; i++) {
             if (array[i] < min) {
                 min = array[i];
                 imin = i;
             }
 
+        }
+
+    }
+
+    public static void max(int[] array) {
+        int max = 0, imax = 0, tmp;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+                imax = i;
+
+            }
+        }
+        tmp = array[array.length - 1];
+        array[array.length - 1] = array[imax];
+        array[imax] = tmp;
+
+    }
+
+    public static void maxAfterMax(int[] array) {
+        int max = 0, imax = 0, tmp;
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i] > max) {
+                max = array[i];
+                imax = i;
+
+            }
+        }
+        tmp = array[0];
+        array[0] = array[imax];
+        array[imax] = array[0];
+        for (int i = 0; i < array.length; i++)
+            System.out.printf("%5d", array[i]);
+
+
+    }
+
+    public static void summaLeft(int[] array) {
+        int i, summaLeft = 0;
+        double saLeft = 0;
+
+        for (i = 0; i < array.length / 2; i++) {
+            summaLeft += array[i];
+            saLeft = (double) (summaLeft += array[i]) / (array.length);// СА левой части
+            System.out.printf("%5d", array[i]);
+        }
+    }
+
+    public static void summaRight(int[] array) {
+        int i, summaRight = 0;
+        double saRight = 0;
+        for (i = array.length / 2; i < array.length; i++) {
+            summaRight += array[i];
+            saRight = (double) (summaRight += array[i]) / (array.length);// СА правой части
+            System.out.printf("%5d", array[i]);
         }
 
     }

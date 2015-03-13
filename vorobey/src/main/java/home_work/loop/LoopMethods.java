@@ -1,7 +1,6 @@
-package loop;
+package home_work.loop;
 
 
-import javax.xml.bind.SchemaOutputResolver;
 import java.util.Scanner;
 
 public class LoopMethods {
@@ -49,6 +48,8 @@ public class LoopMethods {
                 case "10":
                     loopDel();
                     break;
+                case "Exit":
+                    System.exit(0);
                 default:
                     System.out.println("No such case!!");
 
