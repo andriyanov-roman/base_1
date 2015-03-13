@@ -17,6 +17,7 @@ public class Hometask1main {
                     break;
                 case "2":
                     checkName();
+                    break;
                 case "9":
                     System.exit(0);
                 default:
@@ -28,7 +29,7 @@ public class Hometask1main {
     public static void showUsers() {
         User[] users = UsersUtil.getUsers();
         for (int i = 0; i < users.length; i++) {
-            System.out.print(users[i].name + " " + users[i].secondname + "\n");
+            System.out.print(users[i].name + " " + users[i].secondName + "\n");
         }
         System.out.println();
     }
@@ -36,7 +37,7 @@ public class Hometask1main {
     public static void checkName(){
         User[] users = UsersUtil.getUsers();
         for (int i = 0; i < users.length; i++) {
-            if (users[i].login.equals(users[i].name)||users[i].login.equals(users[i].secondname)) System.out.println("Users "+i+"has the same login and name");
+            if (users[i].login.equals(users[i].name)||users[i].login.equals(users[i].secondName)) System.out.println("Users "+i+"has the same login and name");
         }
     }
 }
