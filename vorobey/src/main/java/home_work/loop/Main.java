@@ -1,4 +1,4 @@
-package loop;
+package home_work.loop;
 
 
 public class Main {

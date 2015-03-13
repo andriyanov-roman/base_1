@@ -1,4 +1,4 @@
-package operator;
+package home_work.operator;
 
 
 import java.util.Scanner;
@@ -21,6 +21,8 @@ public class Methods {
                     maxOfFour();
 
                     break;
+                case "Exit":
+                    System.exit(0);
                 default:
                     System.out.println("No such case!");
 
