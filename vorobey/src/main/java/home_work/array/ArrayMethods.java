@@ -32,7 +32,7 @@ public class ArrayMethods {
                     arrayBeforeNull(array);
                     break;
                 case "5":
-                    arrayBigMaxIbigImax(array);
+                    arrayBigMaxIbigImax();
                     break;
                 case "6":
                     arrayBeforeMin(array);
@@ -58,7 +58,6 @@ public class ArrayMethods {
 
     public static void arrayBeforeNull(int[] array) {
 
-
         for (int i = 0; i < array.length; i++) {
             if (array[i] == 0) {
                 for (int k = 0; k < i; k++)// Вывод массива елементов,находяшихся перед 0
@@ -72,7 +71,6 @@ public class ArrayMethods {
 
     public static void arrayChange(int[] array) {
         int i;
-
 
         int a = -5, b = 5;
         int q = array[0];
@@ -94,7 +92,6 @@ public class ArrayMethods {
 
     public static void arrayBeforeMin(int[] array) {
 
-
         int k, min = 500;
 
         for (int i = 0; i < array.length; i++) {
@@ -112,10 +109,7 @@ public class ArrayMethods {
     }
 
     public static void arrayMinBeforeHalf(int[] array) {
-
-
         int i, imin = 0, min = 500;
-
         for (i = 0; i < array.length; i++) {
             if (array[i] < min) { // Нахождение минимального элемента
                 min = array[i];
@@ -136,36 +130,10 @@ public class ArrayMethods {
     }
 
 
-    public static void arrayBigMaxIbigImax(int[] array) {
-
-        int i, k, q, w, iBiggest = 0, iBig = 0, Biggest = 0, Big = 0;// q,w-используем как вспомогательные переменные
-
-        for (i = 0; i < array.length; i++) {
-            if (array[i] > Biggest) {
-                Biggest = array[i];
-                iBiggest = i;
-            }
-        }
-        System.out.println("Наибольшее число: " + Biggest
-                + " и его индекс: " + iBiggest);
-
-        for (i = 0; i < array.length; i++) {
-            if (array[i] > Big && array[i] < Biggest) {
-                Big = array[i];
-                iBig = i;
-            }
-        }
-        System.out.println("Второе по величине число: " + Big
-                + " и его индекс:  " + iBig);
-
-        q = array[iBiggest];
-        array[iBiggest] = array[array.length - 1];
-        array[array.length - 1] = q; // Использоание вспомогательных переменных
-        w = array[iBig];
-        array[iBig] = array[0];
-        array[0] = w;
-        for (i = 0; i < array.length; i++)
-            System.out.print("  " + array[i]);
+    public static void arrayBigMaxIbigImax() {
+        int[] array = {-2, 5, 7, 0, -2, -7, 10, 1, 23, 3};
+        max(array);
+        maxAfterMax(array);
 
     }
 
@@ -209,8 +177,6 @@ public class ArrayMethods {
 
     public static void arraySummaOtrizal(int[] array) {
         int i, iPoloj, summaOtrizatel = 0;
-
-
         for (i = 0; i < array.length; i++) {
             if (array[i] >= 0)
                 System.out.printf("%6d", i);//Ввод положительных элементов
@@ -228,7 +194,6 @@ public class ArrayMethods {
 
     public static void arraySummaBeetwinMinMax(int[] array) {
         int i, k, n, max = 0, min = 100, maxi = 0, mini = 0, sum = 0;
-
 
         for (i = 0; i < array.length; i++) {
             if (array[i] < min) {
@@ -308,6 +273,31 @@ public class ArrayMethods {
         tmp = array[0];
         array[0] = array[imax];
         array[imax] = array[0];
+        for (int i = 0; i < array.length; i++)
+            System.out.printf("%5d", array[i]);
+
+
+    }
+
+    public static void summaLeft(int[] array) {
+        int i, summaLeft = 0;
+        double saLeft = 0;
+
+        for (i = 0; i < array.length / 2; i++) {
+            summaLeft += array[i];
+            saLeft = (double) (summaLeft += array[i]) / (array.length);// СА левой части
+            System.out.print("  " + array[i]);
+        }
+    }
+
+    public static void summaRight(int[] array) {
+        int i, summaRight = 0;
+        double saRight = 0;
+        for (i = array.length / 2; i < array.length; i++) {
+            summaRight += array[i];
+            saRight = (double) (summaRight += array[i]) / (array.length);// СА правой части
+            System.out.print("  " + array[i]);
+        }
 
     }
 }
