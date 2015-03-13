@@ -46,6 +46,8 @@ public class ArrayMethods {
                 case "9":
                     arrayChange(array);
                     break;
+                case "Exit":
+                    System.exit(0);
                 default:
                     System.out.println("No such case!");
 
@@ -61,7 +63,7 @@ public class ArrayMethods {
         for (int i = 0; i < array.length; i++) {
             if (array[i] == 0) {
                 for (int k = 0; k < i; k++)// Вывод массива елементов,находяшихся перед 0
-                    System.out.print(" " + array[k]);
+                    System.out.printf("%5d", array[k]);
             }
 
         }
@@ -101,7 +103,7 @@ public class ArrayMethods {
         for (int i = 0; i < array.length; i++) {// Вывод массива до минимального элемента
             if (array[i] == min) {
                 for (k = 0; k < i; k++)
-                    System.out.printf("%4d", array[k]);
+                    System.out.printf("%5d", array[k]);
             }
         }
 
@@ -144,7 +146,7 @@ public class ArrayMethods {
         for (i = 0; i < array.length / 2; i++) {
             summaLeft += array[i];
             saLeft = (double) (summaLeft += array[i]) / (array.length);// СА левой части
-            System.out.print("  " + array[i]);
+            System.out.printf("%5d", array[i]);
         }
 
         System.out.println();
@@ -154,7 +156,7 @@ public class ArrayMethods {
 
             saRight = (double) (summaRight += array[i]) / (array.length);// СА правой части
 
-            System.out.print("  " + array[i]);
+            System.out.printf("%5d", array[i]);
         }
 
         System.out.println();
@@ -165,12 +167,12 @@ public class ArrayMethods {
         if (saLeft > saRight) { // Если СА левой части больше СА правой
 
             for (i = 0; i < array.length / 2; i++)
-                System.out.print(" " + array[i]);
+                System.out.printf("%5d", array[i]);
         } else {
             for (i = array.length / 2; i < array.length; i++)
 
 
-                System.out.print(" " + array[i]);
+                System.out.printf("%5d", array[i]);
         }
 
     }
@@ -229,7 +231,7 @@ public class ArrayMethods {
     public static void arrayShow(int[] array) {
 
         for (int i = 0; i < array.length; i++)
-            System.out.print(array[i] + " ");
+            System.out.printf("%5d", array[i]);
 
     }
 
@@ -286,7 +288,7 @@ public class ArrayMethods {
         for (i = 0; i < array.length / 2; i++) {
             summaLeft += array[i];
             saLeft = (double) (summaLeft += array[i]) / (array.length);// СА левой части
-            System.out.print("  " + array[i]);
+            System.out.printf("%5d", array[i]);
         }
     }
 
@@ -296,7 +298,7 @@ public class ArrayMethods {
         for (i = array.length / 2; i < array.length; i++) {
             summaRight += array[i];
             saRight = (double) (summaRight += array[i]) / (array.length);// СА правой части
-            System.out.print("  " + array[i]);
+            System.out.printf("%5d", array[i]);
         }
 
     }
