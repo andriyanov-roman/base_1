@@ -19,7 +19,7 @@ public class UsersUtil {
         u2.login = "IhorSuper";
         u2.password = "pass123";
         u2.name = "Ihor";
-        u2.secondName = "ihor";
+        u2.secondName = "ihorenko";
 
         User u3 = new User();
         u3.age = 65;
@@ -50,6 +50,6 @@ public class UsersUtil {
         //users[1] = u2;
         //return users;
 
-        return new User[] {u1, u2,u3,u4};
+        return new User[] {u1, u2,u3,u4,u5};
     }
 }
