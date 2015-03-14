@@ -69,10 +69,11 @@ public class UsersUtil {
         u8.name = "Ihor";
         u8.secondName = "ihorenko";
 
+
         //User[] users = new User[2];
         //users[0]= u1;
         //users[1] = u2;
-        //return users;
+        //return  users;
 
         return new User[] {u1,u2,u3,u4,u5,u6,u7,u8};
     }
