@@ -1,4 +1,4 @@
-package lesson_1;
+package homework.hw_1;
 
 /**
  * Created by PC XP on 29.01.15.

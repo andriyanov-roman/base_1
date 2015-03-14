@@ -1,4 +1,4 @@
-package lesson_1;
+package homework.hw_1;
 
 import java.util.Scanner;
 
@@ -97,7 +97,7 @@ public class Main {
 
     }
    public static void getIdenticalEmployees (){
-      Employee [] employees = EmployeeUtil.getEmployees();
+      Employee[] employees = EmployeeUtil.getEmployees();
       for (int i = 0; i < employees.length; i++) {
            for (int j = 0; j < employees.length; j++) {
               if (employees[i].name.equals(employees[j].name)) {
