@@ -15,6 +15,9 @@ public class Methods {
         System.out.println("5. Сотрудник с наибольшей зарплатой");
         System.out.println("6. Сотрудники с одинаковыми именами и фамилией");
         System.out.println("7. Сортировка сотрудников по зп в порядке убывания");
+        System.out.println("8. Узнать названия компаний");
+        System.out.println("9. Узнать имена сотрудников, которые работают в каждой компании");
+        System.out.println("10. Узнать сотрудника с наибольшей зп и компанию в которой он работает");
 
         while (scanner.hasNext()) {
             switch (scanner.next()) {
@@ -39,6 +42,15 @@ public class Methods {
                 case "7":
                     sortSalary();
                     break;
+                case "8":
+                    companyName();
+                    break;
+                case "9":
+                    infoCompany();
+                    break;
+                case "10":
+                    сompanyMaxSalary();
+                    break;
                 case "Exit":
                     System.exit(0);
                     break;
@@ -47,7 +59,8 @@ public class Methods {
             }
         }
     }
-        public static void coincidenceLoginNameSecondName() {
+
+    public static void coincidenceLoginNameSecondName() {
         int count = 0;
         UserMatveu[] users = UsersUtil.getUsers();
         for (int i = 0; i < users.length; i++) {
@@ -64,15 +77,17 @@ public class Methods {
         System.out.println("Количество совпадений: " + count);
 
     }
+
     public static void coincidenceNameSecondName() {
-        UserMatveu[] users=UsersUtil.getUsers();
-        for(int i=0;i<users.length;i++){
-            if(users[i].name.equals(users[i].secondName)){
-                System.out.println("Пользователи с одинаковым именем и фамилией: "+users[i].name+" "+users[i].secondName);
+        UserMatveu[] users = UsersUtil.getUsers();
+        for (int i = 0; i < users.length; i++) {
+            if (users[i].name.equals(users[i].secondName)) {
+                System.out.println("Пользователи с одинаковым именем и фамилией: " + users[i].name + " " + users[i].secondName);
             }
         }
 
     }
+
     public static void sort() {
         UserMatveu[] users = UsersUtil.getUsers();
         for (int i = users.length - 1; i >= 0; i--) {
@@ -86,46 +101,50 @@ public class Methods {
         }
         for (int i = 0; i < users.length; i++) {
             System.out.print(users[i].name + "/");
-            System.out.print(users[i].id+"/ ");
+            System.out.print(users[i].id + "/ ");
         }
     }
+
     public static void infoEmployees() {
-        Employee[] employees=EmployeesUtil.getEmployees();
-        for(int i=0;i<employees.length;i++){
-            System.out.print(employees[i].name+" "+employees[i].secondName+" "+employees[i].salary);
+        Employee[] employees = EmployeesUtil.getEmployees();
+        for (int i = 0; i < employees.length; i++) {
+            System.out.print(employees[i].name + " " + employees[i].secondName + " " + employees[i].salary);
             System.out.println();
         }
     }
+
     public static void maxSalary() {
-        Employee[] employees=EmployeesUtil.getEmployees();
-        int maxSalary=0;
+        Employee[] employees = EmployeesUtil.getEmployees();
+        double maxSalary = 0;
         int i;
-        int max=0;
-        for(i=0;i<employees.length;i++){
-            if(employees[i].salary>maxSalary){
-                maxSalary=employees[i].salary;
-                max=i;
+        int max = 0;
+        for (i = 0; i < employees.length; i++) {
+            if (employees[i].salary > maxSalary) {
+                maxSalary = (double) (employees[i].salary);
+                max = i;
             }
         }
-        System.out.println("Сотрудник с наибольшей зарплатой: "+employees[max].name+" "+employees[max].secondName+" "+employees[max].salary);
+        System.out.println("Сотрудник с наибольшей зарплатой: " + employees[max].name + " " + employees[max].secondName + " " + employees[max].salary);
 
     }
-    public static void tesku(){
-        Employee[] employees=EmployeesUtil.getEmployees();
-        String sameName=" ";
-        String sameSecondName=" ";
-        for(int i=0;i<employees.length;i++){
-            for(int j=i+1;j<employees.length;j++){
-                if(employees[i].name==employees[j].name && employees[i].secondName==employees[j].secondName){
-                    sameName=employees[i].name;
-                    sameSecondName=employees[i].secondName;
+
+    public static void tesku() {
+        Employee[] employees = EmployeesUtil.getEmployees();
+        String sameName = " ";
+        String sameSecondName = " ";
+        for (int i = 0; i < employees.length; i++) {
+            for (int j = i + 1; j < employees.length; j++) {
+                if (employees[i].name == employees[j].name && employees[i].secondName == employees[j].secondName) {
+                    sameName = employees[i].name;
+                    sameSecondName = employees[i].secondName;
                 }
             }
         }
-        System.out.println("Сотрудники с одинаковыми именами и фамилией: "+sameName+" "+sameSecondName);
+        System.out.println("Сотрудники с одинаковыми именами и фамилией: " + sameName + " " + sameSecondName);
     }
-    public static void sortSalary(){
-        Employee[] employees=EmployeesUtil.getEmployees();
+
+    public static void sortSalary() {
+        Employee[] employees = EmployeesUtil.getEmployees();
         for (int i = employees.length - 1; i >= 0; i--) {
             for (int j = 0; j < i; j++) {
                 if (employees[j].salary < employees[j + 1].salary) {
@@ -135,10 +154,39 @@ public class Methods {
                 }
             }
         }
-        for(int i=0;i<employees.length;i++){
-            System.out.print(employees[i].name+" "+employees[i].secondName+"/"+employees[i].salary+"/");
+        for (int i = 0; i < employees.length; i++) {
+            System.out.print(employees[i].name + " " + employees[i].secondName + "/" + employees[i].salary + "/");
             System.out.println();
 
+        }
+    }
+
+    public static void companyName() {
+        Company[] companies = CompanyUtil.getCompanies();
+        for (int i = 0; i < companies.length; i++) {
+            System.out.println(companies[i].companyName + " ");
+        }
+    }
+
+    public static void infoCompany() {
+        Company[] companies = CompanyUtil.getCompanies();
+        for (int i = 0; i < companies.length; i++) {
+            System.out.println(companies[i].companyName + ": " + companies[i].employees[0].name + " " +
+                    companies[i].employees[0].secondName + "; " + companies[i].employees[1].name + " " +
+                    companies[i].employees[1].secondName);
+        }
+    }
+
+    public static void сompanyMaxSalary() {
+        Company[] companies = CompanyUtil.getCompanies();
+        for (int i = 0; i < companies.length; i++) {
+            Employee temp = companies[i].employees[0];
+            for (int j = 0; j < companies[i].employees.length; j++) {
+                if (companies[i].employees[j].salary > temp.salary) {
+                    temp = companies[i].employees[j];
+                }
+            }
+            System.out.println(companies[i].companyName + ": salary:" + temp.salary + " name: " + temp.name);
         }
     }
 }
