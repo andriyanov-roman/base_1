@@ -1,4 +1,4 @@
-package tasks;
+package hometaskslast;
 
 /**
  * Created by Dmitriy Lisunov on 09.03.2015.

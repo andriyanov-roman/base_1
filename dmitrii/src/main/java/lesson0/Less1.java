@@ -1,4 +1,4 @@
-/**
+package lesson0; /**
  * Created by Dmitriy on 07.03.2015.
  */
 import java.util.Scanner;
