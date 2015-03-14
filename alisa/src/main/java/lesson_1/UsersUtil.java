@@ -15,7 +15,7 @@ public class UsersUtil {
 
         User u2 = new User();
         u2.age = 25;
-        u2.id = 2L;
+        u2.id = 3L;
         u2.login = "IhorSuper";
         u2.password = "pass123";
         u2.name = "Ihor";
@@ -23,7 +23,7 @@ public class UsersUtil {
 
         User u3 = new User();
         u3.age = 34;
-        u3.id = 3L;
+        u3.id = 6L;
         u3.login = "Zhora";
         u3.password = "pass45";
         u3.name = "Zhora";
