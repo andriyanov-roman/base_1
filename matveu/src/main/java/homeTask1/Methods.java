@@ -17,7 +17,7 @@ public class Methods {
         System.out.println("7. Сортировка сотрудников по зп в порядке убывания");
         System.out.println("8. Узнать названия компаний");
         System.out.println("9. Узнать имена сотрудников, которые работают в каждой компании");
-        System.out.println("10. Узнать сотрудника с наибольшей зп и компанию в которой он работает");
+        System.out.println("10. Узнать сотрудника с наибольшей зп в каждой компании");
 
         while (scanner.hasNext()) {
             switch (scanner.next()) {

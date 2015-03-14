@@ -10,7 +10,7 @@ public class CompanyUtil {
 
         Company c2=new Company();
         c2.companyName="Microsoft";
-        c2.employees=new Employee[] {employees[2],employees[3],employees[4],employees[5],employees[3],employees[3],employees[3]};
+        c2.employees=new Employee[] {employees[2],employees[3],employees[2],employees[3],employees[2],employees[3]};
 
         Company c3=new Company();
         c3.companyName="Sony";
