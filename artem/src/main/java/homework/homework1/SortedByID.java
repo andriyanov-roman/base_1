@@ -5,7 +5,17 @@ import java.util.*;
 public class SortedByID {
     public static void sortedById(){
         User[] users = UsersUtil.getUsers();
-        User[] usersSorted = UsersUtil.getUsers();
+        for (int i = 0; i < users.length; i++) {
+            for (int j = 0; j < users.length - i - 1; j++) {
+                if (users[j].id > users[j + 1].id) {
+                    User t = users[j + 1];
+                    users[j + 1] = users[j];
+                    users[j] = t;
+                }
+            }
+        }
+
+        /*User[] usersSorted = UsersUtil.getUsers();
         long [][] arr = new long [users.length][2];
         long [] tmp = new long[users.length];
         for (int i = 0; i < users.length; i++) {
@@ -22,7 +32,7 @@ public class SortedByID {
                 if(arr[i][0] == arr[j][1]) usersSorted[i] = users[j];
             }
             System.out.print("("+i+")"+users[i].id+", "+usersSorted[i].id+"; ");
-        }
+        }*/
     }
     /*public static User[] sortedbyid(){
         User[] users = UsersUtil.getUsers();
