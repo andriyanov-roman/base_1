@@ -22,13 +22,22 @@ public class Main {
                     showUsers();
                     break;
                 case "1":
-                    showUsersEq();
+                    showUsersEqLogin();
                     break;
                 case "2":
                     showUsersDuplicate();
                     break;
                 case "3":
                     sortById();
+                    break;
+                case "4":
+                    showEmployees();
+                    break;
+                case "5":
+                    showEmployeesDuplicates();
+                    break;
+                case "6":
+                    sortBySalary();
                     break;
                 case "Exit":
                     System.exit(0);
@@ -40,12 +49,17 @@ public class Main {
             welcome();
         }
     }
+
+
     public static void welcome(){
         System.out.print (
                 "\n 0.Show all users"+
                         "\n 1.Show users with equal parameters"+
                         "\n 2.Show duplicate users"+
                         "\n 3.Sort users by ID"+
+                        "\n 4.Show employees"+
+                        "\n 5.Show duplicate employees with higher salary"+
+                        "\n 6.Sort employees by salary"+
                         "\n Exit. End program." +
                         "\nEnter command key:");
     }
@@ -61,29 +75,40 @@ public class Main {
         System.out.println();
     }
 
-    public static void showUsersEq() {
+    public static void showUsersEqLogin() {
         User[] users = UsersUtil.getUsers();
         for (int i = 0; i < users.length; i++) {
             if (users[i].login.equals(users[i].name) ) {
-                System.out.println("Login Eq Name. Login:"+users[i].login+" / name: "+users[i].name+" (user id="+users[i].id+")");
+                System.out.println("Login Eq Name. Login:"+users[i].login+" = Name:"+users[i].name+" (user id="+users[i].id+")");
             }
             if ( users[i].login.equals(users[i].secondName)) {
-                System.out.println("Login Eq Surname. Login:"+users[i].login + " Surname:"+users[i].secondName+" (user id="+users[i].id+")");
+                System.out.println("Login Eq Surname. Login:"+users[i].login + " = Surname:"+users[i].secondName+" (user id="+users[i].id+")");
             }
         }
         System.out.println();
     }
 
     public static void showUsersDuplicate(){
-        // Барахло (пересмотреть!!!!!!!!)
+        System.out.println();
         User[] users = UsersUtil.getUsers();
+        String s = "";
+        Boolean iFind = false;
         for (int i = 0; i < users.length; i++) {
             for (int j = i+1; j < users.length; j++) {
-                if ( users[i].name.equals(users[j].name) && users[i].secondName.equals(users[j].secondName) ) {
-                    System.out.println ("Duplicates:"+users[i].name+" "+users[i].secondName+" | id="+users[i].id+", id="+users[j].id);
-                }
+                if ( users[i].name.equals(users[j].name) && users[i].secondName.equals(users[j].secondName) && !(users[j].name.isEmpty()) ) {
+                    s=s+users[j].id+" ";
+                    users[j].name="";
+                    iFind=true;
+                 }
+            }
+            if (iFind) {
+                s=s+users[i].id;
+                System.out.println("Duplicates:" + users[i].name + " " + users[i].secondName + " with IDs: " + s);
+                iFind=false;
+                s="";
             }
         }
+        System.out.println();
     }
     public static void sortById() {
         User[] users = UsersUtil.getUsers();
@@ -111,7 +136,59 @@ public class Main {
         System.out.println();
     }
 
+    public static void showEmployees() {
+        Employee [] empl = EmployeeUtil.getEmployees();
+        System.out.println("======== Total employees: "+empl.length+" =======\n\tShow all:");
+        for (int i = 0; i < empl.length; i++) {
+            System.out.println((i+1)+")"+empl[i].name+" "+empl[i].surname+" ("+empl[i].salary+"$)");
+        }
+        System.out.println();
+    }
 
+
+    public  static  void showEmployeesDuplicates (){
+        System.out.println();
+        Employee [] empl = EmployeeUtil.getEmployees();
+        Double salCont = 0.0;
+        Boolean iFind = false;
+        int iCount = 1;
+        for (int i = 0; i < empl.length; i++) {
+            for (int j = i+1; j < empl.length; j++) {
+                if (empl[i].name.equals(empl[j].name) && empl[i].surname.equals(empl[j].surname) && !(empl[j].name.isEmpty()) ) {
+                    salCont=Math.max(empl[i].salary, empl[j].salary);
+                    iCount++;
+                    empl[j].name="";
+                    iFind = true;
+                }
+            }
+            if (iFind) {
+                System.out.println(empl[i].name + " " + empl[i].surname +
+                        " ("+iCount+" persons)." + " One of them with higher Salary: "+salCont+"$");
+            }
+            iCount=1;
+            salCont=0.0;
+            iFind = false;
+        }
+        System.out.println();
+    }
+
+    public static void sortBySalary () {
+        System.out.println("\n Sorted by Salary:");
+        Employee[] empl = EmployeeUtil.getEmployees();
+        Employee bubble;
+        for (int j = 0; j < empl.length - 1; j++) {
+            for (int k = 0; k < empl.length - 1 - j; k++) {
+                if (empl[k + 1].salary < empl[k].salary) {
+                    bubble=empl[k+1];
+                    empl[k+1]=empl[k];
+                    empl[k]=bubble;
+                }
+            }
+        }
+        for (int j = 0; j < empl.length; j++) {
+            System.out.println(empl[j].salary + "$ " + empl[j].name + " " + empl[j].surname);
+        }
+    }
 
 
 
