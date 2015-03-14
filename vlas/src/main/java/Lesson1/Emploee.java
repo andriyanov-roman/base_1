@@ -4,11 +4,19 @@ package Lesson1;
  * Created by Master on 14.03.2015.
  */
 public class Emploee {
-    public int salary;
+    public double salary;
     public String name;
     public String secondName;
 
-    public static Emploee[] getEmploee() {
+//    public Emploee (String name, String secondName, double salary){
+//        this.name = name;
+//        this.secondName=secondName;
+//        this.salary =salary;
+//
+//    }
+
+
+    public static Emploee[] getEmploees() {
 
         Emploee e1 = new Emploee();
         e1.salary = 300;
