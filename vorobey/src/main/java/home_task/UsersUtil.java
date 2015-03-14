@@ -1,8 +1,6 @@
 package home_task;
 
-/**
- * Created by user on 09.03.2015.
- */
+
 public class UsersUtil {
     public static User[] getUsers() {
         User u1 = new User();

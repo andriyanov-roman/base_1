@@ -27,12 +27,18 @@ public class EmployeesUtil {
         e5.secondName="Zaec";
         e5.salary=13000;
 
-        Employee[] employees=new Employee[5];
+        Employee e6=new Employee();
+        e6.name="Olga";
+        e6.secondName="Emec";
+        e6.salary=6000;
+
+        Employee[] employees=new Employee[6];
         employees[0]=e1;
         employees[1]=e2;
         employees[2]=e3;
         employees[3]=e4;
         employees[4]=e5;
+        employees[5]=e6;
         return employees;
 
     }
