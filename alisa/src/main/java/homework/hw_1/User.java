@@ -1,4 +1,4 @@
-package lesson_1;
+package homework.hw_1;
 
 /**
  * Created by user on 09.03.2015.
