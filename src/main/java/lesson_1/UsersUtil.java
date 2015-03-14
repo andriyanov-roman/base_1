@@ -19,5 +19,7 @@ public class UsersUtil {
         u2.name = "Ihor";
         u2.secondName = "ihor";
         return new User[]{u1, u2};
+
+
     }
 }

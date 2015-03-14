@@ -1,4 +1,6 @@
-package lesson_1;
+package homework.hw_1;
+
+import homework.hw_1.User;
 
 /**
  * Created by user on 09.03.2015.

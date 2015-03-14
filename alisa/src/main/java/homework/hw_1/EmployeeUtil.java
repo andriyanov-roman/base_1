@@ -1,10 +1,12 @@
-package lesson_1;
+package homework.hw_1;
+
+import homework.hw_1.Employee;
 
 /**
  * Created by PC XP on 29.01.15.
  */
 public class EmployeeUtil {
-    public static Employee [] getEmployees() {
+    public static Employee[] getEmployees() {
     Employee e1 = new Employee ("Vasya", "Ivanow", 3000.00);
     Employee e2 = new Employee ("Vasya", "Petrov", 5000.00);
     Employee e3 = new Employee ("Sergey", "Sidorov", 7000.00);
