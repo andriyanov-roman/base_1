@@ -5,14 +5,17 @@ public class Employee {
     public String secondName;
     public double salary;
 
-    public Employee() {
-
-    }
 
     public Employee(String name, String secondName, double salary ) {  // создание конструктора
         this.name=name;
         this.secondName=secondName;
         this.salary=salary;
 
+    }
+    public void setName (String name){
+        this.name=name;
+    }
+    public String getName() {
+        return name;
     }
 }

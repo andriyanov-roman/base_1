@@ -4,6 +4,24 @@ package lesson2;
  * Created by user on 14.03.2015.
  */
 public class Company {
-    public String name;
-    public  Employee[] employees;
+    private String companyName;
+    private   Employee[] employees;
+
+    public void setCompanyName(String companyName){
+        this.companyName = companyName;
+    }
+    public String getCompanyName (){
+        return  companyName;
+    }
+
+
+    public  Company(String name,Employee[] employees){
+        this.companyName = name;
+        this.employees = employees;
+    }
+    public  Company(String name){
+        this.companyName = name;
+    }
+    public  Company(){
+    }
 }
