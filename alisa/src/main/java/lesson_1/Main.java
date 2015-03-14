@@ -44,16 +44,18 @@ public class Main {
         User[] users = UsersUtil.getUsers();
         for (int i = 0; i < users.length; i++) {
                 if (users[i].name.equals(users[i].login)) {
-                    System.out.println(users[i].name + " " + "" + users[i].login);
-
+                    System.out.println(users[i].name + " " + "" + users[i].secondName + " " + ""+ users[i].login);
                 } else {
                     break;
                 }
-
-
-
+            if(users[i].login.equals(users[i].secondName)){
+                System.out.println(users[i].name + " " + "" + users[i].secondName + " " + ""+ users[i].login);
+            } else {
+                break;
+            }
+            }
         }
     }
 
 
-}
+
