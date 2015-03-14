@@ -35,19 +35,28 @@ public class UsersUtil {
         User u4 = new User();
         u4.age = 27;
         u4.id = 4L;
-        u4.login = "Tracker";
-        u4.password = "pass1243";
-        u4.name = "May";
-        u4.secondName = "Trackerovich";
+        u4.login = "Barsik";
+        u4.password = "pass13243";
+        u4.name = "Bars";
+        u4.secondName = "Barsikovich";
+
+        User u5 = new User();
+        u5.age = 28;
+        u5.id = 5L;
+        u5.login = "Bifac";
+        u5.password = "pass12439";
+        u5.name = "Roma";
+        u5.secondName = "Andriyanov";
 
 
-        User[] users = new User[4];
+        User[] users = new User[5];
         users[0] = u1;
         users[1] = u2;
         users[2] = u3;
         users[3] = u4;
+        users[4] = u5;
         //return  users;
-        return new User[]{u1, u2, u3, u4};
+        return new User[]{u1, u2, u3, u4, u5};
     }
 
 
