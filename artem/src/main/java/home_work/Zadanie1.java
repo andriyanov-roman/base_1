@@ -1,4 +1,4 @@
-package home_work1; /**
+package home_work; /**
  * Created by R-Tem on 04.03.2015.
  */
 
