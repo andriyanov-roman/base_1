@@ -50,8 +50,6 @@ public class Main {
         for (int i = 0; i < employee.length; i++) {
             if (employee[i].salary > temp.salary) {
                 temp = employee[i];
-
-
                 System.out.println("Сотрудник с самой высокой заработной платой :  " + "  Имя, фамилия - " +
                         employee[i].name + " " + employee[i].secondName + " , зарплата " + employee[i].salary + " USD ");
             }
