@@ -7,6 +7,8 @@ public class Start {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter command key:" +
                 " 1. Show all users" + " 2. Show who login= Name or secondName" + " 3. Show who name = secondName" + " 4. Sort users by ID");
+        System.out.println("Enter command key:" +
+                " 5. Find equal emploees" + " 6. print emploee with biggest salary" + " 7. Sort by salary");
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "1":
@@ -21,6 +23,14 @@ public class Start {
                 case "4":
                     sortByID();
                     break;
+//                case "5":
+//                    showEmployeesDuplicates();
+//                    break;
+//                case "6":
+//                    prnBiigSal();
+//                case "7":
+//                    sortBySalary();
+//                    break;
                 case "Exit":
                     System.exit(0); // закрывается поток
                 default:
