@@ -18,6 +18,10 @@ public class Methods {
         System.out.println("8. Узнать названия компаний");
         System.out.println("9. Узнать имена сотрудников, которые работают в каждой компании");
         System.out.println("10. Узнать сотрудника с наибольшей зп в каждой компании");
+        System.out.println("11. Сортировка сотрудников в первой компании(Luxsoft) по зп,в порядке возрастания");
+        System.out.println("12. Сортировка сотрудников во второй компании(Microsoft) по возрасту,в порядке возрастания");
+        System.out.println("13. Сортировка сотрудников в третей компании(Sony) по длине фамилии,в порядке возрастания");
+
 
         while (scanner.hasNext()) {
             switch (scanner.next()) {
@@ -50,6 +54,15 @@ public class Methods {
                     break;
                 case "10":
                     сompanyMaxSalary();
+                    break;
+                case "11":
+                    sortCompany1Salary();
+                    break;
+                case "12":
+                    sortCompany2Age();
+                    break;
+                case "13":
+                    sortCompany3LengthSecondName();
                     break;
                 case "Exit":
                     System.exit(0);
@@ -164,29 +177,87 @@ public class Methods {
     public static void companyName() {
         Company[] companies = CompanyUtil.getCompanies();
         for (int i = 0; i < companies.length; i++) {
-            System.out.println(companies[i].companyName + " ");
+            System.out.println(companies[i].getCompanyName() + " ");
         }
     }
 
     public static void infoCompany() {
         Company[] companies = CompanyUtil.getCompanies();
         for (int i = 0; i < companies.length; i++) {
-            System.out.println(companies[i].companyName + ": " + companies[i].employees[0].name + " " +
-                    companies[i].employees[0].secondName + "; " + companies[i].employees[1].name + " " +
-                    companies[i].employees[1].secondName);
+            System.out.println();
+            System.out.print(companies[i].getCompanyName() + ": ");
+            for (int j = 0; j < companies[i].getEmployees().length; j++) {
+                System.out.print(companies[i].getEmployees()[j].name + " " +
+                        companies[i].getEmployees()[j].secondName + "; ");
+
+            }
         }
     }
 
     public static void сompanyMaxSalary() {
         Company[] companies = CompanyUtil.getCompanies();
         for (int i = 0; i < companies.length; i++) {
-            Employee temp = companies[i].employees[0];
-            for (int j = 0; j < companies[i].employees.length; j++) {
-                if (companies[i].employees[j].salary > temp.salary) {
-                    temp = companies[i].employees[j];
+            Employee temp = companies[i].getEmployees()[0];
+            for (int j = 0; j < companies[i].getEmployees().length; j++) {
+                if (companies[i].getEmployees()[j].salary > temp.salary) {
+                    temp = companies[i].getEmployees()[j];
                 }
             }
-            System.out.println(companies[i].companyName + ": salary:" + temp.salary + " name: " + temp.name);
+            System.out.println(companies[i].getCompanyName() + ": salary:" + temp.salary + " name: " + temp.name);
+        }
+    }
+
+    public static void sortCompany1Salary() {
+        Company[] companies = CompanyUtil.getCompanies();
+        for (int i = 0; i < 1; i++) {
+            for (int j = companies[i].getEmployees().length - 1; j >= 0; j--) {
+                for (int k = 0; k < j; k++) {
+                    if (companies[i].getEmployees()[k].salary < companies[i].getEmployees()[k + 1].salary) {
+                        Employee www = companies[i].getEmployees()[k];
+                        companies[i].getEmployees()[k] = companies[i].getEmployees()[k + 1];
+                        companies[i].getEmployees()[k + 1] = www;
+                    }
+                }
+                System.out.print(companies[i].getEmployees()[j].name + " " + companies[i].getEmployees()[j].secondName + ": " + companies[i].getEmployees()[j].salary + " ");
+                System.out.println();
+            }
+        }
+
+    }
+
+    public static void sortCompany2Age() {
+        Company[] companies = CompanyUtil.getCompanies();
+        for (int i = 1; i < 2; i++) {
+            for (int j = companies[i].getEmployees().length - 1; j >= 0; j--) {
+                for (int k = 0; k < j; k++) {
+                    if (companies[i].getEmployees()[k].age < companies[i].getEmployees()[k + 1].age) {
+                        Employee www = companies[i].getEmployees()[k];
+                        companies[i].getEmployees()[k] = companies[i].getEmployees()[k + 1];
+                        companies[i].getEmployees()[k + 1] = www;
+                    }
+                }
+                System.out.print(companies[i].getEmployees()[j].name + " " + companies[i].getEmployees()[j].secondName +
+                        ":Age: " + companies[i].getEmployees()[j].age);
+                System.out.println();
+            }
+        }
+    }
+
+    public static void sortCompany3LengthSecondName() {
+        Company[] companies = CompanyUtil.getCompanies();
+        for (int i = 2; i < 3; i++) {
+            for (int j = companies[i].getEmployees().length - 1; j >= 0; j--) {
+                for (int k = 0; k < j; k++) {
+                    if (companies[i].getEmployees()[k].secondName.length() < companies[i].getEmployees()[k+1].secondName.length()) {
+                        Employee www = companies[i].getEmployees()[k];
+                        companies[i].getEmployees()[k] = companies[i].getEmployees()[k + 1];
+                        companies[i].getEmployees()[k + 1] = www;
+                    }
+                }
+                System.out.print(companies[i].getEmployees()[j].name + " " + companies[i].getEmployees()[j].secondName+".");
+                System.out.print(" Количество букв в фамилии: "+companies[i].getEmployees()[j].secondName.length());
+                System.out.println();
+            }
         }
     }
 }
