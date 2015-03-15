@@ -13,7 +13,7 @@ public class Main {
     public static void start() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter command key" + " " +
-                "1.Show all users \t 2. Login matches name \n 3.Sort by id");
+                "0.Show all users \t 1. Login matches name \n 2. Login matches secondName \t 3.Sort by id");
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "0":
@@ -52,12 +52,12 @@ public class Main {
             if (users[i].name.equals(users[i].login)) {
                 System.out.println(users[i].name + " " + "" + users[i].secondName + " " + "" + users[i].login);
             } else {
-                break;
+
             }
             if (users[i].login.equals(users[i].secondName)) {
                 System.out.println(users[i].name + " " + "" + users[i].secondName + " " + "" + users[i].login);
             } else {
-                break;
+
             }
         }
     }
