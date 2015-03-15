@@ -29,12 +29,12 @@ public class Main {
                 case "3":
                 sortById();
                     break;
-               // case "4":
-                  //  getIdenticalEmployees();
-                 //   break;
-              // case "5":
-                 // EmployeeMaxSalary();
-                //  break;
+                case "4":
+                  getIdenticalEmployees();
+                 break;
+              case "5":
+                 EmployeeMaxSalary();
+                break;
                 //case "Exit":
                 // System.exit(0);
                 //default:
@@ -92,31 +92,30 @@ public class Main {
         }
 
     }
-   // public static void getIdenticalEmployees (){
-      //  Employee [] employees = EmployeeUtil.getEmployees();
-      //  for (int i = 0; i < employees.length; i++) {
-           // for (int j = 0; j < employees.length; j++) {
-              ////  if (employees[i].name.equals(employees[j].name)&& employees[i].surname.equals(employees[j].surname)) {
-                //    System.out.println(employees[i].name + " " + "" + employees[i].surname);
-              //  }
-              //  break;
-           // }
-       // }
-   // }
-  //  public static void EmployeeMaxSalary(){
-      //  Employee [] employees = EmployeeUtil.getEmployees();
-      //  Employee maxSalary = employees [0];
-      //  for (int i = 0; i <employees.length ; i++) {
-         //   for (int j = 0; j < employees.length; j++) {
-          //      if(employees[j].salary > maxSalary.employees[j].salary ){
-
+   public static void getIdenticalEmployees (){
+      Employee [] employees = EmployeeUtil.getEmployees();
+      for (int i = 0; i < employees.length; i++) {
+           for (int j = 0; j < employees.length; j++) {
+              if (employees[i].name.equals(employees[j].name)&& employees[i].surname.equals(employees[j].surname)) {
+                 System.out.println(employees[i].name + " " + "" + employees[i].surname);
+              }
+              break;
+           }
+       }
+   }
+  public static void EmployeeMaxSalary(){
+      Employee [] employees = EmployeeUtil.getEmployees();
+      Employee maxSalary = employees [0];
+      for (int i = 0; i <employees.length ; i++) {
+          if(employees[i].salary > maxSalary.salary ){
+                maxSalary = employees[i];
                 }
 
-          //  }
+           }
 
-        //}
-   // }
-   // }
+        }
+   }
+
 
 
 
