@@ -23,14 +23,15 @@ public class CompanyUtil {
 
     }
 
-    public static void showCompanies() {
+    public static void showCompaniesAndEmployees() {
         Company[] companies = getCompanies();
         for (int i = 0; i < companies.length; i++) {
             for (int j = 0; j < companies[i].employees.length; j++) {
-                System.out.println(companies[i].employees[j].name);
+                System.out.println("Компания: " + companies[i].companyName + " содрежит сотрудников :" + companies[i].employees[j].name + " " + companies[i].employees[j].secondName);
             }
         }
 
-    }
 
+    }
 }
+
