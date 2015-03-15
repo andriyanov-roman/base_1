@@ -9,8 +9,10 @@ public class Employee {
     public double salary;
 
 
-    public Employee(String name, String surname, double salary){
-
+    public Employee(String a, String b, double c){
+        name = a ;
+        surname = b;
+        salary = c;
     }
 
 }

@@ -96,7 +96,7 @@ public class Main {
       Employee [] employees = EmployeeUtil.getEmployees();
       for (int i = 0; i < employees.length; i++) {
            for (int j = 0; j < employees.length; j++) {
-              if (employees[i].name.equals(employees[j].name)&& employees[i].surname.equals(employees[j].surname)) {
+              if (employees[i].name.equals(employees[j].name)) {
                  System.out.println(employees[i].name + " " + "" + employees[i].surname);
               }
               break;
