@@ -14,7 +14,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter command key" + " " +
                 "0.Show all users \t 1. Login coincides with the name \n " +
-                "2. Login coincides with the secondName \t 3.Sort by id \n 4. Identical Employees \t 5.MaxSalary");
+                "2. Login coincides with the secondName \t 3.Sort by id \n 4. Identical Employees \t 5.MaxSalary"+
+        "6. sort by salary");
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "0":
@@ -35,6 +36,9 @@ public class Main {
               case "5":
                  EmployeeMaxSalary();
                 break;
+                case "6":
+                    sortBySalary();
+                    break;
                 //case "Exit":
                 // System.exit(0);
                 //default:
@@ -114,7 +118,25 @@ public class Main {
            }
       System.out.println(maxSalary.name + " "+ maxSalary.surname + " "+ maxSalary.salary);
         }
-   }
+    public static void sortBySalary(){
+        Employee [] employees = EmployeeUtil.getEmployees();
+        for (int i = employees.length -1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (employees[j].salary < employees[j - 1].salary) {
+                    Employee tmp = employees[j];
+                    employees[j] = employees[j - 1];
+                    employees[j - 1] = tmp;
+                }
+            }
+        }
+        for (int i = 0; i < employees.length; i++) {
+            System.out.println(employees[i].name + " " + employees[i].surname + " "+ employees[i].salary);
+
+        }
+
+    }
+    }
+
 
 
 
