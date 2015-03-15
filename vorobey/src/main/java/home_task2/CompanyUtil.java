@@ -33,5 +33,23 @@ public class CompanyUtil {
 
 
     }
+
+    public static void maxSalary() {
+        Company[] companies = getCompanies();
+        for (int i = 0; i < companies.length; i++) {
+            int maxSalary = 0;
+            String nameMax = "", secondNameMax = "";
+            for (int j = 0; j < companies[i].employees[j].salary; j++) {
+                if (companies[i].employees[j].salary > maxSalary) {
+                    maxSalary = companies[i].employees[j].salary;
+                    nameMax = companies[i].employees[j].name;
+                    secondNameMax = companies[i].employees[j].secondName;
+                }
+
+            }
+            System.out.println("Максимальная зарплата у сотруника :" + nameMax + ",а именно :" + maxSalary);
+
+        }
+    }
 }
 
