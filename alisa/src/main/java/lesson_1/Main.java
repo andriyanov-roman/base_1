@@ -13,7 +13,7 @@ public class Main {
     public static void start() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter command key" + " " +
-                "0.Show all users \t 1. Login matches name \n 2. Login matches secondName \t 3.Sort by id");
+                "0.Show all users \t 1. Login coincides with the name \n 2. Login coincides with the secondName \t 3.Sort by id");
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "0":
