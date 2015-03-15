@@ -112,7 +112,7 @@ public class Main {
                 }
 
            }
-
+      System.out.println(maxSalary.name + " "+ maxSalary.surname + " "+ maxSalary.salary);
         }
    }
 
