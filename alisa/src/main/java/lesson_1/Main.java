@@ -13,7 +13,8 @@ public class Main {
     public static void start() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter command key" + " " +
-                "0.Show all users \t 1. Login coincides with the name \n 2. Login coincides with the secondName \t 3.Sort by id");
+                "0.Show all users \t 1. Login coincides with the name \n " +
+                "2. Login coincides with the secondName \t 3.Sort by id \n 4. Identical Employees \t 5.MaxSalary");
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "0":
@@ -28,6 +29,12 @@ public class Main {
                 case "3":
                 sortById();
                     break;
+                case "4":
+                    getIdenticalEmployees();
+                    break;
+               // case "5":
+                  //  EmployeeMaxSalary();
+                  //  break;
                 //case "Exit":
                 // System.exit(0);
                 //default:
@@ -79,6 +86,17 @@ public class Main {
                 }
             }
             System.out.println(users[i].name + " " + users[i].secondName + " "+ users[i].id);
+        }
+    }
+    public static void getIdenticalEmployees (){
+        Employee [] employees = EmployeeUtil.getEmployees();
+        for (int i = 0; i < employees.length; i++) {
+            for (int j = 0; j < employees.length; j++) {
+                if (employees[i].name.equals(employees[j].name)&& employees[i].surname.equals(employees[j].surname)) {
+                    System.out.println(employees[i].name + " " + "" + employees[i].surname);
+                }
+                break;
+            }
         }
     }
     }
