@@ -51,13 +51,8 @@ public class Main {
         for (int i = 0; i < users.length; i++) {
             if (users[i].name.equals(users[i].login)) {
                 System.out.println(users[i].name + " " + "" + users[i].secondName + " " + "" + users[i].login);
-            } else {
-
-            }
-            if (users[i].login.equals(users[i].secondName)) {
+            }if (users[i].login.equals(users[i].secondName)) {
                 System.out.println(users[i].name + " " + "" + users[i].secondName + " " + "" + users[i].login);
-            } else {
-
             }
         }
     }
@@ -68,9 +63,8 @@ public class Main {
             for (int j = 0; j < users.length; j++) {
                 if (users[i].name.equals(users[j].name)) {
                     System.out.println(users[i].name + " " + "" + users[i].secondName + " " + "" + users[i].login);
-                } else {
-                    break;
                 }
+                break;
             }
         }
     }
@@ -84,8 +78,7 @@ public class Main {
                     users[j + 1].id = tmp;
                 }
             }
-
-            System.out.println(users[i].name + " " + users[i].id);
+            System.out.println(users[i].name + " " + users[i].secondName + " "+ users[i].id);
         }
     }
     }
