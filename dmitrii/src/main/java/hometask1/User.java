@@ -1,8 +1,8 @@
 package hometask1;
 
-/**
- * Created by Dimon on 09.03.2015.
- */
+/**********************************
+ * Created by Dimon on 09.03.2015.*
+ **********************************/
 public class User {
 
     public Long id;
