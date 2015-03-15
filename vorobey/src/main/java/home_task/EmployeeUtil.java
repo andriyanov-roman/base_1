@@ -23,8 +23,19 @@ public class EmployeeUtil {
         e4.secondName = "Elthton";
         e4.salary = 7000;
 
+        Employee e5 = new Employee();
+        e5.name = "Ivan";
+        e5.secondName = "Dorn";
+        e5.salary = 8000;
+
+
+        Employee e6 = new Employee();
+        e6.name = "Vasiliy";
+        e6.secondName = "Ytkin";
+        e6.salary = 7000;
+
         return new Employee[]{
-                e1, e2, e3, e4
+                e1, e2, e3, e4, e5, e6
         };
 
     }
