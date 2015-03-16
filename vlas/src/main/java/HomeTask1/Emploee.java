@@ -1,4 +1,4 @@
-package Lesson1;
+package HomeTask1;
 
 /**
  * Created by Master on 14.03.2015.

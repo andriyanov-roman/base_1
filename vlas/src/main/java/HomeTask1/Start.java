@@ -1,4 +1,4 @@
-package Lesson1;
+package HomeTask1;
 
 import java.util.Scanner;
 
@@ -23,14 +23,15 @@ public class Start {
                 case "4":
                     sortByID();
                     break;
-//                case "5":
-//                    showEmployeesDuplicates();
-//                    break;
-//                case "6":
-//                    prnBiigSal();
-//                case "7":
-//                    sortBySalary();
-//                    break;
+                case "5":
+                    showEmployeesDuplicates();
+                    break;
+                case "6":
+                    EmpMaxSal();
+                    break;
+                case "7":
+                    sortBySalary();
+                    break;
                 case "Exit":
                     System.exit(0); // закрывается поток
                 default:
@@ -84,6 +85,48 @@ public class Start {
             }
             System.out.print(users[i].name + ',');
         }
+    }
+
+    public static void showEmployeesDuplicates() {
+        Emploee[] emploees = Emploee.getEmploees();
+        for (int i = 0; i < emploees.length; i++) {
+            for (int j = 0; j < emploees.length; j++) {
+                if (emploees[i].name.equals(emploees[j].name)) {
+                    System.out.println(emploees[i].name + " " + "" + emploees[i].secondName);
+                }
+                break;
+            }
+        }
+    }
+
+    public static void EmpMaxSal() {
+        Emploee[] emploees = Emploee.getEmploees();
+        Emploee maxSalary = emploees[0];
+        for (int i = 0; i < emploees.length; i++) {
+            if (emploees[i].salary > maxSalary.salary) {
+                maxSalary = emploees[i];
+            }
+
+        }
+        System.out.println(maxSalary.name + " " + maxSalary.secondName + " " + maxSalary.salary);
+    }
+
+    public static void sortBySalary() {
+        Emploee[] emploees = Emploee.getEmploees();
+        for (int i = 0; i < emploees.length; i++) {
+            for (int j = emploees.length; j < emploees.length - 1; j--) {
+                if (emploees[j].salary > emploees[j - 1].salary) {
+                    Emploee tmp = emploees[j];
+                    emploees[j] = emploees[j - 1];
+                    emploees[j - 1] = tmp;
+                }
+            }
+        }
+        for (int i = 0; i < emploees.length; i++) {
+            System.out.println(emploees[i].name + " " + emploees[i].secondName + " " + emploees[i].salary);
+
+        }
+
     }
 }
 
