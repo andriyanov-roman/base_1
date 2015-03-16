@@ -95,10 +95,14 @@ public class CompanyUtil {
             switch (sc.next()) {
                 case "1":
                     showCompaniesAndEmployees();
+                    break;
+
                 case "2":
                     maxSalary();
+                    break;
                 case "3":
                     maxSalaryOfAllCompanies();
+                    break;
 
 
             }
