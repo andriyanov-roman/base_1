@@ -33,7 +33,7 @@ public class CompanyUtil {
 
     }
 
-    public static void max() {
+   /* public static void max() {
         Company[] companies = getCompanies();
         int i;
         int salaryMax = 0;
@@ -52,5 +52,5 @@ public class CompanyUtil {
         }
 
 
-    }
+    }*/
 }
