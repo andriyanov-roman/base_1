@@ -1,58 +1,21 @@
 package hometask2;
 
-import lesson2.*;
-import lesson2.Employee;
-
 /**
- * Created by user on 14.03.2015.
+ * Created by Dmitriy Lisunov on 14.03.2015.
  */
 public class EmployeeUtil {
-    public static hometask2.Employee[] getEmployees () {
-        hometask2.Employee e1 = new hometask2.Employee();
-        e1.name = "John";
-        e1.surname="Lennon";
-        e1.salary = 3205.55;
-
-        hometask2.Employee e2 = new hometask2.Employee();
-        e2.name = "Bill";
-        e2.surname="Gates";
-        e2.salary = 80_000.01;
-
-        hometask2.Employee e3 = new hometask2.Employee();
-        e3.name = "Steve";
-        e3.surname="Jobs";
-        e3.salary = 15_000.24;
-
-        hometask2.Employee e4 = new hometask2.Employee();
-        e4.name = "Linus";
-        e4.surname="Torvalds";
-        e4.salary = 50;
-
-        hometask2.Employee e5 = new hometask2.Employee();
-        e5.name = "Artemiy";
-        e5.surname="Lebedev";
-        e5.salary = 4800;
-
-        hometask2.Employee e6 = new hometask2.Employee();
-        e6.name = "Neil";
-        e6.surname="Armstrong";
-        e6.salary = 89_999.01;
-
-        hometask2.Employee e7 = new hometask2.Employee();
-        e7.name = "Mathew";
-        e7.surname="Perry";
-        e7.salary = 51.5;
-
-        hometask2.Employee e8 = new hometask2.Employee();
-        e8.name = "Martin";
-        e8.surname="Laurens";
-        e8.salary = 90_000;
-
-        hometask2.Employee e9 = new hometask2.Employee();
-        e9.name = "Clint";
-        e9.surname="Eastwood";
-        e9.salary = 99_999;
-
-        return new hometask2.Employee[] {e1,e2,e3,e4,e5,e6,e7,e8,e9};
+    public static Employee[] getEmployees () {
+        Employee e1 = new Employee("John", "Lennon", 9_993_205.55, true, 27);
+        Employee e2 = new Employee("Bill", "Gates", 80_000.01, true, 65);
+        Employee e3 = new Employee("Steve", "Jobs", 15_000.24, true, 60);
+        Employee e4 = new Employee("Linus","Torvalds", 50.00, true, 47);
+        Employee e5 = new Employee("Marry", "Madison", 12_500.00, false, 53);
+        Employee e6 = new Employee("Neil","Armstrong",89_999.01, true, 43 );
+        Employee e7 = new Employee("Helen", "Perry", 57.00, false, 28);
+        Employee e8 = new Employee("Martin", "Laurens", 90_000.0, true, 39);
+        Employee e9 = new Employee("Clint", "Eastwood", 99_999.0, true, 44);
+        Employee e10 = new Employee("Artemiy","Lebedev", 4800.00, true, 35);
+        Employee e11 = new Employee("Artur","Lebedev", 8000.00, true, 14);
+        return new Employee[] {e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,e11};
     }
 }
