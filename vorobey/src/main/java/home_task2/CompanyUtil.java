@@ -251,15 +251,12 @@ public class CompanyUtil {
                 employees[j].sex = sc.next();
                 Employee e = new Employee(employees[j].name, employees[j].secondName, employees[j].age, employees[j].salary, employees[j].sex);
                 employees[j] = e;
-                for (int k = 0; i < 1; k++)
+                for (int k = 0; k < 1; k++)
                     companies[i].setEmployees(new Employee[]{employees[j]});
 
             }
         }
-        for (int i = 0; i < 1; i++) {
-            for (int j = 0; j < companies[i].getEmployees().length; j++)
-                System.out.println(companies[i].getEmployees()[j].name + "  " + companies[i].getEmployees()[j].secondName);
-        }
+        showNewEmployee();
     }
 
 
