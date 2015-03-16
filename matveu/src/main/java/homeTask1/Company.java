@@ -1,9 +1,11 @@
 package homeTask1;
 
 
+import java.util.ArrayList;
+
 public class Company {
     private String companyName;
-    private Employee[] employees;
+    private ArrayList<Employee> employees;
 
     public void setCompanyName(String companyName){
         this.companyName=companyName;
@@ -13,11 +15,12 @@ public class Company {
         return companyName;
     }
 
-    public void setEmployees(Employee[] employees){
-        this.employees=employees;
+
+    public void setEmployees(ArrayList<Employee> employees) {
+        this.employees = employees;
     }
 
-    public Employee[] getEmployees(){
+    public ArrayList<Employee> getEmployees(){
         return employees;
     }
 

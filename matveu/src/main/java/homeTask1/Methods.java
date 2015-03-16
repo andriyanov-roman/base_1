@@ -1,5 +1,6 @@
 package homeTask1;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -121,19 +122,19 @@ public class Methods {
     }
 
     public static void infoEmployees() {
-        Employee[] employees = EmployeesUtil.getEmployees();
-        for (int i = 0; i < employees.length; i++) {
-            System.out.print(employees[i].name + " " + employees[i].secondName + " " + employees[i].salary);
+        ArrayList<Employee> employees = EmployeesUtil.getEmployees();
+        for (int i = 0; i < employees.size(); i++) {
+            System.out.print(employees.get(i).getName() + " " + employees.get(i).getSecondName() + " " + employees.get(i).getSalary());
             System.out.println();
         }
     }
 
     public static void maxSalary() {
-        Employee[] employees = EmployeesUtil.getEmployees();
+        ArrayList<Employee> employees = EmployeesUtil.getEmployees();
         double maxSalary = 0;
         int i;
         int max = 0;
-        for (i = 0; i < employees.length; i++) {
+        for (i = 0; i < employees.size(); i++) {
             if (employees[i].salary > maxSalary) {
                 maxSalary = (double) (employees[i].salary);
                 max = i;
@@ -188,7 +189,7 @@ public class Methods {
         for (int i = 0; i < companies.length; i++) {
             System.out.println();
             System.out.print(companies[i].getCompanyName() + ": ");
-            for (int j = 0; j < companies[i].getEmployees().length; j++) {
+            for (int j = 0; j < companies[i].getEmployees().size(); j++) {
                 System.out.print(companies[i].getEmployees()[j].name + " " +
                         companies[i].getEmployees()[j].secondName + "; ");
 
@@ -200,7 +201,7 @@ public class Methods {
         Company[] companies = CompanyUtil.getCompanies();
         for (int i = 0; i < companies.length; i++) {
             Employee temp = companies[i].getEmployees()[0];
-            for (int j = 0; j < companies[i].getEmployees().length; j++) {
+            for (int j = 0; j < companies[i].getEmployees().size(); j++) {
                 if (companies[i].getEmployees()[j].salary > temp.salary) {
                     temp = companies[i].getEmployees()[j];
                 }
@@ -212,7 +213,7 @@ public class Methods {
     public static void sortCompany1Salary() {
         Company[] companies = CompanyUtil.getCompanies();
         for (int i = 0; i < 1; i++) {
-            for (int j = companies[i].getEmployees().length - 1; j >= 0; j--) {
+            for (int j = companies[i].getEmployees().size() - 1; j >= 0; j--) {
                 for (int k = 0; k < j; k++) {
                     if (companies[i].getEmployees()[k].salary < companies[i].getEmployees()[k + 1].salary) {
                         Employee www = companies[i].getEmployees()[k];
@@ -230,7 +231,7 @@ public class Methods {
     public static void sortCompany2Age() {
         Company[] companies = CompanyUtil.getCompanies();
         for (int i = 1; i < 2; i++) {
-            for (int j = companies[i].getEmployees().length - 1; j >= 0; j--) {
+            for (int j = companies[i].getEmployees().size() - 1; j >= 0; j--) {
                 for (int k = 0; k < j; k++) {
                     if (companies[i].getEmployees()[k].age < companies[i].getEmployees()[k + 1].age) {
                         Employee www = companies[i].getEmployees()[k];
@@ -248,7 +249,7 @@ public class Methods {
     public static void sortCompany3LengthSecondName() {
         Company[] companies = CompanyUtil.getCompanies();
         for (int i = 2; i < 3; i++) {
-            for (int j = companies[i].getEmployees().length - 1; j >= 0; j--) {
+            for (int j = companies[i].getEmployees().size() - 1; j >= 0; j--) {
                 for (int k = 0; k < j; k++) {
                     if (companies[i].getEmployees()[k].secondName.length() < companies[i].getEmployees()[k + 1].secondName.length()) {
                         Employee www = companies[i].getEmployees()[k];
@@ -300,12 +301,7 @@ public class Methods {
                 employees[j].age = scannerLux.nextInt();
                 System.out.println("Введите зарплату сотрудника!");
                 employees[j].salary = scannerLux.nextInt();
-                Employee e7 = new Employee(employees[j].name, employees[j].secondName, employees[j].sex, employees[j].age, employees[j].salary);
-                employees[j] = e7;
-                Company[] companies = CompanyUtil.getCompanies();
-                for (int k = 0; k < 1; k++) {
-                    companies[i].setEmployees(new Employee[]{employees[j]});
-                }
+
 
             Scanner scannerNew = new Scanner(System.in);
             System.out.println("Выберите действие:");
