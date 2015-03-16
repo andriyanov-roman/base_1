@@ -14,7 +14,7 @@ public class Hometask2 {
                          "\n2) 2.a. Sort by Salary" +
                          "\n3) 2.b. Sort by Age" +
                          "\n4) 2.c. Sort by Surname Length" +
-                         "\n5) 3. OPTIONAL Add employee (добавляет пользователя и сохраняет его для следующих вызовов)" +
+                         "\n5) 3. OPTIONAL* Add employee (добавляет пользователя и СОХРАНЯЕТ его для следующих вызовов)" +
                          "\ne) (or «Exit») End program" +
                          "\n Enter command key: "
         );
