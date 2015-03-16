@@ -1,9 +1,10 @@
 package homework;
 
 
+import java.util.ArrayList;
+
 public class EmployeeUtil {
-    public static Employee[] getEmployees()
-    {
+    public static ArrayList<Employee> getEmployees() {
         Employee e1 = new Employee("Vasya", "Ivanow", 3000.13, "male", 28);
         Employee e2 = new Employee("Vasya", "Petrov", 5000.00, "male", 18);
         Employee e3 = new Employee("Sergey", "Sidorov", 87000.75, "male", 23);
@@ -14,18 +15,17 @@ public class EmployeeUtil {
         Employee e8 = new Employee("Jack", "Woker", 301000.91, "male", 32);
         Employee e9 = new Employee("Marco", "Pantani", 5673000.00, "female", 44);
 
-        Employee[] employees = new Employee[100];
-        employees[0] = e1;
-        employees[1] = e2;
-        employees[2] = e3;
-        employees[3] = e4;
-        employees[4] = e5;
-        employees[5] = e6;
-        employees[6] = e7;
-        employees[7] = e8;
-        employees[8] = e9;
+        ArrayList<Employee> employees = new ArrayList<>();
+        employees.add(e1);
+        employees.add(new Employee("Vasya", "Petrov", 5000.00, "male", 18));
+        employees.add(e3);
+        employees.add(e4);
+        employees.add(new Employee("Zhora", "Simonov", 33000.00, "male", 21));
+        employees.add(e6);
+        employees.add(e7);
+        employees.add(e8);
+        employees.add(e9);
 
         return employees;
-        //return new Employee[]{e1, e2, e3, e4, e5, e6, e7, e8, e9};
     }
 }
