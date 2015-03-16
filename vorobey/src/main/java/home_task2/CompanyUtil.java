@@ -228,15 +228,17 @@ public class CompanyUtil {
         while (sc.hasNext()) {
             switch (sc.next()) {
                 case "1":
-
+                    newEmployee();
                     break;
                 case "2":
-
+                    newEmployee();
                     break;
 
                 case "3":
-
+                    newEmployee();
                     break;
+                default:
+                    System.out.println("No such case!");
 
             }
         }
@@ -244,6 +246,7 @@ public class CompanyUtil {
 
     public static void newEmployee() {
         Employee[] employees = EmployeeUtil.getEmployees();
+
         for (int i = 0; i < 1; i++) {
             for (int j = 0; j < employees.length; j++) {
                 Scanner sc = new Scanner(System.in);
@@ -266,7 +269,19 @@ public class CompanyUtil {
 
             }
         }
-
+        System.out.println("Для добавления нового сотрдника нажмите 1,чтобы узнать информацию о только что созданном сотруднике,нажмите 2");
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            switch (sc.next()) {
+                case "1":
+                    newEmployee();
+                    break;
+                case "2":
+                    showNewEmployee();
+                default:
+                    System.out.println("No such case");
+            }
+        }
     }
 
     public static void showNewEmployee() {
