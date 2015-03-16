@@ -31,7 +31,7 @@ public class CompanyUtil {
         for (int i = 0; i < companies.length; i++) {
             System.out.println("В компании " + companies[i].companyName + " работают сотрудники: ");
             for (int j = 0; j < companies[i].employees.length; j++) {
-                System.out.print(companies[i].employees[j].name + " " + companies[i].employees[j].secondName);
+                System.out.print(companies[i].employees[j].name + " " + companies[i].employees[j].secondName + "(" + companies[i].employees[j].salary + ")");
                 System.out.println();
             }
         }
