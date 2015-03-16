@@ -192,6 +192,23 @@ public class CompanyUtil {
 
 
     }
+
+    public static void sortSecondName() {
+        Company[] companies = getCompanies();
+        for (int i = 2; i < 3; i++) {
+            for (int j = companies[i].employees.length - 1; j >= 0; j--) {
+                for (int k = 0; k < j; k++) {
+                    if (companies[i].employees[k].secondName.length() < companies[i].employees[k + 1].secondName.length()) {
+                        Employee e = companies[i].employees[k];
+                        companies[i].employees[k] = companies[i].employees[k + 1];
+                        companies[i].employees[k + 1] = e;
+                    }
+
+                }
+            }
+        }
+
+    }
 }
 
 

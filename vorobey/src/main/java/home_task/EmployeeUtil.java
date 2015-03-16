@@ -52,8 +52,16 @@ public class EmployeeUtil {
         e7.salary = 17000;
         e7.age = 30;
         e7.sex = "female";
+
+        Employee e8 = new Employee();
+        e8.name = "Anton";
+        e8.secondName = "Neudachnik";
+        e8.salary = 500;
+        e8.age = 37;
+        e8.sex = "male";
+
         return new Employee[]{
-                e1, e2, e3, e4, e5, e6,e7
+                e1, e2, e3, e4, e5, e6, e7, e8
         };
 
     }
