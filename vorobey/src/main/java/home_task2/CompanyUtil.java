@@ -17,7 +17,7 @@ public class CompanyUtil {
         Company c3 = new Company();
         c1.employees = new Employee[]{employees[0], employees[1], employees[6]};
         c2.employees = new Employee[]{employees[2], employees[4]};
-        c3.employees = new Employee[]{employees[3], employees[5]};
+        c3.employees = new Employee[]{employees[3], employees[5], employees[7]};
         c1.companyName = "FirstCompany";
         c2.companyName = "SecondCompany";
         c3.companyName = "ThirdCompany";
@@ -97,6 +97,7 @@ public class CompanyUtil {
         System.out.println("4.Чтобы вывести отсортированых сотрудников первой фирмы в порядке возростания,нажмите 4");
         System.out.println("5.Чтобы вывести отсортированых сотрудников второй фирмы в порядке возростания возраста,нажмите 5");
         System.out.println("6.Чтобы вывести сотрудника с самой длинной фамилией(третья компнания),нажмите 6");
+        System.out.println("7.Чтобы вывести отсортированых в порядке увеличения фамилии сотрудников третьей компании,нажмите 7");
         while (sc.hasNext()) {
             switch (sc.next()) {
                 case "1":
@@ -117,6 +118,9 @@ public class CompanyUtil {
                     break;
                 case "6":
 
+                    maxLengthSecondNameThirdCompany();
+                    break;
+                case "7":
                     maxLengthSecondNameThirdCompany();
                     break;
 
@@ -205,6 +209,14 @@ public class CompanyUtil {
                     }
 
                 }
+            }
+            System.out.println("Сортировка сотрудников третьей компании в порядке увеличения длины фамилии: ");
+
+
+        }
+        for (int i = 2; i < 3; i++) {
+            for (int j = companies[i].employees.length - 1; j >= 0; j--) {
+                System.out.println(companies[i].employees[j].name + " " + companies[i].employees[j].secondName + "  " + companies[i].employees[j].secondName.length());
             }
         }
 
