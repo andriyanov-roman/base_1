@@ -11,13 +11,22 @@ public class Employee {
     private int age;
     private String sex;
 
+    public Employee(String name, String surname, double salary,int age, String sex ){
+        this.name = name ;
+        this.surname = surname;
+        this.salary = salary;
+        this.age = age;
+        this.sex = sex;
+
+    }
+
     public String getName (){
         return name;
     }
     public void setName (){
         this.name = name;
     }
-public String getSurname(){
+    public String getSurname(){
     return surname;
 }
     public void setSurname(){

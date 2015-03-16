@@ -2,12 +2,14 @@ package Lessons.LessonTwo;
 
 import Homeworks.homework_1.Employee;
 
+import java.util.ArrayList;
+
 /**
  * Created by user on 16.03.2015.
  */
 public class Company {
     private String companyName;
-    private Employee[] employees;
+    private ArrayList<Employee> employees;
 
 
     public String getCompanyName() {
@@ -18,11 +20,11 @@ public class Company {
         this.companyName = companyName;
     }
 
-    public Employee[] getEmployees() {
+    public ArrayList<Employee> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(Employee[] employees) {
+    public void setEmployees(ArrayList<Employee> employees) {
         this.employees = employees;
     }
 }

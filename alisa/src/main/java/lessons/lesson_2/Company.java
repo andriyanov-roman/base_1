@@ -1,6 +1,6 @@
 package lessons.lesson_2;
 
-import homework.hw_1.Employee;
+
 
 /**
  * Created by user on 14.03.2015.
