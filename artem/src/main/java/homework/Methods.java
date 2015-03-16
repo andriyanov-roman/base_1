@@ -1,11 +1,12 @@
 package homework;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class Methods {
+    public static Scanner scanner = new Scanner(System.in);
     public static void start() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("1.Получить информацию о всех пользователях");
         System.out.println("2.Проверка совпадения логина с именем или Фамилией нажмите");
         System.out.println("3.Проверка совпадения и имен и фамилий у нескольких пользователей");
@@ -197,50 +198,61 @@ public class Methods {
     }
     //11
     public static void addEmployee(){
-        Scanner scanner = new Scanner(System.in);
-        Employee[] employees = EmployeeUtil.getEmployees();
+        ArrayList employees = EmployeeUtil.getEmployees();
         Org[] orgs = OrgUtil.getOrganizations();
-        System.out.println("Выберите компанию,в которую желаете добавить сотрудника:");
-        System.out.println("0: C#");
-        System.out.println("1: C++");
-        System.out.println("2: Java");
-        int k = scanner.nextInt();
-        for (int i = 9; i < employees.length; i++) {
-            Employee e10 = new Employee();
-            employees[i] = e10;
-            System.out.print("Введите имя сотрудника: ");
-            employees[i].setName(scanner.next());
-            System.out.print("Введите фамилию сотрудника: ");
-            employees[i].setSecondName(scanner.next());
-            System.out.print("Введите пол сотрудника: ");
-            employees[i].setSex(scanner.next());
-            System.out.print("Введите возраст сотрудника: ");
-            employees[i].setAge(scanner.nextInt());
-            System.out.print("Введите зарплату сотрудника: ");
-            employees[i].setSalary(scanner.nextInt());
-            // создаём новый массив по количеству сотрудников конкретной организации и ПЛЮС ОДНО место под нового сотрудника
-            Employee[] tempArr = new Employee[orgs[k].getEmployees().length + 1];
-            for (int j = 0; j < orgs[k].getEmployees().length; j++) {
-                tempArr[j] = orgs[k].getEmployees()[j];// загоняем старых во временный массив
-            }
-            tempArr[tempArr.length - 1] = e10;// в этот же массив добавляем нового сотрудника
-            orgs[k].setEmployees(tempArr); //обновляем список сотрудников компании
-            System.out.println("Выберите действие:");
-            System.out.println("1: Добавить следующего сотрудника");
-            System.out.println("2: Вывести информацию по данному сотруднику");
-            while (scanner.hasNext()){
-                switch (scanner.next()) {
-                    case "1":
-                        addEmployee();
-                        break;
-                    case "2":
-                        System.out.println(orgs[k].getEmployees()[orgs[k].getEmployees().length - 1].getName());
-                        System.out.println(" -- Добавить еще сотрудника?\n1: да\n2: выйти");
-                        if (scanner.nextInt() == 1) { addEmployee(); }
-                        else { System.exit(0); }
-                        break;
-                }
+        for(int i = 0; i<employees.size(); i++){
+            System.out.println(employees.get(i));
+        }
+
+//        System.out.println(employees.toString());
+
+//        System.out.println("Выберите компанию,в которую желаете добавить сотрудника:");
+//        System.out.println("0: C#");
+//        System.out.println("1: C++");
+//        System.out.println("2: Java");
+//        int k = scanner.nextInt();
+//        for (int i = 9; i < employees.length; i++) {
+//            Employee e10 = new Employee();
+//            employees.add(e10);
+//            System.out.print("Введите имя сотрудника: ");
+//            employees[i].setName(scanner.next());
+//            System.out.print("Введите фамилию сотрудника: ");
+//            employees[i].setSecondName(scanner.next());
+//            System.out.print("Введите пол сотрудника: ");
+//            employees[i].setSex(scanner.next());
+//            System.out.print("Введите возраст сотрудника: ");
+//            employees[i].setAge(scanner.nextInt());
+//            System.out.print("Введите зарплату сотрудника: ");
+//            employees[i].setSalary(scanner.nextInt());
+//            // создаём новый массив по количеству сотрудников конкретной организации и ПЛЮС ОДНО место под нового сотрудника
+//            Employee[] tempArr = new Employee[orgs[k].getEmployees().length + 1];
+//            for (int j = 0; j < orgs[k].getEmployees().length; j++) {
+//                tempArr[j] = orgs[k].getEmployees()[j];// загоняем старых во временный массив
+//            }
+//            tempArr[tempArr.length - 1] = e10;// в этот же массив добавляем нового сотрудника
+//            orgs[k].setEmployees(tempArr); //обновляем список сотрудников компании
+//            System.out.println("Выберите действие:");
+//            System.out.println("1: Добавить следующего сотрудника");
+//            System.out.println("2: Вывести информацию по данному сотруднику");
+//        }
+    }
+
+    /*public void addEmployeeForCompany() {
+        Scanner scanner = new Scanner(System.in);
+        String a = scanner.next();
+
+        while (scanner.hasNext()){
+            switch (scanner.next()) {
+                case "1":
+                    addEmployeeForCompany();
+                    break;
+                case "2":
+                    System.out.println(orgs[k].getEmployees()[orgs[k].getEmployees().length - 1].getName());
+                    System.out.println(" -- Добавить еще сотрудника?\n1: да\n2: выйти");
+                    if (scanner.nextInt() == 1) { addEmployee(); }
+                    else { System.exit(0); }
+                    break;
             }
         }
-    }
+    }*/
 }

@@ -25,6 +25,7 @@ public class Employee {
     public void setName(String name) {
         this.name = name;
     }
+
     public String getSecondName() {
         return secondName;
     }
