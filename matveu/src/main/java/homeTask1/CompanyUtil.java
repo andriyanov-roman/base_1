@@ -1,26 +1,38 @@
 package homeTask1;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class CompanyUtil {
-    public static Company[] getCompanies() {
+    public static ArrayList<Company> getCompanies () {
+        ArrayList<Company> companies = new ArrayList<>();
+        ArrayList<Employee> employees=EmployeesUtil.getEmployees();
         Company c1=new Company();
-        Employee[] employees=EmployeesUtil.getEmployees();
-        c1.setCompanyName("Luxsoft");
-        c1.setEmployees(new Employee[]{employees[0], employees[1], employees[4], employees[5]});
+        c1.setEmployees(new ArrayList<>());
+        c1.getEmployees().add(employees.get(0));
+        c1.getEmployees().add(employees.get(1));
+        c1.getEmployees().add(employees.get(2));
+        companies.add(c1);
 
         Company c2=new Company();
-        c2.setCompanyName("Microsoft");
-        c2.setEmployees(new Employee[] {employees[3],employees[2],employees[0],employees[1]});
+        c2.setEmployees(new ArrayList<>());
+        c2.getEmployees().add(employees.get(3));
+        c2.getEmployees().add(employees.get(4));
+        c2.getEmployees().add(employees.get(5));
+        companies.add(c2);
 
         Company c3=new Company();
-        c3.setCompanyName("Sony");
-        c3.setEmployees(new Employee[] {employees[0],employees[1],employees[3],employees[5]});
+        c3.setEmployees(new ArrayList<>());
+        c3.getEmployees().add(employees.get(6));
+        c3.getEmployees().add(employees.get(7));
+        c3.getEmployees().add(employees.get(8));
+        companies.add(c2);
 
-        Company[] companies=new Company[3];
-        companies[0]=c1;
-        companies[1]=c2;
-        companies[2]=c3;
-        return companies;
+        c1.setCompanyName("Luxsoft");
+        c2.setCompanyName("Microsoft");
+        c2.setCompanyName("Sony");
+        return new ArrayList<>(Arrays.asList(c1,c2,c3));
 
     }
 
