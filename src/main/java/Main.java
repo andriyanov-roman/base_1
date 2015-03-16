@@ -2,6 +2,8 @@ import base_examples.objects.Human;
 import home_work_2.Employee;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,12 +21,13 @@ public class Main {
         employees.set(1, new Employee("Artem", "Petrov", 5000.00));
         ArrayList<Employee> employees1 = new ArrayList<>();
         employees1.add(e);
-        System.out.println(employee.toString());
+        System.out.println(employee);
         employees.forEach(System.out::println);
         employees.addAll(employees1);
         employees.removeAll(employees1);
         String[] strings = new String[10];
         strings[0] = "A";
         System.out.println(employee.size());
+
     }
 }
