@@ -222,5 +222,25 @@ public class CompanyUtil {
 
     }
 
+    public static void addNEwEmployee() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Добавим нового стотрудника!Чтобы сделать это для первой комапании,нажмите 1,для второй-нажмите 2,для третьей-3");
+        while (sc.hasNext()) {
+            switch (sc.next()) {
+                case "1":
+
+                    break;
+                case "2":
+
+                    break;
+
+                case "3":
+
+                    break;
+
+            }
+        }
+    }
+
 
 }
