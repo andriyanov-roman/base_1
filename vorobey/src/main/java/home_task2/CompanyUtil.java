@@ -95,6 +95,7 @@ public class CompanyUtil {
         System.out.println("2.Чтобы вывести сотрудников с максимальной ЗП в каждой компании,нажмите 2");
         System.out.println("3.Чтобы вывести сотрудника с максимальной ЗП относительно всех сотрудников(всех компаний),нажмите 3");
         System.out.println("4.Чтобы вывести отсортированых сотрудников первой фирмы в порядке возростания,нажмите 4");
+        System.out.println("5.Чтобы вывести отсортированых сотрудников второй фирмы в порядке возростания возраста,нажмите 5");
         while (sc.hasNext()) {
             switch (sc.next()) {
                 case "1":
@@ -109,6 +110,9 @@ public class CompanyUtil {
                     break;
                 case "4":
                     sortSalaryFirstCompany();
+                    break;
+                case "5":
+                    sortAgeSecondCompany();
                     break;
 
 
@@ -140,6 +144,30 @@ public class CompanyUtil {
         }
 
     }
+
+    public static void sortAgeSecondCompany() {
+        Company[] companies = getCompanies();
+        for (int i = 1; i < 2; i++) {
+            for (int j = companies[i].employees.length - 1; j >= 0; j--) {
+                for (int k = 0; k < j; k++) {
+                    if (companies[i].employees[k].age < companies[i].employees[k + 1].age) {
+                        Employee e = companies[i].employees[k];
+                        companies[i].employees[k] = companies[i].employees[k + 1];
+                        companies[i].employees[k + 1] = e;
+                    }
+                }
+            }
+            System.out.println("Сотрудники компании " + companies[i].companyName + " в порядке возростания возроста:");
+        }
+        for (int i = 1; i < 2; i++) {
+            for (int j = companies[i].employees.length - 1; j >= 0; j--) {
+                System.out.println(companies[i].employees[j].name + " " + companies[i].employees[j].secondName + " (" + companies[i].employees[j].age + ")");
+            }
+
+        }
+
+    }
+
 
 }
 
