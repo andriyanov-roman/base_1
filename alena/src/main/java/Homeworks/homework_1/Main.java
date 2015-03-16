@@ -1,4 +1,9 @@
-package homeworks.homework1;
+package Homeworks.homework_1;
+
+import Homeworks.homework_1.Employee;
+import Homeworks.homework_1.EmployeeUtil;
+import Homeworks.homework_1.User;
+import Homeworks.homework_1.UsersUtil;
 
 import java.util.Scanner;
 

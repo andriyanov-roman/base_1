@@ -1,4 +1,4 @@
-package homeworks.homework1;
+package Homeworks.homework_1;
 
 /**
  * Created by MacBook on 16.03.15.
