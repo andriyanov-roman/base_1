@@ -1,4 +1,4 @@
-package hometask2;
+package Task;
 
 /**
  * Created by user on 14.03.2015.
