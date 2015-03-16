@@ -1,15 +1,17 @@
 package home_work_2;
 
 
+import java.util.ArrayList;
+
 public class Company {
     private String companyName;
-    private Employee[] employees;
+    private ArrayList<Employee> employees;
 
-    public Employee[] getEmployees() {
+    public ArrayList<Employee> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(Employee[] employees) {
+    public void setEmployees(ArrayList<Employee> employees) {
         this.employees = employees;
     }
 
