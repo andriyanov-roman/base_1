@@ -171,6 +171,19 @@ public class CompanyUtil {
 
     public static void sortLengthSecondNameThirdCompany() {
         Company[] companies = getCompanies();
+        String maxLengthSecondName = "";
+        int maxLength = 0;
+        for (int i = 2; i < 3; i++) {
+            for (int j = 0; j < companies[i].employees.length; j++) {
+                if (companies[i].employees[j].secondName.length() > maxLength) {
+                    maxLengthSecondName = companies[i].employees[j].secondName;
+                    maxLength = companies[i].employees[j].secondName.length();
+                }
+
+            }
+        }
+        System.out.println(maxLengthSecondName);
+        System.out.println(maxLength);
 
 
     }
