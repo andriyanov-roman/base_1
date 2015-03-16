@@ -164,14 +164,16 @@ public class CompanyUtil {
                 System.out.println(companies[i].employees[j].name + " " + companies[i].employees[j].secondName + " (" + companies[i].employees[j].age + ")");
             }
 
+
         }
 
     }
 
+    public static void sortLengthSecondNameThirdCompany() {
+        Company[] companies = getCompanies();
 
+
+    }
 }
-
-
-
 
 
