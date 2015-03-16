@@ -4,6 +4,8 @@ import com.sun.javafx.geom.AreaOp;
 import home_task.Employee;
 import home_task.EmployeeUtil;
 
+import java.util.Scanner;
+
 /**
  * Created by Stas on 16.03.2015.
  */
@@ -81,6 +83,27 @@ public class CompanyUtil {
 
         }
         System.out.println("Из всех компаний,сотрудник с максимальной ЗП :" + maxName + ",а именно :" + maxSalary + ", работает в компании " + maxNameCompany);
+
+    }
+
+    public static void launch() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("1.Чтобы увидеть,какие сотрудники в каких компаниях работают,нажмите 1");
+        System.out.println("2.Чтобы вывести сотрудников с максимальной ЗП в каждой компании,нажмите 2");
+        System.out.println("3.Чтобы вывести сотрудника с максимальной ЗП относительно всех сотрудников(всех компаний),нажмите 3");
+        while (sc.hasNext()) {
+            switch (sc.next()) {
+                case "1":
+                    showCompaniesAndEmployees();
+                case "2":
+                    maxSalary();
+                case "3":
+                    maxSalaryOfAllCompanies();
+
+
+            }
+        }
+
 
     }
 }
