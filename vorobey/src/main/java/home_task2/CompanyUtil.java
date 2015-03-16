@@ -15,7 +15,7 @@ public class CompanyUtil {
         Company c1 = new Company();
         Company c2 = new Company();
         Company c3 = new Company();
-        c1.employees = new Employee[]{employees[0], employees[1]};
+        c1.employees = new Employee[]{employees[0], employees[1], employees[6]};
         c2.employees = new Employee[]{employees[2], employees[4]};
         c3.employees = new Employee[]{employees[3], employees[5]};
         c1.companyName = "FirstCompany";
@@ -112,4 +112,23 @@ public class CompanyUtil {
 
 
     }
+
+    public static void sortSalaryFirstCompany() {
+        Company[] companies = getCompanies();
+        for (int i = 0; i < 1; i++) {
+            for (int j = 0; j < companies[i].employees.length; j++) {
+                for (int k = 0; k < companies[i].employees[j].salary; k++) {
+                    if (companies[i].employees[j].salary < companies[i].employees[j + 1].salary)
+                }
+            }
+        }
+
+
+    }
+
 }
+
+
+
+
+
