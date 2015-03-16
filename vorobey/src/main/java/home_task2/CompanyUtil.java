@@ -269,5 +269,20 @@ public class CompanyUtil {
 
     }
 
+    public static void showNewEmployee() {
+
+        Employee[] employees = EmployeeUtil.getEmployees();
+        Company[] companies = CompanyUtil.getCompanies();
+        for (int k = 0; k < 1; k++) {
+            System.out.print(companies[k].getCompanyName() + ": ");
+            for (int i = 0; i < 1; i++) {
+                System.out.print(employees[i].name + " " + employees[i].secondName + " " +
+                        employees[i].sex + " " + employees[i].age + " " +
+                        employees[i].salary);
+            }
+
+        }
+    }
+
 
 }
