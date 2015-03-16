@@ -15,11 +15,11 @@ public class Employee {
     }
 
     public Employee(String name, String secondName, int salary, int age, String sex) {
-        Scanner sc = new Scanner(System.in);
-        this.name = sc.next();
-        this.secondName = sc.next();
-        this.salary = sc.nextInt();
-        this.age = sc.nextInt();
+
+        this.name = name;
+        this.secondName = secondName;
+        this.salary = salary;
+        this.age = age;
 
     }
 
