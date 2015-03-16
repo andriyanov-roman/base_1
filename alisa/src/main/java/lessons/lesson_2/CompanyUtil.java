@@ -53,18 +53,21 @@ public class CompanyUtil {
 
 
     }
+    public static void getMaxSalary() {
+        Company[] companies = getCompanies();
+        for (int i = 0; i < companies.length; i++) {
+            Employee temp = companies[i].getEmployees()[0];
+            for (int j = 0; j < companies[i].getEmployees().length; j++) {
+                double salary = companies[i].getEmployees()[j].salary;
+                if (temp.salary > salary) {
+                    temp = companies[i].getEmployees()[j];
+                }
+            }
+            System.out.println(companies[i].getCompanyName() + " " + temp.salary);
+        }
+    }
 }
 
-   // public static void showEmployeeMaxSalary(){
-        // [] companies = getCompanies();
-        //Company EmployeeMaxSalary = companies [0];
-       //Employee MaxSalary = companies[0].employees[0];
-      // for (int i = 0; i < companies[i].employees.length; i++) {
-           //for (int j = 0; j < companies[i].employees[i].length; j++) {
-
-           // }
-
-        //}
 
 
 
