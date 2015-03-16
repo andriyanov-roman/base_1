@@ -2,44 +2,22 @@ package homeTask1;
 
 public class EmployeesUtil {
     public static Employee[] getEmployees() {
-        Employee e1=new Employee();
-        e1.name="Grisha";
-        e1.secondName="Popov";
-        e1.salary=10000;
 
-        Employee e2=new Employee();
-        e2.name="Alisa";
-        e2.secondName="Bragina";
-        e2.salary=7000;
+        Employee e1 = new Employee("Grisha", "Popov", "man", 25, 10000.0);
+        Employee e2 = new Employee("Alisa", "Bragina", "woman", 20, 7000.0);
+        Employee e3 = new Employee("Alisa", "Bragina", "woman", 45, 7500.0);
+        Employee e4 = new Employee("Vova", "Petrenko", "man", 33, 12000.0);
+        Employee e5 = new Employee("Misha", "Zaec", "man", 18, 13000.0);
+        Employee e6 = new Employee("Olga", "Emec", "woman", 21, 6000.0);
 
-        Employee e3=new Employee();
-        e3.name="Alisa";
-        e3.secondName="Bragina";
-        e3.salary=7500;
 
-        Employee e4=new Employee();
-        e4.name="Vova";
-        e4.secondName="Petrenko";
-        e4.salary=12000;
-
-        Employee e5=new Employee();
-        e5.name="Misha";
-        e5.secondName="Zaec";
-        e5.salary=13000;
-
-        Employee e6=new Employee();
-        e6.name="Olga";
-        e6.secondName="Emec";
-        e6.salary=6000;
-
-        Employee[] employees=new Employee[6];
-        employees[0]=e1;
-        employees[1]=e2;
-        employees[2]=e3;
-        employees[3]=e4;
-        employees[4]=e5;
-        employees[5]=e6;
+        Employee[] employees = new Employee[100];
+        employees[0] = e1;
+        employees[1] = e2;
+        employees[2] = e3;
+        employees[3] = e4;
+        employees[4] = e5;
+        employees[5] = e6;
         return employees;
-
     }
 }
