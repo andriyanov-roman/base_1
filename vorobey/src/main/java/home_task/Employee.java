@@ -5,5 +5,8 @@ public class Employee {
     public String name;
     public String secondName;
     public int salary;
+    public int age;
+    public String sex;
+
 
 }
