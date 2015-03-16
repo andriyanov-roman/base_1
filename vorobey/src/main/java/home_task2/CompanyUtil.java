@@ -1,5 +1,6 @@
 package home_task2;
 
+import com.sun.javafx.geom.AreaOp;
 import home_task.Employee;
 import home_task.EmployeeUtil;
 
@@ -54,6 +55,32 @@ public class CompanyUtil {
 
         }
 
+
+    }
+
+    public static void maxSalaryOfAllCompanies() {
+        Company[] companies = getCompanies();
+        int maxSalary = 0;
+        String maxName = "";
+        String maxSecondName = "";
+        String maxNameCompany = "";
+
+        for (int i = 0; i < companies.length; i++) {
+            for (int j = 0; j < companies[i].employees.length; j++) {
+                for (int k = 0; k < companies[i].employees[j].salary; k++) {
+                    if (companies[i].employees[j].salary > maxSalary) {
+                        maxSalary = companies[i].employees[j].salary;
+                        maxName = companies[i].employees[j].name;
+                        maxSecondName = companies[i].employees[j].secondName;
+                        maxNameCompany = companies[i].companyName;
+
+                    }
+                }
+            }
+
+
+        }
+        System.out.println("Из всех компаний,сотрудник с максимальной ЗП :" + maxName + ",а именно :" + maxSalary + ", работает в компании " + maxNameCompany);
 
     }
 }
