@@ -96,8 +96,10 @@ public class CompanyUtil {
         System.out.println("3.Чтобы вывести сотрудника с максимальной ЗП относительно всех сотрудников(всех компаний),нажмите 3");
         System.out.println("4.Чтобы вывести отсортированых сотрудников первой фирмы в порядке возростания ЗП,нажмите 4");
         System.out.println("5.Чтобы вывести отсортированых сотрудников второй фирмы в порядке возростания возраста,нажмите 5");
-        System.out.println("6.Чтобы вывести сотрудника с самой длинной фамилией(третья компнания),нажмите 6");
+        System.out.println("6.Чтобы вывести сотрудника с самой длинной фамилией(третья компания),нажмите 6");
         System.out.println("7.Чтобы вывести отсортированых в порядке увеличения длины фамилии сотрудников третьей компании,нажмите 7");
+        System.out.println("8.Чтобы добавить нового сотрудника в первую(например) компанию, 8");
+        System.out.println("9.Чтобы вывести обновленный список сотруников,нажмите 9");
         while (sc.hasNext()) {
             switch (sc.next()) {
                 case "1":
@@ -122,6 +124,14 @@ public class CompanyUtil {
                     break;
                 case "7":
                     sortSecondName();
+                    break;
+
+                case "8":
+                    newEmployee();
+                    break;
+
+                case "9":
+                    showNewEmployee();
                     break;
 
 
@@ -222,31 +232,9 @@ public class CompanyUtil {
 
     }
 
-    public static void choiceCompanyNewEmployeeAdd() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Добавим нового стотрудника!Чтобы сделать это для первой комапании,нажмите 1,для второй-нажмите 2,для третьей-3");
-        while (sc.hasNext()) {
-            switch (sc.next()) {
-                case "1":
-                    newEmployee();
-                    break;
-                case "2":
-                    newEmployee();
-                    break;
-
-                case "3":
-                    newEmployee();
-                    break;
-                default:
-                    System.out.println("No such case!");
-
-            }
-        }
-    }
 
     public static void newEmployee() {
         Employee[] employees = EmployeeUtil.getEmployees();
-
         for (int i = 0; i < 1; i++) {
             for (int j = 0; j < employees.length; j++) {
                 Scanner sc = new Scanner(System.in);
@@ -269,34 +257,19 @@ public class CompanyUtil {
 
             }
         }
-        System.out.println("Для добавления нового сотрдника нажмите 1,чтобы узнать информацию о только что созданном сотруднике,нажмите 2");
-        Scanner sc = new Scanner(System.in);
-        while (sc.hasNext()) {
-            switch (sc.next()) {
-                case "1":
-                    newEmployee();
-                    break;
-                case "2":
-                    showNewEmployee();
-                default:
-                    System.out.println("No such case");
-            }
-        }
     }
 
-    public static void showNewEmployee() {
 
-        Employee[] employees = EmployeeUtil.getEmployees();
-        Company[] companies = CompanyUtil.getCompanies();
-        for (int k = 0; k < 1; k++) {
-            System.out.print(companies[k].getCompanyName() + ": ");
-            for (int i = 0; i < 1; i++) {
-                System.out.print(employees[i].name + " " + employees[i].secondName + " " +
-                        employees[i].sex + " " + employees[i].age + " " +
-                        employees[i].salary);
+    public static void showNewEmployee() {
+        Company[] companies = getCompanies();
+        for (int i = 0; i < 1; i++) {
+            for (int j = 0; j < companies[i].getEmployees().length; j++) {
+                System.out.println(companies[i].getEmployees()[j].name + " " + companies[i].getEmployees()[j].secondName);
             }
 
         }
+
+
     }
 
 
