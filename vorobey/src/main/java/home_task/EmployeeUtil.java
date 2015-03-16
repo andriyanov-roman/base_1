@@ -13,7 +13,7 @@ public class EmployeeUtil {
         Employee e2 = new Employee();
         e2.name = "Vlad";
         e2.secondName = "Sokolov";
-        e2.salary = 1500;
+        e2.salary = 2500;
         e2.age = 37;
         e2.sex = "male";
 
