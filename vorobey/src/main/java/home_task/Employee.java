@@ -14,7 +14,7 @@ public class Employee {
 
     }
 
-    Employee(String name, String secondName, int salary, int age) {
+    public Employee(String name, String secondName, int salary, int age, String sex) {
         Scanner sc = new Scanner(System.in);
         this.name = sc.next();
         this.secondName = sc.next();

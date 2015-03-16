@@ -1,6 +1,6 @@
 package home_task2;
 
-import com.sun.javafx.geom.AreaOp;
+
 import home_task.Employee;
 import home_task.EmployeeUtil;
 
@@ -222,7 +222,7 @@ public class CompanyUtil {
 
     }
 
-    public static void addNEwEmployee() {
+    public static void choiceCompanyNewEmployeeAdd() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Добавим нового стотрудника!Чтобы сделать это для первой комапании,нажмите 1,для второй-нажмите 2,для третьей-3");
         while (sc.hasNext()) {
@@ -240,6 +240,33 @@ public class CompanyUtil {
 
             }
         }
+    }
+
+    public static void newEmployee() {
+        Employee[] employees = EmployeeUtil.getEmployees();
+        for (int i = 0; i < 1; i++) {
+            for (int j = 0; j < employees.length; j++) {
+                Scanner sc = new Scanner(System.in);
+                System.out.println("Введите Имя и Фамилию нового сотрудника");
+                employees[j].name = sc.next();
+                employees[j].secondName = sc.next();
+
+                System.out.println("Возраст и ЗП нового сотрдуника");
+                employees[j].age = sc.nextInt();
+                employees[j].salary = sc.nextInt();
+
+                System.out.println("Введите Пол сотрудника");
+                employees[j].sex = sc.next();
+                Employee e = new Employee(employees[j].name, employees[j].secondName, employees[j].age, employees[j].salary, employees[j].sex);
+                employees[j] = e;
+                for (int k = 0; i < 1; k++) {
+                    Company[] companies = getCompanies();
+                    companies[i].setEmployees(new Employee[]{employees[j]});
+                }
+
+            }
+        }
+
     }
 
 
