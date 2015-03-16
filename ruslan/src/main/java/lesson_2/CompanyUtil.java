@@ -21,7 +21,7 @@ public class CompanyUtil {
     public static void getmaxSalary() { // находит сотрудника, с найбольшей зарплатой
         Company[] companies = getCompanies();
         for (int i = 0; i < companies.length; i++) {
-            Employee temp = companies[i].getEmployees()[0];
+            Employee temp = companies[i].employees[0];
             for (int j = 0; j < companies[i].employees.length; j++) {
                 double salary = companies[i].employees[j].salary;
                 if (temp.salary > salary) {

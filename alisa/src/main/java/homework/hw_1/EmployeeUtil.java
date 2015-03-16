@@ -9,7 +9,7 @@ public class EmployeeUtil {
     public static Employee[] getEmployees() {
     Employee e1 = new Employee ("Vasya", "Ivanow", 3000.00);
     Employee e2 = new Employee ("Vasya", "Petrov", 5000.00);
-    Employee e3 = new Employee ("Sergey", "Sidorov", 7000.00);
+    Employee e3 = new Employee ("Sergey", "Sidorov", 7000.00 );
     Employee e4 = new Employee ("Caley", "Ivanowa", 13000.00);
     Employee e5 = new Employee ("Zhora", "Simonov", 33000.00);
     Employee e6 = new Employee ("Jack", "Woker", 28000.00);
