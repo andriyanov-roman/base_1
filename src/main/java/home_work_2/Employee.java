@@ -1,4 +1,4 @@
-package lesson_2;
+package home_work_2;
 
 /**
  * Created by Администратор on 14.03.2015.

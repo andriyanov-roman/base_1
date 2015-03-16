@@ -1,25 +1,31 @@
-package lesson_2;
+package home_task2;
+
+import home_task.Employee;
 
 /**
- * Created by Администратор on 14.03.2015.
+ * Created by Stas on 16.03.2015.
  */
 public class Company {
     private String companyName;
     private Employee[] employees;
 
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+
+    }
+
     public Employee[] getEmployees() {
         return employees;
+
+
     }
 
     public void setEmployees(Employee[] employees) {
         this.employees = employees;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public String getCompanyName() {
-        return companyName;
-    }
 }
