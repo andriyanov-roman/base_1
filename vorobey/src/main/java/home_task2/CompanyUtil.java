@@ -96,6 +96,7 @@ public class CompanyUtil {
         System.out.println("3.Чтобы вывести сотрудника с максимальной ЗП относительно всех сотрудников(всех компаний),нажмите 3");
         System.out.println("4.Чтобы вывести отсортированых сотрудников первой фирмы в порядке возростания,нажмите 4");
         System.out.println("5.Чтобы вывести отсортированых сотрудников второй фирмы в порядке возростания возраста,нажмите 5");
+        System.out.println("6.Чтобы вывести сотрудника с самой длинной фамилией(третья компнания),нажмите 6");
         while (sc.hasNext()) {
             switch (sc.next()) {
                 case "1":
@@ -113,6 +114,10 @@ public class CompanyUtil {
                     break;
                 case "5":
                     sortAgeSecondCompany();
+                    break;
+                case "6":
+
+                    maxLengthSecondNameThirdCompany();
                     break;
 
 
@@ -169,7 +174,7 @@ public class CompanyUtil {
 
     }
 
-    public static void sortLengthSecondNameThirdCompany() {
+    public static void maxLengthSecondNameThirdCompany() {
         Company[] companies = getCompanies();
         String maxLengthSecondName = "";
         int maxLength = 0;
@@ -182,8 +187,8 @@ public class CompanyUtil {
 
             }
         }
-        System.out.println(maxLengthSecondName);
-        System.out.println(maxLength);
+        System.out.println("Сотрудник с фамилией :" + maxLengthSecondName);
+        System.out.println("Длина фамилии :" + maxLength);
 
 
     }
