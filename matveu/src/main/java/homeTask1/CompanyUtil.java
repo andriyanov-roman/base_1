@@ -6,7 +6,7 @@ public class CompanyUtil {
         Company c1=new Company();
         Employee[] employees=EmployeesUtil.getEmployees();
         c1.setCompanyName("Luxsoft");
-        c1.setEmployees(new Employee[] {employees[0],employees[1],employees[4],employees[5]});
+        c1.setEmployees(new Employee[]{employees[0], employees[1], employees[4], employees[5]});
 
         Company c2=new Company();
         c2.setCompanyName("Microsoft");

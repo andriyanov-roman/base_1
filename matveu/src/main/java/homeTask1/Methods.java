@@ -21,6 +21,7 @@ public class Methods {
         System.out.println("11. Сортировка сотрудников в первой компании(Luxsoft) по зп,в порядке возрастания");
         System.out.println("12. Сортировка сотрудников во второй компании(Microsoft) по возрасту,в порядке возрастания");
         System.out.println("13. Сортировка сотрудников в третей компании(Sony) по длине фамилии,в порядке возрастания");
+        System.out.println("14. Добавить нового сотрудника");
 
 
         while (scanner.hasNext()) {
@@ -64,6 +65,9 @@ public class Methods {
                 case "13":
                     sortCompany3LengthSecondName();
                     break;
+                case "14":
+                    greatNewEmployees();
+                    break;
                 case "Exit":
                     System.exit(0);
                     break;
@@ -85,10 +89,8 @@ public class Methods {
                 System.out.println("Логин совпадает с фамилией: " + users[i].secondName);
                 count++;
             }
-
         }
         System.out.println("Количество совпадений: " + count);
-
     }
 
     public static void coincidenceNameSecondName() {
@@ -248,17 +250,96 @@ public class Methods {
         for (int i = 2; i < 3; i++) {
             for (int j = companies[i].getEmployees().length - 1; j >= 0; j--) {
                 for (int k = 0; k < j; k++) {
-                    if (companies[i].getEmployees()[k].secondName.length() < companies[i].getEmployees()[k+1].secondName.length()) {
+                    if (companies[i].getEmployees()[k].secondName.length() < companies[i].getEmployees()[k + 1].secondName.length()) {
                         Employee www = companies[i].getEmployees()[k];
                         companies[i].getEmployees()[k] = companies[i].getEmployees()[k + 1];
                         companies[i].getEmployees()[k + 1] = www;
                     }
                 }
-                System.out.print(companies[i].getEmployees()[j].name + " " + companies[i].getEmployees()[j].secondName+".");
-                System.out.print(" Количество букв в фамилии: "+companies[i].getEmployees()[j].secondName.length());
+                System.out.print(companies[i].getEmployees()[j].name + " " + companies[i].getEmployees()[j].secondName + ".");
+                System.out.print(" Количество букв в фамилии: " + companies[i].getEmployees()[j].secondName.length());
                 System.out.println();
             }
         }
     }
+
+    public static void greatNewEmployees() {
+        Scanner scannerNew = new Scanner(System.in);
+        System.out.println("Выберите компанию,в которую желаете добавить сотрудника:");
+        System.out.println("1: Luxsoft");
+        System.out.println("2: Microsoft");
+        System.out.println("3: Sony");
+
+        while (scannerNew.hasNext()) {
+            switch (scannerNew.next()) {
+                case "1":
+                    greatEmployeeLuxsoft();
+                    break;
+                case "2":
+
+                    break;
+                case "3":
+
+                    break;
+            }
+        }
+    }
+
+    public static void greatEmployeeLuxsoft() {
+        Employee[] employees = EmployeesUtil.getEmployees();
+        for (int i = 0; i < 1; i++) {
+            for(int j=0;j<employees.length;j++) {
+                Scanner scannerLux = new Scanner(System.in);
+                System.out.println("Введите имя сотрудника!");
+                employees[j].name = scannerLux.nextLine();
+                System.out.println("Введите фамилию сотрудника!");
+                employees[j].secondName = scannerLux.nextLine();
+                System.out.println("Введите пол сотрудника!");
+                employees[j].sex = scannerLux.nextLine();
+                System.out.println("Введите возраст сотрудника!");
+                employees[j].age = scannerLux.nextInt();
+                System.out.println("Введите зарплату сотрудника!");
+                employees[j].salary = scannerLux.nextInt();
+                Employee e7 = new Employee(employees[j].name, employees[j].secondName, employees[j].sex, employees[j].age, employees[j].salary);
+                employees[j] = e7;
+                Company[] companies = CompanyUtil.getCompanies();
+                for (int k = 0; k < 1; k++) {
+                    companies[i].setEmployees(new Employee[]{employees[j]});
+                }
+
+            Scanner scannerNew = new Scanner(System.in);
+            System.out.println("Выберите действие:");
+            System.out.println("1: Добавить следующего сотрудника");
+            System.out.println("2: Вывести информацию по данному сотруднику");
+            while (scannerNew.hasNext()) {
+                switch (scannerNew.next()) {
+                    case "1":
+                        greatEmployeeLuxsoft();
+                        break;
+                    case "2":
+                        showGreatedEmployee();
+                        break;
+
+                }
+
+                }
+            }
+        }
+    }
+
+    public static void showGreatedEmployee() {
+        Employee[] employees = EmployeesUtil.getEmployees();
+        Company[] companies = CompanyUtil.getCompanies();
+        for (int k = 0; k < 1; k++) {
+            System.out.print(companies[k].getCompanyName() + ": ");
+            for (int i = 0; i < 1; i++) {
+                System.out.print(employees[i].name + " " + employees[i].secondName + " " +
+                        employees[i].sex + " " + employees[i].age + " " +
+                        employees[i].salary);
+            }
+
+        }
+    }
 }
+
 

@@ -16,10 +16,4 @@ public class Employee {
         this.salary=salary;
 
     }
-    public void setName (String name){
-        this.name=name;
-    }
-    public String getName() {
-        return name;
-    }
 }
