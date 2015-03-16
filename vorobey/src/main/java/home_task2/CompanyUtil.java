@@ -121,7 +121,7 @@ public class CompanyUtil {
                     maxLengthSecondNameThirdCompany();
                     break;
                 case "7":
-                    maxLengthSecondNameThirdCompany();
+                    sortSecondName();
                     break;
 
 
