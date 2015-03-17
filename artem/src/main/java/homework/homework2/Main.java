@@ -1,6 +1,4 @@
-package homework;
-
-import homework.Methods;
+package homework.homework2;
 
 
 public class Main {

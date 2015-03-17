@@ -1,4 +1,4 @@
-package homework;
+package homework.homework2;
 
 /**
  * Created by R-Tem on 10.03.2015.

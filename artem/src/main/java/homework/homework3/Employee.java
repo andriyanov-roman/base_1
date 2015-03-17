@@ -1,4 +1,4 @@
-package homework;
+package homework.homework3;
 
 
 public class Employee { // Создаем класс-шаблон ("формочку для печенек")
@@ -17,8 +17,6 @@ public class Employee { // Создаем класс-шаблон ("формоч
     }
 
     public Employee(){} // Это конструктор по умолчанию, его нужно объявлять если создан искуственный конструктор
-    // Конструктор позволяет прощще заполнять формочку и "выпикать печеньку"
-    //null это дефолтное знач для всех объектов ссылочного типа
 
     public void setName(String name) { this.name = name; }
     public String getName() { return name; }
@@ -35,5 +33,8 @@ public class Employee { // Создаем класс-шаблон ("формоч
     public void setAge(int age) { this.age = age; }
     public int getAge() { return age; }
 
-
+    @Override
+    public String toString() {
+        return  name +" "+ secondName +" "+salary+" "+sex +" "+ age;
+    }
 }
