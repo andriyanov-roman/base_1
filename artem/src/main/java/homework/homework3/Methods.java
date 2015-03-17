@@ -62,7 +62,7 @@ public class Methods {
             Collections.sort(orgs.get(i).getEmployees(), new Comparator<Employee>() {
                 @Override
                 public int compare(Employee o1, Employee o2) {
-                    return o1.getSecondName().toString().compareTo(o2.getSecondName().toString());
+                    return o1.getSecondName().compareTo(o2.getSecondName());
                 }
             });
             for (int j = 0; j < orgs.get(i).getEmployees().size(); j++) {
