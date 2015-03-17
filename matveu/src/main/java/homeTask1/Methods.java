@@ -166,8 +166,8 @@ public class Methods {
             for (int j = 0; j < i; j++) {
                 if (employees.get(j).getSalary() < employees.get(j+1).getSalary()) {
                     Employee k = employees.get(j);
-                    employees.get(j) = employees.get(j+1);
-                    employees.get(j+1) = k;
+                   // employees.get(j) = employees.get(j+1);
+                    //employees.get(j+1) = k;
                 }
             }
         }
@@ -218,8 +218,8 @@ public class Methods {
                 for (int k = 0; k < j; k++) {
                     if (companies.get(i).getEmployees().get(k).getSalary() < companies.get(i).getEmployees().get(k+1).getSalary()) {
                         Employee www = companies.get(i).getEmployees().get(k);
-                        companies.get(i).getEmployees().get(k) = companies.get(i).getEmployees().get(k+1);
-                        companies.get(i).getEmployees().get(k+1) = www;
+                      //  companies.get(i).getEmployees().get(k) = companies.get(i).getEmployees().get(k+1);
+                        //companies.get(i).getEmployees().get(k+1) = www;
                     }
                 }
                 System.out.print(companies.get(i).getEmployees().get(j).getName() + " " + companies.get(i).getEmployees().get(j).getSecondName() + ": " + companies.get(i).getEmployees().get(j).getSalary() + " ");
@@ -236,8 +236,8 @@ public class Methods {
                 for (int k = 0; k < j; k++) {
                     if (companies.get(i).getEmployees().get(k).getAge() < companies.get(i).getEmployees().get(k+1).getAge()) {
                         Employee www = companies.get(i).getEmployees().get(k);
-                        companies.get(i).getEmployees().get(k) = companies.get(i).getEmployees().get(k+1);
-                        companies.get(i).getEmployees().get(k+1) = www;
+                      //  companies.get(i).getEmployees().get(k) = companies.get(i).getEmployees().get(k+1);
+                        //companies.get(i).getEmployees().get(k+1) = www;
                     }
                 }
                 System.out.print(companies.get(i).getEmployees().get(j).getName() + " " + companies.get(i).getEmployees().get(j).getSecondName() +
@@ -254,8 +254,8 @@ public class Methods {
                 for (int k = 0; k < j; k++) {
                     if (companies.get(i).getEmployees().get(k).getSecondName().length() < companies.get(i).getEmployees().get(k+1).getSecondName().length()) {
                         Employee www = companies.get(i).getEmployees().get(k);
-                        companies.get(i).getEmployees().get(k) = companies.get(i).getEmployees().get(k+1);
-                        companies.get(i).getEmployees().get(k+1) = www;
+                      //  companies.get(i).getEmployees().get(k) = companies.get(i).getEmployees().get(k+1);
+                        //companies.get(i).getEmployees().get(k+1) = www;
                     }
                 }
                 System.out.print(companies.get(i).getEmployees().get(j).getName() + " " + companies.get(i).getEmployees().get(j).getSecondName() + ".");
@@ -289,19 +289,20 @@ public class Methods {
 
     public static void greatEmployeeLuxsoft() {
         ArrayList<Employee> employees = EmployeesUtil.getEmployees();
+        Employee employee=new Employee();
         for (int i = 0; i < 1; i++) {
             for(int j=0;j<employees.size();j++) {
                 Scanner scannerLux = new Scanner(System.in);
                 System.out.println("Введите имя сотрудника!");
-                employees.get(j).getName() = scannerLux.nextLine();
+                employee.setName(scannerLux.nextLine());
                 System.out.println("Введите фамилию сотрудника!");
-                employees.get(j).getSecondName() = scannerLux.nextLine();
+                employee.setSecondName(scannerLux.nextLine());
                 System.out.println("Введите пол сотрудника!");
-                employees.get(j).getSex() = scannerLux.nextLine();
+                employee.setSex(scannerLux.nextLine());
                 System.out.println("Введите возраст сотрудника!");
-                employees.get(j).getAge() = scannerLux.nextInt();
+                employee.setAge(scannerLux.nextInt());
                 System.out.println("Введите зарплату сотрудника!");
-                employees.get(j).getSalary()=scannerLux.nextInt();
+                employee.setSalary(scannerLux.nextInt());
 
             Scanner scannerNew = new Scanner(System.in);
             System.out.println("Выберите действие:");
@@ -328,10 +329,10 @@ public class Methods {
         ArrayList<Company> companies = CompanyUtil.getCompanies();
         for (int k = 0; k < 1; k++) {
             System.out.print(companies.get(k).getCompanyName() + ": ");
-            for (int i = 0; i < 1; i++) {
-                System.out.print(employees.get(i).getName() + " " + employees.get(i).getSecondName() + " " +
-                        employees.get(i).getSex() + " " + employees.get(i).getAge() + " " +
-                        employees.get(i).getSalary());
+            for (int i = 0; i < companies.get(k).getEmployees().size(); i++) {
+                System.out.print(companies.get(k).getEmployees().get(i).getName() + " " + companies.get(k).getEmployees().get(i).getSecondName() + " " +
+                        companies.get(k).getEmployees().get(i).getSex() + " " + companies.get(k).getEmployees().get(i).getAge() + " " +
+                        companies.get(k).getEmployees().get(i).getSalary());
             }
 
         }

@@ -24,9 +24,9 @@ public class CompanyUtil {
 
         Company c3=new Company();
         c3.setEmployees(new ArrayList<>());
-        c3.getEmployees().add(employees.get(6));
-        c3.getEmployees().add(employees.get(7));
-        c3.getEmployees().add(employees.get(8));
+        c3.getEmployees().add(employees.get(1));
+        c3.getEmployees().add(employees.get(3));
+        c3.getEmployees().add(employees.get(5));
         companies.add(c3);
 
         c1.setCompanyName("Luxsoft");
