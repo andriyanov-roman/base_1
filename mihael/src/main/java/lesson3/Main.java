@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 public class Main {
     public static void main (String[] args){
+        /*
         ArrayList employee = new ArrayList();
         employee.add("A");
         employee.add(1);
@@ -23,10 +24,11 @@ public class Main {
         employee.add(0,new Employee("Vasya", "Petrov", 7000.00, "MASCULINE",29));
 
         employee.add(1,new Employee("Artem", "Petrov", 7000.00, "MASCULINE",29));
+
         employees.forEach(System.out::println);
+        */
 
-
-        //start();
+        start();
     }
 
 
@@ -43,16 +45,16 @@ public class Main {
                         CompanyUtil.showAllEmployees();
                         break;
                     case "2":
-                        ArrayList<Employee> sorted1 = CompanyUtil.sortBySalary(CompanyUtil.getCompanies()[0].getEmployees());
+                        ArrayList<Employee> sorted1 = CompanyUtil.sortBySalary(CompanyUtil.getCompanies().get(0).getEmployees());
                         CompanyUtil.showEmployees(sorted1);
                         break;
                     case "3":
-                        ArrayList<Employee> sorted2 = CompanyUtil.sortByAge(CompanyUtil.getCompanies()[2].getEmployees());
+                        ArrayList<Employee> sorted2 = CompanyUtil.sortByAge(CompanyUtil.getCompanies().get(1).getEmployees());
                         CompanyUtil.showEmployees(sorted2);
                         break;
 
                     case "4":
-                        ArrayList<Employee> sorted3 = CompanyUtil.sortByLastNameLength(CompanyUtil.getCompanies()[2].getEmployees());
+                        ArrayList<Employee> sorted3 = CompanyUtil.sortByLastNameLength(CompanyUtil.getCompanies().get(2).getEmployees());
                         CompanyUtil.showEmployees(sorted3);
                         break;
                     case "5":
