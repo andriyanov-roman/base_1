@@ -27,7 +27,7 @@ public class CompanyUtil {
         c3.getEmployees().add(employees.get(6));
         c3.getEmployees().add(employees.get(7));
         c3.getEmployees().add(employees.get(8));
-        companies.add(c2);
+        companies.add(c3);
 
         c1.setCompanyName("Luxsoft");
         c2.setCompanyName("Microsoft");
