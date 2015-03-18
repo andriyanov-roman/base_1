@@ -281,28 +281,44 @@ public class CompanyUtil {
 
     }
 
-    public static void removeAllFemale() {
-        ArrayList<Company> companies = getCompanies();
-        ArrayList<Company> newcompany = new ArrayList<>();
+    /*  public static void removeAllFemale() {
+          ArrayList<Company> companies = getCompanies();
+          ArrayList<Company> companies1 = new ArrayList<>();
+          Employee1 e = new Employee1();
+          int count = 0;
+          for (int i = 0; i < companies.size(); i++) {
+              for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
+                  if (companies.get(i).getEmployees().get(j).sex.contains("f") == false) {
+                      e = companies.get(i).getEmployees().get(j);
+                      System.out.println(e.name + " " + e.secondName + " : " + e.salary + "," + e.age);
 
+
+                  }
+              }
+
+          }
+
+
+      }*/
+    public static void remove() {
+        ArrayList<Company> companies = getCompanies();
+        ArrayList<Company> newCompany = new ArrayList<>();
 
         for (int i = 0; i < companies.size(); i++) {
             for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
                 if (companies.get(i).getEmployees().get(j).sex.contains("f")) {
 
-
                 }
             }
         }
-
         for (int i = 0; i < companies.size(); i++) {
-            for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
-                System.out.println(newcompany.get(i).getEmployees().get(j));
-            }
+            for (int j = 0; j < companies.get(i).getEmployees().size(); j++)
+                System.out.println(companies.get(i).getEmployees().get(j));
         }
 
 
     }
+
 }
 
 
