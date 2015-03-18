@@ -1,8 +1,8 @@
 package home_task2;
 
 
-import home_task.Employee;
-import home_task.EmployeeUtil;
+import home_task2.Employee1;
+import home_task2.EmployeeUtil;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -12,23 +12,23 @@ import java.util.Scanner;
 
 public class CompanyUtil {
     public static ArrayList<Company> getCompanies() {
-        ArrayList<Employee> employees = EmployeeUtil.getEmployees();
+        ArrayList<Employee1> employees1 = home_task2.EmployeeUtil.getEmployees();
         Company c1 = new Company();
         Company c2 = new Company();
         Company c3 = new Company();
         c1.setEmployees(new ArrayList<>());
-        c1.getEmployees().add(employees.get(0));
-        c1.getEmployees().add(employees.get(1));
-        c1.getEmployees().add(employees.get(2));
+        c1.getEmployees().add(employees1.get(0));
+        c1.getEmployees().add(employees1.get(1));
+        c1.getEmployees().add(employees1.get(2));
 
         c2.setEmployees(new ArrayList<>());
-        c2.getEmployees().add(employees.get(3));
-        c2.getEmployees().add(employees.get(4));
+        c2.getEmployees().add(employees1.get(3));
+        c2.getEmployees().add(employees1.get(4));
 
         c3.setEmployees(new ArrayList<>());
-        c3.getEmployees().add(employees.get(5));
-        c3.getEmployees().add(employees.get(6));
-        c3.getEmployees().add(employees.get(7));
+        c3.getEmployees().add(employees1.get(5));
+        c3.getEmployees().add(employees1.get(6));
+        c3.getEmployees().add(employees1.get(7));
 
 
         c1.setCompanyName("FirstCompany");
@@ -160,7 +160,7 @@ public class CompanyUtil {
             for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
                 for (int k = 0; k < j; k++) {
                     if (companies.get(i).getEmployees().get(k).salary < companies.get(i).getEmployees().get(k + 1).salary) {
-                        Employee e = companies.get(i).getEmployees().get(k);
+                        Employee1 e = companies.get(i).getEmployees().get(k);
                         companies.get(i).getEmployees().set(k, companies.get(i).getEmployees().get(k + 1));
                         companies.get(i).getEmployees().set(k + 1, e);
                     }
@@ -183,7 +183,7 @@ public class CompanyUtil {
             for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
                 for (int k = 0; k < j; k++) {
                     if (companies.get(i).getEmployees().get(k).age < companies.get(i).getEmployees().get(k + 1).age) {
-                        Employee e = companies.get(i).getEmployees().get(k);
+                        Employee1 e = companies.get(i).getEmployees().get(k);
                         companies.get(i).getEmployees().set(k, companies.get(i).getEmployees().get(k + 1));
                         companies.get(i).getEmployees().set(k + 1, e);
                     }
@@ -226,7 +226,7 @@ public class CompanyUtil {
             for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
                 for (int k = 0; k < j; k++) {
                     if (companies.get(i).getEmployees().get(k).secondName.length() < companies.get(i).getEmployees().get(k + 1).secondName.length()) {
-                        Employee e = companies.get(i).getEmployees().get(k);
+                        Employee1 e = companies.get(i).getEmployees().get(k);
                         companies.get(i).getEmployees().set(k, companies.get(i).getEmployees().get(k + 1));
                         companies.get(i).getEmployees().set(k + 1, e);
 

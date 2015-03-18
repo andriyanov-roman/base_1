@@ -1,6 +1,6 @@
 package home_task2;
 
-import home_task.Employee;
+import home_task2.Employee1;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Company {
     private String companyName;
-    private ArrayList<Employee> employees;
+    private ArrayList<Employee1> employees;
 
     public String getCompanyName() {
         return companyName;
@@ -20,13 +20,13 @@ public class Company {
 
     }
 
-    public ArrayList<Employee> getEmployees() {
+    public ArrayList<Employee1> getEmployees() {
         return employees;
 
 
     }
 
-    public void setEmployees(ArrayList<Employee> employees) {
+    public void setEmployees(ArrayList<Employee1> employees) {
         this.employees = employees;
     }
 

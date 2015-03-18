@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class EmployeeUtil {
-    public static Employee[] getEmployees() {
+    protected static Employee[] getEmployees() {
 
 
         Employee e1 = new Employee();

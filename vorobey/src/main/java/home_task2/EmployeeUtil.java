@@ -1,6 +1,6 @@
 package home_task2;
 
-import home_task.Employee;
+import home_task2.Employee1;
 
 import java.util.ArrayList;
 import java.util.Arrays;
