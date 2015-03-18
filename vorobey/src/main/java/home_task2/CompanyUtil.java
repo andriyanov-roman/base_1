@@ -178,22 +178,22 @@ public class CompanyUtil {
     }
 
     public static void sortAgeSecondCompany() {
-        Company[] companies = getCompanies();
+        ArrayList<Company> companies = new ArrayList<>();
         for (int i = 1; i < 2; i++) {
-            for (int j = companies[i].getEmployees().length - 1; j >= 0; j--) {
+            for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
                 for (int k = 0; k < j; k++) {
-                    if (companies[i].getEmployees()[k].age < companies[i].getEmployees()[k + 1].age) {
-                        Employee e = companies[i].getEmployees()[k];
-                        companies[i].getEmployees()[k] = companies[i].getEmployees()[k + 1];
-                        companies[i].getEmployees()[k + 1] = e;
+                    if (companies.get(i).getEmployees().get(k).age < companies.get(i).getEmployees().get(k + 1).age) {
+                        Employee e = companies.get(i).getEmployees().get(k);
+                        companies.get(i).getEmployees().set(k, companies.get(i).getEmployees().get(k + 1));
+                        companies.get(i).getEmployees().set(k + 1, e);
                     }
                 }
             }
-            System.out.println("Сотрудники компании " + companies[i].getCompanyName() + " в порядке возростания возроста:");
+            System.out.println("Сотрудники компании " + companies.get(i).getCompanyName() + " в порядке возростания возроста:");
         }
         for (int i = 1; i < 2; i++) {
-            for (int j = companies[i].getEmployees().length - 1; j >= 0; j--) {
-                System.out.println(companies[i].getEmployees()[j].name + " " + companies[i].getEmployees()[j].secondName + " (" + companies[i].getEmployees()[j].age + ")");
+            for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
+                System.out.println(companies.get(i).getEmployees().get(j).name + " " + companies.get(i).getEmployees().get(j).secondName + " (" + companies.get(i).getEmployees().get(j).age + ")");
             }
 
 
@@ -240,8 +240,8 @@ public class CompanyUtil {
 
         }
         for (int i = 2; i < 3; i++) {
-            for (int j = companies[i].getEmployees().length - 1; j >= 0; j--) {
-                System.out.println(companies[i].getEmployees()[j].name + " " + companies[i].getEmployees()[j].secondName + "  " + companies[i].getEmployees()[j].secondName.length());
+            for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
+                System.out.println(companies.get(i).getEmployees().get(j).name + " " + companies.get(i).getEmployees().get(j).secondName + "  " + companies.get(i).getEmployees().get(j).secondName.length());
             }
         }
 
