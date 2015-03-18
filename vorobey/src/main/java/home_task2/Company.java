@@ -4,12 +4,10 @@ import home_task2.Employee1;
 
 import java.util.ArrayList;
 
-/**
- * Created by Stas on 16.03.2015.
- */
+
 public class Company {
     private String companyName;
-    private ArrayList<Employee1> employees;
+    private ArrayList<Employee1> employees1;
 
     public String getCompanyName() {
         return companyName;
@@ -21,13 +19,13 @@ public class Company {
     }
 
     public ArrayList<Employee1> getEmployees() {
-        return employees;
+        return employees1;
 
 
     }
 
     public void setEmployees(ArrayList<Employee1> employees) {
-        this.employees = employees;
+        this.employees1 = employees;
     }
 
 }
