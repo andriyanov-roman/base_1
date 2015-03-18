@@ -12,11 +12,11 @@ public class EmployeeUtil {
 
         Employee1 e1=new Employee1();
 
-        e1.name = "Roman";
+        e1.name = "Sveta";
         e1.secondName = "Andersson";
         e1.salary = 2400;
-        e1.age = 24;
-        e1.sex = "male";
+        e1.age = 25;
+        e1.sex = "female";
 
         Employee1 e2=new Employee1();
         e2.name = "Vlad";

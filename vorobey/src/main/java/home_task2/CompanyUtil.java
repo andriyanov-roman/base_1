@@ -12,6 +12,8 @@ import java.util.Scanner;
 
 
 public class CompanyUtil {
+
+
     public static ArrayList<Company> getCompanies() {
         ArrayList<Employee1> employees1 = EmployeeUtil.getEmployees();
         ArrayList<Company> companies = new ArrayList<>();
@@ -251,11 +253,6 @@ public class CompanyUtil {
     }
 
 
-    public static void addNewEmployee() {
-
-    }
-
-
     public static void showNewEmployee() {
         ArrayList<Company> companies = getCompanies();
         for (int i = 0; i < 1; i++) {
@@ -270,43 +267,26 @@ public class CompanyUtil {
 
     public static void howMuchFemale() {
         ArrayList<Company> companies = getCompanies();
-        int count = 0;
         String nameWoman = "";
         String companyWoman = "";
+        int count = 0;
         for (int i = 0; i < companies.size(); i++) {
             for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
-                for (int k = 0; k < j; k++) {
-                    if (companies.get(i).getEmployees().get(k).sex.contains("f")) {
-                        count++;
-                        nameWoman = companies.get(i).getEmployees().get(k).name;
-                        companyWoman = companies.get(i).getCompanyName();
-                        System.out.println(nameWoman + " : " + companyWoman);
-
-
-                    }
+                if (companies.get(i).getEmployees().get(j).sex.contains("f")) {
+                    count++;
+                    System.out.println(companies.get(i).getEmployees().get(j).name + "  " + companies.get(i).getEmployees().get(j).secondName + " : " + companies.get(i).getCompanyName());
                 }
+
             }
-
         }
-        System.out.println("Общее количество сотрудниц: " + count);
-
+        System.out.println("Всего сотрудниц: " + count);
 
     }
 
+
     public static void removeAllFemale() {
-        ArrayList<Company> companies = getCompanies();
-
-        for (int i = 0; i < companies.size(); i++) {
-            for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
-                for (int k = 0; k < j; k++) {
-                    if (companies.get(i).getEmployees().get(k).sex.contains("f")) {
-
-
-                    }
-                }
-            }
-        }
-
 
     }
 }
+
+
