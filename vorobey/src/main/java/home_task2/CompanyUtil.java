@@ -4,6 +4,7 @@ package home_task2;
 import home_task2.Employee1;
 import home_task2.EmployeeUtil;
 
+import java.awt.event.ComponentAdapter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -288,6 +289,23 @@ public class CompanyUtil {
 
         }
         System.out.println("Общее количество сотрудниц: " + count);
+
+
+    }
+
+    public static void removeAllFemale() {
+        ArrayList<Company> companies = getCompanies();
+
+        for (int i = 0; i < companies.size(); i++) {
+            for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
+                for (int k = 0; k < j; k++) {
+                    if (companies.get(i).getEmployees().get(k).sex.contains("f")) {
+
+
+                    }
+                }
+            }
+        }
 
 
     }

@@ -12,6 +12,14 @@ public class Employee1 {
 
     }
 
+    @Override
+    public String toString() {
+        return name + " " + " " + secondName + '\'' +
+                ", salary=" + salary +
+                ", address='" + '\'' +
+                '}';
+    }
+
     public Employee1(String name, String secondName, int salary, int age, String sex) {
 
         this.name = name;
