@@ -295,6 +295,12 @@ public class CompanyUtil {
             }
         }
 
+        for (int i = 0; i < companies.size(); i++) {
+            for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
+                System.out.println(newcompany.get(i).getEmployees().get(j));
+            }
+        }
+
 
     }
 }
