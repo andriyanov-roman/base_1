@@ -202,7 +202,7 @@ public class CompanyUtil {
     }
 
     public static void maxLengthSecondNameThirdCompany() {
-       ArrayList<Company> companies=new ArrayList<>();
+        ArrayList<Company> companies = new ArrayList<>();
         String maxLengthSecondName = "";
         int maxLength = 0;
         for (int i = 2; i < 3; i++) {
@@ -221,14 +221,16 @@ public class CompanyUtil {
     }
 
     public static void sortSecondName() {
-        Company[] companies = getCompanies();
+        ArrayList<Company> companies = new ArrayList<>();
         for (int i = 2; i < 3; i++) {
-            for (int j = companies[i].getEmployees().length - 1; j >= 0; j--) {
+            for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
                 for (int k = 0; k < j; k++) {
-                    if (companies[i].getEmployees()[k].secondName.length() < companies[i].getEmployees()[k + 1].secondName.length()) {
-                        Employee e = companies[i].getEmployees()[k];
-                        companies[i].getEmployees()[k] = companies[i].getEmployees()[k + 1];
-                        companies[i].getEmployees()[k + 1] = e;
+                    if (companies.get(i).getEmployees().get(k).secondName.length() < companies.get(i).getEmployees().get(k + 1).secondName.length()) {
+                        Employee e = companies.get(i).getEmployees().get(k);
+                        companies.get(i).getEmployees().set(k, companies.get(i).getEmployees().get(k + 1));
+                        companies.get(i).getEmployees().set(k + 1, e);
+
+
                     }
 
                 }
