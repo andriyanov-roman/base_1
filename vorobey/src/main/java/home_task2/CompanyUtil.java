@@ -202,14 +202,14 @@ public class CompanyUtil {
     }
 
     public static void maxLengthSecondNameThirdCompany() {
-        Company[] companies = getCompanies();
+       ArrayList<Company> companies=new ArrayList<>();
         String maxLengthSecondName = "";
         int maxLength = 0;
         for (int i = 2; i < 3; i++) {
-            for (int j = 0; j < companies[i].getEmployees().length; j++) {
-                if (companies[i].getEmployees()[j].secondName.length() > maxLength) {
-                    maxLengthSecondName = companies[i].getEmployees()[j].secondName;
-                    maxLength = companies[i].getEmployees()[j].secondName.length();
+            for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
+                if (companies.get(i).getEmployees().get(j).secondName.length() > maxLength) {
+                    maxLengthSecondName = companies.get(i).getEmployees().get(j).secondName;
+                    maxLength = companies.get(i).getEmployees().get(j).secondName.length();
                 }
 
             }
@@ -246,40 +246,16 @@ public class CompanyUtil {
     }
 
 
-    public static void newEmployee() {
-        Company[] companies = getCompanies();
-        Employee[] employees = EmployeeUtil.getEmployees();
-        for (int i = 0; i < 1; i++) {
-            for (int j = 0; j < employees.length; j++) {
-                Scanner sc = new Scanner(System.in);
-                System.out.println("Введите Имя и Фамилию нового сотрудника");
-                employees[j].name = sc.next();
-                employees[j].secondName = sc.next();
+    public static void addNewEmployee() {
 
-                System.out.println("Возраст и ЗП нового сотрдуника");
-
-
-                employees[j].age = sc.nextInt();
-                employees[j].salary = sc.nextInt();
-
-                System.out.println("Введите Пол сотрудника");
-                employees[j].sex = sc.next();
-                Employee e = new Employee(employees[j].name, employees[j].secondName, employees[j].age, employees[j].salary, employees[j].sex);
-                employees[j] = e;
-                for (int k = 0; k < 1; k++)
-                    companies[i].setEmployees(new Employee[]{employees[j]});
-
-            }
-        }
-        showNewEmployee();
     }
 
 
     public static void showNewEmployee() {
-        Company[] companies = getCompanies();
+        ArrayList<Company> companies = new ArrayList<>();
         for (int i = 0; i < 1; i++) {
-            for (int j = 0; j < companies[i].getEmployees().length; j++) {
-                System.out.println(companies[i].getEmployees()[j].name + " " + companies[i].getEmployees()[j].secondName);
+            for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
+                System.out.println(companies.get(i).getEmployees().get(j).name + " " + companies.get(i).getEmployees().get(j).secondName);
             }
 
         }
