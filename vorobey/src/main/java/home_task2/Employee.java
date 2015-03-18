@@ -1,7 +1,5 @@
-package home_task;
+package home_task2;
 
-
-import java.util.Scanner;
 
 public class Employee {
     public String name;
@@ -22,5 +20,4 @@ public class Employee {
         this.age = age;
 
     }
-
-        }
+}
