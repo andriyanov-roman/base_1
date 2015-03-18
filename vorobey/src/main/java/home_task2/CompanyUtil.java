@@ -45,7 +45,7 @@ public class CompanyUtil {
         ArrayList<Company> companies = getCompanies();
         for (int i = 0; i < companies.size(); i++) {
             System.out.println("********************************");
-            System.out.println("В компании " + companies.get(i).getEmployees().size() + " работают сотрудники: ");
+            System.out.println("В компании " + companies.get(i).getCompanyName() + " работают сотрудники: ");
             for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
                 System.out.print(companies.get(i).getEmployees().get(j).name + " " + companies.get(i).getEmployees().get(j).secondName + "(" + companies.get(i).getEmployees().get(j).salary + ")");
                 System.out.println();
@@ -267,5 +267,25 @@ public class CompanyUtil {
 
     }
 
+    public static void howMuchFemale() {
+        ArrayList<Company> companies = getCompanies();
+        int count = 0;
+        String nameWoman = "";
+        String companyWoman = "";
+        for (int i = 0; i < companies.size(); i++) {
+            for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
+                for (int k = 0; k < j; k++) {
+                    if (companies.get(i).getEmployees().get(k).sex.contains("f")) {
+                        count++;
+                        nameWoman = companies.get(i).getEmployees().get(k).name;
+                        companyWoman = companies.get(i).getCompanyName();
 
+
+                    }
+                }
+            }
+        }
+
+
+    }
 }
