@@ -267,8 +267,6 @@ public class CompanyUtil {
 
     public static void howMuchFemale() {
         ArrayList<Company> companies = getCompanies();
-        String nameWoman = "";
-        String companyWoman = "";
         int count = 0;
         for (int i = 0; i < companies.size(); i++) {
             for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
@@ -283,8 +281,18 @@ public class CompanyUtil {
 
     }
 
-
     public static void removeAllFemale() {
+        ArrayList<Company> companies = getCompanies();
+        ArrayList<Company> newcompany = new ArrayList<>();
+        for (int i = 0; i < companies.size(); i++) {
+            for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
+                if (companies.get(i).getEmployees().get(j).sex.contains("f")) {
+
+
+                }
+            }
+        }
+
 
     }
 }
