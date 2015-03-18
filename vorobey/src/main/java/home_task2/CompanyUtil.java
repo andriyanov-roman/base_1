@@ -43,9 +43,9 @@ public class CompanyUtil {
         ArrayList<Company> companies = getCompanies();
         for (int i = 0; i < companies.size(); i++) {
             System.out.println("********************************");
-            System.out.println("В компании " + companies[i].getCompanyName() + " работают сотрудники: ");
-            for (int j = 0; j < companies[i].getEmployees().length; j++) {
-                System.out.print(companies[i].getEmployees()[j].name + " " + companies[i].getEmployees()[j].secondName + "(" + companies[i].getEmployees()[j].salary + ")");
+            System.out.println("В компании " + companies.get(i).getEmployees().size() + " работают сотрудники: ");
+            for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
+                System.out.print(companies.get(i).getEmployees().get(j).name + " " + companies.get(i).getEmployees().get(j).secondName + "(" + companies.get(i).getEmployees().get(j).salary + ")");
                 System.out.println();
             }
         }
@@ -54,16 +54,16 @@ public class CompanyUtil {
     }
 
     public static void maxSalary() {
-        Company[] companies = getCompanies();
-        for (int i = 0; i < companies.length; i++) {
+        ArrayList<Company> companies = new ArrayList<>();
+        for (int i = 0; i < companies.size(); i++) {
             int maxSalary = 0;
             String maxName = "", maxSecondName = "";
-            for (int j = 0; j < companies[i].getEmployees().length; j++) {
-                for (int k = 0; k < companies[i].getEmployees()[j].salary; k++) {
-                    if (companies[i].getEmployees()[j].salary > maxSalary) {
-                        maxSalary = companies[i].getEmployees()[j].salary;
-                        maxName = companies[i].getEmployees()[j].name;
-                        maxSecondName = companies[i].getEmployees()[j].secondName;
+            for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
+                for (int k = 0; k < companies.get(i).getEmployees().get(j).salary; k++) {
+                    if (companies.get(i).getEmployees().get(j).salary > maxSalary) {
+                        maxSalary = companies.get(i).getEmployees().get(j).salary;
+                        maxName = companies.get(i).getEmployees().get(j).name;
+                        maxSecondName = companies.get(i).getEmployees().get(j).name;
                     }
 
                 }
