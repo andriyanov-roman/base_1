@@ -24,8 +24,8 @@ public class Company {
 
     }
 
-    public void setEmployees(ArrayList<Employee1> employees) {
-        this.employees1 = employees;
+    public void setEmployees(ArrayList<Employee1> employees1) {
+        this.employees1 = employees1;
     }
 
 }

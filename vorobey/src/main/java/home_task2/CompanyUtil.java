@@ -12,27 +12,28 @@ import java.util.Scanner;
 
 public class CompanyUtil {
     public static ArrayList<Company> getCompanies() {
-        ArrayList<Employee1> employees1 = home_task2.EmployeeUtil.getEmployees();
+        ArrayList<Employee1> employees1 = EmployeeUtil.getEmployees();
         Company c1 = new Company();
         Company c2 = new Company();
         Company c3 = new Company();
-        c1.setCompanyName("FirstCompany");
-        c2.setCompanyName("SecondCompany");
-        c3.setCompanyName("ThirdCompany");
+
 
         c1.setEmployees(new ArrayList<>());
         c1.getEmployees().add(employees1.get(0));
         c1.getEmployees().add(employees1.get(1));
         c1.getEmployees().add(employees1.get(2));
+        c1.setCompanyName("FirstCompany");
 
         c2.setEmployees(new ArrayList<>());
         c2.getEmployees().add(employees1.get(3));
         c2.getEmployees().add(employees1.get(4));
+        c2.setCompanyName("SecondCompany");
 
         c3.setEmployees(new ArrayList<>());
         c3.getEmployees().add(employees1.get(5));
         c3.getEmployees().add(employees1.get(6));
         c3.getEmployees().add(employees1.get(7));
+        c3.setCompanyName("ThirdCompany");
 
 
         return new ArrayList<Company>(Arrays.asList(c1, c2, c3));
