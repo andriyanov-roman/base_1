@@ -113,7 +113,7 @@ public class CompanyUtil {
         System.out.println("5.Чтобы вывести отсортированых сотрудников второй фирмы в порядке возростания возраста,нажмите 5");
         System.out.println("6.Чтобы вывести сотрудника с самой длинной фамилией(третья компания),нажмите 6");
         System.out.println("7.Чтобы вывести отсортированых в порядке увеличения длины фамилии сотрудников третьей компании,нажмите 7");
-        System.out.println("8.Чтобы добавить нового сотрудника в первую(например) компанию, 8");
+        System.out.println("8.Чтобы вывести количество сотрудниц,работающих во всех компаниях,нажмите 8");
 
         while (sc.hasNext()) {
             switch (sc.next()) {
@@ -142,7 +142,7 @@ public class CompanyUtil {
                     break;
 
                 case "8":
-
+                    howMuchFemale();
                     break;
 
                 case "9":
@@ -279,12 +279,15 @@ public class CompanyUtil {
                         count++;
                         nameWoman = companies.get(i).getEmployees().get(k).name;
                         companyWoman = companies.get(i).getCompanyName();
+                        System.out.println(nameWoman + " : " + companyWoman);
 
 
                     }
                 }
             }
+
         }
+        System.out.println("Общее количество сотрудниц: " + count);
 
 
     }
