@@ -69,7 +69,7 @@ public class CompanyUtil {
                 }
 
             }
-            System.out.println("В компании " + companies[i].getCompanyName() + " сотрудник с максимальной ЗП: " + maxName + ",а именно :" + maxSalary);
+            System.out.println("В компании " + companies.get(i).getCompanyName() + " сотрудник с максимальной ЗП: " + maxName + ",а именно :" + maxSalary);
 
         }
 
@@ -77,20 +77,20 @@ public class CompanyUtil {
     }
 
     public static void maxSalaryOfAllCompanies() {
-        Company[] companies = getCompanies();
+        ArrayList<Company> companies = new ArrayList<>();
         int maxSalary = 0;
         String maxName = "";
         String maxSecondName = "";
         String maxNameCompany = "";
 
-        for (int i = 0; i < companies.length; i++) {
-            for (int j = 0; j < companies[i].getEmployees().length; j++) {
-                for (int k = 0; k < companies[i].getEmployees()[j].salary; k++) {
-                    if (companies[i].getEmployees()[j].salary > maxSalary) {
-                        maxSalary = companies[i].getEmployees()[j].salary;
-                        maxName = companies[i].getEmployees()[j].name;
-                        maxSecondName = companies[i].getEmployees()[j].secondName;
-                        maxNameCompany = companies[i].getCompanyName();
+        for (int i = 0; i < companies.size(); i++) {
+            for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
+                for (int k = 0; k < companies.get(i).getEmployees().get(j).salary; k++) {
+                    if (companies.get(i).getEmployees().get(j).salary > maxSalary) {
+                        maxSalary = companies.get(i).getEmployees().get(j).salary;
+                        maxName = companies.get(i).getEmployees().get(j).name;
+                        maxSecondName = companies.get(i).getEmployees().get(j).name;
+                        maxNameCompany = companies.get(i).getCompanyName();
 
                     }
                 }
