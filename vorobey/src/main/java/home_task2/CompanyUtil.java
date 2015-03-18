@@ -284,6 +284,8 @@ public class CompanyUtil {
     public static void removeAllFemale() {
         ArrayList<Company> companies = getCompanies();
         ArrayList<Company> newcompany = new ArrayList<>();
+
+
         for (int i = 0; i < companies.size(); i++) {
             for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
                 if (companies.get(i).getEmployees().get(j).sex.contains("f")) {

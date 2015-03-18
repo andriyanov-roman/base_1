@@ -14,7 +14,7 @@ public class Employee1 {
 
     @Override
     public String toString() {
-        return name + " " + " " + secondName + '\'' +
+        return name + " " + " " + secondName +
                 ", salary=" + salary +
                 ", address='" + '\'';
 
