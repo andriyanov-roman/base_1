@@ -13,6 +13,7 @@ import java.util.Scanner;
 public class CompanyUtil {
     public static ArrayList<Company> getCompanies() {
         ArrayList<Employee1> employees1 = EmployeeUtil.getEmployees();
+        ArrayList<Company> companies = new ArrayList<>();
         Company c1 = new Company();
         Company c2 = new Company();
         Company c3 = new Company();
@@ -55,7 +56,7 @@ public class CompanyUtil {
     }
 
     public static void maxSalary() {
-        ArrayList<Company> companies = new ArrayList<>();
+        ArrayList<Company> companies = getCompanies();
         for (int i = 0; i < companies.size(); i++) {
             int maxSalary = 0;
             String maxName = "", maxSecondName = "";
@@ -78,7 +79,7 @@ public class CompanyUtil {
     }
 
     public static void maxSalaryOfAllCompanies() {
-        ArrayList<Company> companies = new ArrayList<>();
+        ArrayList<Company> companies = getCompanies();
         int maxSalary = 0;
         String maxName = "";
         String maxSecondName = "";
@@ -156,7 +157,7 @@ public class CompanyUtil {
     }
 
     public static void sortSalaryFirstCompany() {
-        ArrayList<Company> companies = new ArrayList<>();
+        ArrayList<Company> companies = getCompanies();
         for (int i = 0; i < 1; i++) {
             for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
                 for (int k = 0; k < j; k++) {
@@ -179,7 +180,7 @@ public class CompanyUtil {
     }
 
     public static void sortAgeSecondCompany() {
-        ArrayList<Company> companies = new ArrayList<>();
+        ArrayList<Company> companies = getCompanies();
         for (int i = 1; i < 2; i++) {
             for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
                 for (int k = 0; k < j; k++) {
@@ -203,7 +204,7 @@ public class CompanyUtil {
     }
 
     public static void maxLengthSecondNameThirdCompany() {
-        ArrayList<Company> companies = new ArrayList<>();
+        ArrayList<Company> companies = getCompanies();
         String maxLengthSecondName = "";
         int maxLength = 0;
         for (int i = 2; i < 3; i++) {
@@ -222,7 +223,7 @@ public class CompanyUtil {
     }
 
     public static void sortSecondName() {
-        ArrayList<Company> companies = new ArrayList<>();
+        ArrayList<Company> companies = getCompanies();
         for (int i = 2; i < 3; i++) {
             for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
                 for (int k = 0; k < j; k++) {
@@ -255,7 +256,7 @@ public class CompanyUtil {
 
 
     public static void showNewEmployee() {
-        ArrayList<Company> companies = new ArrayList<>();
+        ArrayList<Company> companies = getCompanies();
         for (int i = 0; i < 1; i++) {
             for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
                 System.out.println(companies.get(i).getEmployees().get(j).name + " " + companies.get(i).getEmployees().get(j).secondName);
