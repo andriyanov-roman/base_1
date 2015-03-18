@@ -16,6 +16,10 @@ public class CompanyUtil {
         Company c1 = new Company();
         Company c2 = new Company();
         Company c3 = new Company();
+        c1.setCompanyName("FirstCompany");
+        c2.setCompanyName("SecondCompany");
+        c3.setCompanyName("ThirdCompany");
+
         c1.setEmployees(new ArrayList<>());
         c1.getEmployees().add(employees1.get(0));
         c1.getEmployees().add(employees1.get(1));
@@ -30,10 +34,6 @@ public class CompanyUtil {
         c3.getEmployees().add(employees1.get(6));
         c3.getEmployees().add(employees1.get(7));
 
-
-        c1.setCompanyName("FirstCompany");
-        c2.setCompanyName("SecondCompany");
-        c3.setCompanyName("ThirdCompany");
 
         return new ArrayList<Company>(Arrays.asList(c1, c2, c3));
 
