@@ -12,12 +12,14 @@ public class CompanyUtil {
         c1.setEmployees(new ArrayList<>());
         c1.getEmployees().add(employees.get(0));
         c1.getEmployees().add(employees.get(1));
+        c1.getEmployees().add(employees.get(8));
         c1.getEmployees().add(employees.get(2));
         companies.add(c1);
 
         Company c2=new Company();
         c2.setEmployees(new ArrayList<>());
         c2.getEmployees().add(employees.get(3));
+        c2.getEmployees().add(employees.get(10));
         c2.getEmployees().add(employees.get(4));
         companies.add(c2);
 
@@ -25,6 +27,7 @@ public class CompanyUtil {
         c3.setEmployees(new ArrayList<>());
         c3.getEmployees().add(employees.get(5));
         c3.getEmployees().add(employees.get(6));
+        c3.getEmployees().add(employees.get(9));
         c3.getEmployees().add(employees.get(7));
         companies.add(c3);
 

@@ -207,6 +207,7 @@ public class Methods {
 
             }
         }
+        System.out.println();
     }
 
     public static void сompanyMaxSalary() {
