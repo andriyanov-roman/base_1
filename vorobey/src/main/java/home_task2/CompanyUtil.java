@@ -289,23 +289,23 @@ public class CompanyUtil {
 
 
     public static void removeAllWomanMoreSalaryMan() {
-        double persentPlus = 1.15;
-        ArrayList<Company> companies = getCompanies();
-        ArrayList<Company> newCompany = new ArrayList<>();
 
-        for (int i = 0; i < companies.size(); i++) {
-            for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
-                if (companies.get(i).getEmployees().get(j).sex.contains("f")) {
-                    companies.get(i).getEmployees().remove(j);
-                    companies.get(i).getEmployees().get(j).salary = companies.get(i).getEmployees().get(j).salary * persentPlus;
+        ArrayList<Company> companies = getCompanies();
+        ArrayList<Company> companyWithoutWoman = getCompanies();
+
+        for (int i = 0; i < companyWithoutWoman.size(); i++) {
+            for (int j = 0; j < companyWithoutWoman.get(i).getEmployees().size(); j++) {
+                if (companyWithoutWoman.get(i).getEmployees().get(j).sex.contains("f")) {
+                    companyWithoutWoman.get(i).getEmployees().remove(j);
+                    companyWithoutWoman.get(i).getEmployees().get(j).salary = companies.get(i).getEmployees().get(j).salary * 1.15;
 
                 }
             }
         }
-        System.out.println("Список сотрудников(мужчин): ");
-        for (int i = 0; i < companies.size(); i++) {
-            for (int j = 0; j < companies.get(i).getEmployees().size(); j++)
-                System.out.println(companies.get(i).getCompanyName() + " : " + companies.get(i).getEmployees().get(j));
+        System.out.println("Новый список сотрудников(мужчин),с повышеными ЗП на 15%: ");
+        for (int i = 0; i < companyWithoutWoman.size(); i++) {
+            for (int j = 0; j < companyWithoutWoman.get(i).getEmployees().size(); j++)
+                System.out.println(companyWithoutWoman.get(i).getCompanyName() + " : " + companyWithoutWoman.get(i).getEmployees().get(j));
         }
 
 
