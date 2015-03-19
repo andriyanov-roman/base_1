@@ -117,6 +117,7 @@ public class CompanyUtil {
         System.out.println("6.Чтобы вывести сотрудника с самой длинной фамилией(третья компания),нажмите 6");
         System.out.println("7.Чтобы вывести отсортированых в порядке увеличения длины фамилии сотрудников третьей компании,нажмите 7");
         System.out.println("8.Чтобы вывести количество сотрудниц,работающих во всех компаниях,нажмите 8");
+        System.out.println("9.Чтобы уволить сотрудниц,работающих во всех компаниях,а сотрудникам(мужчинам) добавить 15 % к ЗП,нажмите 9");
 
         while (sc.hasNext()) {
             switch (sc.next()) {
@@ -149,9 +150,14 @@ public class CompanyUtil {
                     break;
 
                 case "9":
-                    showNewEmployee();
+                    removeAllWomanMoreSalaryMan();
                     break;
 
+                default:
+                    System.out.println("No such case!");
+                    break;
+                case "Exit":
+                    System.exit(0);
 
             }
         }
@@ -281,25 +287,7 @@ public class CompanyUtil {
 
     }
 
-    /*  public static void removeAllFemale() {
-          ArrayList<Company> companies = getCompanies();
-          ArrayList<Company> companies1 = new ArrayList<>();
-          Employee1 e = new Employee1();
-          int count = 0;
-          for (int i = 0; i < companies.size(); i++) {
-              for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
-                  if (companies.get(i).getEmployees().get(j).sex.contains("f") == false) {
-                      e = companies.get(i).getEmployees().get(j);
-                      System.out.println(e.name + " " + e.secondName + " : " + e.salary + "," + e.age);
 
-
-                  }
-              }
-
-          }
-
-
-      }*/
     public static void removeAllWomanMoreSalaryMan() {
         double persentPlus = 1.15;
         ArrayList<Company> companies = getCompanies();
