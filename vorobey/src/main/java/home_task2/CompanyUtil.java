@@ -312,7 +312,7 @@ public class CompanyUtil {
 
     public static void showOnlyMen() {
         ArrayList<Company> men = getCompanyWithoutWomen();
-        System.out.println("Сотрудники(мужчины),с повышеными ЗП:");
+        System.out.println("Сотрудники(мужчины),с зарплатами по умолчанию:");
         for (int i = 0; i < men.size(); i++) {
             for (int j = 0; j < men.get(i).getEmployees().size(); j++)
                 System.out.println(men.get(i).getCompanyName() + "/" + men.get(i).getEmployees().get(j).name + " " + men.get(i).getEmployees().get(j).secondName + "/" + men.get(i).getEmployees().get(j).age + "/" + men.get(i).getEmployees().get(j).salary);
@@ -348,20 +348,28 @@ public class CompanyUtil {
 
     }
 
-    public static ArrayList<Company> getNewListPersentPlus() {
-        ArrayList<Company> men = getCompanyWithoutWomen();
-        double persentPlus = 1.15;
-        for (int i = 0; i < men.size(); i++) {
-            for (int j = 0; j < men.get(i).getEmployees().size(); j++) {
-                for (int k = 0; k < men.get(i).getEmployees().get(j).salary; k++) {
-                    men.get(i).getEmployees().get(j).salary = men.get(i).getEmployees().get(j).salary * persentPlus;
-                }
+    public static ArrayList<Company> getFinalList() {
+        ArrayList<Company> newList = getCompanyWithoutWomen();
+        double persent = 1.15;
+        for (int i = 0; i < newList.size(); i++) {
+            for (int j = 0; j < newList.get(i).getEmployees().size(); j++) {
+                newList.get(i).getEmployees().get(j).salary = newList.get(i).getEmployees().get(j).salary * persent;
+
             }
         }
 
 
-        return men;
+        return newList;
 
+    }
+
+    public static void showFinalList() {
+        ArrayList<Company> men = getFinalList();
+        System.out.println("Сотрудники(мужчины),с новыми зарплатами :");
+        for (int i = 0; i < men.size(); i++) {
+            for (int j = 0; j < men.get(i).getEmployees().size(); j++)
+                System.out.println(men.get(i).getCompanyName() + "/" + men.get(i).getEmployees().get(j).name + " " + men.get(i).getEmployees().get(j).secondName + "/" + men.get(i).getEmployees().get(j).age + "/" + men.get(i).getEmployees().get(j).salary);
+        }
     }
 
 
