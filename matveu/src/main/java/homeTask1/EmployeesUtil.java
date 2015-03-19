@@ -11,6 +11,8 @@ public class EmployeesUtil {
         Employee e4 = new Employee("Vova", "Petrenko", "man", 33, 12000.0);
         Employee e5 = new Employee("Misha", "Zaec", "man", 18, 13000.0);
         Employee e6 = new Employee("Olga", "Emec", "woman", 21, 6000.0);
+        Employee e7 = new Employee("Kostj", "Dzuj", "man", 40, 19000.0);
+        Employee e8 = new Employee("Pasha", "Sidorov", "man", 22, 8000.0);
 
 
         ArrayList<Employee> employees = new ArrayList<>();
@@ -20,6 +22,8 @@ public class EmployeesUtil {
         employees.add(e4);
         employees.add(e5);
         employees.add(e6);
+        employees.add(e7);
+        employees.add(e8);
         return employees;
     }
 }

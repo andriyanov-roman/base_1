@@ -7,6 +7,7 @@ import java.util.Arrays;
 public class CompanyUtil {
 
     public static ArrayList<Company> getCompanies() {
+
         ArrayList<Company> companies = new ArrayList<>();
         ArrayList<Employee> employees = EmployeeUtil.getEmployees();
         Company c1 = new Company();
@@ -39,7 +40,7 @@ public class CompanyUtil {
             Employee temp = companies.get(i).getEmployees().get(0);
             for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
                 double salary = companies.get(i).getEmployees().get(j).getSalary();
-                if (temp.getSalary() > salary) {
+                if (temp.getSalary() < salary) {
                     temp = companies.get(i).getEmployees().get(j);
                 }
             }
