@@ -119,6 +119,7 @@ public class CompanyUtil {
         System.out.println("8.Чтобы вывести количество сотрудниц,работающих во всех компаниях,нажмите 8");
         System.out.println("9.Чтобы уволить сотрудниц,работающих во всех компаниях,и вывести обновленный список сотрудников,нажмите 9");
         System.out.println("10.Чтобы вывести список сотрудников с повышением ЗП на 15%,нажмите 10");
+        System.out.println("11.Чтобы вывести сотрудника(мужчину) с максимальной ЗП,нажмите 11");
 
         while (sc.hasNext()) {
             switch (sc.next()) {
@@ -154,6 +155,9 @@ public class CompanyUtil {
                     showOnlyMen();
                     break;
                 case "10":
+                    showFinalList();
+                    break;
+                case "11":
                     maxManSalary();
                     break;
 
@@ -321,7 +325,7 @@ public class CompanyUtil {
     }
 
     public static void maxManSalary() {
-        ArrayList<Company> maxManSalary =getFinalList();//Сотрудник с максимальной ЗП после добавления 15%
+        ArrayList<Company> maxManSalary = getFinalList();//Сотрудник с максимальной ЗП после добавления 15%
         double maxSalary = 0;
         String maxManName = "";
         String maxManSecondName = "";
