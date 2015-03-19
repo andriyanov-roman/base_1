@@ -4,7 +4,7 @@ package home_task2;
 import home_task2.Employee1;
 import home_task2.EmployeeUtil;
 
-import java.awt.event.ComponentAdapter;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -117,7 +117,8 @@ public class CompanyUtil {
         System.out.println("6.Чтобы вывести сотрудника с самой длинной фамилией(третья компания),нажмите 6");
         System.out.println("7.Чтобы вывести отсортированых в порядке увеличения длины фамилии сотрудников третьей компании,нажмите 7");
         System.out.println("8.Чтобы вывести количество сотрудниц,работающих во всех компаниях,нажмите 8");
-        System.out.println("9.Чтобы уволить сотрудниц,работающих во всех компаниях,а сотрудникам(мужчинам) добавить 15 % к ЗП,нажмите 9");
+        System.out.println("9.Чтобы уволить сотрудниц,работающих во всех компаниях,а сотрудникам(мужчинам) добавить 15 % к ЗП,вывести их,нажмите 9");
+        System.out.println("10.Чтобы вывести сотрудника(мужчину) с максимальнной ЗП,нажмите  10");
 
         while (sc.hasNext()) {
             switch (sc.next()) {
@@ -150,7 +151,10 @@ public class CompanyUtil {
                     break;
 
                 case "9":
-                    getCompanyWithoutWomen();
+                    showOnlyMen();
+                    break;
+                case "10":
+                    maxManSalary();
                     break;
 
                 default:
@@ -292,12 +296,12 @@ public class CompanyUtil {
 
         ArrayList<Company> companies = getCompanies();
         ArrayList<Company> companyWithoutWoman = getCompanies();
-
+        double persentPlus = 1.15;
         for (int i = 0; i < companyWithoutWoman.size(); i++) {
             for (int j = 0; j < companyWithoutWoman.get(i).getEmployees().size(); j++) {
                 if (companyWithoutWoman.get(i).getEmployees().get(j).sex.contains("f")) {
                     companyWithoutWoman.get(i).getEmployees().remove(j);
-                    companyWithoutWoman.get(i).getEmployees().get(j).salary = companies.get(i).getEmployees().get(j).salary * 1.15;
+
 
                 }
             }
@@ -341,7 +345,7 @@ public class CompanyUtil {
                 }
             }
         }
-        System.out.println("Компания: " + maxManCompany + " : " + maxManName + " " + maxManSecondName + "/" + maxManAge + "/" + maxManSalary);
+        System.out.println("Компания: " + maxManCompany + " : " + maxManName + " " + maxManSecondName + "/" + maxManAge + "/" + maxSalary);
 
 
     }
