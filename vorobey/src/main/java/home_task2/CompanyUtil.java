@@ -347,11 +347,22 @@ public class CompanyUtil {
 
 
     }
-    public static void newListNewSalary(){
-        ArrayList<Company> men=getCompanyWithoutWomen();
+
+    public static ArrayList<Company> getNewListPersentPlus() {
+        ArrayList<Company> men = getCompanyWithoutWomen();
+        double persentPlus = 1.15;
+        for (int i = 0; i < men.size(); i++) {
+            for (int j = 0; j < men.get(i).getEmployees().size(); j++) {
+                for (int k = 0; k < men.get(i).getEmployees().get(j).salary; k++) {
+                    men.get(i).getEmployees().get(j).salary = men.get(i).getEmployees().get(j).salary * persentPlus;
+                }
+            }
+        }
+
+
+        return men;
 
     }
-
 
 
 }
