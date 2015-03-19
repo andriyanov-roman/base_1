@@ -74,12 +74,10 @@ public class Methods {
                     greatNewEmployees();
                     break;
                 case "15":
-                    salaryPlusMen();
-                    killWomen();
+                    salaryPlusMenAndKillWomen();
                     break;
                 case "16":
-                    salaryPlusWomen();
-                    killMen();
+                    salaryPlusWomenAndKillMen();
                     break;
                 case "Exit":
                     System.exit(0);
@@ -357,7 +355,7 @@ public class Methods {
 
         }
     }
-    public static void salaryPlusMen() {
+    public static void salaryPlusMenAndKillWomen() {
         Scanner scanner=new Scanner(System.in);
         System.out.println("Введите сумму, на которую хотите повысить зп мужчинам");
              double plus = scanner.nextDouble();
@@ -367,30 +365,20 @@ public class Methods {
                     if(companies.get(i).getEmployees().get(j).getSex()=="man"){
                         companies.get(i).getEmployees().get(j).setSalary(companies.get(i).getEmployees().get(j).getSalary()+plus);
                 }
-                System.out.print(companies.get(i).getCompanyName()+": "+companies.get(i).getEmployees().get(j).getName()+" "+
-                companies.get(i).getEmployees().get(j).getSecondName()+" "+companies.get(i).getEmployees().get(j).getSalary());
-                System.out.println();
-            }
-        }
-    }
-    public static void killWomen() {
-        ArrayList<Company> companies = CompanyUtil.getCompanies();
-        for (int i = 0; i < companies.size(); i++) {
-            for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
                 if (companies.get(i).getEmployees().get(j).getSex() == "woman") {
-                    companies.get(i).getEmployees().clear();
+                    companies.get(i).getEmployees().remove(j);
                 }
             }
         }
         for (int i = 0; i < companies.size(); i++) {
             for (int j = companies.get(i).getEmployees().size()-1; j >= 0; j--) {
                 System.out.print(companies.get(i).getCompanyName() + ": " + companies.get(i).getEmployees().get(j).getName() + " " +
-                        companies.get(i).getEmployees().get(j).getSecondName());
+                        companies.get(i).getEmployees().get(j).getSecondName() + " " + companies.get(i).getEmployees().get(j).getSalary());
                 System.out.println();
             }
         }
     }
-    public static void salaryPlusWomen() {
+    public static void salaryPlusWomenAndKillMen() {
         Scanner scanner=new Scanner(System.in);
         System.out.println("Введите сумму, на которую хотите повысить зп женщинам");
         double plus = scanner.nextDouble();
@@ -400,30 +388,19 @@ public class Methods {
                 if(companies.get(i).getEmployees().get(j).getSex()=="woman"){
                     companies.get(i).getEmployees().get(j).setSalary(companies.get(i).getEmployees().get(j).getSalary()+plus);
                 }
-                System.out.print(companies.get(i).getCompanyName()+": "+companies.get(i).getEmployees().get(j).getName()+" "+
-                        companies.get(i).getEmployees().get(j).getSecondName()+" "+companies.get(i).getEmployees().get(j).getSalary());
-                System.out.println();
-            }
-        }
-    }
-    public static void killMen() {
-        ArrayList<Company> companies = CompanyUtil.getCompanies();
-        for (int i = 0; i < companies.size(); i++) {
-            for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
                 if (companies.get(i).getEmployees().get(j).getSex() == "man") {
-                    companies.get(i).getEmployees().clear();
+                    companies.get(i).getEmployees().remove(j);
                 }
             }
         }
         for (int i = 0; i < companies.size(); i++) {
             for (int j = companies.get(i).getEmployees().size()-1; j >= 0; j--) {
                 System.out.print(companies.get(i).getCompanyName() + ": " + companies.get(i).getEmployees().get(j).getName() + " " +
-                        companies.get(i).getEmployees().get(j).getSecondName());
+                        companies.get(i).getEmployees().get(j).getSecondName() + " " + companies.get(i).getEmployees().get(j).getSalary());
                 System.out.println();
             }
-        }
+            }
     }
-
 }
 
 
