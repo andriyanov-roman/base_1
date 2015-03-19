@@ -300,13 +300,15 @@ public class CompanyUtil {
 
 
       }*/
-    public static void remove() {
+    public static void removeAllWomanMoreSalaryMan() {
+        double persentPlus = 1.15;
         ArrayList<Company> companies = getCompanies();
         ArrayList<Company> newCompany = new ArrayList<>();
 
         for (int i = 0; i < companies.size(); i++) {
             for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
                 if (companies.get(i).getEmployees().get(j).sex.contains("f")) {
+                    companies.get(i).getEmployees().remove(j);
 
                 }
             }
