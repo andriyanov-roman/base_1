@@ -24,7 +24,7 @@ public class Methods {
         System.out.println("12. Сортировка сотрудников во второй компании(Microsoft) по возрасту,в порядке возрастания");
         System.out.println("13. Сортировка сотрудников в третей компании(Sony) по длине фамилии,в порядке возрастания");
         System.out.println("14. Добавить нового сотрудника");
-        System.out.println("15. Всем мужчинам, поднять зп на 5000");
+        System.out.println("15. Всем мужчинам, поднять зп");
         System.out.println("16. Уволить всех женщин");
 
 
@@ -356,11 +356,14 @@ public class Methods {
         }
     }
     public static void salaryPlus() {
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Введите сумму, на которую хотите повысить зп мужчинам");
+             double plus = scanner.nextDouble();
         ArrayList<Company> companies = CompanyUtil.getCompanies();
         for (int i = 0; i < companies.size(); i++) {
             for (int j = companies.get(i).getEmployees().size()-1; j >= 0; j--) {
                     if(companies.get(i).getEmployees().get(j).getSex()=="man"){
-                        companies.get(i).getEmployees().get(j).setSalary(companies.get(i).getEmployees().get(j).getSalary()+5000);
+                        companies.get(i).getEmployees().get(j).setSalary(companies.get(i).getEmployees().get(j).getSalary()+plus);
                 }
                 System.out.print(companies.get(i).getCompanyName()+": "+companies.get(i).getEmployees().get(j).getName()+" "+
                 companies.get(i).getEmployees().get(j).getSecondName()+" "+companies.get(i).getEmployees().get(j).getSalary());
