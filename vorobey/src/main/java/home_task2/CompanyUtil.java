@@ -150,7 +150,7 @@ public class CompanyUtil {
                     break;
 
                 case "9":
-                    removeAllWomanMoreSalaryMan();
+                    getCompanyWithoutWomen();
                     break;
 
                 default:
@@ -288,7 +288,7 @@ public class CompanyUtil {
     }
 
 
-    public static void removeAllWomanMoreSalaryMan() {
+    public static ArrayList<Company> getCompanyWithoutWomen() {
 
         ArrayList<Company> companies = getCompanies();
         ArrayList<Company> companyWithoutWoman = getCompanies();
@@ -307,9 +307,40 @@ public class CompanyUtil {
             for (int j = 0; j < companyWithoutWoman.get(i).getEmployees().size(); j++)
                 System.out.println(companyWithoutWoman.get(i).getCompanyName() + " : " + companyWithoutWoman.get(i).getEmployees().get(j));
         }
+        return companyWithoutWoman;
 
 
     }
+
+    public static void maxManSalary() {
+        ArrayList<Company> maxManSalary1 = getCompanyWithoutWomen();
+        double maxSalary = 0;
+        String maxManName = "";
+        String maxManSecondName = "";
+        String maxManCompany = "";
+        int maxManAge = 0;
+
+        for (int i = 0; i < maxManSalary1.size(); i++) {
+            for (int j = 0; j < maxManSalary1.get(i).getEmployees().size(); j++) {
+                for (int k = 0; k < maxManSalary1.get(i).getEmployees().get(j).salary; k++) {
+                    if (maxManSalary1.get(i).getEmployees().get(j).salary > maxSalary) {
+                        maxSalary = maxManSalary1.get(i).getEmployees().get(j).salary;
+                        maxManName = maxManSalary1.get(i).getEmployees().get(j).name;
+                        maxManSecondName = maxManSalary1.get(i).getEmployees().get(j).secondName;
+                        maxManAge = maxManSalary1.get(i).getEmployees().get(j).age;
+                        maxManCompany = maxManSalary1.get(i).getCompanyName();
+
+
+                    }
+
+                }
+            }
+        }
+        System.out.println(maxManName + " " + maxManSecondName + "/" + maxManCompany + '/' + maxSalary);
+
+
+    }
+
 
 }
 
