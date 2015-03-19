@@ -292,7 +292,8 @@ public class CompanyUtil {
     }
 
 
-    public static ArrayList<Company> getCompanyWithoutWomen() {
+    public static ArrayList<Company> getCompanyWithoutWomen() {         //Возвращает список сотрудников(мужчин)
+        //с ЗП по умолчанию,который можно использовать в дальнейшем
 
         ArrayList<Company> companies = getCompanies();
         ArrayList<Company> companyWithoutWoman = getCompanies();
@@ -320,7 +321,7 @@ public class CompanyUtil {
     }
 
     public static void maxManSalary() {
-        ArrayList<Company> maxManSalary = getCompanyWithoutWomen();
+        ArrayList<Company> maxManSalary =getFinalList();//Сотрудник с максимальной ЗП после добавления 15%
         double maxSalary = 0;
         String maxManName = "";
         String maxManSecondName = "";
@@ -348,7 +349,7 @@ public class CompanyUtil {
 
     }
 
-    public static ArrayList<Company> getFinalList() {
+    public static ArrayList<Company> getFinalList() {   //Возвращает список сотрудников,с увеличением ЗП на 15%
         ArrayList<Company> newList = getCompanyWithoutWomen();
         double persent = 1.15;
         for (int i = 0; i < newList.size(); i++) {
