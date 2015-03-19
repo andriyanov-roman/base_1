@@ -2,11 +2,45 @@ package home_task2;
 
 
 public class Employee1 {
-    public String name;
-    public String secondName;
-    public double salary;
-    public int age;
-    public String sex;
+    private String name;
+    private String secondName;
+    private double salary;
+    private int age;
+    private String sex;
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
 
     Employee1() {
 
