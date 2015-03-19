@@ -298,10 +298,8 @@ public class CompanyUtil {
 
     public static ArrayList<Company> getCompanyWithoutWomen() {         //Возвращает список сотрудников(мужчин)
         //с ЗП по умолчанию,который можно использовать в дальнейшем
-
         ArrayList<Company> companies = getCompanies();
         ArrayList<Company> companyWithoutWoman = getCompanies();
-
         for (int i = 0; i < companyWithoutWoman.size(); i++) {
             for (int j = 0; j < companyWithoutWoman.get(i).getEmployees().size(); j++) {
                 if (companyWithoutWoman.get(i).getEmployees().get(j).sex.contains("f")) {
@@ -311,7 +309,6 @@ public class CompanyUtil {
         }
 
         return companyWithoutWoman;
-
 
     }
 
@@ -342,14 +339,12 @@ public class CompanyUtil {
                         maxManAge = maxManSalary.get(i).getEmployees().get(j).age;
                         maxManCompany = maxManSalary.get(i).getCompanyName();
 
-
                     }
 
                 }
             }
         }
         System.out.println("Компания: " + maxManCompany + " : " + maxManName + " " + maxManSecondName + "/" + maxManAge + "/" + maxSalary);
-
 
     }
 
@@ -362,8 +357,6 @@ public class CompanyUtil {
 
             }
         }
-
-
         return newList;
 
     }
