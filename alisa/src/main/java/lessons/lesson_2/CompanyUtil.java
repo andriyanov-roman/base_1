@@ -20,13 +20,12 @@ public class CompanyUtil {
        c3.setCompanyName("Luxoft");
         c3.setEmployees(new Employee[]{employees[6], employees[7], employees[8]});
       return new Company[]{c1, c2, c3};
-
    }
 
    public static void start() {
        Scanner scanner = new Scanner(System.in);
        System.out.println("Enter command key" + " " +
-                        "0.Show all companies \t 1. Show employees salaries ranging \n "
+                        "0.Show all companies \t 1. Show employee with MaxSalary \n "
       );
         while (scanner.hasNext()) {
            switch (scanner.next()) {
@@ -43,13 +42,9 @@ public class CompanyUtil {
    public static void showCompanies() {
         Company[] companies = getCompanies();
         for (int i = 0; i < companies.length; i++) {
-           for (int j = 0; j < companies[i].getEmployees().length; j++) {
 
-            }
            System.out.println(companies[i].getCompanyName());
        }
-
-
     }
     public static void getMaxSalary() {
        Company[] companies = getCompanies();
@@ -57,7 +52,7 @@ public class CompanyUtil {
             Employee temp = companies[i].getEmployees()[0];
             for (int j = 0; j < companies[i].getEmployees().length; j++) {
                double salary = companies[i].getEmployees()[j].getSalary();
-                if (temp.getSalary() > salary) {
+                if (temp.getSalary() < salary) {
                     temp = companies[i].getEmployees()[j];
                 }
             }

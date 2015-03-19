@@ -16,10 +16,6 @@ public class EmployeeUtil {
       Employee e7 = new Employee ("Lora", "Smith", 75000.00, 100, "f");
       Employee e8 = new Employee("Sioma", "James", 300000.00, 74, "m");
       Employee e9 = new Employee ("Marco", "Pantani", 5673000.00, 98, "m");
-        return new Employee[]{e1,e2,e3,e4,e5,e6,e7,e8,e9};
-
-
-
-
+      return new Employee[]{e1,e2,e3,e4,e5,e6,e7,e8,e9};
     }
 }
