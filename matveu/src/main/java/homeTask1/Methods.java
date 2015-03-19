@@ -319,7 +319,9 @@ public class Methods {
                 employee.setSalary(scannerLux.nextInt());
                 employees.add(employee);
                 c1.setEmployees(new ArrayList<>());
-                c1.getEmployees().add(employees.get(8));
+                c1.getEmployees().add(employees.get(j));
+                companies.add(c1);
+
 
                 Scanner scannerNew = new Scanner(System.in);
             System.out.println("Выберите действие:");
@@ -333,14 +335,14 @@ public class Methods {
                     case "2":
                        System.out.print(employee.getName()+" "+employee.getSecondName()+". Sex: "+employee.getSex()+". Age "+
                        employee.getAge()+". Salary "+employee.getSalary());
+                        System.out.println();
                        // showGreatedEmployee();
                         break;
-
                 }
-
                 }
             }
         }
+
     }
 
     public static void showGreatedEmployee() {
