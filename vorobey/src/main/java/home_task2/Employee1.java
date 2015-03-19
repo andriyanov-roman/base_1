@@ -4,7 +4,7 @@ package home_task2;
 public class Employee1 {
     public String name;
     public String secondName;
-    public int salary;
+    public double salary;
     public int age;
     public String sex;
 
@@ -15,8 +15,8 @@ public class Employee1 {
     @Override
     public String toString() {
         return name + " " + " " + secondName +
-                ", salary=" + salary +
-                ", address='" + '\'';
+                ", salary=" + salary
+                ;
 
     }
 

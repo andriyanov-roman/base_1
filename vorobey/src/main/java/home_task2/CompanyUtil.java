@@ -61,7 +61,7 @@ public class CompanyUtil {
     public static void maxSalary() {
         ArrayList<Company> companies = getCompanies();
         for (int i = 0; i < companies.size(); i++) {
-            int maxSalary = 0;
+            double maxSalary = 0;
             String maxName = "", maxSecondName = "";
             for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
                 for (int k = 0; k < companies.get(i).getEmployees().get(j).salary; k++) {
@@ -83,7 +83,7 @@ public class CompanyUtil {
 
     public static void maxSalaryOfAllCompanies() {
         ArrayList<Company> companies = getCompanies();
-        int maxSalary = 0;
+        double maxSalary = 0;
         String maxName = "";
         String maxSecondName = "";
         String maxNameCompany = "";
@@ -309,13 +309,15 @@ public class CompanyUtil {
             for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
                 if (companies.get(i).getEmployees().get(j).sex.contains("f")) {
                     companies.get(i).getEmployees().remove(j);
+                    companies.get(i).getEmployees().get(j).salary = companies.get(i).getEmployees().get(j).salary * persentPlus;
 
                 }
             }
         }
+        System.out.println("Список сотрудников(мужчин): ");
         for (int i = 0; i < companies.size(); i++) {
             for (int j = 0; j < companies.get(i).getEmployees().size(); j++)
-                System.out.println(companies.get(i).getEmployees().get(j));
+                System.out.println(companies.get(i).getCompanyName() + " : " + companies.get(i).getEmployees().get(j));
         }
 
 
