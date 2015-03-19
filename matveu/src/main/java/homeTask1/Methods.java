@@ -16,7 +16,7 @@ public class Methods {
         System.out.println("4. Информация о сотрудниках");
         System.out.println("5. Сотрудник с наибольшей зарплатой");
         System.out.println("6. Сотрудники с одинаковыми именами и фамилией");
-        System.out.println("7. Сортировка сотрудников по зп в порядке убывания");
+        System.out.println("7. Сортировка сотрудников, всех компаний, по зп в порядке убывания");
         System.out.println("8. Узнать названия компаний");
         System.out.println("9. Узнать имена сотрудников, которые работают в каждой компании");
         System.out.println("10. Узнать сотрудника с наибольшей зп в каждой компании");
@@ -137,6 +137,7 @@ public class Methods {
             System.out.print(employees.get(i).getName() + " " + employees.get(i).getSecondName() + " " + employees.get(i).getSalary());
             System.out.println();
         }
+        System.out.println("Количество всех сотрудников, всех компаний: "+employees.size());
     }
 
     public static void maxSalary() {
@@ -158,15 +159,16 @@ public class Methods {
         ArrayList<Employee> employees = EmployeesUtil.getEmployees();
         String sameName = " ";
         String sameSecondName = " ";
-        for (int i = 0; i < employees.size(); i++) {
-            for (int j = i + 1; j < employees.size(); j++) {
-                if (employees.get(i).getName() == employees.get(j).getName() && employees.get(i).getSecondName() == employees.get(j).getSecondName()) {
-                    sameName = employees.get(i).getName();
-                    sameSecondName = employees.get(i).getSecondName();
+            for (int i = 0; i < employees.size(); i++) {
+                for (int j = i+1; j <employees.size(); j++) {
+                    if (employees.get(i).getName() == employees.get(j).getName() && employees.get(i).getSecondName() == employees.get(j).getSecondName()) {
+                        sameName = employees.get(i).getName();
+                        sameSecondName = employees.get(i).getSecondName();
+                    }
                 }
             }
-        }
-        System.out.println("Сотрудники с одинаковыми именами и фамилией: " + sameName + " " + sameSecondName);
+
+        System.out.println("Сотрудники с одинаковыми именами и фамилией: " + sameName+ " " + sameSecondName);
     }
 
     public static void sortSalary() {
@@ -175,8 +177,8 @@ public class Methods {
             for (int j = 0; j < i; j++) {
                 if (employees.get(j).getSalary() < employees.get(j+1).getSalary()) {
                     Employee k = employees.get(j);
-                   // employees.get(j) = employees.get(j+1);
-                    //employees.get(j+1) = k;
+                    employees.set(j, employees.get(j + 1));
+                    employees.set(j+1, k);
                 }
             }
         }
@@ -227,8 +229,8 @@ public class Methods {
                             for (int k = 0; k < j; k++) {
                     if (companies.get(i).getEmployees().get(k).getSalary() < companies.get(i).getEmployees().get(k+1).getSalary()) {
                         Employee www = companies.get(i).getEmployees().get(k);
-                      //  companies.get(i).getEmployees().get(k) = companies.get(i).getEmployees().get(k+1);
-                        //companies.get(i).getEmployees().get(k+1) = www;
+                        companies.get(i).getEmployees().set(k, companies.get(i).getEmployees().get(k + 1));
+                        companies.get(i).getEmployees().set(k + 1, www);
                     }
                 }
                 System.out.print(companies.get(i).getEmployees().get(j).getName() + " " + companies.get(i).getEmployees().get(j).getSecondName() + ": " + companies.get(i).getEmployees().get(j).getSalary() + " ");
@@ -245,12 +247,12 @@ public class Methods {
                 for (int k = 0; k < j; k++) {
                     if (companies.get(i).getEmployees().get(k).getAge() < companies.get(i).getEmployees().get(k+1).getAge()) {
                         Employee www = companies.get(i).getEmployees().get(k);
-                      //  companies.get(i).getEmployees().get(k) = companies.get(i).getEmployees().get(k+1);
-                        //companies.get(i).getEmployees().get(k+1) = www;
+                        companies.get(i).getEmployees().set(k,companies.get(i).getEmployees().get(k+1));
+                        companies.get(i).getEmployees().set(k+1,www);
                     }
                 }
                 System.out.print(companies.get(i).getEmployees().get(j).getName() + " " + companies.get(i).getEmployees().get(j).getSecondName() +
-                        ":Age: " + companies.get(i).getEmployees().get(j).getAge());
+                        " : Age: " + companies.get(i).getEmployees().get(j).getAge());
                 System.out.println();
             }
         }
@@ -263,12 +265,12 @@ public class Methods {
                 for (int k = 0; k < j; k++) {
                     if (companies.get(i).getEmployees().get(k).getSecondName().length() < companies.get(i).getEmployees().get(k+1).getSecondName().length()) {
                         Employee www = companies.get(i).getEmployees().get(k);
-                      //  companies.get(i).getEmployees().get(k) = companies.get(i).getEmployees().get(k+1);
-                        //companies.get(i).getEmployees().get(k+1) = www;
+                        companies.get(i).getEmployees().set(k, companies.get(i).getEmployees().get(k+1));
+                        companies.get(i).getEmployees().set(k+1,www);
                     }
                 }
                 System.out.print(companies.get(i).getEmployees().get(j).getName() + " " + companies.get(i).getEmployees().get(j).getSecondName() + ".");
-                System.out.print(" Количество букв в фамилии: " + companies.get(i).getEmployees().get(i).getSecondName().length());
+                System.out.print(" Количество букв в фамилии: " + companies.get(i).getEmployees().get(j).getSecondName().length());
                 System.out.println();
             }
         }
@@ -329,8 +331,9 @@ public class Methods {
                         greatEmployeeLuxsoft();
                         break;
                     case "2":
-                       //  System.out.print(employee.getName()+" "+employee.getSecondName());
-                       showGreatedEmployee();
+                       System.out.print(employee.getName()+" "+employee.getSecondName()+". Sex: "+employee.getSex()+". Age "+
+                       employee.getAge()+". Salary "+employee.getSalary());
+                       // showGreatedEmployee();
                         break;
 
                 }
