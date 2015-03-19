@@ -1,7 +1,9 @@
 package homeTask1;
 
+import java.util.ArrayList;
+
 public class EmployeesUtil {
-    public static Employee[] getEmployees() {
+    public static ArrayList<Employee> getEmployees() {
 
         Employee e1 = new Employee("Grisha", "Popov", "man", 25, 10000.0);
         Employee e2 = new Employee("Alisa", "Bragina", "woman", 20, 7000.0);
@@ -11,13 +13,13 @@ public class EmployeesUtil {
         Employee e6 = new Employee("Olga", "Emec", "woman", 21, 6000.0);
 
 
-        Employee[] employees = new Employee[100];
-        employees[0] = e1;
-        employees[1] = e2;
-        employees[2] = e3;
-        employees[3] = e4;
-        employees[4] = e5;
-        employees[5] = e6;
+        ArrayList<Employee> employees = new ArrayList<>();
+        employees.add(e1);
+        employees.add(e2);
+        employees.add(e3);
+        employees.add(e4);
+        employees.add(e5);
+        employees.add(e6);
         return employees;
     }
 }

@@ -4,31 +4,44 @@ package home_task2;
 import home_task.Employee;
 import home_task.EmployeeUtil;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
-/**
- * Created by Stas on 16.03.2015.
- */
+
 public class CompanyUtil {
-    public static Company[] getCompanies() {
-        Employee[] employees = EmployeeUtil.getEmployees();
+    public static ArrayList<Company> getCompanies() {
+        ArrayList<Employee> employees = EmployeeUtil.getEmployees();
         Company c1 = new Company();
         Company c2 = new Company();
         Company c3 = new Company();
-        c1.setEmployees(new Employee[]{employees[0], employees[1], employees[6]});
-        c2.setEmployees(new Employee[]{employees[2], employees[4]});
-        c3.setEmployees(new Employee[]{employees[3], employees[5], employees[7]});
+        c1.setEmployees(new ArrayList<>());
+        c1.getEmployees().add(employees.get(0));
+        c1.getEmployees().add(employees.get(1));
+        c1.getEmployees().add(employees.get(2));
+
+        c2.setEmployees(new ArrayList<>());
+        c2.getEmployees().add(employees.get(3));
+        c2.getEmployees().add(employees.get(4));
+
+        c3.setEmployees(new ArrayList<>());
+        c3.getEmployees().add(employees.get(5));
+        c3.getEmployees().add(employees.get(6));
+        c3.getEmployees().add(employees.get(7));
+
+
         c1.setCompanyName("FirstCompany");
         c2.setCompanyName("SecondCompany");
         c3.setCompanyName("ThirdCompany");
 
-        return new Company[]{c1, c2, c3};
+        return new ArrayList<Company>(Arrays.asList(c1, c2, c3));
 
     }
 
     public static void showCompaniesAndEmployees() {
-        Company[] companies = getCompanies();
-        for (int i = 0; i < companies.length; i++) {
+        ArrayList<Company> companies = getCompanies();
+        for (int i = 0; i < companies.size(); i++) {
             System.out.println("********************************");
             System.out.println("В компании " + companies[i].getCompanyName() + " работают сотрудники: ");
             for (int j = 0; j < companies[i].getEmployees().length; j++) {
@@ -244,6 +257,8 @@ public class CompanyUtil {
                 employees[j].secondName = sc.next();
 
                 System.out.println("Возраст и ЗП нового сотрдуника");
+
+
                 employees[j].age = sc.nextInt();
                 employees[j].salary = sc.nextInt();
 

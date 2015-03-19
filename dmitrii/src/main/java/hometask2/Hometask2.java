@@ -10,11 +10,11 @@ public class Hometask2 {
     private static Company[] updCompany; // контейнер для хранения обновлений компаний
     private static void welcome(){
         System.out.print("\n0) Previous task (Show higher salary in every OLD company)" +
-                         "\n1) 1. Show full employee's info (to show AGE and GENDER)" +
-                         "\n2) 2.a. Sort by Salary" +
-                         "\n3) 2.b. Sort by Age" +
-                         "\n4) 2.c. Sort by Surname Length" +
-                         "\n5) 3. OPTIONAL* Add employee (добавляет пользователя и СОХРАНЯЕТ его для следующих вызовов)" +
+                         "\n1) Task 1. Show full employee's info (to show AGE and GENDER)" +
+                         "\n2) Task 2.a. Sort by Salary" +
+                         "\n3) Task 2.b. Sort by Age" +
+                         "\n4) Task 2.c. Sort by Surname Length" +
+                         "\n5) Task 3. OPTIONAL* Add employee (добавляет пользователя и СОХРАНЯЕТ его для следующих вызовов)" +
                          "\ne) (or «Exit») End program" +
                          "\n Enter command key: "
         );
