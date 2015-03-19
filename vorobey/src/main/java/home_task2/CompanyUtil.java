@@ -302,33 +302,38 @@ public class CompanyUtil {
                 }
             }
         }
-        System.out.println("Новый список сотрудников(мужчин),с повышеными ЗП на 15%: ");
-        for (int i = 0; i < companyWithoutWoman.size(); i++) {
-            for (int j = 0; j < companyWithoutWoman.get(i).getEmployees().size(); j++)
-                System.out.println(companyWithoutWoman.get(i).getCompanyName() + " : " + companyWithoutWoman.get(i).getEmployees().get(j));
-        }
+
         return companyWithoutWoman;
 
 
     }
 
+    public static void showOnlyMen() {
+        ArrayList<Company> men = getCompanyWithoutWomen();
+        System.out.println("Сотрудники(мужчины),с повышеными ЗП:");
+        for (int i = 0; i < men.size(); i++) {
+            for (int j = 0; j < men.get(i).getEmployees().size(); j++)
+                System.out.println(men.get(i).getCompanyName() + "/" + men.get(i).getEmployees().get(j).name + " " + men.get(i).getEmployees().get(j).secondName + "/" + men.get(i).getEmployees().get(j).age + "/" + men.get(i).getEmployees().get(j).salary);
+        }
+    }
+
     public static void maxManSalary() {
-        ArrayList<Company> maxManSalary1 = getCompanyWithoutWomen();
+        ArrayList<Company> maxManSalary = getCompanyWithoutWomen();
         double maxSalary = 0;
         String maxManName = "";
         String maxManSecondName = "";
         String maxManCompany = "";
         int maxManAge = 0;
 
-        for (int i = 0; i < maxManSalary1.size(); i++) {
-            for (int j = 0; j < maxManSalary1.get(i).getEmployees().size(); j++) {
-                for (int k = 0; k < maxManSalary1.get(i).getEmployees().get(j).salary; k++) {
-                    if (maxManSalary1.get(i).getEmployees().get(j).salary > maxSalary) {
-                        maxSalary = maxManSalary1.get(i).getEmployees().get(j).salary;
-                        maxManName = maxManSalary1.get(i).getEmployees().get(j).name;
-                        maxManSecondName = maxManSalary1.get(i).getEmployees().get(j).secondName;
-                        maxManAge = maxManSalary1.get(i).getEmployees().get(j).age;
-                        maxManCompany = maxManSalary1.get(i).getCompanyName();
+        for (int i = 0; i < maxManSalary.size(); i++) {
+            for (int j = 0; j < maxManSalary.get(i).getEmployees().size(); j++) {
+                for (int k = 0; k < maxManSalary.get(i).getEmployees().get(j).salary; k++) {
+                    if (maxManSalary.get(i).getEmployees().get(j).salary > maxSalary) {
+                        maxSalary = maxManSalary.get(i).getEmployees().get(j).salary;
+                        maxManName = maxManSalary.get(i).getEmployees().get(j).name;
+                        maxManSecondName = maxManSalary.get(i).getEmployees().get(j).secondName;
+                        maxManAge = maxManSalary.get(i).getEmployees().get(j).age;
+                        maxManCompany = maxManSalary.get(i).getCompanyName();
 
 
                     }
@@ -336,7 +341,7 @@ public class CompanyUtil {
                 }
             }
         }
-        System.out.println(maxManName + " " + maxManSecondName + "/" + maxManCompany + '/' + maxSalary);
+        System.out.println("Компания: " + maxManCompany + " : " + maxManName + " " + maxManSecondName + "/" + maxManAge + "/" + maxManSalary);
 
 
     }
