@@ -113,12 +113,12 @@ public class Main {
 
     public static void sortBySalary(){
         ArrayList<Employee> employees = EmployeeUtil.getEmployees();
-        for (int i = employees.size(); i > 0; i--) {
-            for (int j = 1; j < i; j++)
+        for (int i = 0; i < employees.size(); i++) {
+            for (int j = 1; j < employees.size(); j++)
                 if (employees.get(j).getSalary() < employees.get(j - 1).getSalary()) {
                     Employee temp = employees.get(j);
-                    //employees.set();
-                    //employees.get(j - 1) = temp;
+                    employees.set(j, employees.get(j - 1));
+                    employees.set((j - 1), temp);
                 }
         }
         for (int i = 0; i < employees.size(); i++) {
