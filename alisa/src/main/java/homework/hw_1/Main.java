@@ -81,8 +81,8 @@ public class Main {
     }
     public static void sortById() {
         User[] users = UsersUtil.getUsers();
-        for (int i = users.length - 1; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
+        for (int i = 0; i < users.length; i++) {
+            for (int j = 0; j < users.length - 1 -i; j++) {
                 if (users[j].id > users[j + 1].id) {
                     User tmp = users[j];
                     users[j] = users[j + 1];
