@@ -207,6 +207,7 @@ public class Methods {
 
             }
         }
+        System.out.println();
     }
 
     public static void сompanyMaxSalary() {
@@ -311,7 +312,7 @@ public class Methods {
                 employee.setName(scannerLux.nextLine());
                 System.out.println("Введите фамилию сотрудника!");
                 employee.setSecondName(scannerLux.nextLine());
-                System.out.println("Введите пол сотрудника!");
+                System.out.println("Введите пол сотрудника! (man/woman)");
                 employee.setSex(scannerLux.nextLine());
                 System.out.println("Введите возраст сотрудника!");
                 employee.setAge(scannerLux.nextInt());
