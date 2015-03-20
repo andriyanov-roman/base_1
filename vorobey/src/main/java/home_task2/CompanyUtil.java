@@ -372,11 +372,33 @@ public class CompanyUtil {
 
     public static ArrayList<Company> getListWithNewEmployee() {
         ArrayList<Company> newList = getCompanyWithoutWomen();
+        ArrayList<Employee1> employee1s = EmployeeUtil.getEmployees();
+        Scanner sc = new Scanner(System.in);
+        Employee1 e = new Employee1();
+        Company c1 = new Company();
+        for (int i = 0; i < 1; i++) {
+            for (int j = 0; j < 2; j++) { // например,мы хотим добавить двух сотрудников
+                System.out.println("Введите имя сотрудника:");
+                e.setName(sc.next());
+
+                System.out.println("Введите фамилию сотрудника:");
+                e.setSecondName(sc.next());
+
+                System.out.println("Введите возраст сотрудника:");
+                e.setAge(sc.nextInt());
+
+                System.out.println("Введите пол(male/female) сотрудника:");
+                e.setSex(sc.next());
+
+                System.out.println("Введите предпологаемую ЗП сотрудника:");
+                e.setSalary(sc.nextInt());
 
 
+            }
+
+
+        }
         return newList;
     }
 
-
 }
-
