@@ -50,7 +50,7 @@ public class CompanyUtil {
             System.out.println("********************************");
             System.out.println("В компании " + companies.get(i).getCompanyName() + " работают сотрудники: ");
             for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
-                System.out.print(companies.get(i).getEmployees().get(j).name + " " + companies.get(i).getEmployees().get(j).secondName + "(" + companies.get(i).getEmployees().get(j).salary + ")");
+                System.out.print(companies.get(i).getEmployees().get(j).getName() + " " + companies.get(i).getEmployees().get(j).getSecondName() + "(" + companies.get(i).getEmployees().get(j).getSalary() + ")");
                 System.out.println();
             }
         }
@@ -64,11 +64,11 @@ public class CompanyUtil {
             double maxSalary = 0;
             String maxName = "", maxSecondName = "";
             for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
-                for (int k = 0; k < companies.get(i).getEmployees().get(j).salary; k++) {
-                    if (companies.get(i).getEmployees().get(j).salary > maxSalary) {
-                        maxSalary = companies.get(i).getEmployees().get(j).salary;
-                        maxName = companies.get(i).getEmployees().get(j).name;
-                        maxSecondName = companies.get(i).getEmployees().get(j).name;
+                for (int k = 0; k < companies.get(i).getEmployees().get(j).getSalary(); k++) {
+                    if (companies.get(i).getEmployees().get(j).getSalary() > maxSalary) {
+                        maxSalary = companies.get(i).getEmployees().get(j).getSalary();
+                        maxName = companies.get(i).getEmployees().get(j).getName();
+                        maxSecondName = companies.get(i).getEmployees().get(j).getSecondName();
                     }
 
                 }
@@ -90,11 +90,11 @@ public class CompanyUtil {
 
         for (int i = 0; i < companies.size(); i++) {
             for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
-                for (int k = 0; k < companies.get(i).getEmployees().get(j).salary; k++) {
-                    if (companies.get(i).getEmployees().get(j).salary > maxSalary) {
-                        maxSalary = companies.get(i).getEmployees().get(j).salary;
-                        maxName = companies.get(i).getEmployees().get(j).name;
-                        maxSecondName = companies.get(i).getEmployees().get(j).name;
+                for (int k = 0; k < companies.get(i).getEmployees().get(j).getSalary(); k++) {
+                    if (companies.get(i).getEmployees().get(j).getSalary() > maxSalary) {
+                        maxSalary = companies.get(i).getEmployees().get(j).getSalary();
+                        maxName = companies.get(i).getEmployees().get(j).getName();
+                        maxSecondName = companies.get(i).getEmployees().get(j).getSecondName();
                         maxNameCompany = companies.get(i).getCompanyName();
 
                     }
@@ -178,7 +178,7 @@ public class CompanyUtil {
         for (int i = 0; i < 1; i++) {
             for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
                 for (int k = 0; k < j; k++) {
-                    if (companies.get(i).getEmployees().get(k).salary < companies.get(i).getEmployees().get(k + 1).salary) {
+                    if (companies.get(i).getEmployees().get(k).getSalary() < companies.get(i).getEmployees().get(k + 1).getSalary()) {
                         Employee1 e = companies.get(i).getEmployees().get(k);
                         companies.get(i).getEmployees().set(k, companies.get(i).getEmployees().get(k + 1));
                         companies.get(i).getEmployees().set(k + 1, e);
@@ -189,7 +189,7 @@ public class CompanyUtil {
         }
         for (int i = 0; i < 1; i++) {
             for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
-                System.out.println(companies.get(i).getEmployees().get(j).name + " " + companies.get(i).getEmployees().get(j).secondName + " (" + companies.get(i).getEmployees().get(j).salary + ")");
+                System.out.println(companies.get(i).getEmployees().get(j).getName() + " " + companies.get(i).getEmployees().get(j).getSecondName() + " (" + companies.get(i).getEmployees().get(j).getSalary() + ")");
             }
 
         }
@@ -201,7 +201,7 @@ public class CompanyUtil {
         for (int i = 1; i < 2; i++) {
             for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
                 for (int k = 0; k < j; k++) {
-                    if (companies.get(i).getEmployees().get(k).age < companies.get(i).getEmployees().get(k + 1).age) {
+                    if (companies.get(i).getEmployees().get(k).getAge() < companies.get(i).getEmployees().get(k + 1).getAge()) {
                         Employee1 e = companies.get(i).getEmployees().get(k);
                         companies.get(i).getEmployees().set(k, companies.get(i).getEmployees().get(k + 1));
                         companies.get(i).getEmployees().set(k + 1, e);
@@ -212,7 +212,7 @@ public class CompanyUtil {
         }
         for (int i = 1; i < 2; i++) {
             for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
-                System.out.println(companies.get(i).getEmployees().get(j).name + " " + companies.get(i).getEmployees().get(j).secondName + " (" + companies.get(i).getEmployees().get(j).age + ")");
+                System.out.println(companies.get(i).getEmployees().get(j).getName() + " " + companies.get(i).getEmployees().get(j).getSecondName() + " (" + companies.get(i).getEmployees().get(j).getAge() + ")");
             }
 
 
@@ -226,9 +226,9 @@ public class CompanyUtil {
         int maxLength = 0;
         for (int i = 2; i < 3; i++) {
             for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
-                if (companies.get(i).getEmployees().get(j).secondName.length() > maxLength) {
-                    maxLengthSecondName = companies.get(i).getEmployees().get(j).secondName;
-                    maxLength = companies.get(i).getEmployees().get(j).secondName.length();
+                if (companies.get(i).getEmployees().get(j).getSecondName().length() > maxLength) {
+                    maxLengthSecondName = companies.get(i).getEmployees().get(j).getSecondName();
+                    maxLength = companies.get(i).getEmployees().get(j).getSecondName().length();
                 }
 
             }
@@ -244,7 +244,7 @@ public class CompanyUtil {
         for (int i = 2; i < 3; i++) {
             for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
                 for (int k = 0; k < j; k++) {
-                    if (companies.get(i).getEmployees().get(k).secondName.length() < companies.get(i).getEmployees().get(k + 1).secondName.length()) {
+                    if (companies.get(i).getEmployees().get(k).getSecondName().length() < companies.get(i).getEmployees().get(k + 1).getSecondName().length()) {
                         Employee1 e = companies.get(i).getEmployees().get(k);
                         companies.get(i).getEmployees().set(k, companies.get(i).getEmployees().get(k + 1));
                         companies.get(i).getEmployees().set(k + 1, e);
@@ -260,7 +260,7 @@ public class CompanyUtil {
         }
         for (int i = 2; i < 3; i++) {
             for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
-                System.out.println(companies.get(i).getEmployees().get(j).name + " " + companies.get(i).getEmployees().get(j).secondName + "  " + companies.get(i).getEmployees().get(j).secondName.length());
+                System.out.println(companies.get(i).getEmployees().get(j).getName() + " " + companies.get(i).getEmployees().get(j).getSecondName() + "  " + companies.get(i).getEmployees().get(j).getSecondName().length());
             }
         }
 
@@ -271,7 +271,7 @@ public class CompanyUtil {
         ArrayList<Company> companies = getCompanies();
         for (int i = 0; i < 1; i++) {
             for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
-                System.out.println(companies.get(i).getEmployees().get(j).name + " " + companies.get(i).getEmployees().get(j).secondName);
+                System.out.println(companies.get(i).getEmployees().get(j).getName() + " " + companies.get(i).getEmployees().get(j).getSecondName());
             }
 
         }
@@ -284,9 +284,9 @@ public class CompanyUtil {
         int count = 0;
         for (int i = 0; i < companies.size(); i++) {
             for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
-                if (companies.get(i).getEmployees().get(j).sex.contains("f")) {
+                if (companies.get(i).getEmployees().get(j).getSex().contains("f")) {
                     count++;
-                    System.out.println(companies.get(i).getEmployees().get(j).name + "  " + companies.get(i).getEmployees().get(j).secondName + " : " + companies.get(i).getCompanyName());
+                    System.out.println(companies.get(i).getEmployees().get(j).getName() + "  " + companies.get(i).getEmployees().get(j).getSecondName() + " : " + companies.get(i).getCompanyName());
                 }
 
             }
@@ -302,7 +302,7 @@ public class CompanyUtil {
         ArrayList<Company> companyWithoutWoman = getCompanies();
         for (int i = 0; i < companyWithoutWoman.size(); i++) {
             for (int j = 0; j < companyWithoutWoman.get(i).getEmployees().size(); j++) {
-                if (companyWithoutWoman.get(i).getEmployees().get(j).sex.contains("f")) {
+                if (companyWithoutWoman.get(i).getEmployees().get(j).getSex().contains("f")) {
                     companyWithoutWoman.get(i).getEmployees().remove(j);
                 }
             }
@@ -317,7 +317,7 @@ public class CompanyUtil {
         System.out.println("Сотрудники(мужчины),с зарплатами по умолчанию:");
         for (int i = 0; i < men.size(); i++) {
             for (int j = 0; j < men.get(i).getEmployees().size(); j++)
-                System.out.println(men.get(i).getCompanyName() + "/" + men.get(i).getEmployees().get(j).name + " " + men.get(i).getEmployees().get(j).secondName + "/" + men.get(i).getEmployees().get(j).age + "/" + men.get(i).getEmployees().get(j).salary);
+                System.out.println(men.get(i).getCompanyName() + "/" + men.get(i).getEmployees().get(j).getName() + " " + men.get(i).getEmployees().get(j).getSecondName() + "/" + men.get(i).getEmployees().get(j).getAge() + "/" + men.get(i).getEmployees().get(j).getSalary());
         }
     }
 
@@ -331,12 +331,12 @@ public class CompanyUtil {
 
         for (int i = 0; i < maxManSalary.size(); i++) {
             for (int j = 0; j < maxManSalary.get(i).getEmployees().size(); j++) {
-                for (int k = 0; k < maxManSalary.get(i).getEmployees().get(j).salary; k++) {
-                    if (maxManSalary.get(i).getEmployees().get(j).salary > maxSalary) {
-                        maxSalary = maxManSalary.get(i).getEmployees().get(j).salary;
-                        maxManName = maxManSalary.get(i).getEmployees().get(j).name;
-                        maxManSecondName = maxManSalary.get(i).getEmployees().get(j).secondName;
-                        maxManAge = maxManSalary.get(i).getEmployees().get(j).age;
+                for (int k = 0; k < maxManSalary.get(i).getEmployees().get(j).getSalary(); k++) {
+                    if (maxManSalary.get(i).getEmployees().get(j).getSalary() > maxSalary) {
+                        maxSalary = maxManSalary.get(i).getEmployees().get(j).getSalary();
+                        maxManName = maxManSalary.get(i).getEmployees().get(j).getName();
+                        maxManSecondName = maxManSalary.get(i).getEmployees().get(j).getSecondName();
+                        maxManAge = maxManSalary.get(i).getEmployees().get(j).getAge();
                         maxManCompany = maxManSalary.get(i).getCompanyName();
 
                     }
@@ -353,7 +353,7 @@ public class CompanyUtil {
         double persent = 1.15;
         for (int i = 0; i < newList.size(); i++) {
             for (int j = 0; j < newList.get(i).getEmployees().size(); j++) {
-                newList.get(i).getEmployees().get(j).salary = newList.get(i).getEmployees().get(j).salary * persent;
+                newList.get(i).getEmployees().get(j).setSalary(newList.get(i).getEmployees().get(j).getSalary() * persent);
 
             }
         }
@@ -366,7 +366,7 @@ public class CompanyUtil {
         System.out.println("Сотрудники(мужчины),с новыми зарплатами :");
         for (int i = 0; i < men.size(); i++) {
             for (int j = 0; j < men.get(i).getEmployees().size(); j++)
-                System.out.println(men.get(i).getCompanyName() + "/" + men.get(i).getEmployees().get(j).name + " " + men.get(i).getEmployees().get(j).secondName + "/" + men.get(i).getEmployees().get(j).age + "/" + men.get(i).getEmployees().get(j).salary);
+                System.out.println(men.get(i).getCompanyName() + "/" + men.get(i).getEmployees().get(j).getName() + " " + men.get(i).getEmployees().get(j).getSecondName() + "/" + men.get(i).getEmployees().get(j).getAge() + "/" + men.get(i).getEmployees().get(j).getSalary());
         }
     }
 
