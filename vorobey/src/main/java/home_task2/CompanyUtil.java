@@ -370,7 +370,13 @@ public class CompanyUtil {
         }
     }
 
+    public static ArrayList<Company> getListWithNewEmployee() {
+        ArrayList<Company> newList = getCompanyWithoutWomen();
+
+
+        return newList;
+    }
+
 
 }
-
 
