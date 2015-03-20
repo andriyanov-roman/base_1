@@ -59,7 +59,7 @@ public class CompanyUtil {
                     temp = companies[i].getEmployees()[j];
                 }
             }
-            System.out.println(companies[i].getCompanyName() + " " + temp.getSalary());
+            System.out.println(companies[i].getCompanyName() + " " + temp.getName()+ " " + temp.getSalary());
        }
     }
 }
