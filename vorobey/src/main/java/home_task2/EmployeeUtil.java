@@ -28,7 +28,7 @@ public class EmployeeUtil {
         Employee1 e3 = new Employee1();
         e3.setName("Vlad");
         e3.setSecondName("Sokolov");
-        e3.setSalary(1300);
+        e3.setSalary(3500);
         e3.setAge(18);
         e3.setSex("male");
 
@@ -50,9 +50,10 @@ public class EmployeeUtil {
         Employee1 e6 = new Employee1();
         e6.setName("Vasiliy");
         e6.setSecondName("Ytkin");
+        e6.setSalary(3000);
         e6.setAge(33);
         e6.setSex("male");
-        e5.setSalary(4500);
+
 
         Employee1 e7 = new Employee1();
         e7.setName("Nina");
