@@ -1,6 +1,7 @@
 package home_task2;
 
 
+import home_task.Employee;
 import home_task2.Employee1;
 import home_task2.EmployeeUtil;
 
@@ -370,35 +371,26 @@ public class CompanyUtil {
         }
     }
 
-    public static ArrayList<Company> getListWithNewEmployee() {
-        ArrayList<Company> newList = getCompanyWithoutWomen();
-        ArrayList<Employee1> employee1s = EmployeeUtil.getEmployees();
+    public static ArrayList<Employee1> getListWithNewEmployee() {
         Scanner sc = new Scanner(System.in);
-        Employee1 e = new Employee1();
-        Company c1 = new Company();
-        for (int i = 0; i < 1; i++) {
-            for (int j = 0; j < 2; j++) { // например,мы хотим добавить двух сотрудников
-                System.out.println("Введите имя сотрудника:");
-                e.setName(sc.next());
+        ArrayList<Employee1> e = EmployeeUtil.getEmployees();
+        ArrayList<Company> e2=getCompanyWithoutWomen();
 
-                System.out.println("Введите фамилию сотрудника:");
-                e.setSecondName(sc.next());
-
-                System.out.println("Введите возраст сотрудника:");
-                e.setAge(sc.nextInt());
-
-                System.out.println("Введите пол(male/female) сотрудника:");
-                e.setSex(sc.next());
-
-                System.out.println("Введите предпологаемую ЗП сотрудника:");
-                e.setSalary(sc.nextInt());
+        Employee1 e1 = new Employee1();
+        System.out.println("Name");
+        e1.setName(sc.next());
+        System.out.println("Surename");
+        e1.setSecondName(sc.next());
+        System.out.println("Age");
+        e1.setAge(sc.nextInt());
+        System.out.println("salary");
+        e1.setSalary(sc.nextInt());
+        e.add(e1);
 
 
-            }
+        return e;
 
 
-        }
-        return newList;
     }
 
 }
