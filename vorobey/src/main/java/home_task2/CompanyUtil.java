@@ -117,10 +117,12 @@ public class CompanyUtil {
         System.out.println("5. Чтобы вывести отсортированых сотрудников второй фирмы в порядке возростания возраста,нажмите 5");
         System.out.println("6. Чтобы вывести сотрудника с самой длинной фамилией(третья компания),нажмите 6");
         System.out.println("7. Чтобы вывести отсортированых в порядке увеличения длины фамилии сотрудников третьей компании,нажмите 7");
-        System.out.println("8. Чтобы вывести количество сотрудниц,работающих во всех компаниях,нажмите 8");
-        System.out.println("9. Чтобы уволить сотрудниц,работающих во всех компаниях,и вывести обновленный список сотрудников,нажмите 9");
-        System.out.println("10.Чтобы вывести список сотрудников с повышением ЗП на 15%,нажмите 10");
-        System.out.println("11.Чтобы вывести сотрудника(мужчину) с максимальной ЗП,нажмите 11");
+        System.out.println("8. Чтобы добавить нового сотрудника и вывести список всех новых сотрудников,нажмите 8");
+        System.out.println("9. Чтобы вывести количество сотрудниц,работающих во всех компаниях,нажмите 9");
+        System.out.println("10 Чтобы уволить сотрудниц,работающих во всех компаниях,и вывести обновленный список сотрудников,нажмите 10");
+        System.out.println("11 Чтобы вывести список сотрудников с повышением ЗП на 15%,нажмите 11");
+        System.out.println("12 Чтобы вывести сотрудника(мужчину) с максимальной ЗП,нажмите 12");
+        System.out.println("13 Чтобы добавить нового сотрудника и вывести список всех новых сотрудников,нажмите 13");
 
         while (sc.hasNext()) {
             switch (sc.next()) {
@@ -149,18 +151,22 @@ public class CompanyUtil {
                     break;
 
                 case "8":
-                    howMuchFemale();
+                    showNewEmpl();
                     break;
 
                 case "9":
-                    showOnlyMen();
+                    howMuchFemale();
                     break;
                 case "10":
-                    showFinalList();
+                    showOnlyMen();
                     break;
                 case "11":
+                    showFinalList();
+                case "12":
                     maxManSalary();
                     break;
+
+
 
                 default:
                     System.out.println("No such case!");
@@ -373,24 +379,34 @@ public class CompanyUtil {
 
     public static ArrayList<Employee1> getListWithNewEmployee() {
         Scanner sc = new Scanner(System.in);
-        ArrayList<Employee1> e = EmployeeUtil.getEmployees();
-        ArrayList<Company> e2=getCompanyWithoutWomen();
+        Employee1 e = new Employee1();
+        ArrayList<Company> comNew = getCompanyWithoutWomen();
+        ArrayList<Employee1> employee1 = EmployeeUtil.getEmployees();
+        System.out.printf("Введите Имя нового сотрудника:");
+        e.setName(sc.next());
+        System.out.println("Введите Фамилию нового сотрудника:");
+        e.setSecondName(sc.next());
+        System.out.println("Введите предпологаемую ЗП:");
+        e.setSalary(sc.nextInt());
+        System.out.println("Введите возраст нового сотрудника:");
+        e.setAge(sc.nextInt());
+        System.out.println("Введите пол нового сотрудника:");
+        e.setSex(sc.next());
+        employee1.add(e);
 
-        Employee1 e1 = new Employee1();
-        System.out.println("Name");
-        e1.setName(sc.next());
-        System.out.println("Surename");
-        e1.setSecondName(sc.next());
-        System.out.println("Age");
-        e1.setAge(sc.nextInt());
-        System.out.println("salary");
-        e1.setSalary(sc.nextInt());
-        e.add(e1);
 
-
-        return e;
-
+        return employee1;
 
     }
+
+    public static void showNewEmpl() {
+        ArrayList<Employee1> empl = getListWithNewEmployee();
+        for (int i = 0; i < empl.size(); i++) {
+            System.out.println(empl.get(i));
+
+
+        }
+    }
+
 
 }
