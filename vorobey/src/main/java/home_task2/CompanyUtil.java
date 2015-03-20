@@ -390,7 +390,7 @@ public class CompanyUtil {
         e.setSalary(sc.nextInt());
         System.out.println("Введите возраст нового сотрудника:");
         e.setAge(sc.nextInt());
-        System.out.println("Введите пол нового сотрудника:");
+        System.out.println("Введите Пол нового сотрудника:");
         e.setSex(sc.next());
         employee1.add(e);
 
