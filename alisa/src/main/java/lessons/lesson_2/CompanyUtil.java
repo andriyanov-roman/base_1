@@ -35,6 +35,10 @@ public class CompanyUtil {
                 case "1":
                     getMaxSalary();
                     break;
+               case "Exit":
+                   System.exit(0);
+               default:
+                   System.out.println("No such case");
             }
         }
     }
@@ -42,7 +46,6 @@ public class CompanyUtil {
    public static void showCompanies() {
         Company[] companies = getCompanies();
         for (int i = 0; i < companies.length; i++) {
-
            System.out.println(companies[i].getCompanyName());
        }
     }
@@ -56,7 +59,7 @@ public class CompanyUtil {
                     temp = companies[i].getEmployees()[j];
                 }
             }
-            System.out.println(companies[i].getCompanyName() + " " + temp.getSalary());
+            System.out.println(companies[i].getCompanyName() + " " + temp.getName()+ " " + temp.getSalary());
        }
     }
 }
