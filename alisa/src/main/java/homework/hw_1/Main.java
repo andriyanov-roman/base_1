@@ -39,10 +39,10 @@ public class Main {
                 case "6":
                     sortBySalary();
                     break;
-                //case "Exit":
-                // System.exit(0);
-                //default:
-                //System.out.println("No such case");
+                case "Exit":
+                System.exit(0);
+                default:
+                System.out.println("No such case");
             }
         }
 
@@ -96,7 +96,8 @@ public class Main {
         }
 
     }
-   public static void getIdenticalEmployees (){
+
+    public static void getIdenticalEmployees (){
       Employee[] employees = EmployeeUtil.getEmployees();
       for (int i = 0; i < employees.length; i++) {
            for (int j = 0; j < employees.length; j++) {
@@ -121,11 +122,11 @@ public class Main {
     public static void sortBySalary(){
         Employee [] employees = EmployeeUtil.getEmployees();
         for (int i = 0; i < employees.length; i++) {
-            for (int j = employees.length; j < employees.length -1 ; j--) {
-                if (employees[j].salary > employees[j - 1].salary) {
+            for (int j =0; j < employees.length -1-i ; j++) {
+                if (employees[j].salary < employees[j + 1].salary) {
                     Employee tmp = employees[j];
-                    employees[j] = employees[j - 1];
-                    employees[j - 1] = tmp;
+                    employees[j] = employees[j + 1];
+                    employees[j + 1] = tmp;
                 }
             }
         }
