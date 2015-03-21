@@ -15,14 +15,22 @@ public class Main {
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
 
-        ArrayList<String> words = new ArrayList<>();
+        ArrayList<Employee> employees = new ArrayList<>();
         String line;
         while( (line=buffer.readLine()) !=null){
-            String[] pool = line.split(" ");
-            for (int i = 0; i < pool.length; i++) {
-                words.add(pool[i]);
-            }
+            String[] pool = line.split(":");
+            Employee e = new Employee();
+            e.setName(pool[0]);
+            e.setSurname(pool[1]);
+            e.setSalary(Double.valueOf(pool[2]));
+            e.setGender(Boolean.valueOf(pool[3]));
+            e.setAge(Integer.valueOf(pool[4]));
+            employees.add(e);
         }
-        System.out.println(words.toString());
+        //System.out.println(employees.toString());
+
+        ArrayList<Employee> employees2 = Employee.getEmployees();
+        System.out.println(employees2.toString());
+
     }
 }
