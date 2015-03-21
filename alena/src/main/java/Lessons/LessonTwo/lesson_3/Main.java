@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        File file = new File("D:\\work\\employees.txt");
+        File file = new File("alena/src/main/java/identity/employees.txt");
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
         ArrayList<Employee> employees = new ArrayList<>();
