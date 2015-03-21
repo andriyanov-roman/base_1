@@ -14,15 +14,18 @@ public class Main {
         File file = new File("D:\\work\\test.txt");
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
-        ArrayList<String> strings = new ArrayList<>();
+        ArrayList<Employee> employees = new ArrayList<>();
         String line;
         while((line = buffer.readLine()) != null) {
-            String[] pool = line.split(" ");
-            for(int i = 0; i < pool.length; i++) {
-                strings.add(pool[i]);
-            }
-            System.out.println(line);
+            String[] pool = line.split(":");
+            Employee e = new Employee();
+            e.setName(pool[0]);
+            e.setSecondName(pool[1]);
+            e.setSalary(Double.valueOf(pool[2]));
+            e.setAddress(pool[3]);
+            employees.add(e);
         }
+        System.out.println(employees.toString());
 
     }
 }
