@@ -20,11 +20,15 @@ public class Employee {
 
     }
 
+    public Employee() {
+
+    }
+
     public String getName() {
         return name;
     }
 
-    public void setName() {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -32,7 +36,7 @@ public class Employee {
         return surname;
     }
 
-    public void setSurname() {
+    public void setSurname(String surname) {
         this.surname = surname;
     }
 
@@ -40,7 +44,7 @@ public class Employee {
         return salary;
     }
 
-    public void setSalary() {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 
@@ -48,7 +52,7 @@ public class Employee {
         return sex;
     }
 
-    public void setSex() {
+    public void setSex(String sex) {
         this.sex = sex;
     }
 
@@ -56,7 +60,7 @@ public class Employee {
         return age;
     }
 
-    public void setAge() {
+    public void setAge(int age) {
         this.age = age;
     }
 
