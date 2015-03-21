@@ -200,7 +200,6 @@ public class CompanyUtil {
                 if(companies.get(k).getEmployees().get(i).getSex().equals(sex)){
 
                     double newsalary = (double) companies.get(k).getEmployees().get(i).getSalary()*(persent+100)/100;
-                    System.out.println("newsalary " + newsalary);
                     companies.get(k).getEmployees().get(i).setSalary(newsalary);
                 }
             }
