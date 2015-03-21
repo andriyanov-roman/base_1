@@ -1,4 +1,4 @@
-package homeTask1;
+package entity;
 
 public class Employee {
     public String name;
@@ -13,6 +13,7 @@ public class Employee {
                 ", sex=" + sex +
                 ", age=" + age + '\'' +", salary=" +salary+
                 '}';
+
     }
     public String getName() {
         return name;
