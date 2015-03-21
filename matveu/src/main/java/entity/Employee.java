@@ -1,4 +1,4 @@
-package homeTask1;
+package entity;
 
 public class Employee {
     public String name;
@@ -10,9 +10,10 @@ public class Employee {
     @Override
     public String toString() {
         return name + " " + " " + secondName + '\'' +
-                ", salary=" + salary +
-                ", age='" + age + '\'' + sex+
+                ", sex=" + sex +
+                ", age=" + age + '\'' +", salary=" +salary+
                 '}';
+
     }
     public String getName() {
         return name;

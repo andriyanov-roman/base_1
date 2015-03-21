@@ -4,11 +4,12 @@ package Lessons.LessonTwo;
 import Homeworks.homework_1.Employee;
 import Homeworks.homework_1.EmployeeUtil;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CompanyUtil {
-    public static ArrayList<Company> getCompanies() {
+    public static ArrayList<Company> getCompanies() throws IOException {
         Company c1 = new Company();
         ArrayList<Employee> employees = EmployeeUtil.getEmployees();
         c1.setEmployees (new ArrayList<>());
@@ -33,7 +34,7 @@ public class CompanyUtil {
         return new ArrayList<Company>(Arrays.asList(c1, c2, c3));
     }
 
-    public static void findMaxSalary() {
+    public static void findMaxSalary() throws IOException {
         ArrayList<Company> companies = getCompanies();
         double temp = companies.get(0).getEmployees().get(0).getSalary();
         String namey = companies.get(0).getEmployees().get(0).getName();
