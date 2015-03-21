@@ -15,17 +15,14 @@ public class Main {
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
 
-        ArrayList<String> STR = new ArrayList<>();
+        ArrayList<String> words = new ArrayList<>();
         String line;
         while( (line=buffer.readLine()) !=null){
             String[] pool = line.split(" ");
             for (int i = 0; i < pool.length; i++) {
-                STR.add(pool[i]);
-            }
-            System.out.println(line);
-            for (int i = 0; i < 10; i++) {
-                System.out.println(STR.get(i));
+                words.add(pool[i]);
             }
         }
+        System.out.println(words.toString());
     }
 }
