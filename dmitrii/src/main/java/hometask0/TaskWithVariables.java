@@ -1,4 +1,4 @@
-package hometasks0;
+package hometask0;
 
 /**
  * Created by Dmitriy Lisunov on 09.03.2015.
