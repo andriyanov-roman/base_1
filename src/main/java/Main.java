@@ -1,33 +1,34 @@
 import base_examples.objects.Human;
 import home_work_2.Employee;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class 3Main {
-    public static void main(String[] args) {
-        ArrayList employee = new ArrayList();
-        employee.add("A");
-        employee.add(1);
-        employee.add(new Employee ("Vasya", "Ivanow", 3000.00));
-        if(employee.get(1) instanceof Employee) {
-            Employee employee1 = (Employee) employee.get(1);
-        }
-        ArrayList<Employee> employees = new ArrayList<>();
-        employees.add(new Employee ("Vasya", "Ivanow", 3000.00));
-        Employee e =  new Employee ("Vasya", "Petrov", 5000.00);
-        employees.add(0, e);
-        employees.set(1, new Employee("Artem", "Petrov", 5000.00));
-        ArrayList<Employee> employees1 = new ArrayList<>();
-        employees1.add(e);
-        System.out.println(employee);
-        employees.forEach(System.out::println);
-        employees.addAll(employees1);
-        employees.removeAll(employees1);
-        String[] strings = new String[10];
-        strings[0] = "A";
-        System.out.println(employee.size());
+public class Main {
+    public static void main(String[] args) throws IOException {
+        FileWriter writer = new FileWriter("src/test_write.txt",true);
+        writer.write(getEmployees().toString());
+        writer.flush();
+        writer.close();
 
+    }
+    public static ArrayList<Employee> getEmployees() throws IOException {
+        File file = new File("D:\\work\\test.txt");
+        FileReader reader = new FileReader(file);
+        BufferedReader buffer = new BufferedReader(reader);
+        ArrayList<Employee> employees = new ArrayList<>();
+        String line;
+        while((line = buffer.readLine()) != null) {
+            String[] pool = line.split(":");
+            Employee e = new Employee();
+            e.setName(pool[0]);
+            e.setSecondName(pool[1]);
+            e.setSalary(Double.valueOf(pool[2]));
+            e.setAddress(pool[3]);
+            employees.add(e);
+        }
+        return employees;
     }
 }

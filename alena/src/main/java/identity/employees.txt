@@ -1,0 +1,9 @@
+Vitaly:Klichko:300000.00:male:39
+Piter:Poroshenko:500000.00:male:55
+Boris:Filatov:5000.00:male:37
+Julia:Timochenko:15000.00:female:60
+Arsenii:Levochkin:100000.00:male:44
+Igor:Kolomoiskiy:150000.00:male:45
+Volodymyr:Parasiyk:3000.00:male:26
+Borislav:Beresa:4000.00:male:42
+Arsenii:Yatseniyk:40000.00:male:37
