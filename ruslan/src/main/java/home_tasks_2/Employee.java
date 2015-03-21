@@ -10,10 +10,15 @@ public class Employee extends Company {
     public int age;
     public double salary;
 
+    public Employee() {
+
+    }
+
     @Override
     public String toString() {
-        return name + " " + " " + secondName ;
+        return name + " " + " " + secondName +  " " + " " + age +  " " + " " + gender +  " " + " " + salary;
     }
+
     public String getName() {
         return name;
     }
@@ -54,6 +59,7 @@ public class Employee extends Company {
 
         this.gender = gender;
     }
+
     public Employee(String name, String secondName, int age, String gender, double salary) {
     }
 
