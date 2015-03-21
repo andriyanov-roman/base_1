@@ -44,7 +44,7 @@ public class CompanyUtil {
                     getMaxSalary();
                     break;
                 case "2":
-                   // SortBySalary(c1);
+                   // sortBySalary(c1);
                     break;
                 case "3":
                   //  SortByAge(c2);
