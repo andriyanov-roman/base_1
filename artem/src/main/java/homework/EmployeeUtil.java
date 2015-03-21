@@ -1,6 +1,7 @@
-package homework.homework3;
+package homework;
 
 
+import entity.Employee;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;

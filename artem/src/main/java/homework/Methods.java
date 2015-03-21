@@ -1,9 +1,7 @@
-package homework.homework3;
+package homework;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import entity.Company;
+import entity.Employee;
 import java.util.*;
 
 
@@ -26,9 +24,9 @@ public class Methods {
         while (scanner.hasNext()){
             switch (scanner.next()){
                 //Каждой задаче присваивается Номер, чтобы пользователь не вводил название задачи вручную
-                case "1": OrgUtil.showEmployees(); break;
-                case "2": OrgUtil.getMaxSalary(); break;
-                case "3": OrgUtil.sortBy(); break;
+                case "1": CompanyUtil.showEmployees(); break;
+                case "2": CompanyUtil.getMaxSalary(); break;
+                case "3": CompanyUtil.sortBy(); break;
                 case "7": addEmployee(); break;
                 case "8": fireFemale(); break;
                 case "0": System.exit(0);
@@ -37,7 +35,7 @@ public class Methods {
         }
     }
     public static void addEmployee(){
-        ArrayList<Org> orgs = new ArrayList<>();
+        ArrayList<Company> companies = new ArrayList<>();
         System.out.println(" Check the organization:\n   1 - for C#\n   2 - for C++\n   3 - for Java\n   4 - for new organization");
         switch (scanner.next()){
             case "1":
@@ -81,7 +79,7 @@ public class Methods {
                     }
                 }
                 Employee newStuff = new Employee(name,surname,salary,gender,age);
-                orgs.get(0).getEmployees().add(newStuff);
+                companies.get(0).getEmployees().add(newStuff);
                 break;
             case "2":
                 break;
@@ -92,13 +90,14 @@ public class Methods {
         }
     }
     public static void fireFemale(){
-        ArrayList<Org> orgs = OrgUtil.getOrgs();
-        for (int i = 0; i < orgs.size(); i++) {
-            for (int j = orgs.get(i).getEmployees().size()-1; j >= 0; j--) {
-                if(orgs.get(i).getEmployees().get(j).getSex().equals("female")){orgs.get(i).getEmployees().remove(j);}
+        ArrayList<Company> companies = CompanyUtil.getOrgs();
+        for (int i = 0; i < companies.size(); i++) {
+            for (int j = companies.get(i).getEmployees().size()-1; j >= 0; j--) {
+                if(companies.get(i).getEmployees().get(j).getSex().equals("female")){
+                    companies.get(i).getEmployees().remove(j);}
             }
-            for (int j = 0; j < orgs.get(i).getEmployees().size(); j++) {
-                System.out.println(orgs.get(i).getOrgName()+" "+orgs.get(i).getEmployees().get(j));
+            for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
+                System.out.println(companies.get(i).getOrgName()+" "+ companies.get(i).getEmployees().get(j));
             }
         }
     }

@@ -1,47 +1,47 @@
-package homework.homework3;
+package homework;
 
 
+import entity.Company;
+import entity.Employee;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
-public class OrgUtil { // Создаем класс штампующий Организации("печеньки") из определенного шаблона Org
-    public static ArrayList<Org> orgsGLobaL = getOrgs();
+public class CompanyUtil { // Создаем класс штампующий Организации("печеньки") из определенного шаблона Org
+    public static ArrayList<Company> orgsGLobaL = getOrgs();
     public static int sortselection;
-    public static ArrayList<Org> getOrgs(){ // Создаем метод возвращающий "печеньки"
-        ArrayList<Org> orgs = new ArrayList<>();
+    public static ArrayList<Company> getOrgs(){ // Создаем метод возвращающий "печеньки"
+        ArrayList<Company> companies = new ArrayList<>();
         ArrayList<Employee> employees = EmployeeUtil.getEmployees(); // Создаем массив из наштампованных "печенек" employees
                                                            // созданных посредством класса EmployeeUtil по шаблону Еmployees
-        Org o1 = new Org(); // Создаем первую организзацию ("печеньку")
+        Company o1 = new Company(); // Создаем первую организзацию ("печеньку")
         o1.setOrgName("C#"); // Поле для названия заполнили сеттером setOrgName
         o1.setEmployees(new ArrayList<>()); // Поле-массив сотрудников наполнили сеттером setEmployees
         o1.getEmployees().add(employees.get(0));
         o1.getEmployees().add(employees.get(3));
         o1.getEmployees().add(employees.get(7));
-        orgs.add(o1);
+        companies.add(o1);
 
-        Org o2 = new Org();
+        Company o2 = new Company();
         o2.setOrgName("C++");
         o2.setEmployees(new ArrayList<>());
         o2.getEmployees().add(employees.get(2));
         o2.getEmployees().add(employees.get(4));
         o2.getEmployees().add(employees.get(6));
         o2.getEmployees().add(employees.get(8));
-        orgs.add(o2);
+        companies.add(o2);
 
-        Org o3 = new Org();
+        Company o3 = new Company();
         o3.setOrgName("Java");
         o3.setEmployees(new ArrayList<>());
         o3.getEmployees().add(employees.get(1));
         o3.getEmployees().add(employees.get(5));
         o3.getEmployees().add(employees.get(8));
-        orgs.add(o3);
+        companies.add(o3);
 
-           return orgs;
+           return companies;
            //return new Org[]{o1, o2, o3}; // Возвращаем массив созданных "печенек"
     }
-    public static ArrayList<Org> addOrgs(){
-        Org oNew = new Org();
+    public static ArrayList<Company> addOrgs(){
+        Company oNew = new Company();
         System.out.print(" Company Name: ");
         oNew.setOrgName(Methods.scanner.next());
         oNew.setEmployees(new ArrayList<>());
@@ -64,17 +64,17 @@ public class OrgUtil { // Создаем класс штампующий Орг�
                 switch (s) {
                     case "a":
                         Employee emp = new Employee();
-                        Org org = new Org();
+                        Company company = new Company();
                         for (int i = 0; i < orgsGLobaL.size(); i++) {
                             for (int j = 0; j < orgsGLobaL.get(i).getEmployees().size(); j++) {
                                 double salary = orgsGLobaL.get(i).getEmployees().get(j).getSalary();
                                 if (emp.getSalary() < salary) {
                                     emp = orgsGLobaL.get(i).getEmployees().get(j);
-                                    org = orgsGLobaL.get(i);
+                                    company = orgsGLobaL.get(i);
                                 }
                             }
                         }
-                        System.out.println(" Employee: \n -- "+org.getOrgName() + " " + emp.toString() + "\n has the max salary.");
+                        System.out.println(" Employee: \n -- "+ company.getOrgName() + " " + emp.toString() + "\n has the max salary.");
                         break;
                     case "b":
                         System.out.println(" Employees: ");

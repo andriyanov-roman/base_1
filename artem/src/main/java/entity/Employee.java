@@ -1,4 +1,4 @@
-package lessons.lesson3;
+package entity;
 
 
 public class Employee { // Создаем класс-шаблон ("формочку для печенек")
@@ -8,7 +8,7 @@ public class Employee { // Создаем класс-шаблон ("формоч
     private String sex;
     private int age;
 
-    public Employee(String name, String secondName, double salary, String sex, int age){
+    public Employee(String name, String secondName, double salary, String sex, int age){ // Это ЗАДАННЫЙ конструктор
         this.name =name;
         this.secondName = secondName;
         this.salary = salary;
@@ -16,7 +16,7 @@ public class Employee { // Создаем класс-шаблон ("формоч
         this.age = age;
     }
 
-    public Employee(){} // Это конструктор по умолчанию, его нужно объявлять если создан искуственный конструктор
+    public Employee(){} // Это конструктор ПО УМОЛЧАНИЮ, его нужно объявлять если создан искуственный конструктор
 
     public void setName(String name) { this.name = name; }
     public String getName() { return name; }
