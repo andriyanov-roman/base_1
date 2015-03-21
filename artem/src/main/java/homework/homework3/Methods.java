@@ -2,69 +2,97 @@ package homework.homework3;
 
 import java.util.*;
 
-/**
- * Created by R-Tem on 16.03.2015.
- */
+
 public class Methods {
     public static Scanner scanner = new Scanner(System.in);
     public static void welcome() {
-        System.out.println("\n1.Получить полную информацию о сотрудниках компаний" +
-                "\n2.Найти сотрудника с самой большой ЗП в каждой компании" +
-                "\n3.Сортировка сотрудников компании по фамилии" +
-                "\n4.Сортировка сотрудников компании по возрасту" +
-                "\n5.Сортировка сотрудников компании по длинне имени" +
-                "\n6.Сортировка сотруников каждой компании по ЗП в порядке возростания" +
-                "\n7.Добавить сотрудника"+
-                "\n0.Выйти из программы");
+        System.out.println(
+                "1. Get all employees from all companies" +
+                "\n2. Get employee with max Salary" +
+                "\n3. Sort employees" +
+                "\n4. Add employees" +
+                "\n5. Fire employees" +
+                "\n6. Increase the salary for 15%" +
+                "\n7. Add company" +
+                "\n0. Exit program"
+        );
     }
     public static void start(){
         welcome();
         while (scanner.hasNext()){
             switch (scanner.next()){
                 //Каждой задаче присваивается Номер, чтобы пользователь не вводил название задачи вручную
-                case "1": showEmployee(); break;
-                case "2": getMaxSalary(); break;
-                case "3": sortBySecodnName(); break;
-                /*case "4": sortByAge(); break;
-                case "5": sortByNameLenght(); break;
-                case "6": sortByZp(); break;
-                case "7": addEmployee(); break;*/
+                case "1": OrgUtil.showEmployees(); break;
+                case "2": OrgUtil.getMaxSalary(); break;
+                case "3": OrgUtil.sortBy(); break;
+                case "7": addEmployee(); break;
+                case "8": fireFemale(); break;
                 case "0": System.exit(0);
                     default: System.out.println ("No such case");
             }
-            welcome();
         }
     }
-    public static void showEmployee(){
-        ArrayList<Org> orgs = OrgUtil.getOrganizations();
-        for(int i = 0; i < orgs.size(); i++){
-            for(int j = 0; j < orgs.get(i).getEmployees().size(); j++){
-                System.out.println(orgs.get(i).getOrgName()+" "+orgs.get(i).getEmployees().get(j));
-            }
-        }
-    }
-    public static void getMaxSalary(){
-        ArrayList<Org> orgs = OrgUtil.getOrganizations();
-        for (int i = 0; i < orgs.size(); i++) {
-            Employee temp = orgs.get(i).getEmployees().get(0);
-            for (int j = 0; j < orgs.get(i).getEmployees().size(); j++) {
-                double salary = orgs.get(i).getEmployees().get(j).getSalary();
-                if (temp.getSalary() < salary) {
-                    temp = orgs.get(i).getEmployees().get(j);
+    public static void addEmployee(){
+        ArrayList<Org> orgs = new ArrayList<>();
+        System.out.println(" Check the organization:\n   1 - for C#\n   2 - for C++\n   3 - for Java\n   4 - for new organization");
+        switch (scanner.next()){
+            case "1":
+                scanner.useDelimiter("\n");
+                System.out.print("Name: ");
+                String name = scanner.next();
+                System.out.print("Surname: ");
+                String surname = scanner.next();
+                Double salary=0.0;
+                boolean wasExc = false; // проверяем, было ли Исключение - "was Exception"
+                while (true) {
+                    System.out.print("Salary: ");
+                    try {
+                        salary = Double.parseDouble(scanner.next());
+                    } catch (Exception e) {
+                        System.out.println("Wrong input! The input must be an positive Double number. Try again.");
+                        wasExc = true;
+                    }
+                    if (salary>0.0) {
+                        break;
+                    } else if (!wasExc) {
+                        System.out.println("Oh, the input integer number must be positive! Try again.");
+                    }
                 }
-            }
-            System.out.println(orgs.get(i).getOrgName() + " " + temp.getSalary());
+                System.out.print("Sex: ");
+                String gender = scanner.next();
+                int age=0;
+                wasExc = false;
+                while (true) {
+                    System.out.print("Age: ");
+                    try {
+                        age = Integer.parseInt(scanner.next());
+                    } catch (Exception e) {
+                        System.out.println("Wrong input! The input must be an positive Integer number. Try again.");
+                        wasExc = true;
+                    }
+                    if (age>0) {
+                        break;
+                    } else if (!wasExc) {
+                        System.out.println("Oh, the input integer number must be positive! Try again.");
+                    }
+                }
+                Employee newStuff = new Employee(name,surname,salary,gender,age);
+                orgs.get(0).getEmployees().add(newStuff);
+                break;
+            case "2":
+                break;
+            case "3":
+                break;
+            case "4":
+                break;
         }
     }
-    public static void sortBySecodnName(){
-        ArrayList<Org> orgs = OrgUtil.getOrganizations();
+    public static void fireFemale(){
+        ArrayList<Org> orgs = OrgUtil.getOrgs();
         for (int i = 0; i < orgs.size(); i++) {
-            Collections.sort(orgs.get(i).getEmployees(), new Comparator<Employee>() {
-                @Override
-                public int compare(Employee o1, Employee o2) {
-                    return o1.getSecondName().compareTo(o2.getSecondName());
-                }
-            });
+            for (int j = orgs.get(i).getEmployees().size()-1; j >= 0; j--) {
+                if(orgs.get(i).getEmployees().get(j).getSex().equals("female")){orgs.get(i).getEmployees().remove(j);}
+            }
             for (int j = 0; j < orgs.get(i).getEmployees().size(); j++) {
                 System.out.println(orgs.get(i).getOrgName()+" "+orgs.get(i).getEmployees().get(j));
             }
