@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by user on 21.03.2015.
@@ -13,9 +14,15 @@ public class Main {
         File file = new File("D:\\testDir\\test.txt");
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
+
+        ArrayList<String> words = new ArrayList<>();
         String line;
         while( (line=buffer.readLine()) !=null){
-            System.out.println(line);
+            String[] pool = line.split(" ");
+            for (int i = 0; i < pool.length; i++) {
+                words.add(pool[i]);
+            }
         }
+        System.out.println(words.toString());
     }
 }
