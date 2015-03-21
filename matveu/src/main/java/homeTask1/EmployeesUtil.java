@@ -1,5 +1,7 @@
 package homeTask1;
 
+import entity.Employee;
+
 import java.util.ArrayList;
 
 public class EmployeesUtil {

@@ -1,12 +1,15 @@
 /**
  * Created by Администратор on 06.03.2015.
  */
+import entity.Employee;
+
 import java.io.*;
 import java.lang.System;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String [] args) throws IOException {
-        int summa=0;
+     /*   int summa=0;
         BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Введите число: ");
         String s=br.readLine();
@@ -28,6 +31,43 @@ public class Main {
         }
         System.out.println("Максимальное число массива = "+max);
         System.out.println("Сумма элементов массива = "+summa);
+*/
 
-    }
+       /* File file=new File("E:\\matveu_Project\\Text.txt");
+        FileReader reader=new FileReader(file);                      //чтение с файла
+        BufferedReader buffered=new BufferedReader(reader);
+        ArrayList<String> words=new ArrayList<>();                  // массив слов
+        String line;
+        while ((line=buffered.readLine())!=null){               //чтитывает пока есть линия
+            String[] pool=line.split(" ");           //разбивка строки на слова
+            for(int i=0;i<pool.length;i++){
+                words.add(pool[i]);
+            }
+        }
+        System.out.println(words.toString());
+*/
+            FileWriter writer = new FileWriter("matveu/src/testing_writeFile.txt",true);
+            writer.write(getEmployees().toString());
+            writer.flush();
+            writer.close();
+
+        }
+        public static ArrayList<Employee> getEmployees() throws IOException {
+            File file = new File("E:\\matveu_Project\\Text1.txt");
+            FileReader reader = new FileReader(file);
+            BufferedReader buffer = new BufferedReader(reader);
+            ArrayList<Employee> employees = new ArrayList<>();
+            String line;
+            while((line = buffer.readLine()) != null) {
+                String[] pool = line.split(":");
+                Employee e = new Employee();
+                e.setName(pool[0]);
+                e.setSecondName(pool[1]);
+                e.setSex(pool[2]);
+                e.setAge(Integer.valueOf(pool[3]));
+                e.setSalary(Double.valueOf(pool[4]));
+                employees.add(e);
+            }
+            return employees;
+        }
 }
