@@ -24,7 +24,7 @@ public class Main {
         employees.add(new Employee("John", "Lennon", 2205.55, true, 27));
         Employee e = employees.get(0);
         System.out.println(e.getName());
-        employees.add(0,new Employee("Bill", "Gates", 80_000.01, true, 65)); // Добавит Билла в начало, а чона сдвинет вправо на ОДНУ позицию
+        employees.add(0,new Employee("Bill", "Gates", 80_000.01, true, 65)); // Добавит Билла в начало, а Джона сдвинет вправо на ОДНУ позицию
         employees.set(1,new Employee("Martin", "Laurens", 90_000.0, true, 39)); // установить. (ЗАМЕНИТ Билла c №1) SET - можно использовать
         // только для существующего элемента
 
