@@ -1,5 +1,8 @@
-package lessons.lesson_2;
+package homework.hw_2;
 
+
+import lessons.lesson_2.*;
+import lessons.lesson_2.EmployeeUtil;
 
 import java.util.Scanner;
 
@@ -9,7 +12,7 @@ import java.util.Scanner;
 public class CompanyUtil {
 
     public static Company[] getCompanies() {
-        Employee[] employees = EmployeeUtil.getEmployees();
+        Employee[] employees = homework.hw_2.EmployeeUtil.getEmployees();
 
         Company c1 = new Company();
         c1.setCompanyName("Lenovo");
@@ -98,7 +101,7 @@ public class CompanyUtil {
         }
     }
     public static void SortByAge(Company c) {
-        Company[] companies = CompanyUtil.getCompanies();
+        Company[] companies = lessons.lesson_2.CompanyUtil.getCompanies();
         for (int i = 0; i < c.getEmployees().length; i++) {
             for (int j = 0; j < c.getEmployees().length - 1; j++) {
                 if (c.getEmployees()[j].getAge() < c.getEmployees()[j + 1].getAge()) {
@@ -117,7 +120,7 @@ public class CompanyUtil {
         }
     }
     public static void SortBySurnameLength(Company c) {
-        Company[] companies = CompanyUtil.getCompanies();
+        Company[] companies = lessons.lesson_2.CompanyUtil.getCompanies();
         for (int i = 0; i < c.getEmployees().length; i++) {
             for (int j = 0; j < c.getEmployees().length - 1; j++) {
                 if (c.getEmployees()[j].getSurname() == c.getEmployees()[j + 1].getSurname()) {
