@@ -1,8 +1,8 @@
 package homeTask1;
 
-import entity.Company;
-import entity.Employee;
 
+
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -293,44 +293,45 @@ public class Methods {
                     greatEmployeeLuxsoft();
                     break;
                 case "2":
-
+                    greatEmployeeMicrosoft();
                     break;
                 case "3":
-
+                    greatEmployeeSony();
                     break;
             }
         }
     }
 
+    static Scanner scr;
     public static void greatEmployeeLuxsoft() {
-        ArrayList<Company> companies = new ArrayList<>();
         ArrayList<Employee> employees = EmployeesUtil.getEmployees();
         Employee employee=new Employee();
-        Company c1=new Company();
-
-        for (int i = 0; i < 1; i++) {
-            for(int j=0;j<employees.size();j++) {
-                Scanner scannerLux = new Scanner(System.in);
-                System.out.println("Введите имя сотрудника!");
-                employee.setName(scannerLux.nextLine());
-                System.out.println("Введите фамилию сотрудника!");
-                employee.setSecondName(scannerLux.nextLine());
-                System.out.println("Введите пол сотрудника! (man/woman)");
-                employee.setSex(scannerLux.nextLine());
-                System.out.println("Введите возраст сотрудника!");
-                employee.setAge(scannerLux.nextInt());
-                System.out.println("Введите зарплату сотрудника!");
-                employee.setSalary(scannerLux.nextInt());
-                employees.add(employee);
-                c1.setEmployees(new ArrayList<>());
-                c1.getEmployees().add(employees.get(j));
-                companies.add(c1);
-
+        try {
+                    scr = new Scanner(System.in);
+                    System.out.println("Введите имя сотрудника!");
+                    employee.setName(scr.nextLine());
+                    System.out.println("Введите фамилию сотрудника!");
+                    employee.setSecondName(scr.nextLine());
+                    System.out.println("Введите пол сотрудника! (man/woman)");
+                    employee.setSex(scr.nextLine());
+                    System.out.println("Введите возраст сотрудника!");
+                    employee.setAge(scr.nextInt());
+                    System.out.println("Введите зарплату сотрудника!");
+                    employee.setSalary(scr.nextInt());
+                    employees.add(employee);
+                    FileWriter writer=new FileWriter("matveu/src/EmployeesLuxsoft.txt",true);
+                    writer.write(employee.getName()+" "+employee.getSecondName()+". Пол: "+employee.getSex()+
+                           ". Возраст: "+ employee.getAge()+". Зарплата: "+employee.getSalary()+"\n");
+                    writer.flush();
+                    writer.close();
+        }catch (Exception e){}
 
                 Scanner scannerNew = new Scanner(System.in);
             System.out.println("Выберите действие:");
-            System.out.println("1: Добавить следующего сотрудника");
+            System.out.println("1: Добавить следующего сотрудника в Luxsoft");
             System.out.println("2: Вывести информацию по данному сотруднику");
+            System.out.println("3: Добавить нового сотрудника в другие компании");
+            System.out.println("4: Выход в главное меню");
             while (scannerNew.hasNext()) {
                 switch (scannerNew.next()) {
                     case "1":
@@ -340,30 +341,114 @@ public class Methods {
                        System.out.print(employee.getName()+" "+employee.getSecondName()+". Sex: "+employee.getSex()+". Age "+
                        employee.getAge()+". Salary "+employee.getSalary());
                         System.out.println();
-                       // showGreatedEmployee();
+                         break;
+                    case "3":
+                        greatNewEmployees();
                         break;
-                }
+                    case "4":
+                        start();
+                        break;
+
                 }
             }
-        }
-
     }
-
-    public static void showGreatedEmployee() {
-
+    public static void greatEmployeeMicrosoft() {
         ArrayList<Employee> employees = EmployeesUtil.getEmployees();
-        ArrayList<Company> companies = CompanyUtil.getCompanies();
-        for (int k = 0; k < 1; k++) {
-            System.out.print(companies.get(k).getCompanyName() + ": ");
-            for (int i = 0; i < companies.get(k).getEmployees().size(); i++) {
-                System.out.print(companies.get(k).getEmployees().get(i).getName() + " " + companies.get(k).getEmployees().get(i).getSecondName() + ": " +
-                        companies.get(k).getEmployees().get(i).getSex() + ", " + companies.get(k).getEmployees().get(i).getAge() + ", " +
-                        companies.get(k).getEmployees().get(i).getSalary());
-                System.out.println();
-            }
+        Employee employee=new Employee();
+        try {
+            scr = new Scanner(System.in);
+            System.out.println("Введите имя сотрудника!");
+            employee.setName(scr.nextLine());
+            System.out.println("Введите фамилию сотрудника!");
+            employee.setSecondName(scr.nextLine());
+            System.out.println("Введите пол сотрудника! (man/woman)");
+            employee.setSex(scr.nextLine());
+            System.out.println("Введите возраст сотрудника!");
+            employee.setAge(scr.nextInt());
+            System.out.println("Введите зарплату сотрудника!");
+            employee.setSalary(scr.nextInt());
+            employees.add(employee);
+            FileWriter writer=new FileWriter("matveu/src/EmployeesMicrosoft.txt",true);
+            writer.write(employee.getName()+" "+employee.getSecondName()+". Пол: "+employee.getSex()+
+                    ". Возраст: "+ employee.getAge()+". Зарплата: "+employee.getSalary()+"\n");
+            writer.flush();
+            writer.close();
+        }catch (Exception e){}
 
+        Scanner scannerNew = new Scanner(System.in);
+        System.out.println("Выберите действие:");
+        System.out.println("1: Добавить следующего сотрудника в Microsoft");
+        System.out.println("2: Вывести информацию по данному сотруднику");
+        System.out.println("3: Добавить нового сотрудника в другие компании");
+        System.out.println("4: Выход в главное меню");
+        while (scannerNew.hasNext()) {
+            switch (scannerNew.next()) {
+                case "1":
+                    greatEmployeeMicrosoft();
+                    break;
+                case "2":
+                    System.out.print(employee.getName()+" "+employee.getSecondName()+". Sex: "+employee.getSex()+". Age "+
+                            employee.getAge()+". Salary "+employee.getSalary());
+                    System.out.println();
+                    break;
+                case "3":
+                    greatNewEmployees();
+                    break;
+                case "4":
+                    start();
+                    break;
+            }
         }
     }
+    public static void greatEmployeeSony() {
+        ArrayList<Employee> employees = EmployeesUtil.getEmployees();
+        Employee employee=new Employee();
+        try {
+            scr = new Scanner(System.in);
+            System.out.println("Введите имя сотрудника!");
+            employee.setName(scr.nextLine());
+            System.out.println("Введите фамилию сотрудника!");
+            employee.setSecondName(scr.nextLine());
+            System.out.println("Введите пол сотрудника! (man/woman)");
+            employee.setSex(scr.nextLine());
+            System.out.println("Введите возраст сотрудника!");
+            employee.setAge(scr.nextInt());
+            System.out.println("Введите зарплату сотрудника!");
+            employee.setSalary(scr.nextInt());
+            employees.add(employee);
+            FileWriter writer=new FileWriter("matveu/src/EmployeesSony.txt",true);
+            writer.write(employee.getName()+" "+employee.getSecondName()+". Пол: "+employee.getSex()+
+                    ". Возраст: "+ employee.getAge()+". Зарплата: "+employee.getSalary()+"\n");
+            writer.flush();
+            writer.close();
+        }catch (Exception e){}
+
+        Scanner scannerNew = new Scanner(System.in);
+        System.out.println("Выберите действие:");
+        System.out.println("1: Добавить следующего сотрудника в Sony");
+        System.out.println("2: Вывести информацию по данному сотруднику");
+        System.out.println("3: Добавить нового сотрудника в другие компании");
+        System.out.println("4: Выход в главное меню");
+        while (scannerNew.hasNext()) {
+            switch (scannerNew.next()) {
+                case "1":
+                    greatEmployeeSony();
+                    break;
+                case "2":
+                    System.out.print(employee.getName()+" "+employee.getSecondName()+". Sex: "+employee.getSex()+". Age "+
+                            employee.getAge()+". Salary "+employee.getSalary());
+                    System.out.println();
+                    break;
+                case "3":
+                    greatNewEmployees();
+                    break;
+                case "4":
+                    start();
+                    break;
+            }
+        }
+    }
+
     public static void salaryPlusMenAndKillWomen() {
         Scanner scanner=new Scanner(System.in);
         System.out.println("Введите сумму, на которую хотите повысить зп мужчинам");

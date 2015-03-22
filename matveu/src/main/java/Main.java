@@ -1,11 +1,7 @@
 /**
  * Created by Администратор on 06.03.2015.
  */
-import entity.Employee;
-
-import java.io.*;
-import java.lang.System;
-import java.util.ArrayList;
+import java.io.IOException;
 
 public class Main {
     public static void main(String [] args) throws IOException {
@@ -46,28 +42,7 @@ public class Main {
         }
         System.out.println(words.toString());
 */
-            FileWriter writer = new FileWriter("matveu/src/testing_writeFile.txt",true);
-            writer.write(getEmployees().toString());
-            writer.flush();
-            writer.close();
 
         }
-        public static ArrayList<Employee> getEmployees() throws IOException {
-            File file = new File("E:\\matveu_Project\\Text1.txt");
-            FileReader reader = new FileReader(file);
-            BufferedReader buffer = new BufferedReader(reader);
-            ArrayList<Employee> employees = new ArrayList<>();
-            String line;
-            while((line = buffer.readLine()) != null) {
-                String[] pool = line.split(":");
-                Employee e = new Employee();
-                e.setName(pool[0]);
-                e.setSecondName(pool[1]);
-                e.setSex(pool[2]);
-                e.setAge(Integer.valueOf(pool[3]));
-                e.setSalary(Double.valueOf(pool[4]));
-                employees.add(e);
-            }
-            return employees;
-        }
+
 }

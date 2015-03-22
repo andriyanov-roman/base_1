@@ -1,4 +1,4 @@
-package entity;
+package homeTask1;
 
 public class Employee {
     public String name;
