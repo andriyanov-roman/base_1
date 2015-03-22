@@ -14,24 +14,9 @@ import java.util.ArrayList;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        File file = new File("alena/src/main/java/identity/employees.txt");
-        FileReader reader = new FileReader(file);
-        BufferedReader buffer = new BufferedReader(reader);
-        ArrayList<Employee> employees = new ArrayList<>();
-        String line;
-        while ((line = buffer.readLine()) != null) {
-            String[] pool = line.split(":");
-            Employee e = new Employee();
-            e.setName(pool[0]);
-            e.setSecondName(pool[1]);
-            e.setSalary(Double.valueOf(pool[2]));
-            e.setSex(pool[3]);
-            e.setAge(Integer.valueOf(pool[4]));
-            employees.add(e);
 
-        }
 
-        System.out.println(employees.toString());
+
     }
 
     public static void addEmployee(String[] args) throws IOException {
