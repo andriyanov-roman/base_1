@@ -1,6 +1,8 @@
 package lessons.lesson_2;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -8,21 +10,34 @@ import java.util.Scanner;
  */
 public class CompanyUtil {
 
-    public static Company[] getCompanies() {
-        Employee[] employees = EmployeeUtil.getEmployees();
-
+    public static ArrayList<Company> getCompanies() {
+        ArrayList<Employee> employees = EmployeeUtil.getEmployees();
+        ArrayList<Company> companies = new ArrayList <>();
         Company c1 = new Company();
         c1.setCompanyName("Lenovo");
-        c1.setEmployees(new Employee[]{employees[0], employees[1], employees[2]});
+        c1.setEmployees(new ArrayList<>());
+        c1.getEmployees().add(employees.get(0));
+        c1.getEmployees().add(employees.get(1));
+        c1.getEmployees().add(employees.get(2));
+        companies.add(c1);
 
         Company c2 = new Company();
         c2.setCompanyName("IBM");
-        c2.setEmployees(new Employee[]{employees[3], employees[4], employees[5]});
+        c2.setEmployees(new ArrayList<>());
+        c2.getEmployees().add(employees.get(3));
+        c2.getEmployees().add(employees.get(4));
+        c2.getEmployees().add(employees.get(5));
+        companies.add(c2);
+
 
         Company c3 = new Company();
         c3.setCompanyName("Luxoft");
-        c3.setEmployees(new Employee[]{employees[6], employees[7], employees[8]});
-        return new Company[]{c1, c2, c3};
+        c3.setEmployees(new ArrayList<>());
+        c3.getEmployees().add(employees.get(6));
+        c3.getEmployees().add(employees.get(7));
+        c3.getEmployees().add(employees.get(8));
+        companies.add(c3);
+        return new ArrayList<>(Arrays.asList(c1, c2, c3));
     }
 
     public static void start() {
@@ -42,7 +57,7 @@ public class CompanyUtil {
                     getMaxSalary();
                     break;
                 case "2":
-                   // SortBySalary(c1);
+                 // SortBySalary(c1);
                     break;
                 case "3":
                   //  SortByAge(c2);
@@ -58,80 +73,80 @@ public class CompanyUtil {
     }
 
     public static void showCompanies() {
-        Company[] companies = getCompanies();
-        for (int i = 0; i < companies.length; i++) {
-            System.out.println(companies[i].getCompanyName());
+        ArrayList <Company> companies = getCompanies();
+        for (int i = 0; i < companies.size(); i++) {
+            System.out.println(companies.get(i).getCompanyName());
         }
     }
 
     public static void getMaxSalary() {
-        Company[] companies = getCompanies();
-        for (int i = 0; i < companies.length; i++) {
-            Employee temp = companies[i].getEmployees()[0];
-            for (int j = 0; j < companies[i].getEmployees().length; j++) {
-                double salary = companies[i].getEmployees()[j].getSalary();
+        ArrayList <Company> companies = getCompanies();
+        for (int i = 0; i < companies.size(); i++) {
+            Employee temp = companies.get(i).getEmployees().get(0);
+            for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
+                double salary = companies.get(i).getEmployees().get(j).getSalary();
                 if (temp.getSalary() < salary) {
-                    temp = companies[i].getEmployees()[j];
+                    temp = companies.get(i).getEmployees().get(j);
                 }
             }
-            System.out.println(companies[i].getCompanyName() + " " + temp.getName() + " " + temp.getSalary());
+            System.out.println(companies.get(i).getCompanyName() + " " + temp.getName() + " " + temp.getSalary());
         }
     }
 
-    public static void SortBySalary(Company c ) {
-        Company[] companies = CompanyUtil.getCompanies();
-        for (int i = 0; i < c.getEmployees().length; i++) {
-            for (int j = 0; j < c.getEmployees().length - 1; j++) {
-                if (c.getEmployees()[j].getSalary() < c.getEmployees()[j + 1].getSalary()) {
-                    Employee temp = c.getEmployees()[j];
-                    c.getEmployees()[j] = c.getEmployees()[j + 1];
-                    c.getEmployees()[j + 1] = temp;
+    public static void SortBySalary(Company c1 ) {
+        ArrayList <Company> companies = getCompanies();
+        for (int i = 0; i < c1.getEmployees().size(); i++) {
+            for (int j = 0; j < c1.getEmployees().size() - 1; j++) {
+                if (c1.getEmployees().get(j).getSalary() < c1.getEmployees().get(j + 1).getSalary()) {
+                    Employee temp = c1.getEmployees().get(j);
+                    c1.getEmployees().set(j, c1.getEmployees().get(j + 1));
+                    c1.getEmployees().set((j + 1), temp);
                 }
 
             }
         }
-        System.out.println(c.getCompanyName());
-        for (int j = 0; j < c.getEmployees().length; j++) {
-            System.out.println(c.getEmployees()[j].getName() + " "
-                    + c.getEmployees()[j].getSurname() + " "
-                    + c.getEmployees()[j].getSalary());
+        System.out.println(c1.getCompanyName());
+        for (int j = 0; j < c1.getEmployees().size(); j++) {
+            System.out.println(c1.getEmployees().get(j).getName() + " "
+                    + c1.getEmployees().get(j).getSurname() + " "
+                    + c1.getEmployees().get(j).getSalary());
         }
     }
     public static void SortByAge(Company c) {
-        Company[] companies = CompanyUtil.getCompanies();
-        for (int i = 0; i < c.getEmployees().length; i++) {
-            for (int j = 0; j < c.getEmployees().length - 1; j++) {
-                if (c.getEmployees()[j].getAge() < c.getEmployees()[j + 1].getAge()) {
-                    Employee temp = companies[1].getEmployees()[j];
-                    c.getEmployees()[j] = c.getEmployees()[j + 1];
-                    c.getEmployees()[j + 1] = temp;
+        ArrayList <Company> companies = getCompanies();
+        for (int i = 0; i < c.getEmployees().size(); i++) {
+            for (int j = 0; j < c.getEmployees().size() - 1; j++) {
+                if (c.getEmployees().get(j).getAge() < c.getEmployees().get(j + 1).getAge()) {
+                    Employee temp = c.getEmployees().get(j);
+                    c.getEmployees().set(j, c.getEmployees().get(j + 1));
+                    c.getEmployees().set((j + 1), temp);
                 }
 
             }
         }
         System.out.println(c.getCompanyName());
-        for (int j = 0; j < c.getEmployees().length; j++) {
-            System.out.println(c.getEmployees()[j].getName() + " "
-                    + c.getEmployees()[j].getSurname() + " "
-                    + c.getEmployees()[j].getAge());
+        for (int j = 0; j < c.getEmployees().size(); j++) {
+            System.out.println(c.getEmployees().get(j).getName() + " "
+                    + c.getEmployees().get(j).getSurname() + " "
+                    + c.getEmployees().get(j).getAge());
         }
     }
     public static void SortBySurnameLength(Company c) {
-        Company[] companies = CompanyUtil.getCompanies();
-        for (int i = 0; i < c.getEmployees().length; i++) {
-            for (int j = 0; j < c.getEmployees().length - 1; j++) {
-                if (c.getEmployees()[j].getSurname() == c.getEmployees()[j + 1].getSurname()) {
-                    Employee temp = companies[1].getEmployees()[j];
-                    c.getEmployees()[j] = c.getEmployees()[j + 1];
-                    c.getEmployees()[j + 1] = temp;
+        ArrayList <Company> companies = getCompanies();
+        for (int i = 0; i < c.getEmployees().size(); i++) {
+            for (int j = 0; j < c.getEmployees().size() - 1; j++) {
+                if (c.getEmployees().get(j).getSurname() == c.getEmployees().get(j + 1).getSurname()) {
+                    Employee temp = c.getEmployees().get(j);
+                    c.getEmployees().set(j, c.getEmployees().get(j + 1));
+                    c.getEmployees().set((j + 1), temp);
                 }
 
             }
         }
         System.out.println(c.getCompanyName());
-        for (int j = 0; j < c.getEmployees().length; j++) {
-            System.out.println(c.getEmployees()[j].getName() + " "
-                    + c.getEmployees()[j].getSurname());
+        for (int j = 0; j < c.getEmployees().size(); j++) {
+            System.out.println(c.getEmployees().get(j).getName() + " "
+                    + c.getEmployees().get(j).getSurname());
         }
     }
 }
