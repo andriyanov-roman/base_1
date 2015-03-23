@@ -93,7 +93,7 @@ public class EmployeeUtil {
             } catch (IndexOutOfBoundsException e){ // чем эта ошибка отличкестя от ArrayIndexOutOfBoundsException???
                 System.out.println("Wrong inpup! Array index out of bounds [0;"+(employees.size()-1)+"]. Try again.");
             }
-            if (i >= 0 && i <= (employees.size()-1)) { break; }
+            if (i >= 0 && i <= employees.size()) { break; }
         }
     }
     public static void saveEmployeeFile()throws IOException{
