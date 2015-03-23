@@ -65,6 +65,10 @@ public class Main {
                         CompanyUtil.fireEmployees("FEMININE");
                         CompanyUtil.riseSalary("MASCULINE",15.00);
                         break;
+                    case "9":
+                        CompanyUtil.WriteToFile("FEMININE", "mihael/src/main/java/hometask3/test_write_dm.txt",true);
+                        break;
+
                 }
 
             }

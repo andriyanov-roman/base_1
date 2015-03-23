@@ -256,4 +256,12 @@ public class CompanyUtil {
         }
     }
 
+    public static void WriteToFile (String txt, String FileURL, Boolean AddToEnd) throws IOException {
+        // AddToEnd:::::: TRUE - дописывать в конец, FALSE - перезаписать всё
+        FileWriter writer = new FileWriter(FileURL, AddToEnd);
+        writer.write(txt);
+        writer.flush();
+        writer.close();
+    }
+
 }
