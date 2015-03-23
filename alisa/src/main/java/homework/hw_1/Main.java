@@ -1,5 +1,8 @@
 package homework.hw_1;
 
+import lessons.lesson_2.Employee;
+import lessons.lesson_2.EmployeeUtil;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -104,8 +107,8 @@ public class Main {
         ArrayList<Employee> employees = EmployeeUtil.getEmployees();
         for (int i = 0; i < employees.size(); i++) {
             for (int j = 0; j < employees.size(); j++) {
-                if (employees.get(i).name.equals(employees.get(j).name)) {
-                    System.out.println(employees.get(i).name + " " + "" + employees.get(i).surname);
+                if (employees.get(i).getName().equals(employees.get(j).getName())) {
+                    System.out.println(employees.get(i).getName() + " " + "" + employees.get(i).getSurname());
                 }
                 break;
             }
@@ -116,19 +119,19 @@ public class Main {
         ArrayList<Employee> employees = EmployeeUtil.getEmployees();
         Employee maxSalary = employees.get(0);
         for (int i = 0; i < employees.size(); i++) {
-            if (employees.get(i).salary > maxSalary.salary) {
+            if (employees.get(i).getSalary() > maxSalary.getSalary()) {
                 maxSalary = employees.get(i);
             }
 
         }
-        System.out.println(maxSalary.name + " " + maxSalary.surname + " " + maxSalary.salary);
+        System.out.println(maxSalary.getName() + " " + maxSalary.getSurname() + " " + maxSalary.getSalary());
     }
 
     public static void sortBySalary() {
         ArrayList<Employee> employees = EmployeeUtil.getEmployees();
         for (int i = 0; i < employees.size(); i++) {
             for (int j = 0; j < employees.size() - 1 - i; j++) {
-                if (employees.get(j).salary < employees.get(j + 1).salary) {
+                if (employees.get(j).getSalary() < employees.get(j + 1).getSalary()) {
                     Employee tmp = employees.get(j);
                     employees.set(j, employees.get(j + 1));
                     employees.set((j + 1), tmp);
@@ -136,7 +139,8 @@ public class Main {
             }
         }
         for (int i = 0; i < employees.size(); i++) {
-            System.out.println(employees.get(i).name + " " + employees.get(i).surname + " " + employees.get(i).salary);
+            System.out.println(employees.get(i).getName() + " " + employees.get(i).getSurname() + " "
+                    + employees.get(i).getSalary());
 
         }
 
