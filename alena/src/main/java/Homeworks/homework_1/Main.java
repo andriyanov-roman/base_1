@@ -5,6 +5,7 @@ import Homeworks.homework_1.EmployeeUtil;
 import Homeworks.homework_1.User;
 import Homeworks.homework_1.UsersUtil;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,9 +13,9 @@ import java.util.Scanner;
  * Created by MacBook on 16.03.15.
  */
 public class Main {
-    public static void main(String[] args) { letsBegin(); }
+    public static void main(String[] args) throws IOException { letsBegin(); }
 
-    public static void letsBegin() {
+    public static void letsBegin() throws IOException {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Enter command key" + " " +
                     " 0. Login coincides with the name \n " +
@@ -92,7 +93,7 @@ public class Main {
 
     }
 
-    public static void getIdenticalEmployees() {
+    public static void getIdenticalEmployees() throws IOException {
         ArrayList<Employee> employees = EmployeeUtil.getEmployees();
         for (int i = 0; i < employees.size(); i++) {
             for (int j = 0; j < employees.size(); j++) {
@@ -111,7 +112,7 @@ public class Main {
         }
     }
 
-    public static void sortBySalary(){
+    public static void sortBySalary() throws IOException {
         ArrayList<Employee> employees = EmployeeUtil.getEmployees();
         for (int i = 0; i < employees.size(); i++) {
             for (int j = 1; j < employees.size(); j++)
