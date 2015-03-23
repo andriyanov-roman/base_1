@@ -52,7 +52,8 @@ public class CompanyUtil {
                 "\n 1. Show an employee with MaxSalary " +
                 "\n 2.Sort a company  by salary " +
                 "\n 3.Sort a company  by age" +
-                "\n 4.Sort a company  by surname length \n");
+                "\n 4.Sort a company  by surname length"+
+                "\n 5. Add a new employee");
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "0":
@@ -211,7 +212,7 @@ public class CompanyUtil {
         }
     }
 
-    /*public static void readFromFile (String [] args) throws IOException {
+    public static void readFromFile () throws IOException {
         File file = new File("alisa/src/result/test_write.txt");
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
@@ -229,7 +230,7 @@ public class CompanyUtil {
         }
         System.out.println(employees.toString());
     }
-    */
+
 }
 
 
