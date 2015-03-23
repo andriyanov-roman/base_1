@@ -46,7 +46,7 @@ public class CompanyUtil {
         return new ArrayList<>(Arrays.asList(c1, c2, c3));
     }
 
-    public void start() {
+    public void start() throws IOException {
         String companyName;
         System.out.println("Enter command key: " +
                 "\n 0.Show all companies " +
@@ -82,9 +82,10 @@ public class CompanyUtil {
                     System.out.println(employees.toString());
                     break;
                 case "6":
-                    createNewCompany();
-                    writeToFileCompany(companies);
-                    System.out.println(companies.toString());
+                    readFromFile();
+                    //createNewCompany();
+                    //writeToFileCompany(companies);
+                    //System.out.println(companies.toString());
                     break;
                 case "Exit":
                     System.exit(0);
@@ -246,7 +247,7 @@ public class CompanyUtil {
 
     public static void readFromFile() throws IOException {
         File employee = new File("alisa/src/result/employees.txt");
-        File company = new File("alisa/src/result/company.txt");
+        File company = new File("alisa/src/result/companies.txt");
         FileReader reader_e = new FileReader(employee);
         FileReader reader_c = new FileReader(company);
         BufferedReader buffer_e = new BufferedReader(reader_e);
@@ -264,17 +265,17 @@ public class CompanyUtil {
             e.setSex(pool[4]);
             employees.add(e);
         }
-        while ((line = buffer_c.readLine()) != null) {
+       /* while ((line = buffer_c.readLine()) != null) {
             String[] pool = line.split(":");
             Company c = new Company();
             c.setCompanyName(pool[0]);
-           /* Employee e1 = new Employee;
+           *//* Employee e1 = new Employee;
             e1.setName = pool[0];
-            e1.setSurname = pool[1];*/
+            e1.setSurname = pool[1];*//*
 
 
             companies.add(c);
-        }
+        }*/
         System.out.println(employees.toString());
         System.out.println(companies.toString());
     }
