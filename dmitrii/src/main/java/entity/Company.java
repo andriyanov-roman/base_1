@@ -1,5 +1,9 @@
 package entity;
 
+import lesson5.Admin;
+import lesson5.Manager;
+import lesson5.Programmer;
+
 import java.util.ArrayList;
 
 /**
@@ -8,6 +12,9 @@ import java.util.ArrayList;
 public class Company {
     private String companyName;
     private ArrayList<Employee> employees;
+    private ArrayList<Programmer> progers;
+    private ArrayList<Admin> admins;
+    private ArrayList<Manager> managers;
     private String filePath;
 
     public void setEmployees (ArrayList<Employee> employees){
