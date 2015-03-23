@@ -56,4 +56,15 @@ public class Employee {
     public int getAge(){
         return age;
     }
+
+    @Override
+    public String toString() {
+        String employeeToString =   name + ":" +
+                secondName + ":" +
+                salary + ":" +
+                sex + ":" +
+                age+ "\n";
+
+        return employeeToString;
+    }
 }

@@ -1,5 +1,7 @@
 package hometask3;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -143,7 +145,7 @@ public class CompanyUtil {
         System.out.println("3. Выйти в главное меню");
     };
     public static Scanner scanner = new Scanner(System.in);
-    public static void addEmployee(){
+    public static void addEmployee() throws IOException {
         boolean add = true;
         while (add) {
             Employee employee = new Employee();
@@ -168,9 +170,9 @@ public class CompanyUtil {
             if (companyNum.equals("2")) company =1;
             if (companyNum.equals("3")) company =2;
 
-            EmployeeUtil.addEmployee(employee);
-            getCompanies().get(company).getEmployees().add(EmployeeUtil.getEmployees().get(EmployeeUtil.getEmployees().size() - 1));
-
+            //EmployeeUtil.addEmployee(employee);
+            //getCompanies().get(company).getEmployees().add(EmployeeUtil.getEmployees().get(EmployeeUtil.getEmployees().size() - 1));
+            addEmployeeToFile(employee);
             System.out.println("Сотрудник добавлен");
 
             showSubMenu();
@@ -192,7 +194,26 @@ public class CompanyUtil {
 
         }
     }
+    public static void addEmployeeToFile  (Employee employee)throws IOException {
+    try {
+        System.out.println("I am inside addEmployeeToFile");
+        System.out.println("Employee to String");
+        System.out.println(employee.toString());
+        FileWriter writer = new FileWriter("mihael/src/main/java/hometask3/test_write_dm.txt", true);
 
+        writer.append(
+                employee.getName() + ":" +
+                        employee.getSecondName() + ":" +
+                        employee.getSalary() + ":" +
+                        employee.getSex() + ":" +
+                        employee.getAge() + "\n"
+        );
+        writer.flush();
+        writer.close();
+    }catch (IOException ex){
+        System.out.println("I am inside catch addEmployeeToFile");
+    }
+    }
     public static void riseSalary(String sex, double persent){
         ArrayList<Company> companies = getCompanies();
         for (int k=0; k< companies.size(); k++){
