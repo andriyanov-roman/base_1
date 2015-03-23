@@ -66,7 +66,7 @@ public class Main {
                         CompanyUtil.riseSalary("MASCULINE",15.00);
                         break;
                     case "9":
-                        CompanyUtil.WriteToFile("FEMININE", "mihael/src/main/java/hometask3/test_write_dm.txt",true);
+                        CompanyUtil.WriteToFile("Marco:Pantani:5673000.00:MASCULINE:37\n", "mihael/src/main/java/hometask3/employees.txt",true);
                         break;
 
                 }
