@@ -2,15 +2,13 @@ package home_works;
 
 import java.util.ArrayList;
 
-/**
- * Created by user on 23.03.2015.
- */
+
 public class UserUtil {
     public static ArrayList<User> getUsers(){
-        User u1 = new User(30,198514578L, "Jack","pass","Jack","Vorobey");
-        User u2 = new User(30,198514578L, "Jack","pass321","Jack","Cris");
-        User u3 = new User(30,199874578L, "Russ","pass42342","Jack","Vorobey");
-        User u4 = new User(36,156887268L, "Slamdunk","pass12345","Kobe","Bryant");
+        User u1 = new User(30,198514578L, "Jack","Vorobey","password","Vorobey");
+        User u2 = new User(30,198514578L, "Jack","Jack","password","Cris");
+        User u3 = new User(30,199874578L, "Russ","Vankevich","password","Bryant");
+        User u4 = new User(36,156887268L, "Slamdunk","Jordan","password","Bryant");
 
 
         ArrayList<User> users = new ArrayList<>();

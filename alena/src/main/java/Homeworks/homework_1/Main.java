@@ -20,7 +20,7 @@ public class Main {
             System.out.println("Enter command key" + " " +
                     " 0. Login coincides with the name \n " +
                     "1. Login coincides with the secondName \t 2.Sort by id \n 3. Identical Employees + MaxSalary" +
-                    "\t 4. Sort by salary");
+                    "\t 4. Sort by salary" + "\t 5.Write new employee");
             while (scanner.hasNext()) {
                 switch (scanner.next()) {
                     case "0":
@@ -37,6 +37,11 @@ public class Main {
                         break;
                     case "4":
                         sortBySalary();
+                        break;
+                    case "5":
+                        /*createNewEmployee();
+                        writeToFileEmployee(employees);
+                        System.out.println(employees.toString());*/
                         break;
                     //case "Exit":
                     // System.exit(0);

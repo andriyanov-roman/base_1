@@ -46,9 +46,9 @@ public class Sort {
                     return o1.getSalary() - o2.getSalary();
                 }
             });*/
-            /*for (int j = 0; j < orgs.get(i).getEmployees().size(); j++) {
-                for (int k = 0; k < orgs.get(i).getEmployees().size() - j - 1; k++) {
-                    if(orgs.get(i).getEmployees().get(k).getSalary() > orgs.get(i).getEmployees().get(k + 1)){
+            /*for (int j = 0; j < CompanyUtil.companies.get(j).getEmployees().size(); j++) {
+                for (int k = 0; k < CompanyUtil.companies.get(k).getEmployees().size() - j - 1; k++) {
+                    if(CompanyUtil.companies.get(j).getEmployees().get(k).getSalary() > CompanyUtil.companies.get(j).getEmployees().get(k + 1).getSalary()){
                         Employee tmp =
                     }
                 }

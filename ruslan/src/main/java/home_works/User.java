@@ -11,7 +11,14 @@ public class User {
     public String password;
     public int age;
 
-    public User(int age, long id, String name, String secondName, String password, String vorobey) {
+    public User(int age, long id, String name, String secondName, String password, String login) {
+
+        this.id = id;
+        this.name = name;
+        this.secondName = secondName;
+        this.login = login;
+        this.password = password;
+        this.age = age;
     }
 
     public Long getId() {
@@ -40,7 +47,7 @@ public class User {
 
     @Override
     public String toString() {
-        return id + name + secondName+ login + password + age;
+        return id + name + secondName + login + password + age;
     }
 
     public String getLogin() {
