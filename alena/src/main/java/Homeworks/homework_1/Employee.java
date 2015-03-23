@@ -18,6 +18,10 @@ public class Employee {
         this.age = e;
     }
 
+    public Employee () {
+
+    }
+
     public String getName() {
         return name;
     }
