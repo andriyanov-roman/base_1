@@ -417,8 +417,8 @@ public class Methods {
             employee.setSalary(scr.nextInt());
             employees.add(employee);
             FileWriter writer=new FileWriter("matveu/src/EmployeesSony.txt",true);
-            writer.write(employee.getName()+" "+employee.getSecondName()+". Пол: "+employee.getSex()+
-                    ". Возраст: "+ employee.getAge()+". Зарплата: "+employee.getSalary()+"\n");
+            writer.write(employee.getName()+":"+employee.getSecondName()+":"+employee.getSex()+
+                    ":"+ employee.getAge()+":"+employee.getSalary()+"\n");
             writer.flush();
             writer.close();
         }catch (Exception e){}
@@ -429,7 +429,7 @@ public class Methods {
         System.out.println("2: Вывести информацию по данному сотруднику");
         System.out.println("3: Добавить нового сотрудника в другие компании");
         System.out.println("4: Выход в главное меню");
-       // System.out.println("5: fgdfhgdе меню");
+        System.out.println("5: Вывести информацию по всем сотрудникам этой компании");
 
         while (scannerNew.hasNext())  {
             switch (scannerNew.next())  {
@@ -446,13 +446,13 @@ public class Methods {
                     break;
                 case "4":
                     start();
-                    break;/*
+                    break;
                 case "5":
                     getEmployees();
-                    break;*/
+                    break;
             }
         }
-    }/*
+    }
     public static ArrayList<Employee> getEmployees() throws IOException {
         ReadingFromFile.getEmployees();
         File file = new File("matveu/src/EmployeesSony.txt");
@@ -467,14 +467,14 @@ public class Methods {
             e.setSecondName(pool[1]);
             e.setSex(pool[2]);
             e.setAge(Integer.valueOf(pool[3]));
-            //e.setSalary(Double.valueOf(pool[4]));
+            e.setSalary(Double.valueOf(pool[4]));
             employees.add(e);
-            System.out.print(e+" ");
+            System.out.print(e+" "+"\n");
         }
         return employees;
     }
 
-*/
+
 
     public static void salaryPlusMenAndKillWomen() {
         Scanner scanner=new Scanner(System.in);
