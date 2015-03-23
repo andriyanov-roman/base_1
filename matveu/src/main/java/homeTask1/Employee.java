@@ -6,6 +6,9 @@ public class Employee {
     public String sex;
     public int age;
     public double salary;
+    public Employee() {
+
+    }
 
     @Override
     public String toString() {
@@ -56,9 +59,7 @@ public class Employee {
         this.sex = sex;
     }
 
-    public Employee() {
 
-    }
 
     public Employee(String name, String secondName,String sex,int age, double salary ) {  // создание конструктора
         this.name=name;
