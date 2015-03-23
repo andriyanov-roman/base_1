@@ -10,6 +10,7 @@ public class Employee {
     private String sex;
     private int age;
 
+
     public Employee (String a, String b, double c, String d, int e){
         this.name = a ;
         this.secondName = b;
