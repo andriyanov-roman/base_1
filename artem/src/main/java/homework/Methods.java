@@ -24,72 +24,18 @@ public class Methods {
         while (scanner.hasNext()){
             switch (scanner.next()){
                 //Каждой задаче присваивается Номер, чтобы пользователь не вводил название задачи вручную
-                case "1": CompanyUtil.showEmployees(); break;
-                case "2": CompanyUtil.getMaxSalary(); break;
-                case "3": CompanyUtil.sortBy(); break;
-                case "7": addEmployee(); break;
-                case "8": fireFemale(); break;
+//                case "1": CompanyUtil.showEmployees(); break;
+//                case "2": CompanyUtil.getMaxSalary(); break;
+//                case "3": CompanyUtil.sortBy(); break;
+//                case "7": addEmployee(); break;
+//                case "8": fireFemale(); break;
                 case "0": System.exit(0);
                     default: System.out.println ("No such case");
             }
         }
     }
-    public static void addEmployee(){
-        ArrayList<Company> companies = new ArrayList<>();
-        System.out.println(" Check the organization:\n   1 - for C#\n   2 - for C++\n   3 - for Java\n   4 - for new organization");
-        switch (scanner.next()){
-            case "1":
-                scanner.useDelimiter("\n");
-                System.out.print("Name: ");
-                String name = scanner.next();
-                System.out.print("Surname: ");
-                String surname = scanner.next();
-                Double salary=0.0;
-                boolean wasExc = false; // проверяем, было ли Исключение - "was Exception"
-                while (true) {
-                    System.out.print("Salary: ");
-                    try {
-                        salary = Double.parseDouble(scanner.next());
-                    } catch (Exception e) {
-                        System.out.println("Wrong input! The input must be an positive Double number. Try again.");
-                        wasExc = true;
-                    }
-                    if (salary>0.0) {
-                        break;
-                    } else if (!wasExc) {
-                        System.out.println("Oh, the input integer number must be positive! Try again.");
-                    }
-                }
-                System.out.print("Sex: ");
-                String gender = scanner.next();
-                int age=0;
-                wasExc = false;
-                while (true) {
-                    System.out.print("Age: ");
-                    try {
-                        age = Integer.parseInt(scanner.next());
-                    } catch (Exception e) {
-                        System.out.println("Wrong input! The input must be an positive Integer number. Try again.");
-                        wasExc = true;
-                    }
-                    if (age>0) {
-                        break;
-                    } else if (!wasExc) {
-                        System.out.println("Oh, the input integer number must be positive! Try again.");
-                    }
-                }
-                Employee newStuff = new Employee(name,surname,salary,gender,age);
-                companies.get(0).getEmployees().add(newStuff);
-                break;
-            case "2":
-                break;
-            case "3":
-                break;
-            case "4":
-                break;
-        }
-    }
-    public static void fireFemale(){
+
+   /* public static void fireFemale(){
         ArrayList<Company> companies = CompanyUtil.getOrgs();
         for (int i = 0; i < companies.size(); i++) {
             for (int j = companies.get(i).getEmployees().size()-1; j >= 0; j--) {
@@ -100,6 +46,6 @@ public class Methods {
                 System.out.println(companies.get(i).getOrgName()+" "+ companies.get(i).getEmployees().get(j));
             }
         }
-    }
+    }*/
 
 }

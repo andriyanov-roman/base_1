@@ -3,55 +3,62 @@ package homework;
 
 import entity.Company;
 import entity.Employee;
+import java.io.*;
 import java.util.ArrayList;
 
 public class CompanyUtil { // Создаем класс штампующий Организации("печеньки") из определенного шаблона Org
-    public static ArrayList<Company> orgsGLobaL = getOrgs();
-    public static int sortselection;
-    public static ArrayList<Company> getOrgs(){ // Создаем метод возвращающий "печеньки"
-        ArrayList<Company> companies = new ArrayList<>();
-        ArrayList<Employee> employees = EmployeeUtil.getEmployees(); // Создаем массив из наштампованных "печенек" employees
-                                                           // созданных посредством класса EmployeeUtil по шаблону Еmployees
-        Company o1 = new Company(); // Создаем первую организзацию ("печеньку")
-        o1.setOrgName("C#"); // Поле для названия заполнили сеттером setOrgName
-        o1.setEmployees(new ArrayList<>()); // Поле-массив сотрудников наполнили сеттером setEmployees
-        o1.getEmployees().add(employees.get(0));
-        o1.getEmployees().add(employees.get(3));
-        o1.getEmployees().add(employees.get(7));
-        companies.add(o1);
-
-        Company o2 = new Company();
-        o2.setOrgName("C++");
-        o2.setEmployees(new ArrayList<>());
-        o2.getEmployees().add(employees.get(2));
-        o2.getEmployees().add(employees.get(4));
-        o2.getEmployees().add(employees.get(6));
-        o2.getEmployees().add(employees.get(8));
-        companies.add(o2);
-
-        Company o3 = new Company();
-        o3.setOrgName("Java");
-        o3.setEmployees(new ArrayList<>());
-        o3.getEmployees().add(employees.get(1));
-        o3.getEmployees().add(employees.get(5));
-        o3.getEmployees().add(employees.get(8));
-        companies.add(o3);
-
-           return companies;
-           //return new Org[]{o1, o2, o3}; // Возвращаем массив созданных "печенек"
+    public static ArrayList<Company> companies = new ArrayList<>();
+    public static int sortSelection;
+    public static ArrayList<Company> getCompanies() throws IOException { // Создаем метод возвращающий "печеньки"
+        File file = new File("artem/src/main/java/additionalFiles/companies");
+        FileReader reader = new FileReader(file);
+        BufferedReader buffer = new BufferedReader(reader);
+        String line;
+        while((line = buffer.readLine()) != null) {
+            String[] pool = line.split(":");
+            Company newCompany = new Company();
+            newCompany.setCompanyName(pool[0]);
+            Employee e = new Employee();
+            e.setName(pool[1]);
+            e.setSecondName(pool[2]);
+            e.setSalary(Double.valueOf(pool[3]));
+            e.setSex(pool[4]);
+            e.setAge(Integer.valueOf(pool[5]));
+            ArrayList<Employee> emp = new ArrayList<>();
+            emp.add(e);
+            newCompany.setEmployees(emp);
+            companies.add(newCompany);
+        }
+        for (int i = 0; i < companies.size(); i++) {
+            for (int j = companies.size()-1; j > i; j--) {
+                if (companies.get(i).getCompanyName().equals(companies.get(j).getCompanyName())){
+                    companies.get(i).getEmployees().add(companies.get(j).getEmployees().get(0));
+                    companies.remove(j);
+                }
+            }
+        }
+        return companies;
     }
-    public static ArrayList<Company> addOrgs(){
-        Company oNew = new Company();
-        System.out.print(" Company Name: ");
-        oNew.setOrgName(Methods.scanner.next());
-        oNew.setEmployees(new ArrayList<>());
-        orgsGLobaL.add(oNew);
-        return orgsGLobaL;
+    //return new Org[]{o1, o2, o3}; // Возвращаем массив созданных "печенек"
+    public static void saveCompaniesToFile() throws IOException{
+        FileWriter writer = new FileWriter("artem/src/main/java/additionalFiles/test");
+        StringBuffer buffer = new StringBuffer();
+        for (int i = 0; i < companies.size(); i++) {
+            for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
+                buffer.append(String.valueOf(companies.get(i).getCompanyName()+":"+companies.get(i).getEmployees().get(j).getName()+":"+companies.get(i).getEmployees().get(j).getSecondName()+":"+companies.get(i).getEmployees().get(j).getSalary()+":"+companies.get(i).getEmployees().get(j).getSex()+":"+companies.get(i).getEmployees().get(j).getAge()+":"+ "\n"));
+            }
+        }
+        writer.write(String.valueOf(buffer));
+        writer.flush();
+        writer.close();
     }
-    public static void showEmployees(){
-        for(int i = 0; i < orgsGLobaL.size(); i++){
-            for(int j = 0; j < orgsGLobaL.get(i).getEmployees().size(); j++){
-                System.out.println(orgsGLobaL.get(i).getOrgName()+" "+orgsGLobaL.get(i).getEmployees().get(j));
+    /*public static void ArrayList<Company> addOrgs(){
+
+    }*/
+    public static void showCompanies(){
+        for (int i = 0; i < companies.size(); i++) {
+            for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
+                System.out.println(companies.get(i).getCompanyName()+" "+companies.get(i).getEmployees().get(j));
             }
         }
     }
@@ -65,28 +72,28 @@ public class CompanyUtil { // Создаем класс штампующий О�
                     case "a":
                         Employee emp = new Employee();
                         Company company = new Company();
-                        for (int i = 0; i < orgsGLobaL.size(); i++) {
-                            for (int j = 0; j < orgsGLobaL.get(i).getEmployees().size(); j++) {
-                                double salary = orgsGLobaL.get(i).getEmployees().get(j).getSalary();
+                        for (int i = 0; i < companies.size(); i++) {
+                            for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
+                                double salary = companies.get(i).getEmployees().get(j).getSalary();
                                 if (emp.getSalary() < salary) {
-                                    emp = orgsGLobaL.get(i).getEmployees().get(j);
-                                    company = orgsGLobaL.get(i);
+                                    emp = companies.get(i).getEmployees().get(j);
+                                    company = companies.get(i);
                                 }
                             }
                         }
-                        System.out.println(" Employee: \n -- "+ company.getOrgName() + " " + emp.toString() + "\n has the max salary.");
+                        System.out.println(" Employee: \n -- "+ company.getCompanyName() + " " + emp.toString() + "\n has the max salary.");
                         break;
                     case "b":
                         System.out.println(" Employees: ");
-                        for (int i = 0; i < orgsGLobaL.size(); i++) {
-                            Employee tmp = orgsGLobaL.get(i).getEmployees().get(0);
-                            for (int j = 0; j < orgsGLobaL.get(i).getEmployees().size(); j++) {
-                                double salary = orgsGLobaL.get(i).getEmployees().get(j).getSalary();
+                        for (int i = 0; i < companies.size(); i++) {
+                            Employee tmp = companies.get(i).getEmployees().get(0);
+                            for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
+                                double salary = companies.get(i).getEmployees().get(j).getSalary();
                                 if (tmp.getSalary() < salary) {
-                                    tmp = orgsGLobaL.get(i).getEmployees().get(j);
+                                    tmp = companies.get(i).getEmployees().get(j);
                                 }
                             }
-                            System.out.println(" -- " + orgsGLobaL.get(i).getOrgName() + " " + tmp.toString());
+                            System.out.println(" -- " + companies.get(i).getCompanyName() + " " + tmp.toString());
                         }
                         System.out.println(" have the max salary among etch company.");
                         break;
@@ -99,12 +106,11 @@ public class CompanyUtil { // Создаем класс штампующий О�
                 System.out.println(" a - Among all companies\n b - For each company");
             }
         }
-
     }
     public static void sortBy(){
         System.out.println(" 0 - For all companies, or Select company:");
-        for(int i = 1; i <= orgsGLobaL.size(); i++){
-            System.out.println(" " + (i) + " - " + orgsGLobaL.get(i-1).getOrgName());
+        for(int i = 1; i <= companies.size(); i++){
+            System.out.println(" " + (i) + " - " + companies.get(i-1).getCompanyName());
         }
         boolean b = true;
         while (b){
@@ -113,10 +119,10 @@ public class CompanyUtil { // Создаем класс штампующий О�
                 System.out.println(" Select an option:"+"\n 1. Sort by name"+"\n 2. Sort by surname length"+
                         "\n 3. Sort by ZP"+"\n 4. Sort by age");
                 switch (Methods.scanner.next()){
-                    case "1": for (i = 0; i < orgsGLobaL.size(); i++) { Sort.sortByName(); } break;
-                    case "2": for (i = 0; i < orgsGLobaL.size(); i++) { Sort.sortBySurnameLength(); } break;
-                    case "3": for (i = 0; i < orgsGLobaL.size(); i++) { Sort.sortByZP(); } break;
-                    case "4": for (i = 0; i < orgsGLobaL.size(); i++) { Sort.sortByAge(); } break;
+                    case "1": for (i = 0; i < companies.size(); i++) { Sort.sortByName(); } break;
+                    case "2": for (i = 0; i < companies.size(); i++) { Sort.sortBySurnameLength(); } break;
+                    case "3": for (i = 0; i < companies.size(); i++) { Sort.sortByZP(); } break;
+                    case "4": for (i = 0; i < companies.size(); i++) { Sort.sortByAge(); } break;
                     default: System.out.println("No such case");
                 }
                 b = false;
@@ -124,10 +130,10 @@ public class CompanyUtil { // Создаем класс штампующий О�
             if(i > 0){
                 System.out.println(" Select an option:"+"\n 1. Sort by name"+"\n 2. Sort by surname length"+
                         "\n 3. Sort by ZP"+"\n 4. Sort by age");
-                sortselection = Integer.parseInt(Methods.scanner.next());
+                sortSelection = Integer.parseInt(Methods.scanner.next());
                 boolean bo = true;
                 while (bo){
-                    switch (sortselection){
+                    switch (sortSelection){
                         case 1: Sort.sortByName(); bo = false; break;
                         case 2: Sort.sortBySurnameLength(); bo = false; break;
                         case 3: Sort.sortByZP(); bo = false; break;
