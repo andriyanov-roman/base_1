@@ -3,7 +3,7 @@ package lesson2;
 /**
  * Created by user on 14.03.2015.
  */
-public class Company {
+class Company {
     private String companyName;
     public Employee[] employees;
 

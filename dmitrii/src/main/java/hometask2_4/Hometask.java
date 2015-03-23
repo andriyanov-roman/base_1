@@ -1,12 +1,15 @@
-package hometask3;
+package hometask2_4;
 
+import entity.Company;
+import entity.Employee;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 
 /**
  * Created by mit_OK! on 20.03.2015.
  */
-public class Hometask3 {
+class Hometask {
     private static Boolean update = false; // маркер - были ли изменения в компаниях (добавлен работник и т.д.)
     private static ArrayList<Company> updCompany; // контейнер для хранения обновлений компаний
     private static Scanner scanner = new Scanner(System.in);
@@ -22,7 +25,6 @@ public class Hometask3 {
                         "\ne) (or «Exit») End program" +
                         "\n Enter command key: "
         );
-
     }
     public static void runHomeTask3() {
         welcome();
@@ -33,25 +35,25 @@ public class Hometask3 {
                     CompanyUtil.highSalary();
                     break;
                 case "1":
-                    taskSolver("show Employee");
+                    inputHandler("show Employee");
                     break;
                 case "11":
-                    taskSolver("show Employee SHORT");
+                    inputHandler("show Employee SHORT");
                     break;
                 case "2":
-                    taskSolver("sort By Salary");
+                    inputHandler("sort By Salary");
                     break;
                 case "3":
-                    taskSolver("sort By Age");
+                    inputHandler("sort By Age");
                     break;
                 case "4":
-                    taskSolver("sort By Surname");
+                    inputHandler("sort By Surname");
                     break;
                 case "5":
-                    taskSolver("Add employee");
+                    inputHandler("Add employee");
                     break;
                 case "6":
-                    taskSolver("Fire and Increase");
+                    inputHandler("Fire and Increase");
                     break;
                 case "Exit":
                     System.exit(0);
@@ -67,7 +69,8 @@ public class Hometask3 {
             welcome();
         }
     }
-    private static void taskSolver(String action) {
+    private static void inputHandler(String action) {
+        /* МЕТОД ДЛЯ ОБРАБОТКИ ТОГО, ЧТО ВВЁЛ ПОЛЬЗОВАТЕЛЬ */
         ArrayList<Company> comps = CompanyUtil.getCompanies();
         if (update==true) {
             comps = updCompany;

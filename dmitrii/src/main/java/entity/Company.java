@@ -1,4 +1,4 @@
-package hometask3;
+package entity;
 
 import java.util.ArrayList;
 

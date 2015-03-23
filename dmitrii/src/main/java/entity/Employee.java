@@ -1,4 +1,4 @@
-package Task;
+package entity;
 
 /**
  * Created by user on 14.03.2015.
@@ -29,6 +29,12 @@ public class Employee {
         "\nGender: "+getGender()+
         "\nAge: "+getAge());
     }
+
+    @Override
+    public String toString() {
+        return getName()+" "+getSurname()+" ("+getSalary()+")$"+", "+getGender()+", "+getAge()+" years";
+    }
+
     // SETTERS ::::::::::::::
     public void setName (String name) {this.name = name;}
     public  void setSurname (String surname) {this.surname = surname;}

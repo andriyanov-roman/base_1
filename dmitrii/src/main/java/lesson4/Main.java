@@ -1,5 +1,6 @@
 package lesson4;
 
+import entity.Employee;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -28,9 +29,5 @@ public class Main {
             employees.add(e);
         }
         //System.out.println(employees.toString());
-
-        ArrayList<Employee> employees2 = Employee.getEmployees();
-        System.out.println(employees2.toString());
-
     }
 }
