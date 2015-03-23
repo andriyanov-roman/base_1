@@ -1,26 +1,27 @@
 package hometask2_4;
 
 import entity.Employee;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
  * Created by Dmitriy Lisunov on 14.03.2015.
  */
-public class EmployeeUtil {
-    public static ArrayList<Employee> getEmployees () {
+class EmployeeUtil {
+    public static ArrayList<Employee> getEmployees () throws IOException {
         ArrayList<Employee> empl = new ArrayList<>();
-        empl.add( new Employee("Barbara", "Streisand", 9205.55, false, 27));
-        empl.add( new Employee("Bill", "Gates", 80_000.01, true, 65));
-        empl.add( new Employee("Steve", "Jobs", 15_000.24, true, 60));
-        empl.add( new Employee("Linus","Torvalds", 50.00, true, 47));
-        empl.add( new Employee("Marry", "Madison", 12_500.00, false, 53));
-        empl.add( new Employee("Neil","Armstrong",89_999.01, true, 43 ));
-        empl.add( new Employee("Helen", "Perry", 57.00, false, 28));
-        empl.add( new Employee("Martin", "Laurens", 90_000.0, true, 39));
-        empl.add( new Employee("Clint", "Eastwood", 99_999.0, true, 44));
-        empl.add( new Employee("Artemiy","Lebedev", 4800.00, true, 35));
-        empl.add( new Employee("Artur","Lebedev", 8000.00, true, 14));
-        empl.add( new Employee("Immanuel","Kant", 1.00, true, 14));
+        String dump = FileUtil.ReadFromFile("dmitrii\\src\\main\\resources\\Employees_List.txt");
+        String [] lines = dump.split("\n");
+        for (int i = 0; i < lines.length; i++) {
+            String [] person = lines[i].split(":");
+            Employee e = new Employee();
+            e.setName(person[0]);
+            e.setSurname(person[1]);
+            e.setSalary(Double.valueOf(person[2]));
+            e.setGender(Boolean.valueOf(person[3]));
+            e.setAge(Integer.valueOf(person[4]));
+            empl.add(e);
+        }
         return empl;
     }
 }

@@ -2,33 +2,39 @@ package hometask2_4;
 
 import entity.Company;
 import entity.Employee;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
  * Created by user on 14.03.2015.
  */
-public class CompanyUtil {
-
-    public static ArrayList<Company> getCompanies() {
-        ArrayList<Employee> employees = EmployeeUtil.getEmployees();
-
-        Company c1 = new Company();
-        c1.setCompanyName("Volvo");
-        c1.setEmployees(new ArrayList<>());
-        c1.getEmployees().add(employees.get(0));
-        c1.getEmployees().add(employees.get(1));
-        c1.getEmployees().add(employees.get(2));
-        c1.getEmployees().add(employees.get(3));
-
-        Company c2 = new Company();
-        c2.setCompanyName( "ATB");
-        c2.setEmployees(new ArrayList<> (employees.subList(4,8)) );
-
-        Company c3 = new Company();
-        c3.setCompanyName( "AZK");
-        c3.setEmployees(new ArrayList<Employee> (employees.subList(8,12)) );
-
+class CompanyUtil {
+    public static ArrayList<Company> getCompanies() throws IOException {
+        //ArrayList<Employee> employees = EmployeeUtil.getEmployees();
+        Company c1 = CompanyParse("dmitrii\\src\\main\\resources\\companies\\Brabus.txt");
+        Company c2 = CompanyParse("dmitrii\\src\\main\\resources\\companies\\Volvo.txt");
+        Company c3 = CompanyParse("dmitrii\\src\\main\\resources\\companies\\ZAZ.txt");
         return new ArrayList<Company> (Arrays.asList(c1, c2, c3));
+    }
+    public static Company CompanyParse (String url) throws IOException {
+        Company com = new Company();
+        com.setEmployees(new ArrayList<>());
+        String [] pool = FileUtil.ReadFromFile(url).split("\n");
+        com.setCompanyName(pool[0]);
+        com.setFilePath(url);
+        for (int i = 1; i < pool.length; i++) {
+            String [] lines = pool[i].split(":");
+                Employee e = new Employee();
+                e.setName(lines[0]);
+                e.setSurname(lines[1]);
+                e.setSalary(Double.valueOf(lines[2]));
+            if (lines[3].equals("true")) {e.setGender(true);}
+            else e.setGender(false);
+                e.setAge(Integer.valueOf(lines[4]));
+                com.getEmployees().add(e);
+        }
+        return com;
     }
 }

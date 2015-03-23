@@ -3,6 +3,7 @@ package hometask2_4;
 import entity.Company;
 import entity.Employee;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -29,7 +30,7 @@ class Hometask {
                         "\n Enter command key: "
         );
     }
-    public static void runHomeTask3() {
+    public static void runHomeTask3() throws IOException {
         welcome();
         //Каждой задаче присваивается Номер, чтобы пользователь не вводил название задачи вручную
         while (scanner.hasNext()) {
@@ -72,12 +73,9 @@ class Hometask {
             welcome();
         }
     }
-    private static void inputHandler(String action) {
+    private static void inputHandler(String action) throws IOException {
         /* МЕТОД ДЛЯ ОБРАБОТКИ ТОГО, ЧТО ВВЁЛ ПОЛЬЗОВАТЕЛЬ */
         ArrayList<Company> comps = CompanyUtil.getCompanies();
-        if (update==true) {
-            comps = updCompany;
-        }
         System.out.println("\nChoose company:");
         if (action!="Add employee") { // мы не будем добавлять сотрудника сразу во все компании, а только по одной
             System.out.println("0. All employees in all companies");// «0» - вывести всех работников во всех компаниях
@@ -103,7 +101,7 @@ class Hometask {
 
     }
 
-    private static void taskExecutor (Company com, String action) {
+    private static void taskExecutor (Company com, String action) throws IOException {
         switch (action) {
             case "show Employee":
                 System.out.println("=========== "+com.getCompanyName()+" ===========");
@@ -135,13 +133,13 @@ class Hometask {
                 System.out.println("=========== "+com.getCompanyName()+" ===========");
                 com = Methods.IncreaseSalary(com, 0.15);
                 com = Methods.FireStuff(com,"male");
-                updateCompanies(com);// ОБНОВЛЕНИЕ - UPDATES:::::::
+                updateCompanies(com);
                 break;
             case "Add employee":
                 System.out.println("=========== "+com.getCompanyName()+" ===========");
                 com.getEmployees().add(AddEmployeeDialog());
                 com.setEmployees(com.getEmployees());
-                updateCompanies(com);// ОБНОВЛЕНИЕ - UPDATES:::::::
+                updateCompanies(com);
                 //Продожение диалога с пользователем:::::
                 Boolean goOut=false;
                 while (!goOut){
@@ -170,18 +168,9 @@ class Hometask {
         }
     }
 
-    private static void updateCompanies (Company com){
+    private static void updateCompanies (Company com) throws IOException {
         // ОБНОВЛЕНИЕ - UPDATES:::::::
-        // сохраняем обновления в глобальную переменную для возможности дальнейшего использования
-        if (update==false){
-            updCompany = CompanyUtil.getCompanies();// если обновлений не было, то грузимся из CompanyUtil
-        }
-        for (Company i : updCompany){
-            if (i.getCompanyName().equals(com.getCompanyName())){
-                i.setEmployees(com.getEmployees());
-                update=true;// ставим маркер, что у нас есть обновление данных
-            }
-        }
+        FileUtil.WriteToFile(com.toString(),com.getFilePath(),false);
     }
     private static Employee AddEmployeeDialog (){
         System.out.println("Please, fill All fields\n");

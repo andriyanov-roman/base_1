@@ -3,13 +3,14 @@ package hometask2_4;
 import entity.Company;
 import entity.Employee;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
  * Created by mit_OK! on 23.03.2015.
  */
 public class Methods {
-    public static void highSalary() {
+    public static void highSalary() throws IOException {
         ArrayList<Company> comps = CompanyUtil.getCompanies();
         System.out.println();
         for (int i = 0; i < comps.size(); i++) {
