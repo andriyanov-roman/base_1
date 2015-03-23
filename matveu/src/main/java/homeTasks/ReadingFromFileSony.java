@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ReadingFromFile {
+public class ReadingFromFileSony {
         public static ArrayList<Employee> getEmployees() throws IOException {
                 File file = new File("matveu/src/EmployeesSony.txt");
                 FileReader reader = new FileReader(file);
@@ -23,7 +23,6 @@ public class ReadingFromFile {
                     e.setSalary(Double.valueOf(pool[4]));
                     employees.add(e);
                 }
-
             return employees;
         }
 

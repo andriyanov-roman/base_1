@@ -463,14 +463,18 @@ public class Methods {
         }
     }
     public static ArrayList<Employee> getEmployees() throws IOException {
-        ReadingFromFile.getEmployees();
-        File file = new File("matveu/src/EmployeesSony.txt");
-        FileReader reader = new FileReader(file);
-        BufferedReader buffer = new BufferedReader(reader);
+        ReadingFromFileSony.getEmployees();
+        ReadingFromFileLuxsoft.getEmployees();
+        ReadingFromFileMicrosoft.getEmployees();
+        File fileSony = new File("matveu/src/EmployeesSony.txt");
+        File fileLuxsoft = new File("matveu/src/EmployeesLuxsoft.txt");
+        File fileMicrosoft = new File("matveu/src/EmployeesMicrosoft.txt");
+        FileReader readerSony = new FileReader(fileSony);
+        BufferedReader bufferSony = new BufferedReader(readerSony);
         ArrayList<Employee> employees = new ArrayList<>();
-        String line;
-        while ((line = buffer.readLine()) != null) {
-            String[] pool = line.split(":");
+        String lineSony;
+        while ((lineSony = bufferSony.readLine()) != null) {
+            String[] pool = lineSony.split(":");
             Employee e = new Employee();
             e.setName(pool[0]);
             e.setSecondName(pool[1]);
