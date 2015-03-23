@@ -1,0 +1,12 @@
+Barbara:Streisand:9205.55:false:27
+Bill:Gates:80000.01:true:65
+Steve:Jobs:15000.24:true:60
+Linus:Torvalds:50.00:true:47
+Marry:Madison:12500.00:false:53
+Neil:Armstrong:89999.01:true:43
+Helen:Perry:57.00:false:28
+Martin:Laurens:90000.0:true:39
+Clint:Eastwood:99999.0:true:44
+Artemiy:Lebedev:4800.00:true:35
+Artur:Lebedev:8000.00:true:14
+Immanuel:Kant:1.00:true:14

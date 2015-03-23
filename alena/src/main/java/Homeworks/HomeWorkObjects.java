@@ -1,3 +1,7 @@
+package Homeworks;
+
+import Homeworks.Human;
+
 /**
  * Created by lbondarenko on 13.01.2015.
  */

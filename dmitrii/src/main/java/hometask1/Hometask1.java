@@ -1,5 +1,6 @@
 package hometask1;
 
+import entity.Employee;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -132,10 +133,10 @@ public class Hometask1 {
     }
 
     public static void showEmployees() {
-        Employee [] empl = EmployeeUtil.getEmployees();
+        Employee[] empl = EmployeeUtil.getEmployees();
         System.out.println("======== Total employees: "+empl.length+" =======\n\tShow all:");
         for (int i = 0; i < empl.length; i++) {
-            System.out.println((i+1)+")"+empl[i].name+" "+empl[i].surname+" ("+empl[i].salary+"$)");
+            System.out.println((i+1)+")"+empl[i].getName()+" "+empl[i].getSurname()+" ("+empl[i].getSalary()+"$)");
         }
         System.out.println();
     }
@@ -149,15 +150,15 @@ public class Hometask1 {
         int iCount = 1;
         for (int i = 0; i < empl.length; i++) {
             for (int j = i+1; j < empl.length; j++) {
-                if (empl[i].name.equals(empl[j].name) && empl[i].surname.equals(empl[j].surname) && !(empl[j].name.isEmpty()) ) {
-                    salCont=Math.max(empl[i].salary, empl[j].salary);
+                if (empl[i].getName().equals(empl[j].getName()) && empl[i].getSurname().equals(empl[j].getSurname()) && !(empl[j].getName().isEmpty()) ) {
+                    salCont=Math.max(empl[i].getSalary(), empl[j].getSalary());
                     iCount++;
-                    empl[j].name="";
+                    empl[j].setName("");
                     iFind = true;
                 }
             }
             if (iFind) {
-                System.out.println(empl[i].name + " " + empl[i].surname +
+                System.out.println(empl[i].getName() + " " + empl[i].getSurname() +
                         " ("+iCount+" persons)." + " One of them with higher Salary: "+salCont+"$");
             }
             iCount=1;
@@ -173,7 +174,7 @@ public class Hometask1 {
         Employee bubble;
         for (int j = 0; j < empl.length - 1; j++) {
             for (int k = 0; k < empl.length - 1 - j; k++) {
-                if (empl[k + 1].salary < empl[k].salary) {
+                if (empl[k + 1].getSalary() < empl[k].getSalary()) {
                     bubble=empl[k+1];
                     empl[k+1]=empl[k];
                     empl[k]=bubble;
@@ -181,7 +182,7 @@ public class Hometask1 {
             }
         }
         for (int j = 0; j < empl.length; j++) {
-            System.out.println(empl[j].salary + "$ " + empl[j].name + " " + empl[j].surname);
+            System.out.println(empl[j].getSalary() + "$ " + empl[j].getName() + " " + empl[j].getSurname());
         }
     }
 }

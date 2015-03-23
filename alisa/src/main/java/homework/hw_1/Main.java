@@ -1,5 +1,9 @@
 package homework.hw_1;
 
+import lessons.lesson_2.Employee;
+import lessons.lesson_2.EmployeeUtil;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -14,8 +18,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter command key" + " " +
                 "0.Show all users \t 1. Login coincides with the name \n " +
-                "2. Login coincides with the secondName \t 3.Sort by id \n 4. Identical Employees \t 5.MaxSalary"+
-        "\t 6. sort by salary");
+                "2. Login coincides with the secondName \t 3.Sort by id \n 4. Identical Employees \t 5.MaxSalary" +
+                "\t 6. sort by salary");
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "0":
@@ -28,21 +32,21 @@ public class Main {
                     checkUsersName();
                     break;
                 case "3":
-                sortById();
+                    sortById();
                     break;
                 case "4":
-                  getIdenticalEmployees();
-                 break;
-              case "5":
-                 EmployeeMaxSalary();
-                break;
+                    getIdenticalEmployees();
+                    break;
+                case "5":
+                    EmployeeMaxSalary();
+                    break;
                 case "6":
                     sortBySalary();
                     break;
-                //case "Exit":
-                // System.exit(0);
-                //default:
-                //System.out.println("No such case");
+                case "Exit":
+                    System.exit(0);
+                default:
+                    System.out.println("No such case");
             }
         }
 
@@ -62,7 +66,8 @@ public class Main {
         for (int i = 0; i < users.length; i++) {
             if (users[i].name.equals(users[i].login)) {
                 System.out.println(users[i].name + " " + "" + users[i].secondName + " " + "" + users[i].login);
-            }if (users[i].login.equals(users[i].secondName)) {
+            }
+            if (users[i].login.equals(users[i].secondName)) {
                 System.out.println(users[i].name + " " + "" + users[i].secondName + " " + "" + users[i].login);
             }
         }
@@ -79,10 +84,11 @@ public class Main {
             }
         }
     }
+
     public static void sortById() {
         User[] users = UsersUtil.getUsers();
-        for (int i = users.length - 1; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
+        for (int i = 0; i < users.length; i++) {
+            for (int j = 0; j < users.length - 1 - i; j++) {
                 if (users[j].id > users[j + 1].id) {
                     User tmp = users[j];
                     users[j] = users[j + 1];
@@ -91,51 +97,55 @@ public class Main {
             }
         }
         for (int i = 0; i < users.length; i++) {
-            System.out.println(users[i].name + " " + users[i].secondName + " "+ users[i].id);
+            System.out.println(users[i].name + " " + users[i].secondName + " " + users[i].id);
 
         }
 
     }
-   public static void getIdenticalEmployees (){
-      Employee[] employees = EmployeeUtil.getEmployees();
-      for (int i = 0; i < employees.length; i++) {
-           for (int j = 0; j < employees.length; j++) {
-              if (employees[i].name.equals(employees[j].name)) {
-                 System.out.println(employees[i].name + " " + "" + employees[i].surname);
-              }
-              break;
-           }
-       }
-   }
-  public static void EmployeeMaxSalary(){
-      Employee [] employees = EmployeeUtil.getEmployees();
-      Employee maxSalary = employees [0];
-      for (int i = 0; i <employees.length ; i++) {
-          if(employees[i].salary > maxSalary.salary ){
-                maxSalary = employees[i];
-                }
 
-           }
-      System.out.println(maxSalary.name + " "+ maxSalary.surname + " "+ maxSalary.salary);
+    public static void getIdenticalEmployees() {
+        ArrayList<Employee> employees = EmployeeUtil.getEmployees();
+        for (int i = 0; i < employees.size(); i++) {
+            for (int j = 0; j < employees.size(); j++) {
+                if (employees.get(i).getName().equals(employees.get(j).getName())) {
+                    System.out.println(employees.get(i).getName() + " " + "" + employees.get(i).getSurname());
+                }
+                break;
+            }
         }
-    public static void sortBySalary(){
-        Employee [] employees = EmployeeUtil.getEmployees();
-        for (int i = 0; i < employees.length; i++) {
-            for (int j = employees.length; j < employees.length -1 ; j--) {
-                if (employees[j].salary > employees[j - 1].salary) {
-                    Employee tmp = employees[j];
-                    employees[j] = employees[j - 1];
-                    employees[j - 1] = tmp;
+    }
+
+    public static void EmployeeMaxSalary() {
+        ArrayList<Employee> employees = EmployeeUtil.getEmployees();
+        Employee maxSalary = employees.get(0);
+        for (int i = 0; i < employees.size(); i++) {
+            if (employees.get(i).getSalary() > maxSalary.getSalary()) {
+                maxSalary = employees.get(i);
+            }
+
+        }
+        System.out.println(maxSalary.getName() + " " + maxSalary.getSurname() + " " + maxSalary.getSalary());
+    }
+
+    public static void sortBySalary() {
+        ArrayList<Employee> employees = EmployeeUtil.getEmployees();
+        for (int i = 0; i < employees.size(); i++) {
+            for (int j = 0; j < employees.size() - 1 - i; j++) {
+                if (employees.get(j).getSalary() < employees.get(j + 1).getSalary()) {
+                    Employee tmp = employees.get(j);
+                    employees.set(j, employees.get(j + 1));
+                    employees.set((j + 1), tmp);
                 }
             }
         }
-        for (int i = 0; i < employees.length; i++) {
-            System.out.println(employees[i].name + " " + employees[i].surname + " "+ employees[i].salary);
+        for (int i = 0; i < employees.size(); i++) {
+            System.out.println(employees.get(i).getName() + " " + employees.get(i).getSurname() + " "
+                    + employees.get(i).getSalary());
 
         }
 
     }
-    }
+}
 
 
 

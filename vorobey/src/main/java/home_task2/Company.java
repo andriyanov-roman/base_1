@@ -1,13 +1,13 @@
 package home_task2;
 
-import home_task.Employee;
+import home_task2.Employee1;
 
-/**
- * Created by Stas on 16.03.2015.
- */
+import java.util.ArrayList;
+
+
 public class Company {
     private String companyName;
-    private Employee[] employees;
+    private ArrayList<Employee1> employees1;
 
     public String getCompanyName() {
         return companyName;
@@ -18,14 +18,14 @@ public class Company {
 
     }
 
-    public Employee[] getEmployees() {
-        return employees;
+    public ArrayList<Employee1> getEmployees() {
+        return employees1;
 
 
     }
 
-    public void setEmployees(Employee[] employees) {
-        this.employees = employees;
+    public void setEmployees(ArrayList<Employee1> employees1) {
+        this.employees1 = employees1;
     }
 
 }

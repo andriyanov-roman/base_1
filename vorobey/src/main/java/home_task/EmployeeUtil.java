@@ -1,8 +1,11 @@
 package home_task;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class EmployeeUtil {
-    public static Employee[] getEmployees() {
+    protected static Employee[] getEmployees() {
 
 
         Employee e1 = new Employee();
@@ -63,11 +66,12 @@ public class EmployeeUtil {
         e8.age = 37;
         e8.sex = "male";
 
-        return new Employee[]{
-                e1, e2, e3, e4, e5, e6, e7, e8
-        };
+
+        return new Employee[]{e1, e2, e3, e4, e5, e6, e7, e8};
+
 
     }
-
-
 }
+
+
+

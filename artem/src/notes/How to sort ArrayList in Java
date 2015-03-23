@@ -1,0 +1,92 @@
+Анализируя исходные коды многих opensource Java-проектов, я обнаружил, что большинство разработчиков осуществляют
+сортировку всего двумя разными способами. Один из них основан на применении метода sort() классов Collections
+или Arrays, а другой на использовании самосортирующихся структур данных, таких как TreeMap и TreeSet.
+
+Использование метода sort()
+
+Если нужно отсортировать коллекцию, то применяйте метод Collections.sort().
+// Collections.sort(…)
+List<ObjectName> list = new ArrayList<ObjectName>();
+Collections.sort(list, new Comparator<ObjectName>() {
+        public int compare(ObjectName o1, ObjectName o2) {
+                return o1.toString().compareTo(o2.toString());
+        }
+});
+
+
+Если требуется отсортировать массив, используйте метод Arrays.sort().
+// Arrays.sort(…)
+ObjectName[] arr = new ObjectName[10];
+Arrays.sort(arr, new Comparator<ObjectName>() {
+        public int compare(ObjectName o1, ObjectName o2) {
+                return o1.toString().compareTo(o2.toString());
+        }
+});
+
+Метод sort() очень удобен, когда коллекция или массив уже заполнены значениями.
+
+Смотрите внимательно где закрываются круглые скобки вызова и где стоит точка с запятой,
+обозначающая, что вызов закончен.
+Collections.sort(list,
+        new Comparator<ObjectName>() {
+            public int compare(ObjectName o1, ObjectName o2) {
+                return o1.toString().compareTo(o2.toString());
+            }
+        }
+);
+
+В этом коде я по другому расставил переносы строк, чтобы Вы могли увидеть, что
+сразу после передачи в метод sort() списка list в метод передается второй параметр.
+Этот второй параметр — это объект, который создается прямо на месте и объявляется
+прямо на месте в фигурных скобках после вызова конструктора
+new Comparator<ObjectName>() {...}
+
+В этих скобках написано объявление метода compare(...) объекта компаратора Comparator<...>.
+
+А если Вы имели ввиду, что в этом методе compare(...) написано не понятно чего, то здесь все
+просто: мы наши объекты типа ObjectName (o1 и o2) преобразуем в строки — это всегда возможно,
+и сравниваем их по алфавиту. Но можно, конечно, написать сравнение двух объектов по любому другому принципу.
+Например, если ObjectName — это Integer, то можно написать так
+Collections.sort(list,
+        new Comparator<Integer>() {
+            public int compare(Integer o1, Integer o2) {
+                return o1 - o2;
+            }
+        }
+);
+
+Для сортировки по возрастанию, либо напишите внутри метода compare(...): o2 — o1 для сортировки
+по убыванию.
+--------------------------------------------------------------------------------------------------------------
+
+public static void sortedById(){
+        User[] users = UsersUtil.getUsers();
+        for (int i = 0; i < users.length; i++) {
+            for (int j = 0; j < users.length - i - 1; j++) {
+                if (users[j].id > users[j + 1].id) {
+                    User t = users[j + 1];
+                    users[j + 1] = users[j];
+                    users[j] = t;
+                }
+            }
+        }
+
+        /*User[] usersSorted = UsersUtil.getUsers();
+        long [][] arr = new long [users.length][2];
+        long [] tmp = new long[users.length];
+        for (int i = 0; i < users.length; i++) {
+            arr[i][0] = users[i].id;
+            tmp[i] = arr [i][0];
+            //System.out.print("("+i+")"+tmp[i]+"; ");//порядковый номер массива можно сразу редактировать "[i-1]"
+        }
+        Arrays.sort(tmp);
+        for (int i = 0; i < users.length; i++) {
+            arr[i][1] = tmp[i];
+        }
+        for (int i = 0; i < users.length; i++) {
+            for (int j = 0; j < users.length; j++) {
+                if(arr[i][0] == arr[j][1]) usersSorted[i] = users[j];
+            }
+            System.out.print("("+i+")"+users[i].id+", "+usersSorted[i].id+"; ");
+        }*/
+    }

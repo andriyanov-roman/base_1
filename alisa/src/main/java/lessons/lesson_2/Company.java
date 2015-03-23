@@ -1,13 +1,14 @@
 package lessons.lesson_2;
 
 
+import java.util.ArrayList;
 
 /**
  * Created by user on 14.03.2015.
  */
 public class Company {
     private String companyName;
-    private Employee[] employees;
+    private ArrayList<Employee> employees;
 
 
     public void setCompanyName(String companyName) {
@@ -18,12 +19,17 @@ public class Company {
         return companyName;
     }
 
-    public void setEmployees(Employee[] employees) {
+    public void setEmployees(ArrayList<Employee> employees) {
         this.employees = employees;
     }
 
-    public Employee[] getEmployees() {
+    public ArrayList<Employee> getEmployees() {
         return employees;
+    }
+
+    @Override
+    public String toString() {
+        return companyName + " " + " " + employees;
     }
 }
 

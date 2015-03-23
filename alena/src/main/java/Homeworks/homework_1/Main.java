@@ -5,15 +5,17 @@ import Homeworks.homework_1.EmployeeUtil;
 import Homeworks.homework_1.User;
 import Homeworks.homework_1.UsersUtil;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  * Created by MacBook on 16.03.15.
  */
 public class Main {
-    public static void main(String[] args) { letsBegin(); }
+    public static void main(String[] args) throws IOException { letsBegin(); }
 
-    public static void letsBegin() {
+    public static void letsBegin() throws IOException {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Enter command key" + " " +
                     " 0. Login coincides with the name \n " +
@@ -91,17 +93,17 @@ public class Main {
 
     }
 
-    public static void getIdenticalEmployees() {
-        Employee[] employees = EmployeeUtil.getEmployees();
-        for (int i = 0; i < employees.length; i++) {
-            for (int j = 0; j < employees.length; j++) {
-                if (employees[i].name.equals(employees[j].name)) {
-                    if (employees[i].salary > employees[j].salary) {
-                        System.out.println(employees[i].name + " " + employees[i].secondName + " " +
-                                "has bigger salary, than" + " " + employees[j].name + " " + employees[j].secondName);
-                    } else if (employees[j].salary > employees[i].salary) {
-                        System.out.println(employees[j].name + " " + employees[j].secondName + " " +
-                                "has bigger salary, than" + " " + employees[i].name + " " + employees[i].secondName);
+    public static void getIdenticalEmployees() throws IOException {
+        ArrayList<Employee> employees = EmployeeUtil.getEmployees();
+        for (int i = 0; i < employees.size(); i++) {
+            for (int j = 0; j < employees.size(); j++) {
+                if (employees.get(i).getName().equals(employees.get(j).getName())) {
+                    if (employees.get(i).getSalary() > employees.get(j).getSalary()) {
+                        System.out.println(employees.get(i).getName() + " " + employees.get(i).getSecondName() + " " +
+                                "has bigger salary, than" + " " + employees.get(j).getName() + " " + employees.get(j).getSecondName());
+                    } else if (employees.get(j).getSalary() > employees.get(i).getSalary()) {
+                        System.out.println(employees.get(j).getName() + " " + employees.get(j).getSecondName() + " " +
+                                "has bigger salary, than" + " " + employees.get(i).getName() + " " + employees.get(i).getSecondName());
 
                     }
                     break;
@@ -110,18 +112,18 @@ public class Main {
         }
     }
 
-    public static void sortBySalary(){
-        Employee [] employees = EmployeeUtil.getEmployees();
-        for (int i = employees.length; i > 0; i--) {
-            for (int j = 1; j < i; j++)
-                if (employees[j].salary < employees[j - 1].salary) {
-                    Employee temp = employees[j];
-                    employees[j] = employees[j - 1];
-                    employees[j - 1] = temp;
+    public static void sortBySalary() throws IOException {
+        ArrayList<Employee> employees = EmployeeUtil.getEmployees();
+        for (int i = 0; i < employees.size(); i++) {
+            for (int j = 1; j < employees.size(); j++)
+                if (employees.get(j).getSalary() < employees.get(j - 1).getSalary()) {
+                    Employee temp = employees.get(j);
+                    employees.set(j, employees.get(j - 1));
+                    employees.set((j - 1), temp);
                 }
         }
-        for (int i = 0; i < employees.length; i++) {
-            System.out.println(employees[i].name + " " + employees[i].secondName + " "+ employees[i].salary);
+        for (int i = 0; i < employees.size(); i++) {
+            System.out.println(employees.get(i).getName() + " " + employees.get(i).getSecondName() + " "+ employees.get(i).getSalary());
 
         }
 

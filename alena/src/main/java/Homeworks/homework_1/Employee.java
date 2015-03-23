@@ -18,6 +18,10 @@ public class Employee {
         this.age = e;
     }
 
+    public Employee () {
+
+    }
+
     public String getName() {
         return name;
     }
@@ -25,6 +29,7 @@ public class Employee {
     public void setName(String name) {
         this.name = name;
     }
+
     public String getSecondName() {
         return secondName;
     }
