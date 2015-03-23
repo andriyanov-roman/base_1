@@ -1,6 +1,10 @@
 package lessons.lesson_2;
 
 
+import entity.Admin;
+import entity.Manager;
+import entity.Programmer;
+
 import java.util.ArrayList;
 
 /**
@@ -9,6 +13,9 @@ import java.util.ArrayList;
 public class Company {
     private String companyName;
     private ArrayList<Employee> employees;
+    private ArrayList <Admin> admins;
+    private ArrayList <Programmer> programmers;
+    private ArrayList <Manager> managers;
 
 
     public void setCompanyName(String companyName) {
