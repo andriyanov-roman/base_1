@@ -55,6 +55,11 @@ public class Employee {
     }
 
     public Employee(String name, String secondName, String gender, int age, double salary) {
+        this.name = name;
+        this.secondName = secondName;
+        this.age = age;
+        this.salary = salary;
+        this.gender = gender;
 
     }
 }
