@@ -320,8 +320,8 @@ public class Methods {
                     employee.setSalary(scr.nextInt());
                     employees.add(employee);
                     FileWriter writer=new FileWriter("matveu/src/EmployeesLuxsoft.txt",true);
-                    writer.write(employee.getName()+" "+employee.getSecondName()+". Пол: "+employee.getSex()+
-                           ". Возраст: "+ employee.getAge()+". Зарплата: "+employee.getSalary()+"\n");
+                    writer.write(employee.getName()+":"+employee.getSecondName()+":"+employee.getSex()+
+                           ":"+ employee.getAge()+":"+employee.getSalary()+"\n");
                     writer.flush();
                     writer.close();
         }catch (Exception e){}
@@ -332,14 +332,16 @@ public class Methods {
             System.out.println("2: Вывести информацию по данному сотруднику");
             System.out.println("3: Добавить нового сотрудника в другие компании");
             System.out.println("4: Выход в главное меню");
-            while (scannerNew.hasNext()) {
+            System.out.println("5: Вывести информацию по всем сотрудникам этой компании");
+
+        while (scannerNew.hasNext()) {
                 switch (scannerNew.next()) {
                     case "1":
                         greatEmployeeLuxsoft();
                         break;
                     case "2":
-                       System.out.print(employee.getName()+" "+employee.getSecondName()+". Sex: "+employee.getSex()+". Age "+
-                       employee.getAge()+". Salary "+employee.getSalary());
+                       System.out.print(employee.getName()+" "+employee.getSecondName()+". Sex: "+employee.getSex()+". Age: "+
+                       employee.getAge()+". Salary: "+employee.getSalary());
                         System.out.println();
                          break;
                     case "3":
@@ -348,7 +350,9 @@ public class Methods {
                     case "4":
                         start();
                         break;
-
+                    case "5":
+                        getEmployees();
+                        break;
                 }
             }
     }
@@ -369,8 +373,8 @@ public class Methods {
             employee.setSalary(scr.nextInt());
             employees.add(employee);
             FileWriter writer=new FileWriter("matveu/src/EmployeesMicrosoft.txt",true);
-            writer.write(employee.getName()+" "+employee.getSecondName()+". Пол: "+employee.getSex()+
-                    ". Возраст: "+ employee.getAge()+". Зарплата: "+employee.getSalary()+"\n");
+            writer.write(employee.getName()+":"+employee.getSecondName()+":"+employee.getSex()+
+                    ":"+ employee.getAge()+":"+employee.getSalary()+"\n");
             writer.flush();
             writer.close();
         }catch (Exception e){}
@@ -381,14 +385,16 @@ public class Methods {
         System.out.println("2: Вывести информацию по данному сотруднику");
         System.out.println("3: Добавить нового сотрудника в другие компании");
         System.out.println("4: Выход в главное меню");
+        System.out.println("5: Вывести информацию по всем сотрудникам этой компании");
+
         while (scannerNew.hasNext()) {
             switch (scannerNew.next()) {
                 case "1":
                     greatEmployeeMicrosoft();
                     break;
                 case "2":
-                    System.out.print(employee.getName()+" "+employee.getSecondName()+". Sex: "+employee.getSex()+". Age "+
-                            employee.getAge()+". Salary "+employee.getSalary());
+                    System.out.print(employee.getName()+" "+employee.getSecondName()+". Sex: "+employee.getSex()+". Age: "+
+                            employee.getAge()+". Salary: "+employee.getSalary());
                     System.out.println();
                     break;
                 case "3":
@@ -396,6 +402,9 @@ public class Methods {
                     break;
                 case "4":
                     start();
+                    break;
+                case "5":
+                    getEmployees();
                     break;
             }
         }
@@ -437,8 +446,8 @@ public class Methods {
                     greatEmployeeSony();
                     break;
                 case "2":
-                    System.out.print(employee.getName()+" "+employee.getSecondName()+". Sex: "+employee.getSex()+". Age "+
-                            employee.getAge()+". Salary "+employee.getSalary());
+                    System.out.print(employee.getName()+" "+employee.getSecondName()+". Sex: "+employee.getSex()+". Age: "+
+                            employee.getAge()+". Salary: "+employee.getSalary());
                     System.out.println();
                     break;
                 case "3":
