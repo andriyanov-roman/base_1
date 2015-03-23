@@ -6,6 +6,9 @@ import java.util.ArrayList;
 public class Company {
     public String companyName;
     public ArrayList<Employee> employees;
+    public ArrayList<Maneger> manegers;
+    public ArrayList<Admin> admins;
+    public ArrayList<Programmer> programmers;
 
     public void setCompanyName(String companyName){
         this.companyName=companyName;
@@ -24,4 +27,27 @@ public class Company {
         return employees;
     }
 
+    public ArrayList<Maneger> getManegers() {
+        return manegers;
+    }
+
+    public void setManegers(ArrayList<Maneger> manegers) {
+        this.manegers = manegers;
+    }
+
+    public ArrayList<Admin> getAdmins() {
+        return admins;
+    }
+
+    public void setAdmins(ArrayList<Admin> admins) {
+        this.admins = admins;
+    }
+
+    public ArrayList<Programmer> getProgrammers() {
+        return programmers;
+    }
+
+    public void setProgrammers(ArrayList<Programmer> programmers) {
+        this.programmers = programmers;
+    }
 }

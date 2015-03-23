@@ -1,3 +1,0 @@
-Gera:Fedorova:woman:19:4300.0
-Pavel:Zyravlev:man:43:21400.0
-Kira:Nautli:woman:27:15500.0

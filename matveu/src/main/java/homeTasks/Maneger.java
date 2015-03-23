@@ -1,23 +1,22 @@
 package homeTasks;
 
-public class Employee {
+
+public class Maneger {
     public String name;
     public String secondName;
     public String sex;
     public int age;
     public double salary;
+    public String nameOfProject;
 
-    public Employee() {
+    public Maneger() {
 
     }
-
-    @Override
     public String toString() {
         return name + " " + " " + secondName + '\'' +
                 ", sex=" + sex +
-                ", age=" + age + '\'' +", salary=" +salary+
+                ", age=" + age + '\'' + ", salary=" + salary + ", projectName=" + nameOfProject +
                 '}';
-
     }
     public String getName() {
         return name;
@@ -26,16 +25,16 @@ public class Employee {
     public void setName(String name) {
         this.name = name;
     }
-
-    public String getSecondName() {
-        return secondName;
+    public String getNameOfProject() {
+        return nameOfProject;
     }
 
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
+    public void setNameOfProject(String nameOfProject) {
+        this.nameOfProject = nameOfProject;
     }
 
     public double getSalary() {
+
         return salary;
     }
 
@@ -44,6 +43,7 @@ public class Employee {
     }
 
     public int getAge() {
+
         return age;
     }
 
@@ -52,21 +52,28 @@ public class Employee {
     }
 
     public String getSex() {
+
         return sex;
     }
 
     public void setSex(String sex) {
-
         this.sex = sex;
     }
 
+    public String getSecondName() {
 
+        return secondName;
+    }
 
-    public Employee(String name, String secondName,String sex,int age, double salary ) {  // создание конструктора
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+    public Maneger(String name, String secondName,String sex,int age, double salary, String nameOfProject) {  // создание конструктора
         this.name=name;
         this.secondName=secondName;
         this.sex=sex;
         this.age=age;
         this.salary=salary;
+        this.nameOfProject=nameOfProject;
     }
 }

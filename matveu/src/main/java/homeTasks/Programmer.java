@@ -1,24 +1,24 @@
 package homeTasks;
 
-public class Employee {
+
+public class Programmer {
     public String name;
     public String secondName;
     public String sex;
     public int age;
     public double salary;
+    public String programmingLanguage;
 
-    public Employee() {
+    public Programmer(){
 
     }
-
-    @Override
     public String toString() {
         return name + " " + " " + secondName + '\'' +
                 ", sex=" + sex +
-                ", age=" + age + '\'' +", salary=" +salary+
+                ", age=" + age + '\'' + ", salary=" + salary + ", programmingLanguage=" + programmingLanguage +
                 '}';
-
     }
+
     public String getName() {
         return name;
     }
@@ -35,12 +35,12 @@ public class Employee {
         this.secondName = secondName;
     }
 
-    public double getSalary() {
-        return salary;
+    public String getSex() {
+        return sex;
     }
 
-    public void setSalary(double salary) {
-        this.salary = salary;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     public int getAge() {
@@ -51,22 +51,27 @@ public class Employee {
         this.age = age;
     }
 
-    public String getSex() {
-        return sex;
+    public double getSalary() {
+        return salary;
     }
 
-    public void setSex(String sex) {
-
-        this.sex = sex;
+    public void setSalary(double salary) {
+        this.salary = salary;
     }
 
+    public String getProgrammingLanguage() {
+        return programmingLanguage;
+    }
 
-
-    public Employee(String name, String secondName,String sex,int age, double salary ) {  // создание конструктора
+    public void setProgrammingLanguage(String programmingLanguage) {
+        this.programmingLanguage = programmingLanguage;
+    }
+    public Programmer(String name, String secondName,String sex,int age, double salary, String programmingLanguage) {  // создание конструктора
         this.name=name;
         this.secondName=secondName;
         this.sex=sex;
         this.age=age;
         this.salary=salary;
+        this.programmingLanguage=programmingLanguage;
     }
 }
