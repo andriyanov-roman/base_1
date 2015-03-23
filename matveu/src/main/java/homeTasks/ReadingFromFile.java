@@ -1,4 +1,4 @@
-package homeTask1;
+package homeTasks;
 
 import java.io.BufferedReader;
 import java.io.File;

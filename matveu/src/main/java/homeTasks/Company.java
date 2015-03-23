@@ -1,4 +1,4 @@
-package homeTask1;
+package homeTasks;
 
 
 import java.util.ArrayList;
