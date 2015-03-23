@@ -2,6 +2,8 @@ package hometask2_4;
 
 import entity.Company;
 import entity.Employee;
+
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,14 +17,15 @@ class Hometask {
     private static Scanner scanner = new Scanner(System.in);
     private static void welcome(){
         System.out.print("\n0) Previous task (Show higher salary in every OLD company)" +
-                        "\n1) Task 1. Show FULL employee's info (to show AGE and GENDER)" +
-                        "\n11)Task 1.1 Show employee's info SHORT VIEW" +
+                        "\n1) Task 1. Show employee's info (SHORT VIEW)" +
                         "\n2) Task 2.a. Sort by Salary" +
                         "\n3) Task 2.b. Sort by Age" +
                         "\n4) Task 2.c. Sort by Surname Length" +
                         "\n5) Task 3*. Add employee (добавляет пользователя и СОХРАНЯЕТ его для следующих вызовов)" +
                         "\n6) !NEW TASK (3). Уволить всех мужчин и женщинам поднять з.п. (СОХРАНЯЕТ результат для след. вызовов)" +
                         "\ne) (or «Exit») End program" +
+                        "\n-------------------------------- \nAdditional features:" +
+                        "\n11) Task 1. Show FULL employee's info (to show AGE and GENDER)" +
                         "\n Enter command key: "
         );
     }
@@ -32,12 +35,9 @@ class Hometask {
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "0":
-                    CompanyUtil.highSalary();
+                    Methods.highSalary();
                     break;
                 case "1":
-                    inputHandler("show Employee");
-                    break;
-                case "11":
                     inputHandler("show Employee SHORT");
                     break;
                 case "2":
@@ -54,6 +54,9 @@ class Hometask {
                     break;
                 case "6":
                     inputHandler("Fire and Increase");
+                    break;
+                case "11":
+                    inputHandler("show Employee");
                     break;
                 case "Exit":
                     System.exit(0);
@@ -108,106 +111,36 @@ class Hometask {
                 break;
             case "show Employee SHORT":
                 System.out.println("=========== "+com.getCompanyName()+" ===========");
-                for (Employee k : com.getEmployees()){
-                    System.out.println(k.toString());
-                };
+                for (Employee k : com.getEmployees()){System.out.println(k.toString());};
                 break;
             case "sort By Salary":
                 System.out.println("=========== "+com.getCompanyName()+" ===========");
-                for (Employee k : com.sort("bySalary")){
+                for (Employee k : Methods.sort(com,"bySalary")){
                     System.out.println(k.getSalary()+"$ "+k.getName()+" "+k.getSurname());
                 }
                 break;
             case "sort By Age":
                 System.out.println("=========== "+com.getCompanyName()+" ===========");
-                for (Employee k : com.sort("byAge")){
+                for (Employee k : Methods.sort(com,"byAge")){
                     System.out.println(k.getAge() +" "+ k.getName() + " " + k.getSurname());
                 }
                 break;
             case "sort By Surname":
                 System.out.println("=========== "+com.getCompanyName()+" ===========");
-                for (Employee k : com.sort("bySurname")){
+                for (Employee k : Methods.sort(com,"bySurname")){
                     System.out.println( k.getSurname()+" ["+k.getSurname().length()+"]");
                 }
                 break;
             case "Fire and Increase":
                 System.out.println("=========== "+com.getCompanyName()+" ===========");
-                for (int i = 0; i < com.getEmployees().size(); i++) {
-                    Employee k = com.getEmployees().get(i);
-                    if (k.getGender().equals("female") ) { // Нам попалась женщина, поднимаем ей ЗП
-                        System.out.print(k.getName() + " " + k.getSurname() + " (" + k.getGender() + ") Salary+15%. Old: " + k.getSalary() + "$");
-                        Double newSalary = k.getSalary()*1.15; // на 15%
-                        k.setSalary(Math.round(newSalary));
-                        System.out.println(" New: "+k.getSalary()+"$");
-                    }
-                }
-                for (int i = 0; i < com.getEmployees().size(); i++) {
-                    Employee k = com.getEmployees().get(i);
-                    if (k.getGender().equals("male")){// Если сия особь МУЖСКОГО полу - уволить!
-                        System.out.println(k.getName() + " " + k.getSurname() + " (" + k.getGender() + ") ...FIRED!");
-                        com.getEmployees().remove(i);
-                        i--;
-                    }
-                }
-                com.setEmployees(com.getEmployees());
+                com = Methods.IncreaseSalary(com, 0.15);
+                com = Methods.FireStuff(com,"male");
                 updateCompanies(com);// ОБНОВЛЕНИЕ - UPDATES:::::::
                 break;
             case "Add employee":
                 System.out.println("=========== "+com.getCompanyName()+" ===========");
-                System.out.println("Please, fill All fields\n");
-                scanner.useDelimiter("\n");
-                System.out.print("Name:");
-                String name = scanner.next();
-                System.out.print("Surname:");
-                String surname = scanner.next();
-                Double salary=0.0;
-                boolean wasExc = false; // проверяем, было ли Исключение - "was Exception"
-                while (true) {
-                    System.out.print("Salary: ");
-                    try {
-                        salary = Double.parseDouble(scanner.next());
-                    } catch (Exception e) {
-                        System.out.println("Wrong scanner! The scanner must be an positive Double number. Try again.");
-                        wasExc = true;
-                    }
-                    if (salary>0.0) {
-                        break;
-                    } else if (!wasExc) {
-                        System.out.println("Oh, the scanner integer number must be positive! Try again.");
-                    }
-                }
-                Boolean gender=false;
-                String answer="";
-                System.out.print("Gender (\"m\"-male, \"f\"-female): ");
-                while (true){
-                    answer = scanner.next();
-                    if ( answer.equals("m") ) {
-                        gender=true;
-                        break;
-                    } else if ( answer.equals("f") ) {
-                        gender=false;
-                        break;
-                    }
-                    System.out.print("scanner Gender letter (\"m\"-male, \"f\"-female): ");
-                }
-                int age=0;
-                wasExc = false;
-                while (true) {
-                    System.out.print("Age: ");
-                    try {
-                        age = Integer.parseInt(scanner.next());
-                    } catch (Exception e) {
-                        System.out.println("Wrong scanner! The scanner must be an positive Integer number. Try again.");
-                        wasExc = true;
-                    }
-                    if (age>0) {
-                        break;
-                    } else if (!wasExc) {
-                        System.out.println("Oh, the scanner integer number must be positive! Try again.");
-                    }
-                }
-                Employee newStuff = new Employee(name,surname,salary,gender,age);
-                com.getEmployees().add(newStuff);
+                com.getEmployees().add(AddEmployeeDialog());
+                com.setEmployees(com.getEmployees());
                 updateCompanies(com);// ОБНОВЛЕНИЕ - UPDATES:::::::
                 //Продожение диалога с пользователем:::::
                 Boolean goOut=false;
@@ -250,5 +183,60 @@ class Hometask {
             }
         }
     }
-
+    private static Employee AddEmployeeDialog (){
+        System.out.println("Please, fill All fields\n");
+        scanner.useDelimiter("\n");
+        System.out.print("Name:");
+        String name = scanner.next();
+        System.out.print("Surname:");
+        String surname = scanner.next();
+        Double salary=0.0;
+        boolean wasExc = false; // проверяем, было ли Исключение - "was Exception"
+        while (true) {
+            System.out.print("Salary: ");
+            try {
+                salary = Double.parseDouble(scanner.next());
+            } catch (Exception e) {
+                System.out.println("Wrong scanner! The scanner must be an positive Double number. Try again.");
+                wasExc = true;
+            }
+            if (salary>0.0) {
+                break;
+            } else if (!wasExc) {
+                System.out.println("Oh, the scanner integer number must be positive! Try again.");
+            }
+        }
+        Boolean gender=false;
+        String answer="";
+        System.out.print("Gender (\"m\"-male, \"f\"-female): ");
+        while (true){
+            answer = scanner.next();
+            if ( answer.equals("m") ) {
+                gender=true;
+                break;
+            } else if ( answer.equals("f") ) {
+                gender=false;
+                break;
+            }
+            System.out.print("Input Gender letter (\"m\"-male, \"f\"-female): ");
+        }
+        int age=0;
+        wasExc = false;
+        while (true) {
+            System.out.print("Age: ");
+            try {
+                age = Integer.parseInt(scanner.next());
+            } catch (Exception e) {
+                System.out.println("Wrong scanner! The scanner must be an positive Integer number. Try again.");
+                wasExc = true;
+            }
+            if (age>0) {
+                break;
+            } else if (!wasExc) {
+                System.out.println("Oh, the scanner integer number must be positive! Try again.");
+            }
+        }
+        Employee newStuff = new Employee(name,surname,salary,gender,age);
+        return newStuff;
+    }
 }

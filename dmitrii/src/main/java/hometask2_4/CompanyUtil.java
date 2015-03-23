@@ -31,18 +31,4 @@ public class CompanyUtil {
 
         return new ArrayList<Company> (Arrays.asList(c1, c2, c3));
     }
-
-    public static void highSalary() {
-        ArrayList<Company> comps = CompanyUtil.getCompanies();
-        System.out.println();
-        for (int i = 0; i < comps.size(); i++) {
-            Employee temp = comps.get(i).getEmployees().get(0);
-            for (int j = 0; j < comps.get(i).getEmployees().size(); j++) {
-                if (temp.getSalary() < comps.get(i).getEmployees().get(j).getSalary()) {
-                    temp = comps.get(i).getEmployees().get(j);
-                }
-            }
-            System.out.println("Company \""+comps.get(i).getCompanyName() + "\". Higher salary: " + temp.getSalary() + "$. It gives " + temp.getName()+" "+temp.getSurname());
-        }
-    }
 }
