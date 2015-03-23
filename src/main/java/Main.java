@@ -17,31 +17,44 @@ public class Main {
         Date date = new Date();
         System.out.println(fromString);
         System.out.println(date);
+        String path = "D://ololo//1.txt";
+        ArrayList<Employee> employees = getEmployees(path, ":");
 
     }
 
-    public static void writeToFile() throws IOException  {
-        FileWriter writer = new FileWriter("src/test_write.txt",true);
-        writer.write(getEmployees().toString());
+    public static void writeToFile(String path) throws IOException {
+        FileWriter writer = new FileWriter("src/test_write.txt", true);
+        writer.write(getEmployees(path, ":").toString());
         writer.flush();
         writer.close();
     }
 
-    public static ArrayList<Employee> getEmployees() throws IOException {
-        File file = new File("D:\\work\\test.txt");
+    public static ArrayList<String[]> readFromFile(String path,String regExp) throws IOException {
+        File file = new File(path);
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
+        String line;
+        ArrayList<String[]> strings = new ArrayList<>();
+        while ((line = buffer.readLine()) != null) {
+            String[] pool = line.split(regExp);
+            strings.add(pool);
+        }
+        return strings;
+    }
+
+    public static ArrayList<Employee> getEmployees(String path, String regExp) throws IOException {
+        ArrayList<String[]> strings = readFromFile(path, regExp);
         ArrayList<Employee> employees = new ArrayList<>();
         String line;
-        while((line = buffer.readLine()) != null) {
-            String[] pool = line.split(":");
+        for (int i = 0; i < strings.size(); i++) {
             Employee e = new Employee();
-            e.setName(pool[0]);
-            e.setSecondName(pool[1]);
-            e.setSalary(Double.valueOf(pool[2]));
-            e.setAddress(pool[3]);
+            e.setName(strings.get(i)[0]);
+            e.setSecondName(strings.get(i)[1]);
+            e.setSalary(Double.valueOf(strings.get(i)[2]));
+            e.setAddress(strings.get(i)[3]);
             employees.add(e);
         }
         return employees;
     }
+
 }
