@@ -4,8 +4,8 @@ package homeTask1;
 import java.util.ArrayList;
 
 public class Company {
-    private String companyName;
-    private ArrayList<Employee> employees;
+    public String companyName;
+    public ArrayList<Employee> employees;
 
     public void setCompanyName(String companyName){
         this.companyName=companyName;

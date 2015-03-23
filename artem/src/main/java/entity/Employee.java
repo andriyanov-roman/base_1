@@ -35,6 +35,6 @@ public class Employee { // Создаем класс-шаблон ("формоч
 
     @Override
     public String toString() {
-        return  name +" "+ secondName +" "+salary+" "+sex +" "+ age;
+        return  name +" "+ secondName +" "+salary+" "+sex+" "+ age;
     }
 }

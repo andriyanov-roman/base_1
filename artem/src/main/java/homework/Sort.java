@@ -4,45 +4,43 @@ import entity.Employee;
 import java.util.Collections;
 import java.util.Comparator;
 
-/**
- * Created by R-Tem on 20.03.2015.
- */
+
 public class Sort {
     public static void sortByName(){
-        Collections.sort(CompanyUtil.orgsGLobaL.get(CompanyUtil.sortselection).getEmployees(), new Comparator<Employee>() {
+        Collections.sort(CompanyUtil.companies.get(CompanyUtil.sortSelection).getEmployees(), new Comparator<Employee>() {
             @Override
             public int compare(Employee o1, Employee o2) {
                 return o1.getName().compareTo(o2.getName());
             }
         });
-        for (int j = 0; j < CompanyUtil.orgsGLobaL.get(CompanyUtil.sortselection).getEmployees().size(); j++) {
-            System.out.println(CompanyUtil.orgsGLobaL.get(CompanyUtil.sortselection).getOrgName()+" "+CompanyUtil.orgsGLobaL.get(CompanyUtil.sortselection).getEmployees().get(j));
+        for (int j = 0; j < CompanyUtil.companies.get(CompanyUtil.sortSelection).getEmployees().size(); j++) {
+            System.out.println(CompanyUtil.companies.get(CompanyUtil.sortSelection).getCompanyName()+" "+CompanyUtil.companies.get(CompanyUtil.sortSelection).getEmployees().get(j));
         }
     }
     public static void sortBySurnameLength(){
-        Collections.sort(CompanyUtil.orgsGLobaL.get(CompanyUtil.sortselection).getEmployees(), new Comparator<Employee>() {
+        Collections.sort(CompanyUtil.companies.get(CompanyUtil.sortSelection).getEmployees(), new Comparator<Employee>() {
             @Override
             public int compare(Employee o1, Employee o2) {
                 return o1.getSecondName().length() - o2.getSecondName().length();
             }
         });
-        for (int j = 0; j < CompanyUtil.orgsGLobaL.get(CompanyUtil.sortselection).getEmployees().size(); j++) {
-            System.out.println(CompanyUtil.orgsGLobaL.get(CompanyUtil.sortselection).getOrgName()+" "+CompanyUtil.orgsGLobaL.get(CompanyUtil.sortselection).getEmployees().get(j));
+        for (int j = 0; j < CompanyUtil.companies.get(CompanyUtil.sortSelection).getEmployees().size(); j++) {
+            System.out.println(CompanyUtil.companies.get(CompanyUtil.sortSelection).getCompanyName()+" "+CompanyUtil.companies.get(CompanyUtil.sortSelection).getEmployees().get(j));
         }
     }
     public static void sortByAge(){
-        Collections.sort(CompanyUtil.orgsGLobaL.get(CompanyUtil.sortselection).getEmployees(), new Comparator<Employee>() {
+        Collections.sort(CompanyUtil.companies.get(CompanyUtil.sortSelection).getEmployees(), new Comparator<Employee>() {
             @Override
             public int compare(Employee o1, Employee o2) {
                 return o1.getAge() - o2.getAge();
             }
         });
-        for (int j = 0; j < CompanyUtil.orgsGLobaL.get(CompanyUtil.sortselection).getEmployees().size(); j++) {
-            System.out.println(CompanyUtil.orgsGLobaL.get(CompanyUtil.sortselection).getOrgName()+" "+CompanyUtil.orgsGLobaL.get(CompanyUtil.sortselection).getEmployees().get(j));
+        for (int j = 0; j < CompanyUtil.companies.get(CompanyUtil.sortSelection).getEmployees().size(); j++) {
+            System.out.println(CompanyUtil.companies.get(CompanyUtil.sortSelection).getCompanyName()+" "+CompanyUtil.companies.get(CompanyUtil.sortSelection).getEmployees().get(j));
         }
     }
     public static void sortByZP(){
-        /*Collections.sort(orgsGLobaL.get(i).getEmployees(), new Comparator<Employee>() {
+        /*Collections.sort(companies.get(i).getEmployees(), new Comparator<Employee>() {
                 @Override
                 public int compare(Employee o1, Employee o2) {
                     return o1.getSalary() - o2.getSalary();

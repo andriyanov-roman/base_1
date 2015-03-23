@@ -1,4 +1,4 @@
-package lessons.lesson3;
+package lessons;
 
 
 import entity.Employee;
@@ -13,7 +13,7 @@ public class EmployeeUtil {
         File file = new File("D:\\base_1\\artem\\employees.txt");
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
-        ArrayList<Employee> employees = new ArrayList<>();
+        ArrayList<Employee> employees = new ArrayList<Employee>();
         String line;
         while ((line = buffer.readLine()) != null) {
             String[] pool = line.split(":");

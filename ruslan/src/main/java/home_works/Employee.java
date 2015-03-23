@@ -1,12 +1,14 @@
-package lesson_3;
+package home_works;
 
-
+/**
+ * Created by user on 23.03.2015.
+ */
 public class Employee {
     private String name;
     private String secondName;
-    private double salary;
-    private int age;
     private String gender;
+    private int age;
+    private double salary;
 
     public String getName() {
         return name;
@@ -24,12 +26,12 @@ public class Employee {
         this.secondName = secondName;
     }
 
-    public double getSalary() {
-        return salary;
+    public String getGender() {
+        return gender;
     }
 
-    public void setSalary(double salary) {
-        this.salary = salary;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public int getAge() {
@@ -40,17 +42,19 @@ public class Employee {
         this.age = age;
     }
 
-    public String getGender() {
-        return gender;
+    public double getSalary() {
+        return salary;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setSalary(double salary) {
+        this.salary = salary;
     }
 
-    @Override
-    public String toString() {
-        return name + " " + secondName + " " + salary + " " + age + " " + gender ;
+    public Employee() {
+
+    }
+
+    public Employee(String name, String secondName, String gender, int age, double salary) {
 
     }
 }

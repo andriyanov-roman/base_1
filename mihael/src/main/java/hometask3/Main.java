@@ -1,4 +1,5 @@
 package hometask3;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -6,7 +7,7 @@ import java.util.ArrayList;
  * Created by user on 16.03.2015.
  */
 public class Main {
-    public static void main (String[] args){
+    public static void main (String[] args) throws IOException {
         /*
         ArrayList employee = new ArrayList();
         employee.add("A");
@@ -27,12 +28,12 @@ public class Main {
 
         employees.forEach(System.out::println);
         */
-
+        //CompanyUtil.addEmployeeToFile(new Employee("Name", "Lastname", 700.00, "MASCULINE",30));
         start();
     }
 
 
-    public static void start(){
+    public static void start() throws IOException {
 
         boolean first = true;
         showMenu();
@@ -64,6 +65,10 @@ public class Main {
                         CompanyUtil.fireEmployees("FEMININE");
                         CompanyUtil.riseSalary("MASCULINE",15.00);
                         break;
+                    case "9":
+                        CompanyUtil.WriteToFile("Marco:Pantani:5673000.00:MASCULINE:37\n", "mihael/src/main/java/hometask3/employees.txt",true);
+                        break;
+
                 }
 
             }
