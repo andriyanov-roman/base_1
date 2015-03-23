@@ -2,10 +2,7 @@ package lessons.lesson_2;
 
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Stream;
 
 /**
@@ -55,9 +52,9 @@ public class CompanyUtil {
                 "\n 3.Sort a company  by age" +
                 "\n 4.Sort a company  by surname length" +
                 "\n 5.Add a new employee" +
-                "\n 6. Add a new company"+
+                "\n 6. Add a new company" +
                 "\n 7.Show all employees");
-        while (scanner.hasNext())  {
+        while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "0":
                     showCompanies();
@@ -200,9 +197,11 @@ public class CompanyUtil {
         System.out.println("Enter surname");
         employee.setSurname(scanner.next());
         System.out.println("Enter salary");
-       employee.setSalary(scanner.nextDouble());
+        double salary = Double.valueOf(scanner.next());
+        employee.setSalary(salary);
         System.out.println("Enter age");
-       employee.setAge(scanner.nextInt());
+        int age = Integer.valueOf(scanner.next());
+        employee.setAge(age);
         System.out.println("Enter sex");
         employee.setSex(scanner.next());
         System.out.println("Do you want to continue? Y/N");
@@ -223,7 +222,7 @@ public class CompanyUtil {
         }
     }
 
-    public void writeToFileEmployee (ArrayList<Employee> employees){
+    public void writeToFileEmployee(ArrayList<Employee> employees) {
         FileWriter writer_employees = null;
         try {
             writer_employees = new FileWriter("alisa/src/result/employees.txt", true);
@@ -235,7 +234,8 @@ public class CompanyUtil {
         }
 
     }
-    public void writeToFileCompany (ArrayList<Company> companies){
+
+    public void writeToFileCompany(ArrayList<Company> companies) {
         FileWriter writer_companies = null;
         try {
             writer_companies = new FileWriter("alisa/src/result/companies.txt", true);
@@ -268,7 +268,7 @@ public class CompanyUtil {
             e.setSex(pool[4]);
             employees.add(e);
         }
-       while ((line = buffer_c.readLine()) != null) {
+        while ((line = buffer_c.readLine()) != null) {
             String[] pool = line.split(":");
             Company c = new Company();
             c.setCompanyName(pool[0]);
