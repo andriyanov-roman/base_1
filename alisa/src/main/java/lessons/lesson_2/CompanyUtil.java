@@ -268,6 +268,9 @@ public class CompanyUtil {
             String[] pool = line.split(":");
             Company c = new Company();
             c.setCompanyName(pool[0]);
+           /* Employee e1 = new Employee;
+            e1.setName = pool[0];
+            e1.setSurname = pool[1];*/
 
 
             companies.add(c);
