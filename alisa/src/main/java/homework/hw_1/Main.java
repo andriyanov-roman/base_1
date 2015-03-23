@@ -1,5 +1,6 @@
 package homework.hw_1;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -100,11 +101,11 @@ public class Main {
     }
 
     public static void getIdenticalEmployees() {
-        Employee[] employees = EmployeeUtil.getEmployees();
-        for (int i = 0; i < employees.length; i++) {
-            for (int j = 0; j < employees.length; j++) {
-                if (employees[i].name.equals(employees[j].name)) {
-                    System.out.println(employees[i].name + " " + "" + employees[i].surname);
+        ArrayList<Employee> employees = EmployeeUtil.getEmployees();
+        for (int i = 0; i < employees.size(); i++) {
+            for (int j = 0; j < employees.size(); j++) {
+                if (employees.get(i).name.equals(employees.get(j).name)) {
+                    System.out.println(employees.get(i).name + " " + "" + employees.get(i).surname);
                 }
                 break;
             }
@@ -112,11 +113,11 @@ public class Main {
     }
 
     public static void EmployeeMaxSalary() {
-        Employee[] employees = EmployeeUtil.getEmployees();
-        Employee maxSalary = employees[0];
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i].salary > maxSalary.salary) {
-                maxSalary = employees[i];
+        ArrayList<Employee> employees = EmployeeUtil.getEmployees();
+        Employee maxSalary = employees.get(0);
+        for (int i = 0; i < employees.size(); i++) {
+            if (employees.get(i).salary > maxSalary.salary) {
+                maxSalary = employees.get(i);
             }
 
         }
@@ -124,18 +125,18 @@ public class Main {
     }
 
     public static void sortBySalary() {
-        Employee[] employees = EmployeeUtil.getEmployees();
-        for (int i = 0; i < employees.length; i++) {
-            for (int j = 0; j < employees.length - 1 - i; j++) {
-                if (employees[j].salary < employees[j + 1].salary) {
-                    Employee tmp = employees[j];
-                    employees[j] = employees[j + 1];
-                    employees[j + 1] = tmp;
+        ArrayList<Employee> employees = EmployeeUtil.getEmployees();
+        for (int i = 0; i < employees.size(); i++) {
+            for (int j = 0; j < employees.size() - 1 - i; j++) {
+                if (employees.get(j).salary < employees.get(j + 1).salary) {
+                    Employee tmp = employees.get(j);
+                    employees.set(j, employees.get(j + 1));
+                    employees.set((j + 1), tmp);
                 }
             }
         }
-        for (int i = 0; i < employees.length; i++) {
-            System.out.println(employees[i].name + " " + employees[i].surname + " " + employees[i].salary);
+        for (int i = 0; i < employees.size(); i++) {
+            System.out.println(employees.get(i).name + " " + employees.get(i).surname + " " + employees.get(i).salary);
 
         }
 
