@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class ReadingFromFile {
         public static ArrayList<Employee> getEmployees() throws IOException {
-            File file = new File("C:\\Users\\Игорь\\Text1.txt");
+            File file = new File("matveu/src/EmployeesSony.txt");
             FileReader reader = new FileReader(file);
             BufferedReader buffer = new BufferedReader(reader);
             ArrayList<Employee> employees = new ArrayList<>();
@@ -20,7 +20,7 @@ public class ReadingFromFile {
                 e.setSecondName(pool[1]);
                 e.setSex(pool[2]);
                 e.setAge(Integer.valueOf(pool[3]));
-                e.setSalary(Double.valueOf(pool[4]));
+               // e.setSalary(Double.valueOf(pool[4]));
                 employees.add(e);
             }
 

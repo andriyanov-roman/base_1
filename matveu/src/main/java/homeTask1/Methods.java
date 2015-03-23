@@ -2,14 +2,14 @@ package homeTask1;
 
 
 
-import java.io.FileWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class Methods {
 
-    public static void start() {
+    public static void start() throws IOException {
         Scanner scanner=new Scanner(System.in);
 
         System.out.println("Enter command key!");
@@ -280,7 +280,7 @@ public class Methods {
         }
     }
 
-    public static void greatNewEmployees() {
+    public static void greatNewEmployees() throws IOException {
         Scanner scannerNew = new Scanner(System.in);
         System.out.println("Выберите компанию,в которую желаете добавить сотрудника:");
         System.out.println("1: Luxsoft");
@@ -303,7 +303,7 @@ public class Methods {
     }
 
     static Scanner scr;
-    public static void greatEmployeeLuxsoft() {
+    public static void greatEmployeeLuxsoft() throws IOException {
         ArrayList<Employee> employees = EmployeesUtil.getEmployees();
         Employee employee=new Employee();
         try {
@@ -352,7 +352,7 @@ public class Methods {
                 }
             }
     }
-    public static void greatEmployeeMicrosoft() {
+    public static void greatEmployeeMicrosoft() throws IOException {
         ArrayList<Employee> employees = EmployeesUtil.getEmployees();
         Employee employee=new Employee();
         try {
@@ -400,7 +400,7 @@ public class Methods {
             }
         }
     }
-    public static void greatEmployeeSony() {
+    public static void greatEmployeeSony() throws IOException {
         ArrayList<Employee> employees = EmployeesUtil.getEmployees();
         Employee employee=new Employee();
         try {
@@ -429,8 +429,10 @@ public class Methods {
         System.out.println("2: Вывести информацию по данному сотруднику");
         System.out.println("3: Добавить нового сотрудника в другие компании");
         System.out.println("4: Выход в главное меню");
-        while (scannerNew.hasNext()) {
-            switch (scannerNew.next()) {
+       // System.out.println("5: fgdfhgdе меню");
+
+        while (scannerNew.hasNext())  {
+            switch (scannerNew.next())  {
                 case "1":
                     greatEmployeeSony();
                     break;
@@ -444,10 +446,35 @@ public class Methods {
                     break;
                 case "4":
                     start();
-                    break;
+                    break;/*
+                case "5":
+                    getEmployees();
+                    break;*/
             }
         }
+    }/*
+    public static ArrayList<Employee> getEmployees() throws IOException {
+        ReadingFromFile.getEmployees();
+        File file = new File("matveu/src/EmployeesSony.txt");
+        FileReader reader = new FileReader(file);
+        BufferedReader buffer = new BufferedReader(reader);
+        ArrayList<Employee> employees = new ArrayList<>();
+        String line;
+        while ((line = buffer.readLine()) != null) {
+            String[] pool = line.split(":");
+            Employee e = new Employee();
+            e.setName(pool[0]);
+            e.setSecondName(pool[1]);
+            e.setSex(pool[2]);
+            e.setAge(Integer.valueOf(pool[3]));
+            //e.setSalary(Double.valueOf(pool[4]));
+            employees.add(e);
+            System.out.print(e+" ");
+        }
+        return employees;
     }
+
+*/
 
     public static void salaryPlusMenAndKillWomen() {
         Scanner scanner=new Scanner(System.in);

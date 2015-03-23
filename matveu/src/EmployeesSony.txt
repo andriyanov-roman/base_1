@@ -1,1 +1,1 @@
-Masha Rasterjwa. Пол: woman. Возраст: 15. Зарплата: 2500.0
+Grisha Griboedov. Пол: man. Возраст: 35. Зарплата: 43000.0
