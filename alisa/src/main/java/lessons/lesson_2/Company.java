@@ -26,6 +26,11 @@ public class Company {
     public ArrayList<Employee> getEmployees() {
         return employees;
     }
+
+    @Override
+    public String toString() {
+        return companyName + " " + " " + employees;
+    }
 }
 
 

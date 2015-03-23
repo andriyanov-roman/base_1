@@ -14,10 +14,11 @@ import java.util.stream.Stream;
 public class CompanyUtil {
     private Scanner scanner = new Scanner(System.in);
     private ArrayList<Employee> employees = new ArrayList<>();
+    private ArrayList<Company> companies = new ArrayList<>();
 
     public ArrayList<Company> getCompanies() {
         ArrayList<Employee> employees = EmployeeUtil.getEmployees();
-        ArrayList<Company> companies = new ArrayList<>();
+        //ArrayList<Company> companies = new ArrayList<>();
         Company c1 = new Company();
         c1.setCompanyName("Lenovo");
         c1.setEmployees(new ArrayList<>());
@@ -52,8 +53,9 @@ public class CompanyUtil {
                 "\n 1. Show an employee with MaxSalary " +
                 "\n 2.Sort a company  by salary " +
                 "\n 3.Sort a company  by age" +
-                "\n 4.Sort a company  by surname length"+
-                "\n 5. Add a new employee");
+                "\n 4.Sort a company  by surname length" +
+                "\n 5.Add a new employee" +
+                "\n 6. Add a new company");
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "0":
@@ -73,10 +75,16 @@ public class CompanyUtil {
                 case "4":
                     companyName = checkInput();
                     sortBySurnameLength(getCompByName(companyName));
+                    break;
                 case "5":
                     createNewEmployee();
-                    writeToFile(employees);
+                    writeToFileEmployee(employees);
                     System.out.println(employees.toString());
+                    break;
+                case "6":
+                    createNewCompany();
+                    writeToFileCompany(companies);
+                    System.out.println(companies.toString());
                     break;
                 case "Exit":
                     System.exit(0);
@@ -85,7 +93,6 @@ public class CompanyUtil {
             }
         }
     }
-
 
 
     public void showCompanies() {
@@ -167,7 +174,7 @@ public class CompanyUtil {
     public void sortBySurnameLength(Company c) {
         for (int i = 0; i < c.getEmployees().size(); i++) {
             for (int j = 0; j < c.getEmployees().size() - 1; j++) {
-                if (c.getEmployees().get(j).getSurname() == c.getEmployees().get(j + 1).getSurname()) {
+                if (c.getEmployees().get(j).getSurname().equals(c.getEmployees().get(j + 1).getSurname())) {
                     Employee temp = c.getEmployees().get(j);
                     c.getEmployees().set(j, c.getEmployees().get(j + 1));
                     c.getEmployees().set((j + 1), temp);
@@ -181,6 +188,7 @@ public class CompanyUtil {
                     + c.getEmployees().get(j).getSurname());
         }
     }
+
     private void createNewEmployee() {
         Employee employee = new Employee();
         System.out.println("Enter name");
@@ -200,35 +208,72 @@ public class CompanyUtil {
         }
     }
 
-    public void writeToFile(ArrayList<Employee> employees) {
-        FileWriter writer = null;
+    private void createNewCompany() {
+        Company company = new Company();
+        System.out.println("Enter company name");
+        company.setCompanyName(scanner.next());
+        System.out.println("Do you want to continue? Y/N");
+        companies.add(company);
+        if ("Y".equals(scanner.next())) {
+            createNewCompany();
+        }
+    }
+
+    public void writeToFileEmployee (ArrayList<Employee> employees){
+        FileWriter writer_employees = null;
         try {
-            writer = new FileWriter("alisa/src/result/test_write.txt", true);
-            writer.write(employees.toString());
-            writer.flush();
-            writer.close();
+            writer_employees = new FileWriter("alisa/src/result/employees.txt", true);
+            writer_employees.write(employees.toString());
+            writer_employees.flush();
+            writer_employees.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    public void writeToFileCompany (ArrayList<Company> companies){
+        FileWriter writer_companies = null;
+        try {
+            writer_companies = new FileWriter("alisa/src/result/companies.txt", true);
+            writer_companies.write(companies.toString());
+            writer_companies.flush();
+            writer_companies.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static void readFromFile () throws IOException {
-        File file = new File("alisa/src/result/test_write.txt");
-        FileReader reader = new FileReader(file);
-        BufferedReader buffer = new BufferedReader(reader);
+
+    public static void readFromFile() throws IOException {
+        File employee = new File("alisa/src/result/employees.txt");
+        File company = new File("alisa/src/result/company.txt");
+        FileReader reader_e = new FileReader(employee);
+        FileReader reader_c = new FileReader(company);
+        BufferedReader buffer_e = new BufferedReader(reader_e);
+        BufferedReader buffer_c = new BufferedReader(reader_c);
         ArrayList<Employee> employees = new ArrayList<>();
+        ArrayList<Company> companies = new ArrayList<>();
         String line;
-        while ((line = buffer.readLine()) !=null){
-            String [] pool = line.split(":");
+        while ((line = buffer_e.readLine()) != null) {
+            String[] pool = line.split(":");
             Employee e = new Employee();
             e.setName(pool[0]);
             e.setSurname(pool[1]);
-            e.setSalary (Double.valueOf(pool[2]));
+            e.setSalary(Double.valueOf(pool[2]));
             e.setAge(Integer.valueOf(pool[3]));
             e.setSex(pool[4]);
             employees.add(e);
         }
+        while ((line = buffer_c.readLine()) != null) {
+            String[] pool = line.split(":");
+            Company c = new Company();
+            c.setCompanyName(pool[0]);
+
+
+            companies.add(c);
+        }
         System.out.println(employees.toString());
+        System.out.println(companies.toString());
     }
 
 }

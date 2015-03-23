@@ -47,6 +47,13 @@ public class Employee {
     public void setSalary(double salary) {
         this.salary = salary;
     }
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 
     public String getSex() {
         return sex;
@@ -56,13 +63,6 @@ public class Employee {
         this.sex = sex;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
 
 
     @Override

@@ -1,0 +1,9 @@
+Vasya:Ivanow:3000.00:40:m
+Vasya:Petrov:5000.00:39:m
+Sergey:Sidorov:7000.00:23:m
+Caley:Ivanowa:13000.00:25:f
+Zhora:Simonov:33000.00:56:m
+Jack:Woker:28000.00:87:m
+Lora:Smith:75000.00:100:f
+Sioma:James:300000.00:74:m
+Marco:Pantani:5673000.00:98:m
