@@ -453,35 +453,30 @@ public class CompanyUtil {
 
     }
 
-   /* public static ArrayList<Employee1> show() throws IOException {
+    public static ArrayList<Employee1> show() throws IOException {
         ArrayList<Employee1> employee1s = new ArrayList<>();
         File file = new File("vorobey/src/FirstCompany.txt");
-        FileReader reader = new FileReader(file);
-        BufferedReader bufferedReader = new BufferedReader(reader);
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
         String line;
-        try {
-            while ((line = bufferedReader.readLine()) != null) {
-                String[] pool = line.split("/");
-                Employee1 e1 = new Employee1();
-                e1.setName(pool[0]);
-                e1.setSecondName(pool[1]);
-                e1.setSex(pool[2]);
-                e1.setAge(Integer.valueOf(pool[3]));
-                e1.setSalary(Double.valueOf(pool[4]));
-                employee1s.add(e1);
-                System.out.println(e1 + "  " + "\n");
-            }
-        } catch (Exception e) {
+
+        while ((line = bufferedReader.readLine()) != null) {
+            String[] pool = line.split("/");
+            Employee1 e1 = new Employee1();
+            e1.setName(pool[0]);
+            e1.setSecondName(pool[1]);
+            e1.setSex(pool[2]);
+            e1.setAge(Integer.valueOf(pool[3]));
+            e1.setSalary(Double.valueOf(pool[4]));
+            employee1s.add(e1);
+            System.out.println(e1 + "  " + "\n");
         }
-
-
         return employee1s;
-    }*/
-
-    public static void readAndShow(){
-
     }
 
+
 }
+
+
+
 
 
