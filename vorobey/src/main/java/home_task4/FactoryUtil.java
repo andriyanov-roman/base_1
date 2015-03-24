@@ -5,7 +5,8 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CarUtil {
+
+public class FactoryUtil {
     public static void cars() throws IOException {
         ArrayList<Car> cars = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
@@ -88,6 +89,13 @@ public class CarUtil {
                     break;
                 case "4":
                     showSameColourCars();
+                    break;
+
+                case "5":
+
+                    break;
+                case "10":
+                    order();
                     break;
 
 
@@ -178,21 +186,25 @@ public class CarUtil {
         }
         return cars;
 
-
     }
 
     public static void showSameColourCars() throws IOException {
         ArrayList<Car> cars = getSameColourCars();
         int i;
-        for ( i = 0; i < cars.size(); i++) {
-            System.out.println(cars.get(i).getName() + ":" + cars.get(i).getDate() + ":" + cars.get(i).getColour()+":"+cars.get(i).getOwnerName());
+        for (i = 0; i < cars.size(); i++) {
+            System.out.println(cars.get(i).getName() + ":" + cars.get(i).getDate() + ":" + cars.get(i).getColour() + ":" + cars.get(i).getOwnerName());
         }
-        System.out.println("Общее количество автомобилей одинакового цвета: "+i);
+        System.out.println("Общее количество автомобилей одинакового цвета: " + i);
 
     }
 
 
 }
+
+
+
+
+
 
 
 
