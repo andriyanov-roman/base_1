@@ -377,37 +377,6 @@ public class CompanyUtil {
         }
     }
 
-    public static ArrayList<Employee1> getListWithNewEmployee() throws IOException {
-
-        Employee1 e = new Employee1();
-        Scanner sc = new Scanner(System.in);
-        ArrayList<Company> comNew = getCompanyWithoutWomen();
-        ArrayList<Employee1> employee1 = EmployeeUtil.getEmployees();
-        System.out.printf("Введите Имя нового сотрудника:");
-        e.setName(sc.next());
-        System.out.println("Введите Фамилию нового сотрудника:");
-        e.setSecondName(sc.next());
-        System.out.println("Введите предпологаемую ЗП:");
-        e.setSalary(sc.nextInt());
-        System.out.println("Введите возраст нового сотрудника:");
-        e.setAge(sc.nextInt());
-        System.out.println("Введите Пол нового сотрудника:");
-        e.setSex(sc.next());
-        employee1.add(e);
-
-
-        return employee1;
-
-    }
-
-    public static void showNewEmpl() throws IOException {
-        ArrayList<Employee1> empl = getListWithNewEmployee();
-        for (int i = 0; i < empl.size(); i++) {
-            System.out.println(empl.get(i));
-
-
-        }
-    }
 
     public static void create() throws IOException {
 
@@ -518,24 +487,25 @@ public class CompanyUtil {
     }
 
     public static ArrayList<Employee1> showSecondCompany() throws IOException {
-        ArrayList<Employee1> employee1s = new ArrayList<>();
         File file = new File("vorobey/src/SecondCompany.txt");
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+        FileReader reader = new FileReader(file);
+        BufferedReader buffer = new BufferedReader(reader);
+        ArrayList<Employee1> employees1 = new ArrayList<>();
         String line;
-
-        while ((line = bufferedReader.readLine()) != null) {
+        while ((line = buffer.readLine()) != null) {
             String[] pool = line.split(":");
-            Employee1 e1 = new Employee1();
-            e1.setName(pool[0]);
-            e1.setSecondName(pool[1]);
-            e1.setSex(pool[2]);
-            e1.setAge(Integer.valueOf(pool[3]));
-            e1.setSalary(Double.valueOf(pool[4]));
-            employee1s.add(e1);
-            System.out.println(e1 + "  " + "\n");
+            Employee1 e = new Employee1();
+            e.setName(pool[0]);
+            e.setSecondName(pool[1]);
+            e.setSex(pool[2]);
+            e.setAge(Integer.valueOf(pool[3]));
+            e.setSalary(Double.valueOf(pool[4]));
+            employees1.add(e);
+            System.out.print(e + " " + "\n");
         }
-        return employee1s;
+        return employees1;
     }
+
 
     public static ArrayList<Employee1> showThirdCompany() throws IOException {
         ArrayList<Employee1> employee1s = new ArrayList<>();
