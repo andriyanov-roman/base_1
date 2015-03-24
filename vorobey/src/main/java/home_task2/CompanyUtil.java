@@ -431,7 +431,7 @@ public class CompanyUtil {
             employee1.setSalary(sc.nextInt());
             employee1s.add(employee1);
             FileWriter writer = new FileWriter("vorobey/src/FirstCompany.txt", true);
-            writer.write(employee1.getName() + " " + employee1.getSecondName() + ":" + employee1.getSex() + ":" + employee1.getAge() + ":" + employee1.getSalary() + "\n");
+            writer.write(employee1.getName() + ":" + employee1.getSecondName() + ":" + employee1.getSex() + ":" + employee1.getAge() + ":" + employee1.getSalary() + "\n");
             writer.flush();
             writer.close();
 
@@ -542,7 +542,7 @@ public class CompanyUtil {
             employee1.setSalary(sc.nextInt());
             employee1s.add(employee1);
             FileWriter writer = new FileWriter("vorobey/src/SecondCompany.txt", true);
-            writer.write(employee1.getName() + " " + employee1.getSecondName() + ":" + employee1.getSex() + ":" + employee1.getAge() + ":" + employee1.getSalary() + "\n");
+            writer.write(employee1.getName() + ":" + employee1.getSecondName() + ":" + employee1.getSex() + ":" + employee1.getAge() + ":" + employee1.getSalary() + "\n");
             writer.flush();
             writer.close();
 
@@ -595,7 +595,7 @@ public class CompanyUtil {
             employee1.setSalary(sc.nextInt());
             employee1s.add(employee1);
             FileWriter writer = new FileWriter("vorobey/src/ThirdCompany.txt", true);
-            writer.write(employee1.getName() + " " + employee1.getSecondName() + ":" + employee1.getSex() + ":" + employee1.getAge() + ":" + employee1.getSalary() + "\n");
+            writer.write(employee1.getName() + ":" + employee1.getSecondName() + ":" + employee1.getSex() + ":" + employee1.getAge() + ":" + employee1.getSalary() + "\n");
             writer.flush();
             writer.close();
 
