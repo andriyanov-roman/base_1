@@ -2,6 +2,7 @@ package home_task4;
 
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -38,7 +39,7 @@ public class CarUtil {
             c.setDate(sc.next());
             cars.add(c);
             FileWriter writer = new FileWriter("vorobey/src/Car.txt", true);
-            writer.write(c.getName() + ":" + c.getFactoryName() + ":" + c.getOwnerName() + ":" + c.getType() + ":" + c.getColour() + ":" + c.getNumber() + ":" + c.getPrice() + "\n");
+            writer.write(c.getName() + ":" + c.getOwnerName() + ":" + c.getNumber() + ":" + c.getColour() + ":" + c.getFactoryName() + ":" + c.getType() + ":" + c.getPrice() + ":" + c.getDate() + "\n");
             writer.flush();
             writer.close();
         } catch (Exception e) {
@@ -57,7 +58,7 @@ public class CarUtil {
                     order();
                     break;
                 case "3":
-                    carsShow();
+                    getCars();
                     break;
 
                 default:
@@ -79,7 +80,7 @@ public class CarUtil {
                     cars();
                     break;
                 case "2":
-                    carsShow();
+                    getCars();
                     break;
                 default:
                     System.out.println("no such case");
@@ -89,7 +90,7 @@ public class CarUtil {
 
     }
 
-    public static ArrayList<Car> carsShow() throws IOException {
+    public static ArrayList<Car> getCars() throws IOException {
         File file = new File("vorobey/src/Car.txt");
         BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
         ArrayList<Car> cars = new ArrayList<>();
@@ -109,9 +110,24 @@ public class CarUtil {
             System.out.println(car.getName() + ":" + car.getOwnerName() + ":" + car.getNumber() + ":"
                     + car.getColour() + ":" + car.getFactoryName() + ":" + car.getType() + ":" + car.getPrice() + ":" + car.getDate() + "\n");
 
+
         }
         return cars;
     }
+
+    public static void mostExpensiveCar() throws IOException {
+        ArrayList<Car> cars = getCars();
+        Long maxPrice = 0L;
+        for (int i = 0; i < cars.size(); i++) {
+            for (int j = 0; j < cars.get(i).getPrice(); j++) {
+                if (cars.get(i).getPrice() > maxPrice)
+                    maxPrice = cars.get(i).getPrice();
+            }
+        }
+        System.out.println(maxPrice);
+
+    }
+
 
 }
 
