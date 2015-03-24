@@ -6,6 +6,7 @@ import home_task2.Employee1;
 import home_task2.EmployeeUtil;
 
 
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,7 +14,6 @@ import java.util.Scanner;
 
 
 public class CompanyUtil {
-
 
     public static ArrayList<Company> getCompanies() {
         ArrayList<Employee1> employees1 = EmployeeUtil.getEmployees();
@@ -401,5 +401,29 @@ public class CompanyUtil {
         }
     }
 
+    public static void createEmployee() throws IOException {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Company> companies = getCompanies();
+        ArrayList<Employee1> employee1s = EmployeeUtil.getEmployees();
+        Employee1 employee1 = new Employee1();
+        try {
+            System.out.println("Введите Имя сотрудника: ");
+            employee1.setName(sc.next());
+            System.out.println("Введите Фамилию сотрудника: ");
+            employee1.setSecondName(sc.next());
+            System.out.println("Введите Пол сотрудника: ");
+            employee1.setSex(sc.next());
+            System.out.println("Введите возраст сотрудника: ");
+            employee1.setAge(sc.nextInt());
+            System.out.println("Введите предпологаемую ЗП сотрудника: ");
+            employee1.setSalary(sc.nextInt());
+
+
+        } catch (Exception e) {
+        }
+
+    }
 
 }
+
+
