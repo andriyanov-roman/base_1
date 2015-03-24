@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class CompanyUtil {
 
 
-    public static ArrayList<Company> getCompanies() throws IOException{
+    public static ArrayList<Company> getCompanies() throws IOException {
         ArrayList<Employee1> employees1 = EmployeeUtil.getEmployees();
         ArrayList<Company> companies = new ArrayList<>();
         Company c1 = new Company();
@@ -46,7 +46,7 @@ public class CompanyUtil {
 
     }
 
-    public static void showCompaniesAndEmployees() throws IOException{
+    public static void showCompaniesAndEmployees() throws IOException {
         ArrayList<Company> companies = getCompanies();
         for (int i = 0; i < companies.size(); i++) {
             System.out.println("********************************");
@@ -60,7 +60,7 @@ public class CompanyUtil {
 
     }
 
-    public static void maxSalary() throws IOException{
+    public static void maxSalary() throws IOException {
         ArrayList<Company> companies = getCompanies();
         for (int i = 0; i < companies.size(); i++) {
             double maxSalary = 0;
@@ -83,7 +83,7 @@ public class CompanyUtil {
 
     }
 
-    public static void maxSalaryOfAllCompanies() throws IOException{
+    public static void maxSalaryOfAllCompanies() throws IOException {
         ArrayList<Company> companies = getCompanies();
         double maxSalary = 0;
         String maxName = "";
@@ -110,7 +110,7 @@ public class CompanyUtil {
     }
 
     public static void launch() throws IOException {
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println("1. Чтобы увидеть,какие сотрудники в каких компаниях работают,нажмите 1");
         System.out.println("2. Чтобы вывести сотрудников с максимальной ЗП в каждой компании,нажмите 2");
         System.out.println("3. Чтобы вывести сотрудника с максимальной ЗП относительно всех сотрудников(всех компаний),нажмите 3");
@@ -180,7 +180,7 @@ public class CompanyUtil {
 
     }
 
-    public static void sortSalaryFirstCompany() throws IOException{
+    public static void sortSalaryFirstCompany() throws IOException {
         ArrayList<Company> companies = getCompanies();
         for (int i = 0; i < 1; i++) {
             for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
@@ -203,7 +203,7 @@ public class CompanyUtil {
 
     }
 
-    public static void sortAgeSecondCompany() throws IOException{
+    public static void sortAgeSecondCompany() throws IOException {
         ArrayList<Company> companies = getCompanies();
         for (int i = 1; i < 2; i++) {
             for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
@@ -227,7 +227,7 @@ public class CompanyUtil {
 
     }
 
-    public static void maxLengthSecondNameThirdCompany()throws IOException {
+    public static void maxLengthSecondNameThirdCompany() throws IOException {
         ArrayList<Company> companies = getCompanies();
         String maxLengthSecondName = "";
         int maxLength = 0;
@@ -246,7 +246,7 @@ public class CompanyUtil {
 
     }
 
-    public static void sortSecondName() throws IOException{
+    public static void sortSecondName() throws IOException {
         ArrayList<Company> companies = getCompanies();
         for (int i = 2; i < 3; i++) {
             for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
@@ -274,7 +274,7 @@ public class CompanyUtil {
     }
 
 
-    public static void showNewEmployee()throws IOException {
+    public static void showNewEmployee() throws IOException {
         ArrayList<Company> companies = getCompanies();
         for (int i = 0; i < 1; i++) {
             for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
@@ -286,7 +286,7 @@ public class CompanyUtil {
 
     }
 
-    public static void howMuchFemale()throws IOException {
+    public static void howMuchFemale() throws IOException {
         ArrayList<Company> companies = getCompanies();
         int count = 0;
         for (int i = 0; i < companies.size(); i++) {
@@ -303,7 +303,7 @@ public class CompanyUtil {
     }
 
 
-    public static ArrayList<Company> getCompanyWithoutWomen() throws IOException{
+    public static ArrayList<Company> getCompanyWithoutWomen() throws IOException {
 
         ArrayList<Company> companies = getCompanies();
         ArrayList<Company> companyWithoutWoman = getCompanies();
@@ -319,7 +319,7 @@ public class CompanyUtil {
 
     }
 
-    public static void showOnlyMen()throws IOException {
+    public static void showOnlyMen() throws IOException {
         ArrayList<Company> men = getCompanyWithoutWomen();
         System.out.println("Сотрудники(мужчины),с зарплатами по умолчанию:");
         for (int i = 0; i < men.size(); i++) {
@@ -328,7 +328,7 @@ public class CompanyUtil {
         }
     }
 
-    public static void maxManSalary()throws IOException {
+    public static void maxManSalary() throws IOException {
         ArrayList<Company> maxManSalary = getFinalList();
         double maxSalary = 0;
         String maxManName = "";
@@ -355,7 +355,7 @@ public class CompanyUtil {
 
     }
 
-    public static ArrayList<Company> getFinalList() throws IOException{   //Возвращает список сотрудников,с увеличением ЗП на 15%
+    public static ArrayList<Company> getFinalList() throws IOException {   //Возвращает список сотрудников,с увеличением ЗП на 15%
         ArrayList<Company> newList = getCompanyWithoutWomen();
         double persent = 1.15;
         for (int i = 0; i < newList.size(); i++) {
@@ -368,7 +368,7 @@ public class CompanyUtil {
 
     }
 
-    public static void showFinalList()throws IOException {
+    public static void showFinalList() throws IOException {
         ArrayList<Company> men = getFinalList();
         System.out.println("Сотрудники(мужчины),с новыми зарплатами :");
         for (int i = 0; i < men.size(); i++) {
@@ -377,10 +377,10 @@ public class CompanyUtil {
         }
     }
 
-    public static ArrayList<Employee1> getListWithNewEmployee() throws IOException{
+    public static ArrayList<Employee1> getListWithNewEmployee() throws IOException {
 
         Employee1 e = new Employee1();
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         ArrayList<Company> comNew = getCompanyWithoutWomen();
         ArrayList<Employee1> employee1 = EmployeeUtil.getEmployees();
         System.out.printf("Введите Имя нового сотрудника:");
@@ -400,7 +400,7 @@ public class CompanyUtil {
 
     }
 
-    public static void showNewEmpl()throws IOException {
+    public static void showNewEmpl() throws IOException {
         ArrayList<Employee1> empl = getListWithNewEmployee();
         for (int i = 0; i < empl.size(); i++) {
             System.out.println(empl.get(i));
@@ -415,7 +415,7 @@ public class CompanyUtil {
         System.out.println("Для добавления сотрудника в 'SecondCompany',нажмите 2");
         System.out.println("Для добавления сотрудника в 'ThirdCompany',нажмите 3");
         System.out.println("Для выхода в основное меню,нажмите 4");
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
             switch (sc.next()) {
                 case "1":
@@ -448,7 +448,7 @@ public class CompanyUtil {
 
         ArrayList<Employee1> employee1s = EmployeeUtil.getEmployees();
         Employee1 employee1 = new Employee1();
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         try {
             System.out.println("Введите Имя сотрудника: ");
             employee1.setName(sc.next());
@@ -462,7 +462,7 @@ public class CompanyUtil {
             employee1.setSalary(sc.nextInt());
             employee1s.add(employee1);
             FileWriter writer = new FileWriter("vorobey/src/FirstCompany.txt", true);
-            writer.write(employee1.getName() + "/" + employee1.getSecondName() + "/" + employee1.getSex() + "/" + employee1.getAge() + "/" + employee1.getSalary() + "\n");
+            writer.write(employee1.getName() + " " + employee1.getSecondName() + ":" + employee1.getSex() + ":" + employee1.getAge() + ":" + employee1.getSalary() + "\n");
             writer.flush();
             writer.close();
 
@@ -561,7 +561,7 @@ public class CompanyUtil {
 
         ArrayList<Employee1> employee1s = EmployeeUtil.getEmployees();
         Employee1 employee1 = new Employee1();
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         try {
             System.out.println("Введите Имя сотрудника: ");
             employee1.setName(sc.next());
@@ -575,7 +575,7 @@ public class CompanyUtil {
             employee1.setSalary(sc.nextInt());
             employee1s.add(employee1);
             FileWriter writer = new FileWriter("vorobey/src/SecondCompany.txt", true);
-            writer.write(employee1.getName() + "/" + employee1.getSecondName() + "/" + employee1.getSex() + "/" + employee1.getAge() + "/" + employee1.getSalary() + "\n");
+            writer.write(employee1.getName() + " " + employee1.getSecondName() + ":" + employee1.getSex() + ":" + employee1.getAge() + ":" + employee1.getSalary() + "\n");
             writer.flush();
             writer.close();
 
@@ -614,7 +614,7 @@ public class CompanyUtil {
 
         ArrayList<Employee1> employee1s = EmployeeUtil.getEmployees();
         Employee1 employee1 = new Employee1();
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         try {
             System.out.println("Введите Имя сотрудника: ");
             employee1.setName(sc.next());
@@ -628,7 +628,7 @@ public class CompanyUtil {
             employee1.setSalary(sc.nextInt());
             employee1s.add(employee1);
             FileWriter writer = new FileWriter("vorobey/src/ThirdCompany.txt", true);
-            writer.write(employee1.getName() + "/" + employee1.getSecondName() + "/" + employee1.getSex() + "/" + employee1.getAge() + "/" + employee1.getSalary() + "\n");
+            writer.write(employee1.getName() + " " + employee1.getSecondName() + ":" + employee1.getSex() + ":" + employee1.getAge() + ":" + employee1.getSalary() + "\n");
             writer.flush();
             writer.close();
 
