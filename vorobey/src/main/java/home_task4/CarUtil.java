@@ -87,7 +87,7 @@ public class CarUtil {
                     mostExpensiveCar();
                     break;
                 case "4":
-                    sameColourCars();
+                    showSameColourCars();
                     break;
 
 
@@ -164,18 +164,30 @@ public class CarUtil {
 
     }
 
-    public static void sameColourCars() throws IOException {
+    public static ArrayList<Car> getSameColourCars() throws IOException {
         int count = 0;
         ArrayList<Car> cars = getCars();
         for (int i = 0; i < cars.size(); i++) {
             for (int j = i + 1; j < cars.size(); ++j) {
-                if (cars.get(i).getColour().equals(cars.get(j).getColour()))
-                    count++;
+                if (cars.get(i).getColour().equals(cars.get(j).getColour()) == false) {
+                    cars.remove(i);
+                    cars.remove(j);
+                }
             }
 
         }
-        System.out.println("Общее количество автомобилей одинакового цвета: " + count);
+        return cars;
 
+
+    }
+
+    public static void showSameColourCars() throws IOException {
+        ArrayList<Car> cars = getSameColourCars();
+        int i;
+        for ( i = 0; i < cars.size(); i++) {
+            System.out.println(cars.get(i).getName() + ":" + cars.get(i).getDate() + ":" + cars.get(i).getColour()+":"+cars.get(i).getOwnerName());
+        }
+        System.out.println("Общее количество автомобилей одинакового цвета: "+i);
 
     }
 
