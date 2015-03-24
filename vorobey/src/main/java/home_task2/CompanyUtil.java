@@ -478,7 +478,7 @@ public class CompanyUtil {
             e1.setAge(Integer.valueOf(pool[3]));
             e1.setSalary(Double.valueOf(pool[4]));
             employee1s.add(e1);
-            System.out.print(e1 + "  " + "\n");
+            System.out.print("Сотрудник: "+e1.getName()+" "+e1.getSecondName()+",пол: "+e1.getSex()+",возраст: "+e1.getAge()+",зарплата: "+e1.getSalary()+"\n");
         }
         return employee1s;
     }
@@ -498,7 +498,7 @@ public class CompanyUtil {
             e1.setAge(Integer.valueOf(pool[3]));
             e1.setSalary(Double.valueOf(pool[4]));
             employees1.add(e1);
-            System.out.print(e1 + " " + "\n");
+            System.out.print("Сотрудник: "+e1.getName()+" "+e1.getSecondName()+",пол: "+e1.getSex()+",возраст: "+e1.getAge()+",зарплата: "+e1.getSalary()+"\n");
         }
         return employees1;
     }
@@ -519,7 +519,7 @@ public class CompanyUtil {
             e1.setAge(Integer.valueOf(pool[3]));
             e1.setSalary(Double.valueOf(pool[4]));
             employee1s.add(e1);
-            System.out.print(e1 + "  " + "\n");
+            System.out.print("Сотрудник: "+e1.getName()+" "+e1.getSecondName()+",пол: "+e1.getSex()+",возраст: "+e1.getAge()+",зарплата: "+e1.getSalary()+"\n");
         }
         return employee1s;
     }

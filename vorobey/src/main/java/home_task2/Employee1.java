@@ -58,8 +58,8 @@ public class Employee1 {
     public String toString() {
         return name + " " + " " + secondName + '\'' +
                 ", sex=" + sex +
-                ", age=" + age + '\'' +", salary=" +salary+
-                '}';
+                ", age=" + age + '\'' + ", salary=" + salary +
+                "";
 
     }
 
