@@ -446,15 +446,11 @@ public class CompanyUtil {
                 case "1":
                     createEmployeeFirstCompany();
                     break;
-
                 case "2":
                     showFirstCompany();
-
                     break;
-
                 case "3":
                     launch();
-
                     break;
 
                 default:
@@ -467,9 +463,10 @@ public class CompanyUtil {
     }
 
     public static ArrayList<Employee1> showFirstCompany() throws IOException {
-        ArrayList<Employee1> employee1s = new ArrayList<>();
+
         File file = new File("vorobey/src/FirstCompany.txt");
         BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+        ArrayList<Employee1> employee1s = new ArrayList<>();
         String line;
 
         while ((line = bufferedReader.readLine()) != null) {
@@ -481,7 +478,7 @@ public class CompanyUtil {
             e1.setAge(Integer.valueOf(pool[3]));
             e1.setSalary(Double.valueOf(pool[4]));
             employee1s.add(e1);
-            System.out.println(e1 + "  " + "\n");
+            System.out.print(e1 + "  " + "\n");
         }
         return employee1s;
     }
@@ -494,14 +491,14 @@ public class CompanyUtil {
         String line;
         while ((line = buffer.readLine()) != null) {
             String[] pool = line.split(":");
-            Employee1 e = new Employee1();
-            e.setName(pool[0]);
-            e.setSecondName(pool[1]);
-            e.setSex(pool[2]);
-            e.setAge(Integer.valueOf(pool[3]));
-            e.setSalary(Double.valueOf(pool[4]));
-            employees1.add(e);
-            System.out.print(e + " " + "\n");
+            Employee1 e1 = new Employee1();
+            e1.setName(pool[0]);
+            e1.setSecondName(pool[1]);
+            e1.setSex(pool[2]);
+            e1.setAge(Integer.valueOf(pool[3]));
+            e1.setSalary(Double.valueOf(pool[4]));
+            employees1.add(e1);
+            System.out.print(e1 + " " + "\n");
         }
         return employees1;
     }
@@ -522,7 +519,7 @@ public class CompanyUtil {
             e1.setAge(Integer.valueOf(pool[3]));
             e1.setSalary(Double.valueOf(pool[4]));
             employee1s.add(e1);
-            System.out.println(e1 + "  " + "\n");
+            System.out.print(e1 + "  " + "\n");
         }
         return employee1s;
     }
