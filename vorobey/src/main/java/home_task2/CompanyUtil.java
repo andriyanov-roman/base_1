@@ -426,9 +426,9 @@ public class CompanyUtil {
 
         } catch (Exception e) {
         }
-        System.out.println("Для продолжения добавления сторудников,нажмите");
-        System.out.println("Для просмотра списка сотрудников,нажмите");
-        System.out.println("Для выхода,нажмите");
+        System.out.println("Для продолжения добавления сторудников,нажмите 1");
+        System.out.println("Для просмотра списка сотрудников,нажмите 2");
+        System.out.println("Для выхода в основне меню,нажмите 3");
         while (sc.hasNext()) {
             switch (sc.next()) {
                 case "1":
@@ -436,11 +436,12 @@ public class CompanyUtil {
                     break;
 
                 case "2":
-
+                    show();
 
                     break;
 
                 case "3":
+                    launch();
 
                     break;
 
