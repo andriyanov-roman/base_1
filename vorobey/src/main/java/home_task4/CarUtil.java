@@ -152,7 +152,7 @@ public class CarUtil {
             car.setPrice(Long.valueOf(carsArray[6]));
             car.setDate(Integer.valueOf(carsArray[7]));
             cars.add(car);
-            System.out.println(car.getName() + ":" + car.getOwnerName() + ":" + car.getNumber() + ":"
+            System.out.print(car.getName() + ":" + car.getOwnerName() + ":" + car.getNumber() + ":"
                     + car.getColour() + ":" + car.getFactoryName() + ":" + car.getType() + ":" + car.getPrice() + ":" + car.getDate() + "\n");
 
         }
