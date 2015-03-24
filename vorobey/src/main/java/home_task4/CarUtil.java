@@ -1,6 +1,5 @@
 package home_task4;
 
-
 import java.io.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -36,7 +35,7 @@ public class CarUtil {
             c.setPrice(sc.nextLong());
 
             System.out.println("Год создания автомобиля: ");
-            c.setDate(sc.next());
+            c.setDate(Integer.valueOf(sc.next()));
             cars.add(c);
             FileWriter writer = new FileWriter("vorobey/src/Car.txt", true);
             writer.write(c.getName() + ":" + c.getOwnerName() + ":" + c.getNumber() + ":" + c.getColour() + ":" + c.getFactoryName() + ":" + c.getType() + ":" + c.getPrice() + ":" + c.getDate() + "\n");
@@ -105,7 +104,7 @@ public class CarUtil {
             car.setFactoryName(carsArray[4]);
             car.setType(carsArray[5]);
             car.setPrice(Long.valueOf(carsArray[6]));
-            car.setDate(carsArray[7]);
+            car.setDate(Integer.valueOf(carsArray[7]));
             cars.add(car);
             System.out.println(car.getName() + ":" + car.getOwnerName() + ":" + car.getNumber() + ":"
                     + car.getColour() + ":" + car.getFactoryName() + ":" + car.getType() + ":" + car.getPrice() + ":" + car.getDate() + "\n");
@@ -130,5 +129,8 @@ public class CarUtil {
 
 
 }
+
+
+
 
 

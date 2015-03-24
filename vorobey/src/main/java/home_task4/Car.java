@@ -11,7 +11,7 @@ public class Car {
     private boolean status;
     private String description;
     private Long price;
-    private String date;
+    private int date;
 
     public String getName() {
         return name;
@@ -85,12 +85,12 @@ public class Car {
         this.description = description;
     }
 
-    public String getDate() {
+    public int getDate() {
         return date;
 
     }
 
-    public void setDate(String date) {
+    public void setDate(int date) {
         this.date = date;
     }
 
