@@ -23,6 +23,7 @@ public class ReadingFromFileMicrosoft {
             e.setAge(Integer.valueOf(pool[3]));
             e.setSalary(Double.valueOf(pool[4]));
             employees.add(e);
+            System.out.print(e+" "+"\n");
         }
         return employees;
     }

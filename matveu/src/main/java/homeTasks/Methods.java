@@ -16,8 +16,9 @@ public class Methods {
         System.out.println("1. Пользователи у которых логин совпадает с иминем или фамилией");
         System.out.println("2. Найти юзеров с одинаковым иминем и фамилией");
         System.out.println("3. Сортировка юзеров по id по убыванию");
-        System.out.println("4. Информация о сотрудниках");
-        System.out.println("5. Сотрудник с наибольшей зарплатой");
+        System.out.println("********************************************************************************************");
+        System.out.println("4. Информация о сотрудниках всех компаний");
+        System.out.println("5. Сотрудник с наибольшей зарплатой из всех компаний");
         System.out.println("6. Сотрудники с одинаковыми именами и фамилией");
         System.out.println("7. Сортировка сотрудников, всех компаний, по зп в порядке убывания");
         System.out.println("8. Узнать названия компаний");
@@ -74,6 +75,7 @@ public class Methods {
                     sortCompany3LengthSecondName();
                     break;
                 case "14":
+                    //CompanyUtil.addEmployeesToFile();
                     greatNewEmployees();
                     break;
                 case "15":
@@ -133,30 +135,51 @@ public class Methods {
             System.out.print(users[i].id + "/ ");
         }
     }
-
-    public static void infoEmployees() {
-        ArrayList<Employee> employees = EmployeesUtil.getEmployees();
-        for (int i = 0; i < employees.size(); i++) {
-            System.out.print(employees.get(i).getName() + " " + employees.get(i).getSecondName() + " " + employees.get(i).getSalary());
-            System.out.println();
-        }
-        System.out.println("Количество всех сотрудников, всех компаний: "+employees.size());
+//*******************************************************************************************************************************
+    public static void infoEmployees() throws IOException {
+        System.out.print("Количество всех сотрудников всех компаний: "+(ReadingFromFileLuxsoft.getEmployees().size()+
+                ReadingFromFileMicrosoft.getEmployees().size()+ReadingFromFileSony.getEmployees().size()));
+        System.out.println();
     }
 
-    public static void maxSalary() {
-        ArrayList<Employee> employees = EmployeesUtil.getEmployees();
-        double maxSalary = 0;
-        int i;
-        int max = 0;
+    public static void maxSalary() throws IOException {
+        ArrayList<Employee> employees = ReadingFromFileLuxsoft.getEmployees();
+        ArrayList<Employee> employees1 = ReadingFromFileMicrosoft.getEmployees();
+        ArrayList<Employee> employees2 = ReadingFromFileSony.getEmployees();
+        int i,j,k;
+        double maxSalary = employees.get(0).getSalary();
+        String maxCompanyName="";
+        String maxName="";
+        String maxSecondName="";
+
         for (i = 0; i < employees.size(); i++) {
-            if (employees.get(i).getSalary() > maxSalary) {
-                maxSalary = employees.get(i).getSalary();
-                max = i;
+            for (j = 0; j < employees1.size(); j++) {
+                for (k = 0; k < employees2.size(); k++) {
+                    if(employees.get(i).getSalary()>maxSalary) {
+                        maxSalary = employees.get(i).getSalary();
+                        maxCompanyName = "Luxsoft";
+                        maxName = employees.get(i).getName();
+                        maxSecondName = employees.get(i).getSecondName();
+                    }
+                        if(employees1.get(j).getSalary()>maxSalary) {
+                            maxSalary = employees1.get(j).getSalary();
+                            maxCompanyName = "Microsoft";
+                            maxName = employees1.get(j).getName();
+                            maxSecondName = employees1.get(j).getSecondName();
+                        }
+                            if(employees2.get(k).getSalary()>maxSalary){
+                                maxSalary=employees2.get(k).getSalary();
+                                maxCompanyName="Sony";
+                                maxName=employees2.get(k).getName();
+                                maxSecondName=employees2.get(k).getSecondName();
+                            }
+                }
             }
         }
-        System.out.println("Сотрудник с наибольшей зарплатой: " + employees.get(max).getName() + " " + employees.get(max).getSecondName() + " " + employees.get(max).getSalary());
-
+        System.out.print(maxCompanyName+": "+maxName+" "+maxSecondName+". Зарплата: "+maxSalary+"\n");
     }
+
+
 
     public static void tesku() {
         ArrayList<Employee> employees = EmployeesUtil.getEmployees();
@@ -192,14 +215,14 @@ public class Methods {
         }
     }
 
-    public static void companyName() {
+    public static void companyName() throws IOException{
         ArrayList<Company> companies = CompanyUtil.getCompanies();
         for (int i = 0; i < companies.size(); i++) {
             System.out.println(companies.get(i).getCompanyName() + " ");
         }
     }
 
-    public static void infoCompany() {
+    public static void infoCompany() throws IOException    {
         ArrayList<Company> companies = CompanyUtil.getCompanies();
         for (int i = 0; i < companies.size(); i++) {
             System.out.println();
@@ -213,20 +236,59 @@ public class Methods {
         System.out.println();
     }
 
-    public static void сompanyMaxSalary() {
-        ArrayList<Company> companies = CompanyUtil.getCompanies();
-        for (int i = 0; i < companies.size(); i++) {
-            Employee temp = companies.get(i).getEmployees().get(0);
-            for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
-                if (companies.get(i).getEmployees().get(j).getSalary() > temp.getSalary()) {
-                    temp = companies.get(i).getEmployees().get(j);
-                }
+    public static void сompanyMaxSalary() throws IOException {
+        ArrayList<Employee> employees = ReadingFromFileLuxsoft.getEmployees();
+        ArrayList<Employee> employees1=ReadingFromFileMicrosoft.getEmployees();
+        ArrayList<Employee> employees2=ReadingFromFileSony.getEmployees();
+        int i,j,k;
+        double maxSalary = employees.get(0).getSalary();
+        String maxCompanyName1="";
+        String maxCompanyName2="";
+        String maxCompanyName3="";
+        String maxName1="";
+        String maxSecondName1="";
+        String maxName2="";
+        String maxSecondName2="";
+        String maxName3="";
+        String maxSecondName3="";
+        int max=0 ;
+
+        for (i = 0; i < employees.size(); i++) {
+            if (employees.get(i).getSalary() > maxSalary) {
+                maxSalary = employees.get(i).getSalary();
+                max = i;
+                maxCompanyName1="Luxsoft";
+                maxName1=employees.get(i).getName();
+                maxSecondName1=employees.get(i).getSecondName();
             }
-            System.out.println(companies.get(i).getCompanyName() + ": " +temp.getName()  + ", с зарплатой: " +temp.getSalary() );
         }
+        System.out.print(maxCompanyName1+": "+maxName1+" "+maxSecondName1+". Зарплата: "+employees.get(max).getSalary()+"\n");
+
+        for (j = 0; j < employees1.size(); j++) {
+            if (employees1.get(j).getSalary() > maxSalary) {
+                maxSalary = employees1.get(j).getSalary();
+                max = j;
+                maxCompanyName2="Microsoft";
+                maxName2=employees1.get(j).getName();
+                maxSecondName2=employees1.get(j).getSecondName();
+            }
+        }
+        System.out.print(maxCompanyName2+": "+maxName2+" "+maxSecondName2+". Зарплата: "+employees1.get(max).getSalary()+"\n");
+
+        for (k = 0; k < employees2.size(); k++) {
+            if (employees2.get(k).getSalary() > maxSalary) {
+                maxSalary = employees2.get(k).getSalary();
+                max =k;
+                maxCompanyName3="Sony";
+                maxName3=employees2.get(k).getName();
+                maxSecondName3=employees2.get(k).getSecondName();
+            }
+        }
+
+        System.out.print(maxCompanyName3+": "+maxName3+" "+maxSecondName3+". Зарплата: "+employees2.get(max).getSalary()+"\n");
     }
 
-    public static void sortCompany1Salary() {
+    public static void sortCompany1Salary() throws IOException {
         ArrayList<Company> companies = CompanyUtil.getCompanies();
                     for (int i = 0; i < 1; i++) {
                         for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
@@ -244,7 +306,7 @@ public class Methods {
 
     }
 
-    public static void sortCompany2Age() {
+    public static void sortCompany2Age() throws IOException {
         ArrayList<Company> companies = CompanyUtil.getCompanies();
         for (int i = 1; i < 2; i++) {
             for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
@@ -262,7 +324,7 @@ public class Methods {
         }
     }
 
-    public static void sortCompany3LengthSecondName() {
+    public static void sortCompany3LengthSecondName() throws IOException {
         ArrayList<Company> companies = CompanyUtil.getCompanies();
         for (int i = 2; i < 3; i++) {
             for (int j = companies.get(i).getEmployees().size() - 1; j >= 0; j--) {
@@ -305,6 +367,7 @@ public class Methods {
     static Scanner scr;
     public static void greatEmployeeLuxsoft() throws IOException {
         ArrayList<Employee> employees = EmployeesUtil.getEmployees();
+        ArrayList<Company> companies=CompanyUtil.getCompanies();
         Employee employee=new Employee();
         try {
                     scr = new Scanner(System.in);
@@ -351,13 +414,14 @@ public class Methods {
                         start();
                         break;
                     case "5":
-                        getEmployees();
+                        ReadingFromFileLuxsoft.getEmployees();
                         break;
                 }
             }
     }
     public static void greatEmployeeMicrosoft() throws IOException {
         ArrayList<Employee> employees = EmployeesUtil.getEmployees();
+        ArrayList<Company> companies=CompanyUtil.getCompanies();
         Employee employee=new Employee();
         try {
             scr = new Scanner(System.in);
@@ -404,13 +468,14 @@ public class Methods {
                     start();
                     break;
                 case "5":
-                    getEmployees();
+                    ReadingFromFileMicrosoft.getEmployees();
                     break;
             }
         }
     }
     public static void greatEmployeeSony() throws IOException {
         ArrayList<Employee> employees = EmployeesUtil.getEmployees();
+        ArrayList<Company> companies=CompanyUtil.getCompanies();
         Employee employee=new Employee();
         try {
             scr = new Scanner(System.in);
@@ -457,39 +522,13 @@ public class Methods {
                     start();
                     break;
                 case "5":
-                    getEmployees();
+                    ReadingFromFileSony.getEmployees();
                     break;
             }
         }
     }
-    public static ArrayList<Employee> getEmployees() throws IOException {
-        ReadingFromFileSony.getEmployees();
-        ReadingFromFileLuxsoft.getEmployees();
-        ReadingFromFileMicrosoft.getEmployees();
-        File fileSony = new File("matveu/src/EmployeesSony.txt");
-        File fileLuxsoft = new File("matveu/src/EmployeesLuxsoft.txt");
-        File fileMicrosoft = new File("matveu/src/EmployeesMicrosoft.txt");
-        FileReader readerSony = new FileReader(fileSony);
-        BufferedReader bufferSony = new BufferedReader(readerSony);
-        ArrayList<Employee> employees = new ArrayList<>();
-        String lineSony;
-        while ((lineSony = bufferSony.readLine()) != null) {
-            String[] pool = lineSony.split(":");
-            Employee e = new Employee();
-            e.setName(pool[0]);
-            e.setSecondName(pool[1]);
-            e.setSex(pool[2]);
-            e.setAge(Integer.valueOf(pool[3]));
-            e.setSalary(Double.valueOf(pool[4]));
-            employees.add(e);
-            System.out.print(e+" "+"\n");
-        }
-        return employees;
-    }
 
-
-
-    public static void salaryPlusMenAndKillWomen() {
+    public static void salaryPlusMenAndKillWomen() throws IOException {
         Scanner scanner=new Scanner(System.in);
         System.out.println("Введите сумму, на которую хотите повысить зп мужчинам");
              double plus = scanner.nextDouble();
@@ -512,7 +551,7 @@ public class Methods {
             }
         }
     }
-    public static void salaryPlusWomenAndKillMen() {
+    public static void salaryPlusWomenAndKillMen() throws IOException {
         Scanner scanner=new Scanner(System.in);
         System.out.println("Введите сумму, на которую хотите повысить зп женщинам");
         double plus = scanner.nextDouble();
