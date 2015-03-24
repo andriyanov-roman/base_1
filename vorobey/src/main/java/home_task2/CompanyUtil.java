@@ -401,9 +401,42 @@ public class CompanyUtil {
         }
     }
 
-    public static void createEmployee() throws IOException {
+    public static void create() throws IOException {
         Scanner sc = new Scanner(System.in);
-        ArrayList<Company> companies = getCompanies();
+        System.out.println("Для добавления сотрудника в 'FirstCompany',нажмите 1");
+        System.out.println("Для добавления сотрудника в 'SecondCompany',нажмите 2");
+        System.out.println("Для добавления сотрудника в 'ThirdCompany',нажмите 3");
+        System.out.println("Для выхода в основное меню,нажмите 4");
+        while (sc.hasNext()) {
+            switch (sc.next()) {
+                case "1":
+                    createEmployeeFirstCompany();
+                    break;
+                case "2":
+                    createEmployeeSecondCompany();
+                    break;
+                case "3":
+                    createEmployeeThirdCompany();
+                    break;
+
+                case "4":
+                    launch();
+
+                    break;
+
+                default:
+                    System.out.println("No such case!");
+
+
+            }
+        }
+
+
+    }
+
+
+    public static void createEmployeeFirstCompany() throws IOException {
+        Scanner sc = new Scanner(System.in);
         ArrayList<Employee1> employee1s = EmployeeUtil.getEmployees();
         Employee1 employee1 = new Employee1();
         try {
@@ -426,17 +459,17 @@ public class CompanyUtil {
 
         } catch (Exception e) {
         }
-        System.out.println("Для продолжения добавления сторудников,нажмите 1");
+        System.out.println("Для продолжения добавления отрудников,нажмите 1");
         System.out.println("Для просмотра списка сотрудников,нажмите 2");
-        System.out.println("Для выхода в основне меню,нажмите 3");
+        System.out.println("Для выхода в основное меню,нажмите 3");
         while (sc.hasNext()) {
             switch (sc.next()) {
                 case "1":
-                    createEmployee();
+                    createEmployeeFirstCompany();
                     break;
 
                 case "2":
-                    show();
+                    showFirstCompany();
 
                     break;
 
@@ -454,14 +487,14 @@ public class CompanyUtil {
 
     }
 
-    public static ArrayList<Employee1> show() throws IOException {
+    public static ArrayList<Employee1> showFirstCompany() throws IOException {
         ArrayList<Employee1> employee1s = new ArrayList<>();
         File file = new File("vorobey/src/FirstCompany.txt");
         BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
         String line;
 
         while ((line = bufferedReader.readLine()) != null) {
-            String[] pool = line.split("/");
+            String[] pool = line.split(":");
             Employee1 e1 = new Employee1();
             e1.setName(pool[0]);
             e1.setSecondName(pool[1]);
@@ -472,6 +505,150 @@ public class CompanyUtil {
             System.out.println(e1 + "  " + "\n");
         }
         return employee1s;
+    }
+
+    public static ArrayList<Employee1> showSecondCompany() throws IOException {
+        ArrayList<Employee1> employee1s = new ArrayList<>();
+        File file = new File("vorobey/src/SecondCompany.txt");
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+        String line;
+
+        while ((line = bufferedReader.readLine()) != null) {
+            String[] pool = line.split(":");
+            Employee1 e1 = new Employee1();
+            e1.setName(pool[0]);
+            e1.setSecondName(pool[1]);
+            e1.setSex(pool[2]);
+            e1.setAge(Integer.valueOf(pool[3]));
+            e1.setSalary(Double.valueOf(pool[4]));
+            employee1s.add(e1);
+            System.out.println(e1 + "  " + "\n");
+        }
+        return employee1s;
+    }
+
+    public static ArrayList<Employee1> showThirdCompany() throws IOException {
+        ArrayList<Employee1> employee1s = new ArrayList<>();
+        File file = new File("vorobey/src/ThirdCompany.txt");
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+        String line;
+
+        while ((line = bufferedReader.readLine()) != null) {
+            String[] pool = line.split(":");
+            Employee1 e1 = new Employee1();
+            e1.setName(pool[0]);
+            e1.setSecondName(pool[1]);
+            e1.setSex(pool[2]);
+            e1.setAge(Integer.valueOf(pool[3]));
+            e1.setSalary(Double.valueOf(pool[4]));
+            employee1s.add(e1);
+            System.out.println(e1 + "  " + "\n");
+        }
+        return employee1s;
+    }
+
+    public static void createEmployeeSecondCompany() throws IOException {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Employee1> employee1s = EmployeeUtil.getEmployees();
+        Employee1 employee1 = new Employee1();
+        try {
+            System.out.println("Введите Имя сотрудника: ");
+            employee1.setName(sc.next());
+            System.out.println("Введите Фамилию сотрудника: ");
+            employee1.setSecondName(sc.next());
+            System.out.println("Введите Пол сотрудника: ");
+            employee1.setSex(sc.next());
+            System.out.println("Введите возраст сотрудника: ");
+            employee1.setAge(sc.nextInt());
+            System.out.println("Введите предпологаемую ЗП сотрудника: ");
+            employee1.setSalary(sc.nextInt());
+            employee1s.add(employee1);
+            FileWriter writer = new FileWriter("vorobey/src/SecondCompany.txt", true);
+            writer.write(employee1.getName() + "/" + employee1.getSecondName() + "/" + employee1.getSex() + "/" + employee1.getAge() + "/" + employee1.getSalary() + "\n");
+            writer.flush();
+            writer.close();
+
+
+        } catch (Exception e) {
+        }
+        System.out.println("Для продолжения добавления сторудников,нажмите 1");
+        System.out.println("Для просмотра списка сотрудников,нажмите 2");
+        System.out.println("Для выхода в основное меню,нажмите 3");
+        while (sc.hasNext()) {
+            switch (sc.next()) {
+                case "1":
+                    createEmployeeSecondCompany();
+                    break;
+
+                case "2":
+                    showSecondCompany();
+
+                    break;
+
+                case "3":
+                    launch();
+
+                    break;
+
+                default:
+                    System.out.println("No such case");
+
+
+            }
+        }
+
+    }
+
+    public static void createEmployeeThirdCompany() throws IOException {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Employee1> employee1s = EmployeeUtil.getEmployees();
+        Employee1 employee1 = new Employee1();
+        try {
+            System.out.println("Введите Имя сотрудника: ");
+            employee1.setName(sc.next());
+            System.out.println("Введите Фамилию сотрудника: ");
+            employee1.setSecondName(sc.next());
+            System.out.println("Введите Пол сотрудника: ");
+            employee1.setSex(sc.next());
+            System.out.println("Введите возраст сотрудника: ");
+            employee1.setAge(sc.nextInt());
+            System.out.println("Введите предпологаемую ЗП сотрудника: ");
+            employee1.setSalary(sc.nextInt());
+            employee1s.add(employee1);
+            FileWriter writer = new FileWriter("vorobey/src/ThirdCompany.txt", true);
+            writer.write(employee1.getName() + "/" + employee1.getSecondName() + "/" + employee1.getSex() + "/" + employee1.getAge() + "/" + employee1.getSalary() + "\n");
+            writer.flush();
+            writer.close();
+
+
+        } catch (Exception e) {
+        }
+        System.out.println("Для продолжения добавления сторудников,нажмите 1");
+        System.out.println("Для просмотра списка сотрудников,нажмите 2");
+        System.out.println("Для выхода в основное меню,нажмите 3");
+        while (sc.hasNext()) {
+            switch (sc.next()) {
+                case "1":
+                    createEmployeeThirdCompany();
+                    break;
+
+                case "2":
+                    showThirdCompany();
+
+                    break;
+
+                case "3":
+                    launch();
+
+                    break;
+
+                default:
+                    System.out.println("No such case");
+
+
+            }
+        }
+
     }
 
 
