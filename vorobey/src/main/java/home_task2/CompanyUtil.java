@@ -6,8 +6,7 @@ import home_task2.Employee1;
 import home_task2.EmployeeUtil;
 
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -420,14 +419,61 @@ public class CompanyUtil {
             employee1.setSalary(sc.nextInt());
             employee1s.add(employee1);
             FileWriter writer = new FileWriter("vorobey/src/FirstCompany.txt", true);
-            writer.write(employee1.getName() + "/" + employee1.getSecondName() + "/" + employee1.getSex() + "/" + employee1.getAge() + "/" + employee1.getSalary()+"\n");
+            writer.write(employee1.getName() + "/" + employee1.getSecondName() + "/" + employee1.getSex() + "/" + employee1.getAge() + "/" + employee1.getSalary() + "\n");
             writer.flush();
             writer.close();
 
+
         } catch (Exception e) {
+        }
+        System.out.println("Для продолжения добавления сторудников,нажмите");
+        System.out.println("Для просмотра списка сотрудников,нажмите");
+        System.out.println("Для выхода,нажмите");
+        while (sc.hasNext()) {
+            switch (sc.next()) {
+                case "1":
+
+                    break;
+
+                case "2":
+
+                    break;
+
+                case "3":
+
+                    break;
+
+                default:
+                    System.out.println("No such case");
+
+
+            }
         }
 
     }
+
+    public static ArrayList<Employee1> show() throws IOException {
+        ArrayList<Employee1> employee1s = new ArrayList<>();
+        File file = new File("vorobey/src/FirstCompany.txt");
+        FileReader reader = new FileReader(file);
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        String line;
+        while ((line = bufferedReader.readLine()) != null) {
+            String[] pool = line.split("/");
+            Employee1 e = new Employee1();
+            e.setName(pool[0]);
+            e.setSecondName(pool[1]);
+            e.setSex(pool[2]);
+            e.setAge(Integer.valueOf(pool[3]));
+            e.setSalary(Double.valueOf(pool[4]));
+            employee1s.add(e);
+            System.out.println(e + "  " + "\n");
+        }
+
+
+        return employee1s;
+    }
+
 
 }
 
