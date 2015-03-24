@@ -1,10 +1,12 @@
 package home_task2;
 
 
-public class Main {
-    public static void main(String[] args) {
+import java.io.IOException;
 
-        CompanyUtil.launch();
+public class Main {
+    public static void main(String[] args) throws IOException {
+
+        CompanyUtil.createEmployee();
     }
 }
 

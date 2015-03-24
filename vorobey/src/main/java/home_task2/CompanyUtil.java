@@ -6,6 +6,7 @@ import home_task2.Employee1;
 import home_task2.EmployeeUtil;
 
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -417,7 +418,11 @@ public class CompanyUtil {
             employee1.setAge(sc.nextInt());
             System.out.println("Введите предпологаемую ЗП сотрудника: ");
             employee1.setSalary(sc.nextInt());
-
+            employee1s.add(employee1);
+            FileWriter writer = new FileWriter("vorobey/src/FirstCompany.txt", true);
+            writer.write(employee1.getName() + "/" + employee1.getSecondName() + "/" + employee1.getSex() + "/" + employee1.getAge() + "/" + employee1.getSalary()+"\n");
+            writer.flush();
+            writer.close();
 
         } catch (Exception e) {
         }
