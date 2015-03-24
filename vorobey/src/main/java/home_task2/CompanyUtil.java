@@ -119,7 +119,7 @@ public class CompanyUtil {
         System.out.println("6. Чтобы вывести сотрудника с самой длинной фамилией(третья компания),нажмите 6");
         System.out.println("7. Чтобы вывести отсортированых в порядке увеличения длины фамилии сотрудников третьей компании,нажмите 7");
         System.out.println("8. Чтобы вывести количество сотрудниц,работающих во всех компаниях,нажмите 8");
-        System.out.println("9 Чтобы уволить сотрудниц,работающих во всех компаниях,и вывести обновленный список сотрудников,нажмите 9");
+        System.out.println("9  Чтобы уволить сотрудниц,работающих во всех компаниях,и вывести обновленный список сотрудников,нажмите 9");
         System.out.println("10 Чтобы вывести список сотрудников с повышением ЗП на 15%,нажмите 10");
         System.out.println("11 Чтобы вывести сотрудника(мужчину) с максимальной ЗП,нажмите 11");
         System.out.println("12 Чтобы добавить нового сотрудника,нажмите 12");
@@ -438,7 +438,7 @@ public class CompanyUtil {
 
         } catch (Exception e) {
         }
-        System.out.println("Для продолжения добавления отрудников,нажмите 1");
+        System.out.println("Для продолжения добавления сотрудников,нажмите 1");
         System.out.println("Для просмотра списка сотрудников,нажмите 2");
         System.out.println("Для выхода в основное меню,нажмите 3");
         while (sc.hasNext()) {
@@ -478,7 +478,7 @@ public class CompanyUtil {
             e1.setAge(Integer.valueOf(pool[3]));
             e1.setSalary(Double.valueOf(pool[4]));
             employee1s.add(e1);
-            System.out.print("Сотрудник: "+e1.getName()+" "+e1.getSecondName()+",пол: "+e1.getSex()+",возраст: "+e1.getAge()+",зарплата: "+e1.getSalary()+"\n");
+            System.out.print("Сотрудник: " + e1.getName() + " " + e1.getSecondName() + ",пол: " + e1.getSex() + ",возраст: " + e1.getAge() + ",зарплата: " + e1.getSalary() + "\n");
         }
         return employee1s;
     }
@@ -498,19 +498,19 @@ public class CompanyUtil {
             e1.setAge(Integer.valueOf(pool[3]));
             e1.setSalary(Double.valueOf(pool[4]));
             employees1.add(e1);
-            System.out.print("Сотрудник: "+e1.getName()+" "+e1.getSecondName()+",пол: "+e1.getSex()+",возраст: "+e1.getAge()+",зарплата: "+e1.getSalary()+"\n");
+            System.out.print("Сотрудник: " + e1.getName() + " " + e1.getSecondName() + ",пол: " + e1.getSex() + ",возраст: " + e1.getAge() + ",зарплата: " + e1.getSalary() + "\n");
         }
         return employees1;
     }
 
 
     public static ArrayList<Employee1> showThirdCompany() throws IOException {
-        ArrayList<Employee1> employee1s = new ArrayList<>();
         File file = new File("vorobey/src/ThirdCompany.txt");
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+        FileReader reader = new FileReader(file);
+        BufferedReader buffer = new BufferedReader(reader);
+        ArrayList<Employee1> employees1 = new ArrayList<>();
         String line;
-
-        while ((line = bufferedReader.readLine()) != null) {
+        while ((line = buffer.readLine()) != null) {
             String[] pool = line.split(":");
             Employee1 e1 = new Employee1();
             e1.setName(pool[0]);
@@ -518,10 +518,10 @@ public class CompanyUtil {
             e1.setSex(pool[2]);
             e1.setAge(Integer.valueOf(pool[3]));
             e1.setSalary(Double.valueOf(pool[4]));
-            employee1s.add(e1);
-            System.out.print("Сотрудник: "+e1.getName()+" "+e1.getSecondName()+",пол: "+e1.getSex()+",возраст: "+e1.getAge()+",зарплата: "+e1.getSalary()+"\n");
+            employees1.add(e1);
+            System.out.print("Сотрудник: " + e1.getName() + " " + e1.getSecondName() + ",пол: " + e1.getSex() + ",возраст: " + e1.getAge() + ",зарплата: " + e1.getSalary() + "\n");
         }
-        return employee1s;
+        return employees1;
     }
 
     public static void createEmployeeSecondCompany() throws IOException {
@@ -549,7 +549,7 @@ public class CompanyUtil {
 
         } catch (Exception e) {
         }
-        System.out.println("Для продолжения добавления сторудников,нажмите 1");
+        System.out.println("Для продолжения добавления сотрудников,нажмите 1");
         System.out.println("Для просмотра списка сотрудников,нажмите 2");
         System.out.println("Для выхода в основное меню,нажмите 3");
         while (sc.hasNext()) {
@@ -602,7 +602,7 @@ public class CompanyUtil {
 
         } catch (Exception e) {
         }
-        System.out.println("Для продолжения добавления сторудников,нажмите 1");
+        System.out.println("Для продолжения добавления cотрудников,нажмите 1");
         System.out.println("Для просмотра списка сотрудников,нажмите 2");
         System.out.println("Для выхода в основное меню,нажмите 3");
         while (sc.hasNext()) {
@@ -628,6 +628,15 @@ public class CompanyUtil {
             }
         }
 
+    }
+
+    public static void allSHow() throws IOException {
+        System.out.println("Количество сотрудников компании FirstCompany: " + showFirstCompany().size());
+        System.out.println();
+        System.out.println("Количество сотрудников компании SecondCompany: " + showSecondCompany().size());
+        System.out.println();
+        System.out.println("Количество сотрудников компании ThirdCompany: " + showThirdCompany().size());
+        System.out.println();
     }
 
 
