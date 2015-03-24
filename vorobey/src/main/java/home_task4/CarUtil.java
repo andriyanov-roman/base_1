@@ -13,7 +13,6 @@ public class CarUtil {
         try {
             System.out.println("Вы можете заказать автомобиль,указан следующие требования: ");
 
-
             System.out.println("Марка автомобиля: ");
             c.setName(sc.next());
 
@@ -49,7 +48,6 @@ public class CarUtil {
         System.out.println("Вернуться в основное меню,нажмите 2");
         System.out.println("Просмотреть список автомобилей, 3");
 
-
         while (sc.hasNext()) {
             switch (sc.next()) {
                 case "1":
@@ -61,7 +59,6 @@ public class CarUtil {
                 case "3":
                     carsShow();
                     break;
-
 
                 default:
                     System.out.println("No such case");
@@ -76,7 +73,6 @@ public class CarUtil {
         System.out.println("Если хотите сделать заказ,нажмите 1");
         System.out.println("Если хотите просмотреть список автмообилей,нажмите 2");
 
-
         while (sc.hasNext()) {
             switch (sc.next()) {
                 case "1":
@@ -85,14 +81,11 @@ public class CarUtil {
                 case "2":
                     carsShow();
                     break;
-
                 default:
                     System.out.println("no such case");
 
-
             }
         }
-
 
     }
 
@@ -116,10 +109,8 @@ public class CarUtil {
             System.out.println(car.getName() + ":" + car.getOwnerName() + ":" + car.getNumber() + ":"
                     + car.getColour() + ":" + car.getFactoryName() + ":" + car.getType() + ":" + car.getPrice() + ":" + car.getDate() + "\n");
 
-
         }
         return cars;
-
     }
 
 }
