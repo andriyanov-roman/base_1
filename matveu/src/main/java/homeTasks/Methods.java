@@ -442,8 +442,6 @@ public class Methods {
 
         }
     }
-
-
     public static void sortCompanysByLengthSecondName() throws IOException {
         scanner=new Scanner(System.in);
         System.out.println("Выберите компанию в которой желаете отсортировать сотрудников по длине фамилии:");
