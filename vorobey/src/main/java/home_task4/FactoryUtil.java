@@ -5,7 +5,8 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CarUtil {
+
+public class FactoryUtil {
     public static void cars() throws IOException {
         ArrayList<Car> cars = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
@@ -73,6 +74,7 @@ public class CarUtil {
         System.out.println("Если хотите сделать заказ,нажмите 1");
         System.out.println("Если хотите просмотреть список автмообилей,нажмите 2");
         System.out.println("Что бы вывести самую дорогую модель,нажмите 3");
+        System.out.println("Что бы вывести количество автомобилей одинакового цвета,нажмите 4");
 
         while (sc.hasNext()) {
             switch (sc.next()) {
@@ -84,6 +86,16 @@ public class CarUtil {
                     break;
                 case "3":
                     mostExpensiveCar();
+                    break;
+                case "4":
+                    showSameColourCars();
+                    break;
+
+                case "5":
+
+                    break;
+                case "10":
+                    order();
                     break;
 
 
@@ -124,11 +136,11 @@ public class CarUtil {
         String maxName = "";
         for (int i = 0; i < cars.size(); i++) {
             for (int j = 0; j < cars.get(i).getPrice(); j++) {
-                if (cars.get(i).getPrice() > maxPrice)
+                if (cars.get(i).getPrice() > maxPrice) {
                     maxPrice = cars.get(i).getPrice();
-                maxName = cars.get(i).getName();
-                maxOwnerName = cars.get(i).getOwnerName();
-
+                    maxName = cars.get(i).getName();
+                    maxOwnerName = cars.get(i).getOwnerName();
+                }
             }
         }
         System.out.println("Самая дорогостоящая модель: " + maxPrice + ":" + maxName + ":" + maxOwnerName);
@@ -152,7 +164,7 @@ public class CarUtil {
             car.setPrice(Long.valueOf(carsArray[6]));
             car.setDate(Integer.valueOf(carsArray[7]));
             cars.add(car);
-            System.out.println(car.getName() + ":" + car.getOwnerName() + ":" + car.getNumber() + ":"
+            System.out.print(car.getName() + ":" + car.getOwnerName() + ":" + car.getNumber() + ":"
                     + car.getColour() + ":" + car.getFactoryName() + ":" + car.getType() + ":" + car.getPrice() + ":" + car.getDate() + "\n");
 
         }
@@ -160,8 +172,39 @@ public class CarUtil {
 
     }
 
+    public static ArrayList<Car> getSameColourCars() throws IOException {
+        int count = 0;
+        ArrayList<Car> cars = getCars();
+        for (int i = 0; i < cars.size(); i++) {
+            for (int j = i + 1; j < cars.size(); ++j) {
+                if (cars.get(i).getColour().equals(cars.get(j).getColour()) == false) {
+                    cars.remove(i);
+                    cars.remove(j);
+                }
+            }
+
+        }
+        return cars;
+
+    }
+
+    public static void showSameColourCars() throws IOException {
+        ArrayList<Car> cars = getSameColourCars();
+        int i;
+        for (i = 0; i < cars.size(); i++) {
+            System.out.println(cars.get(i).getName() + ":" + cars.get(i).getDate() + ":" + cars.get(i).getColour() + ":" + cars.get(i).getOwnerName());
+        }
+        System.out.println("Общее количество автомобилей одинакового цвета: " + i);
+
+    }
+
 
 }
+
+
+
+
+
 
 
 
