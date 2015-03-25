@@ -48,6 +48,11 @@ public class CompanyUtil {
                     ":" + c1.getEmployees().get(i).getAge() + ":" + c1.getEmployees().get(i).getSalary() + "\n");
             writer.flush();
             writer.close();
+            FileWriter writerAll = new FileWriter("matveu/src/EmployeesAll.txt", true);
+            writerAll.write(c1.getEmployees().get(i).getName() + ":" + c1.getEmployees().get(i).getSecondName() + ":" + c1.getEmployees().get(i).getSex() +
+                    ":" + c1.getEmployees().get(i).getAge() + ":" + c1.getEmployees().get(i).getSalary() + "\n");
+            writerAll.flush();
+            writerAll.close();
         }
         for (int i = 0; i < c2.getEmployees().size(); i++) {
             FileWriter writer = new FileWriter("matveu/src/EmployeesMicrosoft.txt", true);
@@ -55,6 +60,11 @@ public class CompanyUtil {
                     ":" + c2.getEmployees().get(i).getAge() + ":" + c2.getEmployees().get(i).getSalary() + "\n");
             writer.flush();
             writer.close();
+            FileWriter writerAll = new FileWriter("matveu/src/EmployeesAll.txt", true);
+            writerAll.write(c2.getEmployees().get(i).getName() + ":" + c2.getEmployees().get(i).getSecondName() + ":" + c2.getEmployees().get(i).getSex() +
+                    ":" + c2.getEmployees().get(i).getAge() + ":" + c2.getEmployees().get(i).getSalary() + "\n");
+            writerAll.flush();
+            writerAll.close();
         }
         for (int i = 0; i < c3.getEmployees().size(); i++) {
             FileWriter writer = new FileWriter("matveu/src/EmployeesSony.txt", true);
@@ -62,6 +72,11 @@ public class CompanyUtil {
                     ":" + c3.getEmployees().get(i).getAge() + ":" + c3.getEmployees().get(i).getSalary() + "\n");
             writer.flush();
             writer.close();
+            FileWriter writerAll = new FileWriter("matveu/src/EmployeesAll.txt", true);
+            writerAll.write(c3.getEmployees().get(i).getName() + ":" + c3.getEmployees().get(i).getSecondName() + ":" + c3.getEmployees().get(i).getSex() +
+                    ":" + c3.getEmployees().get(i).getAge() + ":" + c3.getEmployees().get(i).getSalary() + "\n");
+            writerAll.flush();
+            writerAll.close();
         }
     }
 }
