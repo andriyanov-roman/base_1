@@ -1,5 +1,6 @@
 package homeWork1;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Scanner;
  */
 public class StartUserProgram {
 
-    public static void start() {
+    public static void start() throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter comman key");
         System.out.println("Нажми 1 - покажет юзеров");
@@ -16,31 +17,31 @@ public class StartUserProgram {
         System.out.println("Нажми 4 - покажет зарплату Юзеров");
         System.out.println("Нажми 5 - покажет названия компаний");
         System.out.println("Нажми 6 - покажет максимальную з.п сотрудников");
-        System.out.println("Нажми 7 - тоже, что и в 6 (пока криво работаем)");
+        System.out.println("Нажми 7 - добавить нового пользователя");
         System.out.println("Нажми 8 - покажет длину фамилий");
         System.out.println("Нажми 9 - покажет возраст");
         System.out.println("Нажми 10 - break");
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "1":
-                    UserUtil.showUsers();
+                    Methods.showUsers();
                 case "2":
-                    UserUtil.findMatches();
+                    Methods.findMatches();
                     break;
                 case "3":
-                    UserUtil.showIdUsers();
+                    Methods.showIdUsers();
                 case "4":
-                    EmployeeUtil.findEmployeeUserSalary();
+                    Methods.findEmployeeUserSalary();
                 case "5":
-                    CompanyUtil.findCompName();
+                    Methods.findCompName();
                 case "6":
-                    CompanyUtil.maxCompSalary();
+                    Methods.maxCompSalary();
                 case "7":
-                    CompanyUtil.sortSalaryComp();
+                    Methods.addUserInComp();
                 case "8":
-                    CompanyUtil.secondNameLength();
+                    Methods.secondNameLength();
                 case "9":
-                    CompanyUtil.sortAgeComp();
+                    Methods.sortAgeInComp();
                 case "10":
                     break;
             }

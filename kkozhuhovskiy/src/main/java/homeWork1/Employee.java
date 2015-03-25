@@ -3,18 +3,18 @@ package homeWork1;
 /**
  * Created by Kirill on 12.03.2015.
  */
-public class EmployeeUser {
-    /*METHODS *************************/
+public class Employee {
+
     private String name;
     private String secondName;
-    private int salary;
+    private double salary;
     private String gender;
     private int age;
 
-    public EmployeeUser(){
+    public Employee(){
 
     }
-    public EmployeeUser(String name, String secondName, int salary, String gender, int age) {
+    public Employee(String name, String secondName, int salary, String gender, int age) {
         this.name =  name;
         this.secondName = secondName;
         this.salary = salary;
@@ -22,23 +22,29 @@ public class EmployeeUser {
         this.age = age;
     }
 
-    /*GETTERS************************/
+
     public String getName() {return name;}
     public String getSecondName() {return secondName;}
-    public int getSalary() {return salary;}
+    public double getSalary() {return salary;}
     public String getGender() {return gender;}
     public int getAge() {return age;}
 
 
-    /*SET**********************************************************/
     public void setName(String name) {this.name = name;}
     public void setSecondName(String secondName) {this.secondName = secondName;}
-    public void setSalary(int salary) {this.salary = salary;}
+    public void setSalary(double salary) {this.salary = salary;}
     public void setGender(String gender) {this.gender = gender;}
     public void setAge(int age) {this.age = age;}
 
-
-
-    /*CONSTRUCTOR*/
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", salary=" + salary +
+                ", gender='" + gender + '\'' +
+                ", age=" + age +
+                '}';
+    }
 
 }
