@@ -30,7 +30,12 @@ public class Company {
         return employees;
     }
 
-    public void setEmployees(ArrayList<Employee> employees) {
+    public void setEmployees(ArrayList employees) {
         this.employees = employees;
+    }
+
+    @Override
+    public String toString() {
+        return companyName + " " + " " + employees;
     }
 }

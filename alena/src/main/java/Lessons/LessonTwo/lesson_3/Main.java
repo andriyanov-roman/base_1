@@ -9,13 +9,17 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static Lessons.LessonTwo.Methods.ReadFromFile;
+import static Lessons.LessonTwo.Methods.WriteToFile;
+
 /**
  * Created by user on 21.03.2015.
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-
-
+   ReadFromFile("alena/src/main/java/identity/Beast");
+   ReadFromFile("alena/src/main/java/identity/Finest");
+   WriteToFile("/t Alonaaaaaa","alena/src/main/java/identity/Finest", true );
 
 
     }

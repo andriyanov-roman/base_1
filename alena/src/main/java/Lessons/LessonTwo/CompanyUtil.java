@@ -2,34 +2,39 @@ package Lessons.LessonTwo;
 
 
 import Homeworks.homework_1.Employee;
-import Homeworks.homework_1.EmployeeUtil;
-import com.sun.org.apache.xpath.internal.SourceTree;
+
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class CompanyUtil {
     public static ArrayList<Company> getCompanies() throws IOException {
-
-        File file = new File("alena/src/main/java/identity/companies.txt");
-        FileReader reader = new FileReader(file);
-        BufferedReader buffer = new BufferedReader(reader);
-        ArrayList<Company> companies = new ArrayList<>();
-        String line;
-        while ((line = buffer.readLine()) != null) {
-            String[] pool = line.split(":");
-            Company c = new Company();
-            c.setCompanyName(pool[0]);
-           /* c.setEmployees(pool[1]);*/
-            /*e.setSalary(Double.valueOf(pool[2]));
-            e.setSex(pool[3]);
-            e.setAge(Integer.valueOf(pool[4]));*/
-            companies.add(c);
-
-
-        } System.out.println(companies.toString());
-        return companies;
+        return null;
+//        File file = new File("alena/src/main/java/identity/companies.txt");
+//        FileReader reader = new FileReader(file);
+//        BufferedReader buffer = new BufferedReader(reader);
+//        ArrayList<Company> companies = new ArrayList<>();
+//        String line;
+//        while ((line = buffer.readLine()) != null) {
+//            String[] pool = line.split(":");
+//            Company c = new Company();
+//            c.setCompanyName(pool[0]);
+//            for (int i = 1; i < pool.length; i++) {
+//                String [] lines = pool[i].split(":");
+//                Employee e = new Employee();
+//                e.setName(lines[0]);
+//                e.setSecondName(lines[1]);
+//                e.setSalary(Double.valueOf(lines[2]));
+//                e.setSex(lines[3]);
+//                e.setAge(Integer.valueOf(lines[4]));
+//                c.getEmployees().add(e);
+//            }
+//
+//            companies.add(c);
+//
+//
+//        } System.out.println(companies.toString());
+//        return companies;
 
         /*Company c1 = new Company();
         ArrayList<Employee> employees = EmployeeUtil.getEmployees();
