@@ -11,7 +11,7 @@ public class Methods {
     static Scanner scanner;
 
     public static void start() throws IOException {
-        scanner=new Scanner(System.in);
+        scanner = new Scanner(System.in);
 
         System.out.println("Enter command key!");
         System.out.println("1. Пользователи у которых логин совпадает с иминем или фамилией");
@@ -31,6 +31,11 @@ public class Methods {
         System.out.println("14. Добавить нового сотрудника");
         System.out.println("15. Уволить всех женщин и мужчинам поднять зп");
         System.out.println("16. Уволить всех мужчин и женщинам поднять зп");
+        System.out.println("17. Добавить администратора в Luxsoft");
+        System.out.println("18. Добавить менеджера в Luxsoft");
+        System.out.println("19. Добавить програмиста в Luxsoft");
+        System.out.println("20. Узнать среди админов,программистов и менеджеров в Luxsoft, кто получает наибольшую зп");
+
 
 
 
@@ -85,6 +90,18 @@ public class Methods {
                 case "16":
                     salaryPlusWomenAndKillMen();
                     break;
+                case "17":
+                    greatLuxsoftAdmin();
+                    break;
+                case "18":
+                    greatLuxsoftMeneger();
+                    break;
+                case "19":
+                    greatLuxsoftProgrammer();
+                    break;
+                case "20":
+                    maxSalaryFromAdminMenegerProgrammer();
+                    break;
                 case "Exit":
                     System.exit(0);
                     break;
@@ -136,25 +153,26 @@ public class Methods {
             System.out.print(users[i].id + "/ ");
         }
     }
-//*******************************************************************************************************************************
+
+    //*******************************************************************************************************************************
     public static void infoEmployees() throws IOException {
         ReadingFromFileLuxsoft.getEmployees();
         ReadingFromFileMicrosoft.getEmployees();
         ReadingFromFileSony.getEmployees();
-        System.out.print("Количество всех сотрудников всех компаний: "+ReadingFromFileEmployeesAll.getEmployees().size());
+        System.out.print("Количество всех сотрудников всех компаний: " + ReadingFromFileEmployeesAll.getEmployees().size());
         System.out.println();
     }
 
     public static void maxSalary() throws IOException {
-        ArrayList<Employee> employees=ReadingFromFileEmployeesAll.getEmployees();
-        double maxSalary=employees.get(0).getSalary();
-        String maxName="";
-        String maxSecondName="";
-        for(int i=0;i<employees.size();i++){
-            if(employees.get(i).getSalary()>maxSalary){
-                maxSalary=employees.get(i).getSalary();
-                maxName=employees.get(i).getName();
-                maxSecondName=employees.get(i).getSecondName();
+        ArrayList<Employee> employees = ReadingFromFileEmployeesAll.getEmployees();
+        double maxSalary = employees.get(0).getSalary();
+        String maxName = "";
+        String maxSecondName = "";
+        for (int i = 0; i < employees.size(); i++) {
+            if (employees.get(i).getSalary() > maxSalary) {
+                maxSalary = employees.get(i).getSalary();
+                maxName = employees.get(i).getName();
+                maxSecondName = employees.get(i).getSecondName();
             }
         }
         System.out.println("Сотрудник с наибольшей зп из всех компаний: " + maxName + " " + maxSecondName + ", с зарплатой: " + maxSalary);
@@ -196,31 +214,31 @@ public class Methods {
     }
 
     public static void tesku() throws IOException {
-        ArrayList<Employee>employees=ReadingFromFileEmployeesAll.getEmployees();
-        String sameName=" ";
-        String sameSecondName=" ";
+        ArrayList<Employee> employees = ReadingFromFileEmployeesAll.getEmployees();
+        String sameName = " ";
+        String sameSecondName = " ";
         System.out.print("Сотрудники с одинаковыми именами и фамилией: ");
-        for(int i=0;i<employees.size();i++) {
-            for (int j = i+1; j < employees.size(); j++) {
+        for (int i = 0; i < employees.size(); i++) {
+            for (int j = i + 1; j < employees.size(); j++) {
                 if (employees.get(i).getName().equals(employees.get(j).getName()) && employees.get(i).getSecondName().equals(
                         employees.get(j).getSecondName())) {
-                    sameName=employees.get(i).getName();
-                    sameSecondName=employees.get(i).getSecondName();
-                    System.out.print(sameName+" "+sameSecondName+", ");
+                    sameName = employees.get(i).getName();
+                    sameSecondName = employees.get(i).getSecondName();
+                    System.out.println(sameName + " " + sameSecondName);
                 }
             }
         }
     }
 
 
-    public static void sortSalary() throws  IOException {
-        ArrayList<Employee>employees=ReadingFromFileEmployeesAll.getEmployees();
+    public static void sortSalary() throws IOException {
+        ArrayList<Employee> employees = ReadingFromFileEmployeesAll.getEmployees();
         for (int i = employees.size() - 1; i >= 0; i--) {
             for (int j = 0; j < i; j++) {
-                if (employees.get(j).getSalary() < employees.get(j+1).getSalary()) {
+                if (employees.get(j).getSalary() < employees.get(j + 1).getSalary()) {
                     Employee k = employees.get(j);
                     employees.set(j, employees.get(j + 1));
-                    employees.set(j+1, k);
+                    employees.set(j + 1, k);
                 }
             }
         }
@@ -231,56 +249,56 @@ public class Methods {
         }
     }
 
-    public static void companyName() throws IOException{
+    public static void companyName() throws IOException {
         ArrayList<Company> companies = CompanyUtil.getCompanies();
         for (int i = 0; i < companies.size(); i++) {
             System.out.println(companies.get(i).getCompanyName() + " ");
         }
     }
 
-    public static void infoCompany() throws IOException    {
-       System.out.println("Сотрудники компании 'Luxsoft': ");
-               ReadingFromFileLuxsoft.getEmployees();
+    public static void infoCompany() throws IOException {
+        System.out.println("Сотрудники компании 'Luxsoft': ");
+        ReadingFromFileLuxsoft.getEmployees();
         System.out.println("Сотрудники компании 'Microsoft': ");
-               ReadingFromFileMicrosoft.getEmployees();
+        ReadingFromFileMicrosoft.getEmployees();
         System.out.println("Сотрудники компании 'Sony': ");
         ReadingFromFileSony.getEmployees();
     }
 
     public static void сompanyMaxSalary() throws IOException {
         ArrayList<Employee> employees1 = ReadingFromFileLuxsoft.getEmployees();
-        ArrayList<Employee> employees2=ReadingFromFileMicrosoft.getEmployees();
-        ArrayList<Employee> employees3=ReadingFromFileSony.getEmployees();
-        int i,j,k;
+        ArrayList<Employee> employees2 = ReadingFromFileMicrosoft.getEmployees();
+        ArrayList<Employee> employees3 = ReadingFromFileSony.getEmployees();
+        int i, j, k;
         double maxSalary1 = employees1.get(0).getSalary();
         double maxSalary2 = employees2.get(0).getSalary();
         double maxSalary3 = employees3.get(0).getSalary();
-        String maxCompanyName1=" ";
-        String maxCompanyName2=" ";
-        String maxCompanyName3=" ";
-        String maxName1="";
-        String maxSecondName1="";
-        String maxName2="";
-        String maxSecondName2="";
-        String maxName3="";
-        String maxSecondName3="";
+        String maxCompanyName1 = " ";
+        String maxCompanyName2 = " ";
+        String maxCompanyName3 = " ";
+        String maxName1 = "";
+        String maxSecondName1 = "";
+        String maxName2 = "";
+        String maxSecondName2 = "";
+        String maxName3 = "";
+        String maxSecondName3 = "";
 
         for (i = 0; i < employees1.size(); i++) {
             if (employees1.get(i).getSalary() > maxSalary1) {
                 maxSalary1 = employees1.get(i).getSalary();
-                maxCompanyName1="Luxsoft";
-                maxName1=employees1.get(i).getName();
-                maxSecondName1=employees1.get(i).getSecondName();
+                maxCompanyName1 = "Luxsoft";
+                maxName1 = employees1.get(i).getName();
+                maxSecondName1 = employees1.get(i).getSecondName();
             }
         }
-        System.out.println(maxCompanyName1 + ": " + maxName1 + " " + maxSecondName1+". Зарплата: "+maxSalary1);
+        System.out.println(maxCompanyName1 + ": " + maxName1 + " " + maxSecondName1 + ". Зарплата: " + maxSalary1);
 
         for (j = 0; j < employees2.size(); j++) {
             if (employees2.get(j).getSalary() > maxSalary2) {
                 maxSalary2 = employees2.get(j).getSalary();
-                maxCompanyName2="Microsoft";
-                maxName2=employees2.get(j).getName();
-                maxSecondName2=employees2.get(j).getSecondName();
+                maxCompanyName2 = "Microsoft";
+                maxName2 = employees2.get(j).getName();
+                maxSecondName2 = employees2.get(j).getSecondName();
             }
         }
         System.out.println(maxCompanyName2 + ": " + maxName2 + " " + maxSecondName2 + ". Зарплата: " + maxSalary2);
@@ -288,24 +306,24 @@ public class Methods {
         for (k = 0; k < employees3.size(); k++) {
             if (employees3.get(k).getSalary() > maxSalary3) {
                 maxSalary3 = employees3.get(k).getSalary();
-                maxCompanyName3="Sony";
-                maxName3=employees3.get(k).getName();
-                maxSecondName3=employees3.get(k).getSecondName();
+                maxCompanyName3 = "Sony";
+                maxName3 = employees3.get(k).getName();
+                maxSecondName3 = employees3.get(k).getSecondName();
             }
         }
         System.out.println(maxCompanyName3 + ": " + maxName3 + " " + maxSecondName3 + ". Зарплата: " + maxSalary3);
     }
 
-    static int a=0,b=0;
+    static int a = 0, b = 0;
 
     public static void sortCompanysBySalary() throws IOException {
-        scanner=new Scanner(System.in);
+        scanner = new Scanner(System.in);
         System.out.println("Выберите компанию в которой желаете отсортировать сотрудников по зарплате:");
         System.out.println("1. Luxsoft");
         System.out.println("2. Microsoft");
         System.out.println("3. Sony");
-        while (scanner.hasNext()){
-            switch (scanner.nextInt()){
+        while (scanner.hasNext()) {
+            switch (scanner.nextInt()) {
                 case 1:
                     sortBySalaryLuxsoft();
                     break;
@@ -315,35 +333,18 @@ public class Methods {
                 case 3:
                     sortBySalarySony();
                     break;
-                }
+            }
         }
     }
 
     public static void sortBySalaryLuxsoft() throws IOException {
-        ArrayList<Employee>employees=ReadingFromFileLuxsoft.getEmployees();
+        ArrayList<Employee> employees = ReadingFromFileLuxsoft.getEmployees();
         for (int i = employees.size() - 1; i >= 0; i--) {
             for (int j = 0; j < i; j++) {
-                if (employees.get(j).getSalary() < employees.get(j+1).getSalary()) {
+                if (employees.get(j).getSalary() < employees.get(j + 1).getSalary()) {
                     Employee k = employees.get(j);
                     employees.set(j, employees.get(j + 1));
-                    employees.set(j+1, k);
-                }
-            }
-        }
-        for (int i = 0; i < employees.size(); i++) {
-            System.out.print(employees.get(i).getName() + " " + employees.get(i).getSecondName() + "/" + employees.get(i).getSalary() + "/");
-            System.out.println();
-
-        }
-            }
-    public static void sortBySalaryMicrosoft() throws IOException {
-        ArrayList<Employee>employees=ReadingFromFileMicrosoft.getEmployees();
-        for (int i = employees.size() - 1; i >= 0; i--) {
-            for (int j = 0; j < i; j++) {
-                if (employees.get(j).getSalary() < employees.get(j+1).getSalary()) {
-                    Employee k = employees.get(j);
-                    employees.set(j, employees.get(j + 1));
-                    employees.set(j+1, k);
+                    employees.set(j + 1, k);
                 }
             }
         }
@@ -353,14 +354,33 @@ public class Methods {
 
         }
     }
-    public static void sortBySalarySony() throws IOException {
-        ArrayList<Employee>employees=ReadingFromFileSony.getEmployees();
+
+    public static void sortBySalaryMicrosoft() throws IOException {
+        ArrayList<Employee> employees = ReadingFromFileMicrosoft.getEmployees();
         for (int i = employees.size() - 1; i >= 0; i--) {
             for (int j = 0; j < i; j++) {
-                if (employees.get(j).getSalary() < employees.get(j+1).getSalary()) {
+                if (employees.get(j).getSalary() < employees.get(j + 1).getSalary()) {
                     Employee k = employees.get(j);
                     employees.set(j, employees.get(j + 1));
-                    employees.set(j+1, k);
+                    employees.set(j + 1, k);
+                }
+            }
+        }
+        for (int i = 0; i < employees.size(); i++) {
+            System.out.print(employees.get(i).getName() + " " + employees.get(i).getSecondName() + "/" + employees.get(i).getSalary() + "/");
+            System.out.println();
+
+        }
+    }
+
+    public static void sortBySalarySony() throws IOException {
+        ArrayList<Employee> employees = ReadingFromFileSony.getEmployees();
+        for (int i = employees.size() - 1; i >= 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (employees.get(j).getSalary() < employees.get(j + 1).getSalary()) {
+                    Employee k = employees.get(j);
+                    employees.set(j, employees.get(j + 1));
+                    employees.set(j + 1, k);
                 }
             }
         }
@@ -372,13 +392,13 @@ public class Methods {
     }
 
     public static void sortCompanysByAge() throws IOException {
-        scanner=new Scanner(System.in);
+        scanner = new Scanner(System.in);
         System.out.println("Выберите компанию в которой желаете отсортировать сотрудников по возрасту:");
         System.out.println("1. Luxsoft");
         System.out.println("2. Microsoft");
         System.out.println("3. Sony");
-        while (scanner.hasNext()){
-            switch (scanner.nextInt()){
+        while (scanner.hasNext()) {
+            switch (scanner.nextInt()) {
                 case 1:
                     sortByAgeLuxsoft();
                     break;
@@ -391,14 +411,15 @@ public class Methods {
             }
         }
     }
+
     public static void sortByAgeLuxsoft() throws IOException {
-        ArrayList<Employee>employees=ReadingFromFileLuxsoft.getEmployees();
+        ArrayList<Employee> employees = ReadingFromFileLuxsoft.getEmployees();
         for (int i = employees.size() - 1; i >= 0; i--) {
             for (int j = 0; j < i; j++) {
-                if (employees.get(j).getAge() < employees.get(j+1).getAge()) {
+                if (employees.get(j).getAge() < employees.get(j + 1).getAge()) {
                     Employee k = employees.get(j);
                     employees.set(j, employees.get(j + 1));
-                    employees.set(j+1, k);
+                    employees.set(j + 1, k);
                 }
             }
         }
@@ -408,14 +429,15 @@ public class Methods {
 
         }
     }
+
     public static void sortByAgeMicrosoft() throws IOException {
-        ArrayList<Employee>employees=ReadingFromFileMicrosoft.getEmployees();
+        ArrayList<Employee> employees = ReadingFromFileMicrosoft.getEmployees();
         for (int i = employees.size() - 1; i >= 0; i--) {
             for (int j = 0; j < i; j++) {
-                if (employees.get(j).getAge() < employees.get(j+1).getAge()) {
+                if (employees.get(j).getAge() < employees.get(j + 1).getAge()) {
                     Employee k = employees.get(j);
                     employees.set(j, employees.get(j + 1));
-                    employees.set(j+1, k);
+                    employees.set(j + 1, k);
                 }
             }
         }
@@ -425,14 +447,15 @@ public class Methods {
 
         }
     }
+
     public static void sortByAgeSony() throws IOException {
-        ArrayList<Employee>employees=ReadingFromFileSony.getEmployees();
+        ArrayList<Employee> employees = ReadingFromFileSony.getEmployees();
         for (int i = employees.size() - 1; i >= 0; i--) {
             for (int j = 0; j < i; j++) {
-                if (employees.get(j).getAge() < employees.get(j+1).getAge()) {
+                if (employees.get(j).getAge() < employees.get(j + 1).getAge()) {
                     Employee k = employees.get(j);
                     employees.set(j, employees.get(j + 1));
-                    employees.set(j+1, k);
+                    employees.set(j + 1, k);
                 }
             }
         }
@@ -442,14 +465,15 @@ public class Methods {
 
         }
     }
+
     public static void sortCompanysByLengthSecondName() throws IOException {
-        scanner=new Scanner(System.in);
+        scanner = new Scanner(System.in);
         System.out.println("Выберите компанию в которой желаете отсортировать сотрудников по длине фамилии:");
         System.out.println("1. Luxsoft");
         System.out.println("2. Microsoft");
         System.out.println("3. Sony");
-        while (scanner.hasNext()){
-            switch (scanner.nextInt()){
+        while (scanner.hasNext()) {
+            switch (scanner.nextInt()) {
                 case 1:
                     sortByLengthSecondNameLuxsoft();
                     break;
@@ -462,31 +486,15 @@ public class Methods {
             }
         }
     }
-    public static void sortByLengthSecondNameLuxsoft() throws IOException {
-        ArrayList<Employee>employees=ReadingFromFileLuxsoft.getEmployees();
-    for (int i = employees.size() - 1; i >= 0; i--) {
-        for (int j = 0; j < i; j++) {
-            if (employees.get(j).getSecondName().length() < employees.get(j+1).getSecondName().length()) {
-                Employee k = employees.get(j);
-                employees.set(j, employees.get(j + 1));
-                employees.set(j+1, k);
-            }
-        }
-    }
-    for (int i = 0; i < employees.size(); i++) {
-        System.out.print(employees.get(i).getName() + " " + employees.get(i).getSecondName() + ". Количество букв в фамилии: /" + employees.get(i).getSecondName().length() + "/");
-        System.out.println();
 
-    }
-}
-    public static void sortByLengthSecondNameMicrosoft() throws IOException {
-        ArrayList<Employee>employees=ReadingFromFileMicrosoft.getEmployees();
+    public static void sortByLengthSecondNameLuxsoft() throws IOException {
+        ArrayList<Employee> employees = ReadingFromFileLuxsoft.getEmployees();
         for (int i = employees.size() - 1; i >= 0; i--) {
             for (int j = 0; j < i; j++) {
-                if (employees.get(j).getSecondName().length() < employees.get(j+1).getSecondName().length()) {
+                if (employees.get(j).getSecondName().length() < employees.get(j + 1).getSecondName().length()) {
                     Employee k = employees.get(j);
                     employees.set(j, employees.get(j + 1));
-                    employees.set(j+1, k);
+                    employees.set(j + 1, k);
                 }
             }
         }
@@ -496,14 +504,33 @@ public class Methods {
 
         }
     }
-    public static void sortByLengthSecondNameSony() throws IOException {
-        ArrayList<Employee>employees=ReadingFromFileSony.getEmployees();
+
+    public static void sortByLengthSecondNameMicrosoft() throws IOException {
+        ArrayList<Employee> employees = ReadingFromFileMicrosoft.getEmployees();
         for (int i = employees.size() - 1; i >= 0; i--) {
             for (int j = 0; j < i; j++) {
-                if (employees.get(j).getSecondName().length() < employees.get(j+1).getSecondName().length()) {
+                if (employees.get(j).getSecondName().length() < employees.get(j + 1).getSecondName().length()) {
                     Employee k = employees.get(j);
                     employees.set(j, employees.get(j + 1));
-                    employees.set(j+1, k);
+                    employees.set(j + 1, k);
+                }
+            }
+        }
+        for (int i = 0; i < employees.size(); i++) {
+            System.out.print(employees.get(i).getName() + " " + employees.get(i).getSecondName() + ". Количество букв в фамилии: /" + employees.get(i).getSecondName().length() + "/");
+            System.out.println();
+
+        }
+    }
+
+    public static void sortByLengthSecondNameSony() throws IOException {
+        ArrayList<Employee> employees = ReadingFromFileSony.getEmployees();
+        for (int i = employees.size() - 1; i >= 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (employees.get(j).getSecondName().length() < employees.get(j + 1).getSecondName().length()) {
+                    Employee k = employees.get(j);
+                    employees.set(j, employees.get(j + 1));
+                    employees.set(j + 1, k);
                 }
             }
         }
@@ -515,7 +542,7 @@ public class Methods {
     }
 
     public static void greatNewEmployees() throws IOException {
-        scanner= new Scanner(System.in);
+        scanner = new Scanner(System.in);
         System.out.println("Выберите компанию,в которую желаете добавить сотрудника:");
         System.out.println("1: Luxsoft");
         System.out.println("2: Microsoft");
@@ -537,67 +564,8 @@ public class Methods {
 
     public static void greatEmployeeLuxsoft() throws IOException {
         ArrayList<Employee> employees = EmployeesUtil.getEmployees();
-        ArrayList<Company> companies=CompanyUtil.getCompanies();
-        Employee employee=new Employee();
-        try {
-                    scanner = new Scanner(System.in);
-                    System.out.println("Введите имя сотрудника!");
-                    employee.setName(scanner.nextLine());
-                    System.out.println("Введите фамилию сотрудника!");
-                    employee.setSecondName(scanner.nextLine());
-                    System.out.println("Введите пол сотрудника! (man/woman)");
-                    employee.setSex(scanner.nextLine());
-                    System.out.println("Введите возраст сотрудника!");
-                    employee.setAge(scanner.nextInt());
-                    System.out.println("Введите зарплату сотрудника!");
-            employee.setSalary(scanner.nextInt());
-            employees.add(employee);
-            FileWriter writer=new FileWriter("matveu/src/EmployeesLuxsoft.txt",true);
-            writer.write(employee.getName()+":"+employee.getSecondName()+":"+employee.getSex()+
-                    ":" + employee.getAge() + ":" + employee.getSalary() + "\n");
-            writer.flush();
-            writer.close();
-            FileWriter writerAll=new FileWriter("matveu/src/EmployeesAll.txt",true);
-            writerAll.write(employee.getName() + ":" + employee.getSecondName() + ":" + employee.getSex() +
-                    ":" + employee.getAge() + ":" + employee.getSalary() + "\n");
-            writerAll.flush();
-            writerAll.close();
-        }catch (Exception e){}
-
-        scanner = new Scanner(System.in);
-            System.out.println("Выберите действие:");
-            System.out.println("1: Добавить следующего сотрудника в Luxsoft");
-            System.out.println("2: Вывести информацию по данному сотруднику");
-            System.out.println("3: Добавить нового сотрудника в другие компании");
-            System.out.println("4: Выход в главное меню");
-            System.out.println("5: Вывести информацию по всем сотрудникам этой компании");
-
-        while (scanner.hasNext()) {
-                switch (scanner.next()) {
-                    case "1":
-                        greatEmployeeLuxsoft();
-                        break;
-                    case "2":
-                       System.out.print(employee.getName()+" "+employee.getSecondName()+". Sex: "+employee.getSex()+". Age: "+
-                       employee.getAge()+". Salary: "+employee.getSalary());
-                        System.out.println();
-                         break;
-                    case "3":
-                        greatNewEmployees();
-                        break;
-                    case "4":
-                        start();
-                        break;
-                    case "5":
-                        ReadingFromFileLuxsoft.getEmployees();
-                        break;
-                }
-            }
-    }
-    public static void greatEmployeeMicrosoft() throws IOException {
-        ArrayList<Employee> employees = EmployeesUtil.getEmployees();
-        ArrayList<Company> companies=CompanyUtil.getCompanies();
-        Employee employee=new Employee();
+        ArrayList<Company> companies = CompanyUtil.getCompanies();
+        Employee employee = new Employee();
         try {
             scanner = new Scanner(System.in);
             System.out.println("Введите имя сотрудника!");
@@ -611,17 +579,79 @@ public class Methods {
             System.out.println("Введите зарплату сотрудника!");
             employee.setSalary(scanner.nextInt());
             employees.add(employee);
-            FileWriter writer=new FileWriter("matveu/src/EmployeesMicrosoft.txt",true);
+            FileWriter writer = new FileWriter("matveu/src/EmployeesLuxsoft.txt", true);
             writer.write(employee.getName() + ":" + employee.getSecondName() + ":" + employee.getSex() +
                     ":" + employee.getAge() + ":" + employee.getSalary() + "\n");
             writer.flush();
             writer.close();
-            FileWriter writerAll=new FileWriter("matveu/src/EmployeesAll.txt",true);
+            FileWriter writerAll = new FileWriter("matveu/src/EmployeesAll.txt", true);
             writerAll.write(employee.getName() + ":" + employee.getSecondName() + ":" + employee.getSex() +
                     ":" + employee.getAge() + ":" + employee.getSalary() + "\n");
             writerAll.flush();
             writerAll.close();
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
+
+        scanner = new Scanner(System.in);
+        System.out.println("Выберите действие:");
+        System.out.println("1: Добавить следующего сотрудника в Luxsoft");
+        System.out.println("2: Вывести информацию по данному сотруднику");
+        System.out.println("3: Добавить нового сотрудника в другие компании");
+        System.out.println("4: Выход в главное меню");
+        System.out.println("5: Вывести информацию по всем сотрудникам этой компании");
+
+        while (scanner.hasNext()) {
+            switch (scanner.next()) {
+                case "1":
+                    greatEmployeeLuxsoft();
+                    break;
+                case "2":
+                    System.out.print(employee.getName() + " " + employee.getSecondName() + ". Sex: " + employee.getSex() + ". Age: " +
+                            employee.getAge() + ". Salary: " + employee.getSalary());
+                    System.out.println();
+                    break;
+                case "3":
+                    greatNewEmployees();
+                    break;
+                case "4":
+                    start();
+                    break;
+                case "5":
+                    ReadingFromFileLuxsoft.getEmployees();
+                    break;
+            }
+        }
+    }
+
+    public static void greatEmployeeMicrosoft() throws IOException {
+        ArrayList<Employee> employees = EmployeesUtil.getEmployees();
+        ArrayList<Company> companies = CompanyUtil.getCompanies();
+        Employee employee = new Employee();
+        try {
+            scanner = new Scanner(System.in);
+            System.out.println("Введите имя сотрудника!");
+            employee.setName(scanner.nextLine());
+            System.out.println("Введите фамилию сотрудника!");
+            employee.setSecondName(scanner.nextLine());
+            System.out.println("Введите пол сотрудника! (man/woman)");
+            employee.setSex(scanner.nextLine());
+            System.out.println("Введите возраст сотрудника!");
+            employee.setAge(scanner.nextInt());
+            System.out.println("Введите зарплату сотрудника!");
+            employee.setSalary(scanner.nextInt());
+            employees.add(employee);
+            FileWriter writer = new FileWriter("matveu/src/EmployeesMicrosoft.txt", true);
+            writer.write(employee.getName() + ":" + employee.getSecondName() + ":" + employee.getSex() +
+                    ":" + employee.getAge() + ":" + employee.getSalary() + "\n");
+            writer.flush();
+            writer.close();
+            FileWriter writerAll = new FileWriter("matveu/src/EmployeesAll.txt", true);
+            writerAll.write(employee.getName() + ":" + employee.getSecondName() + ":" + employee.getSex() +
+                    ":" + employee.getAge() + ":" + employee.getSalary() + "\n");
+            writerAll.flush();
+            writerAll.close();
+        } catch (Exception e) {
+        }
 
         scanner = new Scanner(System.in);
         System.out.println("Выберите действие:");
@@ -637,8 +667,8 @@ public class Methods {
                     greatEmployeeMicrosoft();
                     break;
                 case "2":
-                    System.out.print(employee.getName()+" "+employee.getSecondName()+". Sex: "+employee.getSex()+". Age: "+
-                            employee.getAge()+". Salary: "+employee.getSalary());
+                    System.out.print(employee.getName() + " " + employee.getSecondName() + ". Sex: " + employee.getSex() + ". Age: " +
+                            employee.getAge() + ". Salary: " + employee.getSalary());
                     System.out.println();
                     break;
                 case "3":
@@ -653,10 +683,11 @@ public class Methods {
             }
         }
     }
+
     public static void greatEmployeeSony() throws IOException {
         ArrayList<Employee> employees = EmployeesUtil.getEmployees();
-        ArrayList<Company> companies=CompanyUtil.getCompanies();
-        Employee employee=new Employee();
+        ArrayList<Company> companies = CompanyUtil.getCompanies();
+        Employee employee = new Employee();
         try {
             scanner = new Scanner(System.in);
             System.out.println("Введите имя сотрудника!");
@@ -670,17 +701,18 @@ public class Methods {
             System.out.println("Введите зарплату сотрудника!");
             employee.setSalary(scanner.nextInt());
             employees.add(employee);
-            FileWriter writer=new FileWriter("matveu/src/EmployeesSony.txt",true);
+            FileWriter writer = new FileWriter("matveu/src/EmployeesSony.txt", true);
             writer.write(employee.getName() + ":" + employee.getSecondName() + ":" + employee.getSex() +
                     ":" + employee.getAge() + ":" + employee.getSalary() + "\n");
             writer.flush();
             writer.close();
-            FileWriter writerAll=new FileWriter("matveu/src/EmployeesAll.txt",true);
+            FileWriter writerAll = new FileWriter("matveu/src/EmployeesAll.txt", true);
             writerAll.write(employee.getName() + ":" + employee.getSecondName() + ":" + employee.getSex() +
                     ":" + employee.getAge() + ":" + employee.getSalary() + "\n");
             writerAll.flush();
             writerAll.close();
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
 
         scanner = new Scanner(System.in);
         System.out.println("Выберите действие:");
@@ -690,14 +722,14 @@ public class Methods {
         System.out.println("4: Выход в главное меню");
         System.out.println("5: Вывести информацию по всем сотрудникам этой компании");
 
-        while (scanner.hasNext())  {
-            switch (scanner.next())  {
+        while (scanner.hasNext()) {
+            switch (scanner.next()) {
                 case "1":
                     greatEmployeeSony();
                     break;
                 case "2":
-                    System.out.print(employee.getName()+" "+employee.getSecondName()+". Sex: "+employee.getSex()+". Age: "+
-                            employee.getAge()+". Salary: "+employee.getSalary());
+                    System.out.print(employee.getName() + " " + employee.getSecondName() + ". Sex: " + employee.getSex() + ". Age: " +
+                            employee.getAge() + ". Salary: " + employee.getSalary());
                     System.out.println();
                     break;
                 case "3":
@@ -712,46 +744,166 @@ public class Methods {
             }
         }
     }
+    public static void greatLuxsoftAdmin() throws IOException {
+        ArrayList<Admin> admins = AdminsUtil.getAdmins();
+        ArrayList<Company> companies = CompanyUtil.getCompanies();
+        Admin admin = new Admin();
+        try {
+            scanner = new Scanner(System.in);
+            System.out.println("Введите имя админа!");
+            admin.setName(scanner.nextLine());
+            System.out.println("Введите фамилию админа!");
+            admin.setSecondName(scanner.nextLine());
+            System.out.println("Введите пол админа! (man/woman)");
+            admin.setSex(scanner.nextLine());
+            System.out.println("Введите возраст админа!");
+            admin.setAge(scanner.nextInt());
+            System.out.println("Введите зарплату админа!");
+            admin.setSalary(scanner.nextInt());
+            System.out.println("Введите рабочую платформу!");
+            admin.setWorkingPlatform(scanner.nextLine());
+            admins.add(admin);
+            FileWriter writer = new FileWriter("matveu/src/AdminLuxsoft.txt", true);
+            writer.write(admin.getName() + ":" + admin.getSecondName() + ":" + admin.getSex() +
+                    ":" + admin.getAge() + ":" + admin.getSalary() +":"+ admin.getWorkingPlatform() + "\n");
+            writer.flush();
+            writer.close();
+        } catch (Exception e) {
+        }
+    }
+    public static void greatLuxsoftMeneger() throws IOException {
+        ArrayList<Manager> manegers = ManagersUtil.getMenegers();
+        ArrayList<Company> companies = CompanyUtil.getCompanies();
+        Manager maneger = new Manager();
+        try {
+            scanner = new Scanner(System.in);
+            System.out.println("Введите имя менеджера!");
+            maneger.setName(scanner.nextLine());
+            System.out.println("Введите фамилию менеджера!");
+            maneger.setSecondName(scanner.nextLine());
+            System.out.println("Введите пол менеджера! (man/woman)");
+            maneger.setSex(scanner.nextLine());
+            System.out.println("Введите возраст менеджера!");
+            maneger.setAge(scanner.nextInt());
+            System.out.println("Введите зарплату менеджера!");
+            maneger.setSalary(scanner.nextInt());
+            System.out.println("Введите название проекта!");
+            maneger.setNameOfProject(scanner.nextLine());
+            manegers.add(maneger);
+            FileWriter writer = new FileWriter("matveu/src/MenegerLuxsoft.txt", true);
+            writer.write(maneger.getName() + ":" + maneger.getSecondName() + ":" + maneger.getSex() +
+                    ":" + maneger.getAge() + ":" + maneger.getSalary() +":"+ maneger.getNameOfProject() + "\n");
+            writer.flush();
+            writer.close();
+        } catch (Exception e) {
+        }
+    }
+    public static void greatLuxsoftProgrammer() throws IOException {
+        ArrayList<Programmer> programmers = ProgrammersUtil.getProgrammers();
+        ArrayList<Company> companies = CompanyUtil.getCompanies();
+        Programmer programmer = new Programmer();
+        try {
+            scanner = new Scanner(System.in);
+            System.out.println("Введите имя програмиста!");
+            programmer.setName(scanner.nextLine());
+            System.out.println("Введите фамилию програмиста!");
+            programmer.setSecondName(scanner.nextLine());
+            System.out.println("Введите пол програмиста! (man/woman)");
+            programmer.setSex(scanner.nextLine());
+            System.out.println("Введите возраст програмиста!");
+            programmer.setAge(scanner.nextInt());
+            System.out.println("Введите зарплату програмиста!");
+            programmer.setSalary(scanner.nextInt());
+            System.out.println("Введите язык программирования!");
+            programmer.setProgrammingLanguage(scanner.nextLine());
+            programmers.add(programmer);
+            FileWriter writer = new FileWriter("matveu/src/ProgrammerLuxsoft.txt", true);
+            writer.write(programmer.getName() + ":" + programmer.getSecondName() + ":" + programmer.getSex() +
+                    ":" + programmer.getAge() + ":" + programmer.getSalary() +":"+ programmer.getProgrammingLanguage() + "\n");
+            writer.flush();
+            writer.close();
+        } catch (Exception e) {
+        }
+    }
 
     public static void salaryPlusMenAndKillWomen() throws IOException {
-        ArrayList<Employee>employees=ReadingFromFileEmployeesAll.getEmployees();
-        scanner=new Scanner(System.in);
+        ArrayList<Employee> employees = ReadingFromFileEmployeesAll.getEmployees();
+        scanner = new Scanner(System.in);
         System.out.println("Введите сумму, на которую хотите повысить зп мужчинам");
-             double plus = scanner.nextDouble();
+        double plus = scanner.nextDouble();
         int i;
-            for (i = 0; i < employees.size(); i++) {
-                    if (employees.get(i).getSex().equals("woman")) {
-                        employees.remove(i);
-                    }
-    }
+        for (i = 0; i < employees.size(); i++) {
+            if (employees.get(i).getSex().equals("woman")) {
+                employees.remove(i);
+            }
+        }
         for (i = 0; i < employees.size(); i++) {
             if (employees.get(i).getSex().equals("man")) {
                 employees.get(i).setSalary(employees.get(i).getSalary() + plus);
             }
         }
         for (i = 0; i < employees.size(); i++) {
-                System.out.print(employees.get(i).getName() + " " + employees.get(i).getSecondName() + " " + employees.get(i).getSalary());
-                System.out.println();
-            }
+            System.out.print(employees.get(i).getName() + " " + employees.get(i).getSecondName() + " " + employees.get(i).getSalary());
+            System.out.println();
         }
+    }
 
     public static void salaryPlusWomenAndKillMen() throws IOException {
-        ArrayList<Employee>employees=ReadingFromFileEmployeesAll.getEmployees();
-        scanner=new Scanner(System.in);
+        ArrayList<Employee> employees = ReadingFromFileEmployeesAll.getEmployees();
+        scanner = new Scanner(System.in);
         System.out.println("Введите сумму, на которую хотите повысить зп женщинам");
         double plus = scanner.nextDouble();
         for (int i = 0; i < employees.size(); i++) {
             if (employees.get(i).getSex().equals("man")) {
                 employees.remove(i);
             }
-            if (employees.get(i).getSex().equals("woman")){
-                    employees.get(i).setSalary(employees.get(i).getSalary()+plus);
-                }
+            if (employees.get(i).getSex().equals("woman")) {
+                employees.get(i).setSalary(employees.get(i).getSalary() + plus);
             }
+        }
         for (int i = 0; i < employees.size(); i++) {
             System.out.print(employees.get(i).getName() + " " + employees.get(i).getSecondName() + " " + employees.get(i).getSalary());
             System.out.println();
         }
+    }
+
+
+    public static void maxSalaryFromAdminMenegerProgrammer() throws IOException{
+        ArrayList<Admin> admins  = ReadingFromFileAdminLuxsoft.getAdmins();
+        ArrayList<Manager> manegers = ReadingFromFileMenegerLuxsoft.getMenegers();
+        ArrayList<Programmer> programmers = ReadingFromFileProgrammerLuxsoft.getProgrammer();
+        int i,j,k;
+        double maxSalary = admins.get(0).getSalary();
+        String maxCompanyName="";
+        String maxName="";
+        String maxSecondName="";
+
+        for (i = 0; i < admins.size(); i++) {
+            for (j = 0; j < manegers.size(); j++) {
+                for (k = 0; k < programmers.size(); k++) {
+                    if(admins.get(i).getSalary()>maxSalary) {
+                        maxSalary = admins.get(i).getSalary();
+                        maxCompanyName = "Admin";
+                        maxName = admins.get(i).getName();
+                        maxSecondName = admins.get(i).getSecondName();
+                    }
+                        if(manegers.get(j).getSalary()>maxSalary) {
+                            maxSalary = manegers.get(j).getSalary();
+                            maxCompanyName = "Manager";
+                            maxName = manegers.get(j).getName();
+                            maxSecondName = manegers.get(j).getSecondName();
+                        }
+                            if(programmers.get(k).getSalary()>maxSalary){
+                                maxSalary=programmers.get(k).getSalary();
+                                maxCompanyName="Programmer";
+                                maxName=programmers.get(k).getName();
+                                maxSecondName=programmers.get(k).getSecondName();
+                            }
+                }
+            }
+        }
+        System.out.print("Максимальная зарплата: "+maxCompanyName + ": " + maxName + " " + maxSecondName + ". Зарплата: " + maxSalary + "\n");
+
     }
 }
 

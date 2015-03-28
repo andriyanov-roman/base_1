@@ -1,4 +1,4 @@
-package Homeworks;
+package Homeworks.homework_2;
 
 /**
  * Created by lbondarenko on 13.01.2015.

@@ -13,9 +13,7 @@ import java.util.ArrayList;
 public class Company {
     private String companyName;
     private ArrayList<Employee> employees;
-    private ArrayList<Admin> admins;
-    private ArrayList<Manager> managers;
-    private ArrayList<Programmer> programmers;
+
 
 
     public String getCompanyName() {

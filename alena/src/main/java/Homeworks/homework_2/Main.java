@@ -1,4 +1,4 @@
-package Homeworks;
+package Homeworks.homework_2;
 
 
 /**

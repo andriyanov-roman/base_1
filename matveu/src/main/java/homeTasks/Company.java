@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Company {
     public String companyName;
     public ArrayList<Employee> employees;
-    public ArrayList<Maneger> manegers;
+    public ArrayList<Manager> manegers;
     public ArrayList<Admin> admins;
     public ArrayList<Programmer> programmers;
 
@@ -27,11 +27,11 @@ public class Company {
         return employees;
     }
 
-    public ArrayList<Maneger> getManegers() {
+    public ArrayList<Manager> getManegers() {
         return manegers;
     }
 
-    public void setManegers(ArrayList<Maneger> manegers) {
+    public void setManegers(ArrayList<Manager> manegers) {
         this.manegers = manegers;
     }
 

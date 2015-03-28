@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class EmployeeUtil {
     public static ArrayList<Employee> getEmployees () throws IOException {
         ArrayList<Employee> empl = new ArrayList<>();
-        String dump = Methods.ReadFromFile("alena/scr/main/java/identity/employees.txt");
+        String dump = Methods.ReadFromFile("alena\\src\\main\\java\\identity\\employees.txt");
         String [] lines = dump.split("\n");
         for (int i = 0; i < lines.length; i++) {
             String [] person = lines[i].split(":");

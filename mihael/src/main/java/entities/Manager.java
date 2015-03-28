@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by Администратор on 26.03.2015.
  */
-public class Manager extends Employee{
+public class Manager{
     private String name;
     private String secondName;
     private double salary;

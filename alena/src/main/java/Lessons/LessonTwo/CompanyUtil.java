@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class CompanyUtil {
     public static ArrayList<Company> getCompanies() throws IOException {
-        File file = new File("alena/src/main/java/identity/companies.txt");
+        File file = new File("alena/src/main/java/identity/companies.txt.txt");
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
         ArrayList<Company> companies = new ArrayList<>();
@@ -41,21 +41,21 @@ public class CompanyUtil {
         c1.getEmployees().add(employees.get(0));
         c1.getEmployees().add(employees.get(1));
         c1.getEmployees().add(employees.get(2));
-        c1.setCompanyName("Fist");
+        c1.setCompanyName("Fist.txt");
 
         Company c2 = new Company();
         c2.setEmployees(new ArrayList<>());
         c2.getEmployees().add(employees.get(3));
         c2.getEmployees().add(employees.get(4));
         c2.getEmployees().add(employees.get(5));
-        c2.setCompanyName("Beast");
+        c2.setCompanyName("Beast.txt");
 
         Company c3 = new Company();
         c3.setEmployees(new ArrayList<>());
         c3.getEmployees().add(employees.get(6));
         c3.getEmployees().add(employees.get(7));
         c3.getEmployees().add(employees.get(8));
-        c3.setCompanyName("Finest");*/
+        c3.setCompanyName("Finest.txt");*/
         /*return new ArrayList<Company>(Arrays.asList(c1, c2, c3));*/
     }
 

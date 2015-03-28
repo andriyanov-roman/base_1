@@ -8,13 +8,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static Lessons.LessonTwo.Methods.addNewEmployee;
+
 /**
  * Created by MacBook on 16.03.15.
  */
 public class Main {
-    public void main(String[] args) throws IOException { letsBegin(); }
+    public static void main(String[] args) throws IOException { letsBegin(); }
 
-    public void letsBegin() throws IOException {
+    public static void letsBegin() throws IOException {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Enter command key" + " " +
                     " 0. Login coincides with the name \n " +
@@ -38,8 +40,8 @@ public class Main {
 //                        sortBySalary();
                         break;
                     case "5":
-                        /*createNewEmployee();
-                        writeToFileEmployee(employees);
+                        addNewEmployee(scanner);
+                        /*writeToFileEmployee(employees);
                         System.out.println(employees.toString());*/
                         break;
                     //case "Exit":
