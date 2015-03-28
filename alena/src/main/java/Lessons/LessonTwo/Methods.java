@@ -1,5 +1,8 @@
 package Lessons.LessonTwo;
 
+import Homeworks.homework_1.Employee;
+import Homeworks.homework_1.EmployeeUtil;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -27,31 +30,114 @@ public class Methods {
         writer.close();
     }
 
-//    public static void addNewEmployee () throws IOException {
-//
-//        ArrayList<Company> employees = Company.getEmployees();
-//        Employee1 employee1 = new Employee1();
-//        Scanner sc = new Scanner(System.in);
-//        try {
-//            System.out.println("Введите Имя сотрудника: ");
-//            employee1.setName(sc.next());
-//            System.out.println("Введите Фамилию сотрудника: ");
-//            employee1.setSecondName(sc.next());
-//            System.out.println("Введите Пол сотрудника: ");
-//            employee1.setSex(sc.next());
-//            System.out.println("Введите возраст сотрудника: ");
-//            employee1.setAge(sc.nextInt());
-//            System.out.println("Введите предпологаемую ЗП сотрудника: ");
-//            employee1.setSalary(sc.nextInt());
-//            employee1s.add(employee1);
-//            FileWriter writer = new FileWriter("vorobey/src/FirstCompany.txt", true);
-//            writer.write(employee1.getName() + ":" + employee1.getSecondName() + ":" + employee1.getSex() + ":" + employee1.getAge() + ":" + employee1.getSalary() + "\n");
-//            writer.flush();
-//            writer.close();
-//
-//
-//        }
-//    }
+    public static void addNewEmployee () throws IOException {
 
+        ArrayList<Employee> employees = EmployeeUtil.getEmployees();
+        Employee employee = new Employee();
+        Scanner sc = new Scanner(System.in);
+            System.out.println("Введите Имя сотрудника: ");
+            employee.setName(sc.next());
+            System.out.println("Введите Фамилию сотрудника: ");
+            employee.setSecondName(sc.next());
+            System.out.println("Введите пол сотрудника: ");
+            employee.setSex(sc.next());
+            System.out.println("Введите возраст сотрудника: ");
+            employee.setAge(sc.nextInt());
+            System.out.println("Введите ЗП сотрудника: ");
+            employee.setSalary(sc.nextInt());
+            employees.add(employee);
+            FileWriter writer = new FileWriter("alena/src/main/java/identity/employees", true);
+            writer.write(employee.getName() + ":" + employee.getSecondName() + ":" + employee.getSex() + ":" + employee.getAge() + ":" + employee.getSalary() + "\n");
+            writer.flush();
+            writer.close();
+    }
+
+    public static void findMaxSalary() throws IOException {
+        ArrayList<Company> companies = CompanyUtil.getCompanies();
+        double temp = companies.get(0).getEmployees().get(0).getSalary();
+        String namey = companies.get(0).getEmployees().get(0).getName();
+        for (int i = 0; i < companies.size(); i++) {
+            if (companies.get(i).getEmployees().get(i).getSalary() > companies.get(0).getEmployees().get(0).getSalary()) {
+                temp = companies.get(i).getEmployees().get(i).getSalary();
+                namey = companies.get(i).getEmployees().get(i).getName();
+            }
+            System.out.println(companies.get(i).getEmployees().get(i).getName());
+
+            break;
+
+
+        }
+
+    }
+
+    public static void sortBySalary(Company company) {
+        for (int i = 0; i < company.getEmployees().size(); i++) {
+            for (int j = 0; j < company.getEmployees().size() - 1; j++) {
+                if (company.getEmployees().get(j).getSalary() < company.getEmployees().get(j + 1).getSalary()) {
+                    Employee temp = company.getEmployees().get(j);
+                    company.getEmployees().set(j, company.getEmployees().get(j + 1));
+                    company.getEmployees().set((j + 1), temp);
+                }
+
+            }
+        }
+        System.out.println(company.getCompanyName());
+        for (int j = 0; j < company.getEmployees().size(); j++) {
+            System.out.println(company.getEmployees().get(j).getName() + " "
+                    + company.getEmployees().get(j).getSecondName() + " "
+                    + company.getEmployees().get(j).getSalary());
+        }
+    }
+
+    public void sortByAge(Company c) {
+        for (int i = 0; i < c.getEmployees().size(); i++) {
+            for (int j = 0; j < c.getEmployees().size() - 1; j++) {
+                if (c.getEmployees().get(j).getAge() < c.getEmployees().get(j + 1).getAge()) {
+                    Employee temp = c.getEmployees().get(j);
+                    c.getEmployees().set(j, c.getEmployees().get(j + 1));
+                    c.getEmployees().set((j + 1), temp);
+                }
+
+            }
+        }
+        System.out.println(c.getCompanyName());
+        for (int j = 0; j < c.getEmployees().size(); j++) {
+            System.out.println(c.getEmployees().get(j).getName() + " "
+                    + c.getEmployees().get(j).getSecondName() + " "
+                    + c.getEmployees().get(j).getAge());
+        }
+    }
+
+    public void sortBySurnameLength(Company c) {
+        for (int i = 0; i < c.getEmployees().size(); i++) {
+            for (int j = 0; j < c.getEmployees().size() - 1; j++) {
+                if (c.getEmployees().get(j).getSecondName().equals(c.getEmployees().get(j + 1).getSecondName())) {
+                    Employee temp = c.getEmployees().get(j);
+                    c.getEmployees().set(j, c.getEmployees().get(j + 1));
+                    c.getEmployees().set((j + 1), temp);
+                }
+
+            }
+        }
+        System.out.println(c.getCompanyName());
+        for (int j = 0; j < c.getEmployees().size(); j++) {
+            System.out.println(c.getEmployees().get(j).getName() + " "
+                    + c.getEmployees().get(j).getSecondName());
+        }
+    }
+
+
+    public void writeToFileEmployee (ArrayList<Employee> employees){
+        FileWriter writer_employees = null;
+        try {
+            writer_employees = new FileWriter("alena/src/main/java/identity.employees.txt", true);
+            writer_employees.write(employees.toString());
+            writer_employees.flush();
+            writer_employees.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }

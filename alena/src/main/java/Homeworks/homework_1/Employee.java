@@ -1,9 +1,11 @@
 package Homeworks.homework_1;
 
+import Lessons.LessonTwo.Company;
+
 /**
  * Created by MacBook on 16.03.15.
  */
-public class Employee {
+public class Employee extends Company {
     private String name;
     private String secondName;
     private double salary;
