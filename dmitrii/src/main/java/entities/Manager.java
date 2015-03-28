@@ -7,6 +7,7 @@ public class Manager {
     private String name;
     private String surname;
     private double salary;
+    private String projectName;
 
     public String getProjectName() {
         return projectName;
@@ -15,8 +16,6 @@ public class Manager {
     public void setProjectName(String projectName) {
         this.projectName = projectName;
     }
-
-    private String projectName;
 
     public String getName() {
         return name;
