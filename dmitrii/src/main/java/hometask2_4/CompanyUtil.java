@@ -13,9 +13,9 @@ import java.util.Arrays;
 class CompanyUtil {
     public static ArrayList<Company> getCompanies() throws IOException {
         //ArrayList<Employee> employees = EmployeeUtil.getEmployees();
-        Company c1 = CompanyParse("dmitrii\\src\\main\\resources\\companies\\Brabus.txt");
-        Company c2 = CompanyParse("dmitrii\\src\\main\\resources\\companies\\Volvo.txt");
-        Company c3 = CompanyParse("dmitrii\\src\\main\\resources\\companies\\ZAZ.txt");
+        Company c1 = CompanyParse("dmitrii\\src\\main\\resources\\trash\\Brabus.txt");
+        Company c2 = CompanyParse("dmitrii\\src\\main\\resources\\trash\\Volvo.txt");
+        Company c3 = CompanyParse("dmitrii\\src\\main\\resources\\trash\\ZAZ.txt");
         return new ArrayList<Company> (Arrays.asList(c1, c2, c3));
     }
     public static Company CompanyParse (String url) throws IOException {
