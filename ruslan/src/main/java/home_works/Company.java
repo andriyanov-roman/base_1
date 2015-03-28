@@ -1,8 +1,8 @@
 package home_works;
 
-import lesson_5.Developer;
-import lesson_5.Manager;
-import lesson_5.System_Adm;
+import entity.Developer;
+import entity.Manager;
+import entity.SystemAdm;
 
 import java.util.ArrayList;
 
@@ -29,17 +29,17 @@ import java.util.ArrayList;
         this.developers = developers;
     }
 
-    public ArrayList<System_Adm> getSystemAdms() {
+    public ArrayList<SystemAdm> getSystemAdms() {
         return systemAdms;
     }
 
-    public void setSystemAdms(ArrayList<System_Adm> systemAdms) {
+    public void setSystemAdms(ArrayList<SystemAdm> systemAdms) {
         this.systemAdms = systemAdms;
     }
 
     public ArrayList<Manager> managers;
     public ArrayList<Developer> developers;
-    public ArrayList<System_Adm> systemAdms;
+    public ArrayList<SystemAdm> systemAdms;
 
     public String getCompanyName() {
         return companyName;

@@ -772,9 +772,9 @@ public class Methods {
         }
     }
     public static void greatLuxsoftMeneger() throws IOException {
-        ArrayList<Meneger> manegers = MenegersUtil.getMenegers();
+        ArrayList<Manager> manegers = ManagersUtil.getMenegers();
         ArrayList<Company> companies = CompanyUtil.getCompanies();
-        Meneger maneger = new Meneger();
+        Manager maneger = new Manager();
         try {
             scanner = new Scanner(System.in);
             System.out.println("Введите имя менеджера!");
@@ -870,7 +870,7 @@ public class Methods {
 
     public static void maxSalaryFromAdminMenegerProgrammer() throws IOException{
         ArrayList<Admin> admins  = ReadingFromFileAdminLuxsoft.getAdmins();
-        ArrayList<Meneger> manegers = ReadingFromFileMenegerLuxsoft.getMenegers();
+        ArrayList<Manager> manegers = ReadingFromFileMenegerLuxsoft.getMenegers();
         ArrayList<Programmer> programmers = ReadingFromFileProgrammerLuxsoft.getProgrammer();
         int i,j,k;
         double maxSalary = admins.get(0).getSalary();
@@ -889,7 +889,7 @@ public class Methods {
                     }
                         if(manegers.get(j).getSalary()>maxSalary) {
                             maxSalary = manegers.get(j).getSalary();
-                            maxCompanyName = "Meneger";
+                            maxCompanyName = "Manager";
                             maxName = manegers.get(j).getName();
                             maxSecondName = manegers.get(j).getSecondName();
                         }
