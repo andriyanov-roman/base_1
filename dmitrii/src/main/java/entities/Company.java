@@ -1,8 +1,4 @@
-package entity;
-
-import lesson5.Admin;
-import lesson5.Manager;
-import lesson5.Programmer;
+package entities;
 
 import java.util.ArrayList;
 
@@ -12,11 +8,17 @@ import java.util.ArrayList;
 public class Company {
     private String companyName;
     private ArrayList<Employee> employees;
-    private ArrayList<Programmer> progers;
+    private ArrayList<Programmer> programmers;
     private ArrayList<Admin> admins;
     private ArrayList<Manager> managers;
     private String filePath;
 
+    public void setCompanyName (String name){
+        this.companyName = name;
+    }
+    public String getCompanyName () {
+        return companyName;
+    }
     public void setEmployees (ArrayList<Employee> employees){
         this.employees = employees;
     }
@@ -25,18 +27,33 @@ public class Company {
         return employees;
     }
 
-    public void setCompanyName (String name){
-        this.companyName = name;
+    public ArrayList<Programmer> getProgrammers() {
+        return programmers;
     }
 
-    public String getCompanyName () {
-        return companyName;
+    public void setProgrammers(ArrayList<Programmer> programmers) {
+        this.programmers = programmers;
+    }
+
+    public ArrayList<Admin> getAdmins() {
+        return admins;
+    }
+
+    public void setAdmins(ArrayList<Admin> admins) {
+        this.admins = admins;
+    }
+
+    public ArrayList<Manager> getManagers() {
+        return managers;
+    }
+
+    public void setManagers(ArrayList<Manager> managers) {
+        this.managers = managers;
     }
 
     public void setFilePath(String filePath) {
         this.filePath = filePath;
     }
-
     public String getFilePath() {
         return filePath;
     }

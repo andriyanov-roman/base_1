@@ -1,8 +1,7 @@
 package lesson3;
 
-import entity.Employee;
+import entities.Employee;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by user on 16.03.2015.
