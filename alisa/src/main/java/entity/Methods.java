@@ -4,6 +4,9 @@ import lessons.lesson_2.Company;
 import lessons.lesson_2.CompanyUtil;
 import lessons.lesson_2.Employee;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -21,7 +24,8 @@ public class Methods{
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "0":
-                    showMaxSalary();
+
+                    //showMaxSalary();
                     break;
                 case "Exit":
                     System.exit(0);
@@ -32,21 +36,49 @@ public class Methods{
     }
 
 
+    public static ArrayList<String[]> readFromFile(String path, String regExp) throws IOException {
+        File file = new File(path);
+        FileReader reader = new FileReader(file);
+        BufferedReader buffer = new BufferedReader(reader);
+        String line;
+        ArrayList<String[]> strings = new ArrayList<>();
+        while ((line = buffer.readLine()) != null) {
+            String[] pool = line.split(regExp);
+            strings.add(pool);
+        }
+        return strings;
+    }
 
-    private void showMaxSalary() {
-      //  ArrayList<Company> companies = CompanyUtil.getCompanies();
-        for (int i = 0; i < companies.size(); i++) {
-            Employee temp = companies.get(i).getEmployees().get(0);
-            for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
-                double salary = companies.get(i).getEmployees().get(j).getSalary();
+    public ArrayList<Admin> getAdmins (String path, String regExp) throws IOException {
+        ArrayList<String[]> strings = readFromFile(path, regExp);
+        ArrayList<Admin> admins = new ArrayList<>();
+        String line;
+        for (int i = 0; i < strings.size(); i++) {
+            Admin a = new Admin();
+            a.setName(strings.get(i)[1]);
+            a.setSurname(strings.get(i)[2]);
+            a.setSalary(Double.valueOf(strings.get(i)[3]));
+            a.setPlatformName(strings.get(i)[4]);
+            admins.add(a);
+        }
+
+        return admins;
+    }
+
+    /*public void showMaxSalary() throws IOException {
+       ArrayList<Admin> admins = getAdmins("alisa\\src\\result\\Admin", ":");
+        for (int i = 0; i < admins.size(); i++) {
+            Admin temp =admins.get(i).getAdmins().get(0);
+            for (int j = 0; j < admins.get(i).getAdmins().size(); j++) {
+                double salary = admins.get(i).getAdmins().get(j).getSalary();
                 if (temp.getSalary() < salary) {
-                    temp = companies.get(i).getEmployees().get(j);
+                    temp = admins.get(i).getAdmins().get(j);
                 }
             }
-            System.out.println(companies.get(i).getCompanyName() + " " + temp.getName() + " " + temp.getSalary());
+            System.out.println(temp.getName() + " " + temp.getSalary());
         }
 
     }
-
+*/
 
 }
