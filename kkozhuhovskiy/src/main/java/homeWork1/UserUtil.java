@@ -16,30 +16,6 @@ public class UserUtil {
 
         return new User[]{u1, u2, u3, u4};
 }
-    public static void showIdUsers() {
-        User[] users = UserUtil.getUsers();
-        for (int i = 0; i < users.length; i++) {
-            System.out.println(users[i].getName() + "have id" + users[i].getId());
-        }
-    }
-    public static void findMatches() {
-        User[] users = UserUtil.getUsers();
-        for (int i = 0; i < users.length; i++) {
-            if (users[i].getLogin().equals(users[i].getName()))
-                System.out.println("User " + users[i] + " have matched login with name");
-            for (int c = 0; c < users.length; c++) {
-                if (users[c].getLogin().equals(users[c].getSecondName()))
-                    System.out.println("User" + users[c] + " have matched login with second name");
-            }
-        }
 
-    }
-    public static void showUsers() {
-        User[] users = UserUtil.getUsers();
-        for (int i = 0; i < users.length; i++) {
-            System.out.print(users[i].getName() + " " + users[i].getSecondName());
-        }
-        System.out.println();
-    }
 }
 

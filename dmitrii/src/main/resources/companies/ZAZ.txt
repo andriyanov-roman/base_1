@@ -1,5 +1,8 @@
 ZAZ
-Clint:Eastwood:99999.0:true:44
-Artemiy:Lebedev:4800.00:true:35
-Artur:Lebedev:8000.00:true:14
-Immanuel:Kant:1.00:true:14
+Employee:Clint:Eastwood:99999.0:true:44
+Employee:Artemiy:Lebedev:4800.00:true:35
+Employee:Artur:Lebedev:8000.00:true:14
+Manager:Immanuel:Kant:1.00:Проект 'О природе вещей'
+Programmer:Taras:Kogevnikov:950:Objective-C
+Admin:Marry:Madison:14375.0:Red_Hat
+Admin:Helen:Perry:66.0:Linux_Mint_17_Quiana

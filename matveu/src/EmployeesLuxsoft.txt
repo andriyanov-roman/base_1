@@ -1,3 +1,0 @@
-Vera Zauceva. Пол: woman. Возраст: 33. Зарплата: 12500.0
-peter kolosov. Пол: man. Возраст: 14. Зарплата: 920.0
-Vankevich Vankevich. Пол: man. Возраст: 26. Зарплата: 7500.0

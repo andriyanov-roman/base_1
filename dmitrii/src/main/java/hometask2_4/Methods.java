@@ -1,7 +1,7 @@
 package hometask2_4;
 
-import entity.Company;
-import entity.Employee;
+import entities.Company;
+import entities.Employee;
 
 import java.io.IOException;
 import java.util.ArrayList;

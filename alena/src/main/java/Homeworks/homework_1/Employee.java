@@ -1,14 +1,17 @@
 package Homeworks.homework_1;
 
+import Lessons.LessonTwo.Company;
+
 /**
  * Created by MacBook on 16.03.15.
  */
-public class Employee {
+public class Employee extends Company {
     private String name;
     private String secondName;
     private double salary;
     private String sex;
     private int age;
+
 
     public Employee (String a, String b, double c, String d, int e){
         this.name = a ;
@@ -60,6 +63,11 @@ public class Employee {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + " " + secondName + " " + " " + salary + " " + " " + age + " " + " " + sex;
     }
 
 

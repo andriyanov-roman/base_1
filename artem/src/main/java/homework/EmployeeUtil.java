@@ -7,30 +7,25 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class EmployeeUtil {
-    public static ArrayList<Employee> employees = new ArrayList<>();
-    public static ArrayList<Employee> getEmployees() throws IOException{
-        File file = new File("artem/src/main/java/additionalFiles/employees");
-        FileReader reader = new FileReader(file);
-        BufferedReader buffer = new BufferedReader(reader);
-        String line;
-        while((line = buffer.readLine()) != null) {
-            String[] pool = line.split(":");
+//    public static ArrayList<Employee> employees = new ArrayList<>();
+    public static ArrayList<Employee> getEmployees(String path, String regExp) throws IOException{
+        ArrayList<String[]> strings = Methods.readFromFile(path, regExp);
+        ArrayList<Employee> employees = new ArrayList<>();
+        for (int i = 0; i < strings.size(); i++) {
             Employee e = new Employee();
-            e.setName(pool[0]);
-            e.setSecondName(pool[1]);
-            e.setSalary(Double.valueOf(pool[2]));
-            e.setSex(pool[3]);
-            e.setAge(Integer.valueOf(pool[4]));
+            e.setName(strings.get(i)[0]);
+            e.setSecondName(strings.get(i)[1]);
+            e.setSalary(Double.valueOf(strings.get(i)[2]));
+            e.setSex(strings.get(i)[3]);
+            e.setAge(Integer.valueOf(strings.get(i)[4]));
             employees.add(e);
         }
         return employees;
     }
-    public static void showEmployees(){
-        for(int i = 0; i < employees.size(); i++){
-                System.out.println(employees.get(i));
-        }
+    public static void showEmployees(String company, ArrayList<Employee> employees) throws IOException{
+        for(int i = 0; i < employees.size(); i++) System.out.println(company + " " + employees.get(i).toString());
     }
-    public static void addEmployee() throws IOException{
+    public static void addEmployee(String company) throws IOException{
         System.out.println(" Fill the fields, please!");
         Methods.scanner.useDelimiter("\n");
         System.out.print("Name: ");
@@ -55,11 +50,10 @@ public class EmployeeUtil {
         }
         String sex="";
         System.out.print("Gender (\"m\"-male, \"f\"-female): ");
-        boolean b = true;
-        while (b){
+        while (true){
             String answer = Methods.scanner.next();
-            if (answer.equals("m")) { sex = "male"; b=false; break; }
-            else if (answer.equals("f")) { sex = "female"; b=false; break; }
+            if (answer.equals("m")) { sex = "male"; break; }
+            else if (answer.equals("f")) { sex = "female"; break; }
             System.out.print("Input Gender letter (\"m\"-male, \"f\"-female): ");
         }
         int age=0;
@@ -79,8 +73,16 @@ public class EmployeeUtil {
             }
         }
         Employee e = new Employee(name,surname,salary,sex,age);
+        ArrayList<Employee> employees = new ArrayList<>();
         employees.add(e);
+        if (company.equals("a")){
+            System.out.print(" Enter Company Name: ");
+            String s = Methods.scanner.next();
+            CompanyUtil.addCompany(s, employees);
+        }
+        else {Methods.writeToFile("artem/src/main/java/additionalFiles/companies/"+company, employees);}
     }
+    /*
     public static void deleteEmployee() throws IOException{
         int i = -1;
         while (true) {
@@ -93,17 +95,8 @@ public class EmployeeUtil {
             } catch (IndexOutOfBoundsException e){ // чем эта ошибка отличкестя от ArrayIndexOutOfBoundsException???
                 System.out.println("Wrong inpup! Array index out of bounds [0;"+(employees.size()-1)+"]. Try again.");
             }
-            if (i >= 0 && i <= (employees.size()-1)) { break; }
+            if (i >= 0 && i <= employees.size()) { break; }
         }
     }
-    public static void saveEmployeeFile()throws IOException{
-        FileWriter writer = new FileWriter("artem/src/main/java/additionalFiles/test");
-        StringBuffer buffer = new StringBuffer();
-        for (int i = 0; i < employees.size(); i++) {
-            buffer.append(String.valueOf(employees.get(i).getName()+":"+employees.get(i).getSecondName()+":"+employees.get(i).getSalary()+":"+employees.get(i).getSex()+":"+employees.get(i).getAge()+":"+ "\n"));
-        }
-        writer.write(String.valueOf(buffer));
-        writer.flush();
-        writer.close();
-    }
+    */
 }

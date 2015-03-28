@@ -1,57 +1,123 @@
 package homework;
 
 import entity.Employee;
+
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
 
 public class Sort {
-    public static void sortByName(){
-        Collections.sort(CompanyUtil.companies.get(CompanyUtil.sortSelection).getEmployees(), new Comparator<Employee>() {
-            @Override
-            public int compare(Employee o1, Employee o2) {
-                return o1.getName().compareTo(o2.getName());
+    public static void sortByName(int i, String[] companies) throws IOException{
+        if(i==0){
+            for (int j = 0; j < companies.length; j++) {
+                ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/additionalFiles/companies/" + companies[j]), ":");
+                Collections.sort(employees, new Comparator<Employee>() {
+                    @Override
+                    public int compare(Employee o1, Employee o2) {
+                        return o1.getName().compareTo(o2.getName());
+                    }
+                });
+                EmployeeUtil.showEmployees(CompanyUtil.companies[j], employees);
             }
-        });
-        for (int j = 0; j < CompanyUtil.companies.get(CompanyUtil.sortSelection).getEmployees().size(); j++) {
-            System.out.println(CompanyUtil.companies.get(CompanyUtil.sortSelection).getCompanyName()+" "+CompanyUtil.companies.get(CompanyUtil.sortSelection).getEmployees().get(j));
         }
-    }
-    public static void sortBySurnameLength(){
-        Collections.sort(CompanyUtil.companies.get(CompanyUtil.sortSelection).getEmployees(), new Comparator<Employee>() {
-            @Override
-            public int compare(Employee o1, Employee o2) {
-                return o1.getSecondName().length() - o2.getSecondName().length();
-            }
-        });
-        for (int j = 0; j < CompanyUtil.companies.get(CompanyUtil.sortSelection).getEmployees().size(); j++) {
-            System.out.println(CompanyUtil.companies.get(CompanyUtil.sortSelection).getCompanyName()+" "+CompanyUtil.companies.get(CompanyUtil.sortSelection).getEmployees().get(j));
-        }
-    }
-    public static void sortByAge(){
-        Collections.sort(CompanyUtil.companies.get(CompanyUtil.sortSelection).getEmployees(), new Comparator<Employee>() {
-            @Override
-            public int compare(Employee o1, Employee o2) {
-                return o1.getAge() - o2.getAge();
-            }
-        });
-        for (int j = 0; j < CompanyUtil.companies.get(CompanyUtil.sortSelection).getEmployees().size(); j++) {
-            System.out.println(CompanyUtil.companies.get(CompanyUtil.sortSelection).getCompanyName()+" "+CompanyUtil.companies.get(CompanyUtil.sortSelection).getEmployees().get(j));
-        }
-    }
-    public static void sortByZP(){
-        /*Collections.sort(companies.get(i).getEmployees(), new Comparator<Employee>() {
+        if(i > 0 && i <= companies.length) {
+            ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/additionalFiles/companies/" + companies[i-1]), ":");
+            Collections.sort(employees, new Comparator<Employee>() {
                 @Override
                 public int compare(Employee o1, Employee o2) {
-                    return o1.getSalary() - o2.getSalary();
+                    return o1.getName().compareTo(o2.getName());
                 }
-            });*/
-            /*for (int j = 0; j < orgs.get(i).getEmployees().size(); j++) {
-                for (int k = 0; k < orgs.get(i).getEmployees().size() - j - 1; k++) {
-                    if(orgs.get(i).getEmployees().get(k).getSalary() > orgs.get(i).getEmployees().get(k + 1)){
-                        Employee tmp =
+            });
+            EmployeeUtil.showEmployees(CompanyUtil.companies[i-1], employees);
+        }
+    }
+    public static void sortBySurnameLength(int i, String[] companies) throws IOException{
+        if(i==0){
+            for (int j = 0; j < companies.length; j++) {
+                ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/additionalFiles/companies/" + companies[j]), ":");
+                Collections.sort(employees, new Comparator<Employee>() {
+                    @Override
+                    public int compare(Employee o1, Employee o2) {
+                        return o1.getSecondName().length() - o2.getSecondName().length();
+                    }
+                });
+                EmployeeUtil.showEmployees(CompanyUtil.companies[j], employees);
+            }
+        }
+        if(i > 0 && i <= companies.length) {
+            ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/additionalFiles/companies/" + companies[i-1]), ":");
+            Collections.sort(employees, new Comparator<Employee>() {
+                @Override
+                public int compare(Employee o1, Employee o2) {
+                    return o1.getSecondName().length() - o2.getSecondName().length();
+                }
+            });
+            EmployeeUtil.showEmployees(CompanyUtil.companies[i-1], employees);
+        }
+    }
+    public static void sortByAge(int i, String[] companies) throws IOException{
+        if(i==0){
+            for (int j = 0; j < companies.length; j++) {
+                ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/additionalFiles/companies/" + companies[j]), ":");
+                Collections.sort(employees, new Comparator<Employee>() {
+                    @Override
+                    public int compare(Employee o1, Employee o2) {
+                        return o1.getAge() - o2.getAge();
+                    }
+                });
+                EmployeeUtil.showEmployees(CompanyUtil.companies[j], employees);
+            }
+        }
+        if(i > 0 && i <= companies.length) {
+            ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/additionalFiles/companies/" + companies[i-1]), ":");
+            Collections.sort(employees, new Comparator<Employee>() {
+                @Override
+                public int compare(Employee o1, Employee o2) {
+                    return o1.getAge() - o2.getAge();
+                }
+            });
+            EmployeeUtil.showEmployees(CompanyUtil.companies[i-1], employees);
+        }
+    }
+    public static void sortByZP(int i, String[] companies) throws IOException{
+        if(i==0){
+            for (int j = 0; j < companies.length; j++) {
+                ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/additionalFiles/companies/" + companies[j]), ":");
+//              Внешний цикл каждый раз сокращает фрагмент массива, так как внутренний цикл каждый раз ставит в конец фрагмента максимальный элемент
+                for(int l = employees.size()-1 ; l > 0 ; l--){
+                    for(int k = 0 ; k < l ; k++){
+//                      Сравниваем элементы попарно, если они имеют неправильный порядок, то меняем местами
+                        if( employees.get(k).getSalary() > employees.get(k+1).getSalary() ){
+                            Employee tmp = employees.get(k);
+                            employees.set(k, employees.get(k+1));
+                            employees.set(k+1, tmp);
+                        }
                     }
                 }
-            }*/
+                EmployeeUtil.showEmployees(CompanyUtil.companies[j], employees);
+            }
+        }
+        if(i > 0 && i <= companies.length) {
+            ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/additionalFiles/companies/" + companies[i-1]), ":");
+            for(int l = employees.size()-1 ; l > 0 ; l--){
+                for(int k = 0 ; k < l ; k++){
+//                      Сравниваем элементы попарно, если они имеют неправильный порядок, то меняем местами
+                    if( employees.get(k).getSalary() > employees.get(k+1).getSalary() ){
+                        Employee tmp = employees.get(k);
+                        employees.set(k, employees.get(k+1));
+                        employees.set(k+1, tmp);
+                    }
+                }
+            }
+            EmployeeUtil.showEmployees(CompanyUtil.companies[i-1], employees);
+        }
+        /*Collections.sort(companies.get(i).getEmployees(), new Comparator<Employee>() {
+            @Override
+            public int compare(Employee o1, Employee o2) {
+                return o1.getSalary() - o2.getSalary();
+            }
+        });*/
     }
 }

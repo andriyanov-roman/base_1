@@ -1,9 +1,8 @@
 package Homeworks.homework_1;
 
-import Homeworks.homework_1.Employee;
-import Homeworks.homework_1.EmployeeUtil;
-import Homeworks.homework_1.User;
-import Homeworks.homework_1.UsersUtil;
+
+
+import Lessons.LessonTwo.Company;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,14 +12,14 @@ import java.util.Scanner;
  * Created by MacBook on 16.03.15.
  */
 public class Main {
-    public static void main(String[] args) throws IOException { letsBegin(); }
+    public void main(String[] args) throws IOException { letsBegin(); }
 
-    public static void letsBegin() throws IOException {
+    public void letsBegin() throws IOException {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Enter command key" + " " +
                     " 0. Login coincides with the name \n " +
                     "1. Login coincides with the secondName \t 2.Sort by id \n 3. Identical Employees + MaxSalary" +
-                    "\t 4. Sort by salary");
+                    "\t 4. Sort by salary" + "\t 5.Write new employee");
             while (scanner.hasNext()) {
                 switch (scanner.next()) {
                     case "0":
@@ -33,10 +32,15 @@ public class Main {
                         sortById();
                         break;
                     case "3":
-                        getIdenticalEmployees();
+//                        getIdenticalEmployees();
                         break;
                     case "4":
-                        sortBySalary();
+//                        sortBySalary();
+                        break;
+                    case "5":
+                        /*createNewEmployee();
+                        writeToFileEmployee(employees);
+                        System.out.println(employees.toString());*/
                         break;
                     //case "Exit":
                     // System.exit(0);
@@ -93,40 +97,39 @@ public class Main {
 
     }
 
-    public static void getIdenticalEmployees() throws IOException {
-        ArrayList<Employee> employees = EmployeeUtil.getEmployees();
-        for (int i = 0; i < employees.size(); i++) {
-            for (int j = 0; j < employees.size(); j++) {
-                if (employees.get(i).getName().equals(employees.get(j).getName())) {
-                    if (employees.get(i).getSalary() > employees.get(j).getSalary()) {
-                        System.out.println(employees.get(i).getName() + " " + employees.get(i).getSecondName() + " " +
-                                "has bigger salary, than" + " " + employees.get(j).getName() + " " + employees.get(j).getSecondName());
-                    } else if (employees.get(j).getSalary() > employees.get(i).getSalary()) {
-                        System.out.println(employees.get(j).getName() + " " + employees.get(j).getSecondName() + " " +
-                                "has bigger salary, than" + " " + employees.get(i).getName() + " " + employees.get(i).getSecondName());
-
-                    }
-                    break;
-                }
-            }
-        }
-    }
-
-    public static void sortBySalary() throws IOException {
-        ArrayList<Employee> employees = EmployeeUtil.getEmployees();
-        for (int i = 0; i < employees.size(); i++) {
-            for (int j = 1; j < employees.size(); j++)
-                if (employees.get(j).getSalary() < employees.get(j - 1).getSalary()) {
-                    Employee temp = employees.get(j);
-                    employees.set(j, employees.get(j - 1));
-                    employees.set((j - 1), temp);
-                }
-        }
-        for (int i = 0; i < employees.size(); i++) {
-            System.out.println(employees.get(i).getName() + " " + employees.get(i).getSecondName() + " "+ employees.get(i).getSalary());
-
-        }
-
-    }
-
+//    public void getIdenticalEmployees() throws IOException {
+//        ArrayList<Employee> employees = Company.getEmployees();
+//        for (int i = 0; i < employees.size(); i++) {
+//            for (int j = 0; j < employees.size(); j++) {
+//                if (employees.get(i).getName().equals(employees.get(j).getName())) {
+//                    if (employees.get(i).getSalary() > employees.get(j).getSalary()) {
+//                        System.out.println(employees.get(i).getName() + " " + employees.get(i).getSecondName() + " " +
+//                                "has bigger salary, than" + " " + employees.get(j).getName() + " " + employees.get(j).getSecondName());
+//                    } else if (employees.get(j).getSalary() > employees.get(i).getSalary()) {
+//                        System.out.println(employees.get(j).getName() + " " + employees.get(j).getSecondName() + " " +
+//                                "has bigger salary, than" + " " + employees.get(i).getName() + " " + employees.get(i).getSecondName());
+//
+//                    }
+//                    break;
+//                }
+//            }
+//        }
+//    }
+//
+//    public static void sortBySalary() throws IOException {
+//        ArrayList<Employee> employees = Company.getEmployees();
+//        for (int i = 0; i < employees.size(); i++) {
+//            for (int j = 1; j < employees.size(); j++)
+//                if (employees.get(j).getSalary() < employees.get(j - 1).getSalary()) {
+//                    Employee temp = employees.get(j);
+//                    employees.set(j, employees.get(j - 1));
+//                    employees.set((j - 1), temp);
+//                }
+//        }
+//        for (int i = 0; i < employees.size(); i++) {
+//            System.out.println(employees.get(i).getName() + " " + employees.get(i).getSecondName() + " "+ employees.get(i).getSalary());
+//
+//        }
+//
+//    }
 }

@@ -2,18 +2,13 @@ package Lessons.LessonTwo;
 
 
 import Homeworks.homework_1.Employee;
-import Homeworks.homework_1.EmployeeUtil;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+
+import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class CompanyUtil {
     public static ArrayList<Company> getCompanies() throws IOException {
-
         File file = new File("alena/src/main/java/identity/companies.txt");
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
@@ -23,10 +18,17 @@ public class CompanyUtil {
             String[] pool = line.split(":");
             Company c = new Company();
             c.setCompanyName(pool[0]);
-           /* c.setEmployees(pool[1]);*/
-            /*e.setSalary(Double.valueOf(pool[2]));
-            e.setSex(pool[3]);
-            e.setAge(Integer.valueOf(pool[4]));*/
+            for (int i = 1; i < pool.length; i++) {
+                String [] lines = pool[i].split(":");
+                Employee e = new Employee();
+                e.setName(lines[0]);
+                e.setSecondName(lines[1]);
+                e.setSalary(Double.valueOf(lines[2]));
+                e.setSex(lines[3]);
+                e.setAge(Integer.valueOf(lines[4]));
+                c.getEmployees().add(e);
+            }
+
             companies.add(c);
 
 
@@ -57,22 +59,6 @@ public class CompanyUtil {
         /*return new ArrayList<Company>(Arrays.asList(c1, c2, c3));*/
     }
 
-    public static void findMaxSalary() throws IOException {
-        ArrayList<Company> companies = getCompanies();
-        double temp = companies.get(0).getEmployees().get(0).getSalary();
-        String namey = companies.get(0).getEmployees().get(0).getName();
-        for (int i = 0; i < companies.size(); i++) {
-            if (companies.get(i).getEmployees().get(i).getSalary() > companies.get(0).getEmployees().get(0).getSalary()) {
-                temp = companies.get(i).getEmployees().get(i).getSalary();
-                namey = companies.get(i).getEmployees().get(i).getName();
-            }
-            System.out.println(companies.get(i).getEmployees().get(i).getName());
 
-            break;
-
-
-        }
-
-    }
 }
 

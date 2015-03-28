@@ -1,10 +1,9 @@
 package hometask2_4;
 
-import entity.Company;
-import entity.Employee;
+import entities.Company;
+import entities.Employee;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Scanner;
 

@@ -35,5 +35,18 @@
         <module name="vorobey" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="alena" target="1.8" />
+      <module name="alisa" target="1.8" />
+      <module name="artem" target="1.8" />
+      <module name="base_1" target="1.8" />
+      <module name="dmitrii" target="1.8" />
+      <module name="kirill" target="1.8" />
+      <module name="matveu" target="1.8" />
+      <module name="mihael" target="1.8" />
+      <module name="ruslan" target="1.8" />
+      <module name="vlas" target="1.8" />
+      <module name="vorobey" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

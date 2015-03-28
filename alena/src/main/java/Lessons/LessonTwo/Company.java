@@ -1,6 +1,9 @@
 package Lessons.LessonTwo;
 
 import Homeworks.homework_1.Employee;
+import Lessons.LessonTwo.lesson_3.Admin;
+import Lessons.LessonTwo.lesson_3.Manager;
+import Lessons.LessonTwo.lesson_3.Programmer;
 
 import java.util.ArrayList;
 
@@ -10,6 +13,9 @@ import java.util.ArrayList;
 public class Company {
     private String companyName;
     private ArrayList<Employee> employees;
+    private ArrayList<Admin> admins;
+    private ArrayList<Manager> managers;
+    private ArrayList<Programmer> programmers;
 
 
     public String getCompanyName() {
@@ -24,7 +30,12 @@ public class Company {
         return employees;
     }
 
-    public void setEmployees(ArrayList<Employee> employees) {
+    public void setEmployees(ArrayList employees) {
         this.employees = employees;
+    }
+
+    @Override
+    public String toString() {
+        return companyName + " " + " " + employees;
     }
 }

@@ -56,9 +56,10 @@ public class Employee1 {
 
     @Override
     public String toString() {
-        return name + " " + " " + secondName +
-                ", salary=" + salary
-                ;
+        return name + " " + " " + secondName + '\'' +
+                ", sex=" + sex +
+                ", age=" + age + '\'' + ", salary=" + salary +
+                "";
 
     }
 

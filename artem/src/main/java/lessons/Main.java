@@ -10,11 +10,11 @@ import java.util.ArrayList;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        ArrayList<Employee> employees =  homework.EmployeeUtil.getEmployees();
+        /*ArrayList<Employee> employees =  homework.EmployeeUtil.getEmployees();
         for (int i = 0; i < employees.size(); i++) {
             System.out.println(employees.get(i));
         }
-        saveFile();
+        saveFile();*/
     }
     public static void saveFile()throws IOException{
         FileWriter writer = new FileWriter("artem/src/main/java/entity/test",true);

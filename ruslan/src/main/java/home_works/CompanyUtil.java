@@ -7,7 +7,7 @@ import java.util.Arrays;
  * Created by user on 23.03.2015.
  */
 public class CompanyUtil {
-    private static ArrayList<Company> getCompanies (){
+    public static ArrayList<Company> getCompanies () {
         ArrayList<Company> companies = new ArrayList<>();
         ArrayList<Employee> employees = EmployeeUtil.getEmployees();
         Company c1 = new Company();

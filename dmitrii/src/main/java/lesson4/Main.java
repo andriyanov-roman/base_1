@@ -1,6 +1,6 @@
 package lesson4;
 
-import entity.Employee;
+import entities.Employee;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
