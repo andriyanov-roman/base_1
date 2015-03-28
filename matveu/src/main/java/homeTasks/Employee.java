@@ -1,11 +1,11 @@
 package homeTasks;
 
 public class Employee {
-    public String name;
-    public String secondName;
-    public String sex;
-    public int age;
-    public double salary;
+    private String name;
+    private String secondName;
+    private String sex;
+    private int age;
+    private double salary;
 
     public Employee() {
 
