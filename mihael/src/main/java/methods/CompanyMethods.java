@@ -262,6 +262,18 @@ public class CompanyMethods {
         return programmers;
     }
 
+    public static void getMaxSalaryArrayList(){
+        ArrayList entyties = new ArrayList();
+        Manager managerMax;
+        for(int i=0;i < entyties.size(); i++) {
+            if(entyties.get(i) instanceof Manager){
+                managerMax = (Manager)entyties.get(i);
+                if(managerMax.getSalary()> 0){}
+            }
+
+        }
+    }
+
 
 
 

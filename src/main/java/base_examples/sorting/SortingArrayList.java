@@ -1,6 +1,6 @@
 package base_examples.sorting;
 
-import home_work_2.Employee;
+import entity.Employee;
 import home_work_2.EmployeeUtil;
 
 import java.util.ArrayList;
