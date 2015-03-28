@@ -22,7 +22,7 @@ public class ReadingFromFileAdminLuxsoft {
             admin.setSex(pool[2]);
             admin.setAge(Integer.valueOf(pool[3]));
             admin.setSalary(Double.valueOf(pool[4]));
-           // admin.setWorkingPlatform(pool[5]);
+            admin.setWorkingPlatform(pool[5]);
             admins.add(admin);
             System.out.print(admin+" "+"\n");
         }

@@ -22,7 +22,7 @@ public class ReadingFromFileProgrammerLuxsoft {
             programmer.setSex(pool[2]);
             programmer.setAge(Integer.valueOf(pool[3]));
             programmer.setSalary(Double.valueOf(pool[4]));
-            //programmer.setProgrammingLanguage(pool[5]);
+            programmer.setProgrammingLanguage(pool[5]);
             programmers.add(programmer);
             System.out.print(programmer+" "+"\n");
         }
