@@ -1,16 +1,18 @@
-package lesson_5;
+package entity;
 
 
-public class System_Adm {
+public class SystemAdm {
     public String name;
     public String secondName;
 
-    public System_Adm(String name, String secondName, double salary, String platform) {
+    public SystemAdm(String name, String secondName, double salary, String platform) {
         this.name = name;
         this.secondName = secondName;
         this.salary = salary;
         this.platform = platform;
     }
+
+
 
     @Override
     public String toString() {
