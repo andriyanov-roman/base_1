@@ -14,6 +14,7 @@ public class Admin {
         this.workingPlatform = workingPlatform;
     }
 
+
     public String getName() {
         return name;
     }
