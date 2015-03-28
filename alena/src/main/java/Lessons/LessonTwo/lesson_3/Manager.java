@@ -1,26 +1,22 @@
 package Lessons.LessonTwo.lesson_3;
 
+import Homeworks.homework_1.Employee;
+
 /**
  * Created by user on 23.03.2015.
  */
-public class Manager {
-
-    private String name;
-    private double salary;
+public class Manager extends Employee {
     private String projectName;
 
-    public Manager() {
+    public Manager(String name, String secondName, double salary, String sex, int age, String projectName) {
+        super(name, secondName,salary, sex, age);
+        this.projectName = projectName;
+
+    }
+    public Manager (){
 
     }
 
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
 
     public void setProjectName(String projectName) {
         this.projectName = projectName;
@@ -30,11 +26,4 @@ public class Manager {
         return projectName;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
 }

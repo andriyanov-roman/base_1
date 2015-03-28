@@ -2,6 +2,7 @@ package Lessons.LessonTwo;
 
 import Homeworks.homework_1.Employee;
 import Homeworks.homework_1.EmployeeUtil;
+import Homeworks.homework_1.Main;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -17,39 +18,50 @@ public class Methods {
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
         String line;
-        String FileStrings="";
-        while( (line=buffer.readLine()) !=null) {
-            FileStrings = FileStrings + line+"\n";
-        } System.out.println(FileStrings.toString());
+        String FileStrings = "";
+        while ((line = buffer.readLine()) != null) {
+            FileStrings = FileStrings + line + "\n";
+        }
+        System.out.println(FileStrings);
         return FileStrings;
     }
-    public static void WriteToFile (String txt, String FileURL, Boolean AddToEnd) throws IOException {
+
+    public static void WriteToFile(String txt, String FileURL, Boolean AddToEnd) throws IOException {
         FileWriter writer = new FileWriter(FileURL, AddToEnd);
         writer.write(txt);
         writer.flush();
         writer.close();
     }
 
-    public static void addNewEmployee () throws IOException {
-
-        ArrayList<Employee> employees = EmployeeUtil.getEmployees();
+    public static void addNewEmployee(Scanner sc) throws IOException {
         Employee employee = new Employee();
-        Scanner sc = new Scanner(System.in);
-            System.out.println("Введите Имя сотрудника: ");
-            employee.setName(sc.next());
-            System.out.println("Введите Фамилию сотрудника: ");
-            employee.setSecondName(sc.next());
-            System.out.println("Введите пол сотрудника: ");
-            employee.setSex(sc.next());
-            System.out.println("Введите возраст сотрудника: ");
-            employee.setAge(sc.nextInt());
-            System.out.println("Введите ЗП сотрудника: ");
-            employee.setSalary(sc.nextInt());
-            employees.add(employee);
-            FileWriter writer = new FileWriter("alena/src/main/java/identity/employees", true);
-            writer.write(employee.getName() + ":" + employee.getSecondName() + ":" + employee.getSex() + ":" + employee.getAge() + ":" + employee.getSalary() + "\n");
-            writer.flush();
-            writer.close();
+        System.out.println("Введите Имя сотрудника: ");
+        employee.setName(sc.next());
+        System.out.println("Введите Фамилию сотрудника: ");
+        employee.setSecondName(sc.next());
+        System.out.println("Введите пол сотрудника: ");
+        employee.setSex(sc.next());
+        System.out.println("Введите возраст сотрудника: ");
+        employee.setAge(sc.nextInt());
+        System.out.println("Введите ЗП сотрудника: ");
+        employee.setSalary(sc.nextInt());
+        writeToFile(employee);
+        System.out.println("Will you continue? Yes/No");
+        if ("Yes".equals(sc.next())) {
+            addNewEmployee(sc);
+        } else {
+            Main.letsBegin();
+        }
+
+    }
+
+    private static void writeToFile(Employee employee) throws IOException {
+        FileWriter writer = new FileWriter("alena/src/main/java/identity/employees.txt", true);
+        writer.write(employee.getName() + ":" +
+                employee.getSecondName() + ":" +
+                employee.getSex() + ":" + employee.getAge() + ":" + employee.getSalary() + "\n");
+        writer.flush();
+        writer.close();
     }
 
     public static void findMaxSalary() throws IOException {
@@ -127,7 +139,7 @@ public class Methods {
     }
 
 
-    public void writeToFileEmployee (ArrayList<Employee> employees){
+    public void writeToFileEmployee(ArrayList<Employee> employees) {
         FileWriter writer_employees = null;
         try {
             writer_employees = new FileWriter("alena/src/main/java/identity.employees.txt", true);

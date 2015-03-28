@@ -1,3 +1,5 @@
+package Homeworks.homework_2;
+
 /**
  * Created by lbondarenko on 02.12.2014.
  */

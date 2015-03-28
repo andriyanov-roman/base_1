@@ -13,7 +13,7 @@ public class Employee extends Company {
     private int age;
 
 
-    public Employee (String a, String b, double c, String d, int e){
+    public Employee(String a, String b, double c, String d, int e){
         this.name = a ;
         this.secondName = b;
         this.salary = c;

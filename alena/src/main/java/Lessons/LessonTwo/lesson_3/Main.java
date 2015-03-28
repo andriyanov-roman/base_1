@@ -17,9 +17,9 @@ import static Lessons.LessonTwo.Methods.WriteToFile;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-   ReadFromFile("alena/src/main/java/identity/Beast");
-   ReadFromFile("alena/src/main/java/identity/Finest");
-   WriteToFile("/t Alonaaaaaa","alena/src/main/java/identity/Finest", true );
+   ReadFromFile("alena/src/main/java/identity/Beast.txt");
+   ReadFromFile("alena/src/main/java/identity/Finest.txt");
+   WriteToFile("/t Alonaaaaaa","alena/src/main/java/identity/Finest.txt", true );
 
 
     }
