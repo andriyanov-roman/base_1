@@ -1,25 +1,47 @@
-import base_examples.objects.Human;
-import home_work_2.Employee;
+import entity.Admin;
+import entity.Employee;
+import entity.Manager;
+import entity.Programmer;
 
 import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Date;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        LocalDate fromString = LocalDate.parse("2014-01-20");
-        LocalDateTime time = LocalDateTime.now();
-        System.out.println(time);
-        Date date = new Date();
-        System.out.println(fromString);
-        System.out.println(date);
-        String path = "D://ololo//1.txt";
-        ArrayList<Employee> employees = getEmployees(path, ":");
+        ArrayList<Employee> employees = new ArrayList<>();
+        Programmer p = new Programmer();
+        Manager m = new Manager();
+        employees.add(p);
+        employees.add(m);
 
+    }
+
+    public static void getMaxSalary() {
+        ArrayList entyties = new ArrayList();
+        Manager managerMax;
+        for (int i = 0; i < entyties.size() ; i++) {
+            if(entyties.get(i) instanceof Manager) {
+
+            }
+        }
+    }
+
+    private static Admin getMaxSalaryAdmin(ArrayList<Admin> admins) {
+        return null;
+    }
+
+
+    private static Manager getMaxSalaryManager(ArrayList<Manager> managers) {
+        Manager max = managers.get(0);
+        for (int i = 0; i < managers.size(); i++) {
+            if(max.getSalary() < managers.get(i).getSalary()) {
+                max = managers.get(i);
+            }
+        }
+        return max;
     }
 
     public static void writeToFile(String path) throws IOException {

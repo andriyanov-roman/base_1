@@ -1,4 +1,4 @@
-package lesson_5;
+package entity;
 
 
 public class Manager {
