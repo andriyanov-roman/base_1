@@ -1,4 +1,4 @@
-package home_work_2;
+package entity;
 
 /**
  * Created by Администратор on 14.03.2015.
