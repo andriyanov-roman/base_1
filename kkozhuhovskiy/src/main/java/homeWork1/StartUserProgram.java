@@ -20,7 +20,8 @@ public class StartUserProgram {
         System.out.println("Нажми 7 - добавить нового пользователя");
         System.out.println("Нажми 8 - покажет длину фамилий");
         System.out.println("Нажми 9 - покажет возраст");
-        System.out.println("Нажми 10 - break");
+        System.out.println("Нажми 10 - запишет всех сотрудников в файл");
+        System.out.println("Нажми 11 - break");
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "1":
@@ -43,6 +44,9 @@ public class StartUserProgram {
                 case "9":
                     Methods.sortAgeInComp();
                 case "10":
+                    CompanyUtil.addEmployeesToFile();
+                case "11":
+
                     break;
             }
         }

@@ -1,24 +1,22 @@
-package homeTasks;
+package lesson_3;
 
+/**
+ * Created by Администратор on 14.03.2015.
+ */
 public class Employee {
     private String name;
     private String secondName;
-    private String sex;
-    private int age;
     private double salary;
-
-    public Employee() {
-
-    }
+    private String address;
 
     @Override
     public String toString() {
         return name + " " + " " + secondName + '\'' +
-                ", sex=" + sex +
-                ", age=" + age + '\'' +", salary=" +salary+
+                ", salary=" + salary +
+                ", address='" + address + '\'' +
                 '}';
-
     }
+
     public String getName() {
         return name;
     }
@@ -43,30 +41,21 @@ public class Employee {
         this.salary = salary;
     }
 
-    public int getAge() {
-        return age;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getSex() {
-        return sex;
+    public Employee() {
+
     }
 
-    public void setSex(String sex) {
-
-        this.sex = sex;
-    }
-
-
-
-    public Employee(String name, String secondName,String sex,int age, double salary ) {  // создание конструктора
-        this.name=name;
-        this.secondName=secondName;
-        this.sex=sex;
-        this.age=age;
-        this.salary=salary;
+    public Employee(String name, String secondName, double salary) {
+        this.name = name;
+        this.secondName = secondName;
+        this.salary = salary;
     }
 }

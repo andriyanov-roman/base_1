@@ -7,13 +7,13 @@ public class Admin {
     private String name;
     private String secondName; // Объявляем еще одно поле класса. Их может быть сколько угодно
     private double salary;
-    private String Platforma;
+    private String Platform;
 
-    public Admin(String name, String secondName, double salary, String platforma) {
+    public Admin(String name, String secondName, double salary, String platform) {
         this.name = name;
         this.secondName = secondName;
         this.salary = salary;
-        Platforma = platforma;
+        Platform = platform;
     }
 
     public String getName() { return name; }
@@ -25,9 +25,9 @@ public class Admin {
     public double getSalary() { return salary; }
     public void setSalary(double salary) { this.salary = salary; }
 
-    public String getPlatforma() { return Platforma; }
-    public void setPlatforma(String platforma) { Platforma = platforma; }
+    public String getPlatform() { return Platform; }
+    public void setPlatform(String platform) { Platform = platform; }
 
     @Override
-    public String toString() { return name + secondName + salary + Platforma; }
+    public String toString() { return name + secondName + salary + Platform; }
 }
