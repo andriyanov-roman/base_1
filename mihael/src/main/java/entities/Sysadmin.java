@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by Администратор on 26.03.2015.
  */
-public class Sysadmin extends Employee{
+public class Sysadmin{
     private String name;
     private String secondName;
     private double salary;

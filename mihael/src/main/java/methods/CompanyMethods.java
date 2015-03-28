@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Methods {
+public class CompanyMethods {
     public static void main (String [] args) throws IOException {
         startBSE();
     }
@@ -26,7 +26,7 @@ public class Methods {
         boolean add = true;
         showMenu();
         while (add) {
-            Employee employee = new Employee();
+            //Employee employee = new Employee();
             String choise = scanner.next();
             switch (choise){
                 case "1": //Show all employees
@@ -78,11 +78,25 @@ public class Methods {
         return managers;
     }
     public static void showTheBiggestSalaryEmployee()throws IOException{
-        ArrayList<Employee> employees = new ArrayList<>();
-        employees.add(getTheBiggestSalaryManager());
-        employees.add(getTheBiggestSalaryProgrammer());
-        employees.add(getTheBiggestSalarySysadmin());
-        showEmployee(getTheBiggestSalaryEmployee(employees));
+
+        double managerSalary = getTheBiggestSalaryManager().getSalary();
+        double programmerSalary = getTheBiggestSalaryProgrammer().getSalary();
+        double adminSalary = getTheBiggestSalarySysadmin().getSalary();
+
+        if ((managerSalary > programmerSalary)&(managerSalary>adminSalary)){
+            showManager(getTheBiggestSalaryManager());
+        }
+        else if((programmerSalary>managerSalary)&(programmerSalary>adminSalary)){
+            showProgrammer(getTheBiggestSalaryProgrammer());
+        }
+        else if((adminSalary>managerSalary)&(adminSalary>programmerSalary)){
+            showSysadmin(getTheBiggestSalarySysadmin());
+        }
+       // ArrayList<Employee> employees = new ArrayList<>();
+       // employees.add(getTheBiggestSalaryManager());
+       // employees.add(getTheBiggestSalaryProgrammer());
+      //  employees.add(getTheBiggestSalarySysadmin());
+      //  showEmployee(getTheBiggestSalaryEmployee(employees));
     }
 
     public static Employee getTheBiggestSalaryEmployee(ArrayList<Employee> employees){
