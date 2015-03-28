@@ -12,7 +12,7 @@ public class Company {
         return "Company{" +
                 "companyName='" + companyName + '\'' +
                 ", employees=" + employees +
-                ", manegers=" + manegers +
+                ", managers=" + managers +
                 ", admins=" + admins +
                 ", programmers=" + programmers +
                 '}';
@@ -20,7 +20,7 @@ public class Company {
 
     private String companyName;
     public ArrayList <Employee> employees;
-    public ArrayList<Maneger> manegers;
+    public ArrayList<Manager> managers;
     public ArrayList<Admin> admins;
     public ArrayList<Programmer> programmers;
 
@@ -33,12 +33,12 @@ public class Company {
         this.employees = employees;
     }
 
-    public ArrayList<Maneger> getManegers() {
-        return manegers;
+    public ArrayList<Manager> getManagers() {
+        return managers;
     }
 
-    public void setManegers(ArrayList<Maneger> manegers) {
-        this.manegers = manegers;
+    public void setManagers(ArrayList<Manager> managers) {
+        this.managers = managers;
     }
 
     public ArrayList<Admin> getAdmins() {

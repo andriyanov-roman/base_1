@@ -1,7 +1,9 @@
 package homeproject;
 
+import entities.Admin;
 import entities.Company;
 import entities.Employee;
+import entities.Manager;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -89,7 +91,59 @@ public class ControllerE {
         return employees;
     }
 
+    private static ArrayList<Admin> MoveAdmin (ArrayList<Admin> admins, int j){
+        Admin temp = admins.get(j);
+        admins.set(j,admins.get(j+1));
+        admins.set(j+1,temp);
+        return admins;
+    }
 
 
+    public static void FindHighSalaryBeetwenEntities() throws IOException {
+        ArrayList<Company> comps = ModelE.getCompanies();
+        for (Company c : comps) {
+
+        }
+    }
+
+    public  static Admin  findHighestAdmin () throws IOException {
+        ArrayList<Company> comps = ModelE.getCompanies();
+        ArrayList<Admin> admins;
+        Admin bestAdmin = new Admin();
+        bestAdmin.setSalary(0);// БАРАХЛО
+        for (Company c : comps) {
+            admins = c.getAdmins();
+            for (int j = 0; j < admins.size(); j++) {
+                if (admins.get(j+1).getSalary() > bestAdmin.getSalary()){
+                    bestAdmin = admins.get(j+1);
+                }
+            }
+        }
+    return bestAdmin;
+    }
+
+    /*   ================ CLASS WORK   =========================  */
+    public static void main(String[] args) throws IOException {
+        ArrayList<Company> comps = ModelE.getCompanies();
+        Manager maxManager = getMaxSalaryManager(comps.get(0).getManagers());
+    }
+    private static Manager getMaxSalaryManager (ArrayList<Manager> managers){
+        Manager max = managers.get(0);
+        for (int i = 0; i < managers.size(); i++) {
+            if (max.getSalary() < managers.get(i).getSalary()){
+                max = managers.get(i);
+            }
+        }
+        return  max;
+    }
+
+    /*    ====  ВАРИАНТ    2  =====  */
+    public static void getMaxSalary() {
+        ArrayList entyties = new ArrayList();
+        Manager managerMax;
+        for (int i = 0; i < entyties.size(); i++) {
+            if (entyties.get(i) instanceof  Manager){}
+        }
+    }
 
 }

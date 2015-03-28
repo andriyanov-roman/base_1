@@ -1,6 +1,8 @@
 package home_work_2;
 
 
+import entity.Employee;
+
 import java.util.ArrayList;
 
 public class EmployeeUtil {

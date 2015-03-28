@@ -46,6 +46,11 @@ public class ViewE {
                     System.out.println("\t *** Action: SORT BY SURNAME LENGTH ***");
                     ControllerE.sortBySurnameLength(selectedComps);
                     break;
+                case "7":
+                    ControllerE.FindHighSalaryBeetwenEntities();
+                    break;
+                case "8":
+                    System.out.println(ControllerE.findHighestAdmin());
                 case "m":
                     welcome();
                     ShowMenuTag = false;
@@ -73,6 +78,7 @@ public class ViewE {
                         "\n4) Task 2.c. Sort by Surname Length" +
                         "\n5) Task 3*. Add employee (добавляет пользователя и СОХРАНЯЕТ его для следующих вызовов)" +
                         "\n6) !NEW TASK (3). Уволить всех мужчин и женщинам поднять з.п. (СОХРАНЯЕТ результат для след. вызовов)" +
+                        "\n7) Task 5.1 Найти сотрудника у которого самая высокая зарплата." +
                         "\ne) (or «Exit») End program" +
                         "\n-------------------------------- \nAdditional features:" +
                         "\nx) Task 1. Show FULL employee's info (to show AGE and GENDER)" +
