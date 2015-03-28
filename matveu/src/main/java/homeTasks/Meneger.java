@@ -1,7 +1,7 @@
 package homeTasks;
 
 
-public class Maneger {
+public class Meneger {
     public String name;
     public String secondName;
     public String sex;
@@ -9,7 +9,7 @@ public class Maneger {
     public double salary;
     public String nameOfProject;
 
-    public Maneger() {
+    public Meneger() {
 
     }
     public String toString() {
@@ -68,7 +68,7 @@ public class Maneger {
     public void setSecondName(String secondName) {
         this.secondName = secondName;
     }
-    public Maneger(String name, String secondName,String sex,int age, double salary, String nameOfProject) {  // создание конструктора
+    public Meneger(String name, String secondName, String sex, int age, double salary, String nameOfProject) {  // создание конструктора
         this.name=name;
         this.secondName=secondName;
         this.sex=sex;
