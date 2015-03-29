@@ -7,4 +7,3 @@ Jack:Woker:28000.00:87:m
 Lora:Smith:75000.00:100:f
 Sioma:James:300000.00:74:m
 Marco:Pantani:5673000.00:98:m
-[hghig  hgh  66.0  7  f][hghg  jhgkj  5.0  5  f]

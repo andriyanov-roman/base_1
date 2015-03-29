@@ -1,6 +1,10 @@
 package lessons.lesson_2;
 
 
+import entity.Admin;
+import entity.Manager;
+import entity.Programmer;
+
 import java.io.*;
 import java.util.*;
 import java.util.stream.Stream;
@@ -11,17 +15,22 @@ import java.util.stream.Stream;
 public class CompanyUtil {
     private Scanner scanner = new Scanner(System.in);
     private ArrayList<Employee> employees = new ArrayList<>();
+    private ArrayList<Admin> admins = new ArrayList<>();
+    private ArrayList<Manager> managers = new ArrayList<>();
     private ArrayList<Company> companies = new ArrayList<>();
+    private ArrayList<Programmer> programmers = new  ArrayList<>();
 
     public ArrayList<Company> getCompanies() {
         ArrayList<Employee> employees = EmployeeUtil.getEmployees();
-        //ArrayList<Company> companies = new ArrayList<>();
         Company c1 = new Company();
         c1.setCompanyName("Lenovo");
         c1.setEmployees(new ArrayList<>());
         c1.getEmployees().add(employees.get(0));
         c1.getEmployees().add(employees.get(1));
         c1.getEmployees().add(employees.get(2));
+        c1.getAdmins().add(admins.get(0));
+        c1.getManagers().add(managers.get(0));
+        c1.getProgrammers().add(programmers.get(0));
         companies.add(c1);
 
         Company c2 = new Company();
@@ -30,6 +39,9 @@ public class CompanyUtil {
         c2.getEmployees().add(employees.get(3));
         c2.getEmployees().add(employees.get(4));
         c2.getEmployees().add(employees.get(5));
+        c2.getAdmins().add(admins.get(1));
+        c2.getManagers().add(managers.get(1));
+        c2.getProgrammers().add(programmers.get(1));
         companies.add(c2);
 
 
@@ -39,6 +51,9 @@ public class CompanyUtil {
         c3.getEmployees().add(employees.get(6));
         c3.getEmployees().add(employees.get(7));
         c3.getEmployees().add(employees.get(8));
+        c3.getAdmins().add(admins.get(2));
+        c3.getManagers().add(managers.get(2));
+        c3.getProgrammers().add(programmers.get(2));
         companies.add(c3);
         return new ArrayList<>(Arrays.asList(c1, c2, c3));
     }
@@ -74,19 +89,24 @@ public class CompanyUtil {
                     companyName = checkInput();
                     sortBySurnameLength(getCompByName(companyName));
                     break;
-                case "5":
+               /* case "5":
+                    readFromFile();
                     createNewEmployee();
-                    writeToFileEmployee(employees);
+                    writeToFile("alisa/src/result/Lenovo.txt");
                     System.out.println(employees.toString());
                     break;
                 case "6":
-                    createNewCompany();
-                    writeToFileCompany(companies);
-                    System.out.println(companies.toString());
+                    readFromFile();
+                    createNewEmployee();
+                    writeToFile("alisa/src/result/IBM.txt");
+                    System.out.println(employees.toString());
                     break;
                 case "7":
                     readFromFile();
-                    break;
+                    createNewEmployee();
+                    writeToFile("alisa/src/result/Luxoft.txt");
+                    System.out.println(employees.toString());
+                    break;*/
                 case "Exit":
                     System.exit(0);
                 default:
@@ -153,40 +173,40 @@ public class CompanyUtil {
         }
     }
 
-    public void sortByAge(Company c) {
-        for (int i = 0; i < c.getEmployees().size(); i++) {
-            for (int j = 0; j < c.getEmployees().size() - 1; j++) {
-                if (c.getEmployees().get(j).getAge() < c.getEmployees().get(j + 1).getAge()) {
-                    Employee temp = c.getEmployees().get(j);
-                    c.getEmployees().set(j, c.getEmployees().get(j + 1));
-                    c.getEmployees().set((j + 1), temp);
+    public void sortByAge(Company company) {
+        for (int i = 0; i < company.getEmployees().size(); i++) {
+            for (int j = 0; j < company.getEmployees().size() - 1; j++) {
+                if (company.getEmployees().get(j).getAge() < company.getEmployees().get(j + 1).getAge()) {
+                    Employee temp = company.getEmployees().get(j);
+                    company.getEmployees().set(j, company.getEmployees().get(j + 1));
+                    company.getEmployees().set((j + 1), temp);
                 }
 
             }
         }
-        System.out.println(c.getCompanyName());
-        for (int j = 0; j < c.getEmployees().size(); j++) {
-            System.out.println(c.getEmployees().get(j).getName() + " "
-                    + c.getEmployees().get(j).getSurname() + " "
-                    + c.getEmployees().get(j).getAge());
+        System.out.println(company.getCompanyName());
+        for (int j = 0; j < company.getEmployees().size(); j++) {
+            System.out.println(company.getEmployees().get(j).getName() + " "
+                    + company.getEmployees().get(j).getSurname() + " "
+                    + company.getEmployees().get(j).getAge());
         }
     }
 
-    public void sortBySurnameLength(Company c) {
-        for (int i = 0; i < c.getEmployees().size(); i++) {
-            for (int j = 0; j < c.getEmployees().size() - 1; j++) {
-                if (c.getEmployees().get(j).getSurname().equals(c.getEmployees().get(j + 1).getSurname())) {
-                    Employee temp = c.getEmployees().get(j);
-                    c.getEmployees().set(j, c.getEmployees().get(j + 1));
-                    c.getEmployees().set((j + 1), temp);
+    public void sortBySurnameLength(Company company) {
+        for (int i = 0; i < company.getEmployees().size(); i++) {
+            for (int j = 0; j < company.getEmployees().size() - 1; j++) {
+                if (company.getEmployees().get(j).getSurname().equals(company.getEmployees().get(j + 1).getSurname())) {
+                    Employee temp = company.getEmployees().get(j);
+                    company.getEmployees().set(j, company.getEmployees().get(j + 1));
+                    company.getEmployees().set((j + 1), temp);
                 }
 
             }
         }
-        System.out.println(c.getCompanyName());
-        for (int j = 0; j < c.getEmployees().size(); j++) {
-            System.out.println(c.getEmployees().get(j).getName() + " "
-                    + c.getEmployees().get(j).getSurname());
+        System.out.println(company.getCompanyName());
+        for (int j = 0; j < company.getEmployees().size(); j++) {
+            System.out.println(company.getEmployees().get(j).getName() + " "
+                    + company.getEmployees().get(j).getSurname());
         }
     }
 
@@ -222,35 +242,75 @@ public class CompanyUtil {
         }
     }
 
-    public void writeToFileEmployee(ArrayList<Employee> employees) {
-        FileWriter writer_employees = null;
+    /*public void writeToFile(String path) {
+        FileWriter writer = null;
         try {
-            writer_employees = new FileWriter("alisa/src/result/employees.txt", true);
-            writer_employees.write(employees.toString());
-            writer_employees.flush();
-            writer_employees.close();
+            writer = new FileWriter(path, true);
+            writer.write(ArrayList<Employee> employees.toString());
+            writer.flush();
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-    }
+    }*/
+/*
+    public static void writeToFile(String path) throws IOException {
+        FileWriter writer = new FileWriter("src/test_write.txt", true);
+        writer.write(getEmployees(path, ":").toString());
+        writer.flush();
+        writer.close();
+    }*/
 
-    public void writeToFileCompany(ArrayList<Company> companies) {
+    /*public void writeToFileCompany(ArrayList<Company> companies) {
         FileWriter writer_companies = null;
         try {
-            writer_companies = new FileWriter("alisa/src/result/companies.txt", true);
+            writer_companies = new FileWriter("alisa/src/result/IBM.txt.txt", true);
             writer_companies.write(companies.toString());
             writer_companies.flush();
             writer_companies.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }*/
+    public static ArrayList<String[]> readFromFile(String path, String regExp) throws IOException {
+        File file = new File(path);
+        FileReader reader = new FileReader(file);
+        BufferedReader buffer = new BufferedReader(reader);
+        String line;
+        ArrayList<String[]> strings = new ArrayList<>();
+        while ((line = buffer.readLine()) != null) {
+            String[] pool = line.split(regExp);
+            strings.add(pool);
+        }
+        return strings;
     }
 
+    public ArrayList<Employee> getEmployees(String path, String regExp) throws IOException {
+        ArrayList<String[]> strings = readFromFile(path, regExp);
+        ArrayList<Employee> employees = new ArrayList<>();
+        String line;
+        for (int i = 0; i < strings.size(); i++) {
+            Company c = new Company();
+            c.setCompanyName(strings.get(i)[0]);
+            Employee e = new Employee();
+            e.setName(strings.get(i)[1]);
+            e.setSurname(strings.get(i)[2]);
+            e.setSalary(Double.valueOf(strings.get(i)[3]));
+            e.setAge(Integer.valueOf(strings.get(i)[4]));
+            e.setSex(strings.get(i)[5]);
+            employees.add(e);
+        }
 
-    public static void readFromFile() throws IOException {
+        return employees;
+    }
+}
+
+
+
+    /*public static void readFromFile() throws IOException {
         File employee = new File("alisa/src/result/employees.txt");
-        File company = new File("alisa/src/result/companies.txt");
+        File company = new File("alisa/src/result/Lenovo.txt");
         FileReader reader_e = new FileReader(employee);
         FileReader reader_c = new FileReader(company);
         BufferedReader buffer_e = new BufferedReader(reader_e);
@@ -258,25 +318,17 @@ public class CompanyUtil {
         ArrayList<Employee> employees = new ArrayList<>();
         ArrayList<Company> companies = new ArrayList<>();
         String line;
-        while ((line = buffer_e.readLine()) != null) {
-            String[] pool = line.split(":");
-            Employee e = new Employee();
-            e.setName(pool[0]);
-            e.setSurname(pool[1]);
-            e.setSalary(Double.valueOf(pool[2]));
-            e.setAge(Integer.valueOf(pool[3]));
-            e.setSex(pool[4]);
-            employees.add(e);
-        }
         while ((line = buffer_c.readLine()) != null) {
             String[] pool = line.split(":");
             Company c = new Company();
             c.setCompanyName(pool[0]);
-          /* Employee e1 = new Employee;
-            e1.setName = pool[0];
-            e1.setSurname = pool[1];*/
-
-
+            Employee e = new Employee();
+            e.setName(pool[1]);
+            e.setSurname(pool[2]);
+            e.setSalary(Double.valueOf(pool[3]));
+            e.setAge(Integer.valueOf(pool[4]));
+            e.setSex(pool[5]);
+            employees.add(e);
             companies.add(c);
         }
         System.out.println(employees.toString());
@@ -285,7 +337,7 @@ public class CompanyUtil {
 
 }
 
-
+*/
 
 
 

@@ -33,10 +33,25 @@ public class Company {
     public ArrayList<Employee> getEmployees() {
         return employees;
     }
+    public ArrayList<Admin> getAdmins(){
+        return admins;
+    }
+    public ArrayList<Programmer> getProgrammers(){
+        return programmers;
+    }
+    public ArrayList<Manager> getManagers(){
+        return managers;
+    }
 
     @Override
     public String toString() {
-        return companyName + " " + " " + employees;
+        return "Company{" +
+                "companyName='" + companyName + '\'' +
+                ", employees=" + employees +
+                ", admins=" + admins +
+                ", programmers=" + programmers +
+                ", managers=" + managers +
+                '}';
     }
 }
 
