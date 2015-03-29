@@ -314,7 +314,6 @@ public class Methods {
         System.out.println(maxCompanyName3 + ": " + maxName3 + " " + maxSecondName3 + ". Зарплата: " + maxSalary3);
     }
 
-    static int a = 0, b = 0;
 
     public static void sortCompanysBySalary() throws IOException {
         scanner = new Scanner(System.in);
@@ -761,7 +760,7 @@ public class Methods {
             System.out.println("Введите зарплату админа!");
             admin.setSalary(scanner.nextInt());
             System.out.println("Введите рабочую платформу!");
-            admin.setWorkingPlatform(scanner.nextLine());
+            admin.setWorkingPlatform(scanner.next());
             admins.add(admin);
             FileWriter writer = new FileWriter("matveu/src/AdminLuxsoft.txt", true);
             writer.write(admin.getName() + ":" + admin.getSecondName() + ":" + admin.getSex() +
@@ -788,7 +787,7 @@ public class Methods {
             System.out.println("Введите зарплату менеджера!");
             maneger.setSalary(scanner.nextInt());
             System.out.println("Введите название проекта!");
-            maneger.setNameOfProject(scanner.nextLine());
+            maneger.setNameOfProject(scanner.next());
             manegers.add(maneger);
             FileWriter writer = new FileWriter("matveu/src/MenegerLuxsoft.txt", true);
             writer.write(maneger.getName() + ":" + maneger.getSecondName() + ":" + maneger.getSex() +
@@ -815,11 +814,12 @@ public class Methods {
             System.out.println("Введите зарплату програмиста!");
             programmer.setSalary(scanner.nextInt());
             System.out.println("Введите язык программирования!");
-            programmer.setProgrammingLanguage(scanner.nextLine());
+            programmer.setProgrammingLanguage(scanner.next());
             programmers.add(programmer);
             FileWriter writer = new FileWriter("matveu/src/ProgrammerLuxsoft.txt", true);
             writer.write(programmer.getName() + ":" + programmer.getSecondName() + ":" + programmer.getSex() +
-                    ":" + programmer.getAge() + ":" + programmer.getSalary() +":"+ programmer.getProgrammingLanguage() + "\n");
+                    ":" + programmer.getAge() + ":" + programmer.getSalary() +":"
+                    + programmer.getProgrammingLanguage()+ "\n");
             writer.flush();
             writer.close();
         } catch (Exception e) {
