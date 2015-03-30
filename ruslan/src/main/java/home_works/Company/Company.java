@@ -1,8 +1,8 @@
 package home_works.Company;
 
-import entity.Developer;
-import entity.Manager;
-import entity.SystemAdm;
+import home_works.developers.Developer;
+import home_works.manager.Manager;
+import home_works.administrator.SystemAdm;
 import home_works.Employee.Employee;
 
 import java.util.ArrayList;

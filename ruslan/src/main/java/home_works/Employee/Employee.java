@@ -10,7 +10,16 @@ public class Employee {
     private int age;
     private double salary;
 
-    public Employee(String name, String secondName, double salary, String platform) {
+    public Employee(String name, String secondName, String gender, int age, double salary) {
+        this.name = name;
+        this.secondName = secondName;
+        this.gender = gender;
+        this.age = age;
+        this.salary = salary;
+    }
+
+    public Employee(String name, String secondName, double salary, String nameOfProject) {
+
     }
 
     public String getName() {
@@ -52,17 +61,5 @@ public class Employee {
     public void setSalary(double salary) {
         this.salary = salary;
     }
-
-    public Employee(String name, String secondName, int salary, String nameOfProject) {
-
-    }
-
-    public Employee(String name, String secondName, String gender, int age, double salary) {
-        this.name = name;
-        this.secondName = secondName;
-        this.age = age;
-        this.salary = salary;
-        this.gender = gender;
-
-    }
 }
+
