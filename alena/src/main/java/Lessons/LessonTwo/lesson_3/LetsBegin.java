@@ -2,9 +2,7 @@ package Lessons.LessonTwo.lesson_3;
 
 
 
-import Homeworks.homework_1.Employee;
-import Homeworks.homework_1.EmployeeUtil;
-import Lessons.LessonTwo.Company;
+import entity.EmployeeUtil;
 
 import java.io.*;
 import java.util.ArrayList;

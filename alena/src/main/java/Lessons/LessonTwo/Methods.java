@@ -1,7 +1,8 @@
 package Lessons.LessonTwo;
 
-import Homeworks.homework_1.Employee;
-import Homeworks.homework_1.EmployeeUtil;
+import entity.Company;
+import entity.CompanyUtil;
+import entity.Employee;
 import Homeworks.homework_1.Main;
 
 import java.io.*;
