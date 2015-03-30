@@ -2,25 +2,23 @@ import entity.Employee;
 import entity.employeeHeirs.Admin;
 import entity.employeeHeirs.Manager;
 import entity.employeeHeirs.Programist;
-import inputOutput.ReadWrite;
+import inputOutput.CommonReadWrite;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.lang.Exception;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 
 public class FirstTest {
 
     @Test
     // у тестовых методов нет аргументов на вход
-    // тестовые методы обязательно быть void
+    // тестовые методы обязательно должны быть void
     public void doSomething() throws Exception{
         ArrayList<Employee> employees = new ArrayList<>();
         ArrayList<String[]> s;
-        s = ReadWrite.readFromFile("src/main/java/additionalFiles/positions/Admin.txt", ":");
+        CommonReadWrite crw = new CommonReadWrite("src/main/java/additionalFiles/positions/Admins.txt", ":");
+        s = crw.readFromFile();
         for (int i = 0; i < s.size(); i++) {
             Admin a = new Admin();
             a.setName(s.get(i)[0]);
@@ -30,7 +28,8 @@ public class FirstTest {
             employees.add(a); // в коллекцию записывается ссылка на сущность???
             System.out.println(a);
         }
-        s = ReadWrite.readFromFile("src/main/java/additionalFiles/positions/Manager.txt", ":");
+        crw = new CommonReadWrite("src/main/java/additionalFiles/positions/Manager.txt", ":");
+        s = crw.readFromFile();
         for (int i = 0; i < s.size(); i++) {
             Manager m = new Manager();
             m.setName(s.get(i)[0]);
@@ -40,7 +39,8 @@ public class FirstTest {
             employees.add(m);
             System.out.println(m);
         }
-        s = ReadWrite.readFromFile("src/main/java/additionalFiles/positions/Programists.txt", ":");
+        crw = new CommonReadWrite("src/main/java/additionalFiles/positions/Programists.txt", ":");
+        s = crw.readFromFile();
         for (int i = 0; i < s.size(); i++) {
             Programist p = new Programist();
             p.setName(s.get(i)[0]);
@@ -50,6 +50,6 @@ public class FirstTest {
             employees.add(p);
             System.out.println(p);
         }
-        ReadWrite.writeToFile("src/main/java/additionalFiles/test.txt", employees, false);
+//        crw.writeToFile("src/main/java/additionalFiles/test.txt", employees, false);
     }
 }
