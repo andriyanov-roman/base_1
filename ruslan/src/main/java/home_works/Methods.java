@@ -27,7 +27,7 @@ public class Methods {
         System.out.println("10.  Отсортировать работников компани №3, по длине фамилии.");
         System.out.println("11.  Добавить сотрудника.");
         System.out.println("12.  Ввести нового сотрудника либо вывести в консоль того которого добавили.");
-        System.out.println("13.  Поднять зарплату всем сотрудникам.");
+        System.out.println("13.  Поднять зарплату всем сотрудникам, мужчинам.");
         System.out.println("14.  Уволить всех женщин компании.");
         while (scanner.hasNext()) {
             switch (scanner.next()) {
@@ -58,7 +58,7 @@ public class Methods {
                 case "9":
                     sortAge();
                     break;
-               /* case "10":
+               case "10":
                     sortSecondName();
                     break;
                 case "11":
@@ -72,7 +72,7 @@ public class Methods {
                     break;
                 case "14":
                     firedAllWomen();
-                    break;*/
+                    break;
 
                 case "Exit":
                     System.exit(0);
@@ -80,6 +80,26 @@ public class Methods {
                     System.out.println("Нету интересующей Вас информации.");
             }
         }
+    }
+
+    private static void firedAllWomen() {
+
+    }
+
+    private static void takeUpperSalaryForMan() {
+
+    }
+
+    private static void showCreateEmployees() {
+
+    }
+
+    private static void addNewEmployee() {
+
+    }
+
+    private static void sortSecondName() {
+
     }
 
     private static void sortAge() {
@@ -138,7 +158,6 @@ public class Methods {
             }
         }
         System.out.println(temp.getName() + " " + temp.getSecondName() + " ,  " + temp.getSalary() + " USD ");
-
     }
 
 

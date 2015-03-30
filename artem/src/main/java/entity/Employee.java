@@ -2,11 +2,11 @@ package entity;
 
 
 public class Employee { // Создаем класс-шаблон ("формочку для печенек")
-    private String name;
-    private String secondName; // Объявляем еще одно поле класса. Их может быть сколько угодно
-    private double salary;
-    private String sex;
-    private int age;
+    protected String name;
+    protected String secondName; // Объявляем еще одно поле класса. Их может быть сколько угодно
+    protected double salary;
+    protected String sex;
+    protected int age;
 
     public Employee(String name, String secondName, double salary, String sex, int age){ // Это ЗАДАННЫЙ конструктор
         this.name =name;

@@ -1,9 +1,10 @@
-package entity;
+package home_works.administrator;
 
 
 import home_works.Employee.Employee;
 
 public class SystemAdm extends Employee{
+
 
 
     public SystemAdm(String name, String secondName, double salary, String platform) {

@@ -18,7 +18,7 @@ public class GetMaxSalaryAmoungPositions {
         ArrayList<Employee> employees = new ArrayList<>();
         ArrayList<String[]> s;
         Admin a = new Admin();
-        s = ReadWrite.readFromFile("artem/src/main/java/additionalFiles/positions/Admin", ":");
+        s = ReadWrite.readFromFile("artem/src/main/java/additionalFiles/positions/Admin.txt", ":");
         for (int i = 0; i < s.size(); i++) {
             a.setName(s.get(i)[0]);
             a.setSecondName(s.get(i)[1]);
@@ -45,7 +45,8 @@ public class GetMaxSalaryAmoungPositions {
             employees.add(p);
         }
         for (int i = 0; i < employees.size(); i++) {
-            System.out.println(employees.get(i).getName() + " " + employees.get(i).getSecondName() + " " + employees.get(i).getSalary() + " " + employees.get(i).getClass());
+            ReadWrite.writeToFile("artem/src/main/java/additionalFiles/test", employees, true);
+//            System.out.println(employees.get(i).getName() + " " + employees.get(i).getSecondName() + " " + employees.get(i).getSalary() + " " + employees.get(i).getClass());
         }
     }
 }
