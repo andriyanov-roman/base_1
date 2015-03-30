@@ -1,6 +1,7 @@
-package Homeworks.homework_1;
+package entity;
 
 import Lessons.LessonTwo.Methods;
+import entity.Employee;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,8 +11,8 @@ import java.util.ArrayList;
  */
 public class EmployeeUtil {
     public static ArrayList<Employee> getEmployees () throws IOException {
-        ArrayList<Employee> empl = new ArrayList<>();
-        String dump = Methods.ReadFromFile("alena\\src\\main\\java\\identity\\employees.txt");
+        ArrayList<Employee> employees = new ArrayList<>();
+        String dump = Methods.ReadFromFile("src\\main\\java\\identity\\employees.txt");
         String [] lines = dump.split("\n");
         for (int i = 0; i < lines.length; i++) {
             String [] person = lines[i].split(":");
@@ -21,8 +22,8 @@ public class EmployeeUtil {
             e.setSalary(Double.valueOf(person[2]));
             e.setSex(person[3]);
             e.setAge(Integer.valueOf(person[4]));
-            empl.add(e);
+            employees.add(e);
         }
-        return empl;
+        return employees;
     }
 }

@@ -1,6 +1,6 @@
 package Lessons.LessonTwo.lesson_3;
 
-import Homeworks.homework_1.Employee;
+import entity.Employee;
 
 import java.io.BufferedReader;
 import java.io.File;

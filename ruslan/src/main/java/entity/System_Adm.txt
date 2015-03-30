@@ -1,1 +1,3 @@
 Curtis:Jackson:9000:Ubuntu
+Curtis:Davis:9000:Windows
+Carmelo:Anthony:9000:MacOS

@@ -148,7 +148,7 @@ public class FactoryUtil {
     }
 
     public static ArrayList<Car> showCars() throws IOException {
-        File file = new File("vorobey/src/Car.txt");
+        File file = new File("src/Car.txt");
         BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
         ArrayList<Car> cars = new ArrayList<>();
         String line;

@@ -1,6 +1,6 @@
-package lesson_5;
+package home_works.manager;
 
-import entity.Manager;
+import home_works.manager.Manager;
 
 import java.util.ArrayList;
 
@@ -9,9 +9,7 @@ import java.util.ArrayList;
  */
 public class ManagerUtil {
     public static ArrayList<Manager> getManager() {
-        Manager s1 = new Manager("","",5, "");
         ArrayList<Manager> managers = new ArrayList<>();
-        managers.add(s1);
         return managers;
     }
 }

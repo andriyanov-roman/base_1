@@ -33,7 +33,7 @@ public class ControllerE {
     }
     public static Employee /*ArrayList*/ getMaxSalaryInComp (Company com) {
         Employee eWithMaxSalary = (Employee)((ArrayList)com.getStuff().get(0)).get(0);
-        /*ArrayList maxStuff = new ArrayList();
+    /*    ArrayList maxStuff = new ArrayList(5);
         maxStuff.add(eWithMaxSalary);
         maxStuff.add(eWithMaxSalary);
         maxStuff.add(eWithMaxSalary);

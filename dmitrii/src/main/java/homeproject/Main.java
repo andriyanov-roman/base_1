@@ -7,7 +7,7 @@ import java.io.IOException;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        //Hometask.runHomeTask3();
+        // Hometask.runHomeTask3();
         ControllerE.Run();
     }
 }

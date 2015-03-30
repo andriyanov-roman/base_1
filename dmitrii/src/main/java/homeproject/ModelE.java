@@ -24,7 +24,7 @@ public class ModelE {
     }
 
 
-    private static Company CompanyParse (String FilePath) throws IOException {
+    public static Company CompanyParse (String FilePath) throws IOException {
         Company com = new Company();
         ArrayList<String[]> companyDump = tools.FileUtil.ReadFromFile(FilePath,RegExp);
         com.setCompanyName(companyDump.get(0)[0]);

@@ -1,4 +1,4 @@
-Programmer:Vitaly:Klichko:300000.00:male:39
+Vitaly:Klichko:300000.00:male:39
 Piter:Poroshenko:500000.00:male:55
 Boris:Filatov:5000.00:male:37
 Julia:Timochenko:15000.00:female:60:Python

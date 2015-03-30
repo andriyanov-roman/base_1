@@ -1,4 +1,4 @@
-package entity;
+package home_works.developers;
 
 
 import home_works.Employee.Employee;
@@ -6,8 +6,10 @@ import home_works.Employee.Employee;
 public class Developer extends Employee {
 
 
-    public Developer(String name, String secondName, double salary, String platform, String language) {
-        super(name, secondName, salary, platform);
+
+
+    public Developer(String name, String secondName, String gender, int age, double salary, String language) {
+        super(name, secondName, gender, age, salary);
         this.language = language;
     }
 

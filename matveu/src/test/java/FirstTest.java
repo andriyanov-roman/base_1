@@ -1,5 +1,9 @@
-/**
- * Created by Администратор on 06.03.2015.
- */
+import org.junit.Test;
+
 public class FirstTest {
+    @Test
+    public void doSomething() {
+
+
+    }
 }

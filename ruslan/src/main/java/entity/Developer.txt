@@ -1,1 +1,3 @@
 Michael:Jordan:30000:Java
+Richard:Brenson:30000:Python
+Colin:Coolio:30000:C++
