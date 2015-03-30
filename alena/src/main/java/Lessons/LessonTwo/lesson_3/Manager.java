@@ -1,6 +1,6 @@
 package Lessons.LessonTwo.lesson_3;
 
-import Homeworks.homework_1.Employee;
+import entity.Employee;
 
 /**
  * Created by user on 23.03.2015.

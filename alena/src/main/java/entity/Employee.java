@@ -1,6 +1,4 @@
-package Homeworks.homework_1;
-
-import Lessons.LessonTwo.Company;
+package entity;
 
 /**
  * Created by MacBook on 16.03.15.

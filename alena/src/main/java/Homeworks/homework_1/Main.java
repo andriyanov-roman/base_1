@@ -2,7 +2,8 @@ package Homeworks.homework_1;
 
 
 
-import Lessons.LessonTwo.Company;
+import entity.Company;
+import entity.Employee;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,8 +38,9 @@ public class Main {
 //                        getIdenticalEmployees();
                         break;
                     case "4":
-//                        sortBySalary();
-                        break;
+
+                        /*sortBySalary();
+                        break;*/
                     case "5":
                         addNewEmployee(scanner);
                         /*writeToFileEmployee(employees);
@@ -117,21 +119,21 @@ public class Main {
 //            }
 //        }
 //    }
-//
-//    public static void sortBySalary() throws IOException {
-//        ArrayList<Employee> employees = Company.getEmployees();
-//        for (int i = 0; i < employees.size(); i++) {
-//            for (int j = 1; j < employees.size(); j++)
-//                if (employees.get(j).getSalary() < employees.get(j - 1).getSalary()) {
-//                    Employee temp = employees.get(j);
-//                    employees.set(j, employees.get(j - 1));
-//                    employees.set((j - 1), temp);
-//                }
-//        }
-//        for (int i = 0; i < employees.size(); i++) {
-//            System.out.println(employees.get(i).getName() + " " + employees.get(i).getSecondName() + " "+ employees.get(i).getSalary());
-//
-//        }
-//
-//    }
+
+    public static void sortBySalary( Company c) throws IOException {
+        for (int i = 0; i < c.getEmployees().size(); i++) {
+            for (int j = 1; j < c.getEmployees().size(); j++)
+                if (c.getEmployees().get(j).getSalary() < c.getEmployees().get(j - 1).getSalary()) {
+                    Employee temp = c.getEmployees().get(j);
+                    c.getEmployees().set(j, c.getEmployees().get(j - 1));
+                    c.getEmployees().set((j - 1), temp);
+                }
+        }
+        for (int i = 0; i < c.getEmployees().size(); i++) {
+            System.out.println(c.getEmployees().get(i).getName() + " " + c.getEmployees().get(i).getSecondName() + "" +
+                    " " + c.getEmployees().get(i).getSalary());
+
+        }
+
+    }
 }
