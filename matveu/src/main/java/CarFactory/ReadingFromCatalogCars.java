@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class ReadingFromCatalogCars {
     public static ArrayList<Car> getCars() throws IOException {
-        File file = new File("E:\\base_1\\matveu\\src\\main\\java\\CarFactory\\CatalogCars.txt");
+        File file = new File("matveu\\src\\main\\java\\CarFactory\\CatalogCars.txt");
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
         ArrayList<Car> cars = new ArrayList<>();
