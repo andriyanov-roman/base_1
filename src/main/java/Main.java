@@ -7,16 +7,23 @@ import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         ArrayList<Employee> employees = new ArrayList<>();
-        Programmer p = new Programmer();
-        Manager m = new Manager();
-        employees.add(p);
-        employees.add(m);
+        //Employee employee = employees.stream().filter(e -> (e.getSalary() > 500)).findAny().get();
+        List<String> myList =
+                Arrays.asList("a1", "a2", "b1", "c2", "c1");
 
+        myList
+                .stream()
+                .filter(s -> s.startsWith("c"))
+                .map(String::toUpperCase)
+                .sorted()
+                .forEach(System.out::println);
     }
 
     public static void getMaxSalary() {
@@ -27,6 +34,7 @@ public class Main {
 
             }
         }
+
     }
 
     private static Admin getMaxSalaryAdmin(ArrayList<Admin> admins) {
