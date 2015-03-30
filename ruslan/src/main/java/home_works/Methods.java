@@ -1,5 +1,12 @@
 package home_works;
 
+import home_works.Company.Company;
+import home_works.Company.CompanyUtil;
+import home_works.Employee.Employee;
+import home_works.Employee.EmployeeUtil;
+import home_works.User.User;
+import home_works.User.UserUtil;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 

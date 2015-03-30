@@ -13,6 +13,7 @@ import java.util.stream.Stream;
  * Created by user on 14.03.2015.
  */
 public class CompanyUtil {
+    private String companyName;
     private Scanner scanner = new Scanner(System.in);
     private ArrayList<Employee> employees = new ArrayList<>();
     private ArrayList<Admin> admins = new ArrayList<>();
@@ -28,9 +29,9 @@ public class CompanyUtil {
         c1.getEmployees().add(employees.get(0));
         c1.getEmployees().add(employees.get(1));
         c1.getEmployees().add(employees.get(2));
-        c1.getAdmins().add(admins.get(0));
+       /* c1.getAdmins().add(admins.get(0));
         c1.getManagers().add(managers.get(0));
-        c1.getProgrammers().add(programmers.get(0));
+        c1.getProgrammers().add(programmers.get(0));*/
         companies.add(c1);
 
         Company c2 = new Company();
@@ -39,9 +40,9 @@ public class CompanyUtil {
         c2.getEmployees().add(employees.get(3));
         c2.getEmployees().add(employees.get(4));
         c2.getEmployees().add(employees.get(5));
-        c2.getAdmins().add(admins.get(1));
+        /*c2.getAdmins().add(admins.get(1));
         c2.getManagers().add(managers.get(1));
-        c2.getProgrammers().add(programmers.get(1));
+        c2.getProgrammers().add(programmers.get(1));*/
         companies.add(c2);
 
 
@@ -51,24 +52,24 @@ public class CompanyUtil {
         c3.getEmployees().add(employees.get(6));
         c3.getEmployees().add(employees.get(7));
         c3.getEmployees().add(employees.get(8));
-        c3.getAdmins().add(admins.get(2));
+        /*c3.getAdmins().add(admins.get(2));
         c3.getManagers().add(managers.get(2));
-        c3.getProgrammers().add(programmers.get(2));
+        c3.getProgrammers().add(programmers.get(2));*/
         companies.add(c3);
         return new ArrayList<>(Arrays.asList(c1, c2, c3));
     }
 
     public void start() throws IOException {
-        String companyName;
+
         System.out.println("Enter command key: " +
                 "\n 0.Show all companies " +
                 "\n 1. Show an employee with MaxSalary " +
                 "\n 2.Sort a company  by salary " +
                 "\n 3.Sort a company  by age" +
                 "\n 4.Sort a company  by surname length" +
-                "\n 5.Add a new employee" +
-                "\n 6. Add a new company" +
-                "\n 7.Show all employees");
+                "\n 5.Add a new employee to Lenovo" +
+                "\n 6. Add a new employee to IBM" +
+                "\n 7.Add a new employee to Luxoft \n");
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "0":
@@ -89,25 +90,27 @@ public class CompanyUtil {
                     companyName = checkInput();
                     sortBySurnameLength(getCompByName(companyName));
                     break;
-               /* case "5":
-
+                case "5":
+                    companyName = checkInput();
                     createNewEmployee();
-                    writeToFile("alisa/src/result/Lenovo", );
-                    readFromFile();
+                    writeToFile(getCompByName(companyName),"alisa/src/result/Lenovo");
+                    readFromFile("alisa/src/result/Lenovo",":");
                     System.out.println(employees.toString());
                     break;
                 case "6":
-                    readFromFile();
+                    companyName = checkInput();
                     createNewEmployee();
-                    writeToFile("alisa/src/result/IBM");
+                    writeToFile(getCompByName(companyName),"alisa/src/result/IBM");
+                    readFromFile("alisa/src/result/IBM",":");
                     System.out.println(employees.toString());
                     break;
                 case "7":
-                    readFromFile();
+                    companyName = checkInput();
                     createNewEmployee();
-                    writeToFile("alisa/src/result/Luxoft");
+                    writeToFile(getCompByName(companyName),"alisa/src/result/Luxoft");
+                    readFromFile("alisa/src/result/Luxoft", ":");
                     System.out.println(employees.toString());
-                    break;*/
+                    break;
                 case "Exit":
                     System.exit(0);
                 default:
@@ -243,12 +246,12 @@ public class CompanyUtil {
         }
     }
 
-    public void writeToFile(String path, Company company) {
+    public void writeToFile(Company company,String path) {
         FileWriter writer = null;
         try {
             writer = new FileWriter(path, true);
-            writer.write(company.getCompanyName() + ":");
-            writer.write(company.getEmployees().toString());
+            writer.write(company.getCompanyName() + ":"+ "\n");
+            writer.write(company.getEmployees().toString() + "\n");
             writer.flush();
             writer.close();
         } catch (IOException e) {
@@ -288,7 +291,7 @@ public class CompanyUtil {
         return strings;
     }
 
-    public ArrayList<Employee> getCompany(String path, String regExp) throws IOException {
+    public ArrayList<Employee> getEmployees (String path, String regExp) throws IOException {
         ArrayList<String[]> strings = readFromFile(path, regExp);
         ArrayList<Employee> employees = new ArrayList<>();
         String line;

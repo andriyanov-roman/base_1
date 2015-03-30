@@ -1,54 +1,32 @@
 package entity;
 
 
-public class Manager {
-    public String name;
-    public String secondName;
-    public double salary;
+import home_works.Employee.Employee;
 
-    public Manager(String name, String secondName, double salary, String projectName) {
-        this.name = name;
-        this.secondName = secondName;
-        this.salary = salary;
-        this.projectName = projectName;
+public class Manager extends Employee {
+    public String getNameOfProject() {
+        return nameOfProject;
     }
+
+    public void setNameOfProject(String nameOfProject) {
+        this.nameOfProject = nameOfProject;
+    }
+
+    public String nameOfProject;
 
     @Override
     public String toString() {
-        return name + secondName + salary +projectName;
+        return getName() + "  " + getSecondName() + "  " + getSalary() + "  " + getNameOfProject();
     }
 
-    public String getProjectName() {
-        return projectName;
+    public Manager(String name, String secondName, int salary, String nameOfProject) {
+        super(name, secondName, salary, nameOfProject);
+        this.nameOfProject = nameOfProject;
     }
 
-    public void setProjectName(String projectName) {
-        this.projectName = projectName;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSecondName() {
-        return secondName;
-    }
-
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-
-    public String projectName;
 }
+
+
+
+

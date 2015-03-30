@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 
-public class Sort {
+public class SortUtil {
     public static void sortByName(int i, String[] companies) throws IOException{
         if(i==0){
             for (int j = 0; j < companies.length; j++) {

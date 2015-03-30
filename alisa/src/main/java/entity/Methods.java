@@ -24,8 +24,7 @@ public class Methods{
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "0":
-
-                    //showMaxSalary();
+                    //showMaxSalaryAdmin();
                     break;
                 case "Exit":
                     System.exit(0);
@@ -65,7 +64,7 @@ public class Methods{
         return admins;
     }
 
-    /*public void showMaxSalary() throws IOException {
+   /*public void showMaxSalary() throws IOException {
        ArrayList<Admin> admins = getAdmins("alisa\\src\\result\\Admin", ":");
         for (int i = 0; i < admins.size(); i++) {
             Admin temp =admins.get(i).getAdmins().get(0);
@@ -78,7 +77,17 @@ public class Methods{
             System.out.println(temp.getName() + " " + temp.getSalary());
         }
 
-    }
+    }*/
+   /*private   showMaxSalaryAdmin(ArrayList<Admin> admins) {
+
+       Admin max = admins.get(0);
+       for (int i = 0; i < admins.size(); i++) {
+           if(max.getSalary() < admins.get(i).getSalary()) {
+               max = admins.get(i);
+           }
+       }
+       return max;
+   }
 */
 
 }

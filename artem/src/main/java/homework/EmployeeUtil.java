@@ -7,7 +7,6 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class EmployeeUtil {
-//    public static ArrayList<Employee> employees = new ArrayList<>();
     public static ArrayList<Employee> getEmployees(String path, String regExp) throws IOException{
         ArrayList<String[]> strings = Methods.readFromFile(path, regExp);
         ArrayList<Employee> employees = new ArrayList<>();

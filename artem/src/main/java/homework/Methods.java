@@ -58,6 +58,8 @@ public class Methods {
                     String s = scanner.next();
                     ArrayList<Employee> employees = new ArrayList<>();
                     CompanyUtil.addCompany(s, employees);
+                case "8": GetMaxSalaryAmoungPositions.GetMaxSalaryAmoungPositions();
+                    break;
                 case "0": System.exit(0); break;
                 default: System.out.println("No such case");
             }

@@ -1,8 +1,9 @@
-package home_works;
+package home_works.Company;
 
 import entity.Developer;
 import entity.Manager;
 import entity.SystemAdm;
+import home_works.Employee.Employee;
 
 import java.util.ArrayList;
 
