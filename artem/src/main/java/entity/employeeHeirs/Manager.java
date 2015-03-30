@@ -20,5 +20,5 @@ public class Manager extends Employee{
     public void setProjectName(String projectName) { this.projectName = projectName; }
 
     @Override
-    public String toString() { return /*name + " " + secondName + " " + salary + " " +*/ projectName; }
+    public String toString() { return name + " " + secondName + " " + salary + " " + projectName; }
 }

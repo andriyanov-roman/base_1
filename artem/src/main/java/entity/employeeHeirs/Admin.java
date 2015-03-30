@@ -19,5 +19,5 @@ public class Admin extends Employee{
     public void setPlatform(String platform) { Platform = platform; }
 
     @Override
-    public String toString() { return /*name + secondName + salary +*/ Platform; }
+    public String toString() { return name + ":" + secondName + ":" + salary + ":" + Platform; }
 }

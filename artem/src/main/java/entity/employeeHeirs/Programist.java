@@ -20,7 +20,7 @@ public class Programist extends Employee{
     public void setProgLang(String progLang) { this.progLang = progLang; }
 
     @Override
-    public String toString() { return /*name +secondName + salary +*/ progLang ; }
+    public String toString() { return name + " " + secondName + " " + salary + " " + progLang ; }
 
 
 }

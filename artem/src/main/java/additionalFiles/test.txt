@@ -1,0 +1,9 @@
+Vasya:Ivanow:30150.0:Windows7
+Vasiliy:Petrov:55430.0:Windows8
+Sergey:Sidorov:70623.0:Linux
+Slavik Romanov 23450.0 Garcia
+Olga Shudra 98760.0 Rose
+Ival Calach 45870.0 NaPechy
+Irena Carpa 23400.0 C#
+Vova Poopkin 12400.0 Java
+Sasha Grey 54300.0 Basic

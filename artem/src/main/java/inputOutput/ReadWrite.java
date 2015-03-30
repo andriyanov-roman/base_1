@@ -22,7 +22,9 @@ public class ReadWrite {
 //        StringBuffer buffer = new StringBuffer();
 //        buffer.append(String.valueOf(arrayList + "\n"));
 
-        writer.write(String.valueOf(arrayList));
+        for (int i = 0; i < arrayList.size(); i++) {
+            writer.write(arrayList.get(i)+"\n");
+        }
         writer.flush();
         writer.close();
     }
