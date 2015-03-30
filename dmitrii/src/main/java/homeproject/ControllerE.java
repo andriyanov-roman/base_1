@@ -198,7 +198,7 @@ public class ControllerE {
         return  max;
     }
 
-    /*    ====  ВАРИАНТ    2  =====  */
+    /*    ====  ВАРИАНТ    2  =====        */
     public static void getMaxSalary2() {
         ArrayList entyties = new ArrayList();
         Manager managerMax;
