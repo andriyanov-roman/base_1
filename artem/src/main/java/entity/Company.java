@@ -1,5 +1,9 @@
 package entity;
 
+import entity.employeeHeirs.Admin;
+import entity.employeeHeirs.Manager;
+import entity.employeeHeirs.Programist;
+
 import java.util.ArrayList;
 
 public class Company { // Создаем класс-шаблон ("формочку для печенек")

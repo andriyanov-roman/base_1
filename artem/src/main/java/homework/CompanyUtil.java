@@ -1,7 +1,6 @@
 package homework;
 
 
-import entity.Company;
 import entity.Employee;
 import java.io.*;
 import java.util.ArrayList;
@@ -77,10 +76,10 @@ public class CompanyUtil { // Создаем класс штампующий О�
                 System.out.println(" Select an option:"+"\n 1. Sort by name"+"\n 2. Sort by surname length"+
                         "\n 3. Sort by ZP"+"\n 4. Sort by age"+"\n c - Come back");
                 switch (Methods.scanner.next()){
-                    case "1": Sort.sortByName(i, companies); break;
-                    case "2": Sort.sortBySurnameLength(i, companies); break;
-                    case "3": Sort.sortByZP(i, companies); break;
-                    case "4": Sort.sortByAge(i, companies); break;
+                    case "1": SortUtil.sortByName(i, companies); break;
+                    case "2": SortUtil.sortBySurnameLength(i, companies); break;
+                    case "3": SortUtil.sortByZP(i, companies); break;
+                    case "4": SortUtil.sortByAge(i, companies); break;
                     case "c": break;
                     default: System.out.println("No such case");
                 }
@@ -89,10 +88,10 @@ public class CompanyUtil { // Создаем класс штампующий О�
                 System.out.println(" Select an option:"+"\n 1. Sort by name"+"\n 2. Sort by surname length"+
                         "\n 3. Sort by ZP"+"\n 4. Sort by age"+"\n c - Come back");
                 switch (Methods.scanner.next()){
-                    case "1": Sort.sortByName(i, companies); break;
-                    case "2": Sort.sortBySurnameLength(i, companies); break;
-                    case "3": Sort.sortByZP(i, companies); break;
-                    case "4": Sort.sortByAge(i, companies); break;
+                    case "1": SortUtil.sortByName(i, companies); break;
+                    case "2": SortUtil.sortBySurnameLength(i, companies); break;
+                    case "3": SortUtil.sortByZP(i, companies); break;
+                    case "4": SortUtil.sortByAge(i, companies); break;
                     case "c": break;
                     default: System.out.println("No such case");
                 }
