@@ -1,13 +1,10 @@
 package Lessons.LessonTwo;
 
 
-import Homeworks.homework_1.Employee;
+import entity.Employee;
 import Lessons.LessonTwo.lesson_3.Admin;
-import Lessons.LessonTwo.lesson_3.LetsBegin;
 import Lessons.LessonTwo.lesson_3.Manager;
-import Lessons.LessonTwo.lesson_3.Programmer;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**

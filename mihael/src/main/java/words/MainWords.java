@@ -39,10 +39,10 @@ public class MainWords {
                 switch (input){
 
                     case "SAVE":
-                        saveWordsToFile("mihael/src/main/java/Words/words.txt", true, words);
+                        saveWordsToFile("mihael/src/main/java/words/words.txt", true, words);
                         break;
                     case "LOAD":
-                        words = loadWordsFromFile("mihael/src/main/java/Words/words.txt");
+                        words = loadWordsFromFile("mihael/src/main/java/words/words.txt");
                         //showArrayListString(words);
                         //break;
                     case "SHOW":
@@ -52,7 +52,6 @@ public class MainWords {
                         words.add(input);
                         break;
                 }
-
 
             }
         }
