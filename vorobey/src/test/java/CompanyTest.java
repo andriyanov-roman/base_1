@@ -85,22 +85,27 @@ public class CompanyTest {
     }
 
     @Test
-    public void tesWriteToFile() throws Exception {
-        ArrayList<Car> cars = FactoryUtil.getCars();
-        Long maxPrice = 0L;
-        String maxOwnerName = "";
-        String maxName = "";
-        for (int i = 0; i < cars.size(); i++) {
-            for (int j = 0; j < cars.get(i).getPrice(); j++) {
-                if (cars.get(i).getPrice() > maxPrice) {
-                    maxPrice = cars.get(i).getPrice();
-                    maxName = cars.get(i).getName();
-                    maxOwnerName = cars.get(i).getOwnerName();
-                }
-            }
-        }
-        System.out.println("Самая дорогостоящая модель: " + maxPrice + ":" + maxName + ":" + maxOwnerName);
+    public void tesFile() throws Exception {
+        File file = new File("src/Car.txt");
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+        ArrayList<Car> cars = new ArrayList<>();
+        String line;
+        while ((line = bufferedReader.readLine()) != null) {
+            String[] carsArray = line.split(":");
+            Car car = new Car();
+            car.setName(carsArray[0]);
+            car.setOwnerName(carsArray[1]);
+            car.setNumber(carsArray[2]);
+            car.setColour(carsArray[3]);
+            car.setFactoryName(carsArray[4]);
+            car.setType(carsArray[5]);
+            car.setPrice(Long.valueOf(carsArray[6]));
+            car.setDate(Integer.valueOf(carsArray[7]));
+            cars.add(car);
+            System.out.print(car.getName() + ":" + car.getOwnerName() + ":" + car.getNumber() + ":"
+                    + car.getColour() + ":" + car.getFactoryName() + ":" + car.getType() + ":" + car.getPrice() + ":" + car.getDate() + "\n");
 
+        }
 
     }
 }
