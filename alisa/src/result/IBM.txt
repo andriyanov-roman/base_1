@@ -1,0 +1,8 @@
+Lenovo:
+[Vasya  Ivanow  3000.0  40  m, Vasya  Petrov  5000.0  39  m, Sergey  Sidorov  7000.0  23  m]
+Lenovo:
+[Vasya  Ivanow  3000.0  40  m, Vasya  Petrov  5000.0  39  m, Sergey  Sidorov  7000.0  23  m]
+Lenovo:
+[Vasya  Ivanow  3000.0  40  m, Vasya  Petrov  5000.0  39  m, Sergey  Sidorov  7000.0  23  m]
+IBM:
+[Caley  Ivanowa  13000.0  25  f, Zhora  Simonov  33000.0  56  m, Jack  Woker  28000.0  87  m]
