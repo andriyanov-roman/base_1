@@ -71,7 +71,7 @@ public class Methods  {
             System.out.println("Введите год выпуска автомобиля");
             car.setYear(scanner.nextInt());
             cars.add(car);
-            FileWriter writer = new FileWriter("C:\\Users\\Игорь\\IdeaProjects\\base_1\\base_1\\matveu\\src\\main\\java\\CarFactory\\CatalogCars.txt", true);
+            FileWriter writer = new FileWriter("E:\\base_1\\matveu\\src\\main\\java\\CarFactory\\CatalogCars.txt", true);
             writer.write(car.getNameOfOwner() + ":" + car.getBrand() + ":" + car.getModel() + ":" + car.getType() + ":" + car.getColor()
                     + ":" + car.getNumber() + ":" + car.getConcern() + ":" + car.getPrice() + ":" + car.getYear() + ":" + car.getDescription() + "\n");
             writer.flush();
