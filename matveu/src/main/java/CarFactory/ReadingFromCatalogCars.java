@@ -27,7 +27,7 @@ public class ReadingFromCatalogCars {
             car.setYear(Integer.valueOf(pool[8]));
             car.setDescription(pool[9]);
             cars.add(car);
-            System.out.print(car+" "+"\n");
+            //System.out.print(car+" "+"\n");
         }
         return cars;
     }
