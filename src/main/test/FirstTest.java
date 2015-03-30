@@ -16,6 +16,7 @@ public class FirstTest {
 
     @Test
     public void doSomething() throws Exception {
+
         ArrayList<Employee> employees = new ArrayList<>();
         CommonWriterReader writerReader = new EmployeeWriterReader(employees);
         writerReader.writerToFile();
