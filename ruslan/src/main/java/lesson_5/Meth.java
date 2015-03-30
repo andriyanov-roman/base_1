@@ -1,14 +1,17 @@
 package lesson_5;
 
-import entity.Developer;
-import entity.Manager;
-import entity.SystemAdm;
+import home_works.administrator.SystemAdmUtil;
+import home_works.developers.Developer;
+import home_works.manager.Manager;
+import home_works.administrator.SystemAdm;
+import home_works.developers.DeveloperUtil;
+import home_works.manager.ManagerUtil;
 
 import java.util.ArrayList;
 
 
 public class Meth {
-    public static void launch () {
+    public static void launch() {
 
         getMaxSalaryManager();
         getMaxSalarySystem_Adm();
@@ -70,8 +73,8 @@ public class Meth {
                 temp = manager.get(i);
             }
         }
-//        System.out.println(temp.getName() + " " + temp.getSecondName() + " " + temp.getSalary());
-            return temp;
+        System.out.println(temp.getName() + " " + temp.getSecondName() + " " + temp.getSalary());
+        return temp;
     }
 
 }

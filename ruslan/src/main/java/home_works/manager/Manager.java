@@ -1,9 +1,13 @@
-package entity;
-
+package home_works.manager;
 
 import home_works.Employee.Employee;
 
+/**
+ * Created by user on 30.03.2015.
+ */
 public class Manager extends Employee {
+
+
     public String getNameOfProject() {
         return nameOfProject;
     }
@@ -14,19 +18,13 @@ public class Manager extends Employee {
 
     public String nameOfProject;
 
-    @Override
-    public String toString() {
-        return getName() + "  " + getSecondName() + "  " + getSalary() + "  " + getNameOfProject();
-    }
-
-    public Manager(String name, String secondName, int salary, String nameOfProject) {
+    public Manager(String name, String secondName, double salary, String nameOfProject) {
         super(name, secondName, salary, nameOfProject);
         this.nameOfProject = nameOfProject;
     }
 
-
+    @Override
+    public String toString() {
+        return getName()+ getSecondName() + getSalary() + getNameOfProject();
+    }
 }
-
-
-
-
