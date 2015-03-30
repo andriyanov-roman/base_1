@@ -1,4 +1,7 @@
-package home_works;
+package home_works.Company;
+
+import home_works.Employee.Employee;
+import home_works.Employee.EmployeeUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;

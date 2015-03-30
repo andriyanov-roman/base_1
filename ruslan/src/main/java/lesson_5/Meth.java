@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class Meth {
     public static void launch () {
+
         getMaxSalaryManager();
         getMaxSalarySystem_Adm();
         getMaxSalaryDeveloper();

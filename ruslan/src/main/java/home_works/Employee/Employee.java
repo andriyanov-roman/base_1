@@ -1,4 +1,4 @@
-package home_works;
+package home_works.Employee;
 
 /**
  * Created by user on 23.03.2015.
@@ -9,6 +9,9 @@ public class Employee {
     private String gender;
     private int age;
     private double salary;
+
+    public Employee(String name, String secondName, double salary, String platform) {
+    }
 
     public String getName() {
         return name;
@@ -50,7 +53,7 @@ public class Employee {
         this.salary = salary;
     }
 
-    public Employee() {
+    public Employee(String name, String secondName, int salary, String nameOfProject) {
 
     }
 

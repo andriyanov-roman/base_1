@@ -1,4 +1,4 @@
-package home_works;
+package home_works.User;
 
 /**
  * Created by user on 23.03.2015.
