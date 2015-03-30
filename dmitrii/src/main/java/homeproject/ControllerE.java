@@ -1,12 +1,10 @@
 package homeproject;
 
-import entities.Admin;
-import entities.Company;
-import entities.Employee;
-import entities.Manager;
+import entities.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by mit_OK! on 27.03.2015.
@@ -23,7 +21,70 @@ public class ControllerE {
             ViewE.showWorkers(selectedComps.get(i));
         }
     }
+    public static String getMaxSalary(ArrayList<Company> selectedComps) {
+        String Result = "";
+        for (int i = 0; i <selectedComps.size(); i++) {
+            /*Employee e = (Employee) getMaxSalaryInComp(selectedComps.get(i)).get(0);*/
+            Employee e = getMaxSalaryInComp(selectedComps.get(i));
+            Result=Result + "In company \""+selectedComps.get(i).getCompanyName()+
+            "\" MAX salary gets "+e.getName()+" "+e.getSurname()+". It\'s: "+e.getSalary()+"$\n";
+        }
+        return Result;
+    }
+    public static Employee /*ArrayList*/ getMaxSalaryInComp (Company com) {
+        Employee eWithMaxSalary = (Employee)((ArrayList)com.getStuff().get(0)).get(0);
+        /*ArrayList maxStuff = new ArrayList();
+        maxStuff.add(eWithMaxSalary);
+        maxStuff.add(eWithMaxSalary);
+        maxStuff.add(eWithMaxSalary);
+        maxStuff.add(eWithMaxSalary);*/
+        for (int i = 0; i < com.getStuff().size(); i++) {
+            ArrayList division = (ArrayList) com.getStuff().get(i);
+            for (int j = 0; j < division.size(); j++) {
+                Employee eNext = (Employee)division.get(j);
+                if (eNext.getSalary() > eWithMaxSalary.getSalary()) {
+                    eWithMaxSalary = eNext;
+                    /*if (division.get(i) instanceof Admin){maxStuff.set(1,division.get(i));}
+                    if (division.get(i) instanceof Manager){maxStuff.set(2,division.get(i));}
+                    if (division.get(i) instanceof Programmer){maxStuff.set(3,division.get(i));}
+                    if (division.get(i) instanceof Employee){maxStuff.set(0,division.get(i));}*/
+                }
+            }
+        }
+        /*return  maxStuff;*/
+        return  eWithMaxSalary;
+    }
 
+
+   /* public static Admin getMaxSalaryByAdmins (ArrayList<Admin> persons) {
+        Admin eMax = persons.get(0);
+        for (int i = 0; i < persons.size(); i++) {
+            if (persons.get(i).getSalary()>eMax.getSalary()) {
+                eMax = persons.get(i);
+            }
+        }
+        return eMax;
+    }*/
+   /* public static Manager getMaxSalaryByManagers (ArrayList<Manager> persons) {
+        Manager eMax = persons.get(0);
+        for (int i = 0; i < persons.size(); i++) {
+            if (persons.get(i).getSalary()>eMax.getSalary()) {
+                eMax = persons.get(i);
+            }
+        }
+        return eMax;
+    }
+    public static Programmer getMaxSalaryByProgrammers (ArrayList<Programmer> persons) {
+        Programmer eMax = persons.get(0);
+        for (int i = 0; i < persons.size(); i++) {
+            if (persons.get(i).getSalary()>eMax.getSalary()) {
+                eMax = persons.get(i);
+            }
+        }
+        return eMax;
+    }*/
+
+    /*    ============ УДАЛИТЬ ПОТОМ ЭТО БАРАХЛО  =======*/
     public static void displayHighestSalary(ArrayList<Company> comps) throws IOException {
         String Result = "\n";
         for (int i = 0; i < comps.size(); i++) {
@@ -130,20 +191,21 @@ public class ControllerE {
     private static Manager getMaxSalaryManager (ArrayList<Manager> managers){
         Manager max = managers.get(0);
         for (int i = 0; i < managers.size(); i++) {
-            if (max.getSalary() < managers.get(i).getSalary()){
+            /*if (max.getSalary() < managers.get(i).getSalary()){
                 max = managers.get(i);
-            }
+            }*/
         }
         return  max;
     }
 
     /*    ====  ВАРИАНТ    2  =====  */
-    public static void getMaxSalary() {
+    public static void getMaxSalary2() {
         ArrayList entyties = new ArrayList();
         Manager managerMax;
         for (int i = 0; i < entyties.size(); i++) {
             if (entyties.get(i) instanceof  Manager){}
         }
     }
+
 
 }

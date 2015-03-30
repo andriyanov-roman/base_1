@@ -55,7 +55,7 @@ public class ModelE {
                     break;
                 case "Employee":
                     Employee e = new Employee();
-                    e = createWorker(e, companyDump.get(i));
+                    e = createEmployee(e, companyDump.get(i));
                     com.getEmployees().add(e);
                     break;
                 default:
@@ -66,31 +66,26 @@ public class ModelE {
                     FillErrorLog(i, stringWithError);
             }
         }
+        com.setStuff(com.getEmployees(), com.getAdmins(), com.getManagers(), com.getProgrammers());
         return com;
     }
 
     private static Admin createWorker(Admin entity, String[] InitString) {
-        entity.setName(InitString[1]);
-        entity.setSurname(InitString[2]);
-        entity.setSalary(Double.valueOf(InitString[3]));
-        entity.setPlatform(InitString[4]);
-        return entity;
+        entity = (Admin) createEmployee(entity,InitString);
+        entity.setPlatform(InitString[6]);
+          return entity;
     }
     private static Manager createWorker (Manager entity, String[] InitString){
-        entity.setName(InitString[1]);
-        entity.setSurname(InitString[2]);
-        entity.setSalary(Double.valueOf(InitString[3]));
-        entity.setProjectName(InitString[4]);
+        entity = (Manager)createEmployee(entity,InitString);
+        entity.setProjectName(InitString[6]);
         return entity;
     }
     private static Programmer createWorker (Programmer entity, String[] InitString){
-        entity.setName(InitString[1]);
-        entity.setSurname(InitString[2]);
-        entity.setSalary(Double.valueOf(InitString[3]));
-        entity.setLanguage(InitString[4]);
+        entity = (Programmer) createEmployee(entity, InitString);
+        entity.setLanguage(InitString[6]);
         return entity;
     }
-    private static Employee createWorker (Employee entity, String[] InitString){
+    private static Employee createEmployee (Employee entity, String[] InitString){
         entity.setName(InitString[1]);
         entity.setSurname(InitString[2]);
         entity.setSalary(Double.valueOf(InitString[3]));

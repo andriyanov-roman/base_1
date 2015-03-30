@@ -11,11 +11,30 @@ public class Company {
     private ArrayList<Programmer> programmers;
     private ArrayList<Admin> admins;
     private ArrayList<Manager> managers;
+    private ArrayList stuff;
     private String filePath;
 
     public void setCompanyName (String name){
         this.companyName = name;
     }
+
+    public ArrayList getStuff() {
+        return stuff;
+    }
+
+    public void setStuff(ArrayList ... stuffDivisions) {
+        ArrayList stuff = new ArrayList();
+        for (int i = 0; i < stuffDivisions.length; i++) {
+            stuff.add(stuffDivisions[i]);
+        }
+        this.stuff = stuff;
+        /*stuff.add(getEmployees());
+        stuff.add(getAdmins());
+        stuff.add(getManagers());
+        stuff.add(getProgrammers());
+        this.stuff = stuff;*/
+    }
+
     public String getCompanyName () {
         return companyName;
     }

@@ -10,16 +10,15 @@ public class Employee {
     private Boolean gender;
     private int age;
 
-    public Employee() {
-
-    }
-
     public Employee(String name, String surname, Double salary, Boolean gender, int age) {
         this.name = name;
         this.surname = surname;
         this.salary = salary;
         this.gender = gender;
         this.age = age;
+    }
+
+    public Employee() {
     }
 
     public void showEmployee () {

@@ -1,8 +1,8 @@
 Polaris
-Employee:Marry:Madison:14375.0:false:53
+Employee:Mirriam:Carter:14375.0:false:53
 Employee:Neil:Armstrong:103499.0:true:43
-Admin:IHOR:SEMIRENKO:4000:UBUNTU
-Admin:Dmitriy:Korotkov:3200:FreBSD
-Manager:Vasyl:Simonenko:800:main_project
-Programmer:Kondrat:Kondratyev:900:Python
-Programmer:Ivan:Frolov:950:Objective-C
+Admin:IHOR:SEMIRENKO:4000:true:27:UBUNTU
+Admin:Dmitriy:Korotkov:3200:true:44:FreBSD
+Manager:Vasyl:Simonenko:9999800:true:22:main_project
+Programmer:Kondrat:Kondratyev:900:true:55:Python
+Programmer:Ivan:Frolov:950:true:85:Objective-C

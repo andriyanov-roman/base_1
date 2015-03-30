@@ -47,7 +47,10 @@ public class ViewE {
                     ControllerE.sortBySurnameLength(selectedComps);
                     break;
                 case "7":
-                    ControllerE.FindHighSalaryBeetwenEntities();
+                    selectCompanyDialog(comps); // Выводим пользователю список компаний
+                    selectedComps = selectCompany(comps);// узнаём, какая компания интересует пользователя
+                    System.out.println("\t *** Action: MAX SALARY IN COMPANY ***");
+                    printer(ControllerE.getMaxSalary(selectedComps));
                     break;
                 case "8":
                     System.out.println(ControllerE.findHighestAdmin());
@@ -146,7 +149,13 @@ public class ViewE {
     }
     public static void showWorkers (Company com) {
         System.out.println("=========== "+com.getCompanyName()+" ===========");
-        for (Employee i : com.getEmployees()){
+        for (int i = 0; i < com.getStuff().size(); i++) {
+            ArrayList division = (ArrayList) com.getStuff().get(i);
+            for (int j = 0; j < division.size(); j++) {
+                System.out.println(division.get(j).toString());
+            }
+        }
+        /*for (Employee i : com.getEmployees()){
             System.out.println(i.toString());
         }
         for (Admin i : com.getAdmins()){
@@ -157,7 +166,7 @@ public class ViewE {
         }
         for (Programmer i : com.getProgrammers()){
             System.out.println(i.toString());
-        }
+        }*/
     }
     public static void showEmployees (Company com){
         System.out.println("=========== "+com.getCompanyName()+" ===========");
