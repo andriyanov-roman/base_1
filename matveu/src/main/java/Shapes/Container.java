@@ -1,21 +1,29 @@
 package Shapes;
 
-public class Container {
-    private Double square;
+public class Container extends Shape {
+    private Double squareContainer;
 
     Container(){
 
     }
 
-    public Double getSquare() {
-        return square;
+    public Double getSquareContainer() {
+        return squareContainer;
     }
 
-    public void setSquare(Double square) {
-        this.square = square;
+    public void setSquareContainer(Double squareContainer) {
+        this.squareContainer = squareContainer;
     }
 
-    public Container(Double square) {
-        this.square = square;
+    public Container(String name, Double perimeter, Double square, Double squareContainer) {
+        super(name, perimeter, square);
+        this.squareContainer = squareContainer;
+    }
+
+    @Override
+    public String toString() {
+        return "Container{" +
+                "squareContainer=" + squareContainer +
+                '}';
     }
 }

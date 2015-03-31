@@ -7,9 +7,8 @@ import java.util.Scanner;
 public class Methods extends Shape {
     static Scanner scanner;
     static ArrayList<Shape> shapes;
-
-
-
+    static Double spaceContainer;
+    static Double freeSpace;
 
     public static void start() throws IOException {
         scanner=new Scanner(System.in);
@@ -24,22 +23,41 @@ public class Methods extends Shape {
         while (scanner.hasNext()){
             switch (scanner.next()){
                 case "1":
-                    Space();
+                    addSpace();
                     break;
                 case "2":
                     addNewShape();
                     break;
                 case "3":
-                    ReadingFromShapes();
+                    readingFromShapes();
                     break;
                 case "4":
+                    freeSpace();
+                    break;
                 case "5":
+                    maxPerimeter();
+                    break;
                 case "6":
-
+                    maxSquare();
+                    break;
             }
         }
     }
-
+    public static void nextChoice() throws IOException {
+        scanner=new Scanner(System.in);
+        System.out.println("1. Добавить следующую фигуру");
+        System.out.println("2. Вернуться в главное меню");
+        while (scanner.hasNext()){
+            switch (scanner.next()){
+                case "1":
+                    addNewShape();
+                    break;
+                case "2":
+                    start();
+                    break;
+            }
+        }
+    }
 
     public static void addNewShape() throws IOException {
         scanner=new Scanner(System.in);
@@ -66,36 +84,55 @@ public class Methods extends Shape {
         shapes=new ArrayList<>();
         Foursquare foursquare=new Foursquare();
         scanner=new Scanner(System.in);
+        freeSpace();
         foursquare.setName("Foursquare");
         System.out.println("Введите длину стороны квадрата(см)");
         foursquare.setSide(scanner.nextDouble());
         foursquare.setPerimeter(foursquare.getSide() * 4);
         foursquare.setSquare(foursquare.getSide() * foursquare.getSide());
-        shapes.add(foursquare);
-        FileWriter writer=new FileWriter("matveu\\src\\main\\java\\Shapes\\Shapes.txt", true);
-        writer.write(foursquare.getName() + ":" + foursquare.getPerimeter() + ":" + foursquare.getSquare() + "\n");
-        writer.flush();
-        writer.close();
+        if(foursquare.getSquare()<freeSpace) {
+            shapes.add(foursquare);
+            FileWriter writer = new FileWriter("matveu\\src\\main\\java\\Shapes\\Shapes.txt", true);
+            writer.write(foursquare.getName() + ":" + foursquare.getPerimeter() + ":" + foursquare.getSquare() + "\n");
+            writer.flush();
+            writer.close();
+            nextChoice();
+        }else{
+            System.out.println("Площадь фигуры превышает свободную площадь контейнера");
+            System.out.println("!!! ФИГУРА  НЕ  ДОБАВЛЕНА !!!");
+            System.out.println("Введите другие размеры фигуры");
+            nextChoice();
+        }
     }
     public static void addNewCircle() throws IOException {
         shapes=new ArrayList<>();
         Circle circle=new Circle();
         scanner=new Scanner(System.in);
+        freeSpace();
         circle.setName("Circle");
         System.out.println("Введите радиус круга(см)");
         circle.setRadius(scanner.nextDouble());
         circle.setPerimeter(2*Math.PI*circle.getRadius());
-        circle.setSquare(Math.PI*circle.getRadius()*circle.getRadius());
-        shapes.add(circle);
-        FileWriter writer=new FileWriter("matveu\\src\\main\\java\\Shapes\\Shapes.txt", true);
-        writer.write(circle.getName()+":"+circle.getPerimeter()+":"+circle.getSquare()+"\n");
-        writer.flush();
-        writer.close();
+        circle.setSquare(Math.PI * circle.getRadius() * circle.getRadius());
+        if(circle.getSquare()<freeSpace) {
+            shapes.add(circle);
+            FileWriter writer = new FileWriter("matveu\\src\\main\\java\\Shapes\\Shapes.txt", true);
+            writer.write(circle.getName() + ":" + circle.getPerimeter() + ":" + circle.getSquare() + "\n");
+            writer.flush();
+            writer.close();
+            nextChoice();
+        }else{
+            System.out.println("Площадь фигуры превышает свободную площадь контейнера");
+            System.out.println("!!! ФИГУРА  НЕ  ДОБАВЛЕНА !!!");
+            System.out.println("Введите другие размеры фигуры");
+            nextChoice();
+        }
     }
     public static void addNewTriangle() throws IOException {
         shapes=new ArrayList<>();
         Triangle triangle=new Triangle();
         scanner=new Scanner(System.in);
+        freeSpace();
         triangle.setName("Triangle");
         System.out.println("Введите длину стороны треугольника(см)");
         triangle.setSide(scanner.nextDouble());
@@ -103,13 +140,22 @@ public class Methods extends Shape {
         triangle.setHeight(scanner.nextDouble());
         triangle.setPerimeter(triangle.getSide() * 3);
         triangle.setSquare((triangle.getSide() * triangle.getHeight()) / 2);
-        shapes.add(triangle);
-        FileWriter writer=new FileWriter("matveu\\src\\main\\java\\Shapes\\Shapes.txt", true);
-        writer.write(triangle.getName() + ":" + triangle.getPerimeter() + ":" + triangle.getSquare() + "\n");
-        writer.flush();
-        writer.close();
+        if(triangle.getSquare()<freeSpace) {
+            shapes.add(triangle);
+            FileWriter writer = new FileWriter("matveu\\src\\main\\java\\Shapes\\Shapes.txt", true);
+            writer.write(triangle.getName() + ":" + triangle.getPerimeter() + ":" + triangle.getSquare() + "\n");
+            writer.flush();
+            writer.close();
+            nextChoice();
+        }else{
+            System.out.println("Площадь фигуры превышает свободную площадь контейнера");
+            System.out.println("!!! ФИГУРА  НЕ  ДОБАВЛЕНА !!!");
+            System.out.println("Введите другие размеры фигуры");
+            nextChoice();
+        }
     }
-    public static void ReadingFromShapesWithOutShow() throws IOException {
+
+    public static void readingFromShapes() throws IOException {
         File file = new File("matveu\\src\\main\\java\\Shapes\\Shapes.txt");
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
@@ -121,33 +167,75 @@ public class Methods extends Shape {
             shape.setName(pool[0]);
             shape.setPerimeter(Double.valueOf(pool[1]));
             shape.setSquare(Double.valueOf(pool[2]));
-            shapes.add(shape);
+            if(!shape.getName().equals("Container")) {
+                shapes.add(shape);
+                System.out.print(shape + "\n");
+            }
         }
+        System.out.print("Количество фигур: " + shapes.size() + "\n");
     }
-    public static void ReadingFromShapes() throws IOException {
-        File file = new File("matveu\\src\\main\\java\\Shapes\\Shapes.txt");
-        FileReader reader = new FileReader(file);
-        BufferedReader buffer = new BufferedReader(reader);
-        ArrayList<Shape> shapes = new ArrayList<>();
-        String line;
-        while ((line = buffer.readLine()) != null) {
-            String[] pool = line.split(":");
-            Shape shape = new Shape();
-            shape.setName(pool[0]);
-            shape.setPerimeter(Double.valueOf(pool[1]));
-            shape.setSquare(Double.valueOf(pool[2]));
-            shapes.add(shape);
-            System.out.print(shape + "\n");
+
+    public static void maxPerimeter() throws IOException {
+        shapes=ReadingFromShapes.getShapes();
+        Shape maxPerimeter=shapes.get(0);
+        Double max=shapes.get(0).getPerimeter();
+        for(int i=0;i<shapes.size();i++){
+            if(shapes.get(i).getPerimeter()>max){
+                maxPerimeter=shapes.get(i);
+                max=shapes.get(i).getPerimeter();
+            }
         }
+        System.out.println("Фигура с наибольшим периметром:");
+        System.out.println(maxPerimeter + " Периметр: " + max);
     }
-    public static void Space() throws IOException {
-        scanner=new Scanner(System.in);
+    public static void maxSquare() throws IOException {
+        shapes=ReadingFromShapes.getShapes();
+        Shape maxSquare=shapes.get(0);
+        Double max=shapes.get(0).getSquare();
+        for(int i=0;i<shapes.size();i++){
+            if(shapes.get(i).getName().equals("Container")){
+                shapes.remove(i);
+            }
+        }
+        for(int i=0;i<shapes.size();i++){
+            if(shapes.get(i).getSquare()>max){
+                maxSquare=shapes.get(i);
+                max=shapes.get(i).getSquare();
+            }
+        }
+        System.out.println("Фигура с наибольшей площадью:");
+        System.out.println(maxSquare + " Площадь: " + max);
+    }
+    public static void addSpace() throws  IOException {
+        shapes=ReadingFromShapes.getShapes();
         Container container=new Container();
+        scanner=new Scanner(System.in);
+        container.setName("Container");
+        container.setPerimeter(0.0);
         System.out.println("Введите емкость(площадь) контейнера");
         container.setSquare(scanner.nextDouble());
+        shapes.add(container);
+        FileWriter writer=new FileWriter("matveu\\src\\main\\java\\Shapes\\Shapes.txt", true);
+        writer.write(container.getName() + ":" + container.getPerimeter()+":"+container.getSquare() + "\n");
+        writer.flush();
+        writer.close();
+        nextChoice();
     }
-    public static void FreeSpace(){
-
-
+    public static void freeSpace() throws IOException {
+        shapes=ReadingFromShapes.getShapes();
+        Double summa=0.0;
+        spaceContainer=shapes.get(0).getSquare();
+        for(int i=0;i<shapes.size();i++){
+            if(shapes.get(i).getName().equals("Container")){
+                spaceContainer=shapes.get(i).getSquare();
+            }
+        }
+        for(int i=0;i<shapes.size();i++){
+            if(!shapes.get(i).getName().equals("Container")){
+                summa=summa+shapes.get(i).getSquare();
+            }
+        }
+        freeSpace=spaceContainer-summa;
+        System.out.println("Свободная площадь контейнера равна: "+freeSpace);
     }
 }
