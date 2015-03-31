@@ -1,4 +1,4 @@
-package array;
+package introduction;
 
 /**
  * Created by Администратор on 21.03.2015.
