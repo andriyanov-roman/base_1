@@ -1,48 +1,25 @@
 package entity;
 
+import lessons.lesson_2.Employee;
+
 /**
  * Created by user on 23.03.2015.
  */
-public class Programmer {
-    private String name;
-    private String surname;
-    private double salary;
+public class Programmer extends Employee {
+
     private String languageName;
 
 
-    public Programmer(String name, String surname, double salary, String languageName) {
-        this.name = name;
-        this.surname = surname;
-        this.salary = salary;
+    public Programmer(String name, String surname, double salary, int age, String sex, String languageName) {
+        super(name, surname, salary, age, sex);
         this.languageName = languageName;
     }
+
     public Programmer() {
 
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
 
     public String getLanguageName() {
         return languageName;
@@ -55,10 +32,7 @@ public class Programmer {
     @Override
     public String toString() {
         return "Programmer{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", salary=" + salary +
-                ", languageName='" + languageName + '\'' +
+                "languageName='" + languageName + '\'' +
                 '}';
     }
 }
