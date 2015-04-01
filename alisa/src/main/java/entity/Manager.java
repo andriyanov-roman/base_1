@@ -30,7 +30,7 @@ public class Manager extends Employee {
 
     @Override
     public String toString() {
-        return "Manager{" +
+        return "Manager.txt{" +
                 "projectName='" + projectName + '\'' +
                 '}';
     }

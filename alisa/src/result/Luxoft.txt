@@ -1,4 +1,4 @@
 Luxoft:
-[Lora  Smith  75000.0  100  f, Sioma  James  300000.0  74  m, Marco  Pantani  5673000.0  98  m]
-Luxoft:
-[Lora  Smith  75000.0  100  f, Sioma  James  300000.0  74  m, Marco  Pantani  5673000.0  98  m]
+Lora:Smith:75000.0:100:f
+Sioma:James:300000.0:74:m
+Marco:Pantani5673000.0:98:m

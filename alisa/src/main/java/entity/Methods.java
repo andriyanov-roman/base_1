@@ -65,9 +65,9 @@ public class Methods{
     }
 
    /*public void showMaxSalary() throws IOException {
-       ArrayList<Admin> admins = getAdmins("alisa\\src\\result\\Admin", ":");
+       ArrayList<Admin.txt> admins = getAdmins("alisa\\src\\result\\Admin.txt", ":");
         for (int i = 0; i < admins.size(); i++) {
-            Admin temp =admins.get(i).getAdmins().get(0);
+            Admin.txt temp =admins.get(i).getAdmins().get(0);
             for (int j = 0; j < admins.get(i).getAdmins().size(); j++) {
                 double salary = admins.get(i).getAdmins().get(j).getSalary();
                 if (temp.getSalary() < salary) {
@@ -78,9 +78,9 @@ public class Methods{
         }
 
     }*/
-   /*private   showMaxSalaryAdmin(ArrayList<Admin> admins) {
+   /*private   showMaxSalaryAdmin(ArrayList<Admin.txt> admins) {
 
-       Admin max = admins.get(0);
+       Admin.txt max = admins.get(0);
        for (int i = 0; i < admins.size(); i++) {
            if(max.getSalary() < admins.get(i).getSalary()) {
                max = admins.get(i);
