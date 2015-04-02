@@ -1,5 +1,0 @@
-Chemistry:20:10.0
-Mathematics:23:10.0
-Physics:35:10.0
-Electives:25:10.0
-Geoscience:33:10.0
