@@ -82,23 +82,20 @@ public class CompanyUtil {
                     sortBySurnameLength(getCompByName(companyName));
                     break;
                 case "5":
-                    companyName = checkInput();
                     createNewEmployee();
-                    writeToFile(getCompByName(companyName), "alisa/src/result/Lenovo.txt");
+                    writeToFile( "alisa/src/result/Lenovo.txt");
                     readFromFile("alisa/src/result/Lenovo.txt", ":");
                     System.out.println(employees.toString());
                     break;
                 case "6":
-                    companyName = checkInput();
                     createNewEmployee();
-                    writeToFile(getCompByName(companyName), "alisa/src/result/IBM.txt");
+                    writeToFile( "alisa/src/result/IBM.txt");
                     readFromFile("alisa/src/result/IBM.txt", ":");
                     System.out.println(employees.toString());
                     break;
                 case "7":
-                    companyName = checkInput();
                     createNewEmployee();
-                    writeToFile(getCompByName(companyName), "alisa/src/result/Luxoft.txt");
+                    writeToFile("alisa/src/result/Luxoft.txt");
                     readFromFile("alisa/src/result/Luxoft.txt", ":");
                     System.out.println(employees.toString());
                     break;
@@ -226,12 +223,11 @@ public class CompanyUtil {
         }
     }
 
-    public void writeToFile(Company company, String path) {
+    public void writeToFile(String path) {
         FileWriter writer = null;
         try {
             writer = new FileWriter(path, true);
-            writer.write(company.getCompanyName() + ":" + "\n");
-            writer.write(company.getEmployees().toString() + "\n");
+            writer.write(employees.toString());
             writer.flush();
             writer.close();
         } catch (IOException e) {
@@ -253,7 +249,7 @@ public class CompanyUtil {
         return strings;
     }
 
-    public ArrayList<Employee> getEmployees(String path, String regExp) throws IOException {
+   /* public ArrayList<Employee> getEmployees(String path, String regExp) throws IOException {
         ArrayList<String[]> strings = readFromFile(path, regExp);
         ArrayList<Employee> employees = new ArrayList<>();
         String line;
@@ -270,7 +266,7 @@ public class CompanyUtil {
         }
 
         return employees;
-    }
+    }*/
 }
 
 
