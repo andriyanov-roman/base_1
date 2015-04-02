@@ -13,8 +13,6 @@ import java.util.stream.Stream;
  * Created by user on 14.03.2015.
  */
 public class CompanyUtil {
-
-
     public static ArrayList<String[]> readFromFile(String path, String regExp) throws IOException {
         File file = new File(path);
         FileReader reader = new FileReader(file);

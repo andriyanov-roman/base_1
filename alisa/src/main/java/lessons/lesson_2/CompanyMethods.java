@@ -74,7 +74,6 @@ public class CompanyMethods {
         }
     }
 
-
     public void showCompanies()throws IOException  {
     //    ArrayList<Company> companies = CompanyUtil.getCompanies();
         for (int i = 0; i < companies.size(); i++) {
