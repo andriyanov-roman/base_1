@@ -6,15 +6,16 @@ package University.entity;
 public class Lecturer {
     private String name;
     private String surname;
-    private Course course;
+    private String course;
     private double salary;
 
-    public Lecturer(String name, String surname, Course course, double salary) {
+    public Lecturer(String name, String surname, String course, double salary) {
         this.name = name;
         this.surname = surname;
         this.course = course;
         this.salary = salary;
     }
+    public Lecturer(){}
 
     public String getName() {
         return name;
@@ -28,10 +29,10 @@ public class Lecturer {
     public void setSurname(String surname) {
         this.surname = surname;
     }
-    public Course getCourse() {
+    public String getCourse() {
         return course;
     }
-    public void setCourse(Course course) {
+    public void setCourse(String course) {
         this.course = course;
     }
     public double getSalary() {
@@ -39,5 +40,10 @@ public class Lecturer {
     }
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + surname + " " + course + " " + salary;
     }
 }
