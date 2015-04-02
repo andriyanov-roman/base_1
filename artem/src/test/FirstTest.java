@@ -2,7 +2,7 @@ import entity.Employee;
 import entity.employeeHeirs.Admin;
 import entity.employeeHeirs.Manager;
 import entity.employeeHeirs.Programist;
-import inputOutput.CommonReadWrite;
+import inputOutput.CR;
 import org.junit.Test;
 
 import java.lang.Exception;
@@ -17,8 +17,8 @@ public class FirstTest {
     public void doSomething() throws Exception{
         ArrayList<Employee> employees = new ArrayList<>();
         ArrayList<String[]> s;
-        CommonReadWrite crw = new CommonReadWrite("src/main/java/additionalFiles/positions/Admins.txt", ":");
-        s = crw.readFromFile();
+        CR CR = new CR("src/main/java/additionalFiles/positions/Admins.txt", ":");
+        s = CR.readFromFile();
         for (int i = 0; i < s.size(); i++) {
             Admin a = new Admin();
             a.setName(s.get(i)[0]);
@@ -28,8 +28,8 @@ public class FirstTest {
             employees.add(a); // в коллекцию записывается ссылка на сущность???
             System.out.println(a);
         }
-        crw = new CommonReadWrite("src/main/java/additionalFiles/positions/Manager.txt", ":");
-        s = crw.readFromFile();
+        CR = new CR("src/main/java/additionalFiles/positions/Manager.txt", ":");
+        s = CR.readFromFile();
         for (int i = 0; i < s.size(); i++) {
             Manager m = new Manager();
             m.setName(s.get(i)[0]);
@@ -39,8 +39,8 @@ public class FirstTest {
             employees.add(m);
             System.out.println(m);
         }
-        crw = new CommonReadWrite("src/main/java/additionalFiles/positions/Programists.txt", ":");
-        s = crw.readFromFile();
+        CR = new CR("src/main/java/additionalFiles/positions/Programists.txt", ":");
+        s = CR.readFromFile();
         for (int i = 0; i < s.size(); i++) {
             Programist p = new Programist();
             p.setName(s.get(i)[0]);

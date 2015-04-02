@@ -1,0 +1,3 @@
+Vasiliy:Ermakov:Mathematics:30000
+Pavel:Tutkovskiy:Geoscience:28000
+Nikolay:Shiller:Physics:32000

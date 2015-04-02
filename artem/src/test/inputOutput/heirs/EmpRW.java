@@ -1,17 +1,16 @@
 package inputOutput.heirs;
 
-import inputOutput.CommonReadWrite;
-
+import inputOutput.CR;
 import java.io.IOException;
 import java.util.ArrayList;
 
 /**
  * Created by R-Tem on 31.03.2015.
  */
-public class EmployeeReadWrite extends CommonReadWrite {
+public class EmpRW extends CR {
     protected boolean reWrite;
 
-    public EmployeeReadWrite(String path, String regExp, boolean reWrite) {
+    public EmpRW(String path, String regExp, boolean reWrite) {
         super(path, regExp);
         this.reWrite = reWrite;
     }

@@ -1,0 +1,3 @@
+Yuriy:Navashin:Biology:32000
+Oleg:Paladin:Biochemistry:33000
+Anatoliy:Golub:Chemistry:31000

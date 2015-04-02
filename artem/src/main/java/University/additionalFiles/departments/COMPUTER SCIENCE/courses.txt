@@ -1,0 +1,4 @@
+Mathematics:42:10
+Physics:18:10
+Computer Science:34:10
+Computer Architecture:27:10

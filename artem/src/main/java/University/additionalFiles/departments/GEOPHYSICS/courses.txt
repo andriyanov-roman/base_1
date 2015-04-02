@@ -1,0 +1,5 @@
+Chemistry:20:10
+Mathematics:23:10
+Physics:35:10
+Electives:25:10
+Geoscience:33:10

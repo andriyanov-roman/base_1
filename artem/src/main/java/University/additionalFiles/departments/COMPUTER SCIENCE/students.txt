@@ -1,0 +1,3 @@
+Katya:Osadchaya:Computer Achitecture,Computer Science,Physics
+Sasha:Grey:Mathematics,Physics,Computer Science
+Kolya:Romanov:Computer Science,Computer Architecture,Physics

@@ -1,0 +1,13 @@
+Чем отличаются:
+                    Random r = new Random();
+                    int[] arr = new int[i];
+                    for(int a = 0; a < arr.length; a++){
+                       arr[a] = r.nextInt();
+                       System.out.println(arr[i]);
+                    }
+
+                     и
+
+            int[] arr1 = new int[chislo/2];
+            for(int a = 0; a < arr1.length; a++){
+                arr1[a] = (int)(Math.random()*11) - 5; //наполняем массив arr1 псевдослучайными целыми числами из [-5;5]
