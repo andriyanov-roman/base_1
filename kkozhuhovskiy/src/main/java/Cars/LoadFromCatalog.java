@@ -17,7 +17,7 @@ public class LoadFromCatalog {
         ArrayList<Cars> cars = new ArrayList<>();
         String line;
         while ((line = buffer.readLine()) != null) {
-            /* впихун */
+
             String[] pool = line.split(":");
             Cars car = new Cars();
             car.setBrand(pool[0]);

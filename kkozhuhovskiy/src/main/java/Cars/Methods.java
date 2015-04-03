@@ -30,7 +30,7 @@ public class Methods {
                     newOrder();
                     break;
                 case "2":
-                    LoadFromCatalog.getCars();
+                    LoadFromCatalog();
                     break;
                 case "3":
 
@@ -47,9 +47,12 @@ public class Methods {
     }
 
 
-    public static void carYear() throws IOException {
-
-
+    public static void LoadFromCatalog() throws IOException {
+        cars = LoadFromCatalog.getCars();
+        for (int i = 0; i < cars.size(); i++){
+            System.out.println(cars.get(i).toString() + "\n");
+        }
+        System.out.println("Количество заявок" + cars.size());
     }
 
     public static void newOrder() throws IOException {
