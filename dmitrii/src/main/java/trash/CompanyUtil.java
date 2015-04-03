@@ -1,7 +1,9 @@
-package lesson3;
+package trash;
 
 import entities.Company;
 import entities.Employee;
+import trash.EmployeeUtil;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
