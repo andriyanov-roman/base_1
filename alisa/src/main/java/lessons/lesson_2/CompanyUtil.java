@@ -25,24 +25,24 @@ public class CompanyUtil {
         }
         return strings;
     }
-    public  ArrayList<Company> getCompanies() throws IOException {
+    public  static ArrayList<Company> getCompanies() throws IOException {
         Company c1 = CompanyParse("alisa/src/result/Lenovo.txt");
         Company c2 = CompanyParse("alisa/src/result/IBM.txt");
         Company c3 = CompanyParse("alisa/src/result/Luxoft.txt");
         return new ArrayList<Company> (Arrays.asList(c1, c2, c3));
     }
-    public  Company CompanyParse (String path) throws IOException {
+    public  static Company CompanyParse (String path) throws IOException {
         Company company = new Company();
         company.setEmployees(new ArrayList<>());
         ArrayList<String[]> strings = readFromFile(path,":");
         company.setCompanyName( strings.get(0)[0]);
            for (int i = 1; i < strings.size(); i++) {
                Employee e = new Employee();
-               e.setName(strings.get(i)[1]);
-               e.setSurname(strings.get(i)[2]);
-               e.setSalary(Double.valueOf(strings.get(i)[3]));
-               e.setAge(Integer.valueOf(strings.get(i)[4]));
-               e.setSex(strings.get(i)[5]);
+               e.setName(strings.get(i)[0]);
+               e.setSurname(strings.get(i)[1]);
+               e.setSalary(Double.valueOf(strings.get(i)[2]));
+               e.setAge(Integer.valueOf(strings.get(i)[3]));
+               e.setSex(strings.get(i)[4]);
                company.getEmployees().add(e);
            }
         return company;

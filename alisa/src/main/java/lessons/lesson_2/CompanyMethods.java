@@ -75,14 +75,14 @@ public class CompanyMethods {
     }
 
     public void showCompanies()throws IOException  {
-    //    ArrayList<Company> companies = CompanyUtil.getCompanies();
+    ArrayList<Company> companies = CompanyUtil.getCompanies();
         for (int i = 0; i < companies.size(); i++) {
             System.out.println(companies.get(i).getCompanyName());
         }
     }
 
     public void getMaxSalary() throws IOException {
-       // ArrayList<Company> companies = CompanyUtil.getCompanies();
+       ArrayList<Company> companies = CompanyUtil.getCompanies();
         for (int i = 0; i < companies.size(); i++) {
             Employee temp = companies.get(i).getEmployees().get(0);
             for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
@@ -101,7 +101,7 @@ public class CompanyMethods {
     }
 
     public Company getCompByName(String name) throws IOException {
-       // ArrayList<Company> companies = CompanyUtil.getCompanies();
+        ArrayList<Company> companies = CompanyUtil.getCompanies();
         Company company = companies.stream().filter(c -> c.getCompanyName().equals(name)).findAny().get();
 //        for (int i = 0; i < getCompanies().size(); i++) {
 //            if (name.equals(companies.get(i).getCompanyName())) {
