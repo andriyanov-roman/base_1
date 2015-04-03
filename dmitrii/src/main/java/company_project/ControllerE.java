@@ -76,6 +76,11 @@ public class ControllerE {
                     }
                     hasChanges = true;
                     break;
+                case "9":
+                    ViewE.changeConfigDialog();
+                    comps = ModelE.getCompanies();
+                    hasChanges = true;
+                    break;
                 case "m":
                     ViewE.welcome();
                     ShowMenuTag = false;

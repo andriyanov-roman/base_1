@@ -1,0 +1,7 @@
+TechSet
+Manager:Steve:Jobs:15000.05:true:30:Apple_Project
+Admin:Bill:Gates:80000.01:true:25:Windows_Server
+Programmer:Kevin:Mitnic:4400.24:true:40:C++
+Employee:Linus:Torvalds:50.0:true:47
+Employee:Barbara:Streisand:9205.55:false:27
+Manager:Vasilisa:Anechkina:62000.0:false:27:small project

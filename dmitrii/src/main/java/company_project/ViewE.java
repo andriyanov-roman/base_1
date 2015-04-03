@@ -34,6 +34,7 @@ public class ViewE {
                         "\n8) Уволить всех мужчин и женщинам поднять з.п." +
                         "\ne) (or «Exit») End program" +
                         "\n-------------------------------- \nAdditional features:" +
+                        "\n9) Change config" +
                         "\n Enter command key: "
         );
     }
@@ -367,4 +368,8 @@ public class ViewE {
         return percent/100;
     }
 
+    public static void changeConfigDialog() {
+        toPrint("Specify new Config path: ");
+        ModelE.setConfigPath(scanner.next());
+    }
 }
