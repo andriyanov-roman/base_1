@@ -1,0 +1,12 @@
+Forester:sedan:John Lennon:AA 2248 BB:red:Subaru:true:4WD:12500.0:1328064932310
+RX-8:sedan:Will Smith:AA 3217 AH:black:Mazda:true:parctronic:40000.0:1428014932310
+GT:coupe:Ivan Petrov:BB 4417 AA:blue:Bently:false:climate ctrl.:9200.0:1426064260827
+Gallardo:coupe:Roman Romanov:12 437 BP:yellow:Lamborghini:true:xenon:320000.0:1418064269940
+Murcellago:coupe:Frodo Yan:552147:red:Subaru:false:diesel:27000.0:1408064627232
+Viper:pick up:Bill Gates:WindowsXP:red:Dodge:false:4WD:21000.0:1408024627232
+VAZ-2108:hatchback:Vatniq Vatniy:777:cherry:VAZ:true:climate ctrl.:300.0:1426004260827
+GRAND:coupe:S. Sigal:BABE 001:blue:Bently:false:parctronic:92000.0:1426064260827
+EVO-205:hatchback:Jack Bigg:USA 2015:silver:Subaru:false:xenon:7000.0:1427188316481
+CV-7:sedan:Ihor Zend:AH 2525 AH:green:Subaru:false:new car desc.:9200.0:1427594483398
+GellyBack:track:Sally Thomas:IM1257X:gray metalic:Subaru:false:new car desc.:7000.0:1427094636444
+Zonda:coupe:I. Line:127PAI:yellow:Toyota:false:new car desc.:7000.0:1428095053337

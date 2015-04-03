@@ -372,4 +372,6 @@ public class ViewE {
         toPrint("Specify new Config path: ");
         ModelE.setConfigPath(scanner.next());
     }
+
+
 }
