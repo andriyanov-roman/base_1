@@ -1,4 +1,0 @@
-ZAZ
-Clint:Eastwood:99999.0:true:44
-Artemiy:Lebedev:4800.00:true:35
-Artur:Lebedev:8000.00:true:14
