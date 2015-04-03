@@ -38,12 +38,13 @@ public class Employee {
 
     @Override
     public String toString() {
-        return  name + ":" +
-                ", secondName='" + secondName + '\'' +
-                ", salary=" + salary +
-                ", gender='" + gender + '\'' +
-                ", age=" + age +
-                '}';
+        return  "Имя Сотрудника "+ name + ":" +
+                ", Фамилия Сотрудника = '" + secondName + '\'' +
+                ", Зарплата Сотрудника= " + salary + " Валюта не указана" +
+                ", Пол Сотрудника ='" + gender + '\'' +
+                ", Возраст Сотрудника = " + age + " лет " +
+                '}' + '\n';
+
     }
 
 }
