@@ -6,6 +6,9 @@ package entities;
 public class Admin extends Employee {
     private String platform;
 
+    public Admin() {
+    }
+
     public String getPlatform() {
         return platform;
     }
@@ -16,7 +19,7 @@ public class Admin extends Employee {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName()+": "+ super.toString() + " | OS: " + getPlatform();
+        return super.toString() + super.getSeparator() + getPlatform();
 
     }
 }

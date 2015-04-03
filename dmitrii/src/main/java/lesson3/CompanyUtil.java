@@ -14,15 +14,15 @@ public class CompanyUtil {
 
         Company c1 = new Company();
         c1.setCompanyName("Volvo");
-        c1.setEmployees(new ArrayList<Employee> (employees.subList(0,2)) );
+        //c1.setEmployees(new ArrayList<Employee> (employees.subList(0,2)) );
 
         Company c2 = new Company();
         c2.setCompanyName( "ATB");
-        c2.setEmployees(new ArrayList<Employee> (employees.subList(3,5)) );
+        //c2.setEmployees(new ArrayList<Employee> (employees.subList(3,5)) );
 
         Company c3 = new Company();
         c3.setCompanyName( "AZK");
-        c3.setEmployees(new ArrayList<Employee> (employees.subList(6,10)) );
+        //c3.setEmployees(new ArrayList<Employee> (employees.subList(6,10)) );
 
        // Пересмотреть, как сделано у Ромы
 
