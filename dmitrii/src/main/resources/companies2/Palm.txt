@@ -1,0 +1,9 @@
+Palm
+Manager:Immanuel:Kant:1.0:true:300:Project 'START'
+Admin:Helen:Perry:66.0:false:84:Linux_Mint_17
+Employee:Artemiy:Lebedev:4800.0:true:35
+Employee:Artur:Lebedev:668000.0:true:14
+Admin:Marry:Madison:14375.0:false:32:Red_Hat
+Employee:Clint:Eastwood:200.0:true:44
+Programmer:Taras:Kogevnikov:950.0:true:24:Objective-C
+Admin:SSSSSSS:SSSSS:300.0:false:20:Unix

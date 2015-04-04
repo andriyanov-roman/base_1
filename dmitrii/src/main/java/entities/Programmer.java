@@ -6,6 +6,9 @@ package entities;
 public class Programmer extends Employee{
     private String language;
 
+    public Programmer() {
+    }
+
     public String getLanguage() {
         return language;
     }
@@ -16,6 +19,6 @@ public class Programmer extends Employee{
 
     @Override
     public String toString() {
-        return getClass().getSimpleName()+": "+super.toString() + " | Dev.lang.: " + getLanguage();
+        return super.toString() + super.getSeparator() + getLanguage();
     }
 }

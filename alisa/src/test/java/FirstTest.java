@@ -1,7 +1,6 @@
-import entity.Admin;
-import lessons.lesson_2.Company;
-import lessons.lesson_2.Employee;
-import lessons.lesson_2.EmployeeUtil;
+import company.Company;
+import company.Employee;
+import company.EmployeeUtil;
 import org.junit.Test;
 
 import java.io.*;

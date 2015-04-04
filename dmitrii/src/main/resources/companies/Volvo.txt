@@ -1,6 +1,7 @@
 Volvo
 Employee:Barbara:Streisand:9205.55:false:27
-Employee:Linus:Torvalds:50.00:true:47
-Admin:Bill:Gates:80000.01:false:25:Windows_Server
-Manager:Steve:Jobs:15000.05:false:30:Apple_iPad_Project
-Programmer:Kevin:Mitnic:4400.24:false:40:C++
+Employee:Linus:Torvalds:50.0:true:47
+Admin:Bill:Gates:80000.01:true:25:Windows_Server
+Manager:Steve:Jobs:15000.05:true:30:Apple_Project
+Programmer:Kevin:Mitnic:4400.24:true:40:C++
+Manager:Vasilisa:Anechkina:62000.0:false:27:small project

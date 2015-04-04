@@ -6,6 +6,9 @@ package entities;
 public class Manager extends Employee {
     private String projectName;
 
+    public Manager() {
+    }
+
     public String getProjectName() {
         return projectName;
     }
@@ -16,7 +19,7 @@ public class Manager extends Employee {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName()+": "+super.toString() + " | Curr.project: " + getProjectName();
+        return super.toString() + super.getSeparator() + getProjectName();
     }
 
 }

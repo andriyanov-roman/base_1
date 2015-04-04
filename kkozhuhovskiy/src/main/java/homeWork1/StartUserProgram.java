@@ -34,15 +34,15 @@ public class StartUserProgram {
                 case "4":
                     Methods.findEmployeeUserSalary();
                 case "5":
-                    Methods.findCompName();
+                    CompanyMethods.findCompName();
                 case "6":
-                    Methods.maxCompSalary();
+                    CompanyMethods.maxCompSalary();
                 case "7":
-                    Methods.addUserInComp();
+                    EmployeeMethods.addUserInComp();
                 case "8":
-                    Methods.secondNameLength();
+                    CompanyMethods.secondNameLength();
                 case "9":
-                    Methods.sortAgeInComp();
+                    CompanyMethods.sortAgeInComp();
                 case "10":
                     CompanyUtil.addEmployeesToFile();
                 case "11":

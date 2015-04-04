@@ -1,0 +1,10 @@
+Brabus
+Employee:Mirriam:Carter:14375.0:false:53
+Programmer:Ilona:Frolova:950.0:false:85:Objective-C
+Admin:Dmitriy:Korotkov:3200.0:true:44:FreBSD
+Manager:Vasyl:Simonenko:7800.0:true:22:main_project
+Admin:IHOR:SEMIRENKO:4000.0:true:27:UBUNTU
+Manager:Bella:Ogurtsova:992800.0:false:27:Awesome project
+Employee:Neil:Armstrong:103499.0:true:43
+Programmer:Kondrat:Kondratyev:900.0:true:55:Python
+Admin:Evgeniy:Gerashchenko:11200.0:true:40:kUbuntu

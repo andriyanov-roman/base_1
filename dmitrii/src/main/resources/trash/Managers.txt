@@ -1,3 +1,0 @@
-IVAN:PETROV:3000:PIZZA_project
-Sergey:Ivanov:3000:Second_project
-IVAN:PETROV:3000:GWT_project

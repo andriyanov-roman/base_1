@@ -1,3 +1,0 @@
-Volvo
-Barbara:Streisand:9205.55:false:27
-Linus:Torvalds:50.00:true:47

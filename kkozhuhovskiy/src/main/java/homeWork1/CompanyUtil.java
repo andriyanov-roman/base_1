@@ -24,21 +24,21 @@ public class CompanyUtil {
         c4 = new Company();
 
 
-        c1.setEmployees(new ArrayList<Employee>());
+        c1.setEmployees(new ArrayList<>());
         c1.getEmployees().add(employees.get(0));
         c1.getEmployees().add(employees.get(1));
         companies.add(c1);
 
-        c2.setEmployees(new ArrayList<Employee>());
+        c2.setEmployees(new ArrayList<>());
         c2.getEmployees().add(employees.get(2));
         c2.getEmployees().add(employees.get(3));
         companies.add(c2);
 
-        c3.setEmployees(new ArrayList<Employee>());
+        c3.setEmployees(new ArrayList<>());
         c3.getEmployees().add(employees.get(4));
         c3.getEmployees().add(employees.get(5));
         companies.add(c3);
-        c4.setEmployees(new ArrayList<Employee>());
+        c4.setEmployees(new ArrayList<>());
         c4.getEmployees().add(employees.get(6));
         c4.getEmployees().add(employees.get(7));
         companies.add(c4);
@@ -63,12 +63,12 @@ public class CompanyUtil {
         ArrayList<Employee> employees = EmployeeUtil.getEmployees();
         getCompany();
         for (int i = 0; i < c1.getEmployees().size(); i++ ) {
-            FileWriter writer = new FileWriter("kkozhuhovskiy[kirill]/src/SednaEmployees.txt", true);
+            FileWriter writer = new FileWriter("src/SednaEmployees.txt", true);
             writer.write(c1.getEmployees().get(i).getName() + ":" + c1.getEmployees().get(i).getSecondName() + ":" + c1.getEmployees().get(i).getAge() +
                     ":" + c1.getEmployees().get(i).getSalary() + ":"+ c1.getEmployees().get(i).getGender() + ("\n"));
             writer.flush();
             writer.close();
-            FileWriter writerAllEmp = new FileWriter("kkozhuhovskiy[kirill]/src/AllEmployees.txt", true);
+            FileWriter writerAllEmp = new FileWriter("src/AllEmployees.txt", true);
             writerAllEmp.write(c1.getCompanyName() + " " + c1.getEmployees().get(i).getName() + ":" + c1.getEmployees().get(i).getSecondName() + ":" + c1.getEmployees().get(i).getAge() +
                     ":" + c1.getEmployees().get(i).getSalary() + ":"+ c1.getEmployees().get(i).getGender() + ("\n"));
             writerAllEmp.flush();
@@ -76,12 +76,12 @@ public class CompanyUtil {
 
         }
         for (int i = 0; i < c2.getEmployees().size(); i++ ) {
-            FileWriter writer = new FileWriter("kkozhuhovskiy[kirill]/src/MarketEmployees.txt", true);
+            FileWriter writer = new FileWriter("src/MarketEmployees.txt", true);
             writer.write( c2.getEmployees().get(i).getName() + ":" + c2.getEmployees().get(i).getSecondName() + ":" + c2.getEmployees().get(i).getAge() +
                     ":" + c2.getEmployees().get(i).getSalary() + ":"+ c2.getEmployees().get(i).getGender() + ("\n"));
             writer.flush();
             writer.close();
-            FileWriter writerAllEmp = new FileWriter("kkozhuhovskiy[kirill]/src/AllEmployees.txt", true);
+            FileWriter writerAllEmp = new FileWriter("src/AllEmployees.txt", true);
             writerAllEmp.write(c2.getCompanyName() + " " + c2.getEmployees().get(i).getName() + ":" + c2.getEmployees().get(i).getSecondName() + ":" + c2.getEmployees().get(i).getAge() +
                     ":" + c2.getEmployees().get(i).getSalary() + ":"+ c2.getEmployees().get(i).getGender() + ("\n"));
             writerAllEmp.flush();
@@ -91,12 +91,12 @@ public class CompanyUtil {
 
 
         for (int i = 0; i < c3.getEmployees().size(); i++ ) {
-            FileWriter writer = new FileWriter("kkozhuhovskiy[kirill]/src/BmdEmployees.txt", true);
+            FileWriter writer = new FileWriter("src/BmdEmployees.txt", true);
             writer.write( c3.getEmployees().get(i).getName() + ":" + c3.getEmployees().get(i).getSecondName() + ":" + c3.getEmployees().get(i).getAge() +
                     ":" + c3.getEmployees().get(i).getSalary() + ":"+ c3.getEmployees().get(i).getGender() + ("\n"));
             writer.flush();
             writer.close();
-            FileWriter writerAllEmp = new FileWriter("kkozhuhovskiy[kirill]/src/AllEmployees.txt", true);
+            FileWriter writerAllEmp = new FileWriter("src/AllEmployees.txt", true);
             writerAllEmp.write(c3.getCompanyName() + " " + c3.getEmployees().get(i).getName() + ":" + c3.getEmployees().get(i).getSecondName() + ":" + c3.getEmployees().get(i).getAge() +
                     ":" + c3.getEmployees().get(i).getSalary() + ":"+ c3.getEmployees().get(i).getGender() + ("\n"));
             writerAllEmp.flush();
@@ -104,12 +104,12 @@ public class CompanyUtil {
 
         }
         for (int i = 0; i < c4.getEmployees().size(); i++ ) {
-            FileWriter writer = new FileWriter("kkozhuhovskiy[kirill]/src/EximEmployees.txt", true);
+            FileWriter writer = new FileWriter("src/EximEmployees.txt", true);
             writer.write( c4.getEmployees().get(i).getName() + ":" + c4.getEmployees().get(i).getSecondName() + ":" + c4.getEmployees().get(i).getAge() +
                     ":" + c4.getEmployees().get(i).getSalary() + ":"+ c4.getEmployees().get(i).getGender() + ("\n"));
             writer.flush();
             writer.close();
-            FileWriter writerAllEmp = new FileWriter("kkozhuhovskiy[kirill]/src/AllEmployees.txt", true);
+            FileWriter writerAllEmp = new FileWriter("src/AllEmployees.txt", true);
             writerAllEmp.write(c4.getCompanyName() + " " + c4.getEmployees().get(i).getName() + ":" + c4.getEmployees().get(i).getSecondName() + ":" + c4.getEmployees().get(i).getAge() +
                     ":" + c4.getEmployees().get(i).getSalary() + ":"+ c4.getEmployees().get(i).getGender() + ("\n"));
             writerAllEmp.flush();
