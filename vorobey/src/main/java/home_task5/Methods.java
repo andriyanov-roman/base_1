@@ -1,16 +1,16 @@
 package home_task5;
 
 
-import com.sun.java.swing.plaf.windows.WindowsTreeUI;
-import jdk.nashorn.internal.runtime.regexp.joni.ScanEnvironment;
-import sun.util.resources.cldr.it.CalendarData_it_CH;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Methods {
+    static double freeSpace;
+    static double spaceContainer;
+
     public static void addNewSquare() throws IOException {
+        freeSpace();
         Scanner sc = new Scanner(System.in);
         ArrayList<Shape> shapes = new ArrayList<>();
         Square square = new Square();
@@ -19,12 +19,17 @@ public class Methods {
         square.setSide(sc.nextDouble());
         square.setSquare(square.getSide() * square.getSide());
         square.setPerimetr(square.getSide() * 4);
-        shapes.add(square);
-        InputOutputFile.writeCircleToFile(square);
+        if (square.getSquare() < freeSpace) {
+            shapes.add(square);
+            InputOutputFile.writeCircleToFile(square);
+        } else
+            System.out.println("Емкости контейнера недостаточно,введите другие параметры фигуры");
+
 
     }
 
     public static void addNewTriagle() throws IOException {
+        freeSpace();
         Scanner sc = new Scanner(System.in);
         ArrayList<Shape> shapes = new ArrayList<>();
         Triagle triagle = new Triagle();
@@ -35,12 +40,16 @@ public class Methods {
         triagle.setHeight(sc.nextDouble());
         triagle.setSquare(triagle.getSide() * triagle.getHeight() * 0.5);
         triagle.setPerimetr(triagle.getSide() * 3);
-        shapes.add(triagle);
-        InputOutputFile.writeCircleToFile(triagle);
+        if (triagle.getSquare() < freeSpace) {
+            shapes.add(triagle);
+            InputOutputFile.writeCircleToFile(triagle);
+        } else
+            System.out.println("Емкости контейнера недостаточно,введите другие параметры фигуры");
 
     }
 
     public static void addNewCircle() throws IOException {
+        freeSpace();
         Scanner sc = new Scanner(System.in);
         ArrayList<Shape> shapes = new ArrayList<>();
         Circle circle = new Circle();
@@ -49,8 +58,11 @@ public class Methods {
         circle.setRadius(sc.nextDouble());
         circle.setSquare(circle.getRadius() * circle.getRadius() * 3.14);
         circle.setPerimetr(circle.getRadius() * 2 * 3.14);
-        shapes.add(circle);
-        InputOutputFile.writeCircleToFile(circle);
+        if (circle.getSquare() < freeSpace) {
+            shapes.add(circle);
+            InputOutputFile.writeCircleToFile(circle);
+        } else
+            System.out.println("Емкости контейнера недостаточно,введите другие параметры фигуры");
 
     }
 
@@ -66,9 +78,7 @@ public class Methods {
 
     }
 
-    public static void freeSpace() throws IOException {
-        Double freeSpace;
-        Double spaceContainer;
+    public static double freeSpace() throws IOException {
         Double sum = 0.0;
         ArrayList<Shape> shapes = InputOutputFile.readFromFile();
         spaceContainer = shapes.get(0).getSquare();
@@ -84,6 +94,7 @@ public class Methods {
         }
         freeSpace = spaceContainer - sum;
         System.out.println("Свободная емкость контейнера: " + freeSpace);
+        return freeSpace;
     }
 
     public static void launch() {
