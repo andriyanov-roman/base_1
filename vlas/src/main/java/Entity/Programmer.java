@@ -1,10 +1,10 @@
-package HomeTask5;
+package Entity;
 
 /**
  * Created by user on 23.03.2015.
  */
-public class SysAdmin {
-    private  String platform;
+public class Programmer {
+    private  String language;
     private Double salary;
     private String name;
 
@@ -24,11 +24,11 @@ public class SysAdmin {
         this.salary = salary;
     }
 
-    public String getPlatform() {
-        return platform;
+    public String getLanguage() {
+        return language;
     }
 
-    public void setPlatform(String platform) {
-        this.platform = platform;
+    public void setLanguage(String platform) {
+        this.language = platform;
     }
 }

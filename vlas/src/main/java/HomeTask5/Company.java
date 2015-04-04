@@ -1,5 +1,9 @@
 package HomeTask5;
 
+import Entity.Manager;
+import Entity.Programmer;
+import Entity.SysAdmin;
+
 import java.util.ArrayList;
 
 /**

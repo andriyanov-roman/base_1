@@ -1,12 +1,13 @@
-package HomeTask5;
+package Entity;
 
 /**
  * Created by user on 23.03.2015.
  */
-public class Programmer {
-    private  String language;
+public class Manager {
+    private  String projectName;
     private Double salary;
     private String name;
+
 
     public String getName() {
         return name;
@@ -25,10 +26,10 @@ public class Programmer {
     }
 
     public String getLanguage() {
-        return language;
+        return projectName;
     }
 
     public void setLanguage(String platform) {
-        this.language = platform;
+        this.projectName = platform;
     }
 }
