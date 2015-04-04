@@ -53,4 +53,45 @@ public class Methods {
 
     }
 
+    public static void launch() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Чтобы задать емкость контейнера,нажмите 1");
+        System.out.println("Чтобы добавить новую фигуру(треугольник),нажмите 2");
+        System.out.println("Чтобы добавить новую фигуру(квадрат),нажмите 3");
+        System.out.println("Чтобы добавить новую фигуру(окружность),нажмите 4");
+        System.out.println("Чтобы вывести все имеющиеся фигуры(Shapes),нажмите 5");
+        System.out.println("Чтобы вывести фигуру с максимальным периметром,нажмите 6");
+        System.out.println("Чтобы вывести фигуру с максимальной площадью,нажмите 7");
+
+        while (sc.hasNext()) {
+            switch (sc.next()) {
+                case "1":
+
+                    break;
+                case "2":
+
+                    break;
+                case "3":
+
+                    break;
+                case "4":
+
+                    break;
+                case "5":
+
+                    break;
+                case "6":
+
+                    break;
+                case "7":
+
+                    break;
+
+                default:
+                    System.out.println("No such case!");
+            }
+        }
+
+    }
+
 }
