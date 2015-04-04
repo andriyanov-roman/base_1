@@ -83,12 +83,12 @@ public class Methods {
         ArrayList<Shape> shapes = InputOutputFile.readFromFile();
         spaceContainer = shapes.get(0).getSquare();
         for (int i = 0; i < shapes.size(); i++) {
-            if (shapes.get(i).getName().equals("Container")) {
+            if (shapes.get(i).getName().equals("Контейнер")) {
                 spaceContainer = shapes.get(i).getSquare();
             }
         }
         for (int i = 0; i < shapes.size(); i++) {
-            if (shapes.get(i).getName().equals("Container") == false) {
+            if (shapes.get(i).getName().equals("Контейнер") == false) {
                 sum = sum + shapes.get(i).getSquare();
             }
         }
