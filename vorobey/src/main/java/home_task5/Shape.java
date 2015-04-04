@@ -1,10 +1,10 @@
 package home_task5;
 
-public class Shapes {
-    public Shapes() {
+public class Shape {
+    public Shape() {
     }
 
-    Shapes(String name, double square, double perimetr) {
+    Shape(String name, double square, double perimetr) {
         this.name = name;
         this.square = square;
         this.perimetr = perimetr;

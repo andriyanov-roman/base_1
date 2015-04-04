@@ -1,7 +1,7 @@
 package home_task5;
 
 
-public class Circle extends Shapes {
+public class Circle extends Shape {
     private double radius;
 
     public void setRadius(double radius) {

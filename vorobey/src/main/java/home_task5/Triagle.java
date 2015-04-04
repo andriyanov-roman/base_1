@@ -1,7 +1,7 @@
 package home_task5;
 
 
-public class Triagle extends Shapes {
+public class Triagle extends Shape {
     private double height;
     private double side;
 

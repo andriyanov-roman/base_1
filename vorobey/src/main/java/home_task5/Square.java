@@ -1,7 +1,7 @@
 package home_task5;
 
 
-public class Square extends Shapes {
+public class Square extends Shape {
     private double side;
 
     public double getSide() {
