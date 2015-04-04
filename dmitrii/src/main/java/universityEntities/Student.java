@@ -6,13 +6,13 @@ import java.util.ArrayList;
  * Created by mit_OK! on 04.04.2015.
  */
 public class Student extends Human {
-    private ArrayList<Subject> subjectList;
+    private ArrayList<SubjectWithMark> subjectList;
 
-    public ArrayList<Subject> getSubjectList() {
+    public ArrayList<SubjectWithMark> getSubjectList() {
         return subjectList;
     }
 
-    public void setSubjectList(ArrayList<Subject> subjectList) {
+    public void setSubjectList(ArrayList<SubjectWithMark> subjectList) {
         this.subjectList = subjectList;
     }
 

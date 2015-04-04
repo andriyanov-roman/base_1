@@ -4,20 +4,30 @@ package universityEntities;
  * Created by mit_OK! on 04.04.2015.
  */
 public class Teacher extends Human {
-    private Subject discipline;
+    private Subject subject;
+    private Double salary;
 
-    public Subject getDiscipline() {
-        return discipline;
+    public Subject getSubject() {
+        return subject;
     }
 
-    public void setDiscipline(Subject discipline) {
-        this.discipline = discipline;
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
+
+    public Double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Double salary) {
+        this.salary = salary;
     }
 
     @Override
     public String toString() {
         return "Teacher{" +
-                "discipline=" + discipline +
+                "subject=" + subject +
+                ", salary=" + salary +
                 '}';
     }
 }

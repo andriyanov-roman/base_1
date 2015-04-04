@@ -20,6 +20,11 @@ public class UniView {
         System.out.print(txt);
     }
     public static void menu() {
-
+        toPrintLN("0. Show All Universities");
+        toPrintLN("1. Best University");
+        toPrintLN("2. Add student");
+        toPrintLN("3. Show Students in Range");
+        toPrintLN("4. Increase Salary for teacher");
+        toPrint("Your choice: ");
     }
 }

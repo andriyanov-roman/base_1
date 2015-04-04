@@ -1,6 +1,10 @@
 package univer_project;
 
 
+import universityEntities.University;
+
+import java.util.ArrayList;
+
 /**
  * Created by mit_OK! on 04.04.2015.
  */
@@ -10,7 +14,7 @@ public class UniController {
         while (UniView.hasNext()) {
             switch (UniView.next()) {
                 case "0":
-
+                    showUnis(UniModel.getUni());
                     break;
                 case "1":
                     findBestUniver();
@@ -33,6 +37,12 @@ public class UniController {
                     UniView.toPrintLN("No such case");
             }
             UniView.menu();
+        }
+    }
+
+    private static void showUnis(ArrayList<University> uniS) {
+        for (int i = 0; i < uniS.size(); i++) {
+            UniView.toPrintLN(uniS.get(i).toString());
         }
     }
 
