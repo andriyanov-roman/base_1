@@ -21,7 +21,7 @@ public class InputOutputFile {
 
     }
 
-    public void writeToFile(Shape shape) throws IOException {
+    public void writeCircleToFile(Shape shape) throws IOException {
         FileWriter writer = new FileWriter("vorobey\\src\\Shapes.txt");
         writer.write(shape.getName() + ":" + shape.getSquare() + ":" + shape.getPerimetr());
         writer.flush();
