@@ -1,7 +1,7 @@
 package users;
 
-import company.lesson_2.Employee;
-import company.lesson_2.EmployeeUtil;
+import company.Employee;
+import company.EmployeeUtil;
 
 import java.util.ArrayList;
 import java.util.Scanner;

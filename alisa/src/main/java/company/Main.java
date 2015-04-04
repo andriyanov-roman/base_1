@@ -1,4 +1,4 @@
-package company.lesson_2;
+package company;
 
 import entity.EntityMethods;
 
