@@ -11,7 +11,7 @@ public class University {
     protected String accreditation;
     protected int founded;
     protected double scholarship;
-    protected ArrayList<Departament> departments;
+    protected ArrayList<Department> departments;
     protected ArrayList<Student> students;
     protected ArrayList<Lecturer> lecturers;
 }

@@ -5,16 +5,17 @@ import java.util.ArrayList;
 /**
  * Created by R-Tem on 01.04.2015.
  */
-public class Departament {
+public class Department {
     private String title;
     private ArrayList<Lecturer> lecturers;
     private ArrayList<Student> students;
 
-    public Departament(String title, ArrayList<Lecturer> lecturers, ArrayList<Student> students) {
+    public Department(String title, ArrayList<Lecturer> lecturers, ArrayList<Student> students) {
         this.title = title;
         this.lecturers = lecturers;
         this.students = students;
     }
+    public Department(){}
 
     public String getTitle() {
         return title;
@@ -33,5 +34,10 @@ public class Departament {
     }
     public void setStudents(ArrayList<Student> students) {
         this.students = students;
+    }
+
+    @Override
+    public String toString() {
+        return title + " " + lecturers + " " + students;
     }
 }

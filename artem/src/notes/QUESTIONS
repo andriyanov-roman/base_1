@@ -1,4 +1,6 @@
-Чем отличаются:
+1. File[] deps = f.listFiles(); // Как прописывать FileFilter filter????
+
+2. Чем отличаются:
                     Random r = new Random();
                     int[] arr = new int[i];
                     for(int a = 0; a < arr.length; a++){
