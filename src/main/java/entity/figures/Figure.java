@@ -17,18 +17,11 @@ public class Figure {
     }
 
     public double getPerimeter() {
-        return perimeter;
-    }
-
-    public void setPerimeter(double perimeter) {
-        this.perimeter = perimeter;
+        return 0.0;
     }
 
     public double getSquare() {
-        return square;
+        return 0.0;
     }
 
-    public void setSquare(double square) {
-        this.square = square;
-    }
 }

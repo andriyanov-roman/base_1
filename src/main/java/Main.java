@@ -2,6 +2,8 @@ import entity.Admin;
 import entity.Employee;
 import entity.Manager;
 import entity.Programmer;
+import entity.figures.Figure;
+import entity.figures.FourSquare;
 
 import java.io.*;
 import java.time.LocalDate;
@@ -13,6 +15,12 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        String s = "";
+        double d = Double.parseDouble(s);
+        System.out.println(d);
+    }
+
+    public void lambdasTest(){
         ArrayList<Employee> employees = new ArrayList<>();
         //Employee employee = employees.stream().filter(e -> (e.getSalary() > 500)).findAny().get();
         List<String> myList =
@@ -25,12 +33,11 @@ public class Main {
                 .sorted()
                 .forEach(System.out::println);
     }
-
     public static void getMaxSalary() {
         ArrayList entyties = new ArrayList();
         Manager managerMax;
-        for (int i = 0; i < entyties.size() ; i++) {
-            if(entyties.get(i) instanceof Manager) {
+        for (int i = 0; i < entyties.size(); i++) {
+            if (entyties.get(i) instanceof Manager) {
 
             }
         }
@@ -45,7 +52,7 @@ public class Main {
     private static Manager getMaxSalaryManager(ArrayList<Manager> managers) {
         Manager max = managers.get(0);
         for (int i = 0; i < managers.size(); i++) {
-            if(max.getSalary() < managers.get(i).getSalary()) {
+            if (max.getSalary() < managers.get(i).getSalary()) {
                 max = managers.get(i);
             }
         }
@@ -59,7 +66,7 @@ public class Main {
         writer.close();
     }
 
-    public static ArrayList<String[]> readFromFile(String path,String regExp) throws IOException {
+    public static ArrayList<String[]> readFromFile(String path, String regExp) throws IOException {
         File file = new File(path);
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
