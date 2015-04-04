@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static Lessons.LessonTwo.Methods.addNewEmployee;
 
 /**
  * Created by MacBook on 16.03.15.
@@ -37,15 +36,15 @@ public class Main {
                     case "3":
 //                        getIdenticalEmployees();
                         break;
-                    case "4":
-
-                        /*sortBySalary();
-                        break;*/
-                    case "5":
-                        addNewEmployee(scanner);
-                        /*writeToFileEmployee(employees);
-                        System.out.println(employees.toString());*/
-                        break;
+//                    case "4":
+//
+//                        /*sortBySalary();
+//                        break;*/
+//                    case "5":
+////                        addNewEmployee(scanner);
+//                        /*writeToFileEmployee(employees);
+//                        System.out.println(employees.toString());*/
+//                        break;
                     //case "Exit":
                     // System.exit(0);
                     //default:
@@ -120,7 +119,7 @@ public class Main {
 //        }
 //    }
 
-    public static void sortBySalary( Company c) throws IOException {
+    public void sortBySalary( Company c) throws IOException {
         for (int i = 0; i < c.getEmployees().size(); i++) {
             for (int j = 1; j < c.getEmployees().size(); j++)
                 if (c.getEmployees().get(j).getSalary() < c.getEmployees().get(j - 1).getSalary()) {

@@ -1,5 +1,7 @@
 package Lessons.LessonTwo.lesson_3;
 
+import Lessons.LessonTwo.Methods;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -14,7 +16,7 @@ import static Lessons.LessonTwo.Methods.WriteToFile;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-   ReadFromFile("alena/src/main/java/identity/Beast.txt");
+   ReadFromFile ("alena/src/main/java/identity/Beast.txt");
    ReadFromFile("alena/src/main/java/identity/Finest.txt");
    WriteToFile("/t Alonaaaaaa","alena/src/main/java/identity/Finest.txt", true );
 

@@ -11,12 +11,12 @@ import java.util.ArrayList;
  * Created by user on 14.03.2015.
  */
 public class Start {
-   /* public static void main(String[] args) throws IOException {
+   /* public void main(String[] args) throws IOException {
         CompanyUtil.findMaxSalary();
     }*/
 
 
-    public static void main(String[] args) {
+    public void main(String[] args) {
         ArrayList<Employee> employees = new ArrayList<>();
         ArrayList<Manager> managers = new ArrayList<>();
         ArrayList<Manager> admins = new ArrayList<>();
@@ -34,7 +34,7 @@ public class Start {
     }
 
 
-    public static void getMaxSalary() {
+    public void getMaxSalary() {
         ArrayList entyties = new ArrayList();
         Manager managerMax;
         for (int i = 0; i < entyties.size(); i++) {
@@ -46,11 +46,11 @@ public class Start {
         }
     }
 
-    private static Admin getMaxSalaryAdmins(ArrayList<Manager> admins) {
+    private Admin getMaxSalaryAdmins(ArrayList<Manager> admins) {
         return null;
     }
 
-    private static Manager getMaxSalaryManager(ArrayList<Manager> managers) {
+    private Manager getMaxSalaryManager(ArrayList<Manager> managers) {
         Manager max = managers.get(0);
         for (int i = 0; i < managers.size(); i++) {
             if (max.getSalary() < managers.get(0).getSalary()) {

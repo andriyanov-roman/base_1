@@ -34,7 +34,7 @@ public class Methods {
         writer.close();
     }
 
-    public static void addNewEmployee(Scanner sc) throws IOException {
+    public void addNewEmployee(Scanner sc) throws IOException {
         Employee employee = new Employee();
         System.out.println("Введите Имя сотрудника: ");
         employee.setName(sc.next());
@@ -56,7 +56,7 @@ public class Methods {
 
     }
 
-    private static void writeToFile(Employee employee) throws IOException {
+    private void writeToFile(Employee employee) throws IOException {
         FileWriter writer = new FileWriter("alena/src/main/java/identity/employees.txt", true);
         writer.write(employee.getName() + ":" +
                 employee.getSecondName() + ":" +
@@ -65,7 +65,7 @@ public class Methods {
         writer.close();
     }
 
-    public static void findMaxSalary() throws IOException {
+    public void findMaxSalary() throws IOException {
         ArrayList<Company> companies = CompanyUtil.getCompanies();
         double temp = companies.get(0).getEmployees().get(0).getSalary();
         String namey = companies.get(0).getEmployees().get(0).getName();
@@ -83,7 +83,7 @@ public class Methods {
 
     }
 
-    public static void sortBySalary(Company company) {
+    public void sortBySalary(Company company) {
         for (int i = 0; i < company.getEmployees().size(); i++) {
             for (int j = 0; j < company.getEmployees().size() - 1; j++) {
                 if (company.getEmployees().get(j).getSalary() < company.getEmployees().get(j + 1).getSalary()) {

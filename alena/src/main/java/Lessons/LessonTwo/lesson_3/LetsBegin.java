@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Created by user on 23.03.2015.
  */
 public class LetsBegin {
-    /*public static void main(String[] args) throws IOException {
+    /*public void main(String[] args) throws IOException {
         File file = new File(path);
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
@@ -33,7 +33,7 @@ public class LetsBegin {
 
     }*/
 
-    public static ArrayList<String[]> readFile(String path) throws IOException {
+    public ArrayList<String[]> readFile(String path) throws IOException {
         File file = new File(path);
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
@@ -47,12 +47,12 @@ public class LetsBegin {
         return strings;
     }
 
-    public static void main(String[] args) throws IOException {
+    public void main(String[] args) throws IOException {
        getProgrammersFromFile("alena/src/main/java/identity/employees.txt");
 
     }
 
-    public static ArrayList<Programmer> getProgrammersFromFile(String path) throws IOException
+    public ArrayList<Programmer> getProgrammersFromFile(String path) throws IOException
     {
 
         File file = new File("alena/scr/main/java/identity/employees.txt");

@@ -29,7 +29,7 @@ public class Admin extends Employee{
     }
 
 
-    public static ArrayList<String[]> getAdmins(String path) throws IOException {
+    public ArrayList<String[]> getAdmins(String path) throws IOException {
         File file = new File("alena\\src\\main\\java\\identity\\admins.txt");
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
