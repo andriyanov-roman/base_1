@@ -20,11 +20,11 @@ public class CompanyUtil {
         }
         return strings;
     }
-    public  static ArrayList<Company> getCompanies() throws IOException {
+    public  static ArrayList <Company> getCompanies() throws IOException {
         Company c1 = CompanyParse("alisa/src/result/Lenovo.txt");
         Company c2 = CompanyParse("alisa/src/result/IBM.txt");
         Company c3 = CompanyParse("alisa/src/result/Luxoft.txt");
-        return new ArrayList<Company> (Arrays.asList(c1, c2, c3));
+        return new ArrayList <Company> (Arrays.asList(c1, c2, c3));
     }
     public  static Company CompanyParse (String path) throws IOException {
         Company company = new Company();
