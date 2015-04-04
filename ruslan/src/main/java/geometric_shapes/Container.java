@@ -1,32 +1,19 @@
 package geometric_shapes;
 
+import java.util.ArrayList;
+
 /**
  * Created by user on 03.04.2015.
  */
 public class Container extends Shape{
-    private Double squareContainer;
 
-    public Container() {
+private ArrayList<Shape> shapes;
+
+    public ArrayList<Shape> getShapes() {
+        return shapes;
     }
 
-    public Double getSquareContainer() {
-        return squareContainer;
-    }
-
-    public void setSquareContainer(Double squareContainer) {
-        this.squareContainer = squareContainer;
-    }
-
-    public Container(String name, Double perimeter, Double square, Double squareContainer) {
-        super(name, perimeter, square);
-        this.squareContainer = squareContainer;
-    }
-
-    @Override
-
-    public String toString() {
-        return "Container{" +
-                "squareContainer=" + squareContainer +
-                '}';
+    public void setShapes(ArrayList<Shape> shapes) {
+        this.shapes = shapes;
     }
 }

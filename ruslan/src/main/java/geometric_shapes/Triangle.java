@@ -30,7 +30,7 @@ public class Triangle extends Shape{
 
     @Override
     public String toString() {
-        return "Triangle{" +
+        return "Triangle" +
                 "side=" + sideTriangle +
                 ", height=" + height +
                 '}';

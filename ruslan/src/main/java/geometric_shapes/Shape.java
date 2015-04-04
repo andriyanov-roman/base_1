@@ -3,7 +3,7 @@ package geometric_shapes;
 /**
  * Created by user on 03.04.2015.
  */
-public class Shape {
+public abstract class Shape {
     private String name;
     private Double perimeter;
     private Double square;
@@ -34,18 +34,14 @@ public class Shape {
     }
 
     public Double getPerimeter() {
-        return perimeter;
+        return 0.0;
     }
 
-    public void setPerimeter(Double perimeter) {
-        this.perimeter = perimeter;
-    }
+
 
     public Double getSquare() {
-        return square;
+        return 0.0;
     }
 
-    public void setSquare(Double square) {
-        this.square = square;
-    }
+
 }

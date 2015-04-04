@@ -9,6 +9,16 @@ public class Foursquare extends Shape {
     public Foursquare() {
     }
 
+    @Override
+    public Double getPerimeter() {
+        return this.side*4;
+    }
+
+    @Override
+    public Double getSquare() {
+        return this.side*this.side;
+    }
+
     public Foursquare(String name, Double perimeter, Double square, Double side) {
         super(name, perimeter, square);
         this.side = side;
