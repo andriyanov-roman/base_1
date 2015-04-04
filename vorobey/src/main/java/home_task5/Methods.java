@@ -2,6 +2,7 @@ package home_task5;
 
 
 import com.sun.java.swing.plaf.windows.WindowsTreeUI;
+import jdk.nashorn.internal.runtime.regexp.joni.ScanEnvironment;
 import sun.util.resources.cldr.it.CalendarData_it_CH;
 
 import java.io.IOException;
@@ -51,6 +52,38 @@ public class Methods {
         shapes.add(circle);
         InputOutputFile.writeCircleToFile(circle);
 
+    }
+
+    public static void createSpaceContainer() throws IOException {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Shape> shapes = InputOutputFile.readFromFile();
+        Container container = new Container();
+        container.setName("Контейнер");
+        System.out.println("Введите емкость контейнера: ");
+        container.setSquare(sc.nextDouble());
+        shapes.add(container);
+        InputOutputFile.writeCircleToFile(container);
+
+    }
+
+    public static void freeSpace() throws IOException {
+        Double freeSpace;
+        Double spaceContainer;
+        Double sum = 0.0;
+        ArrayList<Shape> shapes = InputOutputFile.readFromFile();
+        spaceContainer = shapes.get(0).getSquare();
+        for (int i = 0; i < shapes.size(); i++) {
+            if (shapes.get(i).getName().equals("Container")) {
+                spaceContainer = shapes.get(i).getSquare();
+            }
+        }
+        for (int i = 0; i < shapes.size(); i++) {
+            if (shapes.get(i).getName().equals("Container") == false) {
+                sum = sum + shapes.get(i).getSquare();
+            }
+        }
+        freeSpace = spaceContainer - sum;
+        System.out.println("Свободная емкость контейнера: " + freeSpace);
     }
 
     public static void launch() {

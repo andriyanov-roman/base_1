@@ -22,7 +22,7 @@ public class InputOutputFile {
     }
 
     public static void writeCircleToFile(Shape shape) throws IOException {
-        FileWriter writer = new FileWriter("vorobey\\src\\Shapes.txt");
+        FileWriter writer = new FileWriter("vorobey\\src\\Shapes.txt",true);
         writer.write(shape.getName() + ":" + shape.getSquare() + ":" + shape.getPerimetr());
         writer.flush();
         writer.close();
