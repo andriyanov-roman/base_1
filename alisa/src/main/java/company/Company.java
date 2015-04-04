@@ -18,29 +18,53 @@ public class Company {
     private ArrayList <Manager> managers;
 
 
-    public void setCompanyName(String companyName) {
+    public Company(String companyName, ArrayList<Employee> employees, ArrayList<Admin> admins,
+                   ArrayList<Programmer> programmers, ArrayList<Manager> managers) {
         this.companyName = companyName;
+        this.employees = employees;
+        this.admins = admins;
+        this.programmers = programmers;
+        this.managers = managers;
     }
 
     public String getCompanyName() {
         return companyName;
     }
 
-    public void setEmployees(ArrayList<Employee> employees) {
-        this.employees = employees;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
     public ArrayList<Employee> getEmployees() {
         return employees;
     }
-    public ArrayList<Admin> getAdmins(){
+
+    public void setEmployees(ArrayList<Employee> employees) {
+        this.employees = employees;
+    }
+
+    public ArrayList<Admin> getAdmins() {
         return admins;
     }
-    public ArrayList<Programmer> getProgrammers(){
+
+    public void setAdmins(ArrayList<Admin> admins) {
+        this.admins = admins;
+    }
+
+    public ArrayList<Programmer> getProgrammers() {
         return programmers;
     }
-    public ArrayList<Manager> getManagers(){
+
+    public void setProgrammers(ArrayList<Programmer> programmers) {
+        this.programmers = programmers;
+    }
+
+    public ArrayList<Manager> getManagers() {
         return managers;
+    }
+
+    public void setManagers(ArrayList<Manager> managers) {
+        this.managers = managers;
     }
 
     @Override

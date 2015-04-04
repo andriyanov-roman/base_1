@@ -1,6 +1,8 @@
 package entity;
 
 import company.Company;
+import company.CompanyMethods;
+import company.CompanyUtil;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,14 +17,15 @@ import java.util.Scanner;
 
 public class EntityMethods {
     private Scanner scanner = new Scanner(System.in);
-    private ArrayList<Company>companies = new ArrayList<>();
+
+
     public void start() throws IOException {
         System.out.println("Enter command key: " +
-                "\n 0.Show MaxSalary \n ");
+                "\n 0.Show Admin MaxSalary \n ");
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "0":
-                    //showMaxSalaryAdmin();
+                    //getMaxSalary();
                     break;
                 case "Exit":
                     System.exit(0);
@@ -33,21 +36,8 @@ public class EntityMethods {
     }
 
 
-    public static ArrayList<String[]> readFromFile(String path, String regExp) throws IOException {
-        File file = new File(path);
-        FileReader reader = new FileReader(file);
-        BufferedReader buffer = new BufferedReader(reader);
-        String line;
-        ArrayList<String[]> strings = new ArrayList<>();
-        while ((line = buffer.readLine()) != null) {
-            String[] pool = line.split(regExp);
-            strings.add(pool);
-        }
-        return strings;
-    }
-
-    public ArrayList<Admin> getAdmins (String path, String regExp) throws IOException {
-        ArrayList<String[]> strings = readFromFile(path, regExp);
+    public ArrayList<Admin> getAdmins(String path, String regExp) throws IOException {
+        ArrayList<String[]> strings = CompanyUtil.readFromFile(path, regExp);
         ArrayList<Admin> admins = new ArrayList<>();
         String line;
         for (int i = 0; i < strings.size(); i++) {
@@ -61,11 +51,14 @@ public class EntityMethods {
 
         return admins;
     }
+}
 
-   /*public void showMaxSalary() throws IOException {
-       ArrayList<Admin.txt> admins = getAdmins("alisa\\src\\result\\Admin.txt", ":");
+
+
+    /*public void getMaxSalary() throws IOException {
+        ArrayList<Admin> admins = getAdmins("alisa\\src\\result\\Admin.txt", ":");
         for (int i = 0; i < admins.size(); i++) {
-            Admin.txt temp =admins.get(i).getAdmins().get(0);
+            Admin temp = admins.get(i).getAdmins().get(0);
             for (int j = 0; j < admins.get(i).getAdmins().size(); j++) {
                 double salary = admins.get(i).getAdmins().get(j).getSalary();
                 if (temp.getSalary() < salary) {
@@ -75,17 +68,19 @@ public class EntityMethods {
             System.out.println(temp.getName() + " " + temp.getSalary());
         }
 
-    }*/
-   /*private   showMaxSalaryAdmin(ArrayList<Admin.txt> admins) {
+    }
+}*/
 
-       Admin.txt max = admins.get(0);
+   /*private   showMaxSalary (ArrayList<Admin> admins) {
+
+       Admin max = admins.get(0);
        for (int i = 0; i < admins.size(); i++) {
            if(max.getSalary() < admins.get(i).getSalary()) {
                max = admins.get(i);
            }
        }
        return max;
-   }
-*/
+   }*/
 
-}
+
+
