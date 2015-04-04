@@ -68,7 +68,6 @@ public class Main {
                     case "9":
                         CompanyUtil.WriteToFile("Marco:Pantani:5673000.00:MASCULINE:37\n", "mihael/src/main/java/hometask3/employees.txt",true);
                         break;
-
                 }
 
             }

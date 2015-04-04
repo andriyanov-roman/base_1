@@ -1,12 +1,15 @@
+import hometask3.CompanyUtil;
 import org.junit.Test;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Created by user on 30.03.2015.
  */
 public class WordsTest {
+    public static Scanner scanner = new Scanner(System.in);
     @Test
     public void loadWordsFromFile()throws Exception{
         String path = "src/main/java/words/words.txt";
@@ -48,4 +51,36 @@ public class WordsTest {
         fileWriter.close();
 
     }
+
+    @Test
+    public void startWords()throws IOException{
+
+        System.out.println("Input words by one");
+        System.out.println("input SAVE to save words");
+        System.out.println("input LOAD to load words in console");
+        System.out.println("input SHOW to show words in console");
+        Boolean cont = true;
+
+        while(cont){
+            String input = scanner.next();
+            switch (input){
+
+                case "SAVE":
+                   /// saveWordsToFile("mihael/src/main/java/words/words.txt", true, words);
+                    break;
+                case "LOAD":
+                   // words = loadWordsFromFile("mihael/src/main/java/words/words.txt");
+                    //showArrayListString(words);
+                    //break;
+                case "SHOW":
+                    //showArrayListString(words);
+                    break;
+                default:
+                    //words.add(input);
+                    break;
+            }
+
+        }
+    }
+
 }
