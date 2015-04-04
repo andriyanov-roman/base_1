@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class ControllerE {
 
-    public static void Run() throws IOException {
+    public static void run() throws IOException {
         ArrayList<Company> comps = ModelE.getCompanies();
         Boolean ShowMenuTag = true;
         Boolean hasChanges = false;

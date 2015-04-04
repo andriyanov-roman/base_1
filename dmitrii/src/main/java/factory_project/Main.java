@@ -5,6 +5,6 @@ package factory_project;
  */
 public class Main {
     public static void main(String[] args) {
-        ControllerF.Run();
+        ControllerF.run();
     }
 }

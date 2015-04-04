@@ -9,7 +9,7 @@ import java.util.Date;
  * Created by mit_OK! on 03.04.2015.
  */
 public class ControllerF {
-    public static void Run() {
+    public static void run() {
         ViewF.welcome();
         ArrayList<Car> cars;
         while (ViewF.hasNext()) {
