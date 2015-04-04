@@ -1,6 +1,6 @@
 package entity;
 
-import lessons.lesson_2.Employee;
+import company.Employee;
 
 /**
  * Created by user on 23.03.2015.

@@ -1,4 +1,4 @@
-package lessons.lesson_2;
+package company;
 
 /**
  * Created by admin on 16.03.15.

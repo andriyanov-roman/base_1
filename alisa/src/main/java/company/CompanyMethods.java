@@ -1,8 +1,4 @@
-package lessons.lesson_2;
-
-import entity.Admin;
-import entity.Manager;
-import entity.Programmer;
+package company.lesson_2;
 
 import java.io.FileWriter;
 import java.io.IOException;

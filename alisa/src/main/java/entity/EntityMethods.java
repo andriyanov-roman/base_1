@@ -1,8 +1,6 @@
 package entity;
 
-import lessons.lesson_2.Company;
-import lessons.lesson_2.CompanyUtil;
-import lessons.lesson_2.Employee;
+import company.Company;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,7 +13,7 @@ import java.util.Scanner;
  * Created by user on 23.03.2015.
  */
 
-public class Methods{
+public class EntityMethods {
     private Scanner scanner = new Scanner(System.in);
     private ArrayList<Company>companies = new ArrayList<>();
     public void start() throws IOException {

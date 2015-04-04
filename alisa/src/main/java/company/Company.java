@@ -1,4 +1,4 @@
-package lessons.lesson_2;
+package company;
 
 
 import entity.Admin;

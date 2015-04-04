@@ -1,7 +1,7 @@
-package homework.hw_1;
+package users;
 
-import lessons.lesson_2.Employee;
-import lessons.lesson_2.EmployeeUtil;
+import company.lesson_2.Employee;
+import company.lesson_2.EmployeeUtil;
 
 import java.util.ArrayList;
 import java.util.Scanner;

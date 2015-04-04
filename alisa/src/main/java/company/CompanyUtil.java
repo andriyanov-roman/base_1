@@ -1,13 +1,8 @@
-package lessons.lesson_2;
+package company.lesson_2;
 
-
-import entity.Admin;
-import entity.Manager;
-import entity.Programmer;
 
 import java.io.*;
 import java.util.*;
-import java.util.stream.Stream;
 
 /**
  * Created by user on 14.03.2015.
