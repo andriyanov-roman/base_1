@@ -1,0 +1,5 @@
+Chemistry:49:100
+Mathematics:24:100
+Physics:26:100
+Biology:31:100
+Biochemistry:42:100

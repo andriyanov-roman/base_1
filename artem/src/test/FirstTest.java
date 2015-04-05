@@ -1,7 +1,7 @@
-import entity.Employee;
-import entity.employeeHeirs.Admin;
-import entity.employeeHeirs.Manager;
-import entity.employeeHeirs.Programist;
+import entity.company.Employee;
+import entity.company.employeeHeirs.Admin;
+import entity.company.employeeHeirs.Manager;
+import entity.company.employeeHeirs.Programist;
 import inputOutput.CR;
 import org.junit.Test;
 
@@ -17,7 +17,7 @@ public class FirstTest {
     public void doSomething() throws Exception{
         ArrayList<Employee> employees = new ArrayList<>();
         ArrayList<String[]> s;
-        CR CR = new CR("src/main/java/additionalFiles/positions/Admins.txt", ":");
+        CR CR = new CR("src/main/java/filesPackage/positions/Admins.txt", ":");
         s = CR.readFromFile();
         for (int i = 0; i < s.size(); i++) {
             Admin a = new Admin();
@@ -28,7 +28,7 @@ public class FirstTest {
             employees.add(a); // в коллекцию записывается ссылка на сущность???
             System.out.println(a);
         }
-        CR = new CR("src/main/java/additionalFiles/positions/Manager.txt", ":");
+        CR = new CR("src/main/java/filesPackage/positions/Manager.txt", ":");
         s = CR.readFromFile();
         for (int i = 0; i < s.size(); i++) {
             Manager m = new Manager();
@@ -39,7 +39,7 @@ public class FirstTest {
             employees.add(m);
             System.out.println(m);
         }
-        CR = new CR("src/main/java/additionalFiles/positions/Programists.txt", ":");
+        CR = new CR("src/main/java/filesPackage/positions/Programists.txt", ":");
         s = CR.readFromFile();
         for (int i = 0; i < s.size(); i++) {
             Programist p = new Programist();
@@ -50,6 +50,6 @@ public class FirstTest {
             employees.add(p);
             System.out.println(p);
         }
-//        crw.writeToFile("src/main/java/additionalFiles/test.txt", employees, false);
+//        crw.writeToFile("src/main/java/filesPackage/test.txt", employees, false);
     }
 }

@@ -1,5 +1,0 @@
-Chemistry:49:10
-Mathematics:24:10
-Physics:26:10
-Biology:31:10
-Biochemistry:42:10

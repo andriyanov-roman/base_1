@@ -1,0 +1,4 @@
+Nikolay:Shiller:Physics:32000
+Vasiliy:Ermakov:Mathematics:30000
+Anatoliy:Krimskiy:Computer Science:29000
+Yuriy:Gagarin:Computer Architecture:32500
