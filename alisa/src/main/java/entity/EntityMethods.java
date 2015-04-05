@@ -25,7 +25,7 @@ public class EntityMethods {
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "0":
-                    //getMaxSalary();
+                    getMaxSalary();
                     break;
                 case "Exit":
                     System.exit(0);
@@ -38,49 +38,35 @@ public class EntityMethods {
 
     public ArrayList<Admin> getAdmins(String path, String regExp) throws IOException {
         ArrayList<String[]> strings = CompanyUtil.readFromFile(path, regExp);
-        ArrayList<Admin> admins = new ArrayList<>();
-        String line;
+        ArrayList<Admin> admins = new ArrayList <> ();
         for (int i = 0; i < strings.size(); i++) {
             Admin a = new Admin();
-            a.setName(strings.get(i)[1]);
-            a.setSurname(strings.get(i)[2]);
-            a.setSalary(Double.valueOf(strings.get(i)[3]));
-            a.setPlatformName(strings.get(i)[4]);
+            a.setName(strings.get(i)[0]);
+            a.setSurname(strings.get(i)[1]);
+            a.setSalary(Double.valueOf(strings.get(i)[2]));
+            a.setPlatformName(strings.get(i)[3]);
             admins.add(a);
         }
 
         return admins;
     }
-}
 
 
 
-    /*public void getMaxSalary() throws IOException {
+
+    public void getMaxSalary() throws IOException {
         ArrayList<Admin> admins = getAdmins("alisa\\src\\result\\Admin.txt", ":");
-        for (int i = 0; i < admins.size(); i++) {
-            Admin temp = admins.get(i).getAdmins().get(0);
-            for (int j = 0; j < admins.get(i).getAdmins().size(); j++) {
-                double salary = admins.get(i).getAdmins().get(j).getSalary();
-                if (temp.getSalary() < salary) {
-                    temp = admins.get(i).getAdmins().get(j);
+        Admin temp = admins.get(0);
+         for (int i = 0; i < admins.size(); i++) {
+            if (admins.get(i).getSalary() > temp.getSalary()){
+                temp = admins.get(i);
+
                 }
             }
-            System.out.println(temp.getName() + " " + temp.getSalary());
+            System.out.println(temp.getName() + " " + temp.getSalary() + " " + temp.getPlatformName());
         }
 
     }
-}*/
-
-   /*private   showMaxSalary (ArrayList<Admin> admins) {
-
-       Admin max = admins.get(0);
-       for (int i = 0; i < admins.size(); i++) {
-           if(max.getSalary() < admins.get(i).getSalary()) {
-               max = admins.get(i);
-           }
-       }
-       return max;
-   }*/
 
 
 
