@@ -27,6 +27,10 @@ public class Company {
         this.managers = managers;
     }
 
+    public Company() {
+
+    }
+
     public String getCompanyName() {
         return companyName;
     }
