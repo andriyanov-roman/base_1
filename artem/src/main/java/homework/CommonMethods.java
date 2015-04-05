@@ -1,12 +1,14 @@
-package homework.company;
+package homework;
 
 import entity.company.Employee;
+import homework.company.CompanyUtil;
+import homework.company.EmployeeUtil;
 
 import java.io.*;
 import java.util.*;
 
 
-public class Methods {
+public class CommonMethods {
     public static Scanner scanner = new Scanner(System.in);
     public static void welcome() {
         System.out.println(
@@ -23,7 +25,7 @@ public class Methods {
         CompanyUtil.getCompanies("artem/src/main/java/filesPackage/companies");
         do {
             welcome();
-            switch (Methods.scanner.next()){
+            switch (CommonMethods.scanner.next()){
                 case "1":
                     for (int i = 0; i < CompanyUtil.companies.length; i++) {
                         ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/filesPackage/companies/" + CompanyUtil.companies[i]), ":");
@@ -38,7 +40,7 @@ public class Methods {
                         System.out.println(" Select company:");
                         for(int i = 1; i <= CompanyUtil.companies.length; i++) System.out.println(" " + (i) + " - " + CompanyUtil.companies[i - 1]);
                         System.out.println(" a - Add company\n c - Come back");
-                        String s = Methods.scanner.next();
+                        String s = CommonMethods.scanner.next();
                         int i = 0;
                         try {i = Integer.parseInt(s);}
                         catch (Exception e) {

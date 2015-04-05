@@ -1,7 +1,7 @@
 package homework.carFactory;
 
 import entity.carFactory.Car;
-import homework.company.Methods;
+import homework.CommonMethods;
 
 import java.util.Date;
 
@@ -11,17 +11,17 @@ import java.util.Date;
 public class CarFactory {
     public static void createAuto(){
         System.out.println(" Fill the fields, please!");
-        Methods.scanner.useDelimiter("\n");
+        CommonMethods.scanner.useDelimiter("\n");
         System.out.print("Owner name: ");
-        String owner = Methods.scanner.next();
+        String owner = CommonMethods.scanner.next();
         System.out.print("Car Model: ");
-        String carModel = Methods.scanner.next();
+        String carModel = CommonMethods.scanner.next();
         System.out.print("Type: ");
-        String type = Methods.scanner.next();
+        String type = CommonMethods.scanner.next();
         System.out.print("Color: ");
-        String color = Methods.scanner.next();
+        String color = CommonMethods.scanner.next();
         System.out.print("Number: ");
-        String number = Methods.scanner.next();
+        String number = CommonMethods.scanner.next();
 
         String carFactory = "BMW";
         boolean done = true;

@@ -1,13 +1,19 @@
 package homework.university;
 
+import entity.university.Course;
+import entity.university.Student;
 import entity.university.University;
+import homework.CommonMethods;
+import homework.CommonMethods;
 import inputOutput.university.CommonReader;
+import inputOutput.university.readerHeirs.CourseReader;
 import inputOutput.university.readerHeirs.LecturersReader;
 import inputOutput.university.readerHeirs.StudentsReader;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by R-Tem on 03.04.2015.
@@ -63,5 +69,43 @@ public class Body {
         }
         University maxProgressUniv = universities.get(universities.size()-1);
         return maxProgressUniv;
+    }
+    public static Student addStudent() throws  IOException{
+        Student student = new Student();
+        System.out.println(" Select University, please:");
+        File f = new File("E:\\2_Programing\\IdeaProjects\\base_1\\artem\\src\\main\\java\\filesPackage\\universities");
+        String[] univs = f.list();
+        for (int i = 0; i < univs.length; i++){ System.out.println(univs[i]); }
+        String univTitle = CommonMethods.scanner.next();
+        boolean b;
+        for (int i = 0; i < univs.length; i++) { if(univs[i].equals(univTitle)) { b = true; } }
+        if(b = true){
+            System.out.println(" Fill the fields, please!");
+            CommonMethods.scanner.useDelimiter("\n");
+            System.out.print("Name: ");
+            student.setName(CommonMethods.scanner.next());
+            System.out.print("Surname: ");
+            student.setSurname(CommonMethods.scanner.next());
+            System.out.println("Courses list (enter several like this - Chemistry,75:Mathematics,85) ");
+            CommonReader cr = new CourseReader("artem/src/main/java/filesPackage/universities/"+String.valueOf(univTitle), ":");
+            ArrayList<Course> univCourses = cr.readFromFile();
+            String s = CommonMethods.scanner.next();
+            String[] studentCoursesList = s.split(":");
+            ArrayList<Course> studentCourses = new ArrayList<>();
+            Random r = new Random();
+            for (int i = 0; i < studentCoursesList.length; i++) {
+                String[] courseExemplar = studentCoursesList[i].split(",");
+                String courseTitle = courseExemplar[0];
+                Integer mark = Integer.valueOf(courseExemplar[1]);
+                for (int j = 0; j < univCourses.size(); j++) {
+                    if (univCourses.get(j).getCourseTitle().equals(courseTitle)) {
+                        Course c = new Course(univCourses.get(j).getCourseTitle(), r.nextInt(univCourses.get(j).getCreditHours()), mark);
+                        studentCourses.add(c);
+                    }
+                }
+            }
+            student.setCourses(studentCourses);
+        } else {addStudent();}
+        return student;
     }
 }
