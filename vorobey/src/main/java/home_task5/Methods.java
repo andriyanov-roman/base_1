@@ -1,6 +1,9 @@
 package home_task5;
 
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -24,7 +27,7 @@ public class Methods {
             InputOutputFile.writeCircleToFile(square);
         } else
             System.out.println("Емкости контейнера недостаточно,введите другие параметры фигуры");
-
+        launch();
 
     }
 
@@ -45,7 +48,7 @@ public class Methods {
             InputOutputFile.writeCircleToFile(triagle);
         } else
             System.out.println("Емкости контейнера недостаточно,введите другие параметры фигуры");
-
+        launch();
     }
 
     public static void addNewCircle() throws IOException {
@@ -63,23 +66,24 @@ public class Methods {
             InputOutputFile.writeCircleToFile(circle);
         } else
             System.out.println("Емкости контейнера недостаточно,введите другие параметры фигуры");
-
+        launch();
     }
 
     public static void createSpaceContainer() throws IOException {
         Scanner sc = new Scanner(System.in);
-        ArrayList<Shape> shapes = InputOutputFile.readFromFile();
+        ArrayList<Shape> shapes = new ArrayList<>();
         Container container = new Container();
         container.setName("Контейнер");
         System.out.println("Введите емкость контейнера: ");
         container.setSquare(sc.nextDouble());
         shapes.add(container);
         InputOutputFile.writeCircleToFile(container);
+        launch();
 
     }
 
     public static double freeSpace() throws IOException {
-        Double sum = 0.0;
+        Double sum = 0d;
         ArrayList<Shape> shapes = InputOutputFile.readFromFile();
         spaceContainer = shapes.get(0).getSquare();
         for (int i = 0; i < shapes.size(); i++) {
@@ -97,38 +101,51 @@ public class Methods {
         return freeSpace;
     }
 
-    public static void launch() {
+    public static void showSapes() throws IOException {
+        File file = new File("vorobey\\src\\Shapes.txt");
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+        ArrayList<Shape> shapes = new ArrayList<>();
+        String line;
+        while ((line = bufferedReader.readLine()) != null) {
+            String[] array = line.split(":");
+            Shape shape = new Shape();
+            shape.setName(array[0]);
+            shape.setSquare(Double.valueOf(array[1]));
+            shape.setPerimetr(Double.valueOf(array[2]));
+            if (shape.getName().equals("Контейнер") == false) {
+                shapes.add(shape);
+                System.out.println(shape.getName() + ":" + shape.getSquare() + ":" + shape.getPerimetr());
+            }
+
+        }
+        launch();
+
+    }
+
+    public static void launch() throws IOException {
         Scanner sc = new Scanner(System.in);
         System.out.println("Чтобы задать емкость контейнера,нажмите 1");
         System.out.println("Чтобы добавить новую фигуру(треугольник),нажмите 2");
         System.out.println("Чтобы добавить новую фигуру(квадрат),нажмите 3");
         System.out.println("Чтобы добавить новую фигуру(окружность),нажмите 4");
         System.out.println("Чтобы вывести все имеющиеся фигуры(Shapes),нажмите 5");
-        System.out.println("Чтобы вывести фигуру с максимальным периметром,нажмите 6");
-        System.out.println("Чтобы вывести фигуру с максимальной площадью,нажмите 7");
 
         while (sc.hasNext()) {
             switch (sc.next()) {
                 case "1":
-
+                    createSpaceContainer();
                     break;
                 case "2":
-
+                    addNewTriagle();
                     break;
                 case "3":
-
+                    addNewSquare();
                     break;
                 case "4":
-
+                    addNewCircle();
                     break;
                 case "5":
-
-                    break;
-                case "6":
-
-                    break;
-                case "7":
-
+                    showSapes();
                     break;
 
                 default:

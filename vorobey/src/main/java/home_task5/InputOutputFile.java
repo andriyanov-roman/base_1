@@ -16,14 +16,16 @@ public class InputOutputFile {
             shape.setName(array[0]);
             shape.setSquare(Double.valueOf(array[1]));
             shape.setPerimetr(Double.valueOf(array[2]));
+            System.out.println(shape.getName()+" "+shape.getSquare());
+
         }
         return shapes;
 
     }
 
     public static void writeCircleToFile(Shape shape) throws IOException {
-        FileWriter writer = new FileWriter("vorobey\\src\\Shapes.txt",true);
-        writer.write(shape.getName() + ":" + shape.getSquare() + ":" + shape.getPerimetr());
+        FileWriter writer = new FileWriter("vorobey\\src\\Shapes.txt", true);
+        writer.write(shape.getName() + ":" + shape.getSquare() + ":" + shape.getPerimetr()+"\n");
         writer.flush();
         writer.close();
 
