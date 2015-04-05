@@ -12,7 +12,7 @@ public class SortUtil {
     public static void sortByName(int i, String[] companies) throws IOException{
         if(i==0){
             for (int j = 0; j < companies.length; j++) {
-                ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/filesPackage/companies/" + companies[j]), ":");
+                ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/files/companies/" + companies[j]), ":");
                 Collections.sort(employees, new Comparator<Employee>() {
                     @Override
                     public int compare(Employee o1, Employee o2) {
@@ -23,7 +23,7 @@ public class SortUtil {
             }
         }
         if(i > 0 && i <= companies.length) {
-            ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/filesPackage/companies/" + companies[i-1]), ":");
+            ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/files/companies/" + companies[i-1]), ":");
             Collections.sort(employees, new Comparator<Employee>() {
                 @Override
                 public int compare(Employee o1, Employee o2) {
@@ -36,7 +36,7 @@ public class SortUtil {
     public static void sortBySurnameLength(int i, String[] companies) throws IOException{
         if(i==0){
             for (int j = 0; j < companies.length; j++) {
-                ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/filesPackage/companies/" + companies[j]), ":");
+                ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/files/companies/" + companies[j]), ":");
                 Collections.sort(employees, new Comparator<Employee>() {
                     @Override
                     public int compare(Employee o1, Employee o2) {
@@ -47,7 +47,7 @@ public class SortUtil {
             }
         }
         if(i > 0 && i <= companies.length) {
-            ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/filesPackage/companies/" + companies[i-1]), ":");
+            ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/files/companies/" + companies[i-1]), ":");
             Collections.sort(employees, new Comparator<Employee>() {
                 @Override
                 public int compare(Employee o1, Employee o2) {
@@ -60,7 +60,7 @@ public class SortUtil {
     public static void sortByAge(int i, String[] companies) throws IOException{
         if(i==0){
             for (int j = 0; j < companies.length; j++) {
-                ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/filesPackage/companies/" + companies[j]), ":");
+                ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/files/companies/" + companies[j]), ":");
                 Collections.sort(employees, new Comparator<Employee>() {
                     @Override
                     public int compare(Employee o1, Employee o2) {
@@ -71,7 +71,7 @@ public class SortUtil {
             }
         }
         if(i > 0 && i <= companies.length) {
-            ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/filesPackage/companies/" + companies[i-1]), ":");
+            ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/files/companies/" + companies[i-1]), ":");
             Collections.sort(employees, new Comparator<Employee>() {
                 @Override
                 public int compare(Employee o1, Employee o2) {
@@ -84,7 +84,7 @@ public class SortUtil {
     public static void sortByZP(int i, String[] companies) throws IOException{
         if(i==0){
             for (int j = 0; j < companies.length; j++) {
-                ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/filesPackage/companies/" + companies[j]), ":");
+                ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/files/companies/" + companies[j]), ":");
 //              Внешний цикл каждый раз сокращает фрагмент массива, так как внутренний цикл каждый раз ставит в конец фрагмента максимальный элемент
                 for(int l = employees.size()-1 ; l > 0 ; l--){
                     for(int k = 0 ; k < l ; k++){
@@ -100,7 +100,7 @@ public class SortUtil {
             }
         }
         if(i > 0 && i <= companies.length) {
-            ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/filesPackage/companies/" + companies[i-1]), ":");
+            ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/files/companies/" + companies[i-1]), ":");
             for(int l = employees.size()-1 ; l > 0 ; l--){
                 for(int k = 0 ; k < l ; k++){
 //                      Сравниваем элементы попарно, если они имеют неправильный порядок, то меняем местами

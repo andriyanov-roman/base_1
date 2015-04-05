@@ -25,14 +25,14 @@ public class Body {
 
     public static ArrayList<University> univIni() throws IOException{
         ArrayList<University> universities = new ArrayList<>();
-        File f = new File("src/main/java/filesPackage/universities");
+        File f = new File("src/main/java/files/universities");
         String[] univs = f.list();
         for (int i = 0; i < univs.length; i++) {
             University u = new University();
             u.setTitle(String.valueOf(univs[i]));
-            CommonReader lr = new LecturersReader("src/main/java/filesPackage/universities/"+String.valueOf(univs[i]), ":");
+            CommonReader lr = new LecturersReader("src/main/java/files/universities/"+String.valueOf(univs[i]), ":");
             u.setLecturers(lr.readFromFile());
-            CommonReader sr = new StudentsReader("src/main/java/filesPackage/universities/"+String.valueOf(univs[i]), ":");
+            CommonReader sr = new StudentsReader("src/main/java/files/universities/"+String.valueOf(univs[i]), ":");
             u.setStudents(sr.readFromFile());
             universities.add(u);
         }
@@ -73,13 +73,13 @@ public class Body {
     public static Student addStudent() throws  IOException{
         Student student = new Student();
         System.out.println(" Select University, please:");
-        File f = new File("E:\\2_Programing\\IdeaProjects\\base_1\\artem\\src\\main\\java\\filesPackage\\universities");
+        File f = new File("E:\\2_Programing\\IdeaProjects\\base_1\\artem\\src\\main\\java\\files\\universities");
         String[] univs = f.list();
         for (int i = 0; i < univs.length; i++){ System.out.println(univs[i]); }
         String univTitle = CommonMethods.scanner.next();
-        boolean b;
+        boolean b = false;
         for (int i = 0; i < univs.length; i++) { if(univs[i].equals(univTitle)) { b = true; } }
-        if(b = true){
+        if(b){
             System.out.println(" Fill the fields, please!");
             CommonMethods.scanner.useDelimiter("\n");
             System.out.print("Name: ");
@@ -87,7 +87,7 @@ public class Body {
             System.out.print("Surname: ");
             student.setSurname(CommonMethods.scanner.next());
             System.out.println("Courses list (enter several like this - Chemistry,75:Mathematics,85) ");
-            CommonReader cr = new CourseReader("artem/src/main/java/filesPackage/universities/"+String.valueOf(univTitle), ":");
+            CommonReader cr = new CourseReader("artem/src/main/java/files/universities/"+String.valueOf(univTitle), ":");
             ArrayList<Course> univCourses = cr.readFromFile();
             String s = CommonMethods.scanner.next();
             String[] studentCoursesList = s.split(":");

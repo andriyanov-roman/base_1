@@ -25,7 +25,7 @@ public class CompanyUtil { // Создаем класс штампующий О�
                         Employee emp = new Employee();
                         String companyName = "";
                         for (String company : companies) {
-                            employees = EmployeeUtil.getEmployees(("artem/src/main/java/filesPackage/companies/" + company), ":");
+                            employees = EmployeeUtil.getEmployees(("artem/src/main/java/files/companies/" + company), ":");
                             for (int j = 0; j < employees.size(); j++) {
                                 double salary = employees.get(j).getSalary();
                                 if (emp.getSalary() < salary) {
@@ -40,7 +40,7 @@ public class CompanyUtil { // Создаем класс штампующий О�
                     case "b":
                         System.out.println(" Employees: ");
                         for (int i = 0; i < companies.length; i++) {
-                            employees = EmployeeUtil.getEmployees(("artem/src/main/java/filesPackage/companies/" + companies[i]), ":");
+                            employees = EmployeeUtil.getEmployees(("artem/src/main/java/files/companies/" + companies[i]), ":");
                             Employee tmp = employees.get(0);
                             for (int j = 0; j < employees.size(); j++) {
                                 double salary = employees.get(j).getSalary();
@@ -103,7 +103,7 @@ public class CompanyUtil { // Создаем класс штампующий О�
         } while (b);
     }
     public static void addCompany (String companyName, ArrayList<Employee> employees) throws IOException{
-        FileWriter writer = new FileWriter("artem/src/main/java/filesPackage/companies/"+companyName, true);
+        FileWriter writer = new FileWriter("artem/src/main/java/files/companies/"+companyName, true);
         StringBuffer buffer = new StringBuffer();
         for (int i = 0; i < employees.size(); i++) {
             buffer.append(String.valueOf("\n" + employees.get(i).getName()+":"+employees.get(i).getSecondName()+":"+employees.get(i).getSalary()+":"+employees.get(i).getSex()+":"+employees.get(i).getAge()));

@@ -81,7 +81,7 @@ public class EmployeeUtil {
             CompanyUtil.addCompany(s, employees);
         }
         else {
-            CommonMethods.writeToFile("artem/src/main/java/filesPackage/companies/" + company, employees);}
+            CommonMethods.writeToFile("artem/src/main/java/files/companies/" + company, employees);}
     }
     /*
     public static void deleteEmployee() throws IOException{

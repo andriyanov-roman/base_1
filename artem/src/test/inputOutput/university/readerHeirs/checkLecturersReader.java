@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class checkLecturersReader {
     @Test
     public void testLecturerReader() throws Exception {
-        CommonReader lecR = new LecturersReader("src/main/java/homework.universities/filesPackage/departments/biology", ":");
+        CommonReader lecR = new LecturersReader("src/main/java/homework.universities/files/departments/biology", ":");
         ArrayList<Lecturer> lecturers = lecR.readFromFile();
         for (int i = 0; i < lecturers.size(); i++) {
             System.out.println(lecturers.get(i).toString());

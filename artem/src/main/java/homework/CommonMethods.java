@@ -22,13 +22,13 @@ public class CommonMethods {
                 "\n0. Exit program"   );
     }
     public static void start() throws IOException {
-        CompanyUtil.getCompanies("artem/src/main/java/filesPackage/companies");
+        CompanyUtil.getCompanies("artem/src/main/java/files/companies");
         do {
             welcome();
             switch (CommonMethods.scanner.next()){
                 case "1":
                     for (int i = 0; i < CompanyUtil.companies.length; i++) {
-                        ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/filesPackage/companies/" + CompanyUtil.companies[i]), ":");
+                        ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/files/companies/" + CompanyUtil.companies[i]), ":");
                         EmployeeUtil.showEmployees(CompanyUtil.companies[i], employees);
                     }
                     break;
