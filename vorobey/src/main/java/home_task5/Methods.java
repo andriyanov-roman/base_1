@@ -83,7 +83,7 @@ public class Methods {
     }
 
     public static double freeSpace() throws IOException {
-        Double sum = 0d;
+        double sum = 0d;
         ArrayList<Shape> shapes = InputOutputFile.readFromFile();
         spaceContainer = shapes.get(0).getSquare();
         for (int i = 0; i < shapes.size(); i++) {
