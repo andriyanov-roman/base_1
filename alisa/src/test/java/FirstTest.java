@@ -1,5 +1,5 @@
-import company.Company;
-import company.Employee;
+import entity.Company;
+import entity.Employee;
 import company.EmployeeUtil;
 import org.junit.Test;
 

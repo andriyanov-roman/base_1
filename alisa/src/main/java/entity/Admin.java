@@ -1,7 +1,5 @@
 package entity;
 
-import company.Employee;
-
 /**
  * Created by user on 23.03.2015.
  */

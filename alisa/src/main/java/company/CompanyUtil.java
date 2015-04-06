@@ -1,6 +1,9 @@
 package company;
 
 
+import entity.Company;
+import entity.Employee;
+
 import java.io.*;
 import java.util.*;
 

@@ -1,12 +1,8 @@
-package entity;
+package company;
 
-import company.Company;
-import company.CompanyMethods;
 import company.CompanyUtil;
+import entity.Admin;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -15,7 +11,7 @@ import java.util.Scanner;
  * Created by user on 23.03.2015.
  */
 
-public class EntityMethods {
+public class TechnicalStaffMethods {
     private Scanner scanner = new Scanner(System.in);
 
 
@@ -25,7 +21,7 @@ public class EntityMethods {
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "0":
-                    getMaxSalary();
+                    getAdminMaxSalary();
                     break;
                 case "Exit":
                     System.exit(0);
@@ -54,16 +50,16 @@ public class EntityMethods {
 
 
 
-    public void getMaxSalary() throws IOException {
+    public void getAdminMaxSalary() throws IOException {
         ArrayList<Admin> admins = getAdmins("alisa\\src\\result\\Admin.txt", ":");
-        Admin temp = admins.get(0);
+        Admin AdminMaxSalary = admins.get(0);
          for (int i = 0; i < admins.size(); i++) {
-            if (admins.get(i).getSalary() > temp.getSalary()){
-                temp = admins.get(i);
+            if (admins.get(i).getSalary() > AdminMaxSalary.getSalary()){
+                AdminMaxSalary = admins.get(i);
 
                 }
-            }
-            System.out.println(temp.getName() + " " + temp.getSalary() + " " + temp.getPlatformName());
+                         }
+            System.out.println(AdminMaxSalary.getName() + " " + AdminMaxSalary.getSalary() + " " + AdminMaxSalary.getPlatformName());
         }
 
     }

@@ -1,9 +1,5 @@
-package company;
+package entity;
 
-
-import entity.Admin;
-import entity.Manager;
-import entity.Programmer;
 
 import java.util.ArrayList;
 

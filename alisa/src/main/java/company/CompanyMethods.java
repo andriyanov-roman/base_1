@@ -1,5 +1,8 @@
 package company;
 
+import entity.Company;
+import entity.Employee;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;

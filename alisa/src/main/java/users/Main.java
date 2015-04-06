@@ -1,7 +1,8 @@
 package users;
 
-import company.Employee;
+import entity.Employee;
 import company.EmployeeUtil;
+import entity.User;
 
 import java.util.ArrayList;
 import java.util.Scanner;

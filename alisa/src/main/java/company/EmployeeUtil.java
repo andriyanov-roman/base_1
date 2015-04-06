@@ -1,6 +1,8 @@
 package company;
 
 
+import entity.Employee;
+
 import java.util.ArrayList;
 
 /**
