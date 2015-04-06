@@ -1,4 +1,4 @@
-package entities;
+package entities.company;
 
 /**
  * Created by user on 14.03.2015.

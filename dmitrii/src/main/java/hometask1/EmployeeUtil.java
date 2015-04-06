@@ -1,6 +1,6 @@
 package hometask1;
 
-import entities.Employee;
+import entities.company.Employee;
 /**
  * Created by mit_OK! on 14.03.2015.
  */

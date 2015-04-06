@@ -1,8 +1,7 @@
 package trash;
 
-import entities.Company;
-import entities.Employee;
-import trash.EmployeeUtil;
+import entities.company.Company;
+import entities.company.Employee;
 
 import java.util.ArrayList;
 import java.util.Arrays;

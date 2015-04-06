@@ -1,8 +1,8 @@
 package company_project_test;
 
 import company_project.ModelE;
-import entities.Company;
-import entities.Employee;
+import entities.company.Company;
+import entities.company.Employee;
 import org.junit.Test;
 
 import java.util.ArrayList;

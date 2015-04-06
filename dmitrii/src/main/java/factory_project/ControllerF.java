@@ -1,6 +1,6 @@
 package factory_project;
 
-import entities.Car;
+import entities.factory.Car;
 
 import java.util.ArrayList;
 import java.util.Date;

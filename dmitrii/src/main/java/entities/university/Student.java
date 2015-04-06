@@ -1,4 +1,6 @@
-package universityEntities;
+package entities.university;
+
+import entities.Human;
 
 import java.util.ArrayList;
 

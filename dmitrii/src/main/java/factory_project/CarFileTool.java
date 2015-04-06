@@ -1,6 +1,6 @@
 package factory_project;
 
-import entities.ComFileUtil;
+import file_tools.ComFileTool;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Created by mit_OK! on 03.04.2015.
  */
-public class CarFileUtil extends ComFileUtil {
+public class CarFileTool extends ComFileTool {
     public String readFileBuffer() throws IOException {
         File file = new File(super.getPath());
         FileReader reader = new FileReader(file);

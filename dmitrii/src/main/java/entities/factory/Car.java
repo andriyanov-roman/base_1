@@ -1,4 +1,4 @@
-package entities;
+package entities.factory;
 
 import java.util.Date;
 

@@ -1,6 +1,6 @@
 package trash;
 
-import entities.Employee;
+import entities.company.Employee;
 
 import java.util.ArrayList;
 

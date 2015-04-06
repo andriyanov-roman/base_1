@@ -1,4 +1,4 @@
-package entities;
+package file_tools;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * Created by mit_OK! on 03.04.2015.
  */
-public class ComFileUtil {
+public class ComFileTool {
     private String path;
     private String regExp;
 

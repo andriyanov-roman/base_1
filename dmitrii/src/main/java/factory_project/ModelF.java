@@ -1,6 +1,6 @@
 package factory_project;
 
-import entities.Car;
+import entities.factory.Car;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,9 +10,9 @@ import java.util.Date;
  * Created by mit_OK! on 03.04.2015.
  */
 public class ModelF {
-    public static CarFileUtil fileTool = initFileUtil();
-    public static CarFileUtil initFileUtil (){
-        CarFileUtil tool = new CarFileUtil();
+    public static CarFileTool fileTool = initFileUtil();
+    public static CarFileTool initFileUtil (){
+        CarFileTool tool = new CarFileTool();
         tool.setPath("dmitrii\\src\\main\\resources\\car_factory\\Cars.txt");
         tool.setRegExp(Car.getRegExp());
         return tool;
@@ -59,8 +59,8 @@ public class ModelF {
             return e.toString();
         }
     }
-    public static CarFileUtil initNewReader () {
-        CarFileUtil util = new CarFileUtil();
+    public static CarFileTool initNewReader () {
+        CarFileTool util = new CarFileTool();
         util.setPath("dmitrii\\src\\main\\resources\\car_factory\\buffer.txt");
         return util;
     }

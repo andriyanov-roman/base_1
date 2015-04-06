@@ -1,6 +1,6 @@
-package universityEntities;
+package entities.university;
 
-import entities.ComFileUtil;
+import file_tools.ComFileTool;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Created by mit_OK! on 04.04.2015.
  */
-public class UniFileUtil extends ComFileUtil {
+public class UniFileTool extends ComFileTool {
     public University readUniFile() {
         University uni = new University();
         ArrayList<Subject> subs = new ArrayList<>();

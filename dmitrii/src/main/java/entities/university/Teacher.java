@@ -1,4 +1,6 @@
-package universityEntities;
+package entities.university;
+
+import entities.Human;
 
 /**
  * Created by mit_OK! on 04.04.2015.

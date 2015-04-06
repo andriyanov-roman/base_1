@@ -1,4 +1,4 @@
 uniName<U>XAI
 subjects<U>English:45.5;German:40.0;French:25.5;Dutch:15.0;Ukrainian:80.5
 teachers<U>Will:Smith:English<s>20.0:3200.0;Jack:Back:German<s>12.0:777.0;Ostap:Cherry:Ukrainian<s>20.0:1200.0
-students<U>Pavel:Pavlov:English<s>10<s>5<P>Ukrainian<s>20<s>4;Ivan:Ivanov:German<s>40<s>3<P>French<s>27<s>5
+students<U>Pavel:Pavlov:English<s>10<s>2<P>Ukrainian<s>20<s>2;Ivan:Ivanov:German<s>40<s>3<P>French<s>27<s>5

@@ -1,6 +1,6 @@
 package factory_project;
 
-import entities.Car;
+import entities.factory.Car;
 import tools.Table;
 
 import java.text.DateFormat;

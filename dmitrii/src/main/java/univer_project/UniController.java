@@ -1,7 +1,7 @@
 package univer_project;
 
 
-import universityEntities.University;
+import entities.university.University;
 
 import java.util.ArrayList;
 

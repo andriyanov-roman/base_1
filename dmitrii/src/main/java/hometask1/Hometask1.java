@@ -1,6 +1,6 @@
 package hometask1;
 
-import entities.Employee;
+import entities.company.Employee;
 import java.util.Random;
 import java.util.Scanner;
 

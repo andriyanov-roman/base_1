@@ -1,11 +1,6 @@
-import entities.Admin;
-import entities.Company;
-import entities.Employee;
-import company_project.ModelE;
+import entities.company.Employee;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.ArrayList;
 
 /**
  * Created by Администратор on 06.03.2015.

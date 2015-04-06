@@ -1,6 +1,6 @@
 package factory_test;
 
-import entities.Car;
+import entities.factory.Car;
 import org.junit.Test;
 
 import java.util.ArrayList;

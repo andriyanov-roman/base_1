@@ -1,4 +1,4 @@
-package universityEntities;
+package entities.university;
 
 /**
  * Created by mit_OK! on 04.04.2015.

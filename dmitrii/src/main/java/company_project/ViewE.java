@@ -1,6 +1,7 @@
 package company_project;
 
-import entities.*;
+import entities.company.Company;
+import entities.company.Employee;
 import tools.Table;
 
 import java.util.ArrayList;

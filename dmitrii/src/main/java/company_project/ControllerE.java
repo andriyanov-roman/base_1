@@ -1,6 +1,6 @@
 package company_project;
 
-import entities.*;
+import entities.company.*;
 
 import java.io.IOException;
 import java.util.ArrayList;

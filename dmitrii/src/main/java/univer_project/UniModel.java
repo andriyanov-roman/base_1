@@ -1,7 +1,7 @@
 package univer_project;
 
-import universityEntities.UniFileUtil;
-import universityEntities.University;
+import entities.university.UniFileTool;
+import entities.university.University;
 
 import java.util.ArrayList;
 
@@ -12,17 +12,17 @@ public class UniModel {
     public static ArrayList<University> getUni(){
         ArrayList<University> uniS = new ArrayList<>();
         //
-        UniFileUtil tool1 = new UniFileUtil();
+        UniFileTool tool1 = new UniFileTool();
         tool1.setPath("dmitrii\\src\\main\\resources\\universities\\Harvard.txt");
         University u1 = tool1.readUniFile();
         uniS.add(u1);
         //
-        UniFileUtil tool2 = new UniFileUtil();
+        UniFileTool tool2 = new UniFileTool();
         tool2.setPath("dmitrii\\src\\main\\resources\\universities\\Oxford.txt");
         University u2 = tool2.readUniFile();
         uniS.add(u2);
         //
-        UniFileUtil tool3 = new UniFileUtil();
+        UniFileTool tool3 = new UniFileTool();
         tool3.setPath("dmitrii\\src\\main\\resources\\universities\\XAI.txt");
         University u3 = tool3.readUniFile();
         uniS.add(u3);
