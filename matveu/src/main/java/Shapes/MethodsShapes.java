@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MethodsShapes extends Shape {
-    static Scanner scanner;
-    static ArrayList<Shape> shapes;
+    static Scanner scanner=new Scanner(System.in);
+    static ArrayList<Shape> shapes=new ArrayList<>();
     static Double spaceContainer;
     static Double freeSpace;
     static Integer maxLenght;
@@ -18,15 +18,12 @@ public class MethodsShapes extends Shape {
         ShapesValidator validator = new ShapesValidator();
         ShapesValidator.PreFigure preFigure = validator.new PreFigure();
         Foursquare foursquare=new Foursquare();
-        scanner=new Scanner(System.in);
         freeSpace();
         maxLenght=(int)Math.sqrt(freeSpace);
         System.out.println("Максимально-возможная длина стороны= " + maxLenght);
         foursquare.setName("Foursquare");
         System.out.println("Введите длину стороны квадрата(см)");
-
         foursquare.setSide(scanner.nextDouble());
-
         if(foursquare.getSquare()<freeSpace) {
             shapes.add(foursquare);
             WriterReadingShapes.writerToFile(foursquare);
