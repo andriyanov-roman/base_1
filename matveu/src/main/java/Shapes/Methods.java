@@ -58,6 +58,12 @@ public class Methods extends Shape {
             }
         }
     }
+    public static void shapeNotAdd() throws IOException {
+        System.out.println("Площадь фигуры превышает свободную площадь контейнера");
+        System.out.println("!!! ФИГУРА  НЕ  ДОБАВЛЕНА !!!");
+        System.out.println("Введите другие размеры фигуры");
+        nextChoice();
+    }
 
     public static void addNewShape() throws IOException {
         scanner=new Scanner(System.in);
@@ -80,6 +86,16 @@ public class Methods extends Shape {
             }
         }
     }
+    public static void writerToFile() throws IOException {
+        Shape shape=new Shape();
+        FileWriter writer = new FileWriter("matveu\\src\\main\\java\\Shapes\\Shapes.txt", true);
+        writer.write(shape.getName() + ":" + shape.getPerimeter() + ":" + shape.getSquare() + "\n");
+        writer.flush();
+        writer.close();
+        nextChoice();
+
+    }
+
     public static void addNewFoursquare() throws IOException {
         shapes=new ArrayList<>();
         Foursquare foursquare=new Foursquare();
@@ -92,16 +108,11 @@ public class Methods extends Shape {
         foursquare.setSquare(foursquare.getSide() * foursquare.getSide());
         if(foursquare.getSquare()<freeSpace) {
             shapes.add(foursquare);
-            FileWriter writer = new FileWriter("matveu\\src\\main\\java\\Shapes\\Shapes.txt", true);
-            writer.write(foursquare.getName() + ":" + foursquare.getPerimeter() + ":" + foursquare.getSquare() + "\n");
-            writer.flush();
-            writer.close();
-            nextChoice();
+            Shape shape=new Shape();
+            shape=foursquare;
+            writerToFile();
         }else{
-            System.out.println("Площадь фигуры превышает свободную площадь контейнера");
-            System.out.println("!!! ФИГУРА  НЕ  ДОБАВЛЕНА !!!");
-            System.out.println("Введите другие размеры фигуры");
-            nextChoice();
+           shapeNotAdd();
         }
     }
     public static void addNewCircle() throws IOException {
@@ -122,10 +133,7 @@ public class Methods extends Shape {
             writer.close();
             nextChoice();
         }else{
-            System.out.println("Площадь фигуры превышает свободную площадь контейнера");
-            System.out.println("!!! ФИГУРА  НЕ  ДОБАВЛЕНА !!!");
-            System.out.println("Введите другие размеры фигуры");
-            nextChoice();
+            shapeNotAdd();
         }
     }
     public static void addNewTriangle() throws IOException {
@@ -148,10 +156,7 @@ public class Methods extends Shape {
             writer.close();
             nextChoice();
         }else{
-            System.out.println("Площадь фигуры превышает свободную площадь контейнера");
-            System.out.println("!!! ФИГУРА  НЕ  ДОБАВЛЕНА !!!");
-            System.out.println("Введите другие размеры фигуры");
-            nextChoice();
+            shapeNotAdd();
         }
     }
 
