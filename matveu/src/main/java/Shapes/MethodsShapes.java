@@ -8,13 +8,12 @@ import java.util.Scanner;
 
 public class MethodsShapes extends Shape {
     static Scanner scanner=new Scanner(System.in);
-    static ArrayList<Shape> shapes;
+    static ArrayList<Shape> shapes=new ArrayList<>();
     static Double spaceContainer;
     static Double freeSpace;
     static Integer maxLenght;
 
     public static void addNewFoursquare() throws IOException {
-        shapes=new ArrayList<>();
         Foursquare foursquare=new Foursquare();
         freeSpace();
         maxLenght=(int)Math.sqrt(freeSpace);
@@ -31,7 +30,6 @@ public class MethodsShapes extends Shape {
 
     }
     public static void addNewCircle() throws IOException {
-        shapes=new ArrayList<>();
         Circle circle=new Circle();
         freeSpace();
         maxLenght=(int)(Math.sqrt(freeSpace / Math.PI));
@@ -47,7 +45,6 @@ public class MethodsShapes extends Shape {
         }
     }
     public static void addNewTriangle() throws IOException {
-        shapes=new ArrayList<>();
         Triangle triangle=new Triangle();
         freeSpace();
         maxLenght=(int)Math.sqrt(freeSpace*2);
@@ -99,7 +96,6 @@ public class MethodsShapes extends Shape {
         System.out.println(maxSquare + " Площадь: " + max);
     }
     public static void addSpace() throws  IOException {
-        shapes=new ArrayList<>();
         Container container=new Container();
         container.setName("Container");
         container.setPerimeter(0.0);
