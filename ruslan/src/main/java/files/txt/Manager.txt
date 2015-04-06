@@ -1,0 +1,3 @@
+Russ:Vankevich:25000:Astana
+Phil:Winter:29000:Kiev
+Paul:Parsons:23000:Almaata
