@@ -4,9 +4,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class CommonView {
-    static Scanner scanner;
+    static Scanner scanner=new Scanner(System.in);
     public static void start() throws IOException {
-        scanner=new Scanner(System.in);
         System.out.println("Выберите действие!");
         System.out.println("1. Задать емкость(площадь) контейнера");
         System.out.println("2. Добавить новую фигуру в контейнер");
@@ -39,7 +38,6 @@ public class CommonView {
         }
     }
     public static void addNewShape() throws IOException {
-        scanner=new Scanner(System.in);
         System.out.println("Выберите фигуру, которую желаете добавить");
         System.out.println("1. Квадрат");
         System.out.println("2. Круг");
@@ -60,7 +58,6 @@ public class CommonView {
         }
     }
     public static void nextChoice() throws IOException {
-        scanner=new Scanner(System.in);
         System.out.println("1. Добавить следующую фигуру");
         System.out.println("2. Вернуться в главное меню");
         while (scanner.hasNext()){
