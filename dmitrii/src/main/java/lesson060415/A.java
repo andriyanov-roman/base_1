@@ -7,7 +7,7 @@ class A {
     public void doSomething (){
         System.out.println("A class method");
     }
-    public class AclInner {
+    public class AclassInner {
         int i = 5;
     }
 }
