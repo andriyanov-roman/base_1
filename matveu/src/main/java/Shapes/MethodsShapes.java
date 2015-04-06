@@ -1,5 +1,7 @@
 package Shapes;
 
+import ua.ShapesValidator;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -20,13 +22,16 @@ public class MethodsShapes extends Shape {
         System.out.println("Максимально-возможная длина стороны= " + maxLenght);
         foursquare.setName("Foursquare");
         System.out.println("Введите длину стороны квадрата(см)");
+
         foursquare.setSide(scanner.nextDouble());
+
         if(foursquare.getSquare()<freeSpace) {
             shapes.add(foursquare);
             WriterReadingShapes.writerToFile(foursquare);
         }else{
            CommonView.shapeNotAdd();
         }
+
     }
     public static void addNewCircle() throws IOException {
         shapes=new ArrayList<>();
@@ -82,8 +87,8 @@ public class MethodsShapes extends Shape {
 
     public static void maxSquare() throws IOException {
         shapes=ReadingFromShapes.getShapes();
-        Shape maxSquare=shapes.get(0);
-        Double max=shapes.get(0).getSquare();
+        Shape maxSquare=shapes.get(1);
+        Double max=shapes.get(1).getSquare();
         for(int i=0;i<shapes.size();i++){
             if(shapes.get(i).getName().equals("Container")){
                 shapes.remove(i);
@@ -99,7 +104,7 @@ public class MethodsShapes extends Shape {
         System.out.println(maxSquare + " Площадь: " + max);
     }
     public static void addSpace() throws  IOException {
-        shapes=ReadingFromShapes.getShapes();
+        shapes=new ArrayList<>();
         Container container=new Container();
         scanner=new Scanner(System.in);
         container.setName("Container");
