@@ -9,6 +9,7 @@ public class MethodsShapes extends Shape {
     static ArrayList<Shape> shapes;
     static Double spaceContainer;
     static Double freeSpace;
+    static Integer maxLenght;
 
     public static void start() throws IOException {
         scanner=new Scanner(System.in);
@@ -100,6 +101,8 @@ public class MethodsShapes extends Shape {
         Foursquare foursquare=new Foursquare();
         scanner=new Scanner(System.in);
         freeSpace();
+        maxLenght=(int)Math.sqrt(freeSpace);
+        System.out.println("Максимально-возможная длина стороны= " + maxLenght);
         foursquare.setName("Foursquare");
         System.out.println("Введите длину стороны квадрата(см)");
         foursquare.setSide(scanner.nextDouble());
@@ -117,6 +120,8 @@ public class MethodsShapes extends Shape {
         Circle circle=new Circle();
         scanner=new Scanner(System.in);
         freeSpace();
+        maxLenght=(int)(Math.sqrt(freeSpace / Math.PI));
+        System.out.println("Максимально-возможная длина радиуса= " + maxLenght);
         circle.setName("Circle");
         System.out.println("Введите радиус круга(см)");
         circle.setRadius(scanner.nextDouble());
@@ -134,6 +139,8 @@ public class MethodsShapes extends Shape {
         Triangle triangle=new Triangle();
         scanner=new Scanner(System.in);
         freeSpace();
+        maxLenght=(int)Math.sqrt(freeSpace*2);
+        System.out.println("Максимально-возможная длина стороны и высоты= " + maxLenght);
         triangle.setName("Triangle");
         System.out.println("Введите длину стороны треугольника(см)");
         triangle.setSide(scanner.nextDouble());
