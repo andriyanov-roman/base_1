@@ -6,6 +6,6 @@ package lesson060415;
 public class Main {
     public static void main(String[] args) {
         A temp = new A();
-        A.AclassInner second = temp.new AclassInner();
+        A.Inner second = temp.new Inner();
     }
 }
