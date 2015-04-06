@@ -4,6 +4,7 @@ import entities.Car;
 import entities.Color;
 import io_tools.CarWriterReader;
 import io_tools.IOTools;
+import sun.nio.ch.IOUtil;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -29,8 +30,18 @@ public class CarUtils {
 
     public static ArrayList<Car>  theSameColorCars(ArrayList<Car> cars) throws IOException {
         ArrayList<Color> colors = ColorUtils.loadColorsFromFile();
+        System.out.println("Input the number of color");
         for(int i=0; i<colors.size();i++){
+            System.out.println(i +". " + colors.get(i).getColorName());
+        }
+        Scanner scanner = IOTools.scanner;
+        Integer num = Integer.parseInt(scanner.next());
+        Color color = colors.get(num);
 
+        for(int i =0; i< cars.size();i++){
+            if (color.getColorName().equals(cars.get(0).getColor())){
+                System.out.println(cars.get(0));
+            }
         }
         return cars;
     }

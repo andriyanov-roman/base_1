@@ -6,16 +6,24 @@ package entities.figures;
 public class Figure {
     private  String name;
     private double perimeter;
-    private double square;
+    private double area;
 
     public double getPerimeter() {
         return 0.0;
     }
 
-    public double getSquare() {
+    public double getArea() {
         return 0.0;
     }
 
+    @Override
+    public String toString() {
+        return "Figure{" +
+                "name='" + name + '\'' +
+                ", perimeter=" + perimeter +
+                ", area=" + area +
+                '}';
+    }
 
     public String getName() {
         return name;

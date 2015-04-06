@@ -1,0 +1,3 @@
+Triangle:Triangle1:4.0:3.0
+Circle1:Circle1:5.0
+Foursquare:Foursquare1:2.0

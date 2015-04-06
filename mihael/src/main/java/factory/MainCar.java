@@ -49,7 +49,7 @@ public class MainCar {
                     CarUtils.showCar(CarUtils.getTheMostExpensiveCar(CarUtils.loadCars()));
                     break;
                 case "5":
-                    CarUtils.showCars(CarUtils.theSameColorCars(CarUtils.loadCars()));
+                    CarUtils.theSameColorCars(CarUtils.loadCars());
 
                     break;
                 default:
