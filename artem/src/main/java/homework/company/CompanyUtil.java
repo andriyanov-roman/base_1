@@ -2,7 +2,7 @@ package homework.company;
 
 
 import entity.company.Employee;
-import homework.CommonMethods;
+import homework.Body;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ public class CompanyUtil { // Создаем класс штампующий О�
         do {
             ArrayList<Employee> employees;
             System.out.println(" a - Among all companies\n b - For each company\n c - Come back");
-                switch (CommonMethods.scanner.next()) {
+                switch (Body.scanner.next()) {
                     case "a":
                         Employee emp = new Employee();
                         String companyName = "";
@@ -66,7 +66,7 @@ public class CompanyUtil { // Создаем класс штампующий О�
             System.out.println(" 0 - For all companies, or Select company:");
             for(int i = 1; i <= companies.length; i++) System.out.println(" " + (i) + " - " + companies[i - 1]);
             System.out.println(" c - Come back");
-            String s = CommonMethods.scanner.next();
+            String s = Body.scanner.next();
             int i = 0;
             try {i = Integer.parseInt(s);}
             catch (Exception e) {
@@ -77,7 +77,7 @@ public class CompanyUtil { // Создаем класс штампующий О�
             if (i==0){
                 System.out.println(" Select an option:"+"\n 1. Sort by name"+"\n 2. Sort by surname length"+
                         "\n 3. Sort by ZP"+"\n 4. Sort by age"+"\n c - Come back");
-                switch (CommonMethods.scanner.next()){
+                switch (Body.scanner.next()){
                     case "1": SortUtil.sortByName(i, companies); break;
                     case "2": SortUtil.sortBySurnameLength(i, companies); break;
                     case "3": SortUtil.sortByZP(i, companies); break;
@@ -89,7 +89,7 @@ public class CompanyUtil { // Создаем класс штампующий О�
             if(i > 0 && i <= companies.length) {
                 System.out.println(" Select an option:"+"\n 1. Sort by name"+"\n 2. Sort by surname length"+
                         "\n 3. Sort by ZP"+"\n 4. Sort by age"+"\n c - Come back");
-                switch (CommonMethods.scanner.next()){
+                switch (Body.scanner.next()){
                     case "1": SortUtil.sortByName(i, companies); break;
                     case "2": SortUtil.sortBySurnameLength(i, companies); break;
                     case "3": SortUtil.sortByZP(i, companies); break;

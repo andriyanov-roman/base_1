@@ -3,8 +3,6 @@ package homework.university;
 import entity.university.Course;
 import entity.university.Student;
 import entity.university.University;
-import homework.CommonMethods;
-import homework.CommonMethods;
 import inputOutput.university.CommonReader;
 import inputOutput.university.readerHeirs.CourseReader;
 import inputOutput.university.readerHeirs.LecturersReader;
@@ -19,10 +17,17 @@ import java.util.Random;
  * Created by R-Tem on 03.04.2015.
  */
 public class Body {
-    public static void start () throws IOException{
-        View.view();
+    public static void start() throws IOException{
+        do {
+            View.menu();
+            switch (homework.Body.scanner.next()){
+                case "1": View.getMaxProgressUniv(); break;
+                case "2": addStudent(); break;
+                case "3":  break;
+                case "4":  break;
+            }
+        } while (true);
     }
-
     public static ArrayList<University> univIni() throws IOException{
         ArrayList<University> universities = new ArrayList<>();
         File f = new File("src/main/java/files/universities");
@@ -40,7 +45,6 @@ public class Body {
     }
     public static University getMaxProgressUniv() throws IOException{
         ArrayList<University> universities = univIni();
-
         for (int i = 0; i < universities.size(); i++) {
             ArrayList<Double> eachStudentAverage = new ArrayList<>();
             for (int j = 0; j < universities.get(i).getStudents().size(); j++) {
@@ -76,20 +80,20 @@ public class Body {
         File f = new File("E:\\2_Programing\\IdeaProjects\\base_1\\artem\\src\\main\\java\\files\\universities");
         String[] univs = f.list();
         for (int i = 0; i < univs.length; i++){ System.out.println(univs[i]); }
-        String univTitle = CommonMethods.scanner.next();
+        String univTitle = homework.Body.scanner.next();
         boolean b = false;
         for (int i = 0; i < univs.length; i++) { if(univs[i].equals(univTitle)) { b = true; } }
         if(b){
             System.out.println(" Fill the fields, please!");
-            CommonMethods.scanner.useDelimiter("\n");
+            homework.Body.scanner.useDelimiter("\n");
             System.out.print("Name: ");
-            student.setName(CommonMethods.scanner.next());
+            student.setName(homework.Body.scanner.next());
             System.out.print("Surname: ");
-            student.setSurname(CommonMethods.scanner.next());
+            student.setSurname(homework.Body.scanner.next());
             System.out.println("Courses list (enter several like this - Chemistry,75:Mathematics,85) ");
             CommonReader cr = new CourseReader("artem/src/main/java/files/universities/"+String.valueOf(univTitle), ":");
             ArrayList<Course> univCourses = cr.readFromFile();
-            String s = CommonMethods.scanner.next();
+            String s = homework.Body.scanner.next();
             String[] studentCoursesList = s.split(":");
             ArrayList<Course> studentCourses = new ArrayList<>();
             Random r = new Random();

@@ -6,7 +6,7 @@ import org.junit.Test;
 /**
  * Created by R-Tem on 05.04.2015.
  */
-public class checkAddAstudent {
+public class checkAddStudent {
     @Test
     public void testAddStudent() throws Exception {
         Student student = Body.addStudent();
