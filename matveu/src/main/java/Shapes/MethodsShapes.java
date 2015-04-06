@@ -106,8 +106,6 @@ public class MethodsShapes extends Shape {
         foursquare.setName("Foursquare");
         System.out.println("Введите длину стороны квадрата(см)");
         foursquare.setSide(scanner.nextDouble());
-        foursquare.setPerimeter(foursquare.getSide() * 4);
-        foursquare.setSquare(foursquare.getSide() * foursquare.getSide());
         if(foursquare.getSquare()<freeSpace) {
             shapes.add(foursquare);
             writerToFile(foursquare);
@@ -125,8 +123,6 @@ public class MethodsShapes extends Shape {
         circle.setName("Circle");
         System.out.println("Введите радиус круга(см)");
         circle.setRadius(scanner.nextDouble());
-        circle.setPerimeter(2*Math.PI*circle.getRadius());
-        circle.setSquare(Math.PI * circle.getRadius() * circle.getRadius());
         if(circle.getSquare()<freeSpace) {
             shapes.add(circle);
             writerToFile(circle);
@@ -146,8 +142,6 @@ public class MethodsShapes extends Shape {
         triangle.setSide(scanner.nextDouble());
         System.out.println("Введите длину высоты треугольника(см)");
         triangle.setHeight(scanner.nextDouble());
-        triangle.setPerimeter(triangle.getSide() * 3);
-        triangle.setSquare((triangle.getSide() * triangle.getHeight()) / 2);
         if(triangle.getSquare()<freeSpace) {
             shapes.add(triangle);
             writerToFile(triangle);

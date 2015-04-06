@@ -32,6 +32,16 @@ public class Triangle extends Shape {
         this.height = height;
     }
 
+    @Override
+    public Double getPerimeter() {
+        return getSide() * 3;
+    }
+
+    @Override
+    public Double getSquare() {
+        return (getSide() * getHeight()) / 2;
+    }
+
     public Triangle(String name, Double perimeter, Double square, Double side, Double height) {
         super(name, perimeter, square);
         this.side = side;
