@@ -1,3 +1,0 @@
-Artem:Samoshkin:Geoscience,Mathematics,Physics
-Oleksiy:Petrenco:Physics,Chemistry,Geoscience
-Oleksiy:Bratchuk:Chemistry,Mathematics,Physics,Electives,Geoscience

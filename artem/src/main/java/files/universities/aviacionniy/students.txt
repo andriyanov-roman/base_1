@@ -1,0 +1,3 @@
+Artem:Samoshkin:Geoscience,Mathematics,Physics:70,75,80
+Oleksiy:Petrenco:Physics,Chemistry,Geoscience:60,70,80
+Oleksiy:Bratchuk:Chemistry,Mathematics,Physics,Economy:80,80,80,80

@@ -1,0 +1,5 @@
+Anatoliy:Golub:Chemistry:31000
+Nikolay:Shiller:Physics:32000
+Vasiliy:Ermakov:Mathematics:30000
+Yuriy:Navashin:Biology:32000
+Oleg:Paladin:Biochemistry:33000
