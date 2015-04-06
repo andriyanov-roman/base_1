@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Methods extends Shape {
+public class MethodsShapes extends Shape {
     static Scanner scanner;
     static ArrayList<Shape> shapes;
     static Double spaceContainer;
@@ -86,12 +86,11 @@ public class Methods extends Shape {
             }
         }
     }
-    public static void writerToFile() throws IOException {
-        Shape shape=new Shape();
+    public static void writerToFile(Shape shapes) throws IOException {
         FileWriter writer = new FileWriter("matveu\\src\\main\\java\\Shapes\\Shapes.txt", true);
-        writer.write(shape.getName() + ":" + shape.getPerimeter() + ":" + shape.getSquare() + "\n");
-        writer.flush();
-        writer.close();
+            writer.write(shapes.getName() + ":" + shapes.getPerimeter() + ":" + shapes.getSquare() + "\n");
+            writer.flush();
+            writer.close();
         nextChoice();
 
     }
@@ -108,9 +107,7 @@ public class Methods extends Shape {
         foursquare.setSquare(foursquare.getSide() * foursquare.getSide());
         if(foursquare.getSquare()<freeSpace) {
             shapes.add(foursquare);
-            Shape shape=new Shape();
-            shape=foursquare;
-            writerToFile();
+            writerToFile(foursquare);
         }else{
            shapeNotAdd();
         }
@@ -127,11 +124,7 @@ public class Methods extends Shape {
         circle.setSquare(Math.PI * circle.getRadius() * circle.getRadius());
         if(circle.getSquare()<freeSpace) {
             shapes.add(circle);
-            FileWriter writer = new FileWriter("matveu\\src\\main\\java\\Shapes\\Shapes.txt", true);
-            writer.write(circle.getName() + ":" + circle.getPerimeter() + ":" + circle.getSquare() + "\n");
-            writer.flush();
-            writer.close();
-            nextChoice();
+            writerToFile(circle);
         }else{
             shapeNotAdd();
         }
@@ -150,11 +143,7 @@ public class Methods extends Shape {
         triangle.setSquare((triangle.getSide() * triangle.getHeight()) / 2);
         if(triangle.getSquare()<freeSpace) {
             shapes.add(triangle);
-            FileWriter writer = new FileWriter("matveu\\src\\main\\java\\Shapes\\Shapes.txt", true);
-            writer.write(triangle.getName() + ":" + triangle.getPerimeter() + ":" + triangle.getSquare() + "\n");
-            writer.flush();
-            writer.close();
-            nextChoice();
+            writerToFile(triangle);
         }else{
             shapeNotAdd();
         }

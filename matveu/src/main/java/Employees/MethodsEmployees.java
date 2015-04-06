@@ -1,4 +1,4 @@
-package homeTasks;
+package Employees;
 
 
 
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Methods {
+public class MethodsEmployees {
     static Scanner scanner;
 
     public static void start() throws IOException {

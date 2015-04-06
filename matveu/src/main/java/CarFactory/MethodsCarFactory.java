@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Methods  {
+public class MethodsCarFactory {
     static Scanner scanner;
     static ArrayList<Car> cars;
     public static void start() throws IOException {
@@ -33,6 +33,7 @@ public class Methods  {
                 case "5":
                     sameColors();
                     break;
+
             }
         }
     }

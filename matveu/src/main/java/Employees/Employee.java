@@ -1,4 +1,4 @@
-package homeTasks;
+package Employees;
 
 public class Employee {
     private String name;
