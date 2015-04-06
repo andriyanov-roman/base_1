@@ -1,9 +1,11 @@
 package Shapes;
 
+import Employees.MethodsEmployees;
+
 import java.io.IOException;
 
-public class Main extends MethodsShapes {
-    public static void main(String[] args) throws IOException{
-        start();
+public class Main {
+    public static void main(String[] args) throws IOException {
+        MethodsShapes.start();
     }
 }

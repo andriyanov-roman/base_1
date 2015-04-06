@@ -33,7 +33,6 @@ public class MethodsCarFactory {
                 case "5":
                     sameColors();
                     break;
-
             }
         }
     }

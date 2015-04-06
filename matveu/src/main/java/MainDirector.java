@@ -29,7 +29,4 @@ public class MainDirector {
             }
         }
     }
-    public static void returnToMenu() throws IOException {
-        makeAChoice();
-    }
 }

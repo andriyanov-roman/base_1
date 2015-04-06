@@ -182,6 +182,8 @@ public class MethodsShapes extends Shape {
         System.out.println("Фигура с наибольшим периметром:");
         System.out.println(maxPerimeter + " Периметр: " + max);
     }
+
+
     public static void maxSquare() throws IOException {
         shapes=ReadingFromShapes.getShapes();
         Shape maxSquare=shapes.get(0);
