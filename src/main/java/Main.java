@@ -1,23 +1,29 @@
 import entity.Admin;
 import entity.Employee;
 import entity.Manager;
-import entity.Programmer;
-import entity.figures.Figure;
-import entity.figures.FourSquare;
+import lesson_3.CommonWriterReader;
 
+import static java.lang.Math.*;
 import java.io.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class Main {
+    public static int NEW_CONSTANT = 10;
+
     public static void main(String[] args) throws IOException {
+        Abonent.StaticAbonent.main(new String[]{});
         String s = "";
-        double d = Double.parseDouble(s);
-        System.out.println(d);
+        Map<String, String> map = new HashMap<>();
+        //Annon class
+        CommonWriterReader reader = new CommonWriterReader() {
+            @Override
+            public void writerToFile() {
+                super.writerToFile();
+            }
+        };
+        reader.writerToFile();
+        //double d = Double.parseDouble(s);
+        //System.out.println(d);
     }
 
     public void lambdasTest(){

@@ -15,6 +15,8 @@ public class MethodsShapes extends Shape {
 
     public static void addNewFoursquare() throws IOException {
         shapes=new ArrayList<>();
+        ShapesValidator validator = new ShapesValidator();
+        ShapesValidator.PreFigure preFigure = validator.new PreFigure();
         Foursquare foursquare=new Foursquare();
         scanner=new Scanner(System.in);
         freeSpace();
