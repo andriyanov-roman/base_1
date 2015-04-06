@@ -14,7 +14,6 @@ public class MethodsShapes extends Shape {
     static Integer maxLenght;
 
     public static void addNewFoursquare() throws IOException {
-        ShapesValidator validator = new ShapesValidator();
         shapes=new ArrayList<>();
         Foursquare foursquare=new Foursquare();
         scanner=new Scanner(System.in);
@@ -23,11 +22,7 @@ public class MethodsShapes extends Shape {
         System.out.println("Максимально-возможная длина стороны= " + maxLenght);
         foursquare.setName("Foursquare");
         System.out.println("Введите длину стороны квадрата(см)");
-        if(validator.isSideValid(scanner.nextDouble())) {
 
-        } else {
-
-        }
         foursquare.setSide(scanner.nextDouble());
 
         if(foursquare.getSquare()<freeSpace) {
