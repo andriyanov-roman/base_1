@@ -1,6 +1,6 @@
 import CarFactory.MethodsCarFactory;
 import Employees.MethodsEmployees;
-import Shapes.MethodsShapes;
+import Shapes.CommonView;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -24,7 +24,7 @@ public class MainDirector {
                     MethodsCarFactory.start();
                     break;
                 case "3":
-                    MethodsShapes.start();
+                    CommonView.start();
                     break;
             }
         }
