@@ -11,6 +11,7 @@ import java.util.ArrayList;
  */
 public class CourseReader extends CommonReader {
 
+
     public CourseReader(String path, String regExp) {
         super(path + "/courses.txt", regExp);
     }
