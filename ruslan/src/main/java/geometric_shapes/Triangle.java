@@ -4,27 +4,27 @@ package geometric_shapes;
  * Created by user on 03.04.2015.
  */
 public class Triangle extends Shape{
-    public Double sideTriangle;
-    public Double height;
+    public int sideTriangle;
+    public double height;
 
     public Triangle() {
     }
 
-    public Triangle(String name, Double perimeter, Double square, Double sideTriangle, Double height) {
+    public Triangle(String name, Double perimeter, Double square, int sideTriangle, double height) {
         super(name, perimeter, square);
         this.sideTriangle = sideTriangle;
         this.height = height;
     }
 
-    public Double getSideTriangle() {
+    public int getSideTriangle() {
         return sideTriangle;
     }
 
-    public void setSideTriangle(Double sideTriangle) {
+    public void setSideTriangle(int sideTriangle) {
         this.sideTriangle = sideTriangle;
     }
 
-    public Double getHeight() {
+    public double getHeight() {
         return height;
     }
 
@@ -36,7 +36,7 @@ public class Triangle extends Shape{
                 '}';
     }
 
-    public void setHeight(Double height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 }

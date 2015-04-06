@@ -1,4 +1,4 @@
-package homeTasks;
+package Employees;
 
 
 import java.io.BufferedReader;
@@ -7,9 +7,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ReadingFromFileMicrosoft {
+public class ReadingFromFileLuxsoft {
     public static ArrayList<Employee> getEmployees() throws IOException {
-        File file = new File("matveu/src/EmployeesMicrosoft.txt");
+        File file = new File("matveu/src/EmployeesLuxsoft.txt");
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
         ArrayList<Employee> employees = new ArrayList<>();

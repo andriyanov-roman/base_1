@@ -1,5 +1,7 @@
 package factory;
 
+import entity.CommonReaderWriter;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -9,7 +11,7 @@ import java.util.ArrayList;
 /**
  * Created by user on 02.04.2015.
  */
-public class ReadingFromTheFileCars {
+public class ReadingFromTheFileCars extends CommonReaderWriter{
     public static ArrayList <Car> getCars () throws IOException {
     File file = new File("ruslan\\src\\main\\java\\factory\\Cars.txt");
     FileReader reader = new FileReader(file);

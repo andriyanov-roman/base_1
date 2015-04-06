@@ -5,9 +5,9 @@ import java.util.ArrayList;
 /**
  * Created by user on 03.04.2015.
  */
-public class Container extends Shape{
+public class Container {
 
-private ArrayList<Shape> shapes;
+    private ArrayList<Shape> shapes;
 
     public ArrayList<Shape> getShapes() {
         return shapes;
