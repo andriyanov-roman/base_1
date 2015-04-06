@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MethodsShapes extends Shape {
-    static Scanner scanner;
+    static Scanner scanner=new Scanner(System.in);
     static ArrayList<Shape> shapes;
     static Double spaceContainer;
     static Double freeSpace;
@@ -16,15 +16,12 @@ public class MethodsShapes extends Shape {
     public static void addNewFoursquare() throws IOException {
         shapes=new ArrayList<>();
         Foursquare foursquare=new Foursquare();
-        scanner=new Scanner(System.in);
         freeSpace();
         maxLenght=(int)Math.sqrt(freeSpace);
         System.out.println("Максимально-возможная длина стороны= " + maxLenght);
         foursquare.setName("Foursquare");
         System.out.println("Введите длину стороны квадрата(см)");
-
         foursquare.setSide(scanner.nextDouble());
-
         if(foursquare.getSquare()<freeSpace) {
             shapes.add(foursquare);
             WriterReadingShapes.writerToFile(foursquare);
@@ -36,7 +33,6 @@ public class MethodsShapes extends Shape {
     public static void addNewCircle() throws IOException {
         shapes=new ArrayList<>();
         Circle circle=new Circle();
-        scanner=new Scanner(System.in);
         freeSpace();
         maxLenght=(int)(Math.sqrt(freeSpace / Math.PI));
         System.out.println("Максимально-возможная длина радиуса= " + maxLenght);
@@ -53,7 +49,6 @@ public class MethodsShapes extends Shape {
     public static void addNewTriangle() throws IOException {
         shapes=new ArrayList<>();
         Triangle triangle=new Triangle();
-        scanner=new Scanner(System.in);
         freeSpace();
         maxLenght=(int)Math.sqrt(freeSpace*2);
         System.out.println("Максимально-возможная длина стороны и высоты= " + maxLenght);
@@ -106,7 +101,6 @@ public class MethodsShapes extends Shape {
     public static void addSpace() throws  IOException {
         shapes=new ArrayList<>();
         Container container=new Container();
-        scanner=new Scanner(System.in);
         container.setName("Container");
         container.setPerimeter(0.0);
         System.out.println("Введите емкость(площадь) контейнера");
