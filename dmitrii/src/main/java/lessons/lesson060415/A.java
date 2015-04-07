@@ -1,4 +1,4 @@
-package lesson060415;
+package lessons.lesson060415;
 
 /**
  * Created by user on 06.04.2015.

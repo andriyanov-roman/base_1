@@ -1,0 +1,18 @@
+static nested classes (Статические вложенные классы ) - не имеют доступа к нестатическим полям
+и методам обрамляющего класса
+OuterClass.StaticNestedClass instance = new OuterClass.StaticNestedClass();
+
+Внутренние классы-члены (member inner classes).делятся на такие три вида:
+1. внутренние классы-члены (member inner classes). Внутренние классы-члены ассоциируются
+не с самим внешним классом, а с его экземпляром. При этом они имеют доступ ко всем
+его полям и методам.
+    Users users = new Users();
+    Users.Query query = users.new Query();
+inner class не может иметь статических объявлений
+ - локальные классы (local classes);
+ - анонимные классы (anonymous classes) - это локальный класс без имени.
+ Thread temp = new Thread(new Runnable() {
+         public void run() {
+             ...
+         }
+     }).start();

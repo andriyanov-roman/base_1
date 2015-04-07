@@ -1,4 +1,4 @@
-package lesson0;
+package lessons.lesson0;
 
 /**
  * Created by Администратор on 06.03.2015.
