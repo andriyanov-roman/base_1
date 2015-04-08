@@ -1,4 +1,6 @@
-package entity;
+package entity.staff;
+
+import entity.Employee;
 
 /**
  * Created by user on 23.03.2015.
