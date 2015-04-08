@@ -1,0 +1,1 @@
+[Car{model='Lambo', type='sportcar', carOwner='Alisa', regNumber='1313', color='red', factoryName='null', orderStatus=null, description='null', price=null, date=0}]
