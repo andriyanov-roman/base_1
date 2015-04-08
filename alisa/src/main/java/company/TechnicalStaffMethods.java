@@ -1,7 +1,8 @@
 package company;
 
-import company.CompanyUtil;
-import entity.Admin;
+import entity.staff.Admin;
+import entity.staff.Manager;
+import entity.staff.Programmer;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,11 +18,23 @@ public class TechnicalStaffMethods {
 
     public void start() throws IOException {
         System.out.println("Enter command key: " +
-                "\n 0.Show Admin MaxSalary \n ");
+                "\n 0.Show Admin MaxSalary "+
+        "\n 1. Show Manager MaxSalary" +
+                "\n 2. Show Programmer MaxSalary" +
+        "\n 3. Show Technical Staff MaxSalary \n");
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "0":
                     getAdminMaxSalary();
+                    break;
+                case "1":
+                    getManagerMaxSalary();
+                    break;
+                case "2":
+                    getProgrammerMaxSalary();
+                    break;
+                case "3":
+                    getTechnicalStaffMaxSalary();
                     break;
                 case "Exit":
                     System.exit(0);
@@ -34,7 +47,7 @@ public class TechnicalStaffMethods {
 
     public ArrayList<Admin> getAdmins(String path, String regExp) throws IOException {
         ArrayList<String[]> strings = CompanyUtil.readFromFile(path, regExp);
-        ArrayList<Admin> admins = new ArrayList <> ();
+        ArrayList<Admin> admins = new ArrayList<>();
         for (int i = 0; i < strings.size(); i++) {
             Admin a = new Admin();
             a.setName(strings.get(i)[0]);
@@ -47,22 +60,89 @@ public class TechnicalStaffMethods {
         return admins;
     }
 
+    public ArrayList<Manager> getManagers(String path, String regExp) throws IOException {
+        ArrayList<String[]> strings = CompanyUtil.readFromFile(path, regExp);
+        ArrayList<Manager> managers = new ArrayList<>();
+        for (int i = 0; i < strings.size(); i++) {
+            Manager m = new Manager();
+            m.setName(strings.get(i)[0]);
+            m.setSurname(strings.get(i)[1]);
+            m.setSalary(Double.valueOf(strings.get(i)[2]));
+            m.setProjectName(strings.get(i)[3]);
+            managers.add(m);
+        }
 
+        return managers;
+    }
+
+    public ArrayList<Programmer> getProgrammers(String path, String regExp) throws IOException {
+        ArrayList<String[]> strings = CompanyUtil.readFromFile(path, regExp);
+        ArrayList<Programmer> programmers = new ArrayList<>();
+        for (int i = 0; i < strings.size(); i++) {
+            Programmer p = new Programmer();
+            p.setName(strings.get(i)[0]);
+            p.setSurname(strings.get(i)[1]);
+            p.setSalary(Double.valueOf(strings.get(i)[2]));
+            p.setLanguageName(strings.get(i)[3]);
+            programmers.add(p);
+        }
+
+        return programmers;
+    }
 
 
     public void getAdminMaxSalary() throws IOException {
         ArrayList<Admin> admins = getAdmins("alisa\\src\\result\\Admin.txt", ":");
         Admin AdminMaxSalary = admins.get(0);
-         for (int i = 0; i < admins.size(); i++) {
-            if (admins.get(i).getSalary() > AdminMaxSalary.getSalary()){
+        for (int i = 0; i < admins.size(); i++) {
+            if (admins.get(i).getSalary() > AdminMaxSalary.getSalary()) {
                 AdminMaxSalary = admins.get(i);
 
-                }
-                         }
-            System.out.println(AdminMaxSalary.getName() + " " + AdminMaxSalary.getSalary() + " " + AdminMaxSalary.getPlatformName());
+            }
+        }
+        System.out.println(AdminMaxSalary.getName() + " " + AdminMaxSalary.getSalary() + " " + AdminMaxSalary.getPlatformName());
+    }
+
+    public void getManagerMaxSalary() throws IOException {
+        ArrayList<Manager> managers = getManagers("alisa\\src\\result\\Manager.txt", ":");
+        Manager ManagerMaxSalary = managers.get(0);
+        for (int i = 0; i < managers.size(); i++) {
+            if (managers.get(i).getSalary() > ManagerMaxSalary.getSalary()) {
+                ManagerMaxSalary = managers.get(i);
+
+            }
+        }
+        System.out.println(ManagerMaxSalary.getName() + " " + ManagerMaxSalary.getSalary() + " "
+                + ManagerMaxSalary.getProjectName());
+    }
+
+    public void getProgrammerMaxSalary() throws IOException {
+        ArrayList<Programmer> programmers = getProgrammers("alisa\\src\\result\\Programmer.txt", ":");
+        Programmer ProgrammerMaxSalary = programmers.get(0);
+        for (int i = 0; i < programmers.size(); i++) {
+            if (programmers.get(i).getSalary() > ProgrammerMaxSalary.getSalary()) {
+                ProgrammerMaxSalary = programmers.get(i);
+
+            }
+        }
+        System.out.println(ProgrammerMaxSalary.getName() + " " + ProgrammerMaxSalary.getSalary() + " "
+                + ProgrammerMaxSalary.getLanguageName());
+    }
+
+    private void getTechnicalStaffMaxSalary() throws IOException {
+        ArrayList staff = new ArrayList();
+        Manager ManagerMaxSalary;
+        Admin AdminMaxSalary;
+        Programmer ProgrammerMaxSalary;
+        for (int i = 0; i < staff.size(); i++) {
+            if (staff.get(i) instanceof Manager) {
+                //ManagerMaxSalary = staff.get(i);
+            }
         }
 
+
     }
+}
 
 
 
