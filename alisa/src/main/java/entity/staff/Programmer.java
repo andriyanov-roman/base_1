@@ -31,8 +31,7 @@ public class Programmer extends Employee {
 
     @Override
     public String toString() {
-        return "Programmer.txt{" +
-                "languageName='" + languageName + '\'' +
+        return super.toString() + " " + languageName + '\'' +
                 '}';
     }
 }
