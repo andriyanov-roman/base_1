@@ -83,7 +83,7 @@ public class UniFileTool extends ComFileTool {
             SubjectWithMark ss = new SubjectWithMark();
             ss.setSubName(subParts[0]);
             ss.setHours(Double.valueOf(subParts[1]));
-            ss.setMark(Integer.valueOf(subParts[2]));
+            ss.setMark(Double.valueOf(subParts[2]));
             subjectsW.add(ss);
         }
         return subjectsW;

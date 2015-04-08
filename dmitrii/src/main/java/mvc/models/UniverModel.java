@@ -29,4 +29,6 @@ public class UniverModel extends CommonModel {
         }
     }
 
+    public void updateUnivers(University univer) {
+    }
 }

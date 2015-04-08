@@ -1,9 +1,19 @@
 package mvc.views;
 
+import entities.university.Student;
+import entities.university.Subject;
+import entities.university.SubjectWithMark;
+import entities.university.University;
+import valid.UniverValidator;
+import valid.Validator;
+
+import java.util.ArrayList;
+
 /**
  * Created by mit_OK! on 06.04.2015.
  */
 public class UniverView extends CommonView {
+
     @Override
     public void showMainMenu() {
         alert("\n1. Вывести в консоль университет с лучшей успеваемостью студентов\n" +
@@ -13,5 +23,88 @@ public class UniverView extends CommonView {
                 "4. Для преподователя у которого студенты имеют наилучшие оценки повысить ЗП на 10%\n"+
                 "e. (или exit) Выход");
         alertInline("Ваш выбор: ");
+    }
+
+    public int DialogChooseUniver(ArrayList<University> univers) {
+        alert("Choose number of University or type 's' to input name manually: ");
+        for (int i = 0; i < univers.size(); i++) {
+            alert((i+1)+". "+univers.get(i).getUniName());
+        }
+        alertInline("Your choice: ");
+        String input = next();
+        if (input.isEmpty()) {// Если введено пустое значение
+            alert("[field not set]");
+            return DialogChooseUniver(univers);
+        }
+        if ("s".equals(input)){ // Вводим название универа вручную
+            alertInline("Type name of University: ");
+            input = next();
+            for (int i = 0; i < univers.size(); i++) {
+                if (input.equals(univers.get(i).getUniName())){
+                    return i;
+                }
+            }
+            alert("\tUNIVERSITY WITH NAME \'"+input+"\' NOT FOUND");
+            return DialogChooseUniver(univers);
+        }
+        if (validator.canBeInt(input)) { // Водим название универа цифрой
+            if (validator.canBeInPositiveRange(Integer.valueOf(input), univers.size())) {
+                return Integer.valueOf(input)-1;
+            } else {
+                alert("\tTHERE ARE ONLY "+univers.size()+" UNIVERSITIES AVAILABLE!");
+                return DialogChooseUniver(univers);
+            }
+        }
+        alert("\tNO SUCH CASE");
+        return DialogChooseUniver(univers);
+    }
+
+    public Student DialogAddStudent() {
+        alert("\t*** ADDING STUDENT ***");
+        Student s = new Student();
+        s.setName(fillInLetterField("Name: "));
+        s.setSurname(fillInLetterField("Surname: "));
+        s.setSubjectList(addSubjectsWithMark());
+        return s;
+    }
+
+    private ArrayList<SubjectWithMark> addSubjectsWithMark() {
+        alert("\t -ADDING SUBJECT-");
+        ArrayList<SubjectWithMark> subWithMarkslist = new ArrayList<>();
+        Boolean goOn = true;
+        while (goOn) {
+            subWithMarkslist.add(addSbj());
+            alertInline("Add another subject? (y/n): ");
+            if (next().equals("y")) {goOn = true;}
+            else {goOn = false;}
+        }
+        return subWithMarkslist;
+    }
+    private SubjectWithMark addSbj (){
+        SubjectWithMark subject = new SubjectWithMark();
+        subject.setSubName(fillInLetterField("Name of Subject: "));
+        subject.setHours(fillInDoublePosField("Academical hours: ", 100.0));
+        subject.setMark(0.0);
+        return subject;
+    }
+
+
+    public void MsgAddStudent(Student student, String studSbjName, String uniName, Boolean error) {
+        alert("\t" + student.getName() + " " + student.getSurname() + " can not be added," +
+                " because university \'" + uniName + "\' " +
+                "\n\tdoesn\'t have subject \'" + studSbjName + "\'");
+    }
+
+    public void MsgAddStudent(Student student, String uniName) {
+        alert("\tStudent " + student.getName() + " " + student.getSurname() +
+                " was added SUCCESSFULLY to \'" + uniName + "\'");
+    }
+
+    public Double[] DialogAddRange(Double maxValueOfMark) {
+        Double [] rangeMark = new Double[2];
+        alert("\tInput range: ");
+        rangeMark[0] = fillInDoublePosField("Lower bound: ", maxValueOfMark);
+        rangeMark[1] = fillInDoublePosField("Upper bound: ", maxValueOfMark);
+        return rangeMark;
     }
 }
