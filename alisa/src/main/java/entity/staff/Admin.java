@@ -28,10 +28,8 @@ public class Admin extends Employee {
         this.platformName = platformName;
     }
 
-    @Override
+
     public String toString() {
-        return "Admin.txt{" +
-                "platformName='" + platformName + '\'' +
-                '}';
+        return  getName() + " " + " " + getSurname() + " " + " " + getSalary()  + " " + platformName;
     }
 }

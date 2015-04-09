@@ -101,7 +101,7 @@ public class TechnicalStaffMethods {
 
             }
         }
-        System.out.println(AdminMaxSalary.getName() + " " + AdminMaxSalary.getSalary() + " " + AdminMaxSalary.getPlatformName());
+       System.out.println(AdminMaxSalary.toString());
         return AdminMaxSalary;
     }
 
@@ -114,8 +114,7 @@ public class TechnicalStaffMethods {
 
             }
         }
-        System.out.println(ManagerMaxSalary.getName() + " " + ManagerMaxSalary.getSalary() + " "
-                + ManagerMaxSalary.getProjectName());
+        System.out.println(ManagerMaxSalary.toString());
         return ManagerMaxSalary;
     }
 
@@ -128,8 +127,7 @@ public class TechnicalStaffMethods {
 
             }
         }
-        System.out.println(ProgrammerMaxSalary.getName() + " " + ProgrammerMaxSalary.getSalary() + " "
-                + ProgrammerMaxSalary.getLanguageName());
+        System.out.println(ProgrammerMaxSalary.toString());
         return ProgrammerMaxSalary;
     }
 

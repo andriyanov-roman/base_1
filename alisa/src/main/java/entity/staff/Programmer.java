@@ -29,9 +29,10 @@ public class Programmer extends Employee {
         this.languageName = languageName;
     }
 
-    @Override
+
+
+
     public String toString() {
-        return super.toString() + " " + languageName + '\'' +
-                '}';
+        return getName() + " " + getSurname() + " " + getSalary() + " " + languageName;
     }
 }
