@@ -20,7 +20,6 @@ public class Programmer extends Employee {
     }
 
 
-
     public String getLanguageName() {
         return languageName;
     }
@@ -28,8 +27,6 @@ public class Programmer extends Employee {
     public void setLanguageName(String languageName) {
         this.languageName = languageName;
     }
-
-
 
 
     public String toString() {

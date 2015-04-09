@@ -19,7 +19,6 @@ public class Manager extends Employee {
     }
 
 
-
     public String getProjectName() {
         return projectName;
     }
@@ -27,9 +26,6 @@ public class Manager extends Employee {
     public void setProjectName(String projectName) {
         this.projectName = projectName;
     }
-
-
-
 
 
     public String toString() {
