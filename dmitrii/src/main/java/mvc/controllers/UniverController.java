@@ -33,7 +33,7 @@ public class UniverController extends CommonController{
     public Boolean executeTasks() {
         switch (UniverView.next()) {
             case "0":
-                //showUnis();
+                showUniver();
                 break;
             case "1":
                 findBestUniver();
@@ -51,11 +51,16 @@ public class UniverController extends CommonController{
             case "Exit":
             case "e":
             case "E":
+                model.saveToFile();
                 return false;
             default:
                 view.alert("No such case");
         }
         return true;
+    }
+
+    private void showUniver() {
+        view.showUniverTable(chooseUniversity());
     }
 
     private void findBestUniver() {
@@ -71,7 +76,8 @@ public class UniverController extends CommonController{
                 bestUniver = univers.get(i);
             }
         }
-        view.alert(bestUniver.toString());
+        view.showUniverTable(bestUniver.getUniversity());
+        view.alert("\n\t    Average mark: "+bestUniver.getAverageMark());
     }
 
     private void addStudent() {

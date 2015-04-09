@@ -16,8 +16,6 @@ public class SubjectWithMark extends Subject {
 
     @Override
     public String toString() {
-        return "SubjectWithMark{" +
-                "mark=" + mark +
-                '}';
+        return super.toString()+ "| mark: " + mark;
     }
 }
