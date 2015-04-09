@@ -6,7 +6,7 @@ import entity.Employee;
  * Created by user on 23.03.2015.
  */
 public class Admin extends Employee {
-       private String platformName;
+    private String platformName;
 
 
     public Admin(String name, String surname, double salary, int age, String sex, String platformName) {
@@ -19,7 +19,6 @@ public class Admin extends Employee {
     }
 
 
-
     public String getPlatformName() {
         return platformName;
     }
@@ -28,10 +27,8 @@ public class Admin extends Employee {
         this.platformName = platformName;
     }
 
-    @Override
+
     public String toString() {
-        return "Admin.txt{" +
-                "platformName='" + platformName + '\'' +
-                '}';
+        return getName() + " " + " " + getSurname() + " " + " " + getSalary() + " " + platformName;
     }
 }

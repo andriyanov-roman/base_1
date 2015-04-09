@@ -19,10 +19,10 @@ public class TechnicalStaffMethods {
 
     public void start() throws IOException {
         System.out.println("Enter command key: " +
-                "\n 0.Show Admin MaxSalary "+
-        "\n 1. Show Manager MaxSalary" +
+                "\n 0.Show Admin MaxSalary " +
+                "\n 1. Show Manager MaxSalary" +
                 "\n 2. Show Programmer MaxSalary" +
-        "\n 3. Show Technical Staff MaxSalary \n");
+                "\n 3. Show Technical Staff MaxSalary \n");
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "0":
@@ -101,7 +101,7 @@ public class TechnicalStaffMethods {
 
             }
         }
-        System.out.println(AdminMaxSalary.getName() + " " + AdminMaxSalary.getSalary() + " " + AdminMaxSalary.getPlatformName());
+        System.out.println(AdminMaxSalary.toString());
         return AdminMaxSalary;
     }
 
@@ -114,8 +114,7 @@ public class TechnicalStaffMethods {
 
             }
         }
-        System.out.println(ManagerMaxSalary.getName() + " " + ManagerMaxSalary.getSalary() + " "
-                + ManagerMaxSalary.getProjectName());
+        System.out.println(ManagerMaxSalary.toString());
         return ManagerMaxSalary;
     }
 
@@ -128,8 +127,7 @@ public class TechnicalStaffMethods {
 
             }
         }
-        System.out.println(ProgrammerMaxSalary.getName() + " " + ProgrammerMaxSalary.getSalary() + " "
-                + ProgrammerMaxSalary.getLanguageName());
+        System.out.println(ProgrammerMaxSalary.toString());
         return ProgrammerMaxSalary;
     }
 
@@ -138,13 +136,13 @@ public class TechnicalStaffMethods {
         staff.add(getAdminMaxSalary());
         staff.add(getManagerMaxSalary());
         staff.add(getProgrammerMaxSalary());
-      Object bestWorker = staff.get(0);
+        Object bestWorker = staff.get(0);
         for (int i = 0; i < staff.size(); i++) {
-            if ( ((Employee)staff.get(i)).getSalary()> ((Employee)bestWorker).getSalary()  ) {
+            if (((Employee) staff.get(i)).getSalary() > ((Employee) bestWorker).getSalary()) {
                 bestWorker = staff.get(i);
             }
         }
-        Employee e = (Employee)bestWorker;
+        Employee e = (Employee) bestWorker;
         System.out.println(e.toString());
 
     }
