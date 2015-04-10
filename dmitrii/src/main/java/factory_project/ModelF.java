@@ -11,29 +11,25 @@ import java.util.Date;
  */
 public class ModelF {
     public static CarFileTool fileTool = initFileUtil();
-    public static CarFileTool initFileUtil (){
+
+    public static CarFileTool initFileUtil() {
         CarFileTool tool = new CarFileTool();
         tool.setPath("dmitrii\\src\\main\\resources\\car_factory\\Cars.txt");
         tool.setRegExp(Car.getRegExp());
         return tool;
     }
+
     public static ArrayList<Car> loadCars() {
         ArrayList<Car> cars = new ArrayList<>();
         ArrayList<String[]> temp;
-        try {
-            temp = fileTool.readFromFile();
-            for (int i = 0; i < temp.size(); i++) {
-                cars.add(initCar(temp.get(i)));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
+        temp = fileTool.readFromFile();
+        for (int i = 0; i < temp.size(); i++) {
+            cars.add(initCar(temp.get(i)));
         }
-
         return cars;
     }
 
-    public static Car initCar(String[] carArr)  {
+    public static Car initCar(String[] carArr) {
         Car car = new Car();
         car.setModel(carArr[0]);
         car.setType(carArr[1]);
@@ -48,18 +44,20 @@ public class ModelF {
         car.setDate(date);
         return car;
     }
+
     public static void writeToFile(String txt) {
-        initNewReader().writeToFile(txt,false);
+        initNewReader().writeToFile(txt, false);
     }
 
-    public static String loadBuffer()  {
+    public static String loadBuffer() {
         try {
             return initNewReader().readFileBuffer();
         } catch (IOException e) {
             return e.toString();
         }
     }
-    public static CarFileTool initNewReader () {
+
+    public static CarFileTool initNewReader() {
         CarFileTool util = new CarFileTool();
         util.setPath("dmitrii\\src\\main\\resources\\car_factory\\buffer.txt");
         return util;

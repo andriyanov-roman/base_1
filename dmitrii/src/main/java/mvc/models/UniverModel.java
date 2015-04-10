@@ -30,5 +30,18 @@ public class UniverModel extends CommonModel {
     }
 
     public void updateUnivers(University univer) {
+        for (int i = 0; i < getUnivers().size(); i++) {
+            if (getUnivers().get(i).getUniName().equals(univer.getUniName())){
+                getUnivers().set(i,univer);
+            }
+        }
+    }
+
+    public void saveToFile() {
+        for (int i = 0; i < getUnivers().size(); i++) {
+            UniverFileTool tool = new UniverFileTool(getFolderPath()+"\\"+getUnivers().get(i).getUniName()+".txt");
+            tool.writeUniverToFile(getUnivers().get(i));
+        }
+
     }
 }

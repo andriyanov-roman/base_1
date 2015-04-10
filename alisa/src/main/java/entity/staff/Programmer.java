@@ -20,7 +20,6 @@ public class Programmer extends Employee {
     }
 
 
-
     public String getLanguageName() {
         return languageName;
     }
@@ -29,10 +28,8 @@ public class Programmer extends Employee {
         this.languageName = languageName;
     }
 
-    @Override
+
     public String toString() {
-        return "Programmer.txt{" +
-                "languageName='" + languageName + '\'' +
-                '}';
+        return getName() + " " + getSurname() + " " + getSalary() + " " + languageName;
     }
 }

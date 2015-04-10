@@ -1,9 +1,6 @@
 package mvc.views;
 
-import entities.university.Student;
-import entities.university.Subject;
-import entities.university.SubjectWithMark;
-import entities.university.University;
+import entities.university.*;
 import valid.UniverValidator;
 import valid.Validator;
 
@@ -16,12 +13,13 @@ public class UniverView extends CommonView {
 
     @Override
     public void showMainMenu() {
-        alert("\n1. Вывести в консоль университет с лучшей успеваемостью студентов\n" +
-                "2. В консоли организовать добавление студента в университет.\n" +
-                "Если в списке предметов студента указан предмет которого нет в списке предметов университета, то студента не добовлять\n" +
-                "3. Вывести студентов с средним балом который попадает в заданый диапазон введенный пользывателем с консоли\n" +
-                "4. Для преподователя у которого студенты имеют наилучшие оценки повысить ЗП на 10%\n"+
-                "e. (или exit) Выход");
+        alert("\n0. Show university INFO\n" +
+                "1. Show best university\n" +
+                "2. Add student\n" +
+                "\t(Если в списке предметов студента указан предмет которого нет в списке предметов университета, то студента не добовлять)\n" +
+                "3. Show students with average mark in RANGE\n" +
+                "4. For best teacher increase salary for 10%\n"+
+                "e. (or \'exit\') Save and Exit");
         alertInline("Ваш выбор: ");
     }
 
@@ -83,7 +81,7 @@ public class UniverView extends CommonView {
     private SubjectWithMark addSbj (){
         SubjectWithMark subject = new SubjectWithMark();
         subject.setSubName(fillInLetterField("Name of Subject: "));
-        subject.setHours(fillInDoublePosField("Academical hours: ", 100.0));
+        subject.setHours(fillInDoublePosField("Academical hours (max 100): ", 100.0));
         subject.setMark(0.0);
         return subject;
     }
@@ -106,5 +104,43 @@ public class UniverView extends CommonView {
         rangeMark[0] = fillInDoublePosField("Lower bound: ", maxValueOfMark);
         rangeMark[1] = fillInDoublePosField("Upper bound: ", maxValueOfMark);
         return rangeMark;
+    }
+    public void showUniverTable (University u){
+        String [] titles = {"Name", "Surname","Subject ", "Other"};
+        Table table = new Table("University \'"+u.getUniName()+"\'",titles,24);
+        table.renderTableHead();
+        table.toFullWidthRowLeft("SUBJECTS:" + u.getSubjects().toString());
+        table.toPlusDash();
+        table.toFullWidthRowLeft("TEACHERS:");
+        table.toPlusDash();
+        table.toCenterTitles();
+        table.toPlusDash();
+        for (int i = 0; i < u.getTeachers().size(); i++) {
+            Teacher t = u.getTeachers().get(i);
+            String [] cells = {t.getName(),t.getSurname(),t.getSubject().toString(),t.getSalary()+"$"};
+            table.toRow(cells);
+        }
+        table.toPlusDash();
+        table.toFullWidthRowLeft("STUDENTS:");
+        table.toPlusDash();
+        table.toCenterTitles();
+        for (int i = 0; i < u.getStudents().size(); i++) {
+            Student s = u.getStudents().get(i);
+            for (int j = 0; j < s.getSubjectList().size(); j++) {
+                SubjectWithMark sub = s.getSubjectList().get(j);
+                if (j==0) {
+                    table.renderTableEnd();
+                    String [] cells = {s.getName(),s.getSurname(),sub.getSubName()+
+                            " ("+sub.getHours()+"h)","Mark: "+sub.getMark()};
+                    table.toRow(cells);
+                } else {
+                    String [] cells = {" " , " ",sub.getSubName()+
+                            " ("+sub.getHours()+"h)","Mark: "+sub.getMark()};
+                    table.toRow(cells);
+                }
+
+            }
+        }
+        table.renderTableEnd();
     }
 }

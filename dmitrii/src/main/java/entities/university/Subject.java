@@ -26,9 +26,6 @@ public class Subject {
 
     @Override
     public String toString() {
-        return "Subject{" +
-                "subName='" + subName + '\'' +
-                ", hours=" + hours +
-                '}';
+        return subName + " (" + hours +"h)";
     }
 }

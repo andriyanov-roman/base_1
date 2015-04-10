@@ -5,8 +5,17 @@ package entity.figures;
  */
 public class Figure {
     private String name;
-    private double perimetr;
+    private double perimeter;
     private double square;
+
+    public Figure(String name, double perimeter, double square) {
+        this.name = name;
+        this.perimeter = perimeter;
+        this.square = square;
+    }
+    public Figure(){
+
+    }
 
     public String getName() {
         return name;
@@ -16,7 +25,7 @@ public class Figure {
         this.name = name;
     }
 
-    public double getPerimetr() {
+    public double getPerimeter() {
         return 0.0;
     }
 
@@ -25,5 +34,12 @@ public class Figure {
         return 0.0;
     }
 
-
+    @Override
+    public String toString() {
+        return "Figure{" +
+                "name='" + name + '\'' +
+                ", perimeter=" + perimeter +
+                ", square=" + square +
+                '}';
+    }
 }

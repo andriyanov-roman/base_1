@@ -19,7 +19,6 @@ public class Manager extends Employee {
     }
 
 
-
     public String getProjectName() {
         return projectName;
     }
@@ -28,10 +27,9 @@ public class Manager extends Employee {
         this.projectName = projectName;
     }
 
-    @Override
+
     public String toString() {
-        return "Manager.txt{" +
-                "projectName='" + projectName + '\'' +
-                '}';
+        return getName() + " " + getSurname() + " " + getSalary() + " " + projectName;
     }
+
 }

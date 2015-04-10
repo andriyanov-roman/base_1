@@ -11,6 +11,13 @@ import java.util.ArrayList;
  * Created by mit_OK! on 06.04.2015.
  */
 public class UniverFileTool extends ComFileTool {
+    public UniverFileTool(String filePath) {
+        super.setPath(filePath);
+    }
+
+    public UniverFileTool() {
+    }
+
     public University readUniverFile(File file) {
         University uni = new University();
         ArrayList<Subject> subs = new ArrayList<>();
@@ -88,5 +95,32 @@ public class UniverFileTool extends ComFileTool {
             subjectsW.add(ss);
         }
         return subjectsW;
+    }
+    public void writeUniverToFile (University u) {
+        String txt = "uniName<U>"+u.getUniName()+"\n";
+        txt += "subjects<U>";
+        for (int i = 0; i < u.getSubjects().size(); i++) {
+            txt += u.getSubjects().get(i).getSubName()+":"+u.getSubjects().get(i).getHours()+";";
+        }
+        txt = txt.substring(0,txt.length()-1);
+        txt += "\nteachers<U>";
+        for (int i = 0; i < u.getTeachers().size(); i++) {
+            Teacher t = u.getTeachers().get(i);
+            txt += t.getName()+":"+ t.getSurname()+ ":"+t.getSubject().getSubName()+"<s>"+t.getSubject().getHours()+":"+
+                    t.getSalary()+";";
+        }
+        txt = txt.substring(0,txt.length()-1);
+        txt += "\nstudents<U>";
+        for (int i = 0; i < u.getStudents().size(); i++) {
+            Student s = u.getStudents().get(i);
+            txt += s.getName()+":"+s.getSurname()+":";
+            for (int j = 0; j < s.getSubjectList().size(); j++) {
+                SubjectWithMark sub = s.getSubjectList().get(j);
+                txt += sub.getSubName()+"<s>"+sub.getHours()+"<s>"+sub.getMark()+"<P>";
+            }
+            txt += ";";
+        }
+        txt = txt.substring(0,txt.length()-4);
+        writeToFile(txt, false);
     }
 }

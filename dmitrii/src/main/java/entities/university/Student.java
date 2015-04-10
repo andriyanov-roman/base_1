@@ -20,8 +20,6 @@ public class Student extends Human {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "subjectList=" + subjectList +
-                '}';
+        return " * Student: " +super.toString()+ subjectList;
     }
 }

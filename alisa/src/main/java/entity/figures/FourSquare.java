@@ -6,10 +6,10 @@ package entity.figures;
 public class FourSquare extends Figure {
     private int side;
 
-    @Override
+   /* @Override
     public double getPerimetr() {
         return side*4;
-    }
+    }*/
 
     @Override
     public double getSquare() {

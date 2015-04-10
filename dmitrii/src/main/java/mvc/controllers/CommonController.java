@@ -7,25 +7,25 @@ import mvc.views.CommonView;
  * Created by mit_OK! on 06.04.2015.
  */
 public class CommonController {
-    /*private CommonModel model;
-    private CommonView view;*/
+    /*private CommonModel model;*/
+    private CommonView view;
     public Boolean isRun = false;
 
-    /*public CommonController(CommonModel model, CommonView view) {
-        this.model = model;
+    public CommonController( CommonView view) {
+        //this.model = model;
         this.view = view;
-    }*/
+    }
 
     public CommonController() {
     }
 
     public void run() {
-        /*isRun = true;
+        isRun = true;
         while (isRun) {
             view.showMainMenu();
             isRun = executeTasks();
         }
-        System.exit(0);*/
+        System.exit(0);
     }
 
     public Boolean executeTasks() {

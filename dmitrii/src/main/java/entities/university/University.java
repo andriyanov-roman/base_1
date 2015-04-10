@@ -45,11 +45,9 @@ public class University {
 
     @Override
     public String toString() {
-        return "University{" +
-                "uniName='" + uniName + '\'' +
-                ", subjects=" + subjects +
-                ", teachers=" + teachers +
-                ", students=" + students +
-                '}';
+        return "University \'" + uniName + '\'' +
+                "\nSUBJECTS: " + subjects +
+                "\nTEACHERS: " + teachers +
+                "\nSTUDENTS: " + students;
     }
 }

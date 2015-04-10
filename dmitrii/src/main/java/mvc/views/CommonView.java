@@ -44,16 +44,7 @@ public class CommonView {
         System.out.print(txt);
     }
     public void showMainMenu() {
-
-    }
-    public void displayInTable (String tableName ){
-        Table table = new Table(tableName, titles,columnWidth);
-        table.renderTableHead();
-        displayTableBody();
-        table.renderTableEnd();
-    }
-
-    private void displayTableBody() {
+        alert("[MAIN MENU]");
     }
 
     public String fillInLetterField (String title){
@@ -80,7 +71,7 @@ public class CommonView {
             if (validator.canBeInPositiveRange(Double.valueOf(input), maxValue)){
                 return Double.valueOf(input);
             }
-            alert("\tError! Value mast be a positive");
+            alert("\tError! Value mast be a positive and less then "+maxValue);
             return fillInDoublePosField(title, maxValue);
         }
         alert("\tError! You can input only digits");

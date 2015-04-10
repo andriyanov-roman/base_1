@@ -1,7 +1,6 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+package factory;
+
+import java.io.*;
 import java.util.ArrayList;
 
 /**
@@ -18,8 +17,16 @@ public class CommonWriterReader {
         this.path = path;
     }
 
-    public void writerToFile() {
-
+    public void writerToFile(String txt) {
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter(path, true);
+            writer.write(txt);
+            writer.flush();
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

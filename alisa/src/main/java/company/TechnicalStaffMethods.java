@@ -1,5 +1,6 @@
 package company;
 
+import entity.Employee;
 import entity.staff.Admin;
 import entity.staff.Manager;
 import entity.staff.Programmer;
@@ -18,23 +19,23 @@ public class TechnicalStaffMethods {
 
     public void start() throws IOException {
         System.out.println("Enter command key: " +
-                "\n 0.Show Admin MaxSalary "+
-        "\n 1. Show Manager MaxSalary" +
+                "\n 0.Show Admin MaxSalary " +
+                "\n 1. Show Manager MaxSalary" +
                 "\n 2. Show Programmer MaxSalary" +
-        "\n 3. Show Technical Staff MaxSalary \n");
+                "\n 3. Show Technical Staff MaxSalary \n");
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "0":
-                    getAdminMaxSalary();
+                    System.out.println(getAdminMaxSalary().toString());
                     break;
                 case "1":
-                    getManagerMaxSalary();
+                    System.out.println(getManagerMaxSalary().toString());
                     break;
                 case "2":
-                    getProgrammerMaxSalary();
+                    System.out.println(getProgrammerMaxSalary().toString());
                     break;
                 case "3":
-                    getTechnicalStaffMaxSalary();
+                    System.out.println(getTechnicalStaffMaxSalary().toString());
                     break;
                 case "Exit":
                     System.exit(0);
@@ -91,7 +92,7 @@ public class TechnicalStaffMethods {
     }
 
 
-    public void getAdminMaxSalary() throws IOException {
+    public Admin getAdminMaxSalary() throws IOException {
         ArrayList<Admin> admins = getAdmins("alisa\\src\\result\\Admin.txt", ":");
         Admin AdminMaxSalary = admins.get(0);
         for (int i = 0; i < admins.size(); i++) {
@@ -100,10 +101,11 @@ public class TechnicalStaffMethods {
 
             }
         }
-        System.out.println(AdminMaxSalary.getName() + " " + AdminMaxSalary.getSalary() + " " + AdminMaxSalary.getPlatformName());
+
+        return AdminMaxSalary;
     }
 
-    public void getManagerMaxSalary() throws IOException {
+    public Manager getManagerMaxSalary() throws IOException {
         ArrayList<Manager> managers = getManagers("alisa\\src\\result\\Manager.txt", ":");
         Manager ManagerMaxSalary = managers.get(0);
         for (int i = 0; i < managers.size(); i++) {
@@ -112,11 +114,11 @@ public class TechnicalStaffMethods {
 
             }
         }
-        System.out.println(ManagerMaxSalary.getName() + " " + ManagerMaxSalary.getSalary() + " "
-                + ManagerMaxSalary.getProjectName());
+
+        return ManagerMaxSalary;
     }
 
-    public void getProgrammerMaxSalary() throws IOException {
+    public Programmer getProgrammerMaxSalary() throws IOException {
         ArrayList<Programmer> programmers = getProgrammers("alisa\\src\\result\\Programmer.txt", ":");
         Programmer ProgrammerMaxSalary = programmers.get(0);
         for (int i = 0; i < programmers.size(); i++) {
@@ -125,22 +127,35 @@ public class TechnicalStaffMethods {
 
             }
         }
-        System.out.println(ProgrammerMaxSalary.getName() + " " + ProgrammerMaxSalary.getSalary() + " "
-                + ProgrammerMaxSalary.getLanguageName());
+
+        return ProgrammerMaxSalary;
     }
 
-    private void getTechnicalStaffMaxSalary() throws IOException {
+    /*private Employee getTechnicalStaffMaxSalary() throws IOException {
         ArrayList staff = new ArrayList();
-        Manager ManagerMaxSalary;
-        Admin AdminMaxSalary;
-        Programmer ProgrammerMaxSalary;
+        staff.add(getAdminMaxSalary());
+        staff.add(getManagerMaxSalary());
+        staff.add(getProgrammerMaxSalary());
+        Object bestWorker = staff.get(0);
         for (int i = 0; i < staff.size(); i++) {
-            if (staff.get(i) instanceof Manager) {
-                //ManagerMaxSalary = staff.get(i);
+            if (((Employee) staff.get(i)).getSalary() > ((Employee) bestWorker).getSalary()) {
+                bestWorker = staff.get(i);
             }
         }
-
-
+        return  ((Employee) bestWorker);
+    }*/
+    private Employee getTechnicalStaffMaxSalary() throws IOException {
+        ArrayList <Employee> staff = new ArrayList<>();
+        staff.add(getAdminMaxSalary());
+        staff.add(getManagerMaxSalary());
+        staff.add(getProgrammerMaxSalary());
+        Employee bestWorker = staff.get(0);
+        for (int i = 0; i < staff.size(); i++) {
+            if (staff.get(i).getSalary() > bestWorker.getSalary()) {
+                bestWorker = staff.get(i);
+            }
+        }
+        return  bestWorker;
     }
 }
 
