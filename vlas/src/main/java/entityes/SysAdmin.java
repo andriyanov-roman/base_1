@@ -1,13 +1,12 @@
-package Entity;
+package entityes;
 
 /**
  * Created by user on 23.03.2015.
  */
-public class Manager {
-    private  String projectName;
+public class SysAdmin {
+    private  String platform;
     private Double salary;
     private String name;
-
 
     public String getName() {
         return name;
@@ -25,11 +24,11 @@ public class Manager {
         this.salary = salary;
     }
 
-    public String getLanguage() {
-        return projectName;
+    public String getPlatform() {
+        return platform;
     }
 
-    public void setLanguage(String platform) {
-        this.projectName = platform;
+    public void setPlatform(String platform) {
+        this.platform = platform;
     }
 }
