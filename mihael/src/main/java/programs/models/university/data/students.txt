@@ -1,0 +1,6 @@
+Jonathan:Black:Java:30:5:Geography:40:3
+Natalie:Portman:Geography:40:5:Java:30:4
+Bill:Gates:Biology:80:5:Algebra:50:4
+Samantha:Fox:Algebra:50:5:Biology:80:3
+Bruce:Willis:Philosophy:120:3
+Peter:Piper:Philosophy:120:5

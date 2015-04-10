@@ -7,6 +7,7 @@ import java.io.IOException;
  */
 public class Programs {
     public static void main(String args[]) throws IOException {
-        MainFigures.startFigures();
+        //MainFigures.startFigures();
+        UniversityRun.startUniversity();
     }
 }
