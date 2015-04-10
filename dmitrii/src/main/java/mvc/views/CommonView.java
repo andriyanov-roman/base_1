@@ -44,7 +44,7 @@ public class CommonView {
         System.out.print(txt);
     }
     public void showMainMenu() {
-
+        alert("[MAIN MENU]");
     }
 
     public String fillInLetterField (String title){

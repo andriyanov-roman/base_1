@@ -15,23 +15,15 @@ public class UniverController extends CommonController{
     private Double maxMark = 100.0;
 
     public UniverController(UniverModel model, UniverView view) {
+        super(view);
         this.model = model;
         this.view = view;
     }
 
-    @Override
-    public void run() {
-        isRun = true;
-        while (isRun) {
-            view.showMainMenu();
-            isRun = executeTasks();
-        }
-        System.exit(0);
-    }
 
     @Override
     public Boolean executeTasks() {
-        switch (UniverView.next()) {
+        switch (view.next()) {
             case "0":
                 showUniver();
                 break;

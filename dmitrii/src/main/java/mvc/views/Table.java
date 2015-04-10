@@ -29,7 +29,7 @@ public class Table {
         Table.toDash(getFullWidth());
     }
     public void toFullWidthRowRight (String txt){
-        System.out.format("\n|%1$"+(getFullWidth()-2)+"s|",txt);
+        System.out.format("\n|%1$" + (getFullWidth() - 2) + "s|", txt);
     }
      public void toFullWidthRowLeft (String txt) {
          System.out.print("\n|");
@@ -46,11 +46,11 @@ public class Table {
         }
     }
     public void toCenterTableName () {
-        //int margin = (getFullWidth()/2)-1;
-        //System.out.format("\n|%1$" + margin + "s%2$" + margin + "s|", tableName, "");
+        int offset = -1;
+        if (tableName.length()%2==0) {offset=-2;}
         int right = (getFullWidth()-tableName.length())/2;
-        int left = right+tableName.length()-1;
-        System.out.format("\n|%1$"+left+"s%2$"+(right-1)+"s|", tableName,"");
+        int left = right+tableName.length()+offset;
+        System.out.format("\n|%1$"+left+"s%2$"+right+"s|", tableName,"");
     }
     public void toPlusDash () {
         System.out.println();

@@ -9,7 +9,7 @@ import mvc.views.UniverView;
  */
 public class UniverApp extends Application {
     public static void run() {
-        UniverModel model = new UniverModel("dmitrii\\src\\main\\resources\\universities");
+        UniverModel model = new UniverModel(getWorkFolder()+"\\universities");
         UniverView view = new UniverView();
         UniverController controller = new UniverController(model, view);
         controller.run();

@@ -130,10 +130,12 @@ public class UniverView extends CommonView {
                 SubjectWithMark sub = s.getSubjectList().get(j);
                 if (j==0) {
                     table.renderTableEnd();
-                    String [] cells = {s.getName(),s.getSurname(),sub.getSubName(),"Mark: "+sub.getMark()};
+                    String [] cells = {s.getName(),s.getSurname(),sub.getSubName()+
+                            " ("+sub.getHours()+"h)","Mark: "+sub.getMark()};
                     table.toRow(cells);
                 } else {
-                    String [] cells = {" " , " ",sub.getSubName(),"Mark: "+sub.getMark()};
+                    String [] cells = {" " , " ",sub.getSubName()+
+                            " ("+sub.getHours()+"h)","Mark: "+sub.getMark()};
                     table.toRow(cells);
                 }
 
