@@ -25,7 +25,6 @@ public class CommonController {
             view.showMainMenu();
             isRun = executeTasks();
         }
-        System.exit(0);
     }
 
     public Boolean executeTasks() {

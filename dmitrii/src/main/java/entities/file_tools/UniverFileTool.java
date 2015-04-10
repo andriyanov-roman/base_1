@@ -1,4 +1,4 @@
-package file_tools;
+package entities.file_tools;
 
 import entities.university.*;
 

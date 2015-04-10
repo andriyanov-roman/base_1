@@ -1,6 +1,7 @@
-package factory_project;
+package mvc.models;
 
 import entities.factory.Car;
+import entities.file_tools.CarFileTool;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.Date;
 /**
  * Created by mit_OK! on 03.04.2015.
  */
-public class ModelF {
+public class FactoryModel {
     public static CarFileTool fileTool = initFileUtil();
 
     public static CarFileTool initFileUtil() {

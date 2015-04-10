@@ -1,6 +1,6 @@
 package mvc.models;
 import entities.university.University;
-import file_tools.UniverFileTool;
+import entities.file_tools.UniverFileTool;
 
 import java.io.File;
 import java.util.ArrayList;

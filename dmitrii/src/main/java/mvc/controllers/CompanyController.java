@@ -1,5 +1,7 @@
-package company_project;
+package mvc.controllers;
 
+import mvc.models.CompanyModel;
+import mvc.views.CompanyView;
 import entities.company.*;
 
 import java.io.IOException;
@@ -8,32 +10,32 @@ import java.util.ArrayList;
 /**
  * Created by mit_OK! on 27.03.2015.
  */
-public class ControllerE {
+public class CompanyController {
 
     public static void run() throws IOException {
-        ArrayList<Company> comps = ModelE.getCompanies();
+        ArrayList<Company> comps = CompanyModel.getCompanies();
         Boolean ShowMenuTag = true;
         Boolean hasChanges = false;
         ArrayList<Company> selectedComps; // выбранные компании
-        ViewE.welcome();
-        while (ViewE.hasNext()) {
-            switch (ViewE.next()) {
+        CompanyView.welcome();
+        while (CompanyView.hasNext()) {
+            switch (CompanyView.next()) {
                 case "0": // Показать инфо о сотрудниках компаний в РАСШИРЕННОМ виде
-                    ViewE.selectCompanyDialog(comps); // Выводим пользователю список компаний
-                    selectedComps = ViewE.selectCompany(comps);// узнаём, какая компания интересует пользователя
-                    ViewE.toPrintLN("\t *** Action: SHOW EMPLOYEES FULL INFO ***");
-                    ViewE.displayWorkersFULL(selectedComps);
+                    CompanyView.selectCompanyDialog(comps); // Выводим пользователю список компаний
+                    selectedComps = CompanyView.selectCompany(comps);// узнаём, какая компания интересует пользователя
+                    CompanyView.toPrintLN("\t *** Action: SHOW EMPLOYEES FULL INFO ***");
+                    CompanyView.displayWorkersFULL(selectedComps);
                     break;
                 case "1": // Показать инфо о сотрудниках компаний (таблицей)
-                    ViewE.selectCompanyDialog(comps);
-                    selectedComps = ViewE.selectCompany(comps);
-                    ViewE.toPrintLN("\t *** Action: SHOW EMPLOYEES (IN TABLE) ***");
-                    ViewE.displayWorkersTable(selectedComps);
+                    CompanyView.selectCompanyDialog(comps);
+                    selectedComps = CompanyView.selectCompany(comps);
+                    CompanyView.toPrintLN("\t *** Action: SHOW EMPLOYEES (IN TABLE) ***");
+                    CompanyView.displayWorkersTable(selectedComps);
                     break;
                 case "2": // Узнать сотрудника с самой высокой зарплатой
-                    ViewE.selectCompanyDialog(comps);
-                    selectedComps = ViewE.selectCompany(comps);
-                    ViewE.toPrintLN("\t *** Action: HIGHEST SALARY ***");
+                    CompanyView.selectCompanyDialog(comps);
+                    selectedComps = CompanyView.selectCompany(comps);
+                    CompanyView.toPrintLN("\t *** Action: HIGHEST SALARY ***");
                     getMaxSalary(selectedComps);
                     break;
                 case "3": // Узнать самую высокооплачиваемую профессию
@@ -41,35 +43,35 @@ public class ControllerE {
                     getMaxSalaryByProf(comps);
                     break;
                 case "4": // Остортировать по Зарплате
-                    ViewE.selectCompanyDialog(comps);
-                    selectedComps = ViewE.selectCompany(comps);
-                    ViewE.toPrintLN("\t *** Action: SORT BY SALARY ***");
+                    CompanyView.selectCompanyDialog(comps);
+                    selectedComps = CompanyView.selectCompany(comps);
+                    CompanyView.toPrintLN("\t *** Action: SORT BY SALARY ***");
                     sortBySalary(selectedComps);
                     break;
                 case "5":// Остортировать по Возрасту
-                    ViewE.selectCompanyDialog(comps);
-                    selectedComps = ViewE.selectCompany(comps);
-                    ViewE.toPrintLN("\t *** Action: SORT BY AGE ***");
+                    CompanyView.selectCompanyDialog(comps);
+                    selectedComps = CompanyView.selectCompany(comps);
+                    CompanyView.toPrintLN("\t *** Action: SORT BY AGE ***");
                     sortByAge(selectedComps);
                     break;
                 case "6":// Остортировать по длине фамилии
-                    ViewE.selectCompanyDialog(comps);
-                    selectedComps = ViewE.selectCompany(comps);
-                    ViewE.toPrintLN("\t *** Action: SORT BY SURNAME LENGTH ***");
+                    CompanyView.selectCompanyDialog(comps);
+                    selectedComps = CompanyView.selectCompany(comps);
+                    CompanyView.toPrintLN("\t *** Action: SORT BY SURNAME LENGTH ***");
                     sortBySurnameLength(selectedComps);
                     break;
                 case "7": // Добавить сотрудника
-                    ViewE.selectCompanyDialog(comps,false);
-                    selectedComps = ViewE.selectCompany(comps,false);
-                    ViewE.toPrintLN("\t *** Action: ADD WORKER ***");
+                    CompanyView.selectCompanyDialog(comps, false);
+                    selectedComps = CompanyView.selectCompany(comps, false);
+                    CompanyView.toPrintLN("\t *** Action: ADD WORKER ***");
                     Company com = addWorker(selectedComps.get(0));
                     comps = updateCompany(com,comps);
                     hasChanges = true;
                     break;
                 case "8":
-                    ViewE.selectCompanyDialog(comps);
-                    selectedComps = ViewE.selectCompany(comps);
-                    ViewE.toPrintLN("\t *** Action: FIRE AND INCREASE ***");
+                    CompanyView.selectCompanyDialog(comps);
+                    selectedComps = CompanyView.selectCompany(comps);
+                    CompanyView.toPrintLN("\t *** Action: FIRE AND INCREASE ***");
                     fireAndIncrese(selectedComps);
                     for (int i = 0; i < selectedComps.size(); i++) {
                        comps = updateCompany(selectedComps.get(i),comps);
@@ -77,12 +79,12 @@ public class ControllerE {
                     hasChanges = true;
                     break;
                 case "9":
-                    ViewE.changeConfigDialog();
-                    comps = ModelE.getCompanies();
+                    CompanyView.changeConfigDialog();
+                    comps = CompanyModel.getCompanies();
                     hasChanges = true;
                     break;
                 case "m":
-                    ViewE.welcome();
+                    CompanyView.welcome();
                     ShowMenuTag = false;
                     break;
                 case "exit":
@@ -90,16 +92,17 @@ public class ControllerE {
                 case "e":
                 case "E":
                     if (hasChanges){
-                        ViewE.toPrint("Some data was changed. Do You want to SAVE it to File? (y/n): ");
-                        if (ViewE.next().equals("y")){ModelE.writeChanges(comps);}
+                        CompanyView.toPrint("Some data was changed. Do You want to SAVE it to File? (y/n): ");
+                        if (CompanyView.next().equals("y")){
+                            CompanyModel.writeChanges(comps);}
                     }
-                    System.exit(0);
+                    return;
                 default:
-                    ViewE.toPrintLN("No such case");
+                    CompanyView.toPrintLN("No such case");
                     ShowMenuTag = true;
             }
             if (ShowMenuTag == true) {
-                ViewE.toPrint("\n\'m\' -- show Main MENU or 0-7,e -- run task: ");
+                CompanyView.toPrint("\n\'m\' -- show CompanyMain MENU or 0-7,e -- run task: ");
             }
             ShowMenuTag = true;
         }
@@ -119,8 +122,8 @@ public class ControllerE {
         for (Company com : selectedComps) {
             Employee e = getWorkerWithMaxSalaryInComp(com);
             result = "In company \'" + com.getCompanyName() + "\'" +
-                    " MAX Salary has: " + ViewE.showWorkerSHORT(e.toString());
-            ViewE.toPrintLN(result);
+                    " MAX Salary has: " + CompanyView.showWorkerSHORT(e.toString());
+            CompanyView.toPrintLN(result);
         }
     }
 
@@ -136,7 +139,7 @@ public class ControllerE {
     }
 
     public static void getMaxSalaryByProf(ArrayList<Company> comps) {
-        String profType = ViewE.addJobTitle();
+        String profType = CompanyView.addJobTitle();
         switch (profType) {
             case "Admin":
                 getMaxAdmin(comps);
@@ -151,7 +154,7 @@ public class ControllerE {
                 getMaxEmployee(comps);
                 break;
             default:
-                ViewE.toPrintLN("Profession \'" + profType + "\' is UNDEFINED. All results:");
+                CompanyView.toPrintLN("Profession \'" + profType + "\' is UNDEFINED. All results:");
                 getMaxSalary(comps);
         }
     }
@@ -170,7 +173,7 @@ public class ControllerE {
                 }
             }
         }
-        ViewE.toShowHighSalary(aMax.toString(), workCompany);
+        CompanyView.toShowHighSalary(aMax.toString(), workCompany);
     }
 
     public static void getMaxManager(ArrayList<Company> comps) {
@@ -187,7 +190,7 @@ public class ControllerE {
                 }
             }
         }
-        ViewE.toShowHighSalary(aMax.toString(), workCompany);
+        CompanyView.toShowHighSalary(aMax.toString(), workCompany);
     }
 
     public static void getMaxProgrammer(ArrayList<Company> comps) {
@@ -204,7 +207,7 @@ public class ControllerE {
                 }
             }
         }
-        ViewE.toShowHighSalary(aMax.toString(), workCompany);
+        CompanyView.toShowHighSalary(aMax.toString(), workCompany);
     }
 
     public static void getMaxEmployee(ArrayList<Company> comps) {
@@ -222,7 +225,7 @@ public class ControllerE {
                 }
             }
         }
-        ViewE.toShowHighSalary(aMax.toString(), workCompany);
+        CompanyView.toShowHighSalary(aMax.toString(), workCompany);
     }
 
     public static void sortBySalary(ArrayList<Company> selectedComps) {
@@ -239,7 +242,7 @@ public class ControllerE {
             selectedComps.get(k).setWorkers(workers);
         }
         String template = "Job title:Name:Surname:Salary *:Gender:Age:Other";
-        ViewE.displayWorkersTable(selectedComps, template);
+        CompanyView.displayWorkersTable(selectedComps, template);
     }
 
     public static void sortByAge(ArrayList<Company> selectedComps) {
@@ -256,7 +259,7 @@ public class ControllerE {
             selectedComps.get(k).setWorkers(workers);
         }
         String template = "Job title:Name:Surname:Salary:Gender:Age *:Other";
-        ViewE.displayWorkersTable(selectedComps, template);
+        CompanyView.displayWorkersTable(selectedComps, template);
     }
 
     public static void sortBySurnameLength(ArrayList<Company> selectedComps) {
@@ -275,7 +278,7 @@ public class ControllerE {
             selectedComps.get(k).setWorkers(workers);
         }
         String template = "Job title:Name:Surname *:Salary:Gender:Age:Other";
-        ViewE.displayWorkersTable(selectedComps, template);
+        CompanyView.displayWorkersTable(selectedComps, template);
     }
 
     private static ArrayList MoveIt(ArrayList workers, int j) {
@@ -286,30 +289,30 @@ public class ControllerE {
     }
 
     private static Company addWorker(Company com) {
-        String str[] = ViewE.AddEmployeeDialog();
+        String str[] = CompanyView.AddEmployeeDialog();
         switch (str[0]) {
             case "Admin":
-                com.getWorkers().add(ModelE.createAdmin(str));
+                com.getWorkers().add(CompanyModel.createAdmin(str));
                 break;
             case "Programmer":
-                com.getWorkers().add(ModelE.createProgrammer(str));
+                com.getWorkers().add(CompanyModel.createProgrammer(str));
                 break;
             case "Manager":
-                com.getWorkers().add(ModelE.createManager(str));
+                com.getWorkers().add(CompanyModel.createManager(str));
                 break;
             case "Employee":
-                com.getWorkers().add(ModelE.createEmployee(str));
+                com.getWorkers().add(CompanyModel.createEmployee(str));
                 break;
             default:
-                ViewE.toPrintLN("Worker doesn't create! Return to menu");
+                CompanyView.toPrintLN("Worker doesn't create! Return to menu");
                 return com;
         }
-        ViewE.toPrintLN("\nAdd worker: SUCCESS");
+        CompanyView.toPrintLN("\nAdd worker: SUCCESS");
         addWorkerNextStep(com, str);
         return com;
     }
     private static void addWorkerNextStep (Company com, String [] str){
-        switch (ViewE.goToNextStep(com.getCompanyName())){
+        switch (CompanyView.goToNextStep(com.getCompanyName())){
             case "1":
                 addWorker(com);
                 break;
@@ -321,18 +324,18 @@ public class ControllerE {
                 for (int i = 0; i < str.length; i++) {
                     workerString+=str[i]+Employee.getSeparator();
                 }
-                ViewE.showWorkerFULL(workerString);
+                CompanyView.showWorkerFULL(workerString);
                 addWorkerNextStep(com,commonStr);
                 break;
             default:
-                ViewE.toPrintLN("\nGo back to menu....");
+                CompanyView.toPrintLN("\nGo back to menu....");
         }
     }
     private static ArrayList<Company> fireAndIncrese(ArrayList<Company> selectedComps) {
-        Double percent = ViewE.percentDialog();
+        Double percent = CompanyView.percentDialog();
         for (int i = 0; i < selectedComps.size(); i++) {
             Company com = selectedComps.get(i);
-            ViewE.toPrintCompName(com.getCompanyName());
+            CompanyView.toPrintCompName(com.getCompanyName());
             com = IncreaseSalary(com, percent);
             com = fireStuff(com, "male");
             selectedComps.set(i,com);
@@ -361,9 +364,9 @@ public class ControllerE {
     private static Company changeAdminSalary(int i, Company com, Double percent){
         Admin admin = (Admin)com.getWorkers().get(i);
         if (admin.getGender().equals("female") ){
-            ViewE.toPrint(ViewE.showWorkerSHORT(admin.toString()));
+            CompanyView.toPrint(CompanyView.showWorkerSHORT(admin.toString()));
             admin.setSalary(Math.round(admin.getSalary() * (1 + percent)));
-            ViewE.toPrintLN(" >>>New Salary (+"+(percent * 100) + "%): " + admin.getSalary() + "$");
+            CompanyView.toPrintLN(" >>>New Salary (+" + (percent * 100) + "%): " + admin.getSalary() + "$");
             com.getWorkers().set(i,admin);
         }
         return com;
@@ -371,9 +374,9 @@ public class ControllerE {
     private static Company changeManagerSalary(int i, Company com, Double percent){
         Manager manager = (Manager)com.getWorkers().get(i);
         if (manager.getGender().equals("female") ){
-            ViewE.toPrint(ViewE.showWorkerSHORT(manager.toString()));
+            CompanyView.toPrint(CompanyView.showWorkerSHORT(manager.toString()));
             manager.setSalary(Math.round(manager.getSalary() * (1 + percent)));
-            ViewE.toPrintLN(" >>>New Salary (+"+(percent * 100) + "%): " + manager.getSalary() + "$");
+            CompanyView.toPrintLN(" >>>New Salary (+" + (percent * 100) + "%): " + manager.getSalary() + "$");
             com.getWorkers().set(i,manager);
         }
         return com;
@@ -381,18 +384,18 @@ public class ControllerE {
     private static Company changeProgSalary(int i, Company com, Double percent){
         Programmer prog = (Programmer)com.getWorkers().get(i);
         if (prog.getGender().equals("female") ){
-            ViewE.toPrint(ViewE.showWorkerSHORT(prog.toString()));
+            CompanyView.toPrint(CompanyView.showWorkerSHORT(prog.toString()));
             prog.setSalary(Math.round(prog.getSalary() * (1 + percent)));
-            ViewE.toPrintLN(" >>>New Salary (+" + (percent * 100) + "%): " + prog.getSalary() + "$");
+            CompanyView.toPrintLN(" >>>New Salary (+" + (percent * 100) + "%): " + prog.getSalary() + "$");
         }
         return com;
     }
     private static Company changeEmplSalary(int i, Company com, Double percent) {
         Employee e = (Employee)com.getWorkers().get(i);
         if (e.getGender().equals("female") ){
-            ViewE.toPrint(ViewE.showWorkerSHORT(e.toString()));
+            CompanyView.toPrint(CompanyView.showWorkerSHORT(e.toString()));
             e.setSalary(Math.round(e.getSalary() * (1 + percent)));
-            ViewE.toPrintLN(" >>>New Salary (+" + (percent * 100) + "%): " + e.getSalary() + "$");
+            CompanyView.toPrintLN(" >>>New Salary (+" + (percent * 100) + "%): " + e.getSalary() + "$");
             com.getWorkers().set(i, e);
         }
         return com;

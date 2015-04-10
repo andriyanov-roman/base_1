@@ -1,6 +1,6 @@
 package entities.university;
 
-import file_tools.ComFileTool;
+import entities.file_tools.ComFileTool;
 
 import java.io.*;
 import java.util.ArrayList;

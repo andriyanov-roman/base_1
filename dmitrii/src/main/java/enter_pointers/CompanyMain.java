@@ -1,12 +1,14 @@
-package company_project;
+package enter_pointers;
+
+import mvc.controllers.CompanyController;
 
 import java.io.IOException;
 
 /**
  * Created by mit_OK! on 20.03.2015.
  */
-public class Main {
+public class CompanyMain {
     public static void main(String[] args) throws IOException {
-        ControllerE.run();
+        CompanyController.run();
     }
 }

@@ -1,6 +1,4 @@
-package factory_project;
-
-import file_tools.ComFileTool;
+package entities.file_tools;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -2,16 +2,16 @@ package mvc.controllers;
 
 import entities.figures.Figure;
 import mvc.models.FigureModel;
-import mvc.views.FigurerView;
+import mvc.views.FigureView;
 
 /**
  * Created by mit_OK! on 09.04.2015.
  */
 public class FigurerController extends CommonController {
     private FigureModel model;
-    private FigurerView view;
+    private FigureView view;
 
-    public FigurerController(FigureModel model, FigurerView view) {
+    public FigurerController(FigureModel model, FigureView view) {
         this.model = model;
         this.view = view;
     }
@@ -23,7 +23,6 @@ public class FigurerController extends CommonController {
             view.showMainMenu();
             isRun = executeTasks();
         }
-        System.exit(0);
     }
 
     @Override
@@ -38,17 +37,11 @@ public class FigurerController extends CommonController {
             case "2":
                 addFigure();
                 break;
-            case "3":
-              //  showAverageStudent();
-                break;
-            case "4":
-               // increaseTeacherSalary();
-                break;
             case "exit":
             case "Exit":
             case "e":
             case "E":
-               // model.saveToFile();
+                model.saveToFile();
                 return false;
             default:
                 view.alert("No such case");

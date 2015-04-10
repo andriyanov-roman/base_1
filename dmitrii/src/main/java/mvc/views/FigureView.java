@@ -8,7 +8,7 @@ import entities.figures.Triangle;
 /**
  * Created by mit_OK! on 09.04.2015.
  */
-public class FigurerView extends CommonView {
+public class FigureView extends CommonView {
     private static final Double INPUT_LIMIT=1000000.0;
     @Override
     public void showMainMenu() {

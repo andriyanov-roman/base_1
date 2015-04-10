@@ -1,4 +1,4 @@
-package company_project;
+package mvc.models;
 
 import entities.company.*;
 import tools.FileUtil;
@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * Created by mit_OK! on 27.03.2015.
  */
-public class ModelE {
+public class CompanyModel {
     private static String configPath = "dmitrii\\src\\main\\resources\\companies\\Config.ini";
     private static String YourDateFormat = "dd.MM.yyyy HH:mm:ss";
     private static String ErrorLogPath = "dmitrii\\src\\main\\resources\\Errors.log";
@@ -19,7 +19,7 @@ public class ModelE {
         return configPath;
     }
     public static void setConfigPath(String configPath) {
-        ModelE.configPath = configPath;
+        CompanyModel.configPath = configPath;
     }
 
     public static ArrayList<Company> getCompanies() throws IOException {

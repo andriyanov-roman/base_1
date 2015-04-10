@@ -1,6 +1,6 @@
 package company_project_test;
 
-import company_project.ModelE;
+import mvc.models.CompanyModel;
 import entities.company.Admin;
 import entities.company.Company;
 import entities.company.Employee;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class ControllerE {
     @Test
     public void getMaxSalaryInComp () throws Exception{
-        Company com = ModelE.companyParse("src\\main\\resources\\companies\\Polaris.txt");
+        Company com = CompanyModel.companyParse("src\\main\\resources\\companies\\Polaris.txt");
 
 
         Employee eWithMaxSalary = (Employee)((ArrayList)com.getWorkers().get(0)).get(0);
@@ -38,7 +38,7 @@ public class ControllerE {
 
     @Test
     public void getAdminMaxSalary () throws Exception {
-        Company com = ModelE.companyParse("src\\main\\resources\\companies\\Polaris.txt");
+        Company com = CompanyModel.companyParse("src\\main\\resources\\companies\\Polaris.txt");
         //ArrayList<Admin> admins = com.getAdmins();
         /* ----------------------------------------------*/
        /* Admin aMax = admins.get(0);

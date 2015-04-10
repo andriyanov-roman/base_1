@@ -1,4 +1,4 @@
-package factory_project;
+package mvc.views;
 
 import entities.factory.Car;
 import tools.Table;
@@ -13,7 +13,7 @@ import java.util.Scanner;
 /**
  * Created by mit_OK! on 03.04.2015.
  */
-public class ViewF {
+public class FactoryView {
     public static Scanner scanner = new Scanner(System.in);
     public static String buffer = "";
 

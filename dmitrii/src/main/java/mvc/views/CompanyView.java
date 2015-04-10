@@ -1,5 +1,6 @@
-package company_project;
+package mvc.views;
 
+import mvc.models.CompanyModel;
 import entities.company.Company;
 import entities.company.Employee;
 import tools.Table;
@@ -12,7 +13,7 @@ import java.util.InputMismatchException;
 /**
  * Created by mit_OK! on 27.03.2015.
  */
-public class ViewE {
+public class CompanyView {
     private static Scanner scanner = new Scanner(System.in);
 
     public static Boolean hasNext() {
@@ -69,7 +70,7 @@ public class ViewE {
                     return selectedComps;
                 } else {// Если пользователь ввёл НЕПРАВИЛЬНУЮ цифру
                     toPrintLN("Error! There are only " + comps.size() + " companies available!" +
-                            "\nReturn to Main menu...");
+                            "\nReturn to CompanyMain menu...");
                 }
             }
         } catch (InputMismatchException e) {
@@ -352,7 +353,7 @@ public class ViewE {
         toPrintLN("\nWhat will You want to do next:" +
                 "\n1. Add another user to Company \"" + companyName + "\"" +
                 "\n2. Show PREVIOUS inputted  user" +
-                "\ne. (or any another key) Exit to Main menu");
+                "\ne. (or any another key) Exit to CompanyMain menu");
         toPrint("Choose your destiny: ");
         return scanner.next();
     }
@@ -371,7 +372,7 @@ public class ViewE {
 
     public static void changeConfigDialog() {
         toPrint("Specify new Config path: ");
-        ModelE.setConfigPath(scanner.next());
+        CompanyModel.setConfigPath(scanner.next());
     }
 
 
