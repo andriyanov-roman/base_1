@@ -1,6 +1,6 @@
 package mvc.views;
 
-import valid.Validator;
+import entities.valid.Validator;
 
 import java.util.Scanner;
 

@@ -7,6 +7,7 @@ import applications.FigureApp;
  */
 public class FigureMain {
     public static void main(String[] args) {
-        //FigureApp.run();
+        FigureApp app = new FigureApp();
+        app.run();
     }
 }

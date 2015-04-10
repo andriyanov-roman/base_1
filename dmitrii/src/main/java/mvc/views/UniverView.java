@@ -1,8 +1,6 @@
 package mvc.views;
 
 import entities.university.*;
-import valid.UniverValidator;
-import valid.Validator;
 
 import java.util.ArrayList;
 

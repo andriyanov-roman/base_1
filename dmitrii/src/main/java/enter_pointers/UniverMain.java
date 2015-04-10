@@ -7,6 +7,7 @@ import applications.UniverApp;
  */
 public class UniverMain {
     public static void main(String[] args) {
-        //UniverApp.run();
+       UniverApp app = new UniverApp();
+        app.run();
     }
 }
