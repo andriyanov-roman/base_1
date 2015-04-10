@@ -11,6 +11,7 @@ public class MainView extends CommonView {
         alert("2. Factory application");
         alert("3. University application");
         alert("4. Figure application");
+        alert("EXIT. Shutdown program");
         alertInline("Your choice: ");
     }
 }
