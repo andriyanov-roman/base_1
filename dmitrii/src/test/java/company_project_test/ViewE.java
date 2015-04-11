@@ -1,6 +1,6 @@
 package company_project_test;
 
-import company_project.ModelE;
+import mvc.models.CompanyModel;
 import entities.company.Company;
 import entities.company.Employee;
 import org.junit.Test;
@@ -114,7 +114,7 @@ public class ViewE {
     public void toTable () throws Exception {
         String rowStr ="Employee:Mirriam:Carter:14375.0:false:53";
         String titleStr = "Job title:Name:Surname:Salary:Gender:Age:Other";
-        Company com = ModelE.companyParse("src\\main\\resources\\companies\\ZAZ.txt");
+        Company com = CompanyModel.companyParse("src\\main\\resources\\companies\\ZAZ.txt");
         String regExp = ":";
 
         String [] titles = titleStr.split(regExp);

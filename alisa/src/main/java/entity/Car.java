@@ -7,27 +7,30 @@ public class Car {
     private String model;
     private String type;
     private String carOwner;
-    private String regNumber;
-    private String color;
+    private int regNumber;
+    private String colour;
     private String factoryName;
     private Boolean orderStatus;
     private String description;
     private Double price;
     private int date;
 
-    public Car(String model, String type, String carOwner, String regNumber, String color,
+    public Car(String model, String type, String carOwner, int regNumber, String colour,
                String factoryName, String description, Double price,
                int date, Boolean orderStatus) {
         this.model = model;
         this.type = type;
         this.carOwner = carOwner;
         this.regNumber = regNumber;
-        this.color = color;
+        this.colour = colour;
         this.factoryName = factoryName;
         this.description = description;
         this.price = price;
         this.date = date;
         this.orderStatus = orderStatus;
+    }
+    public Car(){
+
     }
 
     public String getModel() {
@@ -54,11 +57,11 @@ public class Car {
         this.carOwner = carOwner;
     }
 
-    public String getRegNumber() {
+    public int getRegNumber() {
         return regNumber;
     }
 
-    public void setRegNumber(String regNumber) {
+    public void setRegNumber(int regNumber) {
         this.regNumber = regNumber;
     }
 
@@ -70,12 +73,12 @@ public class Car {
         this.factoryName = factoryName;
     }
 
-    public String getColor() {
-        return color;
+    public String getColour() {
+        return colour;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setColour(String colour) {
+        this.colour = colour;
     }
 
     public Boolean getOrderStatus() {
@@ -117,7 +120,7 @@ public class Car {
                 ", type='" + type + '\'' +
                 ", carOwner='" + carOwner + '\'' +
                 ", regNumber='" + regNumber + '\'' +
-                ", color='" + color + '\'' +
+                ", color='" + colour + '\'' +
                 ", factoryName='" + factoryName + '\'' +
                 ", orderStatus=" + orderStatus +
                 ", description='" + description + '\'' +

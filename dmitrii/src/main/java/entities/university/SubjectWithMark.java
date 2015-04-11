@@ -4,20 +4,18 @@ package entities.university;
  * Created by mit_OK! on 04.04.2015.
  */
 public class SubjectWithMark extends Subject {
-    private int mark;
+    private Double mark;
 
-    public int getMark() {
+    public Double getMark() {
         return mark;
     }
 
-    public void setMark(int mark) {
+    public void setMark(Double mark) {
         this.mark = mark;
     }
 
     @Override
     public String toString() {
-        return "SubjectWithMark{" +
-                "mark=" + mark +
-                '}';
+        return super.toString()+ "| mark: " + mark;
     }
 }

@@ -1,0 +1,5 @@
+Philosophy:120:null
+Algebra:50:null
+Biology:80:null
+Geography:40:null
+Java:30:null

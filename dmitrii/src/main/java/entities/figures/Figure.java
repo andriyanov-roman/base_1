@@ -5,7 +5,8 @@ package entities.figures;
  */
 public class Figure {
     private String name;
-    private double perimetr;
+    private double dimension;
+    private double perimeter;
     private double square;
 
     public String getName() {
@@ -16,7 +17,15 @@ public class Figure {
         this.name = name;
     }
 
-    public double getPerimetr() {
+    public double getDimension() {
+        return dimension;
+    }
+
+    public void setDimension(double dimension) {
+        this.dimension = dimension;
+    }
+
+    public double getPerimeter() {
         return 0.0;
     }
 
@@ -25,5 +34,9 @@ public class Figure {
         return 0.0;
     }
 
-
+    @Override
+    public String toString() {
+        return name + ": " +
+                " dimension=" + dimension;
+    }
 }

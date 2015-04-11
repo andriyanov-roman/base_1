@@ -1,0 +1,7 @@
+Circle:10.0
+Circle:2.0
+Circle:4.0
+Triangle:2.0:2.8
+Triangle:1.5:1.7
+Circle:5.0
+FourSquare:6.6

@@ -1,4 +1,4 @@
-1. File[] deps = f.listFiles(); // Как прописывать FileFilter filter????
+1. File[] deps = f.listFiles(); // Как прописывать FileFilter filter???? get
 
 2. Чем отличаются:
                     Random r = new Random();

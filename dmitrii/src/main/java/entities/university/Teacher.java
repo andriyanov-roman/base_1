@@ -27,9 +27,7 @@ public class Teacher extends Human {
 
     @Override
     public String toString() {
-        return "Teacher{" +
-                "subject=" + subject +
-                ", salary=" + salary +
-                '}';
+        return "\n * "+super.toString()+", Salary: " + salary +"$"+
+                ", Subjects: " + subject ;
     }
 }

@@ -19,6 +19,6 @@ public class CommonModel {
 
     }
 
-    /*public CommonModel() {
-    }*/
+    public CommonModel() {
+    }
 }

@@ -23,6 +23,21 @@ public class UniversityWithAverageMark extends University {
         this.university = university;
     }
 
+    public UniversityWithAverageMark(University u) {
+        this.averageMark = calculateAverMark(u);
+        this.university = u;
+    }
+    private Double calculateAverMark (University u) {
+        Double sumStudentMarks = 0.0;
+        int sumSubjects = 0;
+        for (int j = 0; j < u.getStudents().size(); j++) {
+            for (int k = 0; k < u.getStudents().get(j).getSubjectList().size(); k++) {
+                sumStudentMarks += u.getStudents().get(j).getSubjectList().get(k).getMark();
+            }
+            sumSubjects += u.getStudents().get(j).getSubjectList().size();
+        }
+        return sumStudentMarks / sumSubjects;
+    }
     @Override
     public String toString() {
         return this.university.toString()+"\n Average mark: "+averageMark;

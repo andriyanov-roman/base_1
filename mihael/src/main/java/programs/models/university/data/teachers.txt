@@ -1,0 +1,5 @@
+Dave:Manchester:4000.0:Philosophy
+Kay:Baits:2000.0:Algebra
+Will:Smith:3000.0:Biology
+Sam:Cohen:5000.0:Geography
+Roman:Andriyanov:7000:Java
