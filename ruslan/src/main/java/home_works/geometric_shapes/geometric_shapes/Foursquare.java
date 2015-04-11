@@ -4,18 +4,18 @@ package home_works.geometric_shapes.geometric_shapes;
  * Created by user on 03.04.2015.
  */
 public class Foursquare extends Shape {
-    private Double side;
+    private double side;
 
     public Foursquare() {
     }
 
     @Override
-    public Double getPerimeter() {
+    public double getPerimeter() {
         return this.side*4;
     }
 
     @Override
-    public Double getSquare() {
+    public double getSquare() {
         return this.side*this.side;
     }
 
