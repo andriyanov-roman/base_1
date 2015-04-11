@@ -3,7 +3,7 @@ package entity.figures;
 /**
  * Created by user on 04.04.2015.
  */
-public class Figure {
+public abstract class Figure {
     private String name;
     private double perimetr;
     private double square;
@@ -16,14 +16,10 @@ public class Figure {
         this.name = name;
     }
 
-    public double getPerimetr() {
-        return 0.0;
-    }
+    public abstract double getPerimetr();
 
 
-    public double getSquare() {
-        return 0.0;
-    }
+    public abstract double getSquare();
 
 
 }

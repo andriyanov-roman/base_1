@@ -24,5 +24,13 @@ public class Triangle extends Figure {
     }
 
 
+    @Override
+    public double getPerimetr() {
+        return side*3;
+    }
 
+    @Override
+    public double getSquare() {
+        return side * side * side;
+    }
 }
