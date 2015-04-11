@@ -10,8 +10,7 @@ import java.util.ArrayList;
  * Created by R-Tem on 01.04.2015.
  */
 public class CourseReader extends CommonReader {
-
-
+    public static final int COURSE_NAME = 0;
     public CourseReader(String path, String regExp) {
         super(path + "/courses.txt", regExp);
     }
@@ -20,9 +19,10 @@ public class CourseReader extends CommonReader {
     public ArrayList readFromFile() throws IOException {
         ArrayList<String[]> string = super.readFromFile();
         ArrayList<Course> courses = new ArrayList<>();
+        Runtime.getRuntime().gc();
         for (int i = 0; i < string.size(); i++) {
             Course c = new Course();
-            c.setCourseTitle(string.get(i)[0]);
+            c.setCourseTitle(string.get(i)[COURSE_NAME]);
             c.setCreditHours(Integer.valueOf(string.get(i)[1]));
             c.setMark(Integer.valueOf(string.get(i)[2]));
             courses.add(c);
