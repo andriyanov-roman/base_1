@@ -1,6 +1,6 @@
 package home_works;
 
-import home_works.company.Company;
+/*import home_works.company.Company;
 import home_works.company.CompanyUtil;
 import home_works.employee.Employee;
 import home_works.employee.EmployeeUtil;
@@ -8,11 +8,11 @@ import home_works.user.User;
 import home_works.user.UserUtil;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Scanner;*/
 
 
 public class CompanyMethods {
-    public static void start() {
+  /*  public static void start() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Выберите интересующею Вас информацию:");
         System.out.println("1.  Информация о юзерах.");
@@ -219,6 +219,6 @@ public class CompanyMethods {
             System.out.println(" Имя, Фамилия юзера: " + users.get(i).getName() + " " + users.get(i).getSecondName() + ", Login - " + users.get(i).getLogin());
             System.out.println();
         }
-    }
+    }*/
 }
 
