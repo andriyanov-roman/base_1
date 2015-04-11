@@ -1,3 +1,5 @@
+package homework_1;
+
 import org.junit.Test;
 
 import java.util.Arrays;
