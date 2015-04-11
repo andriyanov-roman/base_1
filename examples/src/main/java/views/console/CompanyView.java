@@ -2,9 +2,7 @@ package views.console;
 
 import java.util.Scanner;
 
-/**
- * Created by user on 4/5/2015.
- */
+
 public class CompanyView extends ConsoleView {
 
 
@@ -29,6 +27,7 @@ public class CompanyView extends ConsoleView {
 
     private void addNewEmployee() {
         System.out.println("Enter Employee name");
+        String name = scanner.next();
 
     }
 }

@@ -3,10 +3,10 @@ package home_works.geometric_shapes.geometric_shapes;
 /**
  * Created by user on 03.04.2015.
  */
-public  class Shape {
+public abstract class Shape {
     private String name;
-    private Double perimeter;
-    private Double square;
+    private double perimeter;
+    private double square;
 
     public Shape() {
     }
@@ -33,15 +33,10 @@ public  class Shape {
         this.name = name;
     }
 
-    public Double getPerimeter() {
-        return 0.0;
-    }
+    public abstract double getPerimeter();
 
 
-
-    public Double getSquare() {
-        return 0.0;
-    }
+    public abstract double getSquare();
 
 
 }

@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class FactoryMethods {
     private Scanner scanner = new Scanner(System.in);
     private ArrayList<Car> cars = new ArrayList<>();
+    private FactoryValidator validator = new FactoryValidator();
 
     public void start() throws IOException {
         System.out.println("Enter command key: " +
@@ -46,7 +47,11 @@ public class FactoryMethods {
         int regNumber = Integer.valueOf(scanner.next());
         car.setRegNumber(regNumber);
         System.out.println("Enter colour");
-        car.setColour(scanner.next());
+        if(validator.checkColor(scanner.next())) {
+            car.setColour(scanner.next());
+        } else {
+            createNewCar();
+        }
         System.out.println("Do you want to continue? Y/N");
         cars.add(car);
         if ("Y".equals(scanner.next())) {

@@ -14,6 +14,9 @@ public class MethodsShapes extends Shape {
     static Integer maxLenght;
 
     public static void addNewFoursquare() throws IOException {
+        shapes=new ArrayList<>();
+        ShapesValidator validator = new ShapesValidator();
+        ShapesValidator.PreFigure preFigure = validator.new PreFigure();
         Foursquare foursquare=new Foursquare();
         freeSpace();
         maxLenght=(int)Math.sqrt(freeSpace);
@@ -30,7 +33,9 @@ public class MethodsShapes extends Shape {
 
     }
     public static void addNewCircle() throws IOException {
+        shapes=new ArrayList<>();
         Circle circle=new Circle();
+        scanner=new Scanner(System.in);
         freeSpace();
         maxLenght=(int)(Math.sqrt(freeSpace / Math.PI));
         System.out.println("Максимально-возможная длина радиуса= " + maxLenght);
@@ -45,7 +50,9 @@ public class MethodsShapes extends Shape {
         }
     }
     public static void addNewTriangle() throws IOException {
+        shapes=new ArrayList<>();
         Triangle triangle=new Triangle();
+        scanner=new Scanner(System.in);
         freeSpace();
         maxLenght=(int)Math.sqrt(freeSpace*2);
         System.out.println("Максимально-возможная длина стороны и высоты= " + maxLenght);
@@ -96,7 +103,9 @@ public class MethodsShapes extends Shape {
         System.out.println(maxSquare + " Площадь: " + max);
     }
     public static void addSpace() throws  IOException {
+        shapes=new ArrayList<>();
         Container container=new Container();
+        scanner=new Scanner(System.in);
         container.setName("Container");
         container.setPerimeter(0.0);
         System.out.println("Введите емкость(площадь) контейнера");

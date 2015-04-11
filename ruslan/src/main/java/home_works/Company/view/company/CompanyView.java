@@ -1,12 +1,14 @@
-package home_works.company.view.company;
+package home_works.Company.view.company;
 
-import home_works.company.view.company.ConsoleView;
+
+
 
 import java.util.Scanner;
 
 /**
  * Created by user on 08.04.2015.
  */
+
 public class CompanyView extends ConsoleView {
     protected Scanner scanner;
 
