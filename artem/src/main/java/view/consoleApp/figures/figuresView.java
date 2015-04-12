@@ -1,4 +1,4 @@
-package view.figures;
+package view.consoleApp.figures;
 
 import view.BaseView;
 
