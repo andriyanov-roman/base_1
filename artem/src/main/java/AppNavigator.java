@@ -1,4 +1,5 @@
 import view.BaseView;
+import view.consoleApp.CommonView;
 
 import java.util.Scanner;
 
@@ -11,6 +12,8 @@ public class AppNavigator {
         while (scanner.hasNext()) {
             switch (scanner.next()){
                 case "1":
+                    CommonView commonView = new CommonView(scanner);
+                    if ("".equals(commonView.selectProject())) startProgram();
                     break;
                 case "2":
                     break;
