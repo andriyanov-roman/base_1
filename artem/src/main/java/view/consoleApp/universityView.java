@@ -1,4 +1,4 @@
-package view.consoleApp.university;
+package view.consoleApp;
 
 import view.BaseView;
 

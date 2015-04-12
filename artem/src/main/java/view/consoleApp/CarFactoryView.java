@@ -1,4 +1,4 @@
-package view.consoleApp.carFactory;
+package view.consoleApp;
 
 import view.BaseView;
 
