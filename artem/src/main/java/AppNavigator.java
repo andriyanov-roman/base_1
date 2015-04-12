@@ -1,3 +1,4 @@
+import modules.company.EmployeeUtil;
 import view.BaseView;
 import view.consoleApp.CommonView;
 import view.consoleApp.CompanyView;
@@ -14,9 +15,12 @@ public class AppNavigator {
             switch (scanner.next()){
                 case "1":
                     CommonView commonView = new CommonView(scanner);
-                    if ("return".equals(commonView.selectProject())) startProgram();
+                    if ("return".equals(commonView.selectProject())) startProgram(); // во время рекурсии удаляются и создаются заново или...?
                     CompanyView companyView = new CompanyView(scanner);
-                    if ("Company Util".equals(commonView.selectProject())) ;
+                    if ("Company Util".equals(commonView.selectProject())){
+                        String s = companyView.menu();
+                        if ("getEmployees".equals(s)) /*EmployeeUtil.getEmployees()*/;
+                    }
                     break;
                 case "2":
                     break;

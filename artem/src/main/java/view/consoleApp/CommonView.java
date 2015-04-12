@@ -3,11 +3,10 @@ package view.consoleApp;
 
 import java.util.Scanner;
 
-/**
- * Created by R-Tem on 12.04.2015.
- */
+
 public class CommonView {
     protected Scanner scanner;
+
 
     public CommonView(Scanner scanner) {
         this.scanner = scanner;
@@ -19,8 +18,8 @@ public class CommonView {
                 "\n 2 for Car Factory Util" +
                 "\n 3 for Figure Util" +
                 "\n 4 for University Util" +
-                "\n 9 to return" +
-                "\n 0 for Exit program");
+                "\n r to return" +
+                "\n e for Exit program");
         while (scanner.hasNext()){
             switch (scanner.next()){
                 case "1": return "Company Util";

@@ -1,12 +1,10 @@
 package view.consoleApp;
 
 import validate.CompanyDataValidator;
-import view.BaseView;
-
 import java.util.Scanner;
 
 
-public class CompanyView extends BaseView {
+public class CompanyView {
     protected Scanner scanner;
     private CompanyDataValidator validator;
 
@@ -25,6 +23,20 @@ public class CompanyView extends BaseView {
                 "\n '7' to Add company" +
                 "\n 'r' to return" +
                 "\n 'e' to Exit program"   );
+        while (scanner.hasNext()){
+            switch (scanner.next()){
+                case "1": return "getEmployees";
+                case "2": break;
+                case "3": break;
+                case "4": break;
+                case "5": break;
+                case "6": break;
+                case "7": break;
+                case "r": break;
+                case "e": break;
+
+            }
+        }
         return null;
     }
 }
