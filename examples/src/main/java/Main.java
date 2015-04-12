@@ -20,6 +20,7 @@ public class Main {
         e.setName("Ivan");
         check(e);
         System.out.println(e.getName());
+
     }
 
     public static void check(Employee e) {
