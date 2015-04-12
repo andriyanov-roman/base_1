@@ -20,7 +20,7 @@ public class Body {
     public static void start() throws IOException{
         do {
             View.menu();
-            switch (homework.Body.scanner.next()){
+            switch (Body.scanner.next()){
                 case "1": View.getMaxProgressUniv(); break;
                 case "2": addStudent(); break;
                 case "3":  break;
@@ -80,20 +80,20 @@ public class Body {
         File f = new File("E:\\2_Programing\\IdeaProjects\\base_1\\artem\\src\\main\\java\\files\\universities");
         String[] univs = f.list();
         for (int i = 0; i < univs.length; i++){ System.out.println(univs[i]); }
-        String univTitle = homework.Body.scanner.next();
+        String univTitle = Body.scanner.next();
         boolean b = false;
         for (int i = 0; i < univs.length; i++) { if(univs[i].equals(univTitle)) { b = true; } }
         if(b){
             System.out.println(" Fill the fields, please!");
-            homework.Body.scanner.useDelimiter("\n");
+            Body.scanner.useDelimiter("\n");
             System.out.print("Name: ");
-            student.setName(homework.Body.scanner.next());
+            student.setName(Body.scanner.next());
             System.out.print("Surname: ");
-            student.setSurname(homework.Body.scanner.next());
+            student.setSurname(Body.scanner.next());
             System.out.println("Courses list (enter several like this - Chemistry,75:Mathematics,85) ");
             CommonReader cr = new CourseReader("artem/src/main/java/files/universities/"+String.valueOf(univTitle), ":");
             ArrayList<Course> univCourses = cr.readFromFile();
-            String s = homework.Body.scanner.next();
+            String s = Body.scanner.next();
             String[] studentCoursesList = s.split(":");
             ArrayList<Course> studentCourses = new ArrayList<>();
             Random r = new Random();

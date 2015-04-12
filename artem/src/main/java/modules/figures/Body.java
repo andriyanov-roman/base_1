@@ -10,7 +10,7 @@ public class Body {
     public static void start(){
         do {
             menu();
-            switch (homework.Body.scanner.next()){
+            switch (Body.scanner.next()){
                 case "1":
                     break;
             }

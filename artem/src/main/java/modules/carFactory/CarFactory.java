@@ -1,7 +1,7 @@
 package modules.carFactory;
 
 import entity.carFactory.Car;
-import homework.Body;
+import Body;
 
 import java.util.Date;
 

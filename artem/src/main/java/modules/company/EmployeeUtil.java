@@ -2,7 +2,7 @@ package modules.company;
 
 
 import entity.company.Employee;
-import homework.Body;
+import Body;
 
 import java.io.*;
 import java.util.ArrayList;
