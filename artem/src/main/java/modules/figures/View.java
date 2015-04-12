@@ -1,4 +1,4 @@
-package homework.figures;
+package modules.figures;
 
 /**
  * Created by R-Tem on 06.04.2015.

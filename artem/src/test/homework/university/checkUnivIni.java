@@ -1,6 +1,7 @@
 package homework.university;
 
 import entity.university.University;
+import modules.university.Body;
 import org.junit.Test;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package homework.university;
+package modules.university;
 
 import entity.university.Course;
 import entity.university.Student;

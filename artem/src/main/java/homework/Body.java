@@ -1,7 +1,7 @@
 package homework;
 
 import entity.company.Employee;
-import homework.company.CompanyUtil;
+import modules.company.CompanyUtil;
 
 import java.io.*;
 import java.util.*;
@@ -13,10 +13,10 @@ public class Body {
         CompanyUtil.getCompanies("artem/src/main/java/files/companies");
         View.welcome();
         switch (Body.scanner.next()){
-            case "1": homework.company.Body.start(); break;
-            case "2": homework.carFactory.Body.start(); break;
-            case "3": homework.figures.Body.start(); break;
-            case "4": homework.university.Body.start(); break;
+            case "1": modules.company.Body.start(); break;
+            case "2": modules.carFactory.Body.start(); break;
+            case "3": modules.figures.Body.start(); break;
+            case "4": modules.university.Body.start(); break;
             default: System.out.println("Unfortunately we have no such case");
         }
     }

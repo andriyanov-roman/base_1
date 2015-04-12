@@ -1,4 +1,4 @@
-package homework.company;
+package modules.company;
 
 
 import entity.company.Employee;

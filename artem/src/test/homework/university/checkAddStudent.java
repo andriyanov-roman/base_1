@@ -1,6 +1,7 @@
 package homework.university;
 
 import entity.university.Student;
+import modules.university.Body;
 import org.junit.Test;
 
 /**
