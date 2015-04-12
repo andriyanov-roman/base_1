@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 
 public class AppNavigator {
-    protected Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
 
     public void startProgram(){
         BaseView.startProgram();
