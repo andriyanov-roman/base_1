@@ -23,7 +23,7 @@ public class Body {
     public static void start() throws IOException{
         do {
             menu();
-            switch (Body.scanner.next()){
+            switch (homework.Body.scanner.next()){
                 case "1":
                     for (int i = 0; i < CompanyUtil.companies.length; i++) {
                         ArrayList<Employee> employees = EmployeeUtil.getEmployees(("artem/src/main/java/files/companies/" + CompanyUtil.companies[i]), ":");
@@ -38,7 +38,7 @@ public class Body {
                         System.out.println(" Select company:");
                         for(int i = 1; i <= CompanyUtil.companies.length; i++) System.out.println(" " + (i) + " - " + CompanyUtil.companies[i - 1]);
                         System.out.println(" a - Add company\n c - Come back");
-                        String s = Body.scanner.next();
+                        String s = homework.Body.scanner.next();
                         int i = 0;
                         try {i = Integer.parseInt(s);}
                         catch (Exception e) {
@@ -54,7 +54,7 @@ public class Body {
                     } while (b);
                 case "7":
                     System.out.print(" Enter company name: ");
-                    String s = Body.scanner.next();
+                    String s = homework.Body.scanner.next();
                     ArrayList<Employee> employees = new ArrayList<>();
                     CompanyUtil.addCompany(s, employees);
                 case "0": System.exit(0); break;
