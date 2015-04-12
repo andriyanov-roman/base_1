@@ -11,6 +11,7 @@ public class AppNavigator {
 
     public void startProgram(){
         BaseView baseView = new BaseView(scanner);
+        BaseView.showFirst();
         while (scanner.hasNext()) {
             switch (baseView.startProgram()){
                 case "console":
