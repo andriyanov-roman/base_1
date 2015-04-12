@@ -13,8 +13,7 @@ public class CompanyView {
     }
 
     public String menu(){
-        System.out.println("This is Company Util. Select an action, please:" +
-                "\n '1' to Get all employees from all companies" +
+        String s = "\n '1' to Get all employees from all companies" +
                 "\n '2' to  Get employee with max Salary" +
                 "\n '3' to Sort employees" +
                 "\n '4' to Add employees" +
@@ -22,19 +21,20 @@ public class CompanyView {
 //                "\n '6' to Increase the salary for 15%" +
                 "\n '7' to Add company" +
                 "\n 'r' to return" +
-                "\n 'e' to Exit program"   );
+                "\n 'e' to Exit program";
+        System.out.println("This is Company Util. Select an action, please:" + s);
         while (scanner.hasNext()){
             switch (scanner.next()){
-                case "1": return "getEmployees";
-                case "2": break;
-                case "3": break;
-                case "4": break;
-                case "5": break;
-                case "6": break;
-                case "7": break;
-                case "r": break;
-                case "e": break;
-
+                case "1": return "getEmp";
+                case "2": return "getMaxSalary";
+                case "3": return "sortUtil";
+                case "4": return "addEmp";
+                case "5": return "fireEmp";
+                case "6": return "increaseSalary";
+                case "7": return "addComp";
+                case "r": return "return";
+                case "e": System.exit(0);
+                default:System.out.println("No such case! Try again:" + s);
             }
         }
         return null;

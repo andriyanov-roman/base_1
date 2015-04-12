@@ -10,25 +10,35 @@ public class AppNavigator {
     private Scanner scanner = new Scanner(System.in);
 
     public void startProgram(){
-        BaseView.startProgram();
+        BaseView baseView = new BaseView(scanner);
         while (scanner.hasNext()) {
-            switch (scanner.next()){
-                case "1":
-                    CommonView commonView = new CommonView(scanner);
-                    if ("return".equals(commonView.selectProject())) startProgram(); // во время рекурсии удаляются и создаются заново или...?
-                    CompanyView companyView = new CompanyView(scanner);
-                    if ("Company Util".equals(commonView.selectProject())){
-                        String s = companyView.menu();
-                        if ("getEmployees".equals(s)) /*EmployeeUtil.getEmployees()*/;
+            switch (baseView.startProgram()){
+                case "console":
+                    while (scanner.hasNext()){
+                        CommonView commonView = new CommonView(scanner);
+                        switch (commonView.selectProject()){
+                            case "Company Util":
+                                CompanyView companyView = new CompanyView(scanner);
+                                switch (companyView.menu()){
+                                    case "getEmployees": /*EmployeeUtil.getEmployees()*/ break;
+                                    case "getMaxSalary": break;
+                                    case "sortUtil": break;
+                                    case "addEmp": break;
+                                    case "fireEmp": break;
+                                    case "increaseSalary": break;
+                                    case "addComp": break;
+                                    case "return":
+                                }
+                                break;
+                            case "Car Factory Util": break;
+                            case "Figure Util": break;
+                            case "University Util": break;
+                            case "return": startProgram(); break; // во время рекурсии удаляются и создаются заново или...?
+                        }
                     }
                     break;
-                case "2":
+                case "swing":
                     break;
-                case "0": System.exit(0); break;
-                default: System.out.println("No such case! Try again:"
-                        + "\n 1 for Console Programs"
-                        + "\n 2 for Swing Program"
-                        + "\n 0 for Exit");
             }
         }
     }

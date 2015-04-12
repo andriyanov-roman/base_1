@@ -2,15 +2,26 @@ package view;
 
 import java.util.Scanner;
 
-/**
- * Created by R-Tem on 12.04.2015.
- */
-public class BaseView {
 
-    public static void startProgram (){
+public class BaseView {
+    protected Scanner scanner;
+
+    public BaseView(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    public String startProgram (){
         System.out.println("Hallo! This is Artem`s project. What kind of program do you want to see?"
                 + "\n 1 for Console Programs"
                 + "\n 2 for Swing Program"
                 + "\n 0 for Exit");
+        while (scanner.hasNext()){
+            switch (scanner.next()){
+                case "1": return "console";
+                case "2": return "swing";
+                case "0": System.exit(0);
+            }
+        }
+        return null;
     }
 }
