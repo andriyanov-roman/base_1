@@ -1,5 +1,6 @@
 import view.BaseView;
 import view.consoleApp.CommonView;
+import view.consoleApp.CompanyView;
 
 import java.util.Scanner;
 
@@ -13,7 +14,9 @@ public class AppNavigator {
             switch (scanner.next()){
                 case "1":
                     CommonView commonView = new CommonView(scanner);
-                    if ("".equals(commonView.selectProject())) startProgram();
+                    if ("return".equals(commonView.selectProject())) startProgram();
+                    CompanyView companyView = new CompanyView(scanner);
+                    if ("Company Util".equals(commonView.selectProject())) ;
                     break;
                 case "2":
                     break;
