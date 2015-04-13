@@ -18,7 +18,7 @@ public class CommonView {
                 "\n 3 for Figure Util" +
                 "\n 4 for University Util" +
                 "\n r to return" +
-                "\n e for Exit program";
+                "\n e to Exit program";
         System.out.println("Chose the theme, please:" + s);
         while (scanner.hasNext()){
             switch (scanner.next()){
