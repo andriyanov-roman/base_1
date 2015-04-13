@@ -29,11 +29,7 @@ public class UnivModule {
 
         University u = new University();
 
-        CommonReader lr = new LecturersReader("src/main/java/files/universities/", ":");
-        u.setLecturers(lr.readFromFile());
-        CommonReader sr = new StudentsReader("src/main/java/files/universities/", ":");
-        u.setStudents(sr.readFromFile());
-        universities.add(u);
+
         return universities;
     }
     public static University getMaxProgressUniv() throws IOException{

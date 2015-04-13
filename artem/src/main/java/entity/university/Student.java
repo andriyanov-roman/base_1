@@ -9,6 +9,7 @@ public class Student {
     private String name;
     private String surname;
     private ArrayList<Course> courses;
+    private String univTitle;
 
     public Student(String name, String surname, ArrayList<Course> courses) {
         this.name = name;
@@ -34,6 +35,12 @@ public class Student {
     }
     public void setCourses(ArrayList<Course> courses) {
         this.courses = courses;
+    }
+    public String getUnivTitle() {
+        return univTitle;
+    }
+    public void setUnivTitle(String univTitle) {
+        this.univTitle = univTitle;
     }
 
     @Override

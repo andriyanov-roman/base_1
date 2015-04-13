@@ -1,29 +1,27 @@
-package inputOutput.university.readerHeirs;
+package inout;
 
 import entity.university.Course;
 import entity.university.Student;
 import inputOutput.university.CommonReader;
+import inputOutput.university.readerHeirs.CourseReader;
+import org.junit.Test;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Created by R-Tem on 02.04.2015.
+ * Created by R-Tem on 13.04.2015.
  */
-public class StudentsReader extends CommonReader{
+public class TestStudentReader {
     private static final int UNIV_TITLE = 0;
     private static final int STUDENT_NAME = 1;
     private static final int STUDENT_SURNAME = 2;
     private static final int COURSEMARK = 3;
 
-    public StudentsReader(String path, String regExp) {
-        super(path, regExp);
-    }
-
-    @Override
-    public ArrayList<Student> readFromFile() throws IOException {
-        ArrayList<String[]> strings = super.readFromFile();
+    @Test
+    public void testStudentReader() throws Exception {
+        CommonReader cr = new CommonReader("E:\\2_Programing\\IdeaProjects\\base_1\\artem\\src\\main\\java\\data\\university\\students.txt", ":");
+        ArrayList<String[]> strings = cr.readFromFile();
         ArrayList<Student> students = new ArrayList<>();
         Random r = new Random();
         for (int i = 0; i < strings.size(); i++) {
@@ -52,6 +50,9 @@ public class StudentsReader extends CommonReader{
             s.setCourses(stCourses);
             students.add(s);
         }
-        return students;
+        System.out.println("\n");
+        for (int i = 0; i < students.size(); i++) {
+            System.out.println(students.get(i).getUnivTitle() + students.get(i).getName());
+        }
     }
 }

@@ -20,7 +20,7 @@ public class CourseReader extends CommonReader {
     }
 
     @Override
-    public ArrayList readFromFile() throws IOException {
+    public ArrayList<Course> readFromFile() throws IOException {
         ArrayList<String[]> strings = super.readFromFile();
         ArrayList<Course> courses = new ArrayList<>();
         for (int i = 0; i < strings.size(); i++) {
