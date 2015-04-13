@@ -20,16 +20,22 @@ import java.util.Random;
 public class UnivModule {
     public static ArrayList<University> univIni() throws IOException{
         ArrayList<University> universities = new ArrayList<>();
-        CommonReader courseReader = new CourseReader("artem\\src\\main\\java\\data\\university\\courses.txt", ":");
+        CommonReader courseReader = new CourseReader("E:\\2_Programing\\IdeaProjects\\base_1\\artem\\src\\main\\java\\data\\university\\courses.txt", ":");
         ArrayList<Course> courses = courseReader.readFromFile();
-        CommonReader lecturersReader = new LecturersReader("artem\\src\\main\\java\\data\\university\\lecturers.txt", ":");
+        CommonReader lecturersReader = new LecturersReader("E:\\2_Programing\\IdeaProjects\\base_1\\artem\\src\\main\\java\\data\\university\\lecturers.txt", ":");
         ArrayList<Lecturer> lecturers = lecturersReader.readFromFile();
-        CommonReader studentsReader = new StudentsReader("artem\\src\\main\\java\\data\\university\\students.txt",":");
+        CommonReader studentsReader = new StudentsReader("E:\\2_Programing\\IdeaProjects\\base_1\\artem\\src\\main\\java\\data\\university\\students.txt",":");
         ArrayList<Student> students = studentsReader.readFromFile();
-
         University u = new University();
-
-
+        for (int i = 0; i < courses.size(); i++) {
+            u.setTitle(courses.get(i).getUnivTitle());
+            if(u.getTitle().equals(courses.get(i).getUnivTitle()));
+            else{
+                University univ = new University();
+                univ.setTitle(courses.get(i).getUnivTitle());
+                universities.add(univ);
+            }
+        }
         return universities;
     }
     public static University getMaxProgressUniv() throws IOException{
