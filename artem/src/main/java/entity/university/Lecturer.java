@@ -8,6 +8,7 @@ public class Lecturer {
     private String surname;
     private String course;
     private double salary;
+    private String univTitle;
 
     public Lecturer(String name, String surname, String course, double salary) {
         this.name = name;
@@ -40,6 +41,12 @@ public class Lecturer {
     }
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+    public String getUnivTitle() {
+        return univTitle;
+    }
+    public void setUnivTitle(String univTitle) {
+        this.univTitle = univTitle;
     }
 
     @Override

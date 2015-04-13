@@ -34,7 +34,7 @@ public class CommonReader {
 
     public ArrayList readFromFile() throws IOException {
         File file = new File(path);// создаем объект класса File; path это путь к зачитываемому файлу который
-        // передается как аргумент при создании объекта класса CommonReaderTest
+        // передается как аргумент при создании объекта класса CommonReader
         FileReader reader = new FileReader(file);// создаем объект класса FileReader и зачитываем file
         BufferedReader buffer = new BufferedReader(reader);// создаем объект класса BufferedReader и обвалакиваем им reader
         String line;

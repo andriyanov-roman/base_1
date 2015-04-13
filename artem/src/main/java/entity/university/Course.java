@@ -7,6 +7,7 @@ public class Course {
     private String courseTitle;
     private int creditHours;
     private int mark;
+    private String univTitle;
 
     public Course(String courseTitle, int creditHours, int mark) {
         this.courseTitle = courseTitle;
@@ -32,6 +33,12 @@ public class Course {
     }
     public void setMark(int mark) {
         this.mark = mark;
+    }
+    public String getUnivTitle() {
+        return univTitle;
+    }
+    public void setUnivTitle(String univTitle) {
+        this.univTitle = univTitle;
     }
 
     @Override

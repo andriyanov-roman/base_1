@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 public class University {
     private String title;
+    private ArrayList<Course> courses;
     private ArrayList<Lecturer> lecturers;
     private ArrayList<Student> students;
     private Double progressAverage;
@@ -14,18 +15,24 @@ public class University {
     protected int founded;
     protected double scholarship;
 
+    public University(){}
     public University(String title, ArrayList<Lecturer> lecturers, ArrayList<Student> students) {
         this.title = title;
         this.lecturers = lecturers;
         this.students = students;
     }
-    public University(){}
 
     public String getTitle() {
         return title;
     }
     public void setTitle(String title) {
         this.title = title;
+    }
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
+    public void setCourses(ArrayList<Course> courses) {
+        this.courses = courses;
     }
     public ArrayList<Lecturer> getLecturers() {
         return lecturers;

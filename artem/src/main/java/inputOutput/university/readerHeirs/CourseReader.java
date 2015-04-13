@@ -10,21 +10,25 @@ import java.util.ArrayList;
  * Created by R-Tem on 01.04.2015.
  */
 public class CourseReader extends CommonReader {
-    public static final int COURSE_NAME = 0;
+    private static final int UNIV_TITLE = 0;
+    private static final int COURSE_TITLE = 1;
+    private static final int HOURS_NUMB = 2;
+    private static final int MAX_MARK = 3;
+
     public CourseReader(String path, String regExp) {
-        super(path + "/courses.txt", regExp);
+        super(path, regExp);
     }
 
     @Override
     public ArrayList readFromFile() throws IOException {
-        ArrayList<String[]> string = super.readFromFile();
+        ArrayList<String[]> strings = super.readFromFile();
         ArrayList<Course> courses = new ArrayList<>();
-        Runtime.getRuntime().gc();
-        for (int i = 0; i < string.size(); i++) {
+        for (int i = 0; i < strings.size(); i++) {
             Course c = new Course();
-            c.setCourseTitle(string.get(i)[COURSE_NAME]);
-            c.setCreditHours(Integer.valueOf(string.get(i)[1]));
-            c.setMark(Integer.valueOf(string.get(i)[2]));
+            c.setCourseTitle(strings.get(i)[COURSE_TITLE]);
+            c.setCreditHours(Integer.valueOf(strings.get(i)[HOURS_NUMB]));
+            c.setMark(Integer.valueOf(strings.get(i)[MAX_MARK]));
+            c.setUnivTitle(strings.get(i)[UNIV_TITLE]);
             courses.add(c);
         }
         return courses;

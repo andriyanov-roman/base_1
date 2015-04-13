@@ -1,6 +1,7 @@
 package modules.consoleApp.university;
 
 import entity.university.Course;
+import entity.university.Lecturer;
 import entity.university.Student;
 import entity.university.University;
 import inputOutput.university.CommonReader;
@@ -19,17 +20,20 @@ import java.util.Random;
 public class UnivModule {
     public static ArrayList<University> univIni() throws IOException{
         ArrayList<University> universities = new ArrayList<>();
-        File f = new File("src/main/java/files/universities");
-        String[] univs = f.list();
-        for (int i = 0; i < univs.length; i++) {
-            University u = new University();
-            u.setTitle(String.valueOf(univs[i]));
-            CommonReader lr = new LecturersReader("src/main/java/files/universities/"+String.valueOf(univs[i]), ":");
-            u.setLecturers(lr.readFromFile());
-            CommonReader sr = new StudentsReader("src/main/java/files/universities/"+String.valueOf(univs[i]), ":");
-            u.setStudents(sr.readFromFile());
-            universities.add(u);
-        }
+        CommonReader courseReader = new CourseReader("artem\\src\\main\\java\\data\\university\\courses.txt", ":");
+        ArrayList<Course> courses = courseReader.readFromFile();
+        CommonReader lecturersReader = new LecturersReader("artem\\src\\main\\java\\data\\university\\lecturers.txt", ":");
+        ArrayList<Lecturer> lecturers = lecturersReader.readFromFile();
+        CommonReader studentsReader = new StudentsReader("artem\\src\\main\\java\\data\\university\\students.txt",":");
+        ArrayList<Student> students = studentsReader.readFromFile();
+
+        University u = new University();
+
+        CommonReader lr = new LecturersReader("src/main/java/files/universities/", ":");
+        u.setLecturers(lr.readFromFile());
+        CommonReader sr = new StudentsReader("src/main/java/files/universities/", ":");
+        u.setStudents(sr.readFromFile());
+        universities.add(u);
         return universities;
     }
     public static University getMaxProgressUniv() throws IOException{
