@@ -25,20 +25,39 @@ public class TestUnivIni {
 
         ArrayList<University> universities = new ArrayList<>();
         University u = new University();
+        u.setTitle(courses.get(0).getUnivTitle());
+        universities.add(u);
         for (int i = 0; i < courses.size(); i++) {
-            u.setTitle(courses.get(i).getUnivTitle());
             if(u.getTitle().equals(courses.get(i).getUnivTitle()));
             else{
+                u.setTitle(courses.get(i).getUnivTitle());
                 University univ = new University();
                 univ.setTitle(courses.get(i).getUnivTitle());
                 universities.add(univ);
             }
         }
+        u.setTitle(courses.get(0).getUnivTitle());
         for (int i = 0; i < universities.size(); i++) {
-            System.out.println(universities.get(i).getTitle());
+            ArrayList<Lecturer> lect = new ArrayList<>();
+            for (int j = 0; j < lecturers.size(); j++) {
+                if(lecturers.get(j).getUnivTitle().equals(universities.get(i).getTitle())) {
+                    lect.add(lecturers.get(j));
+                }
+            }
+            universities.get(i).setLecturers(lect);
+            ArrayList<Student> stu = new ArrayList<>();
+            for (int j = 0; j < students.size(); j++) {
+                if(students.get(j).getUnivTitle().equals(universities.get(i).getTitle())) {
+                    stu.add(students.get(j));
+                }
+            }
+            universities.get(i).setStudents(stu);
+        }
+        for (int i = 0; i < universities.size(); i++) {
+            System.out.println(universities.get(i).toString());
         }
 
-        for (int i = 0; i < courses.size(); i++) {
+        /*for (int i = 0; i < courses.size(); i++) {
             System.out.println(courses.get(i).getUnivTitle() + courses.get(i).getCourseTitle());
         }
         System.out.println("\n");
@@ -48,6 +67,6 @@ public class TestUnivIni {
         System.out.println("\n");
         for (int i = 0; i < students.size(); i++) {
             System.out.println(students.get(i).getUnivTitle() + students.get(i).getName());
-        }
+        }*/
     }
 }

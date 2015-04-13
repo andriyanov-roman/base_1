@@ -27,14 +27,33 @@ public class UnivModule {
         CommonReader studentsReader = new StudentsReader("E:\\2_Programing\\IdeaProjects\\base_1\\artem\\src\\main\\java\\data\\university\\students.txt",":");
         ArrayList<Student> students = studentsReader.readFromFile();
         University u = new University();
+        u.setTitle(courses.get(0).getUnivTitle());
+        universities.add(u);
         for (int i = 0; i < courses.size(); i++) {
-            u.setTitle(courses.get(i).getUnivTitle());
             if(u.getTitle().equals(courses.get(i).getUnivTitle()));
             else{
+                u.setTitle(courses.get(i).getUnivTitle());
                 University univ = new University();
                 univ.setTitle(courses.get(i).getUnivTitle());
                 universities.add(univ);
             }
+        }
+        u.setTitle(courses.get(0).getUnivTitle());
+        for (int i = 0; i < universities.size(); i++) {
+            ArrayList<Lecturer> lect = new ArrayList<>();
+            for (int j = 0; j < lecturers.size(); j++) {
+                if(lecturers.get(j).getUnivTitle().equals(universities.get(i).getTitle())) {
+                    lect.add(lecturers.get(j));
+                }
+            }
+            universities.get(i).setLecturers(lect);
+            ArrayList<Student> stu = new ArrayList<>();
+            for (int j = 0; j < students.size(); j++) {
+                if(students.get(j).getUnivTitle().equals(universities.get(i).getTitle())) {
+                    stu.add(students.get(j));
+                }
+            }
+            universities.get(i).setStudents(stu);
         }
         return universities;
     }
