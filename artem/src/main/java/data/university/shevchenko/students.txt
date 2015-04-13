@@ -1,3 +1,0 @@
-Alla:Ivanova:Chemistry,Physics,Biology:80,70,90
-Roman:Kuznecov:Chemistry,Physics,Biochemistry:70,80,60
-Ivetta:Long:Physics,Chemistry,Biochemistry,Mathematics:90,90,90,90

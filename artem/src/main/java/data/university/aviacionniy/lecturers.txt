@@ -1,5 +1,0 @@
-Dmitriy:Perov:Chemistry:29000
-Vasiliy:Ermakov:Mathematics:30000
-Nikolay:Shiller:Physics:32000
-Yuliya:Zolotareva:Economy:35000
-Pavel:Tutkovskiy:Geoscience:28000

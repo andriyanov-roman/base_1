@@ -1,0 +1,14 @@
+Aviacionniy:Dmitriy:Perov:Chemistry:29000
+Aviacionniy:Vasiliy:Ermakov:Mathematics:30000
+Aviacionniy:Nikolay:Shiller:Physics:32000
+Aviacionniy:Yuliya:Zolotareva:Economy:35000
+Aviacionniy:Pavel:Tutkovskiy:Geoscience:28000
+Polytexnika:Nikolay:Shiller:Physics:32000
+Polytexnika:Vasiliy:Ermakov:Mathematics:30000
+Polytexnika:Anatoliy:Krimskiy:Computer Science:29000
+Polytexnika:Yuriy:Gagarin:Computer Architecture:32500
+Shevchenko:Anatoliy:Golub:Chemistry:31000
+Shevchenko:Nikolay:Shiller:Physics:32000
+Shevchenko:Vasiliy:Ermakov:Mathematics:30000
+Shevchenko:Yuriy:Navashin:Biology:32000
+Shevchenko:Oleg:Paladin:Biochemistry:33000

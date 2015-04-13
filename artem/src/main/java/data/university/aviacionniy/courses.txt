@@ -1,5 +1,0 @@
-Chemistry:20:100
-Mathematics:23:100
-Physics:35:100
-Economy:25:100
-Geoscience:33:100
