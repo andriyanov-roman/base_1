@@ -1,5 +1,10 @@
 package controllers.consoleApp;
 
+import entity.university.University;
+import modules.consoleApp.university.UnivModule;
+
+import java.io.IOException;
+
 /**
  * Created by R-Tem on 13.04.2015.
  */
@@ -10,11 +15,12 @@ public class UniversityController {
         this.toDo = toDo;
     }
 
-    public String toDO(){
+    public String toDO() throws IOException{
         String result;
         switch (toDo){
             case "getMaxProgressUniv":
-                break;
+                University univ = UnivModule.getMaxProgressUniv();
+                return result = "1 " + univ.getTitle();
             case "addStudent":
                 break;
             case "getStudentsGPA":

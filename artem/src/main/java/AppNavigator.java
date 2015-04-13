@@ -4,13 +4,14 @@ import view.consoleApp.CommonView;
 import view.consoleApp.CompanyView;
 import view.consoleApp.UniversityView;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 
 public class AppNavigator {
     private Scanner scanner = new Scanner(System.in);
 
-    public void startProgram(){
+    public void startProgram() throws IOException{
         BaseView baseView = new BaseView(scanner);
         do {
             switch (baseView.startProgram()) {

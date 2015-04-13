@@ -37,11 +37,11 @@ public class UniversityView {
         return null;
     }
     public String showResult(String s){
-        String result = s;
-        switch (s){
-
+        String[] result = s.split(" ");
+        switch (result[0]){
+            case "1": System.out.println(result[1] + " is the university with the most progressive students rating!\n");
         }
 
-        return result;
+        return null;
     }
 }

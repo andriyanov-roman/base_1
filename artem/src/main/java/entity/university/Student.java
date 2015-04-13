@@ -45,6 +45,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return name +" "+ surname +" "+ courses.toString();
+        return "\n" + name +" "+ surname +" "+ courses;
     }
 }

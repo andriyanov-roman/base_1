@@ -51,7 +51,7 @@ public class University {
 
     @Override
     public String toString() {
-        return title + " " + lecturers + " " + students;
+        return title + lecturers + " " + students;
     }
 
 }
