@@ -2,6 +2,7 @@ package homework;
 
 import entity.company.Employee;
 import modules.consoleApp.company.CompanyUtil;
+import modules.consoleApp.university.UnivModule;
 
 import java.io.*;
 import java.util.*;
@@ -16,7 +17,7 @@ public class Body {
             case "1": modules.consoleApp.company.Body.start(); break;
             case "2": modules.consoleApp.carFactory.Body.start(); break;
             case "3": modules.consoleApp.figures.Body.start(); break;
-            case "4": modules.consoleApp.university.Body.start(); break;
+            case "4": UnivModule.start(); break;
             default: System.out.println("Unfortunately we have no such case");
         }
     }

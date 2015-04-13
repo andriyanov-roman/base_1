@@ -16,18 +16,7 @@ import java.util.Random;
 /**
  * Created by R-Tem on 03.04.2015.
  */
-public class Body {
-    public static void start() throws IOException{
-        do {
-            View.menu();
-            switch (homework.Body.scanner.next()){
-                case "1": View.getMaxProgressUniv(); break;
-                case "2": addStudent(); break;
-                case "3":  break;
-                case "4":  break;
-            }
-        } while (true);
-    }
+public class UnivModule {
     public static ArrayList<University> univIni() throws IOException{
         ArrayList<University> universities = new ArrayList<>();
         File f = new File("src/main/java/files/universities");

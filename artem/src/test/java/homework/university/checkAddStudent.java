@@ -1,7 +1,7 @@
 package homework.university;
 
 import entity.university.Student;
-import modules.consoleApp.university.Body;
+import modules.consoleApp.university.UnivModule;
 import org.junit.Test;
 
 /**
@@ -10,7 +10,7 @@ import org.junit.Test;
 public class checkAddStudent {
     @Test
     public void testAddStudent() throws Exception {
-        Student student = Body.addStudent();
+        Student student = UnivModule.addStudent();
         System.out.println(student.toString());
     }
 }
