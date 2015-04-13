@@ -25,7 +25,4 @@ public class BaseView {
         }
         return null;
     }
-    public static void showFirst(){
-        System.out.println("Hallo! This is Artem`s project. What kind of program do you want to see?");
-    }
 }

@@ -26,8 +26,8 @@ public class CommonView {
                 case "2": return "Car Factory Util";
                 case "3": return "Figure Util";
                 case "4": return "University Util";
-                case "9": return "return";
-                case "0": System.exit(0);
+                case "r": return "return";
+                case "e": System.exit(0);
                 default: System.out.println("No such case! Try again:" + s);
             }
         }
