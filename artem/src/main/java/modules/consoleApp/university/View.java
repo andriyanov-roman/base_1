@@ -1,4 +1,4 @@
-package modules.university;
+package modules.consoleApp.university;
 
 import entity.university.University;
 

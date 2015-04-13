@@ -1,4 +1,4 @@
-package modules.figures;
+package modules.consoleApp.carFactory;
 
 /**
  * Created by R-Tem on 06.04.2015.

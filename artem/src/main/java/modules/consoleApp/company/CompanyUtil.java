@@ -1,4 +1,4 @@
-package modules.company;
+package modules.consoleApp.company;
 
 
 import entity.company.Employee;

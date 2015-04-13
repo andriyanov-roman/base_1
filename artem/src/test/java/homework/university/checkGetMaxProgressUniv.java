@@ -1,7 +1,7 @@
 package homework.university;
 
 import entity.university.University;
-import modules.university.Body;
+import modules.consoleApp.university.Body;
 import org.junit.Test;
 
 /**
