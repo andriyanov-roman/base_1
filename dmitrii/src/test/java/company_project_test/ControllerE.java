@@ -1,6 +1,6 @@
 package company_project_test;
 
-import mvc.models.CompanyModel;
+import apps.company.CompanyModel;
 import entities.company.Admin;
 import entities.company.Company;
 import entities.company.Employee;
