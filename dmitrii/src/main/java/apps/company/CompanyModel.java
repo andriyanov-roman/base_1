@@ -2,6 +2,7 @@ package apps.company;
 
 import entities.company.*;
 import tools.FileUtil;
+
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -15,52 +16,61 @@ public class CompanyModel {
     private static String configPath = "dmitrii\\src\\main\\resources\\companies\\Config.ini";
     private static String YourDateFormat = "dd.MM.yyyy HH:mm:ss";
     private static String ErrorLogPath = "dmitrii\\src\\main\\resources\\Errors.log";
+
     public static String getConfigPath() {
         return configPath;
     }
+
     public static void setConfigPath(String configPath) {
         CompanyModel.configPath = configPath;
     }
 
-    public static ArrayList<Company> getCompanies() throws IOException {
+    public static ArrayList<Company> getCompanies() {
         ArrayList<Company> companies = new ArrayList<>();
-        for (int i = 0; i < readConfig().size(); i++) {
-            companies.add(companyParse(readConfig().get(i)));
+        try {
+            for (int i = 0; i < readConfig().size(); i++) {
+                companies.add(companyParse(readConfig().get(i)));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return companies;
     }
-    private static ArrayList<String> readConfig(String ... path) throws IOException {
+
+    private static ArrayList<String> readConfig(String... path) {
         ArrayList<String[]> temps;
         ArrayList<String> comPaths = new ArrayList<>();
-        if (path.length==0){
-            temps = FileUtil.ReadFromFile(getConfigPath(),":");
-        } else temps = FileUtil.ReadFromFile(path[0],":");
+        if (path.length == 0) {
+            temps = FileUtil.ReadFromFile(getConfigPath(), ":");
+        } else temps = FileUtil.ReadFromFile(path[0], ":");
         for (int i = 0; i < temps.size(); i++) {
             comPaths.add(temps.get(i)[0]);
         }
         return comPaths;
     }
-    public static void writeChanges(ArrayList<Company> comps, String ... path) throws IOException {
+
+    public static void writeChanges(ArrayList<Company> comps, String... path) {
         ArrayList<String> comPaths = readConfig();
         Boolean wasFound = false;
         for (int i = 0; i < comps.size(); i++) {
             for (int j = 0; j < comPaths.size(); j++) {
-                String compName = FileUtil.ReadFromFile(comPaths.get(j),":").get(0)[0];
-                if (compName.equals(comps.get(i).getCompanyName())){
-                    FileUtil.WriteToFile(comps.get(i).toString(),comPaths.get(j),false);
+                String compName = FileUtil.ReadFromFile(comPaths.get(j), ":").get(0)[0];
+                if (compName.equals(comps.get(i).getCompanyName())) {
+                    FileUtil.WriteToFile(comps.get(i).toString(), comPaths.get(j), false);
                     wasFound = true;
                 }
             }
-            if (wasFound = false){
-                    String newFilePath = "dmitrii\\src\\main\\resources\\companies\\"+
-                            comps.get(i).getCompanyName()+".txt";
-                    FileUtil.WriteToFile(comps.get(i).toString(),newFilePath,false);
-                    FileUtil.WriteToFile(newFilePath, getConfigPath(), true);
+            if (wasFound = false) {
+                String newFilePath = "dmitrii\\src\\main\\resources\\companies\\" +
+                        comps.get(i).getCompanyName() + ".txt";
+                FileUtil.WriteToFile(comps.get(i).toString(), newFilePath, false);
+                FileUtil.WriteToFile(newFilePath, getConfigPath(), true);
             }
             wasFound = false;
         }
     }
-    public static Company companyParse (String FilePath) throws IOException {
+
+    public static Company companyParse(String FilePath) throws IOException {
         Boolean noErrors;
         Company com = new Company();
         ArrayList<String[]> companyDump = tools.FileUtil.ReadFromFile(FilePath, Employee.getSeparator());
@@ -68,20 +78,24 @@ public class CompanyModel {
         ArrayList workers = new ArrayList();
         com.setWorkers(workers);
         for (int i = 1; i < companyDump.size(); i++) {
-            noErrors = addWorker(com,companyDump.get(i));
-            if (!noErrors){ createErrorMsg(i,companyDump.get(i));}
+            noErrors = addWorker(com, companyDump.get(i));
+            if (!noErrors) {
+                createErrorMsg(i, companyDump.get(i));
+            }
         }
         return com;
     }
-    public static void createErrorMsg (int line, String [] workerString) throws IOException {
+
+    public static void createErrorMsg(int line, String[] workerString) throws IOException {
         String stringWithError = "[entity undefined]";
-        for (String n : workerString){
-            stringWithError+=Employee.getSeparator()+n;
+        for (String n : workerString) {
+            stringWithError += Employee.getSeparator() + n;
         }
         FillErrorLog(line, stringWithError);
     }
-    public static Boolean addWorker (Company com, String workerString[]) {
-        switch (workerString [0]){
+
+    public static Boolean addWorker(Company com, String workerString[]) {
+        switch (workerString[0]) {
             case "Admin":
                 com.getWorkers().add(createAdmin(workerString));
                 break;
@@ -99,6 +113,7 @@ public class CompanyModel {
         }
         return true;
     }
+
     public static Admin createAdmin(String[] InitString) {
         Admin entity = new Admin();
         entity.setName(InitString[1]);
@@ -109,7 +124,8 @@ public class CompanyModel {
         entity.setPlatform(InitString[6]);
         return entity;
     }
-    public static Manager createManager (String[] InitString){
+
+    public static Manager createManager(String[] InitString) {
         Manager entity = new Manager();
         entity.setName(InitString[1]);
         entity.setSurname(InitString[2]);
@@ -119,7 +135,8 @@ public class CompanyModel {
         entity.setProjectName(InitString[6]);
         return entity;
     }
-    public static Programmer createProgrammer (String[] InitString){
+
+    public static Programmer createProgrammer(String[] InitString) {
         Programmer entity = new Programmer();
         entity.setName(InitString[1]);
         entity.setSurname(InitString[2]);
@@ -129,7 +146,8 @@ public class CompanyModel {
         entity.setLanguage(InitString[6]);
         return entity;
     }
-    public static Employee createEmployee ( String[] InitString){
+
+    public static Employee createEmployee(String[] InitString) {
         Employee entity = new Employee();
         entity.setName(InitString[1]);
         entity.setSurname(InitString[2]);
@@ -138,11 +156,12 @@ public class CompanyModel {
         entity.setAge(Integer.valueOf(InitString[5]));
         return entity;
     }
+
     private static void FillErrorLog(int lineNumberWithError, String errorMsg) throws IOException {
         Date now = new Date();
         DateFormat formatter = new SimpleDateFormat(YourDateFormat);
         String eventTime = formatter.format(now);
-        String txt = eventTime + " line: " + lineNumberWithError + " " + errorMsg+"\n";
-        tools.FileUtil.WriteToFile(txt, ErrorLogPath,true);
+        String txt = eventTime + " line: " + lineNumberWithError + " " + errorMsg + "\n";
+        tools.FileUtil.WriteToFile(txt, ErrorLogPath, true);
     }
 }

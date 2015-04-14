@@ -40,7 +40,7 @@ public class CompanyView {
         );
     }
 
-    public static void selectCompanyDialog(ArrayList<Company> comps, Boolean... allCompanies) throws IOException {
+    public static void selectCompanyDialog(ArrayList<Company> comps, Boolean... allCompanies) {
         toPrintLN("\nChoose company:");
         if (allCompanies.length == 0) { // мы не будем добавлять сотрудника сразу во все компании, а только по одной
             toPrintLN("0. All employees in all companies");// «0» - вывести всех работников во всех компаниях
@@ -52,7 +52,7 @@ public class CompanyView {
         toPrint("Your choice: ");
     }
 
-    public static ArrayList<Company> selectCompany(ArrayList<Company> comps, Boolean... allCompanies) throws IOException {
+    public static ArrayList<Company> selectCompany(ArrayList<Company> comps, Boolean... allCompanies) {
      /* МЕТОД ДЛЯ ОБРАБОТКИ ТОГО, ЧТО ВВЁЛ ПОЛЬЗОВАТЕЛЬ */
         ArrayList<Company> selectedComps = new ArrayList<>();
         int chooseNumber = -1;

@@ -10,10 +10,10 @@ import java.io.IOException;
 public class CompanyApp extends CommonApp {
     @Override
     public void run() {
-        try {
-            CompanyController.run();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        CompanyController.run();
+        CompanyModel model = new CompanyModel();
+        CompanyView view = new CompanyView();
+        CompanyController controller = new CompanyController();
+        controller.run();
     }
 }
