@@ -1,4 +1,6 @@
-package Shapes;
+package Shapes.entity;
+
+import Shapes.entity.Shape;
 
 public class Triangle extends Shape {
     public Double side;

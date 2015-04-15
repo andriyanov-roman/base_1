@@ -1,4 +1,7 @@
-package Shapes;
+package Shapes.writerReadingShapes;
+
+import Shapes.view.CommonView;
+import Shapes.entity.Shape;
 
 import java.io.*;
 import java.util.ArrayList;

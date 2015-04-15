@@ -1,4 +1,4 @@
-package Shapes;
+package Shapes.entity;
 
 public class Foursquare extends Shape {
     public Double side;

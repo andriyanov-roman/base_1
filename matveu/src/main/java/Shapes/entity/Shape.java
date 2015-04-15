@@ -1,4 +1,4 @@
-package Shapes;
+package Shapes.entity;
 
 public class Shape  {
     private String name;

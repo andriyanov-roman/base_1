@@ -1,4 +1,6 @@
-package Shapes;
+package Shapes.writerReadingShapes;
+
+import Shapes.entity.Shape;
 
 import java.io.BufferedReader;
 import java.io.File;

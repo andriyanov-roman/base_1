@@ -1,6 +1,6 @@
 import CarFactory.MethodsCarFactory;
 import Employees.MethodsEmployees;
-import Shapes.CommonView;
+import Shapes.view.CommonView;
 
 import java.io.IOException;
 import java.util.Scanner;

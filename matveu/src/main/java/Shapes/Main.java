@@ -1,5 +1,7 @@
 package Shapes;
 
+import Shapes.view.CommonView;
+
 import java.io.IOException;
 
 public class Main {

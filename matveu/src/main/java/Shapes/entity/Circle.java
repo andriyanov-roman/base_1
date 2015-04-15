@@ -1,4 +1,4 @@
-package Shapes;
+package Shapes.entity;
 
 public class Circle extends Shape {
     public Double radius;
