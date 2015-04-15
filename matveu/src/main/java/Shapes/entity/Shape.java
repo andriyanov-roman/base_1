@@ -1,6 +1,6 @@
 package Shapes.entity;
 
-public class Shape  {
+public class Shape {
     private String name;
     private Double perimeter;
     private Double square;

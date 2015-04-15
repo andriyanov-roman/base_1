@@ -8,8 +8,11 @@ import java.util.ArrayList;
 
 public class MethodsShapes extends Shape {
     static ArrayList<Shape> shapes=new ArrayList<>();
-    static Double spaceContainer;
-    static Double freeSpace;
+    public static Double freeSpace;
+    public static Integer maxLenght;
+
+
+
 
     public static void maxPerimeter() throws IOException {
         shapes= ReadingFromShapes.getShapes();
@@ -48,7 +51,7 @@ public class MethodsShapes extends Shape {
     public static void freeSpace() throws IOException {
         shapes=ReadingFromShapes.getShapes();
         Double summa=0.0;
-        spaceContainer=0.0;
+        Double spaceContainer=0.0;
         for(int i=0;i<shapes.size();i++){
             if(shapes.get(i).getName().equals("Container")){
                 spaceContainer=shapes.get(i).getSquare();

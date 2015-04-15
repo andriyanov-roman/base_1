@@ -6,17 +6,17 @@ import Shapes.entity.Shape;
 import Shapes.entity.Triangle;
 import Shapes.model.MethodsShapes;
 import Shapes.writerReadingShapes.WriterReadingShapes;
-import ua.ShapesValidator;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CommonView extends MethodsShapes {
+public class CommonView  extends MethodsShapes {
     static ArrayList<Shape> shapes=new ArrayList<>();
-    static Integer maxLenght;
-    static Double freeSpace;
     static Scanner scanner=new Scanner(System.in);
+
+
+
     public static void start() throws IOException {
         System.out.println("Выберите действие!");
         System.out.println("1. Задать емкость(площадь) контейнера");
@@ -83,10 +83,8 @@ public class CommonView extends MethodsShapes {
 
     public static void addNewFoursquare() throws IOException {
         shapes=new ArrayList<>();
-        ShapesValidator validator = new ShapesValidator();
-        ShapesValidator.PreFigure preFigure = validator.new PreFigure();
         Foursquare foursquare=new Foursquare();
-        MethodsShapes.freeSpace();
+        freeSpace();
         maxLenght=(int)Math.sqrt(freeSpace);
         System.out.println("Максимально-возможная длина стороны= " + maxLenght);
         foursquare.setName("Foursquare");
