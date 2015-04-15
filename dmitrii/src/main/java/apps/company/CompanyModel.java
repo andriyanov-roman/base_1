@@ -4,6 +4,8 @@ import entities.company.*;
 import tools.FileUtil;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -16,6 +18,19 @@ public class CompanyModel {
     private static String configPath = "dmitrii\\src\\main\\resources\\companies\\Config.ini";
     private static String YourDateFormat = "dd.MM.yyyy HH:mm:ss";
     private static String ErrorLogPath = "dmitrii\\src\\main\\resources\\Errors.log";
+    private ArrayList<Company> companies;
+    public static final int WORKER_TYPE = 0;
+    public static final int NAME = 1;
+    public static final int SURNAME = 2;
+    public static final int SALARY= 3;
+    public static final int GENDER = 4;
+    public static final int AGE = 5;
+    public static final int ADDITIONAL_FIELD = 6;
+
+    public CompanyModel() {
+        ArrayList<Company> companies = initializeCompanies();
+        this.companies = companies;
+    }
 
     public static String getConfigPath() {
         return configPath;
@@ -25,7 +40,15 @@ public class CompanyModel {
         CompanyModel.configPath = configPath;
     }
 
-    public static ArrayList<Company> getCompanies() {
+    public ArrayList<Company> getCompanies() {
+        return companies;
+    }
+
+    public void setCompanies(ArrayList<Company> companies) {
+        this.companies = companies;
+    }
+
+    public ArrayList<Company> initializeCompanies() {
         ArrayList<Company> companies = new ArrayList<>();
         try {
             for (int i = 0; i < readConfig().size(); i++) {
@@ -70,98 +93,146 @@ public class CompanyModel {
         }
     }
 
-    public static Company companyParse(String FilePath) throws IOException {
+    public Company companyParse(String filePath) throws IOException {
         Boolean noErrors;
         Company com = new Company();
-        ArrayList<String[]> companyDump = tools.FileUtil.ReadFromFile(FilePath, Employee.getSeparator());
+        ArrayList<String[]> companyDump = tools.FileUtil.ReadFromFile(filePath, Employee.getSeparator());
         com.setCompanyName(companyDump.get(0)[0]);
         ArrayList workers = new ArrayList();
         com.setWorkers(workers);
         for (int i = 1; i < companyDump.size(); i++) {
             noErrors = addWorker(com, companyDump.get(i));
             if (!noErrors) {
-                createErrorMsg(i, companyDump.get(i));
+                createErrorMsg(i, companyDump.get(i),filePath);
             }
         }
         return com;
     }
 
-    public static void createErrorMsg(int line, String[] workerString) throws IOException {
-        String stringWithError = "[entity undefined]";
-        for (String n : workerString) {
-            stringWithError += Employee.getSeparator() + n;
-        }
-        FillErrorLog(line, stringWithError);
-    }
 
-    public static Boolean addWorker(Company com, String workerString[]) {
-        switch (workerString[0]) {
+    public Boolean addWorker(Company com, String workerString[]) {
+        Employee e ;
+        switch (workerString[WORKER_TYPE]) {
             case "Admin":
-                com.getWorkers().add(createAdmin(workerString));
+                e = new Admin(createEmployee(workerString),workerString[ADDITIONAL_FIELD]);
                 break;
             case "Manager":
-                com.getWorkers().add(createManager(workerString));
+                e = new Manager(createEmployee(workerString),workerString[ADDITIONAL_FIELD]);
                 break;
             case "Programmer":
-                com.getWorkers().add(createProgrammer(workerString));
+                e = new Programmer(createEmployee(workerString),workerString[ADDITIONAL_FIELD]);
                 break;
             case "Employee":
-                com.getWorkers().add(createEmployee(workerString));
+                e = createEmployee(workerString);
                 break;
             default:
                 return false;
         }
+        com.getWorkers().add(e);
         return true;
     }
 
-    public static Admin createAdmin(String[] InitString) {
-        Admin entity = new Admin();
-        entity.setName(InitString[1]);
-        entity.setSurname(InitString[2]);
-        entity.setSalary(Double.valueOf(InitString[3]));
-        entity.setGender(Boolean.valueOf(InitString[4]));
-        entity.setAge(Integer.valueOf(InitString[5]));
-        entity.setPlatform(InitString[6]);
-        return entity;
+    public static Employee createEmployee(String[] info) {
+        return new Employee(info[NAME],
+                info[SURNAME],
+                Double.valueOf(info[SALARY]),
+                Boolean.valueOf(info[GENDER]),
+                Integer.valueOf(info[AGE]));
     }
 
-    public static Manager createManager(String[] InitString) {
-        Manager entity = new Manager();
-        entity.setName(InitString[1]);
-        entity.setSurname(InitString[2]);
-        entity.setSalary(Double.valueOf(InitString[3]));
-        entity.setGender(Boolean.valueOf(InitString[4]));
-        entity.setAge(Integer.valueOf(InitString[5]));
-        entity.setProjectName(InitString[6]);
-        return entity;
-    }
 
-    public static Programmer createProgrammer(String[] InitString) {
-        Programmer entity = new Programmer();
-        entity.setName(InitString[1]);
-        entity.setSurname(InitString[2]);
-        entity.setSalary(Double.valueOf(InitString[3]));
-        entity.setGender(Boolean.valueOf(InitString[4]));
-        entity.setAge(Integer.valueOf(InitString[5]));
-        entity.setLanguage(InitString[6]);
-        return entity;
+    public static Employee getWorkerWithMaxSalaryInComp(Company com) {
+        Employee eMax =  com.getWorkers().get(0);
+        for (int i = 0; i < com.getWorkers().size(); i++) {
+            Employee eNext = com.getWorkers().get(i);
+            if (eNext.getSalary() > eMax.getSalary()) {
+                eMax = eNext;
+            }
+        }
+        return eMax;
     }
-
-    public static Employee createEmployee(String[] InitString) {
-        Employee entity = new Employee();
-        entity.setName(InitString[1]);
-        entity.setSurname(InitString[2]);
-        entity.setSalary(Double.valueOf(InitString[3]));
-        entity.setGender(Boolean.valueOf(InitString[4]));
-        entity.setAge(Integer.valueOf(InitString[5]));
-        return entity;
+    // ************* NEW METHODS
+    /*      Возвращает объект типа Company, который имеет поле companyName со значением, идентичным названию компании,
+    * в которой работает сотрудник с наибольшей зарплатой.
+    *      Также имеет ArrayList<Employee> в котором хранится только один сотрудник - копия сотрудника
+    * с наивысшей зарплатой */
+    public Company getMaxSalaryInCompanyWrapper(String professionClassName) {
+        String workCompany = "";
+        Employee eMax = new Employee();
+        eMax.setSalary(0.0);
+        for (Company com : companies) {
+            for (int i = 0; i < com.getWorkers().size(); i++) {
+                if (com.getWorkers().get(i).getClass().getName().equals(professionClassName)) {
+                    if ((com.getWorkers().get(i)).getSalary() > eMax.getSalary()) {
+                        eMax = com.getWorkers().get(i);
+                        workCompany = com.getCompanyName();
+                    }
+                }
+            }
+        }
+        return new Company(workCompany,eMax);
     }
-
-    private static void FillErrorLog(int lineNumberWithError, String errorMsg) throws IOException {
+    public Company sortBy(Company com, Method method) {
+        ArrayList<Employee> workers = com.getWorkers();
+        Object returnedValueClass = null;
+        try {
+            returnedValueClass = method.invoke(workers.get(0));
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        for (int i = 0; i < workers.size() - 1; i++) {
+                for (int j = 0; j < workers.size() - 1 - i; j++) {
+                    try {
+                         if (returnedValueClass instanceof Number){
+                             Double nextVal = Double.valueOf(method.invoke(workers.get(j + 1)).toString());
+                             Double prevVal = Double.valueOf(method.invoke(workers.get(j)).toString());
+                            if (nextVal < prevVal){
+                                workers = moveIt(workers, j);
+                            }
+                        } else if (returnedValueClass instanceof String){
+                             if ( ((String)method.invoke(workers.get(j+1))).length() <
+                                     ((String)method.invoke(workers.get(j))).length() ){
+                                 workers = moveIt(workers, j);
+                             }
+                         }
+                    } catch (IllegalAccessException | InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            com.setWorkers(workers);
+        return com;
+    }
+    private ArrayList<Employee> moveIt(ArrayList<Employee> workers, int j) {
+        Employee temp = workers.get(j);
+        workers.set(j, workers.get(j + 1));
+        workers.set(j + 1, temp);
+        return workers;
+    }
+    public static Company fireStuff (Company com, Boolean Gender){
+        for (int i = 0; i < com.getWorkers().size(); i++) {
+            Employee k = com.getWorkers().get(i);
+            if (k.getGender() == Gender){// Если сия особь ТАКОГО пола - уволить!
+                System.out.println(k.getName() + " " + k.getSurname() + " (" + k.getGenderName() + ") ...FIRED!");
+                com.getWorkers().remove(i);
+                i--;
+            }
+        }
+        com.setWorkers(com.getWorkers());
+        return com;
+    }
+    public static void createErrorMsg(int line, String[] workerString, String filePath) throws IOException {
+        String stringWithError = "[entity undefined]";
+        for (String n : workerString) {
+            stringWithError += Employee.getSeparator() + n;
+        }
+        logFillError(line, stringWithError + " in \'" + filePath + "\'");
+    }
+    private static void logFillError(int lineNumberWithError, String errorMsg) throws IOException {
         Date now = new Date();
         DateFormat formatter = new SimpleDateFormat(YourDateFormat);
         String eventTime = formatter.format(now);
-        String txt = eventTime + " line: " + lineNumberWithError + " " + errorMsg + "\n";
+        String txt = eventTime + " " + errorMsg  + " at line: " + lineNumberWithError + "\n";
         tools.FileUtil.WriteToFile(txt, ErrorLogPath, true);
     }
 }

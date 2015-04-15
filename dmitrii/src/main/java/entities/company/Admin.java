@@ -9,6 +9,11 @@ public class Admin extends Employee {
     public Admin() {
     }
 
+    public Admin(Employee e, String platform) {
+        super(e.getName(), e.getSurname(), e.getSalary(), Boolean.valueOf(e.getGender()), e.getAge());
+        this.platform = platform;
+    }
+
     public String getPlatform() {
         return platform;
     }

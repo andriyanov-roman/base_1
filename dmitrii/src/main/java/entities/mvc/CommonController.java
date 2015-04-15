@@ -5,22 +5,22 @@ package entities.mvc;
  */
 public class CommonController {
     /*private CommonModel model;*/
-    private CommonView view;
-    public Boolean isRun = false;
+    //private CommonView view;
+    public Boolean isDone = false;
 
-    public CommonController( CommonView view) {
+   /* public CommonController( CommonView view) {
         //this.model = model;
         this.view = view;
-    }
+    }*/
 
     public CommonController() {
     }
 
     public void run() {
-        isRun = true;
-        while (isRun) {
-            view.showMainMenu();
-            isRun = executeTasks();
+        isDone = true;
+        while (isDone) {
+            //view.showMainMenu();
+            isDone = executeTasks();
         }
     }
 

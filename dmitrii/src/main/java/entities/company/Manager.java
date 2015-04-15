@@ -9,6 +9,11 @@ public class Manager extends Employee {
     public Manager() {
     }
 
+    public Manager(Employee e, String projectName) {
+        super(e.getName(), e.getSurname(), e.getSalary(), Boolean.valueOf(e.getGender()), e.getAge());
+        this.projectName = projectName;
+    }
+
     public String getProjectName() {
         return projectName;
     }

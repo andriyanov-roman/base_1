@@ -7,6 +7,6 @@ import java.io.IOException;
  */
 public class CompanyMain {
     public static void main(String[] args) throws IOException {
-        CompanyController.run();
+        new CompanyApp().run();
     }
 }

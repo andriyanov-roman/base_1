@@ -33,24 +33,25 @@ public class Employee {
     public double getSalary() {return salary;}
     public void setSalary(double salary) {this.salary = salary;}
 
-    public String getGender() {
-        if (gender == true) {return "male";};
-        if (gender == false) {return "female";};
-        return "[Not Set!!!]";
-    }
+    public Boolean getGender() {return gender;}
     public void setGender(Boolean gender) {this.gender = gender;}
 
+    public String getGenderName (){
+        if (gender){return "male";}
+        if (!gender){return "female";}
+        return "[gender not set]";
+    }
     public int getAge() {return age;}
     public void setAge(int age) {this.age = age;}
 
     @Override
     public String toString() {
         return this.getClass().getSimpleName()+separator+
-                getName()+separator+
-                getSurname()+separator+
-                getSalary()+separator+
+                name+separator+
+                surname+separator+
+                salary+separator+
                 gender+separator+
-                getAge();
+                age;
     }
 
 }

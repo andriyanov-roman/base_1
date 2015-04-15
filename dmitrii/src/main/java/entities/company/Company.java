@@ -7,13 +7,23 @@ import java.util.ArrayList;
  */
 public class Company {
     private String companyName;
-    private ArrayList workers;
+    private ArrayList<Employee> workers;
 
-    public ArrayList getWorkers() {
+    public Company() {
+    }
+
+    public Company(String companyName, Employee e) {
+        this.companyName = companyName;
+        ArrayList<Employee> stuff = new ArrayList<>();
+        stuff.add(e);
+        this.workers = stuff;
+    }
+
+    public ArrayList<Employee> getWorkers() {
         return workers;
     }
 
-    public void setWorkers(ArrayList workers) {
+    public void setWorkers( ArrayList<Employee> workers) {
         this.workers = workers;
     }
 

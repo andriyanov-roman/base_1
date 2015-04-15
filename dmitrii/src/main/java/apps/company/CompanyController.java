@@ -1,417 +1,245 @@
 package apps.company;
 
 import entities.company.*;
+import entities.mvc.CommonController;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 /**
  * Created by mit_OK! on 27.03.2015.
  */
-public class CompanyController {
+public class CompanyController extends CommonController {
+    CompanyView view;
+    CompanyModel model;
 
-    public CompanyController() {
+    public CompanyController(CompanyView view, CompanyModel model) {
+        this.view = view;
+        this.model = model;
+        run();
     }
 
-    public static void run() {
-        ArrayList<Company> comps = CompanyModel.getCompanies();
-        Boolean ShowMenuTag = true;
+    @Override
+    public Boolean executeTasks() {
+        ArrayList<Company> comps = model.getCompanies();
         Boolean hasChanges = false;
         ArrayList<Company> selectedComps; // выбранные компании
-        CompanyView.welcome();
-        while (CompanyView.hasNext()) {
-            switch (CompanyView.next()) {
+        view.showMainMenu();
+        try {
+            switch (view.next()) {
                 case "0": // Показать инфо о сотрудниках компаний в РАСШИРЕННОМ виде
-                    CompanyView.selectCompanyDialog(comps); // Выводим пользователю список компаний
-                    selectedComps = CompanyView.selectCompany(comps);// узнаём, какая компания интересует пользователя
-                    CompanyView.toPrintLN("\t *** Action: SHOW EMPLOYEES FULL INFO ***");
-                    CompanyView.displayWorkersFULL(selectedComps);
+                    view.selectCompanyDialog(comps); // Выводим пользователю список компаний
+                    selectedComps = view.selectCompany(comps);// узнаём, какая компания интересует пользователя
+                    view.toPrintLN("\t *** Action: SHOW EMPLOYEES FULL INFO ***");
+                    view.displayWorkersFULL(selectedComps);
                     break;
                 case "1": // Показать инфо о сотрудниках компаний (таблицей)
-                    CompanyView.selectCompanyDialog(comps);
-                    selectedComps = CompanyView.selectCompany(comps);
-                    CompanyView.toPrintLN("\t *** Action: SHOW EMPLOYEES (IN TABLE) ***");
-                    CompanyView.displayWorkersTable(selectedComps);
+                    view.selectCompanyDialog(comps);
+                    selectedComps = view.selectCompany(comps);
+                    view.toPrintLN("\t *** Action: SHOW EMPLOYEES (IN TABLE) ***");
+                    view.displayWorkersTable(selectedComps);
                     break;
                 case "2": // Узнать сотрудника с самой высокой зарплатой
-                    CompanyView.selectCompanyDialog(comps);
-                    selectedComps = CompanyView.selectCompany(comps);
-                    CompanyView.toPrintLN("\t *** Action: HIGHEST SALARY ***");
+                    view.selectCompanyDialog(comps);
+                    selectedComps = view.selectCompany(comps);
+                    view.toPrintLN("\t *** Action: HIGHEST SALARY ***");
                     getMaxSalary(selectedComps);
                     break;
                 case "3": // Узнать самую высокооплачиваемую профессию
                     System.out.println("\t *** Action: HIGHEST SALARY BY PROFESSION ***");
-                    getMaxSalaryByProf(comps);
+                    getMaxSalaryByProf();
                     break;
                 case "4": // Остортировать по Зарплате
-                    CompanyView.selectCompanyDialog(comps);
-                    selectedComps = CompanyView.selectCompany(comps);
-                    CompanyView.toPrintLN("\t *** Action: SORT BY SALARY ***");
+                    view.selectCompanyDialog(comps);
+                    selectedComps = view.selectCompany(comps);
+                    view.toPrintLN("\t *** Action: SORT BY SALARY ***");
                     sortBySalary(selectedComps);
                     break;
                 case "5":// Остортировать по Возрасту
-                    CompanyView.selectCompanyDialog(comps);
-                    selectedComps = CompanyView.selectCompany(comps);
-                    CompanyView.toPrintLN("\t *** Action: SORT BY AGE ***");
+                    view.selectCompanyDialog(comps);
+                    selectedComps = view.selectCompany(comps);
+                    view.toPrintLN("\t *** Action: SORT BY AGE ***");
                     sortByAge(selectedComps);
                     break;
                 case "6":// Остортировать по длине фамилии
-                    CompanyView.selectCompanyDialog(comps);
-                    selectedComps = CompanyView.selectCompany(comps);
-                    CompanyView.toPrintLN("\t *** Action: SORT BY SURNAME LENGTH ***");
+                    view.selectCompanyDialog(comps);
+                    selectedComps = view.selectCompany(comps);
+                    view.toPrintLN("\t *** Action: SORT BY SURNAME LENGTH ***");
                     sortBySurnameLength(selectedComps);
                     break;
                 case "7": // Добавить сотрудника
-                    CompanyView.selectCompanyDialog(comps, false);
-                    selectedComps = CompanyView.selectCompany(comps, false);
-                    CompanyView.toPrintLN("\t *** Action: ADD WORKER ***");
-                    Company com = addWorker(selectedComps.get(0));
-                    comps = updateCompany(com,comps);
+                    view.selectCompanyDialog(comps, false);
+                    selectedComps = view.selectCompany(comps, false);
+                    view.toPrintLN("\t *** Action: ADD WORKER ***");
+                    Company com = addWorkerIntoCompany(selectedComps.get(0));
+                    comps = updateCompany(com, comps);
                     hasChanges = true;
                     break;
                 case "8":
-                    CompanyView.selectCompanyDialog(comps);
-                    selectedComps = CompanyView.selectCompany(comps);
-                    CompanyView.toPrintLN("\t *** Action: FIRE AND INCREASE ***");
+                    view.selectCompanyDialog(comps);
+                    selectedComps = view.selectCompany(comps);
+                    view.toPrintLN("\t *** Action: FIRE AND INCREASE ***");
                     fireAndIncrese(selectedComps);
                     for (int i = 0; i < selectedComps.size(); i++) {
-                       comps = updateCompany(selectedComps.get(i),comps);
+                        comps = updateCompany(selectedComps.get(i), comps);
                     }
                     hasChanges = true;
                     break;
                 case "9":
-                    CompanyView.changeConfigDialog();
-                    comps = CompanyModel.getCompanies();
+                    view.changeConfigDialog();
+                    comps = model.getCompanies();
                     hasChanges = true;
-                    break;
-                case "m":
-                    CompanyView.welcome();
-                    ShowMenuTag = false;
                     break;
                 case "exit":
                 case "Exit":
                 case "e":
                 case "E":
-                    if (hasChanges){
-                        CompanyView.toPrint("Some data was changed. Do You want to SAVE it to File? (y/n): ");
-                        if (CompanyView.next().equals("y")){
-                            CompanyModel.writeChanges(comps);}
+                    if (hasChanges) {
+                        view.toPrint("Some data was changed. Do You want to SAVE it to File? (y/n): ");
+                        if (view.next().equals("y")) {
+                            CompanyModel.writeChanges(comps);
+                        }
                     }
-                    return;
+                    return false;
                 default:
-                    CompanyView.toPrintLN("No such case");
-                    ShowMenuTag = true;
+                    view.toPrintLN("No such case");
             }
-            if (ShowMenuTag == true) {
-                CompanyView.toPrint("\n\'m\' -- show CompanyMain MENU or 0-7,e -- run task: ");
-            }
-            ShowMenuTag = true;
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
         }
+        return true;
     }
 
     private static ArrayList<Company> updateCompany(Company com, ArrayList<Company> comps) {
         for (int i = 0; i < comps.size(); i++) {
-            if (com.getCompanyName().equals(comps.get(i).getCompanyName())){
-                comps.set(i,com);
+            if (com.getCompanyName().equals(comps.get(i).getCompanyName())) {
+                comps.set(i, com);
             }
         }
         return comps;
     }
 
-    public static void getMaxSalary(ArrayList<Company> selectedComps) {
+    public void getMaxSalary(ArrayList<Company> selectedComps) {
         String result = "";
         for (Company com : selectedComps) {
-            Employee e = getWorkerWithMaxSalaryInComp(com);
+            Employee e = model.getWorkerWithMaxSalaryInComp(com);
             result = "In company \'" + com.getCompanyName() + "\'" +
-                    " MAX Salary has: " + CompanyView.showWorkerSHORT(e.toString());
-            CompanyView.toPrintLN(result);
+                    " MAX Salary has: " + view.showWorkerSHORT(e.toString());
+            view.toPrintLN(result);
         }
     }
 
-    public static Employee getWorkerWithMaxSalaryInComp(Company com) {
-        Employee eMax = (Employee) com.getWorkers().get(0);
-        for (int i = 0; i < com.getWorkers().size(); i++) {
-            Employee eNext = (Employee) com.getWorkers().get(i);
-            if (eNext.getSalary() > eMax.getSalary()) {
-                eMax = eNext;
-            }
-        }
-        return eMax;
-    }
-
-    public static void getMaxSalaryByProf(ArrayList<Company> comps) {
-        String profType = CompanyView.addJobTitle();
+    public void getMaxSalaryByProf() {
+        String profType = view.addJobTitle();
+        Company com = null;
         switch (profType) {
             case "Admin":
-                getMaxAdmin(comps);
+                com = model.getMaxSalaryInCompanyWrapper(Admin.class.getName());
                 break;
             case "Manager":
-                getMaxManager(comps);
+                com = model.getMaxSalaryInCompanyWrapper(Manager.class.getName());
                 break;
             case "Programmer":
-                getMaxProgrammer(comps);
+                com = model.getMaxSalaryInCompanyWrapper(Programmer.class.getName());
                 break;
             case "Employee":
-                getMaxEmployee(comps);
+                com = model.getMaxSalaryInCompanyWrapper(Employee.class.getName());
                 break;
             default:
-                CompanyView.toPrintLN("Profession \'" + profType + "\' is UNDEFINED. All results:");
-                getMaxSalary(comps);
+                view.toPrintLN("Profession \'" + profType + "\' is UNDEFINED. All results:");
+                getMaxSalary(model.getCompanies());
+        }
+        if (com != null) {
+            view.toShowHighSalary(com.getWorkers().get(0).toString(), com.getCompanyName());
         }
     }
 
-    public static void getMaxAdmin(ArrayList<Company> comps) {
-        String workCompany = "";
-        Admin aMax = new Admin();
-        aMax.setSalary(0.0);
-        for (Company com : comps) {
-            for (int i = 0; i < com.getWorkers().size(); i++) {
-                if (com.getWorkers().get(i) instanceof Admin) {
-                    if (((Admin) com.getWorkers().get(i)).getSalary() > aMax.getSalary()) {
-                        aMax = (Admin) com.getWorkers().get(i);
-                        workCompany = com.getCompanyName();
-                    }
-                }
-            }
-        }
-        CompanyView.toShowHighSalary(aMax.toString(), workCompany);
-    }
 
-    public static void getMaxManager(ArrayList<Company> comps) {
-        String workCompany = "";
-        Manager aMax = new Manager();
-        aMax.setSalary(0.0);
-        for (Company com : comps) {
-            for (int i = 0; i < com.getWorkers().size(); i++) {
-                if (com.getWorkers().get(i) instanceof Manager) {
-                    if (((Manager) com.getWorkers().get(i)).getSalary() > aMax.getSalary()) {
-                        aMax = (Manager) com.getWorkers().get(i);
-                        workCompany = com.getCompanyName();
-                    }
-                }
-            }
-        }
-        CompanyView.toShowHighSalary(aMax.toString(), workCompany);
-    }
-
-    public static void getMaxProgrammer(ArrayList<Company> comps) {
-        String workCompany = "";
-        Programmer aMax = new Programmer();
-        aMax.setSalary(0.0);
-        for (Company com : comps) {
-            for (int i = 0; i < com.getWorkers().size(); i++) {
-                if (com.getWorkers().get(i) instanceof Programmer) {
-                    if (((Programmer) com.getWorkers().get(i)).getSalary() > aMax.getSalary()) {
-                        aMax = (Programmer) com.getWorkers().get(i);
-                        workCompany = com.getCompanyName();
-                    }
-                }
-            }
-        }
-        CompanyView.toShowHighSalary(aMax.toString(), workCompany);
-    }
-
-    public static void getMaxEmployee(ArrayList<Company> comps) {
-        String workCompany = "";
-        Employee aMax = new Employee();
-        aMax.setSalary(0.0);
-        for (Company com : comps) {
-            for (int i = 0; i < com.getWorkers().size(); i++) {
-                String profType = com.getWorkers().get(i).getClass().getSimpleName();
-                if (profType.equals("Employee")) {
-                    if (((Employee) com.getWorkers().get(i)).getSalary() > aMax.getSalary()) {
-                        aMax = (Employee) com.getWorkers().get(i);
-                        workCompany = com.getCompanyName();
-                    }
-                }
-            }
-        }
-        CompanyView.toShowHighSalary(aMax.toString(), workCompany);
-    }
-
-    public static void sortBySalary(ArrayList<Company> selectedComps) {
-        ArrayList workers;
-        for (int k = 0; k < selectedComps.size(); k++) {
-            workers = selectedComps.get(k).getWorkers();
-            for (int i = 0; i < workers.size() - 1; i++) {
-                for (int j = 0; j < workers.size() - 1 - i; j++) {
-                    if (((Employee) workers.get(j + 1)).getSalary() < ((Employee) workers.get(j)).getSalary()) {
-                        workers = MoveIt(workers, j);
-                    }
-                }
-            }
-            selectedComps.get(k).setWorkers(workers);
-        }
+    public void sortBySalary(ArrayList<Company> selectedComps) throws NoSuchMethodException {
         String template = "Job title:Name:Surname:Salary *:Gender:Age:Other";
-        CompanyView.displayWorkersTable(selectedComps, template);
+        Method method = Employee.class.getMethod("getSalary");
+        for (Company com : selectedComps) {
+            view.displayWorkersTable(model.sortBy(com, method), template);
+        }
     }
 
-    public static void sortByAge(ArrayList<Company> selectedComps) {
-        ArrayList workers;
-        for (int k = 0; k < selectedComps.size(); k++) {
-            workers = selectedComps.get(k).getWorkers();
-            for (int i = 0; i < workers.size() - 1; i++) {
-                for (int j = 0; j < workers.size() - 1 - i; j++) {
-                    if (((Employee) workers.get(j + 1)).getAge() < ((Employee) workers.get(j)).getAge()) {
-                        workers = MoveIt(workers, j);
-                    }
-                }
-            }
-            selectedComps.get(k).setWorkers(workers);
-        }
+    public void sortByAge(ArrayList<Company> selectedComps) throws NoSuchMethodException {
         String template = "Job title:Name:Surname:Salary:Gender:Age *:Other";
-        CompanyView.displayWorkersTable(selectedComps, template);
-    }
-
-    public static void sortBySurnameLength(ArrayList<Company> selectedComps) {
-        ArrayList workers;
-        for (int k = 0; k < selectedComps.size(); k++) {
-            workers = selectedComps.get(k).getWorkers();
-            for (int i = 0; i < workers.size() - 1; i++) {
-                for (int j = 0; j < workers.size() - 1 - i; j++) {
-                    Employee eNext = (Employee) workers.get(j + 1);
-                    Employee eCurr = (Employee) workers.get(j);
-                    if (eNext.getSurname().length() < eCurr.getSurname().length()) {
-                        workers = MoveIt(workers, j);
-                    }
-                }
+            Method method = Employee.class.getMethod("getAge");
+            for (Company com : selectedComps) {
+                view.displayWorkersTable(model.sortBy(com, method), template);
             }
-            selectedComps.get(k).setWorkers(workers);
-        }
+    }
+
+    public void sortBySurnameLength(ArrayList<Company> selectedComps) throws NoSuchMethodException {
         String template = "Job title:Name:Surname *:Salary:Gender:Age:Other";
-        CompanyView.displayWorkersTable(selectedComps, template);
+            Method method = Employee.class.getMethod("getSurname");
+            for (Company com : selectedComps) {
+                view.displayWorkersTable(model.sortBy(com, method), template);
+            }
     }
 
-    private static ArrayList MoveIt(ArrayList workers, int j) {
-        Object temp = workers.get(j);
-        workers.set(j, workers.get(j + 1));
-        workers.set(j + 1, temp);
-        return workers;
-    }
-
-    private static Company addWorker(Company com) {
-        String str[] = CompanyView.AddEmployeeDialog();
-        switch (str[0]) {
-            case "Admin":
-                com.getWorkers().add(CompanyModel.createAdmin(str));
-                break;
-            case "Programmer":
-                com.getWorkers().add(CompanyModel.createProgrammer(str));
-                break;
-            case "Manager":
-                com.getWorkers().add(CompanyModel.createManager(str));
-                break;
-            case "Employee":
-                com.getWorkers().add(CompanyModel.createEmployee(str));
-                break;
-            default:
-                CompanyView.toPrintLN("Worker doesn't create! Return to menu");
-                return com;
+    private Company addWorkerIntoCompany(Company com) {
+        String str[] = view.AddEmployeeDialog();
+        if (model.addWorker(com, str)) {
+            view.toPrintLN("\nAdd worker: SUCCESS");
+            return com;
+        } else {
+            view.toPrintLN("There was an error during the addition");
         }
-        CompanyView.toPrintLN("\nAdd worker: SUCCESS");
         addWorkerNextStep(com, str);
         return com;
     }
-    private static void addWorkerNextStep (Company com, String [] str){
-        switch (CompanyView.goToNextStep(com.getCompanyName())){
+
+    private void addWorkerNextStep(Company com, String[] str) {
+        switch (view.goToNextStep(com.getCompanyName())) {
             case "1":
-                addWorker(com);
+                addWorkerIntoCompany(com);
                 break;
             case "2":
                 String workerString = "";
                 String[] commonStr = str;
-                if (Boolean.valueOf(str[4])){str[4] = "male";}
-                else {str[4]="female";}
-                for (int i = 0; i < str.length; i++) {
-                    workerString+=str[i]+Employee.getSeparator();
+                if (Boolean.valueOf(str[4])) {
+                    str[4] = "male";
+                } else {
+                    str[4] = "female";
                 }
-                CompanyView.showWorkerFULL(workerString);
-                addWorkerNextStep(com,commonStr);
+                for (int i = 0; i < str.length; i++) {
+                    workerString += str[i] + Employee.getSeparator();
+                }
+                view.showWorkerFULL(workerString);
+                addWorkerNextStep(com, commonStr);
                 break;
             default:
-                CompanyView.toPrintLN("\nGo back to menu....");
+                view.toPrintLN("\nGo back to menu....");
         }
     }
-    private static ArrayList<Company> fireAndIncrese(ArrayList<Company> selectedComps) {
-        Double percent = CompanyView.percentDialog();
+
+    private ArrayList<Company> fireAndIncrese(ArrayList<Company> selectedComps) {
+        Double percent = view.percentDialog();
         for (int i = 0; i < selectedComps.size(); i++) {
             Company com = selectedComps.get(i);
-            CompanyView.toPrintCompName(com.getCompanyName());
+            view.toPrintCompName(com.getCompanyName());
             com = IncreaseSalary(com, percent);
-            com = fireStuff(com, "male");
-            selectedComps.set(i,com);
+            com = model.fireStuff(com, true);// true - уволить особей мужского пола
+            selectedComps.set(i, com);
         }
         return selectedComps;
     }
-    public static Company IncreaseSalary (Company com, Double percent){
+
+    public Company IncreaseSalary(Company com, Double percent) {
         Double newSalary;
         for (int i = 0; i < com.getWorkers().size(); i++) {
-            switch (com.getWorkers().get(i).getClass().getSimpleName()){
-                case "Admin":
-                    com = changeAdminSalary(i,com,percent);
-                    break;
-                case "Manager":
-                    com = changeManagerSalary(i, com, percent);
-                    break;
-                case "Programmer":
-                    com = changeProgSalary(i, com, percent);
-                    break;
-                case "Employee":
-                    com = changeEmplSalary(i, com, percent);
+            if (com.getWorkers().get(i).getGender() == false) {
+                view.toPrint(view.showWorkerSHORT(com.getWorkers().get(i).toString()));
+                com.getWorkers().get(i).setSalary(Math.round(com.getWorkers().get(i).getSalary() * (1 + percent)));
+                view.toPrintLN(" >>>New Salary (+" + (percent * 100) + "%): " +
+                        com.getWorkers().get(i).getSalary() + "$");
             }
         }
         return com;
     }
-    private static Company changeAdminSalary(int i, Company com, Double percent){
-        Admin admin = (Admin)com.getWorkers().get(i);
-        if (admin.getGender().equals("female") ){
-            CompanyView.toPrint(CompanyView.showWorkerSHORT(admin.toString()));
-            admin.setSalary(Math.round(admin.getSalary() * (1 + percent)));
-            CompanyView.toPrintLN(" >>>New Salary (+" + (percent * 100) + "%): " + admin.getSalary() + "$");
-            com.getWorkers().set(i,admin);
-        }
-        return com;
-    }
-    private static Company changeManagerSalary(int i, Company com, Double percent){
-        Manager manager = (Manager)com.getWorkers().get(i);
-        if (manager.getGender().equals("female") ){
-            CompanyView.toPrint(CompanyView.showWorkerSHORT(manager.toString()));
-            manager.setSalary(Math.round(manager.getSalary() * (1 + percent)));
-            CompanyView.toPrintLN(" >>>New Salary (+" + (percent * 100) + "%): " + manager.getSalary() + "$");
-            com.getWorkers().set(i,manager);
-        }
-        return com;
-    }
-    private static Company changeProgSalary(int i, Company com, Double percent){
-        Programmer prog = (Programmer)com.getWorkers().get(i);
-        if (prog.getGender().equals("female") ){
-            CompanyView.toPrint(CompanyView.showWorkerSHORT(prog.toString()));
-            prog.setSalary(Math.round(prog.getSalary() * (1 + percent)));
-            CompanyView.toPrintLN(" >>>New Salary (+" + (percent * 100) + "%): " + prog.getSalary() + "$");
-        }
-        return com;
-    }
-    private static Company changeEmplSalary(int i, Company com, Double percent) {
-        Employee e = (Employee)com.getWorkers().get(i);
-        if (e.getGender().equals("female") ){
-            CompanyView.toPrint(CompanyView.showWorkerSHORT(e.toString()));
-            e.setSalary(Math.round(e.getSalary() * (1 + percent)));
-            CompanyView.toPrintLN(" >>>New Salary (+" + (percent * 100) + "%): " + e.getSalary() + "$");
-            com.getWorkers().set(i, e);
-        }
-        return com;
-    }
-    public static Company fireStuff (Company com, String Gender){
-        for (int i = 0; i < com.getWorkers().size(); i++) {
-            Employee k = (Employee) com.getWorkers().get(i);
-            if (k.getGender().equals(Gender)){// Если сия особь ТАКОГО пола - уволить!
-                System.out.println(k.getName() + " " + k.getSurname() + " (" + k.getGender() + ") ...FIRED!");
-                com.getWorkers().remove(i);
-                i--;
-            }
-        }
-        com.setWorkers(com.getWorkers());
-        return com;
-    }
+
 
 }

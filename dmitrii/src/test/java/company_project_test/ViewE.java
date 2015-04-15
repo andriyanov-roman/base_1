@@ -114,7 +114,7 @@ public class ViewE {
     public void toTable () throws Exception {
         String rowStr ="Employee:Mirriam:Carter:14375.0:false:53";
         String titleStr = "Job title:Name:Surname:Salary:Gender:Age:Other";
-        Company com = CompanyModel.companyParse("src\\main\\resources\\companies\\ZAZ.txt");
+        Company com = new Company();// = model.companyParse("src\\main\\resources\\companies\\ZAZ.txt");
         String regExp = ":";
 
         String [] titles = titleStr.split(regExp);
@@ -127,7 +127,7 @@ public class ViewE {
         toPlusDash(colWidth, totalColumns);
         toRowCenter(colWidth, titles);
         toPlusDash(colWidth, totalColumns);
-        for (int i = 0; i < com.getWorkers().size(); i++) {
+        /*for (int i = 0; i < com.getWorkers().size(); i++) {
             ArrayList division = (ArrayList) com.getWorkers().get(i);
             for (int j = 0; j < division.size(); j++) {
                 String tempStr = division.get(j).toString();
@@ -140,7 +140,7 @@ public class ViewE {
                 cells = tempStr.split(Employee.getSeparator());
                 toRow(colWidth, cells);
             }
-        }
+        }*/
         toDash(fullWidth);
 
         /*System.out.format("\n| %1$10s | %2$10s | %3$10s | %4$10s", string1, int1, string2, string3);*/

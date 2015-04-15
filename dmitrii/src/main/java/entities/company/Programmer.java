@@ -9,6 +9,11 @@ public class Programmer extends Employee{
     public Programmer() {
     }
 
+    public Programmer(Employee e, String language) {
+        super(e.getName(), e.getSurname(), e.getSalary(), Boolean.valueOf(e.getGender()), e.getAge());
+        this.language = language;
+    }
+
     public String getLanguage() {
         return language;
     }

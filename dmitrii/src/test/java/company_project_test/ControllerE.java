@@ -14,10 +14,10 @@ import java.util.ArrayList;
 public class ControllerE {
     @Test
     public void getMaxSalaryInComp () throws Exception{
-        Company com = CompanyModel.companyParse("src\\main\\resources\\companies\\Polaris.txt");
+        //Company com = CompanyModel.companyParse("src\\main\\resources\\companies\\Polaris.txt");
 
 
-        Employee eWithMaxSalary = (Employee)((ArrayList)com.getWorkers().get(0)).get(0);
+       /* Employee eWithMaxSalary = (Employee)((ArrayList)com.getWorkers().get(0)).get(0);
         for (int i = 0; i < com.getWorkers().size(); i++) {
             ArrayList division = (ArrayList) com.getWorkers().get(i);
             for (int j = 0; j < division.size(); j++) {
@@ -27,18 +27,18 @@ public class ControllerE {
                     if (division.get(i) instanceof Admin){
                         //analytics.setAdminMax((Admin) division.get(i));
                     }
-                    /*if (division.get(i) instanceof Manager){maxStuff.set(2,division.get(i));}
+                    *//*if (division.get(i) instanceof Manager){maxStuff.set(2,division.get(i));}
                     if (division.get(i) instanceof Programmer){maxStuff.set(3,division.get(i));}
-                    if (division.get(i) instanceof Employee){maxStuff.set(0,division.get(i));}*/
+                    if (division.get(i) instanceof Employee){maxStuff.set(0,division.get(i));}*//*
                 }
             }
         }
-        //return  analytics;
+        //return  analytics;*/
     }
 
     @Test
     public void getAdminMaxSalary () throws Exception {
-        Company com = CompanyModel.companyParse("src\\main\\resources\\companies\\Polaris.txt");
+        //Company com = CompanyModel.companyParse("src\\main\\resources\\companies\\Polaris.txt");
         //ArrayList<Admin> admins = com.getAdmins();
         /* ----------------------------------------------*/
        /* Admin aMax = admins.get(0);

@@ -17,10 +17,10 @@ public class FigurerController extends CommonController {
 
     @Override
     public void run() {
-         isRun = true;
-        while (isRun) {
-            view.showMainMenu();
-            isRun = executeTasks();
+         isDone = true;
+        while (isDone) {
+            //view.showMainMenu();
+            isDone = executeTasks();
         }
     }
 

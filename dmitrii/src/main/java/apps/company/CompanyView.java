@@ -2,6 +2,7 @@ package apps.company;
 
 import entities.company.Company;
 import entities.company.Employee;
+import entities.mvc.CommonView;
 import tools.Table;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.InputMismatchException;
 /**
  * Created by mit_OK! on 27.03.2015.
  */
-public class CompanyView {
+public class CompanyView extends CommonView {
     private static Scanner scanner = new Scanner(System.in);
 
     public static Boolean hasNext() {
@@ -23,7 +24,8 @@ public class CompanyView {
         return scanner.next();
     }
 
-    public static void welcome() {
+    @Override
+    public void showMainMenu() {
         toPrint("\n0) Show FULL employee's info (to show AGE and GENDER)" +
                         "\n1) Show employee's info (in TABLE)" +
                         "\n2) Show highest salary in company" +
@@ -150,7 +152,38 @@ public class CompanyView {
             Table.toDash(fullWidth);
         }
     }
-
+    public static void displayWorkersTable(Company com, String... template) {
+        int colWidth = 16;
+        String titleStr;
+        if (template.length == 0) {
+            titleStr = "Job title:Name:Surname:Salary:Gender:Age:Other";
+        } else {
+            titleStr = template[0];
+        }
+        String[] titles = titleStr.split(Employee.getSeparator());
+        String[] cells = titles;
+            int totalColumns = cells.length;
+            int fullWidth = colWidth * cells.length;
+            Table.toDash(fullWidth);
+            Table.toHeader(fullWidth, com.getCompanyName());
+            Table.toPlusDash(colWidth, totalColumns);
+            Table.toRowCenter(colWidth, titles);
+            Table.toPlusDash(colWidth, totalColumns);
+            for (int i = 0; i < com.getWorkers().size(); i++) {
+                String tempStr = com.getWorkers().get(i).toString();
+                String temp[] = tempStr.split(Employee.getSeparator());
+                if (temp.length < totalColumns) {
+                    for (int k = temp.length; k < totalColumns; k++) {
+                        tempStr += (Employee.getSeparator() + " ");
+                    }
+                }
+                cells = tempStr.split(Employee.getSeparator());
+                if (Boolean.valueOf(cells[4])) {
+                    cells[4] = "male";} else {cells[4] = "female";}
+                Table.toRow(colWidth, cells);
+            }
+            Table.toDash(fullWidth);
+    }
     public static void showWorkerFULL(String workerString) {
         String result = "";
         String[] p = workerString.split(Employee.getSeparator());

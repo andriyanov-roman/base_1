@@ -14,9 +14,9 @@ public class UniverController extends CommonController {
     private Double maxMark = 100.0;
 
     public UniverController(UniverModel model, UniverView view) {
-        super(view);
         this.model = model;
         this.view = view;
+        run();
     }
 
 
