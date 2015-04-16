@@ -56,7 +56,7 @@ public class AppNavigator {
                             case "University Util":
                                 do {
                                     UniversityView view = new UniversityView(scanner);
-                                    UniversityController controller = new UniversityController(view.menu());
+                                    UniversityController controller = new UniversityController(scanner, view.menu());
                                     String s = controller.toDO();
                                     if(s.equals("return")) toReturn = false;
                                     else view.showResult(s);

@@ -1,17 +1,21 @@
 package controllers.consoleApp;
 
+import entity.university.Student;
 import entity.university.University;
 import modules.consoleApp.university.UnivModule;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  * Created by R-Tem on 13.04.2015.
  */
 public class UniversityController {
+    protected Scanner scanner;
     private String toDo;
 
-    public UniversityController(String toDo) {
+    public UniversityController(Scanner scanner, String toDo) {
+        this.scanner = scanner;
         this.toDo = toDo;
     }
 
@@ -22,11 +26,12 @@ public class UniversityController {
                 University univ = UnivModule.getMaxProgressUniv();
                 return result = "1 " + univ.getTitle();
             case "addStudent":
-                break;
+                Student student = UnivModule.addStudent(scanner);
+                return result = "2";
             case "getStudentsGPA":
-                break;
+                return result = "3";
             case "raiseSalary":
-                break;
+                return result = "4";
             case "return": return "return";
         }
         return null;

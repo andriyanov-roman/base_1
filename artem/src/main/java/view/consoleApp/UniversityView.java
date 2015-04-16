@@ -39,7 +39,10 @@ public class UniversityView {
     public String showResult(String s){
         String[] result = s.split(" ");
         switch (result[0]){
-            case "1": System.out.println(result[1] + " is the university with the most progressive students rating!\n");
+            case "1": System.out.println(result[1] + " is the university with the most progressive students rating!\n"); break;
+            case "2": System.out.println(result[2] + ""); break;
+            case "3": System.out.println(result[3] + ""); break;
+            case "4": System.out.println(result[4] + ""); break;
         }
 
         return null;
