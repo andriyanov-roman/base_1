@@ -13,11 +13,13 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * Created by R-Tem on 03.04.2015.
  */
 public class UnivModule {
+    protected Scanner scanner;
     public static ArrayList<University> univIni() throws IOException{
         ArrayList<University> universities = new ArrayList<>();
         CommonReader courseReader = new CourseReader("E:\\2_Programing\\IdeaProjects\\base_1\\artem\\src\\main\\java\\data\\university\\courses.txt", ":");
@@ -88,7 +90,7 @@ public class UnivModule {
         University maxProgressUniv = universities.get(universities.size()-1);
         return maxProgressUniv;
     }
-    public static Student addStudent() throws  IOException{
+    public static Student addStudent(Scanner scanner) throws  IOException{
         Student student = new Student();
         System.out.println(" Select University, please:");
         File f = new File("E:\\2_Programing\\IdeaProjects\\base_1\\artem\\src\\main\\java\\files\\universities");
@@ -104,7 +106,7 @@ public class UnivModule {
             student.setName(homework.Body.scanner.next());
             System.out.print("Surname: ");
             student.setSurname(homework.Body.scanner.next());
-            System.out.println("Courses list (enter several like this - Chemistry,75:Mathematics,85) ");
+            System.out.println("Courses list (enter several like this - Chemistry,75,Mathematics,85) ");
             CommonReader cr = new CourseReader("artem/src/main/java/files/universities/"+String.valueOf(univTitle), ":");
             ArrayList<Course> univCourses = cr.readFromFile();
             String s = homework.Body.scanner.next();
@@ -123,7 +125,7 @@ public class UnivModule {
                 }
             }
             student.setCourses(studentCourses);
-        } else {addStudent();}
+        } else {addStudent(scanner);}
         return student;
     }
 }

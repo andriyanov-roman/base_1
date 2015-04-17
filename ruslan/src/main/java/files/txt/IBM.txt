@@ -1,0 +1,2 @@
+Michael: Jordan: 30000.0: 52: Male
+Maria: Kotowizch: 5500.5: 20: Female

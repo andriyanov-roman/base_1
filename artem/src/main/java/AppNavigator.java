@@ -4,13 +4,14 @@ import view.consoleApp.CommonView;
 import view.consoleApp.CompanyView;
 import view.consoleApp.UniversityView;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 
 public class AppNavigator {
     private Scanner scanner = new Scanner(System.in);
 
-    public void startProgram(){
+    public void startProgram() throws IOException{
         BaseView baseView = new BaseView(scanner);
         do {
             switch (baseView.startProgram()) {
@@ -55,7 +56,7 @@ public class AppNavigator {
                             case "University Util":
                                 do {
                                     UniversityView view = new UniversityView(scanner);
-                                    UniversityController controller = new UniversityController(view.menu());
+                                    UniversityController controller = new UniversityController(scanner, view.menu());
                                     String s = controller.toDO();
                                     if(s.equals("return")) toReturn = false;
                                     else view.showResult(s);

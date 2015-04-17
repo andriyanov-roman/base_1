@@ -51,6 +51,6 @@ public class Lecturer {
 
     @Override
     public String toString() {
-        return name + " " + surname + " " + course + " " + salary;
+        return "\n" + name + " " + surname + " " + course + " " + salary;
     }
 }

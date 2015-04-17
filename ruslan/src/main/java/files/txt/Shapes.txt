@@ -1,0 +1,6 @@
+Circle:20.5:50
+Foursquare:60.0:225.0
+Triangle:51.0:127.5
+Foursquare:20.0:25.0
+Circle:18.84955592153876:28.274333882308138
+Triangle:12.0:36.0
