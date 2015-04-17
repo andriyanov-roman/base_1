@@ -72,7 +72,6 @@ public class CommonView  extends MethodsShapes {
     public static void addSpace() throws  IOException {
         shapes=new ArrayList<>();
         Shape container=new Shape();
-        scanner=new Scanner(System.in);
         container.setName("Container");
         container.setPerimeter(0.0);
         System.out.println("Введите емкость(площадь) контейнера");
@@ -101,7 +100,6 @@ public class CommonView  extends MethodsShapes {
     public static void addNewCircle() throws IOException {
         shapes=new ArrayList<>();
         Circle circle=new Circle();
-        scanner=new Scanner(System.in);
         freeSpace();
         maxLenght=(int)(Math.sqrt(freeSpace / Math.PI));
         System.out.println("Максимально-возможная длина радиуса= " + maxLenght);
