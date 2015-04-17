@@ -1,6 +1,0 @@
-Michael: "Jordan": "Male": 52: 30000.0
-Maria": "Kotowizch": "Female": 20, 5500.5
-Derek": "Sidorov": "Male": 26: 8000.5
-Philip": "Petrenko": "Male": 33: 12500.5
-Shaquille": "Jordan": "Male": 40: 18000.0
-"Rosa": "Perry": "Female": 35: 10000.0
