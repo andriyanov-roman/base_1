@@ -23,4 +23,8 @@ public class Auto {
     void changeWeel(double diametr) {  // замена колеса
 
     }
+    void printCar(){
+        System.out.println("Марка авто: "+name);
+    }
+
 }

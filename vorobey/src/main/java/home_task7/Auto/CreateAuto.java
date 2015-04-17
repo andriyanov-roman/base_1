@@ -11,6 +11,7 @@ public class CreateAuto {
         auto.drive(2300);
         auto.changeWeel(23.2);
         auto.refuel();
+        auto.printCar();
 
 
     }
