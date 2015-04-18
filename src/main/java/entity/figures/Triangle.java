@@ -22,4 +22,14 @@ public class Triangle extends Figure {
     public void setHeight(double height) {
         this.height = height;
     }
+
+    @Override
+    public double getPerimeter() {
+        return 0;
+    }
+
+    @Override
+    public double getSquare() {
+        return 0;
+    }
 }
