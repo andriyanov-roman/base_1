@@ -1,10 +1,10 @@
-import controllers.consoleApp.UniversityController;
 import view.BaseView;
 import view.consoleApp.CommonView;
 import view.consoleApp.CompanyView;
 import view.consoleApp.UniversityView;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -38,8 +38,7 @@ public class AppNavigator {
                                             break;
                                         case "addComp":
                                             break;
-                                        case "return": toReturn = false;
-                                            break;
+                                        case "return": toReturn = false; break;
                                     }
                                 } while (toReturn);
                                 break;
@@ -56,15 +55,11 @@ public class AppNavigator {
                             case "University Util":
                                 do {
                                     UniversityView view = new UniversityView(scanner);
-                                    UniversityController controller = new UniversityController(scanner, view.menu());
-                                    String s = controller.toDO();
+                                    String s = view.menu();
                                     if(s.equals("return")) toReturn = false;
-                                    else view.showResult(s);
                                 } while (toReturn);
                                 break;
-                            case "return":
-                                startProgram();
-                                break; // во время рекурсии удаляются и создаются заново или...?
+                            case "return": startProgram(); break; // во время рекурсии переменные удаляются и создаются заново или...?
                         }
                     } while (true);
                 case "swing":

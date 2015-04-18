@@ -60,7 +60,7 @@ public class UnivModule {
         return universities;
     }
     public static University getMaxProgressUniv() throws IOException{
-        ArrayList<University> universities = univIni();
+        ArrayList<University> universities = UnivModule.univIni();
         for (int i = 0; i < universities.size(); i++) {
             ArrayList<Double> eachStudentAverage = new ArrayList<>();
             for (int j = 0; j < universities.get(i).getStudents().size(); j++) {
@@ -91,41 +91,36 @@ public class UnivModule {
         return maxProgressUniv;
     }
     public static Student addStudent(Scanner scanner) throws  IOException{
+        ArrayList<University> univs = UnivModule.univIni();
         Student student = new Student();
-        System.out.println(" Select University, please:");
-        File f = new File("E:\\2_Programing\\IdeaProjects\\base_1\\artem\\src\\main\\java\\files\\universities");
-        String[] univs = f.list();
-        for (int i = 0; i < univs.length; i++){ System.out.println(univs[i]); }
-        String univTitle = homework.Body.scanner.next();
-        boolean b = false;
-        for (int i = 0; i < univs.length; i++) { if(univs[i].equals(univTitle)) { b = true; } }
-        if(b){
-            System.out.println(" Fill the fields, please!");
-            homework.Body.scanner.useDelimiter("\n");
-            System.out.print("Name: ");
-            student.setName(homework.Body.scanner.next());
-            System.out.print("Surname: ");
-            student.setSurname(homework.Body.scanner.next());
-            System.out.println("Courses list (enter several like this - Chemistry,75,Mathematics,85) ");
-            CommonReader cr = new CourseReader("artem/src/main/java/files/universities/"+String.valueOf(univTitle), ":");
-            ArrayList<Course> univCourses = cr.readFromFile();
-            String s = homework.Body.scanner.next();
-            String[] studentCoursesList = s.split(":");
-            ArrayList<Course> studentCourses = new ArrayList<>();
-            Random r = new Random();
-            for (int i = 0; i < studentCoursesList.length; i++) {
-                String[] courseExemplar = studentCoursesList[i].split(",");
-                String courseTitle = courseExemplar[0];
-                Integer mark = Integer.valueOf(courseExemplar[1]);
-                for (int j = 0; j < univCourses.size(); j++) {
-                    if (univCourses.get(j).getCourseTitle().equals(courseTitle)) {
-                        Course c = new Course(univCourses.get(j).getCourseTitle(), r.nextInt(univCourses.get(j).getCreditHours()), mark);
-                        studentCourses.add(c);
-                    }
+        System.out.println(" Select(type) University, please:");
+        for (int i = 0; i < univs.size(); i++){ System.out.println(univs.get(i).getTitle()); }
+        String univTitle = scanner.next();
+        System.out.println(" Fill the fields, please!");
+        scanner.useDelimiter("\n");
+        System.out.print("Name: ");
+        student.setName(scanner.next());
+        System.out.print("Surname: ");
+        student.setSurname(homework.Body.scanner.next());
+        System.out.println("Courses list (enter several like this - Chemistry,75,Mathematics,85) ");
+        CommonReader cr = new CourseReader("artem/src/main/java/files/universities/"+String.valueOf(univTitle), ":");
+        ArrayList<Course> univCourses = cr.readFromFile();
+        String s = homework.Body.scanner.next();
+        String[] studentCoursesList = s.split(":");
+        ArrayList<Course> studentCourses = new ArrayList<>();
+        Random r = new Random();
+        for (int i = 0; i < studentCoursesList.length; i++) {
+            String[] courseExemplar = studentCoursesList[i].split(",");
+            String courseTitle = courseExemplar[0];
+            Integer mark = Integer.valueOf(courseExemplar[1]);
+            for (int j = 0; j < univCourses.size(); j++) {
+                if (univCourses.get(j).getCourseTitle().equals(courseTitle)) {
+                    Course c = new Course(univCourses.get(j).getCourseTitle(), r.nextInt(univCourses.get(j).getCreditHours()), mark);
+                    studentCourses.add(c);
                 }
             }
-            student.setCourses(studentCourses);
-        } else {addStudent(scanner);}
+        }
+        student.setCourses(studentCourses);
         return student;
     }
 }

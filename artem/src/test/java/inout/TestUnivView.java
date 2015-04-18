@@ -1,5 +1,6 @@
 package inout;
 
+import controllers.consoleApp.UniversityController;
 import entity.university.University;
 import modules.consoleApp.university.UnivModule;
 import org.junit.Test;
@@ -10,12 +11,12 @@ import org.junit.Test;
 public class TestUnivView {
     @Test
     public void testUnivView() throws Exception {
-        University univ = UnivModule.getMaxProgressUniv();
+        /*University univ = UnivModule.getMaxProgressUniv();
         String result = "1" + univ.getTitle();
         char varNum = result.charAt(0);
         switch (varNum){
             case 49: System.out.println("is the university with the most progressive students rating");
-        }
+        }*/
 
     }
 }
