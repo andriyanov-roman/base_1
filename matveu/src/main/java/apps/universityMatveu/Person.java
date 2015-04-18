@@ -1,4 +1,4 @@
-package universityMatveu;
+package apps.universityMatveu;
 
 public class Person {
     private String name;

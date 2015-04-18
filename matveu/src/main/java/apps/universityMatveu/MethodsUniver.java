@@ -1,4 +1,4 @@
-package universityMatveu;
+package apps.universityMatveu;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,10 +12,8 @@ public class MethodsUniver extends Person {
         System.out.println("Выберите действие!");
         System.out.println("1. Добавить препода в универ");
         System.out.println("2. Добавить студента в универ");
-        System.out.println("3. Вывести на экран все фигуры хранящиеся в контейнере");
-        System.out.println("4. Узнать свободную площадь контейнера");
-        System.out.println("5. Вывести на экран фигуру с наибольшим периметром");
-        System.out.println("6. Вывести на экран фигуру с наибольшей площадью");
+        System.out.println("3. Добавить предмет");
+
 
         while (scanner.hasNext()){
             switch (scanner.next()){
@@ -26,6 +24,8 @@ public class MethodsUniver extends Person {
                     addStudent();
                     break;
                 case "3":
+                    addSubject();
+                    break;
 
             }
         }
@@ -44,23 +44,31 @@ public class MethodsUniver extends Person {
         WriterReadingProfessors.writerToFile(professor);
     }
     public static void addStudent() throws IOException{
+        ArrayList<Student> students=new ArrayList<>();
         Student student=new Student();
         System.out.println("Введите имя студента");
         student.setName(scanner.next());
         System.out.println("Введите фамилию студента");
         student.setSecondName(scanner.next());
-        System.out.println("Введите название предмета");
-        ArrayList<Subject> subjects=new ArrayList<>();
-        Subject subject=new Subject();
-        subject.setNameSubject(scanner.next());
-        System.out.println("Введите количество часов");
-        subject.setNumberOfHours(scanner.nextInt());
-        System.out.println("Введите оценку по предмету");
-        subject.setMark(scanner.nextInt());
-        subjects.add(subject);
-        student.setSubjects(subjects);
-        persons.add(student);
+        addSubject();
+        students.add(student);
         WriterReadingStudents.writerToFile(student);
+    }
+    public static void addSubject()throws IOException {
+        ArrayList<Subject>subjects=new ArrayList<>();
+        Subject subject=new Subject();
+        int count=0;
+        do {
+            System.out.println("Введите название предмета");
+            subject.setNameSubject(scanner.next());
+            System.out.println("Введите количество часов (максимально 100)");
+            subject.setNumberOfHours(scanner.nextInt());
+            System.out.println("Введите оценку по предмету( 12-ти бальная система )");
+            subject.setMark(scanner.nextInt());
+            subjects.add(subject);
+            WriterReadingSubjects.writerToFile(subject);
+            count++;
+        }while (count!=3);
     }
 
 }

@@ -1,17 +1,17 @@
-package universityMatveu;
+package apps.universityMatveu;
 
 import java.io.*;
 import java.util.ArrayList;
 
 public class WriterReadingProfessors {
     public static void writerToFile(Professor professor) throws IOException {
-        FileWriter writer = new FileWriter("matveu\\src\\main\\java\\universityMatveu\\Professors.txt", true);
+        FileWriter writer = new FileWriter("matveu\\src\\main\\java\\apps\\appsFiles\\university\\Professors.txt", true);
         writer.write(professor.getName() + ":" + professor.getSecondName() + ":" + professor.getSalary() + ":" + professor.getSubjectName() + "\n");
         writer.flush();
         writer.close();
     }
     public static void readingFromProfessors() throws IOException {
-        File file = new File("matveu\\src\\main\\java\\universityMatveu\\Professors.txt");
+        File file = new File("matveu\\src\\main\\java\\apps\\appsFiles\\university\\Professors.txt");
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
         ArrayList<Person> persons = new ArrayList<>();

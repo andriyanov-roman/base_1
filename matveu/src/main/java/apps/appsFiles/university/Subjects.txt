@@ -1,0 +1,3 @@
+fizika:88:10
+matematika:66:8
+ximij:33:12

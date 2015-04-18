@@ -1,6 +1,4 @@
-package universityMatveu;
-
-import java.util.ArrayList;
+package apps.universityMatveu;
 
 public class Subject {
     private String nameSubject;
@@ -35,7 +33,7 @@ public class Subject {
         this.mark = mark;
     }
 
-    public Subject(String name, String secondName, ArrayList<Subject> subjects, String nameSubject, Integer numberOfHours, Integer mark) {
+    public Subject(String nameSubject, Integer numberOfHours, Integer mark) {
         this.nameSubject = nameSubject;
         this.numberOfHours = numberOfHours;
         this.mark = mark;

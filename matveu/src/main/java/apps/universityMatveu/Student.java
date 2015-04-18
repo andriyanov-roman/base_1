@@ -1,9 +1,9 @@
-package universityMatveu;
+package apps.universityMatveu;
 
 import java.util.ArrayList;
 
 public class Student extends Person {
-    public ArrayList<Subject> subjects;
+  private ArrayList<Subject>subjects;
 
     public ArrayList<Subject> getSubjects() {
         return subjects;
@@ -13,8 +13,7 @@ public class Student extends Person {
         this.subjects = subjects;
     }
 
-    public Student(){
-
+    public Student() {
     }
 
     public Student(String name, String secondName, ArrayList<Subject> subjects) {

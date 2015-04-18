@@ -1,4 +1,4 @@
-package universityMatveu;
+package apps.universityMatveu;
 
 import java.util.ArrayList;
 

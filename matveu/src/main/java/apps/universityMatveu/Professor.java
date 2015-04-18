@@ -1,4 +1,4 @@
-package universityMatveu;
+package apps.universityMatveu;
 
 public class Professor extends Person {
     private Integer Salary;
