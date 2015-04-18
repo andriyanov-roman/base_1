@@ -3,7 +3,7 @@ package entity;
 /**
  * Created by Администратор on 14.03.2015.
  */
-public class Employee {
+public class Employee implements Comparable<Employee> {
     private String name;
     private String secondName;
     private double salary;
@@ -57,5 +57,12 @@ public class Employee {
         this.name = name;
         this.secondName = secondName;
         this.salary = salary;
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+        if (this.salary < o.getSalary()) return -1;
+        if (this.salary > o.getSalary()) return 1;
+        return 0;
     }
 }
