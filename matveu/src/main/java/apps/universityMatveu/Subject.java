@@ -38,4 +38,13 @@ public class Subject {
         this.numberOfHours = numberOfHours;
         this.mark = mark;
     }
+
+    @Override
+    public String toString() {
+        return "Subject{" +
+                "nameSubject='" + nameSubject + '\'' +
+                ", numberOfHours=" + numberOfHours +
+                ", mark=" + mark +
+                '}';
+    }
 }

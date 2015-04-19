@@ -12,7 +12,7 @@ public class MethodsUniver extends Person {
         System.out.println("Выберите действие!");
         System.out.println("1. Добавить препода в универ");
         System.out.println("2. Добавить студента в универ");
-        System.out.println("3. Добавить предмет");
+        System.out.println("");
 
 
         while (scanner.hasNext()){
@@ -24,7 +24,6 @@ public class MethodsUniver extends Person {
                     addStudent();
                     break;
                 case "3":
-                    addSubject();
                     break;
 
             }
@@ -50,15 +49,15 @@ public class MethodsUniver extends Person {
         student.setName(scanner.next());
         System.out.println("Введите фамилию студента");
         student.setSecondName(scanner.next());
-        addSubject();
+        student.setSubjects(MethodsUniver.getSubjects());
         students.add(student);
         WriterReadingStudents.writerToFile(student);
     }
-    public static void addSubject()throws IOException {
+    public static ArrayList<Subject> getSubjects() throws IOException {
         ArrayList<Subject>subjects=new ArrayList<>();
-        Subject subject=new Subject();
-        int count=0;
-        do {
+            Subject subject = new Subject();
+            int count = 0;
+            do {
             System.out.println("Введите название предмета");
             subject.setNameSubject(scanner.next());
             System.out.println("Введите количество часов (максимально 100)");
@@ -68,7 +67,8 @@ public class MethodsUniver extends Person {
             subjects.add(subject);
             WriterReadingSubjects.writerToFile(subject);
             count++;
-        }while (count!=3);
+            }while (count!=3);
+            return subjects;
     }
 
 }

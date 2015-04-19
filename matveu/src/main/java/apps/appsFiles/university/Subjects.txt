@@ -1,3 +1,14 @@
-fizika:88:10
-matematika:66:8
-ximij:33:12
+hiost:78:9
+fiz:99:8
+geom:66:9
+ggg:67:9
+ooo:11:5
+mmm:55:7
+cgchg:76:7
+cfcf:56:6
+cfcfc:67:0
+ggg:77:8
+hhh:88:9
+nnn:66:7
+cgcg:87:7
+gcxd:77:6

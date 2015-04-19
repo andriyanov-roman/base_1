@@ -20,4 +20,11 @@ public class Student extends Person {
         super(name, secondName);
         this.subjects = subjects;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "subjects=" + subjects +
+                '}';
+    }
 }
