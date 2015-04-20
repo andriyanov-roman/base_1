@@ -11,12 +11,25 @@ public class TemperatureSearchImpl implements ITemperatureSearch {
             return 0;
         }
         double result = ts[0];
+        double maxNegative = MIN_TEMPERATURE;
+        double minPositive = ts[0];
         for (int i = 0; i < ts.length; i++) {
             if (ts[i] < MIN_TEMPERATURE || ts[i] > MAX_TEMPERATURE) {
                 throw new Exception();
             }
+            if(ts[i] < 0 && ts[i] > maxNegative) {
+                maxNegative = ts[i];
+            }
+            if(minPositive > ts[i] && ts[i] > 0) {
+                minPositive = ts[i];
+            }
         }
-
+        if(Math.abs(maxNegative) == minPositive) {
+            result = minPositive;
+        } else {
+            result = maxNegative;
+        }
+        System.out.println(result);
         return result;
     }
 }
