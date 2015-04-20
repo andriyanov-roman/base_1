@@ -16,7 +16,8 @@ public class MainInterfacesSort {
         //Collections.sort(employees);
         //employees.forEach(System.out::println);
         Collections.sort(employees, new CompareByName());
+
+        Collections.sort(employees, Comparator.comparing(Employee::getSalary));
         employees.forEach(System.out::println);
-        Collections.sort(employees, new CompareBySecondName());
     }
 }
