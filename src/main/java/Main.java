@@ -1,32 +1,22 @@
 import entity.Admin;
 import entity.Employee;
 import entity.Manager;
-import lesson_3.CommonWriterReader;
 
-import static java.lang.Math.*;
 import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static int NEW_CONSTANT = 10;
 
     public static void main(String[] args) throws IOException {
-        Abonent.StaticAbonent.main(new String[]{});
-        String s = "";
-        Map<String, String> map = new HashMap<>();
-        //Annon class
-        CommonWriterReader reader = new CommonWriterReader() {
-            @Override
-            public void writerToFile() {
-                super.writerToFile();
-            }
-        };
-        reader.writerToFile();
-        //double d = Double.parseDouble(s);
-        //System.out.println(d);
+        double[] d = {1.3, 6.0, 9.0, -1.2, 0.4};
+
+
     }
 
-    public void lambdasTest(){
+    public void lambdasTest() {
         ArrayList<Employee> employees = new ArrayList<>();
         //Employee employee = employees.stream().filter(e -> (e.getSalary() > 500)).findAny().get();
         List<String> myList =
@@ -39,6 +29,7 @@ public class Main {
                 .sorted()
                 .forEach(System.out::println);
     }
+
     public static void getMaxSalary() {
         ArrayList entyties = new ArrayList();
         Manager managerMax;
