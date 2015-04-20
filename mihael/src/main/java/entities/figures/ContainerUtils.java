@@ -1,12 +1,11 @@
 package entities.figures;
 
-import controllers.FigureController;
+import validators.FigureValidator;
 import io_tools.CommonWriterReader;
 import io_tools.FigureWriteReader;
 import io_tools.IOTools;
 
 import java.io.IOException;
-import java.util.DoubleSummaryStatistics;
 import java.util.Scanner;
 
 /**
@@ -125,7 +124,7 @@ public class ContainerUtils {
         while (loop){
             System.out.println("Input height");
             String line = scanner.next();
-            if(FigureController.controlHeight(line)){
+            if(FigureValidator.controlHeight(line)){
                 if (figure instanceof Triangle){
                       Double hight = Double.parseDouble(line);
                       ((Triangle) figure).setHeight(hight);
@@ -139,7 +138,7 @@ public class ContainerUtils {
         while (loop){
             System.out.println("Input side");
             String line = scanner.next();
-            if(FigureController.controlSide(line)){
+            if(FigureValidator.controlSide(line)){
                 Double side = Double.parseDouble(line);
                 if(figure instanceof FourSquare){
                     ((FourSquare) figure).setSide(side);
@@ -157,7 +156,7 @@ public class ContainerUtils {
         while (loop){
             System.out.println("Input radius");
             String line = scanner.next();
-            if(FigureController.controlRadius(line)){
+            if(FigureValidator.controlRadius(line)){
                 loop = false;
                 Double radius = Double.parseDouble(line);
                 if(figure instanceof Circle){

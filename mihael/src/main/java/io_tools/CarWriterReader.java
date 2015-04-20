@@ -1,6 +1,6 @@
 package io_tools;
 
-import entities.Car;
+import entities.factory.Car;
 import java.io.*;
 import java.util.ArrayList;
 

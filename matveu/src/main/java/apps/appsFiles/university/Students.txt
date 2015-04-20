@@ -1,0 +1,1 @@
+igor:matv:[Subject{nameSubject='geom', numberOfHours=66, mark=9}, Subject{nameSubject='geom', numberOfHours=66, mark=9}, Subject{nameSubject='geom', numberOfHours=66, mark=9}, Subject{nameSubject='hiost', numberOfHours=78, mark=9}, Subject{nameSubject='fiz', numberOfHours=99, mark=8}, Subject{nameSubject='geom', numberOfHours=66, mark=9}]:
