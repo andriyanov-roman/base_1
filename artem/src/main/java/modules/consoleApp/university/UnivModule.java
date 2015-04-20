@@ -19,7 +19,6 @@ import java.util.Scanner;
  * Created by R-Tem on 03.04.2015.
  */
 public class UnivModule {
-    protected Scanner scanner;
     public static ArrayList<University> univIni() throws IOException{
         ArrayList<University> universities = new ArrayList<>();
         CommonReader courseReader = new CourseReader("E:\\2_Programing\\IdeaProjects\\base_1\\artem\\src\\main\\java\\data\\university\\courses.txt", ":");
@@ -93,19 +92,23 @@ public class UnivModule {
     public static Student addStudent(Scanner scanner) throws  IOException{
         ArrayList<University> univs = UnivModule.univIni();
         Student student = new Student();
-        System.out.println(" Select(type) University, please:");
-        for (int i = 0; i < univs.size(); i++){ System.out.println(univs.get(i).getTitle()); }
-        String univTitle = scanner.next();
+        System.out.println(" Select University, please:");
+        ArrayList<String> univTitle = null;
+        for (int i = 0; i < univs.size(); i++){
+            univTitle.add(univs.get(i).getTitle());
+            System.out.println("'" + (i+1) + "' for " + univTitle.get(i));
+        }
+        String univNum = scanner.next();
         System.out.println(" Fill the fields, please!");
         scanner.useDelimiter("\n");
         System.out.print("Name: ");
         student.setName(scanner.next());
         System.out.print("Surname: ");
         student.setSurname(homework.Body.scanner.next());
-        System.out.println("Courses list (enter several like this - Chemistry,75,Mathematics,85) ");
+        System.out.println("Courses list (enter several like this - Chemistry,75:Mathematics,85) ");
         CommonReader cr = new CourseReader("artem/src/main/java/files/universities/"+String.valueOf(univTitle), ":");
         ArrayList<Course> univCourses = cr.readFromFile();
-        String s = homework.Body.scanner.next();
+        String s = scanner.next();
         String[] studentCoursesList = s.split(":");
         ArrayList<Course> studentCourses = new ArrayList<>();
         Random r = new Random();

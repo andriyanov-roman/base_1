@@ -8,9 +8,12 @@ import inputOutput.university.CommonReader;
 import inputOutput.university.readerHeirs.CourseReader;
 import inputOutput.university.readerHeirs.LecturersReader;
 import inputOutput.university.readerHeirs.StudentsReader;
+import modules.consoleApp.university.UnivModule;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
 
 /**
  * Created by R-Tem on 18.04.2015.
@@ -61,6 +64,36 @@ public class TestUnivModul {
     }
     @Test
     public void testAddStudent() throws Exception {
-
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<University> univs = UnivModule.univIni();
+        Student student = new Student();
+        System.out.println(" Select(type) University, please:");
+        for (int i = 0; i < univs.size(); i++){ System.out.println(univs.get(i).getTitle()); }
+        String univTitle = scanner.next();
+        System.out.println(" Fill the fields, please!");
+        scanner.useDelimiter("\n");
+        System.out.print("Name: ");
+        student.setName(scanner.next());
+        System.out.print("Surname: ");
+        student.setSurname(homework.Body.scanner.next());
+        System.out.println("Courses list (enter several like this - Chemistry,75,Mathematics,85) ");
+        CommonReader cr = new CourseReader("artem/src/main/java/files/universities/"+String.valueOf(univTitle), ":");
+        ArrayList<Course> univCourses = cr.readFromFile();
+        String s = homework.Body.scanner.next();
+        String[] studentCoursesList = s.split(":");
+        ArrayList<Course> studentCourses = new ArrayList<>();
+        Random r = new Random();
+        for (int i = 0; i < studentCoursesList.length; i++) {
+            String[] courseExemplar = studentCoursesList[i].split(",");
+            String courseTitle = courseExemplar[0];
+            Integer mark = Integer.valueOf(courseExemplar[1]);
+            for (int j = 0; j < univCourses.size(); j++) {
+                if (univCourses.get(j).getCourseTitle().equals(courseTitle)) {
+                    Course c = new Course(univCourses.get(j).getCourseTitle(), r.nextInt(univCourses.get(j).getCreditHours()), mark);
+                    studentCourses.add(c);
+                }
+            }
+        }
+        student.setCourses(studentCourses);
     }
 }
