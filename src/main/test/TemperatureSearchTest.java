@@ -6,7 +6,7 @@ import org.junit.Test;
  * Created by Администратор on 20.04.2015.
  */
 public class TemperatureSearchTest {
-    double[] testArray = {1.3, 6.0, 9.0, -1.2, -0.4, 580, 0.4};
+    double[] testArray = {1.3, 6.0, 9.0, -1.2, -0.4, 580, 0.4, 0.0001};
 
     @Test
     public void testIfIsEmpty() throws Exception {

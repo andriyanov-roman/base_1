@@ -4,9 +4,7 @@ import entity.Manager;
 import epam.TemperatureSearchImpl;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static int NEW_CONSTANT = 10;
@@ -16,7 +14,12 @@ public class Main {
         TemperatureSearchImpl search = new TemperatureSearchImpl();
         double result = search.closestToZero(d);
         System.out.println(result);
-
+        NavigableSet<Double> doubles = new TreeSet<>();
+        doubles.add(-1.3);
+        doubles.add(6.0);
+        doubles.add(1.3);
+        System.out.println(doubles.pollFirst());
+        System.out.println(doubles.pollLast());
     }
 
     public void lambdasTest() {
