@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 public class MassivExtraHard {
     public static void main(String [] args) throws IOException {
 
+
         BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
         int x,i,a,b;
         int element=0;   //элемент попадающий в отрезок [a;b]

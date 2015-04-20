@@ -1,1 +1,3 @@
-igor:matv:[Subject{nameSubject='geom', numberOfHours=66, mark=9}, Subject{nameSubject='geom', numberOfHours=66, mark=9}, Subject{nameSubject='geom', numberOfHours=66, mark=9}, Subject{nameSubject='hiost', numberOfHours=78, mark=9}, Subject{nameSubject='fiz', numberOfHours=99, mark=8}, Subject{nameSubject='geom', numberOfHours=66, mark=9}]:
+roma:rezvov:[Subject{nameSubject='literatyra', numberOfHours=65, mark=2}, Subject{nameSubject='literatyra', numberOfHours=65, mark=2}, Subject{nameSubject='literatyra', numberOfHours=65, mark=2}]:
+fedor:dostoevskiu:[risovanie:34:7, risovanie:34:7, risovanie:34:7]:
+silena:gomez:[fgd:44:6]:

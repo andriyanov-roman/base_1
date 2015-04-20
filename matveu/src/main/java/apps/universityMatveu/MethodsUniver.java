@@ -50,6 +50,8 @@ public class MethodsUniver extends Person {
         System.out.println("Введите фамилию студента");
         student.setSecondName(scanner.next());
         student.setSubjects(MethodsUniver.getSubjects());
+        student.setSubjects(MethodsUniver.getSubjects());
+        student.setSubjects(MethodsUniver.getSubjects());
         students.add(student);
         WriterReadingStudents.writerToFile(student);
     }
@@ -57,7 +59,7 @@ public class MethodsUniver extends Person {
         ArrayList<Subject>subjects=new ArrayList<>();
             Subject subject = new Subject();
             int count = 0;
-            do {
+            //do {
             System.out.println("Введите название предмета");
             subject.setNameSubject(scanner.next());
             System.out.println("Введите количество часов (максимально 100)");
@@ -67,7 +69,7 @@ public class MethodsUniver extends Person {
             subjects.add(subject);
             WriterReadingSubjects.writerToFile(subject);
             count++;
-            }while (count!=3);
+           // }while (count!=3);
             return subjects;
     }
 

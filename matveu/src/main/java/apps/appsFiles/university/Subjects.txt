@@ -12,3 +12,15 @@ hhh:88:9
 nnn:66:7
 cgcg:87:7
 gcxd:77:6
+istoria:55:4
+fizika:66:9
+literatyra:65:2
+istiria:34:2
+politika:55:4
+fizra:67:6
+ximia:88:9
+jzuk:54:5
+risovanie:34:7
+geometria:56:3
+inform:88:9
+fgd:44:6
