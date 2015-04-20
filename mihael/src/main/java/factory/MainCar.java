@@ -17,7 +17,7 @@ public class MainCar {
         //CarUtils.showLoadedCars();
     }
 
-    private static void startFactory() throws IOException, ParseException {
+    public static void startFactory() throws IOException, ParseException {
         showMenu();
         menu();
     }

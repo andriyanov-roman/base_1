@@ -1,4 +1,4 @@
-import lesson2.Employee;
+//import lections.lesson2.Employee;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -10,8 +10,8 @@ public class FirstTest {
 
     @Test
     public void doSomething() throws Exception{
-        Employee e = null;
-        Assert.assertNotNull(e);
+       // Employee e = null;
+       // Assert.assertNotNull(e);
         List<String> myList =
                 Arrays.asList("a1", "a2", "b1", "c2", "c1");
 
