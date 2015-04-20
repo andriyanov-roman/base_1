@@ -1,0 +1,11 @@
+Camry:Sedan:Poul Smith:9999:Black:Toyota:true:This is the Toyota Camry car:2000.0:15/01/2013
+Corolla:sedan:Sem:aa9999aa:white:Toyota:true:Car description:260.0:03/04/2015
+Corolla:sedan:Ivan:3232AB:red:Toyota:true:Car description:260.0:03/02/2015
+Corolla:hatchback:Poroshenko:AA4921ID:red:Toyota:true:Car description:500.0:03/02/2015
+Corolla:universal:Bill:93148:darkblue:Toyota:true:Car description:430.0:03/04/2015
+Camry:Sedan:Poul Smith:9999:Black:Toyota:true:This is the Toyota Camry car:2000.0:15/01/2015
+Corolla:hatchback:Obama:BA4444OB:black:Toyota:true:Car description:42000.0:02/03/2014
+Corolla:hatchback:Shevchenko:SH7777VA:green:Toyota:true:Car description:52000.0:15/01/2015
+Corolla:sedan:Klichko:CH1111EM:blue:Toyota:true:Car description:33000.0:21/06/2014
+Corolla:sedan:Gates:888:black:Toyota:true:Car description:30000.0:27/07/2015
+Corolla:www:wwww:w123:red:Toyota:true:Car description:20000.0:27/07/2014
