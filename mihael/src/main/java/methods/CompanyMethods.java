@@ -4,10 +4,10 @@ package methods;
  * Created by Администратор on 27.03.2015.
  */
 
-import entities.Manager;
-import entities.Programmer;
-import entities.Sysadmin;
-import entities.Employee;
+import entities.company.Manager;
+import entities.company.Programmer;
+import entities.company.Sysadmin;
+import entities.company.Employee;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;

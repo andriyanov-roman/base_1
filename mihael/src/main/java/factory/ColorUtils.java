@@ -1,7 +1,6 @@
 package factory;
 
-import entities.Color;
-import hometask3.CompanyUtil;
+import entities.factory.Color;
 import io_tools.ColorsWriterReader;
 import io_tools.IOTools;
 

@@ -1,10 +1,9 @@
 package factory;
 
-import entities.Car;
-import entities.Color;
+import entities.factory.Car;
+import entities.factory.Color;
 import io_tools.CarWriterReader;
 import io_tools.IOTools;
-import sun.nio.ch.IOUtil;
 
 import java.io.IOException;
 import java.text.ParseException;

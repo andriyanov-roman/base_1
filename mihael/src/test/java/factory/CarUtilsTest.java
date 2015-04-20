@@ -1,8 +1,7 @@
 package factory;
 
-import entities.Car;
+import entities.factory.Car;
 import io_tools.CarWriterReader;
-import io_tools.IOTools;
 import org.junit.Test;
 
 import java.io.IOException;
