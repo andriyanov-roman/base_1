@@ -1,6 +1,7 @@
 import entity.Admin;
 import entity.Employee;
 import entity.Manager;
+import epam.TemperatureSearchImpl;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -10,9 +11,11 @@ import java.util.List;
 public class Main {
     public static int NEW_CONSTANT = 10;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         double[] d = {1.3, 6.0, 9.0, -1.2, 0.4};
-
+        TemperatureSearchImpl search = new TemperatureSearchImpl();
+        double result = search.closestToZero(d);
+        System.out.println(result);
 
     }
 

@@ -20,7 +20,6 @@ public class FirstTest {
         ArrayList<Employee> employees = new ArrayList<>();
         CommonWriterReader writerReader = new EmployeeWriterReader(employees);
         writerReader.writerToFile();
-        writerReader.readFromFile();
     }
 
     public String getString() {
