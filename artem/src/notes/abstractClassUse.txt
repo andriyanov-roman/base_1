@@ -1,4 +1,4 @@
-Зачем нужны абстрактные классы
+Зачем нужны абстрактные классы  (http://java-course.ru/begin/abstract/)
 Идея абстрактного класса заключается в следующем предположении – для работы иногда вам требуются не
 полностью готовые классы, а “заготовки” (полуфабрикаты, если хотите). Они уже кое-что умеют, но в
 “сыром виде” их использовать нельзя. Причем здесь стоит выделить два момента:
@@ -88,8 +88,8 @@ public class TriangleComponent extends AbstractShape
         g.drawLine(getWidth() - 10, getHeight() - 10, 5, getHeight() - 10);
     }
 }
-Прямоугольник
 
+Прямоугольник
 
 package edu.javacourse.ui.component;
 
@@ -103,8 +103,8 @@ public class RectangleComponent extends AbstractShape
         g.drawRect(5, 5, getWidth() - 10, getHeight() - 10);
     }
 }
-Овал
 
+Овал
 
 package edu.javacourse.ui.component;
 
