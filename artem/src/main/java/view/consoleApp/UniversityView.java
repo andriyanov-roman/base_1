@@ -2,7 +2,6 @@ package view.consoleApp;
 
 import entity.university.University;
 import modules.consoleApp.university.UnivModule;
-import validate.UniversityDataValidator;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,7 +12,6 @@ import java.util.Scanner;
  */
 public class UniversityView {
     protected Scanner scanner;
-    private UniversityDataValidator validator;
     private ArrayList<University> universities/* = UnivModule.univIni()*/; // как избавиться от IOException???????
 
     public UniversityView(Scanner scanner) {

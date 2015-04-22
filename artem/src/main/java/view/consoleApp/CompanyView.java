@@ -1,12 +1,10 @@
 package view.consoleApp;
 
-import validate.CompanyDataValidator;
 import java.util.Scanner;
 
 
 public class CompanyView {
     protected Scanner scanner;
-    private CompanyDataValidator validator;
 
     public CompanyView(Scanner scanner) {
         this.scanner = scanner;
