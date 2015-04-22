@@ -9,9 +9,9 @@ public class TemperatureTest {
     double[] testArray = {1.3, 6.0, 9.0, -1.2, 0.4, 580};
     @Test
     public void testIfIsEmpty () throws Exception {
-     //   ISearchTemperature  search = new ISearchTemperature();
-      //  double result = search.closestToZero(testArray);
-       // Assert.assertNotEquals(0, result);
+     TemperatureImpl  search = new TemperatureImpl();
+      double result = search.closestToZero(testArray);
+       Assert.assertNotEquals(0, result);
 
 
     }
