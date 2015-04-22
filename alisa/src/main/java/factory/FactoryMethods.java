@@ -1,4 +1,4 @@
-package mvc.model;
+package factory;
 
 import entity.Car;
 import mvc.validators.FactoryValidator;

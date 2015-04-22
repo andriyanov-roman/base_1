@@ -1,4 +1,4 @@
-package mvc.model;
+package company;
 
 import company.CompanyUtil;
 import entity.Employee;
