@@ -1,5 +1,7 @@
 package factory;
 
+import mvc.model.FactoryMethods;
+
 import java.io.IOException;
 
 /**

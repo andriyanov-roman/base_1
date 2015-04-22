@@ -1,5 +1,7 @@
 package company;
 
+import mvc.model.TechnicalStaffMethods;
+
 import java.io.IOException;
 
 /**

@@ -1,6 +1,7 @@
-package factory;
+package mvc.model;
 
 import entity.Car;
+import mvc.validators.FactoryValidator;
 
 import java.io.*;
 import java.util.ArrayList;
