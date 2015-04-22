@@ -16,18 +16,35 @@ public class Circle extends AbstractFigure {
         this.radius = radius;
     }
 
-    @Override
+    public String getName() {
+        return name;
+    }
+    //    @Override
     public void setName(String name) {
         this.name = name;
     }
 
-    @Override
-    protected void calculatePerimeter() {
-        perimeter = Math.PI*2*radius;
+    public double getRadius() {
+        return radius;
+    }
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    public double getPerimeter() {
+        return perimeter;
+    }
+
+    public double getSquare() {
+        return square;
     }
 
     @Override
-    protected void calculateSquare() {
+    public void calculatePerimeter() {
+        perimeter = Math.PI*2*radius;
+    }
+    @Override
+    public void calculateSquare() {
         square = Math.PI*radius*radius;
     }
 }

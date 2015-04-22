@@ -1,6 +1,7 @@
 import view.BaseView;
 import view.consoleApp.CommonView;
 import view.consoleApp.CompanyView;
+import view.consoleApp.FiguresView;
 import view.consoleApp.UniversityView;
 
 import java.io.IOException;
@@ -49,7 +50,9 @@ public class AppNavigator {
                                 break;
                             case "Figure Util":
                                 do {
-
+                                    FiguresView view = new FiguresView(scanner);
+                                    String s = view.menu();
+                                    if(s.equals("return")) toReturn = false;
                                 } while (toReturn);
                                 break;
                             case "University Util":

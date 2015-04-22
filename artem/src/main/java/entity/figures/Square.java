@@ -14,18 +14,35 @@ public class Square extends AbstractFigure {
         this.side = side;
     }
 
-    @Override
-    protected void setName(String name) {
+    public String getName() {
+        return name;
+    }
+    //    @Override
+    public void setName(String name) {
         this.name = name;
     }
 
-    @Override
-    protected void calculatePerimeter() {
-        perimeter = side*4;
+    public double getSide() {
+        return side;
+    }
+    public void setSide(double side) {
+        this.side = side;
+    }
+
+    public double getPerimeter() {
+        return perimeter;
+    }
+
+    public double getSquare() {
+        return square;
     }
 
     @Override
-    protected void calculateSquare() {
+    public void calculatePerimeter() {
+        perimeter = side*4;
+    }
+    @Override
+    public void calculateSquare() {
         square = side*side;
     }
 }

@@ -13,17 +13,41 @@ public class Triangle extends AbstractFigure{
         this.height = height;
     }
 
-    @Override
+    public String getName() {
+        return name;
+    }
+    //    @Override
     public void setName(String name) {
         this.name = name;
     }
 
+    public double getSide() {
+        return side;
+    }
+    public void setSide(double side) {
+        this.side = side;
+    }
+    public double getHeight() {
+        return height;
+    }
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public double getPerimeter() {
+        return perimeter;
+    }
+
+    public double getSquare() {
+        return square;
+    }
+
     @Override
-    protected void calculatePerimeter() {
+    public void calculatePerimeter() {
         perimeter = side*3;
     }
     @Override
-    protected void calculateSquare() {
+    public void calculateSquare() {
         square = (height * side)/2;
     }
 }
