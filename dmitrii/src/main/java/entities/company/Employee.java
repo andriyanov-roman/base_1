@@ -1,12 +1,14 @@
 package entities.company;
 
+import java.util.Comparator;
+
 /**
  * Created by user on 14.03.2015.
  */
 public class Employee {
     private String name;
     private String surname;
-    private double salary;
+    private Double salary;
     private Boolean gender;
     private int age;
     private static String separator = ":"; // "separator", то есть разделитель
@@ -30,7 +32,7 @@ public class Employee {
     public String getSurname (){return surname;}
     public  void setSurname (String surname) {this.surname = surname;}
 
-    public double getSalary() {return salary;}
+    public Double getSalary() {return salary;}
     public void setSalary(double salary) {this.salary = salary;}
 
     public Boolean getGender() {return gender;}
@@ -54,5 +56,23 @@ public class Employee {
                 age;
     }
 
+   public class CompareBySalary implements Comparator<Employee>{
+       @Override
+       public int compare(Employee e1, Employee e2) {
+           return  Double.compare(e1.getSalary(), e2.getSalary());
+       }
+   }
+    public class CompareByAge implements Comparator<Employee>{
+        @Override
+        public int compare(Employee e1, Employee e2) {
+            return Integer.compare(e1.getAge(), e2.getAge());
+        }
+    }
+    public class CompareBySurnameLength implements Comparator<Employee>{
+        @Override
+        public int compare(Employee e1, Employee e2) {
+            return Integer.compare(e1.getSurname().length(),e2.getSurname().length());
+        }
+    }
 }
 

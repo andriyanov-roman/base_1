@@ -98,10 +98,10 @@ public class CompanyModel {
         Company com = new Company();
         ArrayList<String[]> companyDump = tools.FileUtil.ReadFromFile(filePath, Employee.getSeparator());
         com.setCompanyName(companyDump.get(0)[0]);
-        ArrayList workers = new ArrayList();
+        ArrayList<Employee> workers = new ArrayList<>();
         com.setWorkers(workers);
         for (int i = 1; i < companyDump.size(); i++) {
-            noErrors = addWorker(com, companyDump.get(i));
+            noErrors = com.getWorkers().add(createWorker(companyDump.get(i)));
             if (!noErrors) {
                 createErrorMsg(i, companyDump.get(i),filePath);
             }
@@ -109,8 +109,7 @@ public class CompanyModel {
         return com;
     }
 
-
-    public Boolean addWorker(Company com, String workerString[]) {
+    public Employee createWorker (String workerString[]) {
         Employee e ;
         switch (workerString[WORKER_TYPE]) {
             case "Admin":
@@ -126,10 +125,9 @@ public class CompanyModel {
                 e = createEmployee(workerString);
                 break;
             default:
-                return false;
+                return null;
         }
-        com.getWorkers().add(e);
-        return true;
+        return e;
     }
 
     public static Employee createEmployee(String[] info) {
@@ -172,43 +170,7 @@ public class CompanyModel {
         }
         return new Company(workCompany,eMax);
     }
-    public Company sortBy(Company com, Method method) {
-        ArrayList<Employee> workers = com.getWorkers();
-        Object returnedValueClass = null;
-        try {
-            returnedValueClass = method.invoke(workers.get(0));
-        } catch (IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
-        }
-        for (int i = 0; i < workers.size() - 1; i++) {
-                for (int j = 0; j < workers.size() - 1 - i; j++) {
-                    try {
-                         if (returnedValueClass instanceof Number){
-                             Double nextVal = Double.valueOf(method.invoke(workers.get(j + 1)).toString());
-                             Double prevVal = Double.valueOf(method.invoke(workers.get(j)).toString());
-                            if (nextVal < prevVal){
-                                workers = moveIt(workers, j);
-                            }
-                        } else if (returnedValueClass instanceof String){
-                             if ( ((String)method.invoke(workers.get(j+1))).length() <
-                                     ((String)method.invoke(workers.get(j))).length() ){
-                                 workers = moveIt(workers, j);
-                             }
-                         }
-                    } catch (IllegalAccessException | InvocationTargetException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            com.setWorkers(workers);
-        return com;
-    }
-    private ArrayList<Employee> moveIt(ArrayList<Employee> workers, int j) {
-        Employee temp = workers.get(j);
-        workers.set(j, workers.get(j + 1));
-        workers.set(j + 1, temp);
-        return workers;
-    }
+
     public static Company fireStuff (Company com, Boolean Gender){
         for (int i = 0; i < com.getWorkers().size(); i++) {
             Employee k = com.getWorkers().get(i);

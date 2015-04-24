@@ -37,10 +37,10 @@ public class CommonView {
         this.columnWidth = columnWidth;
     }
 
-    public void alert(String txt){
+    public static void alert(String txt){
         System.out.println(txt);
     }
-    public void alertInline(String txt){
+    public static void alertInline(String txt){
         System.out.print(txt);
     }
     public void showMainMenu() {

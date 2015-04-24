@@ -10,5 +10,6 @@ public class MainInterfaceTest {
 
         IFly fly = new BirdFlyImpl();
         fly = new PlaneFlyImpl();
+
     }
 }
