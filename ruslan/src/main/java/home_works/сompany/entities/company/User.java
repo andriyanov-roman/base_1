@@ -10,6 +10,10 @@ public class User extends Human {
     private String login;
     private String password;
 
+    public User() {
+
+    }
+
     public long getId() {
         return id;
     }

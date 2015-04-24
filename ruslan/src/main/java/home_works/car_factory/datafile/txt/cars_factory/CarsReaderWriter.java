@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class CarsReaderWriter extends CommonReaderWriter {
     public static ArrayList <Car> getCars () throws IOException {
-    File file = new File("ruslan\\src\\main\\java\\files.txt\\Cars.txt");
+    File file = new File("ruslan\\src\\txt\\Cars.txt");
     FileReader reader = new FileReader(file);
     BufferedReader buffer = new BufferedReader(reader);
     ArrayList<Car> cars = new ArrayList<>();

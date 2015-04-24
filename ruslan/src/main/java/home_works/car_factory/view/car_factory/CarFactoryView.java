@@ -1,6 +1,7 @@
 package home_works.car_factory.view.car_factory;
 
 import entity.ConsoleView;
+import home_works.car_factory.datafile.txt.cars_factory.CarsReaderWriter;
 import home_works.car_factory.model.car_factory.CarFactoryMethods;
 
 import java.util.Scanner;
@@ -12,7 +13,7 @@ public class CarFactoryView extends ConsoleView {
     protected Scanner scanner;
 
     public CarFactoryView(Scanner scanner) {
-        super(scanner);
+
     }
 
     public void start() throws Exception {
@@ -23,12 +24,12 @@ public class CarFactoryView extends ConsoleView {
                 "3. Подивитись автомобілі, які були виготовлені, протягом заданого часу" + "\n" +
                 "4. Вивести найдорожчий автомобіль, який виготовлявся" + "\n" +
                 "5. Вивести автомобілі, колір яких співпадає" + "\n" +
-                "6. Вийти");
+                "6. Вивести список автомобілів" + "\n" +
+                "7. Вийти");
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "1":
                     CarFactoryMethods.createNewOrderOfCar();
-                    ;
                     break;
                 case "2":
                     CarFactoryMethods.showCatalogOfAllCars();
@@ -43,6 +44,9 @@ public class CarFactoryView extends ConsoleView {
                     CarFactoryMethods.sameColorsCars();
                     break;
                 case "6":
+                    CarsReaderWriter.getCars();
+                    break;
+                case "7":
                     System.exit(0);
                     break;
             }
