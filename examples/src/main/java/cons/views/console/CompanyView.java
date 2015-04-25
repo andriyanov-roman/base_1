@@ -1,4 +1,4 @@
-package views.console;
+package cons.views.console;
 
 import java.util.Scanner;
 

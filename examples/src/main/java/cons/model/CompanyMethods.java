@@ -1,7 +1,7 @@
-package model;
+package cons.model;
 
-import data.file.txt.EmployeeWriterReader;
-import entities.company.Employee;
+import cons.company.Employee;
+import cons.txt.EmployeeWriterReader;
 
 /**
  * Created by user on 4/5/2015.

@@ -1,4 +1,4 @@
-package entities.company;
+package cons.company;
 
 /**
  * Created by Администратор on 11.04.2015.

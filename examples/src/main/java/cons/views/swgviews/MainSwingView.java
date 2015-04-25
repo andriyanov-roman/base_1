@@ -1,6 +1,6 @@
-package views.swgviews;
+package cons.views.swgviews;
 
-import views.BaseView;
+import cons.views.BaseView;
 
 /**
  * Created by user on 4/5/2015.
