@@ -1,8 +1,9 @@
-package home_works.company.data.files;
+package home_works.сompany.data.files;
 
 import entity.CommonReaderWriter;
 
-import home_works.company.entities.company.User;
+
+import home_works.сompany.entities.company.User;
 
 import java.io.BufferedReader;
 import java.io.*;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 
 public class UserReaderWriter extends CommonReaderWriter {
     public static ArrayList<User> getUsers() throws IOException {
-        File file = new File("ruslan\\src\\main\\java\\files.txt\\Users.txt");
+        File file = new File("ruslan\\src\\txt\\Users.txt");
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
         ArrayList<User> users = new ArrayList<>();

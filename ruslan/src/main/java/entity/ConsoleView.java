@@ -9,7 +9,6 @@ import home_works.university.view_university.UniversityView;
 import home_works.сompany.view_company.CompanyView;
 import home_works.сompany.view_company.UserView;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -21,6 +20,10 @@ public class ConsoleView extends ProjectNavigator {
 
     public ConsoleView(Scanner scanner) {
         this.scanner = scanner;
+    }
+
+    public ConsoleView() {
+
     }
 
     public String chooseMenu() throws Exception {

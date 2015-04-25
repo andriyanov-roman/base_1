@@ -3,89 +3,21 @@ package home_works.сompany.model_methods;
 
 
 
-import home_works.сompany.entities.company.Company;
-import home_works.сompany.entities.company.Employee;
 import home_works.сompany.view_company.UserView;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 
 public class CompanyMethods {
+    /*private Scanner scanner = new Scanner(System.in);
+    private ArrayList<Employee> employees = new ArrayList<>();
+    private ArrayList<Company> companies = new ArrayList<>();
 
+    public static void showUsers() {
+        User[] users = UsersUtil.getUsers();
+        for (int i = 0; i < users.length; i++) {
+            System.out.println(users[i].name + " " + users[i].secondName);
 
-
-                /*case "1":
-                    showUsers();
-                    break;
-                case "2":
-                    checkUsersLogin();
-                    break;
-                case "3":
-                    checkUsersName();
-                    break;
-                case "4":
-                    sortUsersId();
-                    break;*/
-               /* case "5":
-                    showInfoByEmployees();
-                    break;
-                case "6":
-                    maxSalary();
-                    break;
-                case "7":
-                    sameEmployee();
-                    break;
-                case "8":
-                    sortSalary();
-                    break;
-                case "9":
-                    sortAge();
-                    break;*/
-//               case "10":
-//                    sortSecondName();
-//                    break;
-//                case "11":
-//                    addNewEmployee();
-//                    break;
-//                case "12":
-//                    showCreateEmployees();
-//                    break;
-//                case "13":
-//                    takeUpperSalaryForMan();
-//                    break;
-//                case "14":
-//                    firedAllWomen();
-//                    break;
-//
-//                case "Exit":
-//                    System.exit(0);
-//                default:
-//                    System.out.println("Нету интересующей Вас информации.");
-//            }
-//        }
-//    }
-//
-//    private static void firedAllWomen() {
-//
-//    }
-//
-//    private static void takeUpperSalaryForMan() {
-//
-//    }
-//
-//    private static void showCreateEmployees() {
-//
-//    }
-//
-//    private static void addNewEmployee() {
-//
-//    }
-//
-//    private static void sortSecondName() {
-//
-//    }
+        }
+    }
 
    private static void sortAge() throws IOException {
         ArrayList<Company> companies = CompanyUtil.getCompanies();
@@ -102,7 +34,7 @@ public class CompanyMethods {
                     companies.get(i).getEmployees().get(i).getSecondName() + " - " +
                     companies.get(i).getEmployees().get(i).getAge() + " year(s) ");
         }
-    }
+    }*/
 
     /*private static void sortSalary() {
         ArrayList<Company> companies = CompanyUtil.getCompanies();
