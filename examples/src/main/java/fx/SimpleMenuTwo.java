@@ -1,9 +1,6 @@
 package fx;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -13,18 +10,18 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-
-public class SimpleMenu extends Application {
-
+/**
+ * Created by Администратор on 25.04.2015.
+ */
+public class SimpleMenuTwo extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("JavaFX Welcome");
+        primaryStage.setTitle("Second Menu");
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
@@ -47,7 +44,7 @@ public class SimpleMenu extends Application {
         Label pw = new Label("Password:");
         grid.add(pw, 0, 2);
 
-        PasswordField pwBox = new PasswordField();
+        TextField pwBox = new TextField();
         grid.add(pwBox, 1, 2);
 
         Button btn = new Button("Sign in");
@@ -58,37 +55,9 @@ public class SimpleMenu extends Application {
 
         final Text actiontarget = new Text();
         grid.add(actiontarget, 1, 6);
-        btn.setOnAction(new SimpleMenuAction(actiontarget, pwBox, primaryStage));
+        //btn.setOnAction(new SimpleMenuAction(actiontarget,pwBox));
         primaryStage.show();
     }
 
-    public void startProgram(String[] args) {
-        launch(args);
-    }
 
-    private class SimpleMenuAction implements EventHandler<ActionEvent> {
-        private Text actiontarget;
-        private PasswordField pwBox;
-        private Stage stage;
-
-        public SimpleMenuAction(Text actiontarget, PasswordField pwBox, Stage stage) {
-            this.actiontarget = actiontarget;
-            this.pwBox = pwBox;
-            this.stage = stage;
-        }
-
-        @Override
-        public void handle(ActionEvent event) {
-            if ("Test".equals(pwBox.getText())) {
-                try {
-                    new SimpleMenuTwo().start(stage);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            actiontarget.setText(pwBox.getText());
-            actiontarget.setFill(Color.HOTPINK);
-            System.out.println("Test");
-        }
-    }
 }

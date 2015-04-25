@@ -5,6 +5,7 @@ import fx.SimpleMenu;
  */
 public class Main {
     public static void main(String[] args) {
-        new SimpleMenu().startProgram(args);
+        SimpleMenu menu = new SimpleMenu();
+        menu.startProgram(args);
     }
 }
