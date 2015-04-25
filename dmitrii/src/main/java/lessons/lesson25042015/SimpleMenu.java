@@ -1,7 +1,6 @@
-package FXHW;
+package lessons.lesson25042015;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -11,7 +10,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -20,10 +18,10 @@ import javafx.stage.Stage;
 /**
  * Created by user on 25.04.2015.
  */
-public class Employee extends Application {
+public class SimpleMenu extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Employee Menu");
+        primaryStage.setTitle("JavaFX Welcome");
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
@@ -32,6 +30,7 @@ public class Employee extends Application {
 
         Scene scene = new Scene(grid, 300, 275);
         primaryStage.setScene(scene);
+
         Text scenetitle = new Text("Welcome");
         scenetitle.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
         grid.add(scenetitle, 0, 0, 2, 1);
@@ -54,25 +53,8 @@ public class Employee extends Application {
         hbBtn.getChildren().add(btn);
         grid.add(hbBtn, 1, 4);
 
-        final Text actiontarget = new Text();
-        grid.add(actiontarget, 1, 6);
-//        btn.setOnAction(new Employee(actiontarget, pwBox, primaryStage));
-//        primaryStage.show();
-//        @Override
-//        public void handle(ActionEvent event) {
-//            if ("Test".equals(pwBox.getText())) {
-//                try {
-//                    new SimpleMenuTwo().start(stage);
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//            actiontarget.setText(pwBox.getText());
-            actiontarget.setFill(Color.HOTPINK);
-            System.out.println("Test");
-        }
-
-
+        primaryStage.show();
+    }
 
     public void startProgram(String[] args) {
         launch(args);

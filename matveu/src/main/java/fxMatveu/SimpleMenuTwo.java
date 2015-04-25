@@ -1,7 +1,6 @@
-package FXHW;
+package fxMatveu;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -11,19 +10,16 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-/**
- * Created by user on 25.04.2015.
- */
-public class Employee extends Application {
+
+public class SimpleMenuTwo extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Employee Menu");
+        primaryStage.setTitle("Second Menu");
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
@@ -32,6 +28,7 @@ public class Employee extends Application {
 
         Scene scene = new Scene(grid, 300, 275);
         primaryStage.setScene(scene);
+
         Text scenetitle = new Text("Welcome");
         scenetitle.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
         grid.add(scenetitle, 0, 0, 2, 1);
@@ -45,7 +42,7 @@ public class Employee extends Application {
         Label pw = new Label("Password:");
         grid.add(pw, 0, 2);
 
-        PasswordField pwBox = new PasswordField();
+        TextField pwBox = new TextField();
         grid.add(pwBox, 1, 2);
 
         Button btn = new Button("Sign in");
@@ -56,25 +53,9 @@ public class Employee extends Application {
 
         final Text actiontarget = new Text();
         grid.add(actiontarget, 1, 6);
-//        btn.setOnAction(new Employee(actiontarget, pwBox, primaryStage));
-//        primaryStage.show();
-//        @Override
-//        public void handle(ActionEvent event) {
-//            if ("Test".equals(pwBox.getText())) {
-//                try {
-//                    new SimpleMenuTwo().start(stage);
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//            actiontarget.setText(pwBox.getText());
-            actiontarget.setFill(Color.HOTPINK);
-            System.out.println("Test");
-        }
-
-
-
-    public void startProgram(String[] args) {
-        launch(args);
+        //btn.setOnAction(new SimpleMenuAction(actiontarget,pwBox));
+        primaryStage.show();
     }
+
+
 }

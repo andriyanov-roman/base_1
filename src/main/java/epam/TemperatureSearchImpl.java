@@ -20,7 +20,7 @@ public class TemperatureSearchImpl implements ITemperatureSearch {
             if(ts[i] < 0 && ts[i] > maxNegative) {
                 maxNegative = ts[i];
             }
-            if(minPositive > ts[i] && ts[i] > 0) {
+            if(ts[i] < minPositive  && ts[i] > 0) {
                 minPositive = ts[i];
             }
         }
