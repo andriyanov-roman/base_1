@@ -1,6 +1,7 @@
 package apps.factory;
 
 import entities.factory.Car;
+import entities.mvc.CommonView;
 import tools.Table;
 
 import java.text.DateFormat;
@@ -13,9 +14,8 @@ import java.util.Scanner;
 /**
  * Created by mit_OK! on 03.04.2015.
  */
-public class FactoryView {
-    public static Scanner scanner = new Scanner(System.in);
-    public static String buffer = "";
+public class FactoryView extends CommonView{
+
 
     public static String getBuffer() {
         return buffer;
@@ -26,16 +26,9 @@ public class FactoryView {
         buffer+= scan+"\n";
         return scan;
     }
-    public static Boolean hasNext(){
-        return scanner.hasNext();
-    }
-    public static void toPrintLN(String txt) {
-        System.out.println(txt);
-    }
-    public static void toPrint(String txt) {
-        System.out.print(txt);
-    }
-    public static void welcome() {
+
+    @Override
+    public void showMainMenu() {
         toPrintLN("\n1. To order a car\n" +
                 "2. Load Cars from File\n"+
                 "3. Show cars in period\n"+
@@ -46,6 +39,17 @@ public class FactoryView {
                 "E/e or Exit - end program");
         toPrint("Your choice: ");
     }
+
+    public static Boolean hasNext(){
+        return scanner.hasNext();
+    }
+    public static void toPrintLN(String txt) {
+        System.out.println(txt);
+    }
+    public static void toPrint(String txt) {
+        System.out.print(txt);
+    }
+
 
     public static void showCars(ArrayList<Car> cars, String ... tableName) {
         if (tableName.length==0){

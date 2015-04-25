@@ -54,7 +54,9 @@ public class CompanyView extends CommonView {
         );
     }
 
-    public static void selectCompanyDialog(ArrayList<Company> comps, Boolean... allCompanies) {
+
+
+    public void selectCompanyDialog(ArrayList<Company> comps, Boolean... allCompanies) {
         alert("\nChoose company:");
         if (allCompanies.length == 0) { // мы не будем добавлять сотрудника сразу во все компании, а только по одной
             alert("0. All employees in all companies");// «0» - вывести всех работников во всех компаниях
@@ -66,7 +68,8 @@ public class CompanyView extends CommonView {
         alertInline("Your choice: ");
     }
 
-    public static ArrayList<Company> selectCompany(ArrayList<Company> comps, Boolean... allCompanies) {
+    public ArrayList<Company> selectCompany(ArrayList<Company> comps, Boolean... allCompanies) {
+        selectCompanyDialog(comps,allCompanies);
      /* МЕТОД ДЛЯ ОБРАБОТКИ ТОГО, ЧТО ВВЁЛ ПОЛЬЗОВАТЕЛЬ */
         ArrayList<Company> selectedComps = new ArrayList<>();
         int chooseNumber = -1;
@@ -112,10 +115,10 @@ public class CompanyView extends CommonView {
     }
 
 
-    public static void alertInlineCompName (String txt){
+    public void alertInlineCompName (String txt){
         alert("=========== " + txt + " ===========");
     }
-    public static void displayWorkersFULL(ArrayList<Company> selectedComps) {
+    public void displayWorkersFULL(ArrayList<Company> selectedComps) {
         for (Company com : selectedComps) {
             alert(com.getCompanyName());
             for (int i = 0; i < com.getWorkers().size(); i++) {
@@ -124,37 +127,9 @@ public class CompanyView extends CommonView {
         }
     }
 
-    public void displayWorkersTable(ArrayList<Company> selectedComps, int ... highlightedTitle) {
-        int colWidth = 16;
-        String[] titles = templateTitles.clone();
-        for (int i = 0; i < highlightedTitle.length; i++) {
-            if (highlightedTitle[i]<titles.length){
-                titles[highlightedTitle[i]] += " *";
-            }
-        }
-        String[] cells = titles;
+    public void displayWorkersTableAllCompanies(ArrayList<Company> selectedComps, int ... highlightedTitle) {
         for (Company com : selectedComps) {
-            int totalColumns = cells.length;
-            int fullWidth = colWidth * cells.length;
-            Table.toDash(fullWidth);
-            Table.toHeader(fullWidth, com.getCompanyName());
-            Table.toPlusDash(colWidth, totalColumns);
-            Table.toRowCenter(colWidth, titles);
-            Table.toPlusDash(colWidth, totalColumns);
-            for (int i = 0; i < com.getWorkers().size(); i++) {
-                String tempStr = com.getWorkers().get(i).toString();
-                String temp[] = tempStr.split(Employee.getSeparator());
-                if (temp.length < totalColumns) {
-                    for (int k = temp.length; k < totalColumns; k++) {
-                        tempStr += (Employee.getSeparator() + " ");
-                    }
-                }
-                cells = tempStr.split(Employee.getSeparator());
-                if (Boolean.valueOf(cells[4])) {
-                    cells[4] = "male";} else {cells[4] = "female";}
-                Table.toRow(colWidth, cells);
-            }
-            Table.toDash(fullWidth);
+            displayWorkersTable(com,highlightedTitle);
         }
     }
     public void displayWorkersTable(Company com, int ... highlightedTitle) {
@@ -188,7 +163,7 @@ public class CompanyView extends CommonView {
             }
             Table.toDash(fullWidth);
     }
-    public static void showWorkerFULL(String workerString) {
+    public void showWorkerFULL(String workerString) {
         String result = "";
         String[] p = workerString.split(Employee.getSeparator());
         if (p.length < 6) {
@@ -252,7 +227,7 @@ public class CompanyView extends CommonView {
         return result;
     }
 
-    public static void toShowHighSalary(String workerStr, String CompanyName) {
+    public void toShowHighSalary(String workerStr, String CompanyName) {
         alertInline(workerStr.split(Employee.getSeparator())[0]);
         alert(" with HIGHEST salary is:");
         alert("\t" + showWorkerSHORT(workerStr));
@@ -296,7 +271,7 @@ public class CompanyView extends CommonView {
         return str;
     }
 
-    public static String[] fillMainFields(String[] str) {
+    public String[] fillMainFields(String[] str) {
         str[1] = addName();
         str[2] = addSurname();
         str[3] = addSalary().toString();
@@ -305,23 +280,23 @@ public class CompanyView extends CommonView {
         return str;
     }
 
-    public static String addJobTitle() {
+    public String addJobTitle() {
         alert("Input profession with Capital letter ");
         alertInline("(ex. \'Admin\', \'Manager\', \'Programmer\' or just \'Employee\'): ");
         return scanner.next();
     }
 
-    public static String addName() {
+    public String addName() {
         alertInline("Name: ");
         return scanner.next();
     }
 
-    public static String addSurname() {
+    public String addSurname() {
         alertInline("Surname: ");
         return scanner.next();
     }
 
-    public static Double addSalary() {
+    public Double addSalary() {
         Double salary = 0.0;
         boolean wasExc = false; // проверяем, было ли Исключение - "was Exception"
         while (true) {
@@ -341,7 +316,7 @@ public class CompanyView extends CommonView {
         return salary;
     }
 
-    public static Boolean addGender() {
+    public Boolean addGender() {
         String answer;
         Boolean gender;
         alertInline("Gender (\"m\"-male, \"f\"-female): ");
@@ -359,7 +334,7 @@ public class CompanyView extends CommonView {
         return gender;
     }
 
-    public static int addAge() {
+    public int addAge() {
         int age = 0;
         Boolean wasExc = false;
         while (true) {
@@ -379,7 +354,7 @@ public class CompanyView extends CommonView {
         return age;
     }
 
-    private static String addSpecField(String specFieldName) {
+    private String addSpecField(String specFieldName) {
         alertInline("Input " + specFieldName + ": ");
         return scanner.next();
     }
@@ -394,7 +369,7 @@ public class CompanyView extends CommonView {
         return scanner.next();
     }
 
-    public static Double percentDialog() {
+    public Double percentDialog() {
         Double percent = 0.0;
         alertInline("Input percent for increasing salary (ex. 15, 27): ");
         try {
@@ -406,10 +381,9 @@ public class CompanyView extends CommonView {
         return percent/100;
     }
 
-    public static void changeConfigDialog() {
+    public void changeConfigDialog() {
         alertInline("Specify new Config path: ");
         CompanyModel.setConfigPath(scanner.next());
     }
-
 
 }

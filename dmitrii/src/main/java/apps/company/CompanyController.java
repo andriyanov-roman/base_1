@@ -29,57 +29,40 @@ public class CompanyController extends CommonController {
         view.showMainMenu();
         switch (view.next()) {
             case "0": // Показать инфо о сотрудниках компаний в РАСШИРЕННОМ виде
-                view.selectCompanyDialog(comps); // Выводим пользователю список компаний
-                selectedComps = view.selectCompany(comps);// узнаём, какая компания интересует пользователя
                 view.alert("\t *** Action: SHOW EMPLOYEES FULL INFO ***");
-                view.displayWorkersFULL(selectedComps);
+                view.displayWorkersFULL(view.selectCompany(comps));
                 break;
             case "1": // Показать инфо о сотрудниках компаний (таблицей)
-                view.selectCompanyDialog(comps);
-                selectedComps = view.selectCompany(comps);
                 view.alert("\t *** Action: SHOW EMPLOYEES (IN TABLE) ***");
-                view.displayWorkersTable(selectedComps);
+                view.displayWorkersTableAllCompanies(view.selectCompany(comps));
                 break;
             case "2": // Узнать сотрудника с самой высокой зарплатой
-                view.selectCompanyDialog(comps);
-                selectedComps = view.selectCompany(comps);
                 view.alert("\t *** Action: HIGHEST SALARY ***");
-                getMaxSalary(selectedComps);
+                getMaxSalary(view.selectCompany(comps));
                 break;
             case "3": // Узнать самую высокооплачиваемую профессию
-                System.out.println("\t *** Action: HIGHEST SALARY BY PROFESSION ***");
+                view.alert("\t *** Action: HIGHEST SALARY BY PROFESSION ***");
                 getMaxSalaryByProf();
                 break;
             case "4": // Остортировать по Зарплате
-                view.selectCompanyDialog(comps);
-                selectedComps = view.selectCompany(comps);
                 view.alert("\t *** Action: SORT BY SALARY ***");
-                sortBySalary(selectedComps);
+                sortBySalary(view.selectCompany(comps));
                 break;
             case "5":// Остортировать по Возрасту
-                view.selectCompanyDialog(comps);
-                selectedComps = view.selectCompany(comps);
                 view.alert("\t *** Action: SORT BY AGE ***");
-                sortByAge(selectedComps);
+                sortByAge(view.selectCompany(comps));
                 break;
             case "6":// Остортировать по длине фамилии
-                view.selectCompanyDialog(comps);
-                selectedComps = view.selectCompany(comps);
                 view.alert("\t *** Action: SORT BY SURNAME LENGTH ***");
-                sortBySurnameLength(selectedComps);
+                sortBySurnameLength(view.selectCompany(comps));
                 break;
             case "7": // Добавить сотрудника
-                view.selectCompanyDialog(comps, false);
-                selectedComps = view.selectCompany(comps, false);
-                view.alert("\t *** Action: ADD WORKER ***");
-                Company com = addWorkerIntoCompany(selectedComps.get(0));
+                 view.alert("\t *** Action: ADD WORKER ***");
+                Company com = addWorkerIntoCompany(view.selectCompany(comps, false).get(0));
                 break;
             case "8":
-                view.selectCompanyDialog(comps);
-                selectedComps = view.selectCompany(comps);
                 view.alert("\t *** Action: FIRE AND INCREASE ***");
-                fireAndIncrese(selectedComps);
-                // TODO Перепроверить!!!
+                fireAndIncrese(view.selectCompany(comps));
                 break;
             case "9":
                 view.changeConfigDialog();
@@ -204,7 +187,6 @@ public class CompanyController extends CommonController {
     }
 
     public Company IncreaseSalary(Company com, Double percent) {
-        Double newSalary;
         for (int i = 0; i < com.getWorkers().size(); i++) {
             if (com.getWorkers().get(i).getGender() == false) {
                 view.alertInline(view.showWorkerSHORT(com.getWorkers().get(i).toString()));

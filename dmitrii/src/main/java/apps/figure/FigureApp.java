@@ -13,4 +13,9 @@ public class FigureApp extends CommonApp {
         FigurerController controller = new FigurerController(model, view);
         controller.run();
     }
+
+    @Override
+    public String generateReport() {
+        return "";
+    }
 }

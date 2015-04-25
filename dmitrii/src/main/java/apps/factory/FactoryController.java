@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class FactoryController {
     public static void run() {
-        FactoryView.welcome();
+        new FactoryView().showMainMenu();
         ArrayList<Car> cars;
         while (FactoryView.hasNext()) {
             switch (FactoryView.next()) {
@@ -45,7 +45,7 @@ public class FactoryController {
                 default:
                     FactoryView.toPrintLN("No such case");
             }
-            FactoryView.welcome();
+            new FactoryView().showMainMenu();
         }
     }
 

@@ -1,10 +1,15 @@
 package apps.main;
 
 import apps.company.CompanyApp;
+import apps.reports.ReportSavingApp;
+import apps.reports.ReportDisplayingApp;
 import entities.CommonApp;
 import apps.factory.FactoryApp;
 import apps.figure.FigureApp;
 import apps.univer.UniverApp;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by mit_OK! on 10.04.2015.
@@ -22,17 +27,25 @@ public class MainApp extends CommonApp {
         System.exit(0);
     }
     public CommonApp getUserInput (){
+        ArrayList<CommonApp> apps = new ArrayList<>(Arrays.asList(
+                new CompanyApp(),new FactoryApp(),new UniverApp(),new FigureApp()));
         MainView view = new MainView();
         view.showMainMenu();
         switch (view.next()){
             case "1":
-                return new CompanyApp();
+                return apps.get(0);
             case "2":
-                return new FactoryApp();
+                return apps.get(1);
             case "3":
-                return new UniverApp();
+                return apps.get(2);
             case "4":
-                return new FigureApp();
+                return  apps.get(3);
+            case "5":
+                int n = view.selectApp(apps.size());
+                return new ReportDisplayingApp(apps.get(n));
+            case "6":
+                int j = view.selectApp(apps.size());
+                return new ReportSavingApp(apps.get(j));
             case "EXIT":
                 return null;
             default:
@@ -40,5 +53,10 @@ public class MainApp extends CommonApp {
                 view = null;
                 return getUserInput();
         }
+    }
+
+    @Override
+    public String generateReport() {
+        return "";
     }
 }

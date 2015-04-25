@@ -1,6 +1,7 @@
 package apps.company;
 
 import entities.company.*;
+import entities.mvc.CommonModel;
 import tools.FileUtil;
 
 import java.io.IOException;
@@ -14,7 +15,7 @@ import java.util.Date;
 /**
  * Created by mit_OK! on 27.03.2015.
  */
-public class CompanyModel {
+public class CompanyModel extends CommonModel{
     private static String configPath = "dmitrii\\src\\main\\resources\\companies\\Config.ini";
     private static String YourDateFormat = "dd.MM.yyyy HH:mm:ss";
     private static String ErrorLogPath = "dmitrii\\src\\main\\resources\\Errors.log";

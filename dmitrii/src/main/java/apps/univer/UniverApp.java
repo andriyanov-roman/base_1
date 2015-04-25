@@ -13,4 +13,9 @@ public class UniverApp extends CommonApp {
         UniverController controller = new UniverController(model, view);
         controller.run();
     }
+
+    @Override
+    public String generateReport() {
+        return "";
+    }
 }

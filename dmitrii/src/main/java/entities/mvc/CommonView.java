@@ -1,5 +1,6 @@
 package entities.mvc;
 
+import apps.reports.IReport;
 import entities.valid.Validator;
 
 import java.util.Scanner;
@@ -7,11 +8,16 @@ import java.util.Scanner;
 /**
  * Created by user on 04.04.2015.
  */
-public class CommonView {
+abstract public class CommonView {
     public static Scanner scanner = new Scanner(System.in);
     public Validator validator = new Validator();
+    protected static String buffer = "";
     private String [] titles = {"Title1", "Title2", "Title3"};
     private int columnWidth = 16;
+
+    public static String getBuffer() {
+        return buffer;
+    }
 
     public static Boolean hasNext() {
         return scanner.hasNext();
@@ -37,15 +43,13 @@ public class CommonView {
         this.columnWidth = columnWidth;
     }
 
-    public static void alert(String txt){
+    public void alert(String txt){
         System.out.println(txt);
     }
-    public static void alertInline(String txt){
+    public void alertInline(String txt){
         System.out.print(txt);
     }
-    public void showMainMenu() {
-        alert("[MAIN MENU]");
-    }
+    abstract public void showMainMenu();
 
     public String fillInLetterField (String title){
         alertInline(title);
@@ -86,4 +90,5 @@ public class CommonView {
             return false;
         }
     }
+
 }

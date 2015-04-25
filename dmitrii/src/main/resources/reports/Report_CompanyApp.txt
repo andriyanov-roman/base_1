@@ -1,0 +1,360 @@
+Polaris
+
+Job title: Manager
+Name: Vasyl
+Surname: Simonenko
+Salary: 7800.0$
+Gender: male
+Age: 22
+Projects: main_project
+
+Job title: Admin
+Name: IHOR
+Surname: SEMIRENKO
+Salary: 4000.0$
+Gender: male
+Age: 27
+OS/Platform: UBUNTU
+
+Job title: Manager
+Name: Bella
+Surname: Ogurtsova
+Salary: 992800.0$
+Gender: female
+Age: 27
+Projects: Awesome project
+
+Job title: Admin
+Name: Evgeniy
+Surname: Gerashchenko
+Salary: 11200.0$
+Gender: male
+Age: 40
+OS/Platform: kUbuntu
+
+Job title: Employee
+Name: Neil
+Surname: Armstrong
+Salary: 103499.0$
+Gender: male
+Age: 43
+
+Job title: Admin
+Name: Dmitriy
+Surname: Korotkov
+Salary: 3200.0$
+Gender: male
+Age: 44
+OS/Platform: FreBSD
+
+Job title: Employee
+Name: Mirriam
+Surname: Carter
+Salary: 14375.0$
+Gender: female
+Age: 53
+
+Job title: Programmer
+Name: Kondrat
+Surname: Kondratyev
+Salary: 900.0$
+Gender: male
+Age: 55
+Dev.lang.: Python
+
+Job title: Programmer
+Name: Ilona
+Surname: Frolova
+Salary: 950.0$
+Gender: female
+Age: 85
+Dev.lang.: Objective-C
+Volvo
+
+Job title: Admin
+Name: Inga
+Surname: Carter
+Salary: 4444.0$
+Gender: female
+Age: 18
+OS/Platform: IIS
+
+Job title: Admin
+Name: Bill
+Surname: Gates
+Salary: 80000.01$
+Gender: male
+Age: 25
+OS/Platform: Windows_Server
+
+Job title: Employee
+Name: Barbara
+Surname: Streisand
+Salary: 9205.55$
+Gender: female
+Age: 27
+
+Job title: Manager
+Name: Vasilisa
+Surname: Anechkina
+Salary: 62000.0$
+Gender: female
+Age: 27
+Projects: small project
+
+Job title: Manager
+Name: Steve
+Surname: Jobs
+Salary: 15000.05$
+Gender: male
+Age: 30
+Projects: Apple_Project
+
+Job title: Programmer
+Name: Kevin
+Surname: Mitnic
+Salary: 4400.24$
+Gender: male
+Age: 40
+Dev.lang.: C++
+
+Job title: Employee
+Name: Linus
+Surname: Torvalds
+Salary: 50.0$
+Gender: male
+Age: 47
+ZAZ
+
+Job title: Manager
+Name: Immanuel
+Surname: Kant
+Salary: 1.0$
+Gender: male
+Age: 300
+Projects: Project 'START'
+
+Job title: Admin
+Name: Helen
+Surname: Perry
+Salary: 66.0$
+Gender: female
+Age: 84
+OS/Platform: Linux_Mint_17
+
+Job title: Employee
+Name: Artemiy
+Surname: Lebedev
+Salary: 4800.0$
+Gender: male
+Age: 35
+
+Job title: Employee
+Name: Artur
+Surname: Lebedev
+Salary: 668000.0$
+Gender: male
+Age: 14
+
+Job title: Admin
+Name: Marry
+Surname: Madison
+Salary: 14375.0$
+Gender: female
+Age: 32
+OS/Platform: Red_Hat
+
+Job title: Employee
+Name: Clint
+Surname: Eastwood
+Salary: 200.0$
+Gender: male
+Age: 44
+
+Job title: Programmer
+Name: Taras
+Surname: Kogevnikov
+Salary: 950.0$
+Gender: male
+Age: 24
+Dev.lang.: Objective-C
+Polaris
+
+Job title: Manager
+Name: Vasyl
+Surname: Simonenko
+Salary: 7800.0$
+Gender: male
+Age: 22
+Projects: main_project
+
+Job title: Admin
+Name: IHOR
+Surname: SEMIRENKO
+Salary: 4000.0$
+Gender: male
+Age: 27
+OS/Platform: UBUNTU
+
+Job title: Manager
+Name: Bella
+Surname: Ogurtsova
+Salary: 992800.0$
+Gender: female
+Age: 27
+Projects: Awesome project
+
+Job title: Admin
+Name: Evgeniy
+Surname: Gerashchenko
+Salary: 11200.0$
+Gender: male
+Age: 40
+OS/Platform: kUbuntu
+
+Job title: Employee
+Name: Neil
+Surname: Armstrong
+Salary: 103499.0$
+Gender: male
+Age: 43
+
+Job title: Admin
+Name: Dmitriy
+Surname: Korotkov
+Salary: 3200.0$
+Gender: male
+Age: 44
+OS/Platform: FreBSD
+
+Job title: Employee
+Name: Mirriam
+Surname: Carter
+Salary: 14375.0$
+Gender: female
+Age: 53
+
+Job title: Programmer
+Name: Kondrat
+Surname: Kondratyev
+Salary: 900.0$
+Gender: male
+Age: 55
+Dev.lang.: Python
+
+Job title: Programmer
+Name: Ilona
+Surname: Frolova
+Salary: 950.0$
+Gender: female
+Age: 85
+Dev.lang.: Objective-C
+Volvo
+
+Job title: Admin
+Name: Inga
+Surname: Carter
+Salary: 4444.0$
+Gender: female
+Age: 18
+OS/Platform: IIS
+
+Job title: Admin
+Name: Bill
+Surname: Gates
+Salary: 80000.01$
+Gender: male
+Age: 25
+OS/Platform: Windows_Server
+
+Job title: Employee
+Name: Barbara
+Surname: Streisand
+Salary: 9205.55$
+Gender: female
+Age: 27
+
+Job title: Manager
+Name: Vasilisa
+Surname: Anechkina
+Salary: 62000.0$
+Gender: female
+Age: 27
+Projects: small project
+
+Job title: Manager
+Name: Steve
+Surname: Jobs
+Salary: 15000.05$
+Gender: male
+Age: 30
+Projects: Apple_Project
+
+Job title: Programmer
+Name: Kevin
+Surname: Mitnic
+Salary: 4400.24$
+Gender: male
+Age: 40
+Dev.lang.: C++
+
+Job title: Employee
+Name: Linus
+Surname: Torvalds
+Salary: 50.0$
+Gender: male
+Age: 47
+ZAZ
+
+Job title: Manager
+Name: Immanuel
+Surname: Kant
+Salary: 1.0$
+Gender: male
+Age: 300
+Projects: Project 'START'
+
+Job title: Admin
+Name: Helen
+Surname: Perry
+Salary: 66.0$
+Gender: female
+Age: 84
+OS/Platform: Linux_Mint_17
+
+Job title: Employee
+Name: Artemiy
+Surname: Lebedev
+Salary: 4800.0$
+Gender: male
+Age: 35
+
+Job title: Employee
+Name: Artur
+Surname: Lebedev
+Salary: 668000.0$
+Gender: male
+Age: 14
+
+Job title: Admin
+Name: Marry
+Surname: Madison
+Salary: 14375.0$
+Gender: female
+Age: 32
+OS/Platform: Red_Hat
+
+Job title: Employee
+Name: Clint
+Surname: Eastwood
+Salary: 200.0$
+Gender: male
+Age: 44
+
+Job title: Programmer
+Name: Taras
+Surname: Kogevnikov
+Salary: 950.0$
+Gender: male
+Age: 24
+Dev.lang.: Objective-C

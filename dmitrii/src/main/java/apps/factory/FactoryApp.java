@@ -10,4 +10,9 @@ public class FactoryApp extends CommonApp {
     public void run() {
         FactoryController.run();
     }
+
+    @Override
+    public String generateReport() {
+        return "";
+    }
 }
