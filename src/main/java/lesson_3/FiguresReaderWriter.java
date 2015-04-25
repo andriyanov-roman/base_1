@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * Created by Администратор on 04.04.2015.
  */
 public class FiguresReaderWriter extends CommonWriterReader {
-    private String path = "matveu\\src\\main\\java\\Shapes";
+    private String path = "matveu\\src\\main\\java\\shapes";
 
     public ArrayList<Figure> getFigures() throws IOException{
         ArrayList<String[]> strings = readFromFile(path, ":");

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class InputOutputFile {
     public static ArrayList<Shape> readFromFile() throws IOException {
-        File file = new File("vorobey\\src\\Shapes.txt");
+        File file = new File("vorobey\\src\\shapes.txt");
         BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
         ArrayList<Shape> shapes = new ArrayList<>();
         String line;
@@ -24,7 +24,7 @@ public class InputOutputFile {
     }
 
     public static void writeCircleToFile(Shape shape) throws IOException {
-        FileWriter writer = new FileWriter("vorobey\\src\\Shapes.txt", true);
+        FileWriter writer = new FileWriter("vorobey\\src\\shapes.txt", true);
         writer.write(shape.getName() + ":" + shape.getSquare() + ":" + shape.getPerimetr()+"\n");
         writer.flush();
         writer.close();

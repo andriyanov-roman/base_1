@@ -11,12 +11,12 @@ import java.util.*;
  * Created by user on 03.04.2015.
  */
 public class ShapesReaderWriter extends CommonReaderWriter {
-    //public String path = "ruslan\\src\\main\\java\\files.txt\\Shapes";
+    //public String path = "ruslan\\src\\main\\java\\files.txt\\shapes";
 
 
 
     public static ArrayList<Shape> getShapes() throws IOException {
-        File file = new File("ruslan\\src\\main\\java\\files.txt\\Shapes.txt");
+        File file = new File("ruslan\\src\\main\\java\\files.txt\\shapes.txt");
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
         ArrayList<Shape> cars = new ArrayList<>();

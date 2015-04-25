@@ -9,7 +9,7 @@ import java.util.*;
  * Created by user on 03.04.2015.
  */
 public class ShapesReaderWriter extends CommonReaderWriter {
-    private String path = "ruslan\\src\\main\\java\\geometric_shapes\\Shapes";
+    private String path = "ruslan\\src\\main\\java\\geometric_shapes\\shapes";
 
     public ArrayList<Shape> getShapes() throws IOException {
         ArrayList<String[]> strings = readFromFile(path, ":");

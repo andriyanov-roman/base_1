@@ -102,7 +102,7 @@ public class Methods {
     }
 
     public static void showSapes() throws IOException {
-        File file = new File("vorobey\\src\\Shapes.txt");
+        File file = new File("vorobey\\src\\shapes.txt");
         BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
         ArrayList<Shape> shapes = new ArrayList<>();
         String line;
@@ -128,7 +128,7 @@ public class Methods {
         System.out.println("Чтобы добавить новую фигуру(треугольник),нажмите 2");
         System.out.println("Чтобы добавить новую фигуру(квадрат),нажмите 3");
         System.out.println("Чтобы добавить новую фигуру(окружность),нажмите 4");
-        System.out.println("Чтобы вывести все имеющиеся фигуры(Shapes),нажмите 5");
+        System.out.println("Чтобы вывести все имеющиеся фигуры(shapes),нажмите 5");
 
         while (sc.hasNext()) {
             switch (sc.next()) {
