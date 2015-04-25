@@ -1,4 +1,4 @@
-package lessons.lesson20042015;
+package lessons.epam;
 
 /**
  * Created by user on 20.04.2015.
