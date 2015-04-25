@@ -7,6 +7,7 @@ import java.io.IOException;
  */
 public class CompanyMain {
     public static void main(String[] args) throws IOException {
-        new CompanyApp().run();
+        //new CompanyApp().run();
+        new CompanyMenu().startProgram(args);
     }
 }
