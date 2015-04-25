@@ -1,6 +1,6 @@
-import views.BaseView;
-import views.console.ConsoleView;
-import views.swgviews.MainSwingView;
+package cons;
+
+import cons.views.console.ConsoleView;
 
 import java.util.Scanner;
 

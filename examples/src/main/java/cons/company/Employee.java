@@ -1,4 +1,4 @@
-package entities.company;
+package cons.company;
 
 
 public class Employee {

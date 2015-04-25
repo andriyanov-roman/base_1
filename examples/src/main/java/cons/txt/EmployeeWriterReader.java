@@ -1,10 +1,9 @@
-package data.file.txt;
+package cons.txt;
 
-import entities.company.Employee;
+import cons.company.Employee;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * Created by Администратор on 30.03.2015.
