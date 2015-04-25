@@ -1,6 +1,6 @@
-import entities.company.Employee;
-import views.BaseView;
-import views.console.ConsoleView;
+package cons;
+
+import cons.company.Employee;
 
 /**
  * Created by user on 4/5/2015.

@@ -1,7 +1,7 @@
-package views.console;
+package cons.views.console;
 
-import controlers.CommonDataValidator;
-import views.BaseView;
+import cons.controlers.CommonDataValidator;
+import cons.views.BaseView;
 
 import java.util.Scanner;
 
