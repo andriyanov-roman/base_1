@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public interface IReport  {
 
+    ArrayList<String> generateReport() throws IOException;;
     ArrayList reportFromShapesByPerimeter() throws IOException;
     ArrayList reportFromShapesBySquare() throws IOException;
     ArrayList reportFromCatalogCarsByPrice() throws IOException;

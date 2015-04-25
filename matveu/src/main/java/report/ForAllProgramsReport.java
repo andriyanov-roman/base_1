@@ -16,6 +16,19 @@ public class ForAllProgramsReport implements IReport {
     public static ArrayList<Car> cars=new ArrayList<>();
 
     @Override
+    public ArrayList<String> generateReport() throws IOException {
+        return null;
+    }
+
+    public void showReport(IReport reportImpl)  throws IOException{
+        reportImpl.generateReport().forEach(System.out::println);
+    }
+
+    public void writeToFileReport(IReport reportImpl)  throws IOException{
+        reportImpl.generateReport().forEach(System.out::println);
+    }
+
+    @Override
     public ArrayList reportFromShapesByPerimeter () throws IOException {
             shapes= ReadingFromShapes.getShapes();
         for(int i=0;i<shapes.size();i++) {
