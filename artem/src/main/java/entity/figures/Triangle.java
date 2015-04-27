@@ -1,6 +1,6 @@
 package entity.figures;
 
-public class Triangle extends AbstractFigure{
+public class Triangle extends AbsFigure {
     private String name;
     private double side;
     private double height;

@@ -3,7 +3,7 @@ package entity.figures;
 /**
  * Created by R-Tem on 20.04.2015.
  */
-public class Square extends AbstractFigure {
+public class Square extends AbsFigure {
     private String name;
     private double side;
     private double perimeter;

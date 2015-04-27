@@ -1,11 +1,9 @@
 package entity.figures;
 
-import homework.Main;
-
 /**
  * Created by R-Tem on 20.04.2015.
  */
-public class Circle extends AbstractFigure {
+public class Circle extends AbsFigure {
     private String name;
     private double radius;
     private double perimeter;
