@@ -20,7 +20,7 @@ public class Main {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Enter command key" + " " +
                     " 0. Login coincides with the name \n " +
-                    "1. Login coincides with the secondName \t 2.Sort by id \n 3. Identical Employees + MaxSalary" +
+                    "1. Login coincides with the secondName \t 2.Sort by id \n 3. Identical employees + MaxSalary" +
                     "\t 4. Sort by salary" + "\t 5.Write new employee");
             while (scanner.hasNext()) {
                 switch (scanner.next()) {
