@@ -1,5 +1,6 @@
 package apps.company;
 
+import apps.company.dialogs.AddEmployeeFX;
 import entities.company.*;
 import entities.mvc.CommonController;
 
@@ -7,6 +8,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -20,6 +22,10 @@ public class CompanyController extends CommonController {
         this.view = view;
         this.model = model;
         run();
+    }
+
+    public CompanyModel getModel() {
+        return model;
     }
 
     @Override
@@ -130,7 +136,9 @@ public class CompanyController extends CommonController {
 
     public void sortBySalary(ArrayList<Company> selectedComps) {
         for (Company com : selectedComps) {
-            com.getWorkers().sort(new Employee().new CompareBySalary());
+            //com.getWorkers().sort(new Employee().new CompareBySalary());
+            //Collections.sort(com.getWorkers(), Comparator.comparing(Employee::getSalary));
+            com.getWorkers().sort(Comparator.comparing(Employee::getSalary));
             view.displayWorkersTable(com, view.SALARY_HIGHLIGHT);
         }
     }
@@ -151,6 +159,11 @@ public class CompanyController extends CommonController {
 
     private Company addWorkerIntoCompany(Company com) {
         Boolean operationStatus;
+        //Employee e = model.createWorker(view.AddEmployeeDialog());
+        String [] args = {""};
+        AddEmployeeFX addEmployeeFX = new AddEmployeeFX();
+        addEmployeeFX.startProgram(args);
+        System.out.println(addEmployeeFX.getEmplName());
         Employee e = model.createWorker(view.AddEmployeeDialog());
         operationStatus = (e!=null);
         view.alert("Create worker: "+(operationStatus ? "SUCCESS" : "FAILED"));
