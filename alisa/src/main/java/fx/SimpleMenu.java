@@ -75,7 +75,7 @@ public class SimpleMenu extends Application {
         HBox hbBtn = new HBox(10);
         hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
         hbBtn.getChildren().add(btn);
-        grid.add(hbBtn, 1, 4);
+        grid.add(hbBtn, 1, 6);
 
         final Text actiontarget = new Text();
         grid.add(actiontarget, 1, 6);
@@ -85,8 +85,12 @@ public class SimpleMenu extends Application {
             public void handle(ActionEvent event) {
                 Employee e = new Employee();
                 e.setName(nameTextField.getText());
+                e.setSurname(surnameTextField.getText());
+                e.setSalary(Double.valueOf(salaryTextField.getText()));
+                e.setAge(Integer.valueOf(ageTextField.getText()));
+                e.setSex(sexTextField.getText());
                 employees.add(e);
-                writeToFile("test.txt");
+                writeToFile("alisa\\src\\result\\EmployeeMenu.txt");
             }
         });
         primaryStage.show();

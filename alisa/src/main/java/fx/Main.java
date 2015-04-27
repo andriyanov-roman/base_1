@@ -7,7 +7,6 @@ import entity.Employee;
  */
 public class Main {
     public static void main(String[]args){
-        Employee menu = new Employee();
        new SimpleMenu().startProgram(args);
 
     }
