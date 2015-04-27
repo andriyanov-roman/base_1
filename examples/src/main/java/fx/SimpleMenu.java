@@ -1,14 +1,13 @@
 package fx;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+import cons.company.Employee;
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -26,9 +25,11 @@ import java.util.ArrayList;
 
 
 public class SimpleMenu extends Application {
+    private ArrayList<Employee> employees;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        loadDataOnStart();
         primaryStage.setTitle("Employee Menu");
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -46,6 +47,15 @@ public class SimpleMenu extends Application {
         Label employeeName = new Label("Name:");
         grid.add(employeeName, 0, 1);
         TextField nameTextField = new TextField();
+
+        final Text actiontarget = new Text();
+        grid.add(actiontarget, 1, 6);
+        nameTextField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                actiontarget.setText(nameTextField.getText());
+            }
+        });
         grid.add(nameTextField, 1, 1);
 
         Label employeeSurname = new Label("Surname:");
@@ -75,21 +85,19 @@ public class SimpleMenu extends Application {
         hbBtn.getChildren().add(btn);
         grid.add(hbBtn, 1, 6);
 
-        final Text actiontarget = new Text();
-        grid.add(actiontarget, 1, 6);
-        btn.setOnAction(new EventHandler<ActionEvent>() {
 
+        btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
 
             }
         });
         scene.getStylesheets().add("fx.css");
-        for (int i = 0; i < grid.getChildren().size(); i++) {
-            if("scenetitleId".equals(grid.getChildren().get(i).getId())) {
-                System.out.println(grid.getChildren().get(i).toString());
-            }
-        }
+//        for (int i = 0; i < grid.getChildren().size(); i++) {
+//            if("scenetitleId".equals(grid.getChildren().get(i).getId())) {
+//                System.out.println(grid.getChildren().get(i).toString());
+//            }
+//        }
         primaryStage.show();
     }
 
@@ -121,7 +129,12 @@ public class SimpleMenu extends Application {
             actiontarget.setFill(Color.HOTPINK);
             System.out.println("Test");
         }
+    }
 
-
+    private void loadDataOnStart() {
+        employees = new ArrayList<>();
+        Employee e = new Employee();
+        e.setName("Vasya");
+        employees.add(e);
     }
 }
