@@ -1,6 +1,5 @@
 package inout;
 
-import controllers.consoleApp.UniversityController;
 import entity.university.University;
 import modules.consoleApp.university.UnivModule;
 import org.junit.Test;

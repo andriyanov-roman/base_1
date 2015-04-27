@@ -5,11 +5,14 @@ import java.awt.*;
 /**
  * Created by R-Tem on 20.04.2015.
  */
-abstract class AbsFigure /*implements IParameter*/ {
+abstract class AbsFigure implements IParameter {
     private String name;
-    private double per;
-    private double sq;
 
-    abstract protected void calculatePerimeter(); // почему abstract не может быть private
-    abstract protected void calculateSquare();
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

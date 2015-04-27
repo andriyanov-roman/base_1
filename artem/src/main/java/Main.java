@@ -1,3 +1,5 @@
+import fx.MainFxWindow;
+
 import java.io.IOException;
 
 /**
@@ -8,4 +10,8 @@ public class Main {
         AppNavigator appNavigator = new AppNavigator();
         appNavigator.startProgram();
     }
+    /*public static void main(String[] args) {
+        MainFxWindow window = new MainFxWindow();
+        window.startProgram(args);
+    }*/
 }

@@ -38,11 +38,13 @@ public class Circle extends AbsFigure {
     }
 
     @Override
-    public void calculatePerimeter() {
-        perimeter = Math.PI*2*radius;
+    public double calculatePerimeter() {
+        return Math.PI*2*radius;
     }
+
     @Override
-    public void calculateSquare() {
-        square = Math.PI*radius*radius;
+    public double calculateSquare() {
+        return Math.PI*radius*radius;
+
     }
 }
