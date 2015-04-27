@@ -1,11 +1,14 @@
 package fx;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -19,46 +22,74 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 
 public class SimpleMenu extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("JavaFX Welcome");
+        primaryStage.setTitle("Employee Menu");
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
 
-        Scene scene = new Scene(grid, 300, 275);
+        Scene scene = new Scene(grid, 500, 500);
         primaryStage.setScene(scene);
 
-        Text scenetitle = new Text("Welcome");
+        Text scenetitle = new Text("Add an employee");
         scenetitle.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
         grid.add(scenetitle, 0, 0, 2, 1);
 
-        Label userName = new Label("User Name:");
-        grid.add(userName, 0, 1);
+        Label employeeName = new Label("Name:");
+        grid.add(employeeName, 0, 1);
+        TextField nameTextField = new TextField();
+        grid.add(nameTextField, 1, 1);
 
-        TextField userTextField = new TextField();
-        grid.add(userTextField, 1, 1);
+        Label employeeSurname = new Label("Surname:");
+        grid.add(employeeSurname, 0, 2);
+        TextField surnameTextField = new TextField();
+        grid.add(surnameTextField, 1, 2);
 
-        Label pw = new Label("Password:");
-        grid.add(pw, 0, 2);
+        Label employeeSalary = new Label("Salary:");
+        grid.add(employeeSalary, 0, 3);
+        TextField salaryTextField = new TextField();
+        grid.add(salaryTextField, 1, 3);
 
-        PasswordField pwBox = new PasswordField();
-        grid.add(pwBox, 1, 2);
+        Label employeeAge = new Label("Age:");
+        grid.add(employeeAge, 0, 4);
+        TextField ageTextField = new TextField();
+        grid.add(ageTextField, 1, 4);
 
-        Button btn = new Button("Sign in");
+        Label employeeSex = new Label("Sex:");
+        grid.add(employeeSex, 0, 5);
+        TextField sexTextField = new TextField();
+        grid.add(sexTextField, 1, 5);
+
+
+        Button btn = new Button("Save");
         HBox hbBtn = new HBox(10);
-        hbBtn.setAlignment(Pos.TOP_RIGHT);
+        hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
         hbBtn.getChildren().add(btn);
-        grid.add(hbBtn, 1, 4);
+        grid.add(hbBtn, 1, 6);
 
         final Text actiontarget = new Text();
         grid.add(actiontarget, 1, 6);
-        btn.setOnAction(new SimpleMenuAction(actiontarget, pwBox, primaryStage));
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+
+            }
+        });
+        scene.getStylesheets().add("fx.css");
+        for (int i = 0; i < grid.getChildren().size(); i++) {
+            if("scenetitleId".equals(grid.getChildren().get(i).getId())) {
+                System.out.println(grid.getChildren().get(i).toString());
+            }
+        }
         primaryStage.show();
     }
 
@@ -90,5 +121,7 @@ public class SimpleMenu extends Application {
             actiontarget.setFill(Color.HOTPINK);
             System.out.println("Test");
         }
+
+
     }
 }
