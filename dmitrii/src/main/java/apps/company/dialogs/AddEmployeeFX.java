@@ -1,6 +1,8 @@
 package apps.company.dialogs;
 
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -42,8 +44,8 @@ public class AddEmployeeFX extends Application {
         grid.setPadding(new Insets(25, 25, 25, 25));
         Scene scene = new Scene(grid, 640, 480);
         File f = new File("dmitrii\\src\\main\\java\\apps\\company\\style.css");
-        scene.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
-        //scene.getStylesheets().add("apps\\company\\bootstrap.min.css");
+        //scene.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
+        scene.getStylesheets().add("style2.css");
         //scene.getStylesheets().add(AddEmployeeFX.class.getResource("style.css").toExternalForm());
         String path = "";
         System.out.println(path);
@@ -55,6 +57,12 @@ public class AddEmployeeFX extends Application {
 
         grid.add(new Label("Name:"), 0, 1);
         TextField nameTF = new TextField();
+        nameTF.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                scenetitle.setText(nameTF.getText());
+            }
+        });
         grid.add(nameTF,1,1);
         grid.add(new Label("Surname:"), 0, 2); grid.add(new TextField(),1,2);
         grid.add(new Label("Salary:"), 0, 3); grid.add(new TextField(),1,3);
