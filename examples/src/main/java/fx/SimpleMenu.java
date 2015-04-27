@@ -21,14 +21,19 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.*;
 import java.util.ArrayList;
 
 
 public class SimpleMenu extends Application {
     private ArrayList<Employee> employees;
+    File f = new File("test.txt");
+    FileWriter fos;
+    private String actionResult;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        fos = new FileWriter(f, true);
         loadDataOnStart();
         primaryStage.setTitle("Employee Menu");
         GridPane grid = new GridPane();
@@ -47,15 +52,21 @@ public class SimpleMenu extends Application {
         Label employeeName = new Label("Name:");
         grid.add(employeeName, 0, 1);
         TextField nameTextField = new TextField();
-
-        final Text actiontarget = new Text();
-        grid.add(actiontarget, 1, 6);
-        nameTextField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                actiontarget.setText(nameTextField.getText());
-            }
-        });
+        nameTextField.setId("name");
+//        final Text actiontarget = new Text();
+//        grid.add(actiontarget, 1, 6);
+//        nameTextField.textProperty().addListener(new ChangeListener<String>() {
+//            @Override
+//            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+//                try {
+//                    fos.write(nameTextField.getText() + '\n');
+//                    fos.flush();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//                actiontarget.setText(nameTextField.getText());
+//            }
+//        });
         grid.add(nameTextField, 1, 1);
 
         Label employeeSurname = new Label("Surname:");
@@ -80,24 +91,25 @@ public class SimpleMenu extends Application {
 
 
         Button btn = new Button("Save");
+        btn.defaultButtonProperty().bind(btn.focusedProperty());
         HBox hbBtn = new HBox(10);
         hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
         hbBtn.getChildren().add(btn);
         grid.add(hbBtn, 1, 6);
 
+        final Text actionTargetField = new Text();
+        grid.add(actionTargetField, 1, 7);
 
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
+                actionResult = new EmployeeValidator().validateFields(grid);
+                actionTargetField.setText(actionResult);
             }
         });
+
         scene.getStylesheets().add("fx.css");
-//        for (int i = 0; i < grid.getChildren().size(); i++) {
-//            if("scenetitleId".equals(grid.getChildren().get(i).getId())) {
-//                System.out.println(grid.getChildren().get(i).toString());
-//            }
-//        }
+
         primaryStage.show();
     }
 
