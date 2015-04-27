@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -26,14 +27,15 @@ public class SimpleMenu extends Application {
         gridPane.setHgap(10);
         gridPane.setVgap(10);
         gridPane.setPadding(new Insets(25, 25, 25, 25));
-        Scene scene = new Scene(gridPane, 500, 350);
+        Scene scene = new Scene(gridPane, 500, 350,   Color.RED);
         primaryStage.setScene(scene);
         Text scenetitle = new Text("Welcome");
-        scenetitle.setFont(Font.font("ISOCPEUR", FontWeight.NORMAL, 20));
+        scenetitle.setFont(Font.font("ISOCPEUR", FontWeight.LIGHT, 25));
         gridPane.add(scenetitle, 0, 0, 2, 1);
 
         Label emplName = new Label("Employee Name:");
         gridPane.add(emplName, 0, 1);
+
 
         TextField textFieldName = new TextField();
         gridPane.add(textFieldName, 1, 1);

@@ -1,5 +1,6 @@
 package fxMatveu;
 
+import apps.carFactory.entity.Car;
 import fxMatveu.SimpleMenuTwo;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -8,10 +9,8 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -20,11 +19,16 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+
 
 public class CarsMenu extends Application {
+    private ArrayList<Car> cars;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        loadDataOnStart();
         primaryStage.setTitle("Cars");
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -80,10 +84,19 @@ public class CarsMenu extends Application {
         hbBtn.getChildren().add(btn);
         grid.add(hbBtn, 1, 9);
 
+        final Text actiontarget = new Text();
+        grid.add(actiontarget, 1, 6);
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+            }
+        });
         primaryStage.show();
     }
 
     public void startProgram(String[] args) {
+
         launch(args);
     }
 
@@ -111,5 +124,9 @@ public class CarsMenu extends Application {
             actiontarget.setFill(Color.HOTPINK);
             System.out.println("Test");
         }
+    }
+    private void loadDataOnStart(){
+
+
     }
 }
