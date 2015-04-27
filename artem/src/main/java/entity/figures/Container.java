@@ -3,7 +3,7 @@ package entity.figures;
 /**
  * Created by R-Tem on 21.04.2015.
  */
-public class Container extends AbstractFigure {
+public class Container extends AbsFigure {
     private double side1;
     private double side2;
     private double perimeter;

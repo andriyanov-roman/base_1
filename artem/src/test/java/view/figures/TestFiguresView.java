@@ -6,6 +6,7 @@ import entity.figures.Square;
 import entity.figures.Triangle;
 import modules.consoleApp.figures.FiguresModule;
 import org.junit.Test;
+import view.consoleApp.FiguresView;
 
 import java.util.Scanner;
 
@@ -13,6 +14,15 @@ import java.util.Scanner;
  * Created by R-Tem on 21.04.2015.
  */
 public class TestFiguresView {
+
+    @Test
+    public void test(){
+        Container container = new Container(6, 5);
+        container.setCircle(FiguresModule.createCircle("circ", 5));
+        container.setFoursquare(FiguresModule.createSquare("sq", 4));
+        container.setTriangle(FiguresModule.createTriangle("tr", 5, 3));
+
+    }
     @Test
     public void menu() throws Exception {
         String s = "\n '1' to add figure" +

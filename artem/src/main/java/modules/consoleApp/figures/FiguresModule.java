@@ -33,4 +33,9 @@ public class FiguresModule {
         triangle.calculateSquare();
         return triangle;
     }
+    public static String biggestFig(Container container){
+        String biggestFig;
+
+        return null;
+    }
 }
