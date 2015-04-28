@@ -6,8 +6,6 @@ package entity.figures;
 public class Square extends AbsFigure {
     private String name;
     private double side;
-    private double perimeter;
-    private double square;
 
     public Square(String name, double side) {
         this.name = name;
@@ -17,7 +15,6 @@ public class Square extends AbsFigure {
     public String getName() {
         return name;
     }
-    //    @Override
     public void setName(String name) {
         this.name = name;
     }
@@ -29,20 +26,20 @@ public class Square extends AbsFigure {
         this.side = side;
     }
 
-    public double getPerimeter() {
-        return perimeter;
+    @Override
+    public double calculatePerimeter() {
+        return side*4;
     }
-
-    public double getSquare() {
-        return square;
+    @Override
+    public double calculateSquare() {
+         return side*side;
     }
 
     @Override
-    public void calculatePerimeter() {
-        perimeter = side*4;
-    }
-    @Override
-    public void calculateSquare() {
-        square = side*side;
+    public String toString() {
+        return "Square{" +
+                "name = '" + name + '\'' +
+                ", side = " + side +
+                '}';
     }
 }

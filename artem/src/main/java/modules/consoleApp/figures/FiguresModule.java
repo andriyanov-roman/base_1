@@ -1,41 +1,29 @@
 package modules.consoleApp.figures;
 
-import entity.figures.Circle;
-import entity.figures.Container;
-import entity.figures.Square;
-import entity.figures.Triangle;
+import entity.figures.*;
+import entity.figures.comparators.CompByName;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Created by R-Tem on 06.04.2015.
  */
 public class FiguresModule {
-    public static Container createContainer(double s1, double s2){
-        Container container = new Container(s1, s2);
-        container.calculatePerimeter();
-        container.calculateSquare();
-        return container;
-    }
-    public static Circle createCircle(String name, double radius){
-        Circle circle = new Circle(name, radius);
-        circle.calculatePerimeter();
-        circle.calculateSquare();
-        return circle;
-    }
-    public static Square createSquare(String name, double side){
-        Square square = new Square(name, side);
-        square.calculatePerimeter();
-        square.calculateSquare();
-        return square;
-    }
-    public static Triangle createTriangle(String name, double side, double height){
-        Triangle triangle = new Triangle(name, side, height);
-        triangle.calculatePerimeter();
-        triangle.calculateSquare();
-        return triangle;
-    }
-    public static String biggestFig(Container container){
-        String biggestFig;
-
+    public static AbsFigure biggestFig(ArrayList<AbsFigure> figures, int choice){
+//        Collections.sort(figures, new CompByName());
+        switch (choice){
+            case 1:
+                Collections.sort(figures, Comparator.comparing(AbsFigure::calculatePerimeter));
+                int num = figures.size();
+                return figures.get(num-1);
+            case 2:
+                Collections.sort(figures, Comparator.comparingDouble(AbsFigure::calculateSquare));
+                num = figures.size();
+                return figures.get(num-1);
+                // в чем разница между comparing и comparingDouble
+        }
         return null;
     }
 }
