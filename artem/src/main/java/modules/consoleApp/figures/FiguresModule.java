@@ -1,19 +1,18 @@
 package modules.consoleApp.figures;
 
-import entity.figures.Circle;
-import entity.figures.Container;
-import entity.figures.Square;
-import entity.figures.Triangle;
+import entity.figures.*;
+
+import java.util.ArrayList;
 
 /**
  * Created by R-Tem on 06.04.2015.
  */
 public class FiguresModule {
-    public static Container createContainer(double s1, double s2){
-        Container container = new Container(s1, s2);
-        container.calculatePerimeter();
-        container.calculateSquare();
-        return container;
+    public static Box createBox(double length, double width){
+        Box box = new Box(length, width);
+        box.calculatePerimeter();
+        box.calculateSquare();
+        return box;
     }
     public static Circle createCircle(String name, double radius){
         Circle circle = new Circle(name, radius);
@@ -33,7 +32,7 @@ public class FiguresModule {
         triangle.calculateSquare();
         return triangle;
     }
-    public static String biggestFig(Container container){
+    public static String biggestFig(Box box){
         String biggestFig;
 
         return null;

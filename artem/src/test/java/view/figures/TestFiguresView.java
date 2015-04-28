@@ -1,14 +1,11 @@
 package view.figures;
 
 import entity.figures.Circle;
-import entity.figures.Container;
+import entity.figures.Box;
 import entity.figures.Square;
 import entity.figures.Triangle;
 import modules.consoleApp.figures.FiguresModule;
 import org.junit.Test;
-import view.consoleApp.FiguresView;
-
-import java.util.Scanner;
 
 /**
  * Created by R-Tem on 21.04.2015.
@@ -17,10 +14,10 @@ public class TestFiguresView {
 
     @Test
     public void test(){
-        Container container = new Container(6, 5);
-        container.setCircle(FiguresModule.createCircle("circ", 5));
-        container.setFoursquare(FiguresModule.createSquare("sq", 4));
-        container.setTriangle(FiguresModule.createTriangle("tr", 5, 3));
+        Box box = new Box(6, 5);
+        box.addFigures(FiguresModule.createCircle("circ", 5));
+        box.addFigures(FiguresModule.createSquare("sq", 4));
+        box.addFigures(FiguresModule.createTriangle("tr", 5, 3));
 
     }
     @Test
@@ -41,7 +38,7 @@ public class TestFiguresView {
         System.out.print("\n side2: ");
         double s2 = Double.valueOf("5");
         // здесь должен быть вызван валидатор
-        Container container = FiguresModule.createContainer(s1, s2); // почему вызываемый метод обязан быть static???
+        Box box = FiguresModule.createBox(s1, s2); // почему вызываемый метод обязан быть static???
         boolean b = true;
         while (b){
             switch ("1"){
@@ -55,7 +52,7 @@ public class TestFiguresView {
                             System.out.print("\n radius: ");
                             double radius = Double.valueOf("5");
                             Circle circle = FiguresModule.createCircle(name, radius);
-                            container.setCircle(circle);
+                            box.addFigures(circle);
                             break;
                         case "2":
                             System.out.print(" Enter parameters:" +
@@ -64,7 +61,7 @@ public class TestFiguresView {
                             System.out.print("\n side: ");
                             double side = Double.valueOf("5");
                             Square square = FiguresModule.createSquare(name, side);
-                            container.setFoursquare(square);
+                            box.addFigures(square);
                             break;
                         case "3":
                             System.out.print(" Enter parameters:" +
@@ -75,11 +72,11 @@ public class TestFiguresView {
                             System.out.print("\n height: ");
                             double height = Double.valueOf("5");
                             Triangle triangle = FiguresModule.createTriangle(name, side, height);
-                            container.setTriangle(triangle);
+                            box.addFigures(triangle);
                             break;
                     }
-                    System.out.println(container.getPerimeter() + ", " + container.getSquare() +
-                    "\n " + container.getCircle().getPerimeter() + ", " + container.getCircle().getSquare()/* +
+                    System.out.println(box.getPerimeter() + ", " + box.getSquare() +
+                    "\n " + box.getFigures() + ", " + box.getFigures()/* +
                     "\n " + container.getFoursquare().getPerimeter() + ", " + container.getFoursquare().getSquare() +
                     "\n " + container.getTriangle().getPerimeter() + ", " + container.getTriangle().getSquare()*/);
                     b = false;

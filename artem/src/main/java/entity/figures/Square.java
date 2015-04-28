@@ -17,7 +17,6 @@ public class Square extends AbsFigure {
     public String getName() {
         return name;
     }
-    //    @Override
     public void setName(String name) {
         this.name = name;
     }
@@ -32,17 +31,16 @@ public class Square extends AbsFigure {
     public double getPerimeter() {
         return perimeter;
     }
-
     public double getSquare() {
         return square;
     }
 
     @Override
-    public void calculatePerimeter() {
-        perimeter = side*4;
+    public double calculatePerimeter() {
+        return side*4;
     }
     @Override
-    public void calculateSquare() {
-        square = side*side;
+    public double calculateSquare() {
+         return side*side;
     }
 }

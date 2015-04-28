@@ -17,7 +17,6 @@ public class Circle extends AbsFigure {
     public String getName() {
         return name;
     }
-    //    @Override
     public void setName(String name) {
         this.name = name;
     }
@@ -32,7 +31,6 @@ public class Circle extends AbsFigure {
     public double getPerimeter() {
         return perimeter;
     }
-
     public double getSquare() {
         return square;
     }
@@ -41,7 +39,6 @@ public class Circle extends AbsFigure {
     public double calculatePerimeter() {
         return Math.PI*2*radius;
     }
-
     @Override
     public double calculateSquare() {
         return Math.PI*radius*radius;

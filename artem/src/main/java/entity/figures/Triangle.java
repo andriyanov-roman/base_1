@@ -43,11 +43,11 @@ public class Triangle extends AbsFigure {
     }
 
     @Override
-    public void calculatePerimeter() {
-        perimeter = side*3;
+    public double calculatePerimeter() {
+        return side*3;
     }
     @Override
-    public void calculateSquare() {
-        square = (height * side)/2;
+    public double calculateSquare() {
+        return (height * side)/2;
     }
 }

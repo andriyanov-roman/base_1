@@ -1,7 +1,7 @@
 package view.consoleApp;
 
 import entity.figures.Circle;
-import entity.figures.Container;
+import entity.figures.Box;
 import entity.figures.Square;
 import entity.figures.Triangle;
 import modules.consoleApp.figures.FiguresModule;
@@ -12,7 +12,7 @@ import java.util.Scanner;
  * Created by R-Tem on 21.04.2015.
  */
 public class FiguresView {
-    private Container container;
+    private Box box;
     protected Scanner scanner;
 
     public FiguresView(Scanner scanner) {
@@ -26,7 +26,7 @@ public class FiguresView {
                 "\n 'e' to Exit program";
         System.out.println(" Welcome to Figures util!");
         try{
-            double check = container.getPerimeter();
+            double check = box.getPerimeter();
             System.out.println(menu);
         }
         catch (NullPointerException npe) {
@@ -39,7 +39,7 @@ public class FiguresView {
                     addFigure();
                     System.out.println(" Done! Choose the action, please:\n" + menu);
                     break;
-                case "2": System.out.print(FiguresModule.biggestFig(container)); break;
+                case "2": System.out.print(FiguresModule.biggestFig(box)); break;
                 case "r": return "return";
                 case "e": System.exit(0);
                 default:System.out.println("No such case! Try again:\n" + menu);
@@ -49,13 +49,13 @@ public class FiguresView {
     }
     private void setContainer(){
         System.out.print(" Create a container, please:" +
-                "\n width: ");
-        double width = Double.valueOf(scanner.next());
+                "\n length: ");
+        double length = Double.valueOf(scanner.next());
         // здесь должен быть вызван валидатор, который проверяет на то, что это число
-        System.out.print(" height: ");
-        double contHeight = Double.valueOf(scanner.next());
+        System.out.print(" width: ");
+        double width = Double.valueOf(scanner.next());
         // здесь должен быть вызван валидатор
-        container = FiguresModule.createContainer(width, contHeight); // почему вызываемый метод обязан быть static???
+        box = FiguresModule.createBox(length, width); // почему вызываемый метод обязан быть static???
     }
     private void addFigure(){
         String chooseFig = "\n '1' for circle" +
@@ -67,27 +67,30 @@ public class FiguresView {
         String name;
         switch (scanner.next()){
             case "1":
+                System.out.print("Enter name, please: ");
                 name = scanner.next();
-                System.out.print("Enter radius, please: ");
+                System.out.print("Enter radius: ");
                 double radius = Double.valueOf(scanner.next());
                 Circle circle = FiguresModule.createCircle(name, radius);
-                container.setCircle(circle);
+                box.addFigures(circle);
                 break;
             case "2":
+                System.out.print("Enter name, please: ");
                 name = scanner.next();
-                System.out.print(" Enter side, please: ");
+                System.out.print(" Enter side: ");
                 double side = Double.valueOf(scanner.next());
                 Square square = FiguresModule.createSquare(name, side);
-                container.setFoursquare(square);
+                box.addFigures(square);
                 break;
             case "3":
+                System.out.print("Enter name, please: ");
                 name = scanner.next();
-                System.out.print(" Enter side, please: ");
+                System.out.print(" Enter side: ");
                 side = Double.valueOf(scanner.next());
-                System.out.print(" Enter height, please: ");
+                System.out.print(" Enter height: ");
                 double triangleHeight = Double.valueOf(scanner.next());
                 Triangle triangle = FiguresModule.createTriangle(name, side, triangleHeight);
-                container.setTriangle(triangle);
+                box.addFigures(triangle);
                 break;
             case "r": menu();
             case "e": System.exit(0);
