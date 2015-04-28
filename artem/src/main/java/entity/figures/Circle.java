@@ -6,8 +6,6 @@ package entity.figures;
 public class Circle extends AbsFigure {
     private String name;
     private double radius;
-    private double perimeter;
-    private double square;
 
     public Circle(String name, double radius) {
         this.name = name;
@@ -28,13 +26,6 @@ public class Circle extends AbsFigure {
         this.radius = radius;
     }
 
-    public double getPerimeter() {
-        return perimeter;
-    }
-    public double getSquare() {
-        return square;
-    }
-
     @Override
     public double calculatePerimeter() {
         return Math.PI*2*radius;
@@ -42,6 +33,13 @@ public class Circle extends AbsFigure {
     @Override
     public double calculateSquare() {
         return Math.PI*radius*radius;
+    }
 
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "name = '" + name + '\'' +
+                ", radius = " + radius +
+                '}';
     }
 }

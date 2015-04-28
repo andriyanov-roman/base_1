@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by R-Tem on 21.04.2015.
  */
-public class Box extends AbsFigure{
+public class Box {
     private double length;
     private double width;
     private double perimeter;
@@ -31,6 +31,13 @@ public class Box extends AbsFigure{
         this.figures = figures;
     }
 
+    public void calculatePerimeter() {
+        perimeter = 2*(length + width);
+    }
+    public void calculateSquare() {
+        square = length * width;
+    }
+
     public void addFigures(AbsFigure f) {
         if (figures != null) {
             this.figures.add(f);
@@ -39,14 +46,6 @@ public class Box extends AbsFigure{
             figures.add(f);
             this.figures = figures;
         }
-    }
-    @Override
-    public double calculatePerimeter() {
-        return 2*(length + width);
-    }
-    @Override
-    public double calculateSquare() {
-        return length * width;
     }
 
     public Boolean vlezlo(){

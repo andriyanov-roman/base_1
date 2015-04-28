@@ -13,14 +13,6 @@ import org.junit.Test;
 public class TestFiguresView {
 
     @Test
-    public void test(){
-        Box box = new Box(6, 5);
-        box.addFigures(FiguresModule.createCircle("circ", 5));
-        box.addFigures(FiguresModule.createSquare("sq", 4));
-        box.addFigures(FiguresModule.createTriangle("tr", 5, 3));
-
-    }
-    @Test
     public void menu() throws Exception {
         String s = "\n '1' to add figure" +
                 "\n '2' to get the figure with the biggest perimeter and square" +
@@ -38,7 +30,7 @@ public class TestFiguresView {
         System.out.print("\n side2: ");
         double s2 = Double.valueOf("5");
         // здесь должен быть вызван валидатор
-        Box box = FiguresModule.createBox(s1, s2); // почему вызываемый метод обязан быть static???
+        Box box = new Box(s1, s2); // почему вызываемый метод обязан быть static???
         boolean b = true;
         while (b){
             switch ("1"){
@@ -51,7 +43,7 @@ public class TestFiguresView {
                             String name = "circle";
                             System.out.print("\n radius: ");
                             double radius = Double.valueOf("5");
-                            Circle circle = FiguresModule.createCircle(name, radius);
+                            Circle circle = new Circle(name, radius);
                             box.addFigures(circle);
                             break;
                         case "2":
@@ -60,7 +52,7 @@ public class TestFiguresView {
                             name = "square";
                             System.out.print("\n side: ");
                             double side = Double.valueOf("5");
-                            Square square = FiguresModule.createSquare(name, side);
+                            Square square = new Square(name, side);
                             box.addFigures(square);
                             break;
                         case "3":
@@ -71,7 +63,7 @@ public class TestFiguresView {
                             side = Double.valueOf("5");
                             System.out.print("\n height: ");
                             double height = Double.valueOf("5");
-                            Triangle triangle = FiguresModule.createTriangle(name, side, height);
+                            Triangle triangle = new Triangle(name, side, height);
                             box.addFigures(triangle);
                             break;
                     }
