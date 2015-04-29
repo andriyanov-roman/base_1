@@ -1,9 +1,9 @@
-/*@font-face {
+@font-face {
   font-family: 'FontAwesome';
   src: url('fonts/fontawesome-webfont.ttf');
 }
 .fa {
-	-fx-font-family: 'FontAwesome';
+	-fx-font-family: "FontAwesome";
 }
 .main-menu, .left-sidebar, .black-bg {
     -fx-background-color: derive(black, 0%);
@@ -11,11 +11,7 @@
 .main-menu {
     -fx-border-color: #ffffff;
 }
-.main-battons-pane {
-    */
-/*-fx-border-color: derive(white, 0%);*//*
 
-}
 .main-menu .label {
     -fx-font-size: 14pt;
     -fx-font-family: "Segoe UI Light";
@@ -36,12 +32,6 @@
 }
 .btn:hover {
     -fx-background-color: linear-gradient(to bottom, rgba(60, 3, 71, 0.93) 0% , rgba(127, 73, 166, 0.93) 35% , rgba(156, 103, 206, 0.93) 50% , rgba(127, 73, 166, 0.93) 65% , rgba(60, 3, 71, 0.93) 100% );
-    */
-/*-fx-background-color: linear-gradient(to top, #7b499b 0,#661e9b 100%);*//*
-
-    */
-/*-fx-text-fill: #000000;*//*
-
 }
 .btn:pressed {
 	-fx-effect: innershadow(two-pass-box, #707070, 0, 0.9, 3, 3);
@@ -56,5 +46,8 @@
     -fx-effect: innershadow(two-pass-box, #707070, 0, 0.9, 3, 3);
 }
 #exid-id {
-	-fx-text-fill: derive(red, 0%)
-}*/
+	-fx-text-fill: derive(red, 0%);
+}
+.warning {
+    -fx-text-fill: #ffff02;
+}

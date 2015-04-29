@@ -150,11 +150,7 @@ public class CompanyModel extends CommonModel{
         }
         return eMax;
     }
-    // ************* NEW METHODS
-    /*      Возвращает объект типа Company, который имеет поле companyName со значением, идентичным названию компании,
-    * в которой работает сотрудник с наибольшей зарплатой.
-    *      Также имеет ArrayList<Employee> в котором хранится только один сотрудник - копия сотрудника
-    * с наивысшей зарплатой */
+
     public Company getMaxSalaryInCompanyWrapper(String professionClassName) {
         String workCompany = "";
         Employee eMax = new Employee();
@@ -175,7 +171,7 @@ public class CompanyModel extends CommonModel{
     public static Company fireStuff (Company com, Boolean Gender){
         for (int i = 0; i < com.getWorkers().size(); i++) {
             Employee k = com.getWorkers().get(i);
-            if (k.getGender() == Gender){// Если сия особь ТАКОГО пола - уволить!
+            if (k.getGender() == Gender){
                 System.out.println(k.getName() + " " + k.getSurname() + " (" + k.getGenderName() + ") ...FIRED!");
                 com.getWorkers().remove(i);
                 i--;
