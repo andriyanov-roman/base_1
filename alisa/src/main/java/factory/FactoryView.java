@@ -1,4 +1,4 @@
-package mvc.views;
+package factory;
 
 /**
  * Created by admin on 22.04.15.

@@ -1,16 +1,21 @@
 package company;
 
-import mvc.views.CommonView;
+import entity.Employee;
+import mvc.CommonView;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  * Created by admin on 22.04.15.
  */
-public class CompanyView extends CommonView {
+public class CompanyView implements CommonView {
+   private Scanner scanner = new Scanner(System.in);
     private String companyName;
+    private ArrayList<Employee> employees = new ArrayList<>();
     CompanyMethods model = new CompanyMethods();
+
 
     @Override
     public void showMenu() throws IOException {
@@ -23,8 +28,8 @@ public class CompanyView extends CommonView {
                     "\n 5.Add a new employee to Lenovo" +
                     "\n 6. Add a new employee to IBM" +
                     "\n 7.Add a new employee to Luxoft \n");
-            while (getScanner().hasNext()) {
-                switch (getScanner().next()) {
+           /*while (Scanner.hasNext()) {
+                switch (Scanner.next()) {
                     case "0":
                        model.showCompanies();
                         break;
@@ -36,37 +41,37 @@ public class CompanyView extends CommonView {
                         model.sortBySalary(model.getCompByName(companyName));
                         break;
                     case "3":
-                       /* companyName = checkInput();
-                        sortByAge(getCompByName(companyName));
+                       companyName = model.selectCompany();
+                        model.sortByAge(model.getCompByName(companyName));
                         break;
                     case "4":
-                        companyName = checkInput();
-                        sortBySurnameLength(getCompByName(companyName));
+                        companyName = model.selectCompany();
+                        model.sortBySurnameLength(model.getCompByName(companyName));
                         break;
                     case "5":
-                        createNewEmployee();
-                        writeToFile( "alisa/src/result/Lenovo.txt");
+                        model.createNewEmployee();
+                        model.writeToFile("alisa/src/result/Lenovo.txt");
                         CompanyUtil.readFromFile("alisa/src/result/Lenovo.txt", ":");
-                        System.out.println(employees.toString());
+                        System.out.println( employees.toString());
                         break;
                     case "6":
-                        createNewEmployee();
-                        writeToFile( "alisa/src/result/IBM.txt");
+                        model.createNewEmployee();
+                        model.writeToFile("alisa/src/result/IBM.txt");
                         CompanyUtil.readFromFile("alisa/src/result/IBM.txt", ":");
                         System.out.println(employees.toString());
                         break;
                     case "7":
-                        createNewEmployee();
-                        writeToFile("alisa/src/result/Luxoft.txt");
+                        model.createNewEmployee();
+                        model.writeToFile("alisa/src/result/Luxoft.txt");
                         CompanyUtil.readFromFile("alisa/src/result/Luxoft.txt", ":");
                         System.out.println(employees.toString());
                         break;
                     case "Exit":
                         System.exit(0);
                     default:
-                        System.out.println("No such case");*/
+                        System.out.println("No such case");
                 }
-            }
+            }*/
         }
     }
 

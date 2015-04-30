@@ -1,22 +1,22 @@
 package app;
 
-import company.CompanyMethods;
 import company.CompanyView;
-import mvc.views.CommonView;
+import mvc.CommonView;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  * Created by user on 22.04.2015.
  */
-public class AppView extends CommonView {
+public class AppView implements CommonView {
     @Override
     public void showMenu() throws IOException {
             System.out.println ("Application Menu:" +
                     "\n 1. Company Application" + "\n 2. Factory Application"
                     + "\n 3. shapes Application" + "\n 4. University Application");
-            while (getScanner().hasNext()) {
-                switch (getScanner().next()) {
+           /* while (Scanner.hasNext()) {
+                switch (Scanner.next()) {
                     case "1":
                         new CompanyView().showMenu();
                         break;
@@ -34,7 +34,7 @@ public class AppView extends CommonView {
                     default:
                         System.out.println("No such case");
                 }
-            }
+            }*/
         }
     }
 

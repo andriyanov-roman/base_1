@@ -114,7 +114,7 @@ public class CompanyMethods {
         }
     }
 
-    private void createNewEmployee() {
+    public void createNewEmployee() {
         Employee employee = new Employee();
         System.out.println("Enter name");
         employee.setName(scanner.next());
