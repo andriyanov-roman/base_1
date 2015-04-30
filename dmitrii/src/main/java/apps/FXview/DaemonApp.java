@@ -16,6 +16,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.*;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -74,6 +76,7 @@ public class DaemonApp extends Application {
         stage.show();
         /////////
         showInNewWindow("Test",FXMLLoader.load(new File(modulePath + "FXview\\SimpleOverview.fxml").toURL()));
+        showEmployee();
     }
     private Node createAlertPane (){
         HBox bottomAlertPane = new HBox();
@@ -101,8 +104,8 @@ public class DaemonApp extends Application {
         final VBox vbox = new VBox();
         vbox.setSpacing(5);
         vbox.setPadding(new Insets(10, 0, 0, 10));
-        vbox.getChildren().addAll(hb,table);
-        showInNewWindow(windowTitle,vbox);
+        vbox.getChildren().addAll(hb, table);
+        showInNewWindow(windowTitle, vbox);
     }
     public void showInNewWindow (String windowTitle, Parent eatForScene){
         Scene newWinScene = new Scene(eatForScene);
@@ -113,5 +116,12 @@ public class DaemonApp extends Application {
         newWinStage.setScene(newWinScene);
         newWinStage.show();
     }
-
+    public void showEmployee (/*Employee e*/){
+        try {
+            GridPane gp = FXMLLoader.load(new File(modulePath + "FXview\\SimpleOverview.fxml").toURL());
+            ((Text)gp.getChildren().get(1)).setText("Employee name");
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+    }
 }

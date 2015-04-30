@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -41,10 +42,13 @@ public class LeftSideBarController {
         for (int i = 0; i < events.size(); i++) {
             String btnName = ((ExtEventImpl) events.get(i)).getEventName();
             Button btn = new Button (btnName);
+            btn.getStyleClass().addAll("purple","white-text");
+            btn.setMinWidth(200);
             btn.setOnAction(events.get(i));
             grid.add(btn,0,i);
         }
-        grid.setStyle("-fx-background-color: derive(orange, 0%)");
+        //grid.setStyle("-fx-background-color: derive(orange, 0%)");
+        grid.getStyleClass().add("black-bg");
         grid.setMaxWidth(515);
         grid.setPadding(new Insets(10,10,10,10));
         grid.setVgap(10);

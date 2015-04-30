@@ -6,7 +6,7 @@ import entities.company.Company;
 import entities.company.Employee;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.ChoiceDialog;
+//import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
@@ -31,10 +31,15 @@ public class CompanyEventContainer {
     public CompanyEventContainer(DaemonApp mainApp) {
         this.mainApp = mainApp;
         this.events = new ArrayList<>();
-        events.add(new showCompany("Show All Companies"));
-        events.add(new getMaxSalary("getMaxSalary"));
+        events.add(new showCompany("Show Company"));
+        events.add(new getMaxSalary("Get Max Salary"));
+        events.add(new addEmployee("Add Employee"));
+        events.add(new addEmployee("Fire and Increase Stuff"));
+        events.add(new addEmployee("Get Highest salary by Proffesion"));
+        events.add(new addEmployee("New Task"));
+        events.add(new addEmployee("Test"));
     }
-    public Optional<String> selectCompanyDialog (){
+    /*public Optional<String> selectCompanyDialog (){
         List<String> choices = new ArrayList<>();
         for (Company i : model.getCompanies()){
             choices.add(i.getCompanyName());
@@ -43,8 +48,10 @@ public class CompanyEventContainer {
         dialog.setTitle("Select Company");
         dialog.setHeaderText(null);
         dialog.setContentText("Choose Company name:");
+        Optional<String> result = new Optional<String>();
         return dialog.showAndWait();
-    }
+    }*/
+
     public Company getCompanyByName (String companyName){
         for (Company com : model.getCompanies()){
             if (com.getCompanyName().equals(companyName)){
@@ -61,9 +68,11 @@ public class CompanyEventContainer {
 
         @Override
         public void handle(ActionEvent event) {
-            Optional<String> result = selectCompanyDialog();
-            if (result.isPresent()){
-                Company com = getCompanyByName(result.get());
+            //Optional<String> result = selectCompanyDialog();
+            //if (result.isPresent()){
+            if (true){
+                //Company com = getCompanyByName(result.get());
+                Company com = getCompanyByName("ZAZ");
                 mainApp.showTableWindow(com.getWorkers(), listOfProperties, "Show Company", com.getCompanyName());
             }
         }
@@ -76,9 +85,11 @@ public class CompanyEventContainer {
 
         @Override
         public void handle(ActionEvent event) {
-            Optional<String> result = selectCompanyDialog();
-            if ( result.isPresent()) {
-                Company com = getCompanyByName(result.get());
+            //Optional<String> result = selectCompanyDialog();
+            //if ( result.isPresent()) {
+            if (true) {
+                //Company com = getCompanyByName(result.get());
+                Company com = getCompanyByName("Volvo");
                 Employee e = model.getWorkerWithMaxSalaryInComp(com);
                 GridPane grid = new GridPane ();
                 for (int i = 0; i < listOfProperties.size(); i++) {
@@ -95,6 +106,17 @@ public class CompanyEventContainer {
             }
 
 
+        }
+    }
+    public class addEmployee extends ExtEventImpl {
+
+        public addEmployee(String eventName) {
+            super(eventName);
+        }
+
+        @Override
+        public void handle(ActionEvent event) {
+            System.out.println("test addEmployee");
         }
     }
 }
