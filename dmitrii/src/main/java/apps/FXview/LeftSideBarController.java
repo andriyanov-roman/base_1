@@ -8,9 +8,11 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
@@ -25,6 +27,7 @@ public class LeftSideBarController {
     }
     @FXML
     public void setDefaultWidth (){
+        ((GridPane)mainApp.getRootLayout().getCenter()).setMaxWidth(350);
         ((GridPane) mainApp.getRootLayout().getLeft()).setMaxWidth(250);
         mainApp.getAlertNODE().setText("");
     }
@@ -41,17 +44,16 @@ public class LeftSideBarController {
             btn.setOnAction(events.get(i));
             grid.add(btn,0,i);
         }
-        //grid.setStyle("-fx-background-color: derive(orange, 0%)");
-        //grid.setPrefWidth(150);
-        grid.setMaxWidth(350);
-        grid.setPadding(new Insets(5,5,5,5));
-        //grid.setMargin();
+        grid.setStyle("-fx-background-color: derive(orange, 0%)");
+        grid.setMaxWidth(515);
+        grid.setPadding(new Insets(10,10,10,10));
+        grid.setVgap(10);
         mainApp.getRootLayout().setCenter(grid);
     }
 
     @FXML
     public void loadCompanyApp(){
-        loadApps(new CompanyEventContainer().getEvents());
+        loadApps(new CompanyEventContainer(mainApp).getEvents());
     }
     @FXML
     public void loadFactoryApp(){

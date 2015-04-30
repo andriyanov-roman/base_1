@@ -1,19 +1,27 @@
 package apps.FXview;
 
+import entities.company.Employee;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.*;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -64,9 +72,8 @@ public class DaemonApp extends Application {
         stage.setTitle("The united application launching");
         stage.setScene(scene);
         stage.show();
-        //loadCompanyAppMenu();
-        //initRes();
-        setUserAgentStylesheet(STYLESHEET_MODENA);
+        /////////
+        showInNewWindow("Test",FXMLLoader.load(new File(modulePath + "FXview\\SimpleOverview.fxml").toURL()));
     }
     private Node createAlertPane (){
         HBox bottomAlertPane = new HBox();
@@ -77,41 +84,34 @@ public class DaemonApp extends Application {
         bottomAlertPane.setPrefHeight(50);
         return bottomAlertPane;
     }
-    /*private void loadCompanyAppMenu() {
-        try {
-            Node companyAppMenu = FXMLLoader.load(new File(modulePath + "company\\CompanyAppFXMenu.fxml").toURL());
-            rootLayout.setCenter(companyAppMenu);
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void showTableWindow (ArrayList<Employee> data, ArrayList<String> listOfProperties, String windowTitle, String header){
+        final HBox hb = new HBox();
+        hb.getChildren().add(new Label(header));
+        ObservableList<Employee> fxData = FXCollections.observableArrayList();
+        for (Employee e : data) {
+            fxData.add(e);
         }
-    }*/
-
-    /*public void initRes (){
-        FXMLLoader loader = new FXMLLoader();
-        try {
-            loader.setLocation(new File(modulePath+"FXview\\LeftSideBar.fxml").toURL());
-            loader.load();
-        } catch (Exception e) {
-            e.printStackTrace();
+        TableView<Employee> table = new TableView<>(fxData);
+        for (String pName : listOfProperties) {
+            TableColumn col = new TableColumn(pName);
+            col.setMinWidth(100);
+            col.setCellValueFactory(new PropertyValueFactory<>(pName));
+            table.getColumns().add(col);
         }
-        //MainWindowController controller = loader.getController();
-        //controller.setMainApp(this);
-        System.out.println("We are here!");
+        final VBox vbox = new VBox();
+        vbox.setSpacing(5);
+        vbox.setPadding(new Insets(10, 0, 0, 10));
+        vbox.getChildren().addAll(hb,table);
+        showInNewWindow(windowTitle,vbox);
     }
-    public static void main(String[] args) {
-        launch(args);
+    public void showInNewWindow (String windowTitle, Parent eatForScene){
+        Scene newWinScene = new Scene(eatForScene);
+        Stage newWinStage = new Stage();
+        newWinStage.setTitle(windowTitle);
+        newWinStage.initModality(Modality.WINDOW_MODAL);
+        newWinStage.initOwner(stage);
+        newWinStage.setScene(newWinScene);
+        newWinStage.show();
     }
 
-    public static void loadCompanyApp() {
-        FXMLLoader loader = new FXMLLoader();
-        AnchorPane companyAppPane = new AnchorPane();
-        try {
-            loader.setLocation(new File("dmitrii\\src\\main\\java\\apps\\FXview\\CompanyAppPane.fxml").toURL());
-            companyAppPane = loader.load();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-       BorderPane p = new BorderPane();
-        System.out.println("1 st App Loadded");
-    }*/
 }
