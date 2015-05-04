@@ -75,7 +75,7 @@ public class DaemonApp extends Application {
         stage.setScene(scene);
         stage.show();
         /////////
-        showInNewWindow("Test",FXMLLoader.load(new File(modulePath + "FXview\\SimpleOverview.fxml").toURL()));
+        //showInNewWindow("Test",FXMLLoader.load(new File(modulePath + "FXview\\SimpleOverview.fxml").toURL()));
         showEmployee();
     }
     private Node createAlertPane (){
@@ -123,5 +123,9 @@ public class DaemonApp extends Application {
         } catch (IOException e1) {
             e1.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
