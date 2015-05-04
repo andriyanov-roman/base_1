@@ -108,12 +108,12 @@ public class DaemonApp extends Application {
         showInNewWindow(windowTitle, vbox);
     }
     public void showInNewWindow (String windowTitle, Parent eatForScene){
-        Scene newWinScene = new Scene(eatForScene);
+        Scene newWindowScene = new Scene(eatForScene);
         Stage newWinStage = new Stage();
         newWinStage.setTitle(windowTitle);
         newWinStage.initModality(Modality.WINDOW_MODAL);
         newWinStage.initOwner(stage);
-        newWinStage.setScene(newWinScene);
+        newWinStage.setScene(newWindowScene);
         newWinStage.show();
     }
     public void showEmployee (/*Employee e*/){
