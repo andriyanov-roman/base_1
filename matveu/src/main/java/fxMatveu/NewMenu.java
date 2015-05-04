@@ -29,7 +29,7 @@ public class NewMenu extends Application {
         root.setTop(menuBar);
 
         Menu fileMenu = new Menu("File");
-        MenuItem newMenuItem = new MenuItem("CarFactory");
+        MenuItem newMenuItem = new MenuItem("carFactory");
         newMenuItem.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
