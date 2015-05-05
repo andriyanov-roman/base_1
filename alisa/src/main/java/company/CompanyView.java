@@ -28,8 +28,8 @@ public class CompanyView implements CommonView {
                     "\n 5.Add a new employee to Lenovo" +
                     "\n 6. Add a new employee to IBM" +
                     "\n 7.Add a new employee to Luxoft \n");
-           /*while (Scanner.hasNext()) {
-                switch (Scanner.next()) {
+           while (scanner.hasNext()) {
+                switch (scanner.next()) {
                     case "0":
                        model.showCompanies();
                         break;
@@ -71,7 +71,7 @@ public class CompanyView implements CommonView {
                     default:
                         System.out.println("No such case");
                 }
-            }*/
+            }
         }
     }
 
