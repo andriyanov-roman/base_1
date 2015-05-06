@@ -2,6 +2,8 @@ package apps.company;
 
 import apps.FXview.DaemonApp;
 import apps.FXview.ExtEventImpl;
+import apps.FXview.TableViewHelper;
+import apps.factory.FactoryModel;
 import entities.company.Company;
 import entities.company.Employee;
 import javafx.event.ActionEvent;
@@ -12,8 +14,6 @@ import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
 
 /**
  * Created by mit_OK! on 29.04.2015.
@@ -21,7 +21,8 @@ import java.util.Optional;
 public class CompanyEventContainer {
     private DaemonApp mainApp;
     private CompanyModel model = new CompanyModel();
-    ArrayList<String> listOfProperties = new ArrayList<>(Arrays.asList("name","surname","salary","gender","age"));
+    ArrayList<String> listOfProperties =
+            new ArrayList<>(Arrays.asList("name","surname","salary","gender","age","platform","projectName","language"));
     private ArrayList<EventHandler<ActionEvent>> events;
 
     public ArrayList<EventHandler<ActionEvent>> getEvents() {
@@ -72,8 +73,15 @@ public class CompanyEventContainer {
             //if (result.isPresent()){
             if (true){
                 //Company com = getCompanyByName(result.get());
-                Company com = getCompanyByName("ZAZ");
-                mainApp.showTableWindow(com.getWorkers(), listOfProperties, "Show Company", com.getCompanyName());
+                Company com = getCompanyByName("Volvo");
+                //mainApp.showTableWindow(com.getWorkers(), listOfProperties, "Show Company", com.getCompanyName());
+                mainApp.showTableWindow(new TableViewHelper("Show Company",com.getCompanyName(),listOfProperties,com.getWorkers()));
+                Employee e = new Employee(){
+                    public String  jobTitle = this.getClass().getSimpleName();
+                };
+                /*listOfProperties.clear();
+                listOfProperties.addAll(Arrays.asList("model", "type", "carOwner"));
+                mainApp.showTableWindow3(FactoryModel.loadCars(), listOfProperties,"Cars", "Cars");*/
             }
         }
     }

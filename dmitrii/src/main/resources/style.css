@@ -5,6 +5,9 @@
 .fa {
 	-fx-font-family: "FontAwesome";
 }
+.font-increased {
+    -fx-font-size: 42pt;
+}
 .main-menu, .left-sidebar, .black-bg {
     -fx-background-color: derive(black, 0%);
 }
@@ -54,8 +57,19 @@
 .white-text {
     -fx-text-fill: derive(white, 0%);
 }
+.black-text {
+    -fx-text-fill: derive(black, 0%);
+}
 .bolded {
     -fx-font-weight: bold;
+}
+.o-button {
+    -fx-font-weight: bold;
+    -fx-text-fill: derive(white, 0%);
+    -fx-border-color: #ffffff;
+}
+.o-button:pressed{
+    -fx-effect: innershadow(two-pass-box, #707070, 0, 0.9, 3, 3);
 }
 .purple {
     -fx-background-color: linear-gradient(to top,#9655c6 0,#661e9b 100%);

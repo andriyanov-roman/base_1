@@ -5,22 +5,32 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.junit.Test;
+
+import java.net.URL;
 
 /**
  * Created by mit_OK! on 29.04.2015.
  */
-public class FXMyTests extends Application{ private final TableView<Person> table = new TableView<>();
+public class FXMyTests extends Application {
+    private final TableView<Person> table = new TableView<>();
     private final ObservableList<Person> data =
             FXCollections.observableArrayList(new Person("A", "B"));
     final HBox hb = new HBox();
@@ -29,8 +39,8 @@ public class FXMyTests extends Application{ private final TableView<Person> tabl
         launch(args);
     }
 
-    @Override
-    public void start(Stage stage) {
+    //@Override
+    public void start2(Stage stage) {
         Scene scene = new Scene(new Group());
         stage.setWidth(450);
         stage.setHeight(550);
@@ -51,7 +61,7 @@ public class FXMyTests extends Application{ private final TableView<Person> tabl
 
         final Button addButton = new Button("Add");
         addButton.setOnAction((ActionEvent e) -> {
-            data.add(new Person("Z","X"));
+            data.add(new Person("Z", "X"));
         });
 
         hb.getChildren().addAll(addButton);
@@ -66,6 +76,19 @@ public class FXMyTests extends Application{ private final TableView<Person> tabl
 
         stage.setScene(scene);
         stage.show();
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+        // ---------------
+        //FXMLExporter e = new FXMLExporter("Test.fxml");
+        //e.export(mainPlaceHolder);
+        //================
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("Overview.fxml"));
+        primaryStage.setScene(new Scene(loader.load()));
+        primaryStage.show();
     }
 
     public static class Person {

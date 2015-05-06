@@ -1,5 +1,6 @@
 package apps.FXview;
 
+import apps.FXview.overview.OverviewHelper;
 import entities.company.Employee;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -10,23 +11,23 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Pair;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by mit_OK! on 28.04.2015.
@@ -49,7 +50,9 @@ public class DaemonApp extends Application {
     public void setAlertNODE(Label alertNODE) {
         this.alertNODE = alertNODE;
     }
-
+    public static void main(String[] args) {
+        launch(args);
+    }
     @Override
     public void start(Stage stage) throws Exception {
         //Parent root = FXMLLoader.load(getClass().getResource("MainWindow.fxml"));
@@ -76,7 +79,7 @@ public class DaemonApp extends Application {
         stage.show();
         /////////
         //showInNewWindow("Test",FXMLLoader.load(new File(modulePath + "FXview\\SimpleOverview.fxml").toURL()));
-        showEmployee();
+        showEntity();
     }
     private Node createAlertPane (){
         HBox bottomAlertPane = new HBox();
@@ -87,26 +90,7 @@ public class DaemonApp extends Application {
         bottomAlertPane.setPrefHeight(50);
         return bottomAlertPane;
     }
-    public void showTableWindow (ArrayList<Employee> data, ArrayList<String> listOfProperties, String windowTitle, String header){
-        final HBox hb = new HBox();
-        hb.getChildren().add(new Label(header));
-        ObservableList<Employee> fxData = FXCollections.observableArrayList();
-        for (Employee e : data) {
-            fxData.add(e);
-        }
-        TableView<Employee> table = new TableView<>(fxData);
-        for (String pName : listOfProperties) {
-            TableColumn col = new TableColumn(pName);
-            col.setMinWidth(100);
-            col.setCellValueFactory(new PropertyValueFactory<>(pName));
-            table.getColumns().add(col);
-        }
-        final VBox vbox = new VBox();
-        vbox.setSpacing(5);
-        vbox.setPadding(new Insets(10, 0, 0, 10));
-        vbox.getChildren().addAll(hb, table);
-        showInNewWindow(windowTitle, vbox);
-    }
+
     public void showInNewWindow (String windowTitle, Parent eatForScene){
         Scene newWindowScene = new Scene(eatForScene);
         Stage newWinStage = new Stage();
@@ -116,16 +100,71 @@ public class DaemonApp extends Application {
         newWinStage.setScene(newWindowScene);
         newWinStage.show();
     }
-    public void showEmployee (/*Employee e*/){
+    public void showEntity (/*Employee e*/){
+        String iconChar = "\uF1B2";
+        Employee employee = new Employee("Ivan", "Petrov", 333.05,true,25);
+        OverviewHelper<Employee> helper =
+                new OverviewHelper<>("Volvo",employee.getClass().getSimpleName(), OverviewHelper.MALE_ICON, employee,"separator", "name");
+        // *************
+        Pane mainPlaceHolder = null;
         try {
-            GridPane gp = FXMLLoader.load(new File(modulePath + "FXview\\SimpleOverview.fxml").toURL());
-            ((Text)gp.getChildren().get(1)).setText("Employee name");
-        } catch (IOException e1) {
-            e1.printStackTrace();
+            mainPlaceHolder = FXMLLoader.load(new File(modulePath + "FXview\\overview\\Overview.fxml").toURL());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-    }
+        GridPane top = (GridPane) getElementById("o_top", mainPlaceHolder);
+        ((Label) getElementById("o_icon",top)).setText(helper.getIconChar());
+        ((Label) getElementById("o_title",top)).setText(helper.getTitle());
+        ((Label) getElementById("o_subTitle",top)).setText(helper.getSubTitle());
 
-    public static void main(String[] args) {
-        launch(args);
+        GridPane center = (GridPane) getElementById("o_center", mainPlaceHolder);
+        center.setHgap(5);
+        center.setVgap(5);
+        center.setMargin(center,new Insets(5,5,5,5));
+        double newGridWidth = 0;
+        for (int i = 0; i < helper.getPairs().size(); i++) {
+            Label fieldName = new Label(helper.getPairs().get(i).getKey().toUpperCase());
+            fieldName.setPadding(new Insets(5, 5, 5, 5));
+            fieldName.getStyleClass().add("label-caption");
+            center.add(fieldName, 0, i);
+            if (newGridWidth < fieldName.getPrefWidth()) {newGridWidth = fieldName.getPrefWidth();}
+
+            TextField fieldValue = new TextField(helper.getPairs().get(i).getValue());
+            fieldValue.setPadding(new Insets(5,5,5,5));
+            fieldValue.setDisable(true);
+            center.add(fieldValue,1,i);
+        }
+        double newGridHeight = center.getRowConstraints().get(0).getMaxHeight() * helper.getPairs().size();
+        center.setMinHeight(newGridHeight);
+        center.getColumnConstraints().get(0).setMinWidth(newGridWidth);
+
+        //GridPane bottom = (GridPane) getElementById("o_bottom", mainPlaceHolder);
+
+        showInNewWindow("Empl test", mainPlaceHolder);
+    }
+    public Node getElementById (String id, Parent parent){
+        for (Node i : parent.getChildrenUnmodifiable()) {
+            if (i.getId().equals(id)){
+                return i;
+            }
+        }
+        return null;
+    }
+    public void showTableWindow (TableViewHelper helper){
+        final HBox hb = new HBox();
+        hb.getClass().getDeclaredFields();
+        hb.getChildren().add(new Label(helper.getHeader()));
+        TableView<Object> table = new TableView<>(FXCollections.observableArrayList(helper.getEntities()));
+        for (String s :  helper.getFields()) {
+            TableColumn col = new TableColumn(s.toUpperCase());
+            col.setMinWidth(100);
+            col.setCellValueFactory(new PropertyValueFactory<>(s));
+            table.getColumns().add(col);
+        }
+        final VBox vbox = new VBox();
+        vbox.setSpacing(5);
+        vbox.setPadding(new Insets(10, 0, 0, 10));
+        vbox.getChildren().addAll(hb, table);
+        showInNewWindow(helper.getWindowName(), vbox);
     }
 }
