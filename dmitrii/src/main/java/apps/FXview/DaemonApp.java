@@ -79,7 +79,6 @@ public class DaemonApp extends Application {
         stage.show();
         /////////
         //showInNewWindow("Test",FXMLLoader.load(new File(modulePath + "FXview\\SimpleOverview.fxml").toURL()));
-        showEntity();
     }
     private Node createAlertPane (){
         HBox bottomAlertPane = new HBox();
@@ -100,11 +99,11 @@ public class DaemonApp extends Application {
         newWinStage.setScene(newWindowScene);
         newWinStage.show();
     }
-    public void showEntity (/*Employee e*/){
-        String iconChar = "\uF1B2";
-        Employee employee = new Employee("Ivan", "Petrov", 333.05,true,25);
-        OverviewHelper<Employee> helper =
-                new OverviewHelper<>("Volvo",employee.getClass().getSimpleName(), OverviewHelper.MALE_ICON, employee,"separator", "name");
+    public void showEntity (OverviewHelper<?> helper){
+        //String iconChar = "\uF1B2";
+        //Employee employee = new Employee("Ivan", "Petrov", 333.05,true,25);
+        //OverviewHelper<Employee> helper =
+                //new OverviewHelper<>("Volvo",employee.getClass().getSimpleName(), OverviewHelper.MALE_ICON, employee,"separator", "name");
         // *************
         Pane mainPlaceHolder = null;
         try {
@@ -120,11 +119,11 @@ public class DaemonApp extends Application {
         GridPane center = (GridPane) getElementById("o_center", mainPlaceHolder);
         center.setHgap(5);
         center.setVgap(5);
-        center.setMargin(center,new Insets(5,5,5,5));
+        //center.setMargin(center,new Insets(5,5,5,5));
         double newGridWidth = 0;
         for (int i = 0; i < helper.getPairs().size(); i++) {
             Label fieldName = new Label(helper.getPairs().get(i).getKey().toUpperCase());
-            fieldName.setPadding(new Insets(5, 5, 5, 5));
+            fieldName.setPadding(new Insets(5, 5, 5, 15));
             fieldName.getStyleClass().add("label-caption");
             center.add(fieldName, 0, i);
             if (newGridWidth < fieldName.getPrefWidth()) {newGridWidth = fieldName.getPrefWidth();}
@@ -140,7 +139,7 @@ public class DaemonApp extends Application {
 
         //GridPane bottom = (GridPane) getElementById("o_bottom", mainPlaceHolder);
 
-        showInNewWindow("Empl test", mainPlaceHolder);
+        showInNewWindow(helper.getWindowTitle(), mainPlaceHolder);
     }
     public Node getElementById (String id, Parent parent){
         for (Node i : parent.getChildrenUnmodifiable()) {

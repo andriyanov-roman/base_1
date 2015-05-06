@@ -3,6 +3,7 @@ package apps.company;
 import apps.FXview.DaemonApp;
 import apps.FXview.ExtEventImpl;
 import apps.FXview.TableViewHelper;
+import apps.FXview.overview.OverviewHelper;
 import apps.factory.FactoryModel;
 import entities.company.Company;
 import entities.company.Employee;
@@ -99,7 +100,14 @@ public class CompanyEventContainer {
                 //Company com = getCompanyByName(result.get());
                 Company com = getCompanyByName("Volvo");
                 Employee e = model.getWorkerWithMaxSalaryInComp(com);
-                GridPane grid = new GridPane ();
+                OverviewHelper<Employee> ohe = new OverviewHelper<>(e);
+                ohe.setTitle(com.getCompanyName());
+                ohe.setSubTitle(e.getClass().getSimpleName());
+                ohe.setIconChar(e.getGender() ? OverviewHelper.MALE_ICON : OverviewHelper.FEMALE_ICON);
+                ohe.setExcludedFields("separator");
+                ohe.setUseSuperFields(true);
+                mainApp.showEntity(ohe);
+                /*GridPane grid = new GridPane ();
                 for (int i = 0; i < listOfProperties.size(); i++) {
                     Label definition = new Label(listOfProperties.get(i)+":");
                     definition.getStyleClass().add("def-label");
@@ -110,7 +118,7 @@ public class CompanyEventContainer {
                 grid.add(new Label(e.getSalary().toString()),1,2);
                 grid.add(new Label(e.getGenderName()),1,3);
                 grid.add(new Label(e.getAge()+""),1,4);
-                mainApp.showInNewWindow("EMPLOYEE WITH HIGHEST SALARY", grid);
+                mainApp.showInNewWindow("EMPLOYEE WITH HIGHEST SALARY", grid);*/
             }
 
 
