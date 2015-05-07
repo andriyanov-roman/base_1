@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by mit_OK! on 05.05.2015.
  */
-public class TableViewHelper {
+public class TableViewHelper<T> {
     private String windowName = "";
     private String header = "";
     private ArrayList<String> fields = new ArrayList<>();
@@ -19,7 +19,7 @@ public class TableViewHelper {
         this.header = header;
     }
 
-    public TableViewHelper(String windowName, String header, ArrayList<String> fields, ArrayList entities) {
+    public TableViewHelper(String windowName, String header, ArrayList<String> fields, ArrayList<T> entities) {
         this.windowName = windowName;
         this.header = header;
         this.fields = fields;
@@ -29,7 +29,6 @@ public class TableViewHelper {
     public String getWindowName() {
         return windowName;
     }
-
     public void setWindowName(String windowName) {
         this.windowName = windowName;
     }
@@ -37,7 +36,6 @@ public class TableViewHelper {
     public String getHeader() {
         return header;
     }
-
     public void setHeader(String header) {
         this.header = header;
     }
@@ -45,7 +43,6 @@ public class TableViewHelper {
     public ArrayList<String> getFields() {
         return fields;
     }
-
     public void setFields(ArrayList<String> fields) {
         this.fields = fields;
     }
@@ -53,7 +50,6 @@ public class TableViewHelper {
     public ArrayList getEntities() {
         return entities;
     }
-
     public void setEntities(ArrayList entities) {
         this.entities = entities;
     }
