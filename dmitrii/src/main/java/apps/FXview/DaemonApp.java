@@ -21,6 +21,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.util.Pair;
 
 import java.io.File;
@@ -41,6 +42,8 @@ public class DaemonApp extends Application {
     private BorderPane rootLayout;
     private String modulePath = "dmitrii\\src\\main\\java\\apps\\";
     private Label alertNODE = new Label();
+    private Boolean isAuthorizationSuccess = false;
+    private GridPane loginPane;
 
     public Scene getScene() {
         return scene;
@@ -64,10 +67,54 @@ public class DaemonApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    @Override
-    public void start(Stage stage) throws Exception {
+    public void login (){
+        Stage loginStage = new Stage();
+        try {
+            loginPane = FXMLLoader.load(getDaemonURL("login\\LoginForm.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ((Label)getElementById("a_lock",loginPane)).setText("\uf13e");
+        ((Button)getElementById("o_Cancel",loginPane)).setOnAction(event -> loginStage.close());
+        Button okButton = (Button) getElementById("o_OK",loginPane);
+        okButton.setOnAction(event -> checkCredentials());
+        loginStage.setScene(new Scene(loginPane));
+        loginStage.showAndWait();
 
-        this.stage = stage;
+    }
+    private void checkCredentials (){
+        ArrayList<Pair<String,String >> credentials = new ArrayList<>();
+        credentials.add(new Pair<>("admin","1234"));
+        credentials.add(new Pair<>("user", "F111"));
+        credentials.add(new Pair<>("user2", "F222"));
+        String username = ((TextField) getElementById("username", loginPane)).getText();
+        String password = ((PasswordField) getElementById("password",loginPane)).getText();
+        for (Pair c : credentials){
+            if (c.getKey().equals(username) && c.getValue().equals(password)){
+                isAuthorizationSuccess = true;
+                Stage s = (Stage) loginPane.getScene().getWindow();
+                s.close();
+            } else {
+                ((Label)getElementById("auth_warning",loginPane)).setText("Incorrect credentials!!!");
+            }
+        }
+
+    }
+
+    @Override
+    public void start(Stage stage) {
+        login();
+        if (isAuthorizationSuccess) {
+            try {
+                this.stage = stage;
+                runDaemonApp();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+    private void runDaemonApp () throws Exception {
         rootLayout = new BorderPane();
         rootLayout.setTop(FXMLLoader.load(getDaemonURL("MainMenu.fxml")));
         FXMLLoader loader = new FXMLLoader();
@@ -131,7 +178,7 @@ public class DaemonApp extends Application {
 
             TextField fieldValue = new TextField(helper.getPairs().get(i).getValue());
             fieldValue.setPadding(new Insets(5,5,5,5));
-            fieldValue.setDisable(true);
+            fieldValue.setDisable(helper.getForbidEditing());
             center.add(fieldValue,1,i);
         }
         double newGridHeight = center.getRowConstraints().get(0).getMaxHeight() * helper.getPairs().size();
@@ -140,14 +187,19 @@ public class DaemonApp extends Application {
         GridPane bottom = (GridPane) getElementById("o_bottom", mainPlaceHolder);
         Button cancelButton = (Button) getElementById("o_Cancel",bottom);
         cancelButton.setOnAction(new CloseWindow(cancelButton));
+        Button okButton = (Button) getElementById("o_OK",bottom);
+        okButton.setDisable(helper.getForbidEditing());
 
         showInNewWindow(helper.getWindowTitle(), mainPlaceHolder);
     }
     public Node getElementById (String id, Parent parent){
         for (Node i : parent.getChildrenUnmodifiable()) {
-            if (i.getId().equals(id)){
-                return i;
+            if (i.getId()!=null){
+                if (i.getId().equals(id)){
+                    return i;
+                }
             }
+
         }
         return null;
     }
@@ -182,16 +234,24 @@ public class DaemonApp extends Application {
     public class Dialog {
         public String chooseFromList (String question, ArrayList<String> variants){
             GridPane gridPane = new GridPane();
-            Label label = new Label(question);
+            gridPane.getStylesheets().add("daemon-style.css");
             ChoiceBox<String> choiceBox = new ChoiceBox<>();
             choiceBox.getItems().addAll(variants);
             choiceBox.setValue(variants.get(0));
+            choiceBox.getStyleClass().addAll("white-border");
             Button okButton = new Button("OK");
             okButton.getStyleClass().add("ok-btn");
             okButton.setOnAction(new CloseWindow(okButton));
-            gridPane.add(label, 0, 0);
-            gridPane.add(choiceBox, 1, 0);
-            gridPane.add(okButton,2,0);
+            Label decorIcon = new Label("\uf059");
+            decorIcon.setId("fa-icon");
+            decorIcon.setPadding(new Insets(0,0,0,30));
+            gridPane.add(new Label(question), 0, 0);
+            gridPane.add(decorIcon, 1, 0);
+            gridPane.add(choiceBox, 0, 1);
+            gridPane.add(okButton, 1, 2);
+            gridPane.setVgap(20);
+            gridPane.setHgap(10);
+            gridPane.setPadding(new Insets(10,10,10,10));
             showInNewWindow("Choose variant", gridPane);
             return choiceBox.getValue();
         }

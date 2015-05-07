@@ -25,9 +25,10 @@ public class OverviewHelper<T> {
     private Boolean useSuperFields;
     private ArrayList<Pair<String,String>> pairs;
     private ArrayList<Pair<String,String>> replacedPairs;
+    private Boolean forbidEditing;
 
     public OverviewHelper(String windowTitle, String title, String subTitle, String iconChar,
-                          T entity, Boolean useSuperFields, ArrayList<Pair<String,String>> replacedPairs,
+                          T entity, Boolean useSuperFields, ArrayList<Pair<String,String>> replacedPairs,Boolean forbidEditing,
                           String ... excludedFields) {
         this.windowTitle = windowTitle;
         this.title = title;
@@ -36,6 +37,7 @@ public class OverviewHelper<T> {
         this.entity = entity;
         this.useSuperFields = useSuperFields;
         this.excludedFields = excludedFields;
+        this.forbidEditing = forbidEditing;
         this.replacedPairs = replacedPairs;
         this.pairs = new ArrayList<>();
         makePairsFromFields(entity.getClass().getSuperclass().getDeclaredFields());
@@ -51,6 +53,7 @@ public class OverviewHelper<T> {
         this.iconChar = UNKNOWN_ICON;
         this.useSuperFields = false;
         this.excludedFields = excludedFields;
+        this.forbidEditing = true;
         this.pairs = new ArrayList<>();
         if (useSuperFields){
             makePairsFromFields(entity.getClass().getSuperclass().getDeclaredFields());
@@ -102,6 +105,14 @@ public class OverviewHelper<T> {
     }
     public void setUseSuperFields(Boolean useSuperFields) {
         this.useSuperFields = useSuperFields;
+    }
+
+    public Boolean getForbidEditing() {
+        return forbidEditing;
+    }
+
+    public void setForbidEditing(Boolean forbidEditing) {
+        this.forbidEditing = forbidEditing;
     }
 
     public ArrayList<Pair<String, String>> getPairs() {

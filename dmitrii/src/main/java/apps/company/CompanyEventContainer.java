@@ -85,9 +85,6 @@ public class CompanyEventContainer {
                 Employee e = new Employee(){
                     public String  jobTitle = this.getClass().getSimpleName();
                 };
-                /*listOfProperties.clear();
-                listOfProperties.addAll(Arrays.asList("model", "type", "carOwner"));
-                mainApp.showTableWindow3(FactoryModel.loadCars(), listOfProperties,"Cars", "Cars");*/
             }
         }
     }
@@ -99,30 +96,18 @@ public class CompanyEventContainer {
 
         @Override
         public void handle(ActionEvent event) {
-            //Optional<String> result = selectCompanyDialog();
-            //if ( result.isPresent()) {
-            if (true) {
-                //Company com = getCompanyByName(result.get());
-                Company com = getCompanyByName("Volvo");
+            dialog = mainApp.new Dialog();
+            String result = dialog.chooseFromList("Choose company: ", getCompanyNamesList());
+            if (result.length()>0){
+                Company com = getCompanyByName(result);
                 Employee e = model.getWorkerWithMaxSalaryInComp(com);
                 OverviewHelper<Employee> ohe = new OverviewHelper<>(e,true,"separator");
                 ohe.setTitle(com.getCompanyName());
                 ohe.setSubTitle(e.getClass().getSimpleName());
                 ohe.setIconChar(e.getGender() ? OverviewHelper.MALE_ICON : OverviewHelper.FEMALE_ICON);
-                ohe.addReplacedPair("gender",e.getGenderName());
+                ohe.addReplacedPair("gender", e.getGenderName());
+                ohe.setWindowTitle("EMPLOYEE WITH HIGHEST SALARY");
                 mainApp.showEntity(ohe);
-                /*GridPane grid = new GridPane ();
-                for (int i = 0; i < listOfProperties.size(); i++) {
-                    Label definition = new Label(listOfProperties.get(i)+":");
-                    definition.getStyleClass().add("def-label");
-                    grid.add(definition,0,i);
-                }
-                grid.add(new Label(e.getName()),1,0);
-                grid.add(new Label(e.getSurname()),1,1);
-                grid.add(new Label(e.getSalary().toString()),1,2);
-                grid.add(new Label(e.getGenderName()),1,3);
-                grid.add(new Label(e.getAge()+""),1,4);
-                mainApp.showInNewWindow("EMPLOYEE WITH HIGHEST SALARY", grid);*/
             }
 
 

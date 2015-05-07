@@ -1,36 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.layout.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="233.0" prefWidth="354.0" styleClass="black-bg" stylesheets="@../../../../resources/daemon-style.css" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apps.FXview.login.LoginFormController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="271.0" prefWidth="354.0" styleClass="black-bg" stylesheets="@../../../../resources/daemon-style.css" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apps.FXview.login.LoginFormController">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="324.0" minWidth="10.0" percentWidth="50.0" prefWidth="300.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" percentWidth="50.0" prefWidth="300.0" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="25.0" minHeight="1.0" prefHeight="4.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="25.0" valignment="CENTER" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label text="Username" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Label text="Username" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets right="10.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Pasword" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+      <Label text="Pasword" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets right="10.0" />
          </GridPane.margin></Label>
-      <TextField fx:id="username" maxWidth="150.0" prefHeight="25.0" prefWidth="152.0" text="fffdsfsdfdsfsdfssf" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <PasswordField maxWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <Button mnemonicParsing="false" onAction="#login" styleClass="ok-btn" text="Login" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-      <Button mnemonicParsing="false" styleClass="cancel-btn" text="Exit" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <TextField fx:id="username" maxWidth="150.0" prefHeight="25.0" prefWidth="152.0" text="admin" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <PasswordField fx:id="password" maxWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Button fx:id="o_OK" mnemonicParsing="false" styleClass="ok-btn" text="Login" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+      <Button fx:id="o_Cancel" mnemonicParsing="false" styleClass="cancel-btn" text="Exit" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets left="10.0" />
          </GridPane.margin></Button>
@@ -39,9 +41,10 @@
             <Font name="System Bold" size="48.0" />
          </font>
       </Text>
-      <Label id="a_lock" fx:id="a_lock" prefHeight="50.0" prefWidth="50.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="1">
+      <Label id="a_lock" fx:id="a_lock" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="30.0" top="35.0" />
          </GridPane.margin></Label>
+      <Label fx:id="auth_warning" GridPane.columnIndex="1" GridPane.rowIndex="1" />
    </children>
 </GridPane>

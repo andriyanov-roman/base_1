@@ -16,7 +16,8 @@
 .font-awesome, .fa {
  	-fx-font-family: 'FontAwesome';
 }
-.root, .menu-bar, .menu {
+
+.root, .menu-bar, .menu, .choice-box {
     -fx-background-color: derive(black, 0%);
     -fx-font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
     -fx-font-size: 11pt;
@@ -57,7 +58,9 @@
 .warning {
     -fx-text-fill: #ffff02;
 }
-
+.white-border {
+    -fx-border-color: derive(white, 0%);
+}
 /* ----------------------------------- */
 .left-btn {
     -fx-padding: 5 18 5 0;
@@ -102,6 +105,13 @@
 }
 #a_lock {
     -fx-font-family: 'FontAwesome';
-    -fx-font-size:48pt;
+    -fx-font-size:54pt;
 }
-
+#fa-icon {
+    -fx-font-family: 'FontAwesome';
+    -fx-font-size: 48pt;
+}
+#auth_warning {
+    -fx-text-fill: derive(red, 0%);
+    -fx-font-weight: bold;
+}
