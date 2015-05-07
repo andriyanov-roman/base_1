@@ -1,8 +1,11 @@
-package apps.login;
+package apps.FXview.login;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -18,7 +21,7 @@ public class LoginApp extends Application {
     GridPane gp;
     @Override
     public void start(Stage primaryStage) throws Exception {
-        File f = new File("dmitrii\\src\\main\\java\\apps\\login\\LoginForm.fxml");
+        File f = new File("dmitrii\\src\\main\\java\\apps\\FXview\\login\\LoginForm.fxml");
         URL url = f.toURL();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(url);
@@ -33,7 +36,8 @@ public class LoginApp extends Application {
                 break;
             }
         }
-
+        Label lockLabel = (Label) getElementById("a_lock",gp);
+        lockLabel.setText("\uf13e");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -49,6 +53,14 @@ public class LoginApp extends Application {
             }
         }
         //System.out.println(username.getText());
-        FileUtil.WriteToFile(username.getText(),"F:\\WEB\\_repositories\\base_test\\dmitrii\\src\\main\\java\\apps\\login\\RRRRR.txt",true);
+        //FileUtil.WriteToFile(username.getText(),"F:\\WEB\\_repositories\\base_test\\dmitrii\\src\\main\\java\\apps\\login\\RRRRR.txt",true);
+    }
+    public Node getElementById (String id, Parent parent){
+        for (Node i : parent.getChildrenUnmodifiable()) {
+            if (id.equals(i.getId())){
+                return i;
+            }
+        }
+        return null;
     }
 }

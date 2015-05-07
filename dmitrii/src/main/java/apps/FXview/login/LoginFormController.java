@@ -1,4 +1,4 @@
-package apps.login;
+package apps.FXview.login;
 
 import javafx.fxml.FXML;
 

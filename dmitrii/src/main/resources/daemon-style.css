@@ -22,7 +22,7 @@
     -fx-font-size: 11pt;
     -fx-text-fill: derive(white, 0%);
 }
-.menu-item .label {
+.menu-item .label, .black-text {
     -fx-text-fill: derive(black, 0%);
 }
 .label {
@@ -31,14 +31,16 @@
 }
 .button {
     -fx-text-fill: derive(white, 0%);
-    -fx-border-color: #ffffff;
     -fx-font-size: 10pt;
-    -fx-padding: 1px 8px 3px 1px;
-    -fx-alignment: center;
-    -fx-content-display: center;
+    -fx-padding: 2px 15px;
 }
 .button:pressed {
     -fx-effect: innershadow(two-pass-box, #707070, 0, 0.9, 3, 3);
+}
+.btn, .ok-btn, .cancel-btn {
+    -fx-pref-width: 100px;
+    -fx-border-color: #ffffff;
+    -fx-font-weight:bold;
 }
 .purple, .ok-btn {
     -fx-background-color: linear-gradient(to top,#9655c6 0,#661e9b 100%);
@@ -68,8 +70,6 @@
     -fx-text-fill: #ffffff;
     -fx-background-insets: 0 0 0 0, 0, 1, 2;
     -fx-cursor: hand;
-    -fx-alignment: LEFT;
-    -fx-content-display: LEFT;
 }
 .left-btn:hover {
     -fx-background-color: linear-gradient(to bottom, rgba(60, 3, 71, 0.93) 0% , rgba(127, 73, 166, 0.93) 35% , rgba(156, 103, 206, 0.93) 50% , rgba(127, 73, 166, 0.93) 65% , rgba(60, 3, 71, 0.93) 100% );
@@ -89,5 +89,19 @@
 #exid-id {
     -fx-text-fill: derive(red, 0%);
 }
-
+.black-bg {
+    -fx-background-color: derive(black, 0%);
+}
+#o_icon {
+    -fx-text-fill: derive(black, 0%);
+    -fx-font-size:48pt;
+ }
+#o_title {
+    -fx-font-size:24pt;
+    -fx-font-weight: bold;
+}
+#a_lock {
+    -fx-font-family: 'FontAwesome';
+    -fx-font-size:48pt;
+}
 

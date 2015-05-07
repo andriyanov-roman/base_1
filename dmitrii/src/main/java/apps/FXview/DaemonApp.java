@@ -73,7 +73,6 @@ public class DaemonApp extends Application {
         rootLayout.setBottom(createAlertPane());
         rootLayout.getStyleClass().add("black-bg");
         scene = new Scene(rootLayout, 600, 400);
-        //scene.getStylesheets().add("style2.css");
         scene.getStylesheets().add("daemon-style.css");
         stage.setTitle("The united application launching");
         stage.setScene(scene);
@@ -86,7 +85,6 @@ public class DaemonApp extends Application {
         alertNODE.getStyleClass().add("warning");
         bottomAlertPane.getChildren().add(alertNODE);
         bottomAlertPane.setAlignment(Pos.CENTER);
-        //bottomAlertPane.getStyleClass().add("black-bg");
         bottomAlertPane.setPrefHeight(50);
         return bottomAlertPane;
     }
@@ -101,11 +99,6 @@ public class DaemonApp extends Application {
         newWinStage.show();
     }
     public void showEntity (OverviewHelper<?> helper){
-        //String iconChar = "\uF1B2";
-        //Employee employee = new Employee("Ivan", "Petrov", 333.05,true,25);
-        //OverviewHelper<Employee> helper =
-                //new OverviewHelper<>("Volvo",employee.getClass().getSimpleName(), OverviewHelper.MALE_ICON, employee,"separator", "name");
-        // *************
         Pane mainPlaceHolder = null;
         try {
             mainPlaceHolder = FXMLLoader.load(new File(modulePath + "FXview\\overview\\Overview.fxml").toURL());
@@ -120,7 +113,6 @@ public class DaemonApp extends Application {
         GridPane center = (GridPane) getElementById("o_center", mainPlaceHolder);
         center.setHgap(5);
         center.setVgap(5);
-        //center.setMargin(center,new Insets(5,5,5,5));
         double newGridWidth = 0;
         for (int i = 0; i < helper.getPairs().size(); i++) {
             Label fieldName = new Label(helper.getPairs().get(i).getKey().toUpperCase());
