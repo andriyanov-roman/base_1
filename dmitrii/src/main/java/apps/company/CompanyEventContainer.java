@@ -21,6 +21,7 @@ import java.util.Arrays;
  */
 public class CompanyEventContainer {
     private DaemonApp mainApp;
+    private DaemonApp.Dialog dialog;
     private CompanyModel model = new CompanyModel();
     ArrayList<String> listOfProperties =
             new ArrayList<>(Arrays.asList("name","surname","salary","gender","age","platform","projectName","language"));
@@ -53,7 +54,13 @@ public class CompanyEventContainer {
         Optional<String> result = new Optional<String>();
         return dialog.showAndWait();
     }*/
-
+    public ArrayList<String> getCompanyNamesList (){
+        ArrayList<String> names = new ArrayList<>();
+        for (Company com : model.getCompanies()){
+            names.add(com.getCompanyName());
+        }
+        return names;
+    }
     public Company getCompanyByName (String companyName){
         for (Company com : model.getCompanies()){
             if (com.getCompanyName().equals(companyName)){
@@ -70,12 +77,10 @@ public class CompanyEventContainer {
 
         @Override
         public void handle(ActionEvent event) {
-            //Optional<String> result = selectCompanyDialog();
-            //if (result.isPresent()){
-            if (true){
-                //Company com = getCompanyByName(result.get());
-                Company com = getCompanyByName("Volvo");
-                //mainApp.showTableWindow(com.getWorkers(), listOfProperties, "Show Company", com.getCompanyName());
+            dialog = mainApp.new Dialog();
+            String result = dialog.chooseFromList("Choose company: ", getCompanyNamesList());
+            if (result.length()>0){
+                Company com = getCompanyByName(result);
                 mainApp.showTableWindow(new TableViewHelper("Show Company",com.getCompanyName(),listOfProperties,com.getWorkers()));
                 Employee e = new Employee(){
                     public String  jobTitle = this.getClass().getSimpleName();
@@ -100,12 +105,11 @@ public class CompanyEventContainer {
                 //Company com = getCompanyByName(result.get());
                 Company com = getCompanyByName("Volvo");
                 Employee e = model.getWorkerWithMaxSalaryInComp(com);
-                OverviewHelper<Employee> ohe = new OverviewHelper<>(e);
+                OverviewHelper<Employee> ohe = new OverviewHelper<>(e,true,"separator");
                 ohe.setTitle(com.getCompanyName());
                 ohe.setSubTitle(e.getClass().getSimpleName());
                 ohe.setIconChar(e.getGender() ? OverviewHelper.MALE_ICON : OverviewHelper.FEMALE_ICON);
-                ohe.setExcludedFields("separator");
-                ohe.setUseSuperFields(true);
+                ohe.addReplacedPair("gender",e.getGenderName());
                 mainApp.showEntity(ohe);
                 /*GridPane grid = new GridPane ();
                 for (int i = 0; i < listOfProperties.size(); i++) {

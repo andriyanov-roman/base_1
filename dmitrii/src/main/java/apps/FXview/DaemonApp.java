@@ -5,6 +5,8 @@ import entities.company.Employee;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -13,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -39,6 +42,14 @@ public class DaemonApp extends Application {
     private String modulePath = "dmitrii\\src\\main\\java\\apps\\";
     private Label alertNODE = new Label();
 
+    public Scene getScene() {
+        return scene;
+    }
+
+    public Stage getStage() {
+        return stage;
+    }
+
     public BorderPane getRootLayout() {
         return rootLayout;
     }
@@ -55,21 +66,20 @@ public class DaemonApp extends Application {
     }
     @Override
     public void start(Stage stage) throws Exception {
-        //Parent root = FXMLLoader.load(getClass().getResource("MainWindow.fxml"));
 
         this.stage = stage;
         rootLayout = new BorderPane();
-        rootLayout.setTop(FXMLLoader.load(new File(modulePath+"FXview\\MainMenu.fxml").toURL()));
+        rootLayout.setTop(FXMLLoader.load(getDaemonURL("MainMenu.fxml")));
         FXMLLoader loader = new FXMLLoader();
         try {
-            loader.setLocation(new File(modulePath + "FXview\\LeftSideBar.fxml").toURL());
+            loader.setLocation(getDaemonURL("LeftSideBar.fxml"));
             rootLayout.setLeft(loader.load());
         } catch (Exception e) {
             e.printStackTrace();
         }
         LeftSideBarController controller = loader.getController();
         controller.setMainApp(this);
-        rootLayout.setCenter(FXMLLoader.load(new File(modulePath + "FXview\\CenterDefault.fxml").toURL()));
+        rootLayout.setCenter(FXMLLoader.load(getDaemonURL("CenterDefault.fxml")));
         rootLayout.setBottom(createAlertPane());
         rootLayout.getStyleClass().add("black-bg");
         scene = new Scene(rootLayout, 600, 400);
@@ -77,8 +87,6 @@ public class DaemonApp extends Application {
         stage.setTitle("The united application launching");
         stage.setScene(scene);
         stage.show();
-        /////////
-        //showInNewWindow("Test",FXMLLoader.load(new File(modulePath + "FXview\\SimpleOverview.fxml").toURL()));
     }
     private Node createAlertPane (){
         HBox bottomAlertPane = new HBox();
@@ -96,12 +104,13 @@ public class DaemonApp extends Application {
         newWinStage.initModality(Modality.WINDOW_MODAL);
         newWinStage.initOwner(stage);
         newWinStage.setScene(newWindowScene);
-        newWinStage.show();
+        //newWinStage.show();
+        newWinStage.showAndWait();
     }
     public void showEntity (OverviewHelper<?> helper){
         Pane mainPlaceHolder = null;
         try {
-            mainPlaceHolder = FXMLLoader.load(new File(modulePath + "FXview\\overview\\Overview.fxml").toURL());
+            mainPlaceHolder = FXMLLoader.load(getDaemonURL("overview\\Overview.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -109,7 +118,6 @@ public class DaemonApp extends Application {
         ((Label) getElementById("o_icon",top)).setText(helper.getIconChar());
         ((Label) getElementById("o_title",top)).setText(helper.getTitle());
         ((Label) getElementById("o_subTitle",top)).setText(helper.getSubTitle());
-
         GridPane center = (GridPane) getElementById("o_center", mainPlaceHolder);
         center.setHgap(5);
         center.setVgap(5);
@@ -129,8 +137,9 @@ public class DaemonApp extends Application {
         double newGridHeight = center.getRowConstraints().get(0).getMaxHeight() * helper.getPairs().size();
         center.setMinHeight(newGridHeight);
         center.getColumnConstraints().get(0).setMinWidth(newGridWidth);
-
-        //GridPane bottom = (GridPane) getElementById("o_bottom", mainPlaceHolder);
+        GridPane bottom = (GridPane) getElementById("o_bottom", mainPlaceHolder);
+        Button cancelButton = (Button) getElementById("o_Cancel",bottom);
+        cancelButton.setOnAction(new CloseWindow(cancelButton));
 
         showInNewWindow(helper.getWindowTitle(), mainPlaceHolder);
     }
@@ -159,4 +168,33 @@ public class DaemonApp extends Application {
         vbox.getChildren().addAll(hb, table);
         showInNewWindow(helper.getWindowName(), vbox);
     }
+    public URL getDaemonURL (String FXMLfileName){
+        //getClass().getResource("MainWindow.fxml");
+        URL url = null;
+        try {
+            url = new File("dmitrii\\src\\main\\java\\apps\\FXview\\"+FXMLfileName).toURL();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return url;
+    }
+
+    public class Dialog {
+        public String chooseFromList (String question, ArrayList<String> variants){
+            GridPane gridPane = new GridPane();
+            Label label = new Label(question);
+            ChoiceBox<String> choiceBox = new ChoiceBox<>();
+            choiceBox.getItems().addAll(variants);
+            choiceBox.setValue(variants.get(0));
+            Button okButton = new Button("OK");
+            okButton.getStyleClass().add("ok-btn");
+            okButton.setOnAction(new CloseWindow(okButton));
+            gridPane.add(label, 0, 0);
+            gridPane.add(choiceBox, 1, 0);
+            gridPane.add(okButton,2,0);
+            showInNewWindow("Choose variant", gridPane);
+            return choiceBox.getValue();
+        }
+    }
+
 }

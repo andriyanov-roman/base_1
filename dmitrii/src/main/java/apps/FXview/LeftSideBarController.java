@@ -63,5 +63,9 @@ public class LeftSideBarController {
     public void loadFactoryApp(){
 
     }
+    @FXML
+    public void exit (){
+        mainApp.getStage().close();
+    }
 
 }

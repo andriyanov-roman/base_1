@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Created by mit_OK! on 06.05.2015.
  */
-public class OverviewHelper<T> implements IValueReplacer {
+public class OverviewHelper<T> {
     public static final String CAR_ICON = "\uf1b9";
     public static final String MALE_ICON = "\uf183";
     public static final String FEMALE_ICON = "\uf182";
@@ -23,24 +23,39 @@ public class OverviewHelper<T> implements IValueReplacer {
     private T entity;
     private String [] excludedFields;
     private Boolean useSuperFields;
+    private ArrayList<Pair<String,String>> pairs;
+    private ArrayList<Pair<String,String>> replacedPairs;
 
-    public OverviewHelper(String windowTitle, String title, String subTitle, String iconChar, T entity, Boolean useSuperFields, String ... disabledFields) {
+    public OverviewHelper(String windowTitle, String title, String subTitle, String iconChar,
+                          T entity, Boolean useSuperFields, ArrayList<Pair<String,String>> replacedPairs,
+                          String ... excludedFields) {
         this.windowTitle = windowTitle;
         this.title = title;
         this.subTitle = subTitle;
         this.iconChar = iconChar;
         this.entity = entity;
         this.useSuperFields = useSuperFields;
-        this.excludedFields = disabledFields;
+        this.excludedFields = excludedFields;
+        this.replacedPairs = replacedPairs;
+        this.pairs = new ArrayList<>();
+        makePairsFromFields(entity.getClass().getSuperclass().getDeclaredFields());
+        makePairsFromFields(entity.getClass().getDeclaredFields());
+        replacePair();
     }
 
-    public OverviewHelper(T entity) {
+    public OverviewHelper(T entity, Boolean useSuperFields,String ... excludedFields) {
         this.entity = entity;
         this.windowTitle = "";
         this.title = "";
         this.subTitle = "";
         this.iconChar = UNKNOWN_ICON;
         this.useSuperFields = false;
+        this.excludedFields = excludedFields;
+        this.pairs = new ArrayList<>();
+        if (useSuperFields){
+            makePairsFromFields(entity.getClass().getSuperclass().getDeclaredFields());
+        }
+        makePairsFromFields(entity.getClass().getDeclaredFields());
     }
 
     public String getWindowTitle() {
@@ -81,9 +96,6 @@ public class OverviewHelper<T> implements IValueReplacer {
     public String[] getExcludedFields() {
         return excludedFields;
     }
-    public void setExcludedFields(String ... excludedFields) {
-        this.excludedFields = excludedFields;
-    }
 
     public Boolean getUseSuperFields() {
         return useSuperFields;
@@ -92,32 +104,33 @@ public class OverviewHelper<T> implements IValueReplacer {
         this.useSuperFields = useSuperFields;
     }
 
-    public ArrayList<Pair<String, String>> getPairs(){
-        Class e = entity.getClass();
-        ArrayList<Pair<String,String>> pairs = new ArrayList<>();
-        if (useSuperFields) {
-            for (Field f : e.getSuperclass().getDeclaredFields()){
-                f.setAccessible(true);
-                try {
-                    if (!isExcludedField(f)) {
-                        pairs.add(new Pair(f.getName(),f.get(entity)+""));
-                    }
-                } catch (IllegalAccessException e1) {
-                    e1.printStackTrace();
-                }
-            }
-        }
-        for (Field f : e.getDeclaredFields()){
-            f.setAccessible(true);
-            try {
-                if (!isExcludedField(f)) {
-                    pairs.add(new Pair(f.getName(),f.get(entity)+""));
-                }
-            } catch (IllegalAccessException e1) {
-                e1.printStackTrace();
-            }
-        }
+    public ArrayList<Pair<String, String>> getPairs() {
         return pairs;
+    }
+
+    public ArrayList<Pair<String, String>> getReplacedPairs() {
+        return replacedPairs;
+    }
+    public void setReplacedPairs(ArrayList<Pair<String, String>> replacedPairs) {
+        this.replacedPairs = replacedPairs;
+        replacePair();
+    }
+    public void addReplacedPair(String keyName, String keyValue) {
+        if (replacedPairs == null) {
+            replacedPairs = new ArrayList<>();
+        }
+        replacedPairs.add(new Pair<>(keyName, keyValue));
+        replacePair();
+    }
+
+    private void replacePair(){
+            for (Pair<String, String> r : replacedPairs){
+                for (int i = 0; i < pairs.size(); i++) {
+                    if (pairs.get(i).getKey().equals(r.getKey())){
+                        pairs.set(i,r);
+                    }
+                }
+            }
     }
     private Boolean isExcludedField (Field f){
         for (String disField : excludedFields) {
@@ -127,9 +140,17 @@ public class OverviewHelper<T> implements IValueReplacer {
         }
         return false;
     }
-
-    @Override
-    public void replaceValue(String fieldName, String newValue) {
-
+    public void makePairsFromFields(Field[] fields) {
+        for (Field f : fields){
+            f.setAccessible(true);
+            try {
+                if (!isExcludedField(f)) {
+                    pairs.add(new Pair(f.getName(),f.get(entity)+""));
+                }
+            } catch (IllegalAccessException e1) {
+                e1.printStackTrace();
+            }
+        }
     }
+
 }

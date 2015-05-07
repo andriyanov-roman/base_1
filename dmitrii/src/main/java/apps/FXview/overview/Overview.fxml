@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import java.lang.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="225.0" minWidth="290.0" prefHeight="426.0" prefWidth="341.0" stylesheets="@../../../../resources/daemon-style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apps.FXview.overview.OverviewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="225.0" minWidth="290.0" prefHeight="426.0" prefWidth="341.0" styleClass="black-bg" stylesheets="@../../../../resources/daemon-style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apps.FXview.overview.OverviewController">
    <children>
       <GridPane fx:id="o_top" prefHeight="96.0" prefWidth="246.0">
         <columnConstraints>
