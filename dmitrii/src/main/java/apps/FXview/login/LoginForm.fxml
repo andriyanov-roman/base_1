@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="271.0" prefWidth="354.0" styleClass="black-bg" stylesheets="@../../../../resources/daemon-style.css" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apps.FXview.login.LoginFormController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="271.0" prefWidth="354.0" snapToPixel="false" styleClass="black-bg" stylesheets="@../../../../resources/daemon-style.css" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apps.FXview.login.LoginFormController">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="324.0" minWidth="10.0" percentWidth="50.0" prefWidth="300.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" percentWidth="50.0" prefWidth="300.0" />
@@ -25,7 +25,7 @@
             <Insets right="10.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Pasword" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+      <Label text="Password" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets right="10.0" />
          </GridPane.margin></Label>
@@ -41,7 +41,7 @@
             <Font name="System Bold" size="48.0" />
          </font>
       </Text>
-      <Label id="a_lock" fx:id="a_lock" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="2">
+      <Label id="a_lock" fx:id="a_lock" prefHeight="50.0" prefWidth="50.0" text="?" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="30.0" top="35.0" />
          </GridPane.margin></Label>
