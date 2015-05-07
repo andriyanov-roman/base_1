@@ -46,7 +46,6 @@ public class OverviewHelper<T> implements IValueReplacer {
     public String getWindowTitle() {
         return windowTitle;
     }
-
     public void setWindowTitle(String windowTitle) {
         this.windowTitle = windowTitle;
     }
@@ -54,7 +53,6 @@ public class OverviewHelper<T> implements IValueReplacer {
     public String getTitle() {
         return title;
     }
-
     public void setTitle(String title) {
         this.title = title;
     }
@@ -62,7 +60,6 @@ public class OverviewHelper<T> implements IValueReplacer {
     public String getSubTitle() {
         return subTitle;
     }
-
     public void setSubTitle(String subTitle) {
         this.subTitle = subTitle;
     }
@@ -70,7 +67,6 @@ public class OverviewHelper<T> implements IValueReplacer {
     public String getIconChar() {
         return iconChar;
     }
-
     public void setIconChar(String iconChar) {
         this.iconChar = iconChar;
     }
@@ -78,7 +74,6 @@ public class OverviewHelper<T> implements IValueReplacer {
     public T getEntity() {
         return entity;
     }
-
     public void setEntity(T entity) {
         this.entity = entity;
     }
@@ -86,7 +81,6 @@ public class OverviewHelper<T> implements IValueReplacer {
     public String[] getExcludedFields() {
         return excludedFields;
     }
-
     public void setExcludedFields(String ... excludedFields) {
         this.excludedFields = excludedFields;
     }
@@ -94,7 +88,6 @@ public class OverviewHelper<T> implements IValueReplacer {
     public Boolean getUseSuperFields() {
         return useSuperFields;
     }
-
     public void setUseSuperFields(Boolean useSuperFields) {
         this.useSuperFields = useSuperFields;
     }
