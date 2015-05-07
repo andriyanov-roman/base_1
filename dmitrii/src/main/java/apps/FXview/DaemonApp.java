@@ -149,11 +149,11 @@ public class DaemonApp extends Application {
         }
         return null;
     }
-    public void showTableWindow (TableViewHelper helper){
+    public void showTableWindow (TableViewHelper<?> helper){
         final HBox hb = new HBox();
         hb.getClass().getDeclaredFields();
         hb.getChildren().add(new Label(helper.getHeader()));
-        TableView<Object> table = new TableView<>(FXCollections.observableArrayList(helper.getEntities()));
+        TableView<?> table = new TableView<>(FXCollections.observableArrayList(helper.getEntities()));
         for (String s :  helper.getFields()) {
             TableColumn col = new TableColumn(s.toUpperCase());
             col.setMinWidth(100);
