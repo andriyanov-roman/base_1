@@ -6,7 +6,7 @@
 
 <GridPane maxHeight="350.0" maxWidth="250.0" minHeight="300.0" minWidth="50.0" onContextMenuRequested="#setDefaultWidth" prefHeight="350.0" prefWidth="250.0" styleClass="black-bg" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apps.FXview.LeftSideBarController">
    <children>
-      <Button id="exit-id" alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="260.0" styleClass="btn" text=" Exit " GridPane.rowIndex="5">
+      <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="260.0" styleClass="left-btn" text=" Exit " GridPane.rowIndex="5">
          <graphic>
             <Label id="exid-id" alignment="BASELINE_LEFT" graphicTextGap="0.0" prefHeight="37.0" prefWidth="66.0" text="    ">
                <styleClass>
@@ -16,7 +16,7 @@
             </Label>
          </graphic>
       </Button>
-      <Button id="exit-id" alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="260.0" styleClass="btn" text=" Make Report ..." GridPane.rowIndex="4">
+      <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="260.0" styleClass="left-btn" text=" Make Report ..." GridPane.rowIndex="4">
          <graphic>
             <Label alignment="BASELINE_LEFT" graphicTextGap="0.0" prefHeight="37.0" prefWidth="66.0" text="    ">
                <styleClass>
@@ -26,7 +26,7 @@
             </Label>
          </graphic>
       </Button>
-      <Button id="exit-id" alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="260.0" styleClass="btn" text=" Shapes" GridPane.rowIndex="3">
+      <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="260.0" styleClass="left-btn" text=" Shapes" GridPane.rowIndex="3">
          <graphic>
             <Label alignment="BASELINE_LEFT" graphicTextGap="0.0" prefHeight="37.0" prefWidth="66.0" text="   ">
                <styleClass>
@@ -36,7 +36,7 @@
             </Label>
          </graphic>
       </Button>
-      <Button id="exit-id" alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="260.0" styleClass="btn" text=" University " GridPane.rowIndex="2">
+      <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="260.0" styleClass="left-btn" text=" University " GridPane.rowIndex="2">
          <graphic>
             <Label alignment="BASELINE_LEFT" graphicTextGap="0.0" prefHeight="37.0" prefWidth="66.0" text="  ">
                <styleClass>
@@ -46,7 +46,7 @@
             </Label>
          </graphic>
       </Button>
-      <Button id="exit-id" alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="260.0" styleClass="btn" text=" Car Factory" GridPane.rowIndex="1">
+      <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="260.0" styleClass="left-btn" text=" Car Factory" GridPane.rowIndex="1">
          <graphic>
             <Label alignment="BASELINE_LEFT" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="37.0" prefWidth="66.0" text="   ">
                <styleClass>
@@ -56,7 +56,7 @@
             </Label>
          </graphic>
       </Button>
-      <Button id="exit-id" fx:id="companyApp" alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#loadCompanyApp" prefHeight="51.0" prefWidth="260.0" styleClass="btn" text=" Company (Employees)">
+      <Button fx:id="companyApp" alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#loadCompanyApp" prefHeight="51.0" prefWidth="260.0" styleClass="left-btn" text=" Company (Employees)">
          <graphic>
             <Label alignment="BASELINE_LEFT" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="37.0" prefWidth="66.0" text="    ">
                <styleClass>

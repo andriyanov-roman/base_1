@@ -73,7 +73,8 @@ public class DaemonApp extends Application {
         rootLayout.setBottom(createAlertPane());
         rootLayout.getStyleClass().add("black-bg");
         scene = new Scene(rootLayout, 600, 400);
-        scene.getStylesheets().add("style.css");
+        //scene.getStylesheets().add("style2.css");
+        scene.getStylesheets().add("daemon-style.css");
         stage.setTitle("The united application launching");
         stage.setScene(scene);
         stage.show();
@@ -85,7 +86,7 @@ public class DaemonApp extends Application {
         alertNODE.getStyleClass().add("warning");
         bottomAlertPane.getChildren().add(alertNODE);
         bottomAlertPane.setAlignment(Pos.CENTER);
-        bottomAlertPane.getStyleClass().add("black-bg");
+        //bottomAlertPane.getStyleClass().add("black-bg");
         bottomAlertPane.setPrefHeight(50);
         return bottomAlertPane;
     }

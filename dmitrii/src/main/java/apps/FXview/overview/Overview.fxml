@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import java.lang.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="225.0" minWidth="290.0" prefHeight="225.0" prefWidth="290.0" styleClass="black-bg" stylesheets="@/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apps.FXview.overview.OverviewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="225.0" minWidth="290.0" prefHeight="225.0" prefWidth="290.0" stylesheets="@../../../../resources/daemon-style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apps.FXview.overview.OverviewController">
    <children>
       <GridPane fx:id="o_top" prefHeight="96.0" prefWidth="286.0">
         <columnConstraints>
@@ -57,16 +57,12 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="o_OK" minHeight="20.0" minWidth="75.0" mnemonicParsing="false" text="OK" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="o_OK" minHeight="20.0" minWidth="75.0" mnemonicParsing="false" styleClass="ok-btn" text="OK" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
-               <styleClass>
-                  <String fx:value="o-button" />
-                  <String fx:value="purple" />
-               </styleClass>
             </Button>
-            <Button fx:id="o_Cancel" minHeight="20.0" minWidth="75.0" mnemonicParsing="false" text="Cancel" GridPane.columnIndex="2">
+            <Button fx:id="o_Cancel" alignment="CENTER" contentDisplay="CENTER" minHeight="20.0" minWidth="75.0" mnemonicParsing="false" text="Cancel" GridPane.columnIndex="2">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

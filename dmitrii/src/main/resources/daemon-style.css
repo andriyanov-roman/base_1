@@ -2,6 +2,92 @@
   font-family: 'FontAwesome';
   src: url('fonts/fontawesome-webfont.ttf');
 }
-.fa {
- 	-fx-font-family: "FontAwesome";
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('fonts/segoeui.ttf');
 }
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('fonts/segoeuib.ttf');
+}
+.font-segoe {
+    -fx-font-family: 'Segoe UI';
+}
+.font-awesome, .fa {
+ 	-fx-font-family: 'FontAwesome';
+}
+.root, .menu-bar, .menu {
+    -fx-background-color: derive(black, 0%);
+    -fx-font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    -fx-font-size: 11pt;
+    -fx-text-fill: derive(white, 0%);
+}
+.menu-item .label {
+    -fx-text-fill: derive(black, 0%);
+}
+.label {
+    -fx-text-fill: derive(white, 0%);
+    -fx-font-size: 11pt;
+}
+.button {
+    -fx-text-fill: derive(white, 0%);
+    -fx-border-color: #ffffff;
+    -fx-font-size: 10pt;
+    -fx-padding: 1px 8px 3px 1px;
+    -fx-alignment: center;
+    -fx-content-display: center;
+}
+.button:pressed {
+    -fx-effect: innershadow(two-pass-box, #707070, 0, 0.9, 3, 3);
+}
+.purple, .ok-btn {
+    -fx-background-color: linear-gradient(to top,#9655c6 0,#661e9b 100%);
+}
+.purple:hover, .ok-btn:hover {
+    -fx-background-color: linear-gradient(to top,#661e9b 100%,#9655c6 0);
+}
+.orange, .cancel-btn {
+    -fx-background-color: linear-gradient(to top,#ff9a22 0,#f46e01 100%);
+}
+.orange:hover, .cancel-btn:hover {
+    -fx-background-color: linear-gradient(to top,#f46e01 100%,#ff9a22 0);
+}
+.warning {
+    -fx-text-fill: #ffff02;
+}
+
+/* ----------------------------------- */
+.left-btn {
+    -fx-padding: 5 18 5 0;
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-background-color: derive(black, 0%);
+    -fx-font-size: 11pt;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+    -fx-cursor: hand;
+    -fx-alignment: LEFT;
+    -fx-content-display: LEFT;
+}
+.left-btn:hover {
+    -fx-background-color: linear-gradient(to bottom, rgba(60, 3, 71, 0.93) 0% , rgba(127, 73, 166, 0.93) 35% , rgba(156, 103, 206, 0.93) 50% , rgba(127, 73, 166, 0.93) 65% , rgba(60, 3, 71, 0.93) 100% );
+}
+.left-btn:pressed {
+    -fx-effect: innershadow(two-pass-box, #707070, 0, 0.9, 3, 3);
+    -fx-text-fill: #000000;
+}
+.icon {
+    -fx-text-fill: #ffffff;
+    -fx-font-size:26pt;
+}
+
+.icon:pressed {
+    -fx-effect: innershadow(two-pass-box, #707070, 0, 0.9, 3, 3);
+}
+#exid-id {
+    -fx-text-fill: derive(red, 0%);
+}
+
+

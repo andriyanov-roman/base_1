@@ -43,10 +43,10 @@ public class AddEmployeeFX extends Application {
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
         Scene scene = new Scene(grid, 640, 480);
-        File f = new File("dmitrii\\src\\main\\java\\apps\\company\\style.css");
+        File f = new File("dmitrii\\src\\main\\java\\apps\\company\\style2.css");
         //scene.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
         scene.getStylesheets().add("style2.css");
-        //scene.getStylesheets().add(AddEmployeeFX.class.getResource("style.css").toExternalForm());
+        //scene.getStylesheets().add(AddEmployeeFX.class.getResource("style2.css").toExternalForm());
         String path = "";
         System.out.println(path);
 
