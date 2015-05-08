@@ -1,4 +1,4 @@
-package carFactory;
+package entity;
 
 /**
  * Created by MacBook on 28.03.15.
@@ -14,6 +14,19 @@ public class Car {
     private String description;
     private Long price;
     private int date;
+
+    public Car(String name, String type, String ownerName, String number, String colour, String factoryName, boolean status, String description, Long price, int date) {
+        this.name = name;
+        this.type = type;
+        this.ownerName = ownerName;
+        this.number = number;
+        this.colour = colour;
+        this.factoryName = factoryName;
+        this.status = status;
+        this.description = description;
+        this.price = price;
+        this.date = date;
+    }
 
     public String getName() {
         return name;
@@ -103,5 +116,21 @@ public class Car {
 
     public void setPrice(Long price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", ownerName='" + ownerName + '\'' +
+                ", number='" + number + '\'' +
+                ", colour='" + colour + '\'' +
+                ", factoryName='" + factoryName + '\'' +
+                ", status=" + status +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", date=" + date +
+                '}';
     }
 }
