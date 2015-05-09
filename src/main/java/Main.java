@@ -11,15 +11,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         double[] d = {1.3, 6.0, 9.0, -1.2, 0.4};
-        TemperatureSearchImpl search = new TemperatureSearchImpl();
-        double result = search.closestToZero(d);
-        System.out.println(result);
-        NavigableSet<Double> doubles = new TreeSet<>();
-        doubles.add(-1.3);
-        doubles.add(6.0);
-        doubles.add(1.3);
-        System.out.println(doubles.pollFirst());
-        System.out.println(doubles.pollLast());
+        assert (1 > 2);
     }
 
     public void lambdasTest() {
