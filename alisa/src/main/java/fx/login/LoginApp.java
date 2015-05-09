@@ -20,6 +20,7 @@ public class LoginApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("Registration");
         File loginForm = new File("alisa\\src\\main\\java\\fx\\login\\LoginForm.fxml");
         URL url = loginForm.toURL();
         FXMLLoader loader = new FXMLLoader();
