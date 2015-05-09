@@ -16,7 +16,7 @@ public class ReadRegEx {
         File file = new File("C:\\Users\\Programmer\\IdeaProjects\\base_1\\artem\\src\\main\\resourses\\test\\text.txt");
         FileReader reader = new FileReader(file);
         BufferedReader buffer = new BufferedReader(reader);
-        String regExp = "\\d{3}\\/\\d{3}\\/\\d{4}";
+        String regExp = "\\d{2}\\/\\d{2}\\/\\d{2}";
         Pattern pattern = Pattern.compile(regExp);
         String line;
         while ((line = buffer.readLine()) != null) {
