@@ -123,6 +123,6 @@ public class keygen {
             System.exit(1);
         }
         Random r = new Random();
-        System.out.println(MakeKey("user", 0, r.nextInt(100000)));
+        System.out.println(MakeKey(args[0], 0, r.nextInt(100000)));
     }
 }
