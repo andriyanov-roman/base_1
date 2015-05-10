@@ -13,13 +13,13 @@ public class JavaUtilTest {
         File f = new File("alisa\\src\\test\\java\\Text.txt");
         FileReader reader = new FileReader(f);
         BufferedReader bufferReader = new BufferedReader(reader);
-        String regExp = "[a-z]";
+        String regExp = "[a-z]";// String regExp="(Java)|(PHP)|(C#)"; "\\d{3}\\-\\d{3}\\-\\d{4}";
         Pattern pattern = Pattern. compile(regExp);
         String line;
         while ((line = bufferReader.readLine()) != null){
             Matcher matcher = pattern.matcher(line);
             if(matcher.find()){
-                System.out.println(matcher.group(0));
+                System.out.println(matcher.group(0));//System.out.println(line);
             }
         }
     }
