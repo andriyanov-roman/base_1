@@ -2,6 +2,7 @@ package homework_1;
 
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -22,4 +23,14 @@ public class FirstTest {
                 .forEach(System.out::println);
 
     }
+
+    @Test
+    public double test(double [] allTemp) throws IOException{
+        if (allTemp.length == 0){
+            System.out.println(0);
+
+        }
+
+    }
+
 }
