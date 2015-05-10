@@ -17,7 +17,7 @@ public class CommonWriterReader {
         this.path = path;
     }
 
-    public void writerToFile(String txt) {
+   /* public void writerToFile(String txt, String path, Boolean AddToEnd) {
         FileWriter writer = null;
         try {
             writer = new FileWriter(path, true);
@@ -28,6 +28,18 @@ public class CommonWriterReader {
             e.printStackTrace();
         }
 
+    }*/
+
+    public static void WriteToFile(String txt, String FileURL, Boolean AddToEnd) {
+        // AddToEnd:::::: TRUE - дописывать в конец, FALSE - перезаписать всё
+        try {
+            FileWriter writer = new FileWriter(FileURL, AddToEnd);
+            writer.write(txt);
+            writer.flush();
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public Object getEntity(String name) throws IOException{

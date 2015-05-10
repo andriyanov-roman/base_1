@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="218.0" prefWidth="406.0" vgap="5.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="218.0" prefWidth="406.0" vgap="5.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.login.LoginFormController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.0" minWidth="10.0" prefWidth="145.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="226.0" minWidth="10.0" prefWidth="226.0" />
@@ -18,16 +18,16 @@
   </rowConstraints>
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="375.0" text="Login Form" textAlignment="CENTER" GridPane.columnSpan="2" />
-      <Label text="E-mail or Id:" GridPane.rowIndex="1" />
+      <Label text="Username or E-mail:" GridPane.rowIndex="1" />
       <Label text="Password:" GridPane.rowIndex="2" />
-      <Button mnemonicParsing="false" text="Log in" GridPane.rowIndex="3" />
-      <Button mnemonicParsing="false" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <Button mnemonicParsing="false" onAction="#login" text="Log in" GridPane.rowIndex="3" />
+      <Button mnemonicParsing="false" onAction="#cancel" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
       </Button>
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="username" text="username" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="password" onAction="#login" GridPane.columnIndex="1" GridPane.rowIndex="2" />
    </children>
    <padding>
       <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
