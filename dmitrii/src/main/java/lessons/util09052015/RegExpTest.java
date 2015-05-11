@@ -12,13 +12,19 @@ public class RegExpTest {
         File f = new File("dmitrii\\src\\main\\resources\\RegExpTest.txt");
         FileReader reader = new FileReader(f);
         BufferedReader bufferedReader = new BufferedReader(reader);
-        String regExp = "Python|SQL|Ruby";
+        String regExp = "[\\w\\d\\S]+";
         Pattern pattern = Pattern.compile(regExp);
         String line;
         while (((line = bufferedReader.readLine())) !=null){
             Matcher matcher = pattern.matcher(line);
-            if (matcher.find()){
-                System.out.println(line);
+            System.out.println("\nOLD:\t" + line);
+            System.out.print("NEW:\t");
+            while (matcher.find()){
+                System.out.print(matcher.group() + " ");
+            }
+            System.out.println();
+            for (int i = 0; i < line.length()+8; i++) {
+                System.out.print("=");
             }
         }
     }
