@@ -297,12 +297,12 @@ public class Methods {
     }*//*
 
         ArrayList<Company> companies = CompanyUtil.getCompanies();
-        ArrayList<Employee> employees = EmployeeUtil.getEmployee();
+        ArrayList<Employee> Employees = EmployeeUtil.getEmployee();
 
-        for (int i = 0; i < employees.size(); i++) {
-            for (int j = 0; j < employees.size() - 1; j++) {
-                if (employees.get(j).getSalary() < employees.get(j+1).getSalary()) {
-                    Employee employee = employees.get(j);
+        for (int i = 0; i < Employees.size(); i++) {
+            for (int j = 0; j < Employees.size() - 1; j++) {
+                if (Employees.get(j).getSalary() < Employees.get(j+1).getSalary()) {
+                    Employee employee = Employees.get(j);
                     companies.get(i).getEmployees().set(j, companies.get(i).getEmployees().get(j + 1));
                     companies.get(i).getEmployees().set((j + 1), employee);
 
@@ -310,8 +310,8 @@ public class Methods {
             }
         }
         System.out.println(" Сортировка оп ЗП :");
-        for (int i = 0; i < employees.size(); i++) {
-            System.out.println(employees.get(i).getName() + employees.get(i).getSecondName() + " - " + employees.get(i).getSalary());
+        for (int i = 0; i < Employees.size(); i++) {
+            System.out.println(Employees.get(i).getName() + Employees.get(i).getSecondName() + " - " + Employees.get(i).getSalary());
         }
     }
 }

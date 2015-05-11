@@ -1,4 +1,4 @@
-package apps.employees;
+package apps.Employees;
 
 
 public class Admin extends Employee {

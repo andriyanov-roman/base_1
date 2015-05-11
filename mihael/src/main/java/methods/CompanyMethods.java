@@ -29,7 +29,7 @@ public class CompanyMethods {
             //Employee employee = new Employee();
             String choise = scanner.next();
             switch (choise){
-                case "1": //Show all employees
+                case "1": //Show all Employees
                     showManagers(getManagersFromFile());
                     showProgrammers(getProgrammersFromFile());
                     showSysadmins(getSysadminsFromFile());
@@ -52,7 +52,7 @@ public class CompanyMethods {
                 case "7": //Show Sysadmin with biggest salary
                     showSysadmin(getTheBiggestSalarySysadmin());
                     break;
-                case "8": //Show Eployee form all employees with biggest salary
+                case "8": //Show Eployee form all Employees with biggest salary
                     showTheBiggestSalaryEmployee();
                     break;
             }
@@ -62,14 +62,14 @@ public class CompanyMethods {
     }
     public static void showMenu(){
         System.out.println( "-------------------------\n" +
-                        "1. Show all employees" + "\n" +
+                        "1. Show all Employees" + "\n" +
                         "2. Show Managers" +  "\n" +
                         "3. Show Programmers" + "\n" +
                         "4. Show Sysadmins" + "\n" +
                         "5. Show Manager with biggest salary" + "\n" +
                         "6. Show Programmer with biggest salary" + "\n" +
                         "7. Show Sysadmin with biggest salary" + "\n" +
-                        "8. Show Eployee form all employees with biggest salary" + "\n"
+                        "8. Show Eployee form all Employees with biggest salary" + "\n"
         );
 
     }
@@ -92,11 +92,11 @@ public class CompanyMethods {
         else if((adminSalary>managerSalary)&(adminSalary>programmerSalary)){
             showSysadmin(getTheBiggestSalarySysadmin());
         }
-       // ArrayList<Employee> employees = new ArrayList<>();
-       // employees.add(getTheBiggestSalaryManager());
-       // employees.add(getTheBiggestSalaryProgrammer());
-      //  employees.add(getTheBiggestSalarySysadmin());
-      //  showEmployee(getTheBiggestSalaryEmployee(employees));
+       // ArrayList<Employee> Employees = new ArrayList<>();
+       // Employees.add(getTheBiggestSalaryManager());
+       // Employees.add(getTheBiggestSalaryProgrammer());
+      //  Employees.add(getTheBiggestSalarySysadmin());
+      //  showEmployee(getTheBiggestSalaryEmployee(Employees));
     }
 
     public static Employee getTheBiggestSalaryEmployee(ArrayList<Employee> employees){

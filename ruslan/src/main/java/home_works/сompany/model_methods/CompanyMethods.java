@@ -8,7 +8,7 @@ import home_works.сompany.view_company.UserView;
 
 public class CompanyMethods {
     /*private Scanner scanner = new Scanner(System.in);
-    private ArrayList<Employee> employees = new ArrayList<>();
+    private ArrayList<Employee> Employees = new ArrayList<>();
     private ArrayList<Company> companies = new ArrayList<>();
 
     public static void showUsers() {

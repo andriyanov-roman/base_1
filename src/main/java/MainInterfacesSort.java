@@ -13,8 +13,8 @@ import java.util.Comparator;
 public class MainInterfacesSort {
     public static void main(String[] args) {
         ArrayList<Employee> employees = EmployeeUtil.getEmployees();
-        //Collections.sort(employees);
-        //employees.forEach(System.out::println);
+        //Collections.sort(Employees);
+        //Employees.forEach(System.out::println);
         Collections.sort(employees, new CompareByName());
 
         Collections.sort(employees, Comparator.comparing(Employee::getSalary));

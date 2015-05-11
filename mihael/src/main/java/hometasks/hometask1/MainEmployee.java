@@ -34,11 +34,11 @@ public class MainEmployee {
                     break;
                 default:
                     System.out.println("No such case");
-                    System.out.println("1. Show all employees.\n"+
+                    System.out.println("1. Show all Employees.\n"+
                                     "2. Show an employee with biggest sallary. \n"+
-                                    "3. Show an employees with the same firstname and lastname.\n"+
-                                    "4. Show an employees sorted by id.\n"+
-                                    "5. Show an employees sorted by salary.\n"+
+                                    "3. Show an Employees with the same firstname and lastname.\n"+
+                                    "4. Show an Employees sorted by id.\n"+
+                                    "5. Show an Employees sorted by salary.\n"+
                                     "Type Exit to exit"
                     );
             }
@@ -46,11 +46,11 @@ public class MainEmployee {
     }
 
     public static void showMenu(){
-        System.out.println("1. Show all employees.\n"+
+        System.out.println("1. Show all Employees.\n"+
                         "2. Show an employee with biggest sallary. \n"+
-                        "3. Show an employees with the same firstname and lastname.\n"+
-                        "4. Show an employees sorted by id.\n"+
-                        "5. Show an employees sorted by salary.\n"+
+                        "3. Show an Employees with the same firstname and lastname.\n"+
+                        "4. Show an Employees sorted by id.\n"+
+                        "5. Show an Employees sorted by salary.\n"+
                         "Type Exit to exit"
         );
 
@@ -160,7 +160,7 @@ public class MainEmployee {
                     iPrint = true;
                 }
             }
-            // removing duplicated the same employees
+            // removing duplicated the same Employees
             for (int k=0; k<i; k++){
                 if((employees[i].firstName.equals(employees[k].firstName)&&
                                 employees[i].lastName.equals(employees[k].lastName))){
@@ -177,7 +177,7 @@ public class MainEmployee {
                         "last name: "+  employees[i].lastName +" | " +
                         "salary: "+  employees[i].salary +"\n"
                 );
-                // printing others employees with the same name
+                // printing others Employees with the same name
                 for(int j=0;j<theSame.length;j++){
                     if(theSame[i][j]==1){
                         System.out.println( "-------------employee"+j+"----------\n"+

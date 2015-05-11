@@ -1,9 +1,10 @@
-package apps.employees;
+package apps.Employees;
 
 
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Scanner;
 
 
@@ -35,6 +36,7 @@ public class MethodsEmployees {
         System.out.println("18. Добавить менеджера в Luxsoft");
         System.out.println("19. Добавить програмиста в Luxsoft");
         System.out.println("20. Узнать среди админов,программистов и менеджеров в Luxsoft, кто получает наибольшую зп");
+        System.out.println("21. dhbwhbghjer");
 
 
 
@@ -101,6 +103,9 @@ public class MethodsEmployees {
                     break;
                 case "20":
                     maxSalaryFromAdminMenegerProgrammer();
+                    break;
+                case "21":
+                    Date();
                     break;
                 case "Exit":
                     System.exit(0);
@@ -176,23 +181,23 @@ public class MethodsEmployees {
             }
         }
         System.out.println("Сотрудник с наибольшей зп из всех компаний: " + maxName + " " + maxSecondName + ", с зарплатой: " + maxSalary);
-       /* ArrayList<Employee> employees = ReadingFromFileLuxsoft.getEmployees();
+       /* ArrayList<Employee> Employees = ReadingFromFileLuxsoft.getEmployees();
         ArrayList<Employee> employees1 = ReadingFromFileMicrosoft.getEmployees();
         ArrayList<Employee> employees2 = ReadingFromFileSony.getEmployees();
         int i,j,k;
-        double maxSalary = employees.get(0).getSalary();
+        double maxSalary = Employees.get(0).getSalary();
         String maxCompanyName="";
         String maxName="";
         String maxSecondName="";
 
-        for (i = 0; i < employees.size(); i++) {
+        for (i = 0; i < Employees.size(); i++) {
             for (j = 0; j < employees1.size(); j++) {
                 for (k = 0; k < employees2.size(); k++) {
-                    if(employees.get(i).getSalary()>maxSalary) {
-                        maxSalary = employees.get(i).getSalary();
+                    if(Employees.get(i).getSalary()>maxSalary) {
+                        maxSalary = Employees.get(i).getSalary();
                         maxCompanyName = "Luxsoft";
-                        maxName = employees.get(i).getName();
-                        maxSecondName = employees.get(i).getSecondName();
+                        maxName = Employees.get(i).getName();
+                        maxSecondName = Employees.get(i).getSecondName();
                     }
                         if(employees1.get(j).getSalary()>maxSalary) {
                             maxSalary = employees1.get(j).getSalary();
@@ -904,7 +909,21 @@ public class MethodsEmployees {
         }
         System.out.print("Максимальная зарплата: "+maxCompanyName + ": " + maxName + " " + maxSecondName + ". Зарплата: " + maxSalary + "\n");
 
+
     }
+    public static void Date(){
+        Employee employee=new Employee();
+        Calendar calendarEmpl=Calendar.getInstance();
+        calendarEmpl.set(2010, Calendar.JULY, 1, 9, 10);
+        employee.setSalary(2000);
+        employee.setDateToWork(calendarEmpl.getTime());
+        Calendar today=Calendar.getInstance();
+        int year=today.get(Calendar.YEAR)-calendarEmpl.get(Calendar.YEAR);
+        System.out.println(year);
+
+
+    }
+
 }
 
 

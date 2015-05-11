@@ -9,18 +9,18 @@ public class exm {
         FileReader fileReader=new FileReader(file);
         BufferedReader bufferedReader=new BufferedReader(fileReader);
         String regExp="(([a-zA-Z0-9]){1,}([\\s]){0,})*";
-        Pattern pattern=Pattern.compile(regExp);
-        Matcher matcher=pattern.matcher("yghtrhr34535      jdbfhwWREFWE324324   434343 hbhbhHVYGCFY");
-        boolean rezult =matcher.matches();
-        System.out.println("rezyltat "+rezult);
+        Pattern pattern = Pattern.compile(regExp);
         String line;
-        /*while ((line=bufferedReader.readLine())!=null){
+        while ((line=bufferedReader.readLine())!=null){
             Matcher matcher=pattern.matcher(line);
             boolean rezult =matcher.matches();
             if(matcher.find()){
                 //System.out.println(line);
                 System.out.println("rezyltat "+rezult);
             }
-        }*/
+        }
     }
+
+
+
 }

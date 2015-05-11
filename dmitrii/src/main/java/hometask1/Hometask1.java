@@ -53,9 +53,9 @@ public class Hometask1 {
                         "\n 1.Show users with equal parameters"+
                         "\n 2.Show duplicate users"+
                         "\n 3.Sort users by ID"+
-                        "\n 4.Show employees"+
-                        "\n 5.Show duplicate employees with higher salary"+
-                        "\n 6.Sort employees by salary"+
+                        "\n 4.Show Employees"+
+                        "\n 5.Show duplicate Employees with higher salary"+
+                        "\n 6.Sort Employees by salary"+
                         "\n Exit. End program." +
                         "\nEnter command key:");
     }
@@ -134,7 +134,7 @@ public class Hometask1 {
 
     public static void showEmployees() {
         Employee[] empl = EmployeeUtil.getEmployees();
-        System.out.println("======== Total employees: "+empl.length+" =======\n\tShow all:");
+        System.out.println("======== Total Employees: "+empl.length+" =======\n\tShow all:");
         for (int i = 0; i < empl.length; i++) {
             System.out.println((i+1)+")"+empl[i].getName()+" "+empl[i].getSurname()+" ("+empl[i].getSalary()+"$)");
         }

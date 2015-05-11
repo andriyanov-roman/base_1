@@ -11,11 +11,11 @@ public class CompanyView {
     }
 
     public String menu(){
-        String s = "\n '1' to Get all employees from all companies" +
+        String s = "\n '1' to Get all Employees from all companies" +
                 "\n '2' to  Get employee with max Salary" +
-                "\n '3' to Sort employees" +
-                "\n '4' to Add employees" +
-//                "\n '5' to Fire employees" +
+                "\n '3' to Sort Employees" +
+                "\n '4' to Add Employees" +
+//                "\n '5' to Fire Employees" +
 //                "\n '6' to Increase the salary for 15%" +
                 "\n '7' to Add company" +
                 "\n 'r' to return" +
