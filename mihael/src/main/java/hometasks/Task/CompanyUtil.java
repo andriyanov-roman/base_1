@@ -14,15 +14,15 @@ public class CompanyUtil {
 /*
         Company c1 = new Company();
         c1.name ="Microsoft";
-        c1.employees = new Employee[] {employees[0],employees[1],employees[2]};
+        c1.Employees = new Employee[] {Employees[0],Employees[1],Employees[2]};
 
         Company c2 = new Company();
         c2.name = "Apple";
-        c2.employees = new Employee[] {employees[3],employees[4],employees[5]};
+        c2.Employees = new Employee[] {Employees[3],Employees[4],Employees[5]};
 
         Company c3 = new Company();
         c3.name = "IBM";
-        c3.employees = new Employee[] {employees[6],employees[7],employees[8]};
+        c3.Employees = new Employee[] {Employees[6],Employees[7],Employees[8]};
 */
         return new Company[] {c1,c2,c3};
 

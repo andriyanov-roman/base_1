@@ -1,12 +1,24 @@
 package home_task2;
 
 
+import java.util.Date;
+
 public class Employee1 {
     private String name;
     private String secondName;
     private double salary;
     private int age;
     private String sex;
+    private Date dateOfEmployye;
+
+
+    public Date getDateOfEmployye() {
+        return dateOfEmployye;
+    }
+
+    public void setDateOfEmployye(Date dateOfEmployye) {
+        this.dateOfEmployye = dateOfEmployye;
+    }
 
 
     public String getName() {

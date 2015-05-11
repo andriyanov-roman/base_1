@@ -42,7 +42,7 @@ public class CompanyUtil {
     public static void showCompaniesAndEmployees() {
         ArrayList<Company> companies = getCompanies();
         for (int i = 0; i < companies.size(); i++) {
-            System.out.println("In company " + companies.get(i).getCompanyName() + " working employees: ");
+            System.out.println("In company " + companies.get(i).getCompanyName() + " working Employees: ");
             for (int j = 0; j < companies.get(i).getEmployees().size(); j++) {
                 System.out.print(companies.get(i).getEmployees().get(j).getName() + " " + companies.get(i).getEmployees().get(j).getSecondName() + "(" + companies.get(i).getEmployees().get(j).getSalary() + ")");
                 System.out.println();

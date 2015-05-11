@@ -23,8 +23,8 @@ public class EmployeeUtil {
 
     public static ArrayList<Employee> setupEmployees() throws IOException {
             {
-                //File file = new File("mihael/src/main/java/hometasks/hometask3/employees.txt");
-                File file = new File("mihael/src/main/java/data/employees/employees.txt");
+                //File file = new File("mihael/src/main/java/hometasks/hometask3/Employees.txt");
+                File file = new File("mihael/src/main/java/data/Employees/Employees.txt");
                 FileReader reader = new FileReader(file);
                 BufferedReader buffer = new BufferedReader(reader);
 
