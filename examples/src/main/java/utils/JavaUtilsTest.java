@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
  * Created by User on 09.05.2015.
  */
 public class JavaUtilsTest {
+
     public static void main(String[] args) throws IOException {
         File f = new File("test.txt");
         FileReader reader = new FileReader(f);
