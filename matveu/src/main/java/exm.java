@@ -10,21 +10,16 @@ public class exm {
         File file=new File("matveu\\src\\main\\java\\ua\\test.txt");
         FileReader fileReader=new FileReader(file);
         BufferedReader bufferedReader=new BufferedReader(fileReader);
-        String regExp="(Java)|(PHP)|(C#)";
-
-
+        String regExp="(\\W+([\\s]){1,})*";
         Pattern pattern=Pattern.compile(regExp);
-
-
         String line;
         while ((line=bufferedReader.readLine())!=null){
             Matcher matcher=pattern.matcher(line);
+            boolean rezult =matcher.matches();
             if(matcher.find()){
-                System.out.println(line);
+                //System.out.println(line);
+                System.out.println("rezyltat "+rezult);
             }
         }
-
-
-
     }
 }
