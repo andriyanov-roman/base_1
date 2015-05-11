@@ -16,7 +16,10 @@ public class ClassEmployyeDate {
         calendar.set(2010, Calendar.JANUARY, 1, 9, 10);
         System.out.println(calendar.getTime());
         employee1.setDateOfEmployye(new Date());
-        System.out.println(employee1.getDateOfEmployye());
+       // System.out.println(employee1.getDateOfEmployye());
+
+
+
 
 
     }
