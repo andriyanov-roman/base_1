@@ -33,25 +33,25 @@ public class CompanyUtil {
         return companies;
 
         /*Company c1 = new Company();
-        ArrayList<Employee> employees = EmployeeUtil.getEmployees();
+        ArrayList<Employee> Employees = EmployeeUtil.getEmployees();
         c1.setEmployees (new ArrayList<>());
-        c1.getEmployees().add(employees.get(0));
-        c1.getEmployees().add(employees.get(1));
-        c1.getEmployees().add(employees.get(2));
+        c1.getEmployees().add(Employees.get(0));
+        c1.getEmployees().add(Employees.get(1));
+        c1.getEmployees().add(Employees.get(2));
         c1.setCompanyName("Fist.txt");
 
         Company c2 = new Company();
         c2.setEmployees(new ArrayList<>());
-        c2.getEmployees().add(employees.get(3));
-        c2.getEmployees().add(employees.get(4));
-        c2.getEmployees().add(employees.get(5));
+        c2.getEmployees().add(Employees.get(3));
+        c2.getEmployees().add(Employees.get(4));
+        c2.getEmployees().add(Employees.get(5));
         c2.setCompanyName("Beast.txt");
 
         Company c3 = new Company();
         c3.setEmployees(new ArrayList<>());
-        c3.getEmployees().add(employees.get(6));
-        c3.getEmployees().add(employees.get(7));
-        c3.getEmployees().add(employees.get(8));
+        c3.getEmployees().add(Employees.get(6));
+        c3.getEmployees().add(Employees.get(7));
+        c3.getEmployees().add(Employees.get(8));
         c3.setCompanyName("Finest.txt");*/
         /*return new ArrayList<Company>(Arrays.asList(c1, c2, c3));*/
     }

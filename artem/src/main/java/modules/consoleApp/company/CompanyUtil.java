@@ -38,7 +38,7 @@ public class CompanyUtil { // Создаем класс штампующий О�
                         b = false;
                         break;
                     case "b":
-                        System.out.println(" employees: ");
+                        System.out.println(" Employees: ");
                         for (int i = 0; i < companies.length; i++) {
                             employees = EmployeeUtil.getEmployees(("artem/src/main/java/files/companies/" + companies[i]), ":");
                             Employee tmp = employees.get(0);

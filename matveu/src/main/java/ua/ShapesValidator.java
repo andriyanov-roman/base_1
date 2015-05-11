@@ -1,7 +1,7 @@
 package ua;
 
 
-import apps.employees.Employee;
+import apps.Employees.Employee;
 
 public class ShapesValidator {
     private int i;

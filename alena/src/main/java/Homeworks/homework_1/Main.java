@@ -20,7 +20,7 @@ public class Main {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Enter command key" + " " +
                     " 0. Login coincides with the name \n " +
-                    "1. Login coincides with the secondName \t 2.Sort by id \n 3. Identical employees + MaxSalary" +
+                    "1. Login coincides with the secondName \t 2.Sort by id \n 3. Identical Employees + MaxSalary" +
                     "\t 4. Sort by salary" + "\t 5.Write new employee");
             while (scanner.hasNext()) {
                 switch (scanner.next()) {
@@ -42,8 +42,8 @@ public class Main {
 //                        break;*/
 //                    case "5":
 ////                        addNewEmployee(scanner);
-//                        /*writeToFileEmployee(employees);
-//                        System.out.println(employees.toString());*/
+//                        /*writeToFileEmployee(Employees);
+//                        System.out.println(Employees.toString());*/
 //                        break;
                     //case "Exit":
                     // System.exit(0);
@@ -101,16 +101,16 @@ public class Main {
     }
 
 //    public void getIdenticalEmployees() throws IOException {
-//        ArrayList<Employee> employees = Company.getEmployees();
-//        for (int i = 0; i < employees.size(); i++) {
-//            for (int j = 0; j < employees.size(); j++) {
-//                if (employees.get(i).getName().equals(employees.get(j).getName())) {
-//                    if (employees.get(i).getSalary() > employees.get(j).getSalary()) {
-//                        System.out.println(employees.get(i).getName() + " " + employees.get(i).getSecondName() + " " +
-//                                "has bigger salary, than" + " " + employees.get(j).getName() + " " + employees.get(j).getSecondName());
-//                    } else if (employees.get(j).getSalary() > employees.get(i).getSalary()) {
-//                        System.out.println(employees.get(j).getName() + " " + employees.get(j).getSecondName() + " " +
-//                                "has bigger salary, than" + " " + employees.get(i).getName() + " " + employees.get(i).getSecondName());
+//        ArrayList<Employee> Employees = Company.getEmployees();
+//        for (int i = 0; i < Employees.size(); i++) {
+//            for (int j = 0; j < Employees.size(); j++) {
+//                if (Employees.get(i).getName().equals(Employees.get(j).getName())) {
+//                    if (Employees.get(i).getSalary() > Employees.get(j).getSalary()) {
+//                        System.out.println(Employees.get(i).getName() + " " + Employees.get(i).getSecondName() + " " +
+//                                "has bigger salary, than" + " " + Employees.get(j).getName() + " " + Employees.get(j).getSecondName());
+//                    } else if (Employees.get(j).getSalary() > Employees.get(i).getSalary()) {
+//                        System.out.println(Employees.get(j).getName() + " " + Employees.get(j).getSecondName() + " " +
+//                                "has bigger salary, than" + " " + Employees.get(i).getName() + " " + Employees.get(i).getSecondName());
 //
 //                    }
 //                    break;

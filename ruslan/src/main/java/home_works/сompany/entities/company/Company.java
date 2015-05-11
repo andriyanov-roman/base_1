@@ -68,7 +68,7 @@ public class Company {
     public String toString() {
         return "company{" +
                 "companyName='" + companyName + '\'' +
-                ", employees=" + employees +
+                ", Employees=" + employees +
                 ", admins=" + admins +
                 ", programmers=" + developers +
                 ", managers=" + managers +
