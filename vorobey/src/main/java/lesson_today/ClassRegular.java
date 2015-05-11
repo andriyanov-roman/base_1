@@ -21,10 +21,10 @@ public class ClassRegular {
         String line;
         while ((line = bufferedReader.readLine()) != null) {
             Matcher matcher1 = pattern.matcher(line);
-            boolean rezult = matcher.matches();
+            boolean result1 = matcher.matches();
             if (matcher.find()) {
                 System.out.println(line);
-                System.out.println("result " + result);
+                System.out.println("result " + result1);
             }
         }
     }

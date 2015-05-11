@@ -7,6 +7,16 @@ public class Employee1 {
     private double salary;
     private int age;
     private String sex;
+    private String dateOfEmployye;
+
+
+    public String getDateOfEmployye() {
+        return dateOfEmployye;
+    }
+
+    public void setDateOfEmployye(String dateOfEmployye) {
+        this.dateOfEmployye = dateOfEmployye;
+    }
 
 
     public String getName() {
