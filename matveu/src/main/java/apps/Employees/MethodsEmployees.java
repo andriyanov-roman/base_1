@@ -919,6 +919,8 @@ public class MethodsEmployees {
         employee.setDateToWork(calendarEmpl.getTime());
         Calendar today=Calendar.getInstance();
         int year=today.get(Calendar.YEAR)-calendarEmpl.get(Calendar.YEAR);
+        int day=today.get(Calendar.DAY_OF_YEAR)-calendarEmpl.get(Calendar.DAY_OF_YEAR);
+        System.out.println(day);
         System.out.println(year);
 
 
