@@ -48,14 +48,14 @@ public class LetsBegin {
     }
 
     public void main(String[] args) throws IOException {
-       getProgrammersFromFile("alena/src/main/java/identity/employees.txt");
+       getProgrammersFromFile("alena/src/main/java/identity/Employees.txt");
 
     }
 
     public ArrayList<Programmer> getProgrammersFromFile(String path) throws IOException
     {
 
-        File file = new File("alena/scr/main/java/identity/employees.txt");
+        File file = new File("alena/scr/main/java/identity/Employees.txt");
         FileReader reader = new FileReader(path);
         BufferedReader buffer = new BufferedReader(reader);
 

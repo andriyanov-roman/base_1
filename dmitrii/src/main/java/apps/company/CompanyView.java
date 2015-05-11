@@ -59,7 +59,7 @@ public class CompanyView extends CommonView {
     public void selectCompanyDialog(ArrayList<Company> comps, Boolean... allCompanies) {
         alert("\nChoose company:");
         if (allCompanies.length == 0) { // мы не будем добавлять сотрудника сразу во все компании, а только по одной
-            alert("0. All employees in all companies");// «0» - вывести всех работников во всех компаниях
+            alert("0. All Employees in all companies");// «0» - вывести всех работников во всех компаниях
         }
         for (int i = 0; i < comps.size(); i++) {// Выводим список компаний
             alert((i + 1) + ". " + comps.get(i).getCompanyName());

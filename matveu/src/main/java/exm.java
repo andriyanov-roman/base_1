@@ -10,8 +10,8 @@ public class exm {
         File file=new File("matveu\\src\\main\\java\\ua\\test.txt");
         FileReader fileReader=new FileReader(file);
         BufferedReader bufferedReader=new BufferedReader(fileReader);
-        String regExp="(\\W+([\\s]){1,})*";
-        Pattern pattern=Pattern.compile(regExp);
+        String regExp="(([a-zA-Z0-9]){1,}([\\s]){0,})*";
+        Pattern pattern = Pattern.compile(regExp);
         String line;
         while ((line=bufferedReader.readLine())!=null){
             Matcher matcher=pattern.matcher(line);
@@ -22,4 +22,7 @@ public class exm {
             }
         }
     }
+
+
+
 }

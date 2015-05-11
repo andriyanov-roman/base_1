@@ -1,4 +1,6 @@
-package apps.employees;
+package apps.Employees;
+
+import java.util.Date;
 
 public class Employee {
     private String name;
@@ -6,6 +8,7 @@ public class Employee {
     private String sex;
     private int age;
     private double salary;
+    private Date DateToWork;
 
     public Employee() {
 
@@ -60,7 +63,13 @@ public class Employee {
         this.sex = sex;
     }
 
+    public Date getDateToWork() {
+        return DateToWork;
+    }
 
+    public void setDateToWork(Date dateToWork) {
+        DateToWork = dateToWork;
+    }
 
     public Employee(String name, String secondName,String sex,int age, double salary ) {  // создание конструктора
         this.name=name;

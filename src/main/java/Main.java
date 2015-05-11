@@ -16,7 +16,7 @@ public class Main {
 
     public void lambdasTest() {
         ArrayList<Employee> employees = new ArrayList<>();
-        //Employee employee = employees.stream().filter(e -> (e.getSalary() > 500)).findAny().get();
+        //Employee employee = Employees.stream().filter(e -> (e.getSalary() > 500)).findAny().get();
         List<String> myList =
                 Arrays.asList("a1", "a2", "b1", "c2", "c1");
 

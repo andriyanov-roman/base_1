@@ -57,7 +57,7 @@ public class Methods {
     }
 
     private void writeToFile(Employee employee) throws IOException {
-        FileWriter writer = new FileWriter("alena/src/main/java/identity/employees.txt", true);
+        FileWriter writer = new FileWriter("alena/src/main/java/identity/Employees.txt", true);
         writer.write(employee.getName() + ":" +
                 employee.getSecondName() + ":" +
                 employee.getSex() + ":" + employee.getAge() + ":" + employee.getSalary() + "\n");
@@ -143,7 +143,7 @@ public class Methods {
     public void writeToFileEmployee(ArrayList<Employee> employees) {
         FileWriter writer_employees = null;
         try {
-            writer_employees = new FileWriter("alena/src/main/java/identity.employees.txt", true);
+            writer_employees = new FileWriter("alena/src/main/java/identity.Employees.txt", true);
             writer_employees.write(employees.toString());
             writer_employees.flush();
             writer_employees.close();

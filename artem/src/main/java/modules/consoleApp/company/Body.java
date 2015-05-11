@@ -11,11 +11,11 @@ import java.util.ArrayList;
 public class Body {
     private static void menu() {
         System.out.println(
-                "\n1. Get all employees from all companies" +
+                "\n1. Get all Employees from all companies" +
                         "\n2. Get employee with max Salary" +
-                        "\n3. Sort employees" +
-                        "\n4. Add employees" +
-//                "\n5. Fire employees" +
+                        "\n3. Sort Employees" +
+                        "\n4. Add Employees" +
+//                "\n5. Fire Employees" +
 //                "\n6. Increase the salary for 15%" +
                         "\n7. Add company" +
                         "\n0. Exit program"   );

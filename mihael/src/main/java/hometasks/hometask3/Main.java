@@ -11,13 +11,13 @@ public class Main {
         ArrayList employee = new ArrayList();
         employee.add("A");
         employee.add(1);
-        ArrayList<Employee> employees = new ArrayList<>();
+        ArrayList<Employee> Employees = new ArrayList<>();
         employee.add("A");
         employee.add (new Employee("vasia", "ivanov",3000.00));
         if(employee.get(1) instanceof Employee){
             Employee employee1 = (Employee) employee.get(1);
         }
-        Employee e = employees.get(0);
+        Employee e = Employees.get(0);
         System.out.println(e.getName());
         System.out.println(employee.size());
 
@@ -25,7 +25,7 @@ public class Main {
 
         employee.add(1,new Employee("Artem", "Petrov", 7000.00, "MASCULINE",29));
 
-        employees.forEach(System.out::println);
+        Employees.forEach(System.out::println);
         */
         //CompanyUtil.addEmployeeToFile(new Employee("Name", "Lastname", 700.00, "MASCULINE",30));
         start();
@@ -65,7 +65,7 @@ public class Main {
                         CompanyUtil.riseSalary("MASCULINE",15.00);
                         break;
                     case "9":
-                        CompanyUtil.WriteToFile("Marco:Pantani:5673000.00:MASCULINE:37\n", "mihael/src/main/java/hometask3/employees.txt",true);
+                        CompanyUtil.WriteToFile("Marco:Pantani:5673000.00:MASCULINE:37\n", "mihael/src/main/java/hometask3/Employees.txt",true);
                         break;
                 }
 
@@ -79,7 +79,7 @@ public class Main {
 
     public static void showMenu(){
         System.out.println( "-------------------------\n" +
-                "1. Show all employees" + "\n" +
+                "1. Show all Employees" + "\n" +
                 "2. Show company 1 sorted by salary" +  "\n" +
                 "3. Show company 2 sorted by Age" + "\n" +
                 "4. Show company 3 sorted by Last Name Length" + "\n" +

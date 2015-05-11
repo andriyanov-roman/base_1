@@ -50,7 +50,7 @@ public class Main {
 
     public static void showMenu(){
         System.out.println( "-------------------------\n" +
-                "1. Show all employees" + "\n" +
+                "1. Show all Employees" + "\n" +
                         "2. Show company 1 sorted by salary" +  "\n" +
                         "3. Show company 2 sorted by Age" + "\n" +
                         "4. Show company 3 sorted by Last Name Length" + "\n" +
