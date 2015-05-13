@@ -5,6 +5,7 @@ import factory.CommonWriterReader;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -35,14 +36,24 @@ public class LoginApp extends Application {
 
     public void writeToFile(String txt) {
         TextField username = new TextField("txt");
+        TextField password = new TextField("txt");
         for (int i = 0; i < grid.getChildren().size(); i++) {
             if ("username".equals(grid.getChildrenUnmodifiable().get(i).getId())) {
                 username = (TextField) grid.getChildrenUnmodifiable().get(i);
                 break;
             }
         }
+
+        for (int i = 0; i < grid.getChildren().size(); i++) {
+            if ("password".equals(grid.getChildrenUnmodifiable().get(i).getId())) {
+                password = (PasswordField) grid.getChildrenUnmodifiable().get(i);
+                break;
+            }
+        }
              CommonWriterReader.WriteToFile(username.getText(),
-                    "alisa\\src\\result\\Userdata.txt", true);
+                "alisa\\src\\result\\Userdata.txt", true);
+        CommonWriterReader.WriteToFile(password.getText(),
+                "alisa\\src\\result\\Userdata.txt", true);
 
         }
 
