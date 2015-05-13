@@ -83,12 +83,7 @@ abstract public class CommonView {
     }
     public Boolean DialogYesNo (String title) {
         alertInline(title+"(y/n): ");
-        if (next().equals("y")) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return next().equals("y");
     }
 
 }

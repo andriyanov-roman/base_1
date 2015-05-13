@@ -24,6 +24,6 @@ public class Programmer extends Employee{
 
     @Override
     public String toString() {
-        return super.toString() + super.getSeparator() + getLanguage();
+        return super.toString() + getSeparator() + getLanguage();
     }
 }

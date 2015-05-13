@@ -1,4 +1,4 @@
-package apps.FXview;
+package apps.FXview.helpers;
 
 import javafx.collections.ObservableArray;
 import javafx.geometry.Point3D;

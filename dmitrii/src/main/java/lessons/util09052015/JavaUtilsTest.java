@@ -6,7 +6,7 @@ import java.math.BigDecimal;
  * Created by Programmer on 09.05.2015.
  */
 public class JavaUtilsTest {
-    //как запустить прогу без Main
+    //РєР°Рє Р·Р°РїСѓСЃС‚РёС‚СЊ РїСЂРѕРіСѓ Р±РµР· Main
     /*static  {
         System.out.println(A.i);
         System.out.println("Hello!");

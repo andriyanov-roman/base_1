@@ -35,7 +35,7 @@ public class ComFileTool {
     }
 
     public Boolean writeToFile(String txt, Boolean AddToEnd) {
-        // AddToEnd:::::: TRUE - дописывать в конец, FALSE - перезаписать всё
+        // AddToEnd:::::: TRUE - РґРѕРїРёСЃС‹РІР°С‚СЊ РІ РєРѕРЅРµС†, FALSE - РїРµСЂРµР·Р°РїРёСЃР°С‚СЊ РІСЃС‘
         try {
             FileWriter writer = new FileWriter(path, AddToEnd);
             writer.write(txt);

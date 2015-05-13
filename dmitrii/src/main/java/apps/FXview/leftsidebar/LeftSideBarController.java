@@ -1,19 +1,15 @@
-package apps.FXview;
+package apps.FXview.leftsidebar;
 
-import apps.company.CompanyEventContainer;
+import apps.FXview.DaemonApp;
+import apps.FXview.events.FactoryEventContainer;
+import apps.FXview.helpers.ExtEventImpl;
+import apps.FXview.events.CompanyEventContainer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
@@ -47,7 +43,6 @@ public class LeftSideBarController {
             btn.setOnAction(events.get(i));
             grid.add(btn,0,i);
         }
-        //grid.setStyle("-fx-background-color: derive(orange, 0%)");
         grid.getStyleClass().add("black-bg");
         grid.setMaxWidth(515);
         grid.setPadding(new Insets(10,10,10,10));
@@ -61,7 +56,7 @@ public class LeftSideBarController {
     }
     @FXML
     public void loadFactoryApp(){
-
+        loadApps(new FactoryEventContainer(mainApp).getEvents());
     }
     @FXML
     public void exit (){

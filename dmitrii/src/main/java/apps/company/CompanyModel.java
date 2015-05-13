@@ -5,8 +5,6 @@ import entities.mvc.CommonModel;
 import tools.FileUtil;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -29,8 +27,7 @@ public class CompanyModel extends CommonModel{
     public static final int ADDITIONAL_FIELD = 6;
 
     public CompanyModel() {
-        ArrayList<Company> companies = initializeCompanies();
-        this.companies = companies;
+        this.companies = initializeCompanies();
     }
 
     public static String getConfigPath() {
@@ -76,18 +73,18 @@ public class CompanyModel extends CommonModel{
     public static void writeChanges(ArrayList<Company> comps, String... path) {
         ArrayList<String> comPaths = readConfig();
         Boolean wasFound = false;
-        for (int i = 0; i < comps.size(); i++) {
-            for (int j = 0; j < comPaths.size(); j++) {
-                String compName = FileUtil.ReadFromFile(comPaths.get(j), ":").get(0)[0];
-                if (compName.equals(comps.get(i).getCompanyName())) {
-                    FileUtil.WriteToFile(comps.get(i).toString(), comPaths.get(j), false);
+        for (Company comp : comps) {
+            for (String comPath : comPaths) {
+                String compName = FileUtil.ReadFromFile(comPath, ":").get(0)[0];
+                if (compName.equals(comp.getCompanyName())) {
+                    FileUtil.WriteToFile(comp.toString(), comPath, false);
                     wasFound = true;
                 }
             }
             if (wasFound = false) {
                 String newFilePath = "dmitrii\\src\\main\\resources\\companies\\" +
-                        comps.get(i).getCompanyName() + ".txt";
-                FileUtil.WriteToFile(comps.get(i).toString(), newFilePath, false);
+                        comp.getCompanyName() + ".txt";
+                FileUtil.WriteToFile(comp.toString(), newFilePath, false);
                 FileUtil.WriteToFile(newFilePath, getConfigPath(), true);
             }
             wasFound = false;
@@ -140,7 +137,7 @@ public class CompanyModel extends CommonModel{
     }
 
 
-    public static Employee getWorkerWithMaxSalaryInComp(Company com) {
+    public Employee getWorkerWithMaxSalaryInComp(Company com) {
         Employee eMax =  com.getWorkers().get(0);
         for (int i = 0; i < com.getWorkers().size(); i++) {
             Employee eNext = com.getWorkers().get(i);
@@ -157,7 +154,7 @@ public class CompanyModel extends CommonModel{
         eMax.setSalary(0.0);
         for (Company com : companies) {
             for (int i = 0; i < com.getWorkers().size(); i++) {
-                if (com.getWorkers().get(i).getClass().getName().equals(professionClassName)) {
+                if (com.getWorkers().get(i).getClass().getSimpleName().equals(professionClassName)) {
                     if ((com.getWorkers().get(i)).getSalary() > eMax.getSalary()) {
                         eMax = com.getWorkers().get(i);
                         workCompany = com.getCompanyName();

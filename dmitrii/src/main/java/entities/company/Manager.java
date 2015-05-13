@@ -24,7 +24,7 @@ public class Manager extends Employee {
 
     @Override
     public String toString() {
-        return super.toString() + super.getSeparator() + getProjectName();
+        return super.toString() + getSeparator() + getProjectName();
     }
 
 }

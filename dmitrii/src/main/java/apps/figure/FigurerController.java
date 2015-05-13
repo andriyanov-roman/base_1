@@ -2,6 +2,7 @@ package apps.figure;
 
 import entities.figures.Figure;
 import entities.mvc.CommonController;
+import entities.mvc.CommonView;
 
 /**
  * Created by mit_OK! on 09.04.2015.
@@ -26,7 +27,7 @@ public class FigurerController extends CommonController {
 
     @Override
     public Boolean executeTasks() {
-        switch (view.next()) {
+        switch (CommonView.next()) {
             case "0":
                 showAllFigures();
                 break;

@@ -7,6 +7,7 @@ import entities.CommonApp;
 import apps.factory.FactoryApp;
 import apps.figure.FigureApp;
 import apps.univer.UniverApp;
+import entities.mvc.CommonView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,7 +32,7 @@ public class MainApp extends CommonApp {
                 new CompanyApp(),new FactoryApp(),new UniverApp(),new FigureApp()));
         MainView view = new MainView();
         view.showMainMenu();
-        switch (view.next()){
+        switch (CommonView.next()){
             case "1":
                 return apps.get(0);
             case "2":

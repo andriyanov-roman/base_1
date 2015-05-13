@@ -1,4 +1,4 @@
-package apps.FXview;
+package apps.FXview.helpers;
 
 import java.util.ArrayList;
 

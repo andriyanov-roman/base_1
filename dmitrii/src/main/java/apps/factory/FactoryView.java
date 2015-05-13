@@ -86,7 +86,7 @@ public class FactoryView extends CommonView{
     }
 
     public static String[] showDialogCar() {
-        //требования - имя заказчика, желаемый цвет, желаемый тип, желаемый номер
+        //С‚СЂРµР±РѕРІР°РЅРёСЏ - РёРјСЏ Р·Р°РєР°Р·С‡РёРєР°, Р¶РµР»Р°РµРјС‹Р№ С†РІРµС‚, Р¶РµР»Р°РµРјС‹Р№ С‚РёРї, Р¶РµР»Р°РµРјС‹Р№ РЅРѕРјРµСЂ
         scanner.useDelimiter("\n");
         String [] c = new String[10];
         toPrintLN("*** Car Order ***");
@@ -117,7 +117,7 @@ public class FactoryView extends CommonView{
         int dd = c.get(Calendar.DATE);
         int mm = c.get(Calendar.MONTH);
         int yyyy = c.get(Calendar.YEAR);
-        Calendar[] period = {c.getInstance(),c.getInstance()};
+        Calendar[] period = {Calendar.getInstance(), Calendar.getInstance()};
         toPrintLN("Input period (today,week,month,year) or Interval in format \'01:04:1999-08:07:2014\'");
         toPrint("Period: ");
         String input = next();

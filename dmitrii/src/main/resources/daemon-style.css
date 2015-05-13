@@ -102,6 +102,7 @@
 #o_title {
     -fx-font-size:24pt;
     -fx-font-weight: bold;
+    -fx-font-family: 'Segoe UI';
 }
 #a_lock {
     -fx-font-family: 'FontAwesome';

@@ -73,8 +73,7 @@ public class UniverView extends CommonView {
         while (goOn) {
             subWithMarkslist.add(addSbj());
             alertInline("Add another subject? (y/n): ");
-            if (next().equals("y")) {goOn = true;}
-            else {goOn = false;}
+            goOn = next().equals("y");
         }
         return subWithMarkslist;
     }

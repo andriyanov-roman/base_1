@@ -6,5 +6,5 @@ package lessons.epam;
 public interface IFindTemperature {
     int MIN_TEMPERATURE = -273;
     int MAX_TEMPERATURE = 5526;
-    public Double closestToZero(Double[] ts) throws Exception;
+    Double closestToZero(Double[] ts) throws Exception;
 }

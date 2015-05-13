@@ -1,6 +1,7 @@
 package apps.company;
 
 import entities.CommonApp;
+import entities.mvc.CommonView;
 
 import java.util.Scanner;
 
@@ -30,6 +31,6 @@ public class CompanyApp extends CommonApp {
         };
         //viewForReport.displayWorkersTableAllCompanies(new CompanyModel().getCompanies());
         viewForReport.displayWorkersFULL(new CompanyModel().getCompanies());
-        return viewForReport.getBuffer();
+        return CommonView.getBuffer();
      }
 }

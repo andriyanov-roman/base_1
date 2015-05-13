@@ -39,7 +39,7 @@ public class Less1 {
         } else {
             System.out.print("Array has odd quantity of elements. ");
             if (arr.length>1) {
-                int center = (int)(arr.length/2+1);
+                int center = arr.length/2+1;
                 System.out.println("Center element: №"+center+" \""+arr[center]+"\" (We don\'t count it)");
                 center_id=1;
             } else {

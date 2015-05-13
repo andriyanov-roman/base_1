@@ -102,7 +102,7 @@ public class Car {
     }
 
     public void setRegExp(String regExp) {
-        this.s = regExp;
+        s = regExp;
     }
     @Override
     public String toString() {

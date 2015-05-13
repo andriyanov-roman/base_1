@@ -22,12 +22,10 @@ public class Validator {
         }
     }
     public Boolean canBeInPositiveRange (int i, int endOfRange) {
-        if (i>0 && i<=endOfRange) return true;
-        return false;
+        return i > 0 && i <= endOfRange;
     }
     public Boolean canBeInPositiveRange (Double i, Double endOfRange) {
-        if (i>0 && i<=endOfRange) return true;
-        return false;
+        return i > 0 && i <= endOfRange;
     }
     public Boolean isLettersOnly(String s) {
         for (int i = 0; i < s.length(); i++) {

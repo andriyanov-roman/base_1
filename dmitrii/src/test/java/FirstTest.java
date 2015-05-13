@@ -8,8 +8,8 @@ import org.junit.Test;
 public class FirstTest {
     @Test
     public void doSomething() throws Exception {
-        Employee e = null;
-        Assert.assertNotNull(e);
+        /*Employee e = null;
+        Assert.assertNotNull(e);*/
 
     }
 

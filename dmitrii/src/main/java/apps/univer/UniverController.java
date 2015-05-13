@@ -1,5 +1,6 @@
 package apps.univer;
 
+import entities.mvc.CommonView;
 import entities.university.*;
 import entities.mvc.CommonController;
 
@@ -22,7 +23,7 @@ public class UniverController extends CommonController {
 
     @Override
     public Boolean executeTasks() {
-        switch (view.next()) {
+        switch (CommonView.next()) {
             case "0":
                 showUniver();
                 break;

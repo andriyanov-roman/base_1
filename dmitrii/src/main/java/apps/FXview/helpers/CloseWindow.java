@@ -1,4 +1,4 @@
-package apps.FXview;
+package apps.FXview.helpers;
 
 import javafx.event.ActionEvent;
 import javafx.event.Event;

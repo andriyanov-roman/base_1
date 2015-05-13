@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="350.0" maxWidth="250.0" minHeight="300.0" minWidth="50.0" onContextMenuRequested="#setDefaultWidth" prefHeight="350.0" prefWidth="250.0" styleClass="black-bg" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apps.FXview.LeftSideBarController">
+<GridPane maxHeight="350.0" maxWidth="250.0" minHeight="300.0" minWidth="50.0" onContextMenuRequested="#setDefaultWidth" prefHeight="350.0" prefWidth="250.0" styleClass="black-bg" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apps.FXview.leftsidebar.LeftSideBarController">
    <children>
       <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#exit" prefHeight="51.0" prefWidth="260.0" styleClass="left-btn" text=" Exit " GridPane.rowIndex="5">
          <graphic>
@@ -46,7 +46,7 @@
             </Label>
          </graphic>
       </Button>
-      <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="260.0" styleClass="left-btn" text=" Car Factory" GridPane.rowIndex="1">
+      <Button alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#loadFactoryApp" prefHeight="51.0" prefWidth="260.0" styleClass="left-btn" text=" Car Factory" GridPane.rowIndex="1">
          <graphic>
             <Label alignment="BASELINE_LEFT" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="37.0" prefWidth="66.0" text="   ">
                <styleClass>

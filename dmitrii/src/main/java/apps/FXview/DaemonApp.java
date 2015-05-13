@@ -1,12 +1,12 @@
 package apps.FXview;
 
+import apps.FXview.helpers.CloseWindow;
+import apps.FXview.helpers.IIdSearchable;
+import apps.FXview.helpers.TableViewHelper;
+import apps.FXview.leftsidebar.LeftSideBarController;
 import apps.FXview.overview.OverviewHelper;
-import entities.company.Employee;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -15,28 +15,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import javafx.util.Pair;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Field;
-import java.lang.reflect.Type;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by mit_OK! on 28.04.2015.
  */
-public class DaemonApp extends Application {
+public class DaemonApp extends Application implements IIdSearchable {
     private Stage stage;
     private Scene scene;
     private BorderPane rootLayout;
@@ -89,7 +82,7 @@ public class DaemonApp extends Application {
         credentials.add(new Pair<>("user2", "F222"));
         String username = ((TextField) getElementById("username", loginPane)).getText();
         String password = ((PasswordField) getElementById("password",loginPane)).getText();
-        for (Pair c : credentials){
+        for (Pair<String, String> c : credentials){
             if (c.getKey().equals(username) && c.getValue().equals(password)){
                 isAuthorizationSuccess = true;
                 Stage s = (Stage) loginPane.getScene().getWindow();
@@ -116,10 +109,10 @@ public class DaemonApp extends Application {
     }
     private void runDaemonApp () throws Exception {
         rootLayout = new BorderPane();
-        rootLayout.setTop(FXMLLoader.load(getDaemonURL("MainMenu.fxml")));
+        rootLayout.setTop(FXMLLoader.load(getDaemonURL("topmenu\\TopMenu.fxml")));
         FXMLLoader loader = new FXMLLoader();
         try {
-            loader.setLocation(getDaemonURL("LeftSideBar.fxml"));
+            loader.setLocation(getDaemonURL("leftsidebar\\LeftSideBar.fxml"));
             rootLayout.setLeft(loader.load());
         } catch (Exception e) {
             e.printStackTrace();
@@ -192,17 +185,7 @@ public class DaemonApp extends Application {
 
         showInNewWindow(helper.getWindowTitle(), mainPlaceHolder);
     }
-    public Node getElementById (String id, Parent parent){
-        for (Node i : parent.getChildrenUnmodifiable()) {
-            if (i.getId()!=null){
-                if (i.getId().equals(id)){
-                    return i;
-                }
-            }
 
-        }
-        return null;
-    }
     public void showTableWindow (TableViewHelper<?> helper){
         final HBox hb = new HBox();
         hb.getClass().getDeclaredFields();

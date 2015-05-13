@@ -1,15 +1,10 @@
 package apps.company;
 
-import apps.company.dialogs.AddEmployeeFX;
 import entities.company.*;
 import entities.mvc.CommonController;
 
-import java.io.IOException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 /**
  * Created by mit_OK! on 27.03.2015.
@@ -33,7 +28,7 @@ public class CompanyController extends CommonController {
         ArrayList<Company> comps = model.getCompanies();
         ArrayList<Company> selectedComps; // выбранные компании
         view.showMainMenu();
-        switch (view.next()) {
+        switch (CompanyView.next()) {
             case "0": // Показать инфо о сотрудниках компаний в РАСШИРЕННОМ виде
                 view.alert("\t *** Action: SHOW EMPLOYEES FULL INFO ***");
                 view.displayWorkersFULL(view.selectCompany(comps));
@@ -79,7 +74,7 @@ public class CompanyController extends CommonController {
             case "e":
             case "E":
                     view.alertInline("Do You want to SAVE changes to File? (y/n): ");
-                    if (view.next().equals("y")) {
+                    if (CompanyView.next().equals("y")) {
                         CompanyModel.writeChanges(comps);
                     }
                 return false;
@@ -103,7 +98,7 @@ public class CompanyController extends CommonController {
         for (Company com : selectedComps) {
             Employee e = model.getWorkerWithMaxSalaryInComp(com);
             result = "In company \'" + com.getCompanyName() + "\'" +
-                    " MAX Salary has: " + view.showWorkerSHORT(e.toString());
+                    " MAX Salary has: " + CompanyView.showWorkerSHORT(e.toString());
             view.alert(result);
         }
     }
@@ -113,16 +108,16 @@ public class CompanyController extends CommonController {
         Company com = null;
         switch (profType) {
             case "Admin":
-                com = model.getMaxSalaryInCompanyWrapper(Admin.class.getName());
+                com = model.getMaxSalaryInCompanyWrapper(Admin.class.getSimpleName());
                 break;
             case "Manager":
-                com = model.getMaxSalaryInCompanyWrapper(Manager.class.getName());
+                com = model.getMaxSalaryInCompanyWrapper(Manager.class.getSimpleName());
                 break;
             case "Programmer":
-                com = model.getMaxSalaryInCompanyWrapper(Programmer.class.getName());
+                com = model.getMaxSalaryInCompanyWrapper(Programmer.class.getSimpleName());
                 break;
             case "Employee":
-                com = model.getMaxSalaryInCompanyWrapper(Employee.class.getName());
+                com = model.getMaxSalaryInCompanyWrapper(Employee.class.getSimpleName());
                 break;
             default:
                 view.alert("Profession \'" + profType + "\' is UNDEFINED. All results:");
@@ -136,8 +131,6 @@ public class CompanyController extends CommonController {
 
     public void sortBySalary(ArrayList<Company> selectedComps) {
         for (Company com : selectedComps) {
-            //com.getWorkers().sort(new Employee().new CompareBySalary());
-            //Collections.sort(com.getWorkers(), Comparator.comparing(Employee::getSalary));
             com.getWorkers().sort(Comparator.comparing(Employee::getSalary));
             view.displayWorkersTable(com, view.SALARY_HIGHLIGHT);
         }
@@ -160,7 +153,7 @@ public class CompanyController extends CommonController {
     private Company addWorkerIntoCompany(Company com) {
         Boolean operationStatus;
         //Employee e = model.createWorker(view.AddEmployeeDialog());
-        String [] args = {""};
+       /* String [] args = {""};
         AddEmployeeFX addEmployeeFX = new AddEmployeeFX();
         addEmployeeFX.startProgram(args);
         System.out.println(addEmployeeFX.getEmplName());
@@ -169,7 +162,7 @@ public class CompanyController extends CommonController {
         view.alert("Create worker: "+(operationStatus ? "SUCCESS" : "FAILED"));
         operationStatus = com.getWorkers().add(e);
         view.alert("Add worker: "+(operationStatus ? "SUCCESS" : "FAILED"));
-        addWorkerNextStep(com, e);
+        addWorkerNextStep(com, e);*/
         return com;
     }
 
@@ -193,7 +186,7 @@ public class CompanyController extends CommonController {
             Company com = selectedComps.get(i);
             view.alertInlineCompName(com.getCompanyName());
             com = IncreaseSalary(com, percent);
-            com = model.fireStuff(com, true);// true - уволить особей мужского пола
+            com = CompanyModel.fireStuff(com, true);// true - уволить особей мужского пола
             selectedComps.set(i, com);
         }
         return selectedComps;
@@ -202,7 +195,7 @@ public class CompanyController extends CommonController {
     public Company IncreaseSalary(Company com, Double percent) {
         for (int i = 0; i < com.getWorkers().size(); i++) {
             if (com.getWorkers().get(i).getGender() == false) {
-                view.alertInline(view.showWorkerSHORT(com.getWorkers().get(i).toString()));
+                view.alertInline(CompanyView.showWorkerSHORT(com.getWorkers().get(i).toString()));
                 com.getWorkers().get(i).setSalary(Math.round(com.getWorkers().get(i).getSalary() * (1 + percent)));
                 view.alert(" >>>New Salary (+" + (percent * 100) + "%): " +
                         com.getWorkers().get(i).getSalary() + "$");

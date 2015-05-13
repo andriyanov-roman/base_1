@@ -11,7 +11,7 @@ public class Employee {
     private Double salary;
     private Boolean gender;
     private int age;
-    private static String separator = ":"; // "separator", то есть разделитель
+    private static String separator = ":"; // "separator", С‚Рѕ РµСЃС‚СЊ СЂР°Р·РґРµР»РёС‚РµР»СЊ
 
     public Employee(String name, String surname, Double salary, Boolean gender, int age) {
         this.name = name;
