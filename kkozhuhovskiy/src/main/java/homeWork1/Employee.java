@@ -1,5 +1,7 @@
 package homeWork1;
 
+import java.util.Calendar;
+
 /**
  * Created by Kirill on 12.03.2015.
  */
@@ -10,6 +12,20 @@ public class Employee {
     private double salary;
     private String gender;
     private int age;
+    private Calendar dateOfEmployment;
+
+
+
+    public Calendar getDateOfEmploeement() {
+        return dateOfEmployment;
+    }
+
+    public void setDateOfEmploeement(Calendar dateOfEmploeement) {
+        this.dateOfEmployment = dateOfEmploeement;
+    }
+
+
+
 
     public Employee(){
 
@@ -38,13 +54,14 @@ public class Employee {
 
     @Override
     public String toString() {
-        return  "Имя Сотрудника "+ name + ":" +
-                ", Фамилия Сотрудника = '" + secondName + '\'' +
-                ", Зарплата Сотрудника= " + salary + " Валюта не указана" +
-                ", Пол Сотрудника ='" + gender + '\'' +
-                ", Возраст Сотрудника = " + age + " лет " +
-                '}' + '\n';
-
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", salary=" + salary +
+                ", gender='" + gender + '\'' +
+                ", age=" + age +
+                ", dateOfEmploeement=" + dateOfEmployment +
+                '}';
     }
 
 }

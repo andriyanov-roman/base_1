@@ -34,7 +34,7 @@ public class FirstTest {
 
     }
 
-    @Test
+
     public void testHomeTest() throws IOException {
         ArrayList<Company> companies = CompanyUtil.getCompany();
 
