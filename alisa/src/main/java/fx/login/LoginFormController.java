@@ -9,12 +9,12 @@ public class LoginFormController {
     private LoginApp app;
 
     public void setApp(LoginApp loginApp) {
-        this.app = app;
+        this.app = loginApp;
     }
 
     @FXML
     public void login (){
-        app.writeToFile("");
+        app.writeToFile("txt");
     }
     @FXML
     public void cancel (){

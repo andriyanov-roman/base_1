@@ -34,17 +34,18 @@ public class LoginApp extends Application {
     }
 
     public void writeToFile(String txt) {
-        TextField username = new TextField("");
+        TextField username = new TextField("txt");
         for (int i = 0; i < grid.getChildren().size(); i++) {
             if ("username".equals(grid.getChildrenUnmodifiable().get(i).getId())) {
                 username = (TextField) grid.getChildrenUnmodifiable().get(i);
                 break;
             }
+        }
              CommonWriterReader.WriteToFile(username.getText(),
                     "alisa\\src\\result\\Userdata.txt", true);
 
         }
-    }
+
     public static void main(String[] args) {
         launch(args);
     }
