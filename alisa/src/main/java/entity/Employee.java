@@ -1,5 +1,7 @@
 package entity;
 
+import java.util.Calendar;
+
 /**
  * Created by admin on 16.03.15.
  */
@@ -10,6 +12,7 @@ public class Employee {
     private double salary;
     private int age;
     private String sex;
+    private Calendar dateOfEmployment;
 
     public Employee(String name, String surname, double salary, int age, String sex) {
         this.name = name;
@@ -17,7 +20,6 @@ public class Employee {
         this.salary = salary;
         this.age = age;
         this.sex = sex;
-
     }
 
     public Employee() {
@@ -63,10 +65,23 @@ public class Employee {
         this.sex = sex;
     }
 
+    public Calendar getDateOfEmployment() {
+        return dateOfEmployment;
+    }
 
+    public void setDateOfEmployment(Calendar dateOfEmployment) {
+        this.dateOfEmployment = dateOfEmployment;
+    }
 
     @Override
     public String toString() {
-        return name + " " + " " + surname + " " + " " + salary + " " + " " + age + " " + " " + sex;
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", salary=" + salary +
+                ", age=" + age +
+                ", sex='" + sex + '\'' +
+                ", dateOfEmployment=" + dateOfEmployment +
+                '}';
     }
 }

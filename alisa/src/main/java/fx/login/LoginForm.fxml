@@ -21,7 +21,7 @@
       <Label text="Username or E-mail:" GridPane.rowIndex="1" />
       <Label text="Password:" GridPane.rowIndex="2" />
       <Button mnemonicParsing="false" onAction="#login" text="Log in" GridPane.rowIndex="3" />
-      <Button mnemonicParsing="false" onAction="#cancel" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <Button fx:id="cancel" mnemonicParsing="false" text="Cancel" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>

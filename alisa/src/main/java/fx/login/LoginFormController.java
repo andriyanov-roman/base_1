@@ -1,6 +1,7 @@
 package fx.login;
 
 import javafx.fxml.FXML;
+import javafx.stage.Stage;
 
 /**
  * Created by PC XP on 08.05.15.
@@ -18,6 +19,7 @@ public class LoginFormController {
     }
     @FXML
     public void cancel (){
-        //app.System.exit(0);
+       Stage stage = (Stage) app.getGrid().getScene().getWindow();
+        stage.close();
           }
 }

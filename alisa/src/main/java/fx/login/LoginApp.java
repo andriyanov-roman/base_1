@@ -3,8 +3,11 @@ package fx.login;
 
 import factory.CommonWriterReader;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -17,7 +20,15 @@ import java.net.URL;
  * Created by PC XP on 08.05.15.
  */
 public class LoginApp extends Application {
-    GridPane grid;
+    private GridPane grid;
+
+    public GridPane getGrid() {
+        return grid;
+    }
+
+    public void setGrid(GridPane grid) {
+        this.grid = grid;
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -32,6 +43,20 @@ public class LoginApp extends Application {
         Scene scene = new Scene(grid);
         primaryStage.setScene(scene);
         primaryStage.show();
+Button cancel = new Button();
+        for (int i = 0; i <  grid.getChildren().size(); i++) {
+            if ("cancel".equals(grid.getChildrenUnmodifiable().get(i).getId())) {
+                cancel = (Button) grid.getChildrenUnmodifiable().get(i);
+                break;
+            }
+
+        }
+        cancel.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                primaryStage.close();
+            }
+        });
     }
 
     public void writeToFile(String txt) {
@@ -50,7 +75,7 @@ public class LoginApp extends Application {
                 break;
             }
         }
-             CommonWriterReader.WriteToFile(username.getText(),
+             CommonWriterReader.WriteToFile("\n" +username.getText()+":",
                 "alisa\\src\\result\\Userdata.txt", true);
         CommonWriterReader.WriteToFile(password.getText(),
                 "alisa\\src\\result\\Userdata.txt", true);
