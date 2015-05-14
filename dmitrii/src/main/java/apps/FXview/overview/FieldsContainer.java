@@ -59,7 +59,7 @@ public class FieldsContainer {
     public Boolean isExcluded() {
         return excluded;
     }
-    public void setIsExcluded(Boolean excluded) {
+    public void setExclude(Boolean excluded) {
         this.excluded = excluded;
     }
 }

@@ -26,9 +26,9 @@ public class CompanyEventContainer extends CommonEventContainer {
     public ArrayList<EventHandler<ActionEvent>> getEvents() {
         ArrayList<EventHandler<ActionEvent>> companyEvents = new ArrayList<>();
         companyEvents.add(new showCompany("Show Company"));
-        companyEvents.add(new getMaxSalary("Get Max Salary"));
-        companyEvents.add(new addEmployee("Fire and Increase Stuff"));
+        companyEvents.add(new getMaxSalary("Get Highest salary by Company"));
         companyEvents.add(new getMaxSalaryByProfession("Get Highest salary by Proffesion"));
+        companyEvents.add(new addEmployee("Fire and Increase Stuff"));
         companyEvents.add(new addEmployee("New Task"));
         companyEvents.add(new addEmployee("Test"));
         return companyEvents;

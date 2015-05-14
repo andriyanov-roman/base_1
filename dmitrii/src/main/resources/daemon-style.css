@@ -58,6 +58,9 @@
 .warning {
     -fx-text-fill: #ffff02;
 }
+.error-text {
+    -fx-text-fill: derive(red, 0%);
+}
 .white-border {
     -fx-border-color: derive(white, 0%);
 }
@@ -77,7 +80,8 @@
 .left-btn:hover {
     -fx-background-color: linear-gradient(to bottom, rgba(60, 3, 71, 0.93) 0% , rgba(127, 73, 166, 0.93) 35% , rgba(156, 103, 206, 0.93) 50% , rgba(127, 73, 166, 0.93) 65% , rgba(60, 3, 71, 0.93) 100% );
 }
-.left-btn:pressed {
+.left-btn:pressed,
+ .app-menu-button:pressed {
     -fx-effect: innershadow(two-pass-box, #707070, 0, 0.9, 3, 3);
     -fx-text-fill: #000000;
 }
@@ -119,5 +123,10 @@
 .app-menu-button {
     -fx-border-radius: 20;
     -fx-min-height: 30;
+    -fx-min-width: 300;
     -fx-border-color: #ffffff;
+    -fx-cursor: hand;
+}
+.app-menu-button:hover {
+     -fx-background-color: linear-gradient(to right, rgba(127,35,186,0) 0%,rgba(127,35,186,1) 10%,rgba(127,35,186,0.7) 25%,rgba(127,73,166,0.2) 50%,rgba(127,35,186,0.7) 75%,rgba(127,35,186,1) 90%,rgba(127,35,186,0) 100%);
 }

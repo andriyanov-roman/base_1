@@ -62,7 +62,7 @@ public class OverviewHelper<T> {
         for (String excludedF : excludedFields){
             for (FieldsContainer fc : fields){
                 if (excludedF.equals(fc.getRealName())){
-                    fc.setIsExcluded(true);
+                    fc.setExclude(true);
                 }
             }
         }

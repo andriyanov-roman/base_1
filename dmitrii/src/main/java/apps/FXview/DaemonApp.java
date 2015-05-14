@@ -4,7 +4,8 @@ import apps.FXview.helpers.CloseWindow;
 import apps.FXview.helpers.IIdSearchable;
 import apps.FXview.helpers.TableViewHelper;
 import apps.FXview.leftsidebar.LeftSideBarController;
-import apps.FXview.overview.FieldsContainer;
+import apps.FXview.login.LoginFormController;
+import apps.FXview.overview.OverviewController;
 import apps.FXview.overview.OverviewHelper;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -16,10 +17,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.util.Pair;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,7 +39,6 @@ public class DaemonApp extends Application implements IIdSearchable {
     private BorderPane rootLayout;
     private String modulePath = "dmitrii\\src\\main\\java\\apps\\";
     private Label alertNODE = new Label();
-    private Boolean isAuthorizationSuccess = false;
     private GridPane loginPane;
 
     public Scene getScene() {
@@ -61,63 +63,40 @@ public class DaemonApp extends Application implements IIdSearchable {
     public static void main(String[] args) {
         launch(args);
     }
-    public void login (){
+    public Boolean login (){
         Stage loginStage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getDaemonURL("login\\LoginForm.fxml"));
         try {
-            loginPane = FXMLLoader.load(getDaemonURL("login\\LoginForm.fxml"));
+            loginPane = loader.load();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ((Label)getElementById("a_lock",loginPane)).setText("\uf13e");
-        ((Button)getElementById("o_Cancel",loginPane)).setOnAction(event -> loginStage.close());
-        Button okButton = (Button) getElementById("o_OK",loginPane);
-        okButton.setOnAction(event -> checkCredentials());
+        LoginFormController controller = loader.getController();
+        controller.setLoginPane(loginPane);
         loginStage.setScene(new Scene(loginPane));
         loginStage.showAndWait();
-
+        return controller.getIsAuthorized();
     }
-    private void checkCredentials (){
-        ArrayList<Pair<String,String >> credentials = new ArrayList<>();
-        credentials.add(new Pair<>("admin","1234"));
-        credentials.add(new Pair<>("user", "F111"));
-        credentials.add(new Pair<>("user2", "F222"));
-        String username = ((TextField) getElementById("username", loginPane)).getText();
-        String password = ((PasswordField) getElementById("password",loginPane)).getText();
-        for (Pair<String, String> c : credentials){
-            if (c.getKey().equals(username) && c.getValue().equals(password)){
-                isAuthorizationSuccess = true;
-                Stage s = (Stage) loginPane.getScene().getWindow();
-                s.close();
-            } else {
-                ((Label)getElementById("auth_warning",loginPane)).setText("Incorrect credentials!!!");
-            }
-        }
 
-    }
 
     @Override
     public void start(Stage stage) {
-        login();
-        if (isAuthorizationSuccess) {
+        if (login()){
             try {
                 this.stage = stage;
                 runDaemonApp();
-            } catch (Exception e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
     }
-    private void runDaemonApp () throws Exception {
+    private void runDaemonApp () throws IOException {
         rootLayout = new BorderPane();
         rootLayout.setTop(FXMLLoader.load(getDaemonURL("topmenu\\TopMenu.fxml")));
         FXMLLoader loader = new FXMLLoader();
-        try {
-            loader.setLocation(getDaemonURL("leftsidebar\\LeftSideBar.fxml"));
-            rootLayout.setLeft(loader.load());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        loader.setLocation(getDaemonURL("leftsidebar\\LeftSideBar.fxml"));
+        rootLayout.setLeft(loader.load());
         LeftSideBarController controller = loader.getController();
         controller.setMainApp(this);
         rootLayout.setCenter(FXMLLoader.load(getDaemonURL("CenterDefault.fxml")));
@@ -149,40 +128,17 @@ public class DaemonApp extends Application implements IIdSearchable {
         newWinStage.showAndWait();
     }
     public void showEntity (OverviewHelper<?> helper){
-        Pane mainPlaceHolder = null;
+        VBox mainPlaceHolder = null;
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getDaemonURL("overview\\Overview.fxml"));
         try {
-            mainPlaceHolder = FXMLLoader.load(getDaemonURL("overview\\Overview.fxml"));
+            mainPlaceHolder = loader.load();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        GridPane top = (GridPane) getElementById("o_top", mainPlaceHolder);
-        ((Label) getElementById("o_icon",top)).setText(helper.getIconChar());
-        ((Label) getElementById("o_title",top)).setText(helper.getTitle());
-        ((Label) getElementById("o_subTitle",top)).setText(helper.getSubTitle());
-        GridPane center = (GridPane) getElementById("o_center", mainPlaceHolder);
-        center.setHgap(5);
-        center.setVgap(5);
-        for (int i = 0; i < helper.getFields().size(); i++) {
-            FieldsContainer userField = helper.getFields().get(i);
-            if (!userField.isExcluded()){
-                Label fieldName = new Label(userField.getDisplayName().toUpperCase());
-                fieldName.setPadding(new Insets(5, 5, 5, 15));
-                fieldName.getStyleClass().add("label-caption");
-                center.add(fieldName, 0, i);
-                // ===============================================================
-                TextField fieldValue = new TextField(userField.getDisplayValue());
-                fieldValue.setId(userField.getId());//!!!!!!!!!!!!!
-                fieldValue.setPadding(new Insets(5,5,5,5));
-                fieldValue.setDisable(helper.getForbidEditing());
-                center.add(fieldValue,1,i);
-            }
-        }
-        GridPane bottom = (GridPane) getElementById("o_bottom", mainPlaceHolder);
-        Button cancelButton = (Button) getElementById("o_Cancel",bottom);
-        cancelButton.setOnAction(new CloseWindow(cancelButton));
-        Button okButton = (Button) getElementById("o_OK",bottom);
-        okButton.setDisable(helper.getForbidEditing());
-
+        OverviewController controller = loader.getController();
+        controller.setMainPlaceHolder(mainPlaceHolder);
+        controller.renderEntity(helper);
         showInNewWindow(helper.getWindowTitle(), mainPlaceHolder);
     }
 
