@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import java.lang.*?>
 
-<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="225.0" minWidth="290.0" prefHeight="256.0" prefWidth="360.0" styleClass="black-bg" stylesheets="@../../../../resources/daemon-style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apps.FXview.overview.OverviewController">
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="225.0" minWidth="290.0" prefWidth="360.0" styleClass="black-bg" stylesheets="@../../../../resources/daemon-style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apps.FXview.overview.OverviewController">
    <children>
       <GridPane fx:id="o_top" prefHeight="96.0" prefWidth="246.0">
         <columnConstraints>
@@ -45,6 +45,9 @@
          <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" />
          </rowConstraints>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
       </GridPane>
       <GridPane fx:id="o_bottom" prefHeight="130.0" prefWidth="289.0" vgap="10.0">
         <columnConstraints>

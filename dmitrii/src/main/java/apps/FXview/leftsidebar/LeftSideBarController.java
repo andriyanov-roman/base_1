@@ -38,7 +38,7 @@ public class LeftSideBarController {
         for (int i = 0; i < events.size(); i++) {
             String btnName = ((ExtEventImpl) events.get(i)).getEventName();
             Button btn = new Button (btnName);
-            btn.getStyleClass().addAll("purple","white-text");
+            btn.getStyleClass().addAll("black-bg",/*"purple",*/"white-text","app-menu-button");
             btn.setMinWidth(200);
             btn.setOnAction(events.get(i));
             grid.add(btn,0,i);

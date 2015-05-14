@@ -21,10 +21,8 @@ public class OverviewHelper<T> {
     private String subTitle;
     private String iconChar;
     private T entity;
-    private String [] excludedFields;
     private Boolean useSuperFields;
-    private ArrayList<Pair<String,String>> pairs;
-    private ArrayList<Pair<String,String>> replacedPairs;
+    private ArrayList<FieldsContainer> fields;
     private Boolean forbidEditing;
 
     public OverviewHelper(String windowTitle, String title, String subTitle, String iconChar,
@@ -36,13 +34,11 @@ public class OverviewHelper<T> {
         this.iconChar = iconChar;
         this.entity = entity;
         this.useSuperFields = useSuperFields;
-        this.excludedFields = excludedFields;
         this.forbidEditing = forbidEditing;
-        this.replacedPairs = replacedPairs;
-        this.pairs = new ArrayList<>();
+        this.fields = new ArrayList<>();
         makePairsFromFields(entity.getClass().getSuperclass().getDeclaredFields());
         makePairsFromFields(entity.getClass().getDeclaredFields());
-        replacePair();
+        excludeFields(excludedFields);
     }
 
     public OverviewHelper(T entity, Boolean useSuperFields,String ... excludedFields) {
@@ -52,13 +48,24 @@ public class OverviewHelper<T> {
         this.subTitle = "";
         this.iconChar = UNKNOWN_ICON;
         this.useSuperFields = false;
-        this.excludedFields = excludedFields;
+
         this.forbidEditing = true;
-        this.pairs = new ArrayList<>();
+        this.fields = new ArrayList<>();
         if (useSuperFields){
             makePairsFromFields(entity.getClass().getSuperclass().getDeclaredFields());
         }
         makePairsFromFields(entity.getClass().getDeclaredFields());
+        excludeFields(excludedFields);
+    }
+
+    private void excludeFields(String[] excludedFields) {
+        for (String excludedF : excludedFields){
+            for (FieldsContainer fc : fields){
+                if (excludedF.equals(fc.getRealName())){
+                    fc.setIsExcluded(true);
+                }
+            }
+        }
     }
 
     public String getWindowTitle() {
@@ -96,10 +103,6 @@ public class OverviewHelper<T> {
         this.entity = entity;
     }
 
-    public String[] getExcludedFields() {
-        return excludedFields;
-    }
-
     public Boolean getUseSuperFields() {
         return useSuperFields;
     }
@@ -110,54 +113,40 @@ public class OverviewHelper<T> {
     public Boolean getForbidEditing() {
         return forbidEditing;
     }
-
     public void setForbidEditing(Boolean forbidEditing) {
         this.forbidEditing = forbidEditing;
     }
 
-    public ArrayList<Pair<String, String>> getPairs() {
-        return pairs;
-    }
-
-    public ArrayList<Pair<String, String>> getReplacedPairs() {
-        return replacedPairs;
-    }
-    public void setReplacedPairs(ArrayList<Pair<String, String>> replacedPairs) {
-        this.replacedPairs = replacedPairs;
-        replacePair();
-    }
-    public void addReplacedPair(String keyName, String keyValue) {
-        if (replacedPairs == null) {
-            replacedPairs = new ArrayList<>();
-        }
-        replacedPairs.add(new Pair<>(keyName, keyValue));
-        replacePair();
-    }
-
-    private void replacePair(){
-            for (Pair<String, String> r : replacedPairs){
-                for (int i = 0; i < pairs.size(); i++) {
-                    if (pairs.get(i).getKey().equals(r.getKey())){
-                        pairs.set(i,r);
-                    }
-                }
-            }
-    }
-    private Boolean isExcludedField (Field f){
-        for (String disField : excludedFields) {
-            if (f.getName().equals(disField)) {
-                return true;
+    public ArrayList<FieldsContainer> getFields() {
+        ArrayList<FieldsContainer> fieldsWithoutExcluded = new ArrayList<>();
+        for (FieldsContainer fc : fields) {
+            if (!fc.isExcluded()){
+                fieldsWithoutExcluded.add(fc);
             }
         }
-        return false;
+        return fieldsWithoutExcluded ;
+    }
+
+    public void replaceFieldDisplayName(String realName, String displayName) {
+        for (FieldsContainer fc : fields){
+            if (fc.getRealName().equals(realName)){
+                fc.setDisplayName(displayName);
+            }
+        }
+    }
+    public void replaceFieldDisplayValue(String realName, String displayValue){
+        for (FieldsContainer fc : fields){
+            if (fc.getRealName().equals(realName)){
+                fc.setDisplayValue(displayValue);
+            }
+        }
     }
     public void makePairsFromFields(Field[] fields) {
-        for (Field f : fields){
+        for (int i = 0; i < fields.length; i++) {
+            Field f = fields[i];
             f.setAccessible(true);
             try {
-                if (!isExcludedField(f)) {
-                    pairs.add(new Pair(f.getName(),f.get(entity)+""));
-                }
+                this.fields.add(new FieldsContainer(i+"_"+f.getName(),f.getName(),f.get(entity)));
             } catch (IllegalAccessException e1) {
                 e1.printStackTrace();
             }

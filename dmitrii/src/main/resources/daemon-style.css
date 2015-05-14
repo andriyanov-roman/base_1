@@ -116,3 +116,8 @@
     -fx-text-fill: derive(red, 0%);
     -fx-font-weight: bold;
 }
+.app-menu-button {
+    -fx-border-radius: 20;
+    -fx-min-height: 30;
+    -fx-border-color: #ffffff;
+}

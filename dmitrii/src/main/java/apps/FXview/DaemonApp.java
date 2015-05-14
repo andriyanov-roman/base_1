@@ -4,6 +4,7 @@ import apps.FXview.helpers.CloseWindow;
 import apps.FXview.helpers.IIdSearchable;
 import apps.FXview.helpers.TableViewHelper;
 import apps.FXview.leftsidebar.LeftSideBarController;
+import apps.FXview.overview.FieldsContainer;
 import apps.FXview.overview.OverviewHelper;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -161,22 +162,21 @@ public class DaemonApp extends Application implements IIdSearchable {
         GridPane center = (GridPane) getElementById("o_center", mainPlaceHolder);
         center.setHgap(5);
         center.setVgap(5);
-        double newGridWidth = 0;
-        for (int i = 0; i < helper.getPairs().size(); i++) {
-            Label fieldName = new Label(helper.getPairs().get(i).getKey().toUpperCase());
-            fieldName.setPadding(new Insets(5, 5, 5, 15));
-            fieldName.getStyleClass().add("label-caption");
-            center.add(fieldName, 0, i);
-            if (newGridWidth < fieldName.getPrefWidth()) {newGridWidth = fieldName.getPrefWidth();}
-
-            TextField fieldValue = new TextField(helper.getPairs().get(i).getValue());
-            fieldValue.setPadding(new Insets(5,5,5,5));
-            fieldValue.setDisable(helper.getForbidEditing());
-            center.add(fieldValue,1,i);
+        for (int i = 0; i < helper.getFields().size(); i++) {
+            FieldsContainer userField = helper.getFields().get(i);
+            if (!userField.isExcluded()){
+                Label fieldName = new Label(userField.getDisplayName().toUpperCase());
+                fieldName.setPadding(new Insets(5, 5, 5, 15));
+                fieldName.getStyleClass().add("label-caption");
+                center.add(fieldName, 0, i);
+                // ===============================================================
+                TextField fieldValue = new TextField(userField.getDisplayValue());
+                fieldValue.setId(userField.getId());//!!!!!!!!!!!!!
+                fieldValue.setPadding(new Insets(5,5,5,5));
+                fieldValue.setDisable(helper.getForbidEditing());
+                center.add(fieldValue,1,i);
+            }
         }
-        double newGridHeight = center.getRowConstraints().get(0).getMaxHeight() * helper.getPairs().size();
-        center.setMinHeight(newGridHeight);
-        center.getColumnConstraints().get(0).setMinWidth(newGridWidth);
         GridPane bottom = (GridPane) getElementById("o_bottom", mainPlaceHolder);
         Button cancelButton = (Button) getElementById("o_Cancel",bottom);
         cancelButton.setOnAction(new CloseWindow(cancelButton));

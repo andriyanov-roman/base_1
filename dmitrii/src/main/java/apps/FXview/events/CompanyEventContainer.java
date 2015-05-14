@@ -52,7 +52,8 @@ public class CompanyEventContainer extends CommonEventContainer {
         ohe.setTitle(com.getCompanyName());
         ohe.setSubTitle(e.getClass().getSimpleName());
         ohe.setIconChar(e.getGender() ? OverviewHelper.MALE_ICON : OverviewHelper.FEMALE_ICON);
-        ohe.addReplacedPair("gender", e.getGenderName());
+        ohe.replaceFieldDisplayValue("gender", e.getGenderName());
+        ohe.replaceFieldDisplayName("projectName", "project name");
         return ohe;
     }
     public Company getCompanyByName (String companyName){
