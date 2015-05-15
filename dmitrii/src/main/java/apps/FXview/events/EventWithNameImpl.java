@@ -1,4 +1,4 @@
-package apps.FXview.helpers;
+package apps.FXview.events;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -6,10 +6,10 @@ import javafx.event.EventHandler;
 /**
  * Created by mit_OK! on 29.04.2015.
  */
-public abstract class ExtEventImpl implements EventHandler<ActionEvent> {
+public abstract class EventWithNameImpl implements EventHandler<ActionEvent> {
     protected String eventName;
 
-    public ExtEventImpl(String eventName) {
+    public EventWithNameImpl(String eventName) {
         this.eventName = eventName;
     }
 

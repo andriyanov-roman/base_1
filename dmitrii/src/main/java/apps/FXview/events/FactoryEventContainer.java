@@ -1,7 +1,6 @@
 package apps.FXview.events;
 
 import apps.FXview.DaemonApp;
-import apps.FXview.helpers.ExtEventImpl;
 import apps.FXview.overview.OverviewHelper;
 import entities.factory.Car;
 import javafx.event.ActionEvent;
@@ -32,7 +31,7 @@ public class FactoryEventContainer extends CommonEventContainer {
         return null;
     }
 
-    public class CreateCar extends ExtEventImpl {
+    public class CreateCar extends EventWithNameImpl {
 
         public CreateCar(String eventName) {
             super(eventName);

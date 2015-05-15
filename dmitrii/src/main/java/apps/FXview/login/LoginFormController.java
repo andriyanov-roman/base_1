@@ -1,6 +1,6 @@
 package apps.FXview.login;
 
-import apps.FXview.helpers.CloseWindow;
+import apps.FXview.DaemonApp;
 import apps.FXview.helpers.IIdSearchable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -8,7 +8,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -18,13 +17,15 @@ import java.util.regex.Pattern;
  * Created by mit_OK! on 06.05.2015.
  */
 public class LoginFormController implements IIdSearchable{
+    private DaemonApp app;
     private GridPane loginPane;
     private TextField usernameField;
     private Label warning;
     private Boolean isAuthorized = false;
 
 
-    public void setLoginPane(GridPane loginPane) {
+    public void load(GridPane loginPane, DaemonApp app) {
+        this.app = app;
         this.loginPane = loginPane;
         initialize();
     }
@@ -35,7 +36,7 @@ public class LoginFormController implements IIdSearchable{
 
     private void initialize() {
         ((Label) getElementById("a_lock", loginPane)).setText("\uf13e");
-        ((Button)getElementById("o_Cancel",loginPane)).setOnAction(new CloseWindow(loginPane));
+        ((Button)getElementById("o_Cancel",loginPane)).setOnAction(event -> System.exit(0));
         warning = (Label)getElementById("auth_warning",loginPane);
         Button okButton = (Button) getElementById("o_OK",loginPane);
         usernameField = (TextField) getElementById("username",loginPane);
@@ -45,7 +46,6 @@ public class LoginFormController implements IIdSearchable{
         okButton.setOnAction(event -> checkCredentials());
     }
     public void checkUsernameOnInput (){
-        System.out.println(usernameField.getText());
         Pattern pattern = Pattern.compile("\\W");
         Matcher matcher = pattern.matcher(usernameField.getText());
         if (matcher.find()){
@@ -57,24 +57,23 @@ public class LoginFormController implements IIdSearchable{
         }
     }
     private void checkCredentials (){
-        ArrayList<Pair<String,String >> credentials = new ArrayList<>();
-        credentials.add(new Pair<>("admin","1234"));
-        credentials.add(new Pair<>("user", "F111"));
-        credentials.add(new Pair<>("user2", "F222"));
+        ArrayList<User> users = JSONProcessor.getUsers("dmitrii\\src\\main\\resources\\Users.json");
         String username = ((TextField) getElementById("username", loginPane)).getText();
         String password = ((PasswordField) getElementById("password",loginPane)).getText();
-        for (Pair<String, String> c : credentials){
-            if (c.getKey().equals(username) && c.getValue().equals(password)){
-                isAuthorized = true;
-                Stage s = (Stage) loginPane.getScene().getWindow();
-                s.close();
-            } else {
-                warning.setText("Incorrect credentials!!!");
+        for (User user : users){
+            if (user.getLogin().equals(username)){
+                if (user.getPassword().equals(password)){
+                    isAuthorized = true;
+                    app.setCurrentUser(user);
+                    Stage stage = (Stage)loginPane.getScene().getWindow();
+                    stage.close();
+                    return;
+                } else {
+                    warning.setText("Wrong PASSWORD!");
+                    return;
+                }
             }
         }
-
-    }
-    private void loadUsers (){
-
+        warning.setText("Wrong USERNAME!");
     }
 }

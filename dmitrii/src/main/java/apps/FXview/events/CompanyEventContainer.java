@@ -1,7 +1,6 @@
 package apps.FXview.events;
 
 import apps.FXview.DaemonApp;
-import apps.FXview.helpers.ExtEventImpl;
 import apps.FXview.helpers.TableViewHelper;
 import apps.FXview.overview.OverviewHelper;
 import apps.company.CompanyModel;
@@ -65,7 +64,7 @@ public class CompanyEventContainer extends CommonEventContainer {
         return null;
     }
     // ================  Event classes ===============================
-    public class showCompany extends ExtEventImpl {
+    public class showCompany extends EventWithNameImpl {
         public showCompany(String eventName) {
             super(eventName);
         }
@@ -80,7 +79,7 @@ public class CompanyEventContainer extends CommonEventContainer {
             }
         }
     }
-    public class getMaxSalary extends ExtEventImpl {
+    public class getMaxSalary extends EventWithNameImpl {
         public getMaxSalary(String eventName) {
             super(eventName);
         }
@@ -99,7 +98,7 @@ public class CompanyEventContainer extends CommonEventContainer {
 
         }
     }
-    public class getMaxSalaryByProfession extends ExtEventImpl{
+    public class getMaxSalaryByProfession extends EventWithNameImpl {
         public getMaxSalaryByProfession(String eventName) {
             super(eventName);
         }
@@ -116,7 +115,7 @@ public class CompanyEventContainer extends CommonEventContainer {
             }
         }
     }
-    public class addEmployee extends ExtEventImpl {
+    public class addEmployee extends EventWithNameImpl {
 
         public addEmployee(String eventName) {
             super(eventName);

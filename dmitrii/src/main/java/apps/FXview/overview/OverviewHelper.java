@@ -15,6 +15,8 @@ public class OverviewHelper<T> {
     public static final String UNIVERSITY_ICON = "\uf19d";
     public static final String SHAPE_ICON = "\uf1b2";
     public static final String UNKNOWN_ICON = "\uf059";
+    public static final String ADMIN_ICON = "\uf085";
+    public static final String USER_ICON = "\uf007";
 
     private String windowTitle;
     private String title;

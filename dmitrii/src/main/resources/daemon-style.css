@@ -64,6 +64,9 @@
 .white-border {
     -fx-border-color: derive(white, 0%);
 }
+.bolded {
+    -fx-font-weight: bold;
+}
 /* ----------------------------------- */
 .left-btn {
     -fx-padding: 5 18 5 0;
@@ -127,6 +130,14 @@
     -fx-border-color: #ffffff;
     -fx-cursor: hand;
 }
-.app-menu-button:hover {
+.app-menu-button:hover{
      -fx-background-color: linear-gradient(to right, rgba(127,35,186,0) 0%,rgba(127,35,186,1) 10%,rgba(127,35,186,0.7) 25%,rgba(127,73,166,0.2) 50%,rgba(127,35,186,0.7) 75%,rgba(127,35,186,1) 90%,rgba(127,35,186,0) 100%);
+}
+.menu:hover {
+     -fx-background-color: #380064;
+     -fx-cursor: hand;
+}
+#menu_separator:hover {
+     -fx-background-color: derive(black, 0%);
+     -fx-cursor: default;
 }

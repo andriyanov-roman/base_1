@@ -3,23 +3,43 @@
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 
-<MenuBar styleClass="main-menu" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-         fx:controller="apps.FXview.topmenu.MainMenuController">
+<MenuBar styleClass="main-menu" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apps.FXview.topmenu.TopMenuController">
     <menus>
         <Menu mnemonicParsing="false" text="File">
             <items>
-                <MenuItem mnemonicParsing="false" text="Close"/>
+                <MenuItem mnemonicParsing="false" onAction="#exit" text="Close" />
             </items>
         </Menu>
         <Menu mnemonicParsing="false" styleClass="main-menu" text="Edit">
             <items>
-                <MenuItem mnemonicParsing="false" text="Delete"/>
+                <MenuItem mnemonicParsing="false" text="Delete" />
             </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Help">
             <items>
-                <MenuItem mnemonicParsing="false" text="About"/>
+                <MenuItem mnemonicParsing="false" text="About" />
             </items>
         </Menu>
+      <Menu fx:id="menu_separator" mnemonicParsing="false" text="                                         Hello," />
+      <Menu fx:id="user_menu" mnemonicParsing="false" styleClass="bolded" text="User">
+        <items>
+          <MenuItem mnemonicParsing="false" onAction="#viewProfile" text="View profile">
+               <graphic>
+                  <Label styleClass="fa" text="" />
+               </graphic></MenuItem>
+            <MenuItem mnemonicParsing="false" onAction="#logOut" text="Logout">
+               <graphic>
+                  <Label fx:id="logout_icon" styleClass="fa" text="" />
+               </graphic></MenuItem>
+        </items>
+         <graphic>
+            <Label text="">
+               <styleClass>
+                  <String fx:value="fa" />
+                  <String fx:value="bolded" />
+               </styleClass>
+            </Label>
+         </graphic>
+      </Menu>
     </menus>
 </MenuBar>

@@ -5,8 +5,10 @@ import apps.FXview.helpers.IIdSearchable;
 import apps.FXview.helpers.TableViewHelper;
 import apps.FXview.leftsidebar.LeftSideBarController;
 import apps.FXview.login.LoginFormController;
+import apps.FXview.login.User;
 import apps.FXview.overview.OverviewController;
 import apps.FXview.overview.OverviewHelper;
+import apps.FXview.topmenu.TopMenuController;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXMLLoader;
@@ -34,12 +36,19 @@ import java.util.ArrayList;
  * Created by mit_OK! on 28.04.2015.
  */
 public class DaemonApp extends Application implements IIdSearchable {
+    private Stage mainBackgroundStage;
     private Stage stage;
     private Scene scene;
     private BorderPane rootLayout;
     private String modulePath = "dmitrii\\src\\main\\java\\apps\\";
     private Label alertNODE = new Label();
     private GridPane loginPane;
+    private User currentUser;
+    private Boolean reLogin;
+
+    public Stage getMainBackgroundStage() {
+        return mainBackgroundStage;
+    }
 
     public Scene getScene() {
         return scene;
@@ -60,6 +69,15 @@ public class DaemonApp extends Application implements IIdSearchable {
     public void setAlertNODE(Label alertNODE) {
         this.alertNODE = alertNODE;
     }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
+    }
+
+    public void setReLogin(Boolean reLogin) {
+        this.reLogin = reLogin;
+    }
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -73,7 +91,7 @@ public class DaemonApp extends Application implements IIdSearchable {
             e.printStackTrace();
         }
         LoginFormController controller = loader.getController();
-        controller.setLoginPane(loginPane);
+        controller.load(loginPane, this);
         loginStage.setScene(new Scene(loginPane));
         loginStage.showAndWait();
         return controller.getIsAuthorized();
@@ -82,33 +100,47 @@ public class DaemonApp extends Application implements IIdSearchable {
 
     @Override
     public void start(Stage stage) {
-        if (login()){
-            try {
-                this.stage = stage;
-                runDaemonApp();
-            } catch (IOException e) {
-                e.printStackTrace();
+        do {
+            if (login()){
+                try {
+                    this.mainBackgroundStage = stage;
+                    runDaemonApp();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-        }
+        } while (reLogin);
     }
     private void runDaemonApp () throws IOException {
+        reLogin = false;
         rootLayout = new BorderPane();
-        rootLayout.setTop(FXMLLoader.load(getDaemonURL("topmenu\\TopMenu.fxml")));
+        // =============== LOAD TOP MENU =================
+        FXMLLoader topMenuLoader = new FXMLLoader();
+        topMenuLoader.setLocation(getDaemonURL("topmenu\\TopMenu.fxml"));
+        MenuBar topMenu = topMenuLoader.load();
+        TopMenuController topMenuController = topMenuLoader.getController();
+        topMenuController.load(topMenu, currentUser,this);
+        rootLayout.setTop(topMenu);
+        //================== LOAD LEFT SIDEBAR ===========
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getDaemonURL("leftsidebar\\LeftSideBar.fxml"));
         rootLayout.setLeft(loader.load());
         LeftSideBarController controller = loader.getController();
         controller.setMainApp(this);
+        //================== LOAD CENTER PANEL (IMAGE) ====
         rootLayout.setCenter(FXMLLoader.load(getDaemonURL("CenterDefault.fxml")));
+        //================== LOAD BOTTOM ALERT PANE========
         rootLayout.setBottom(createAlertPane());
+        //=====++++    LOAD CSS / STYLES ++++==============
         rootLayout.getStyleClass().add("black-bg");
         scene = new Scene(rootLayout, 600, 400);
         scene.getStylesheets().add("daemon-style.css");
+        stage = new Stage();
         stage.setTitle("The united application launching");
         stage.setScene(scene);
-        stage.show();
+        stage.showAndWait();
     }
-    private Node createAlertPane (){
+    private Node createAlertPane (){// It situates on BOTTOM
         HBox bottomAlertPane = new HBox();
         alertNODE.getStyleClass().add("warning");
         bottomAlertPane.getChildren().add(alertNODE);
@@ -124,7 +156,6 @@ public class DaemonApp extends Application implements IIdSearchable {
         newWinStage.initModality(Modality.WINDOW_MODAL);
         newWinStage.initOwner(stage);
         newWinStage.setScene(newWindowScene);
-        //newWinStage.show();
         newWinStage.showAndWait();
     }
     public void showEntity (OverviewHelper<?> helper){

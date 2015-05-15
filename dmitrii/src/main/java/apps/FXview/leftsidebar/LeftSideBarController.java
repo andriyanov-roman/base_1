@@ -2,7 +2,7 @@ package apps.FXview.leftsidebar;
 
 import apps.FXview.DaemonApp;
 import apps.FXview.events.FactoryEventContainer;
-import apps.FXview.helpers.ExtEventImpl;
+import apps.FXview.events.EventWithNameImpl;
 import apps.FXview.events.CompanyEventContainer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -36,7 +36,7 @@ public class LeftSideBarController {
         hideSidebar();
         GridPane grid = new GridPane();
         for (int i = 0; i < events.size(); i++) {
-            String btnName = ((ExtEventImpl) events.get(i)).getEventName();
+            String btnName = ((EventWithNameImpl) events.get(i)).getEventName();
             Button btn = new Button (btnName);
             btn.getStyleClass().addAll("black-bg",/*"purple",*/"white-text","app-menu-button");
             btn.setMinWidth(200);
