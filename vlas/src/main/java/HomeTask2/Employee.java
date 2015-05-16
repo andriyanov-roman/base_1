@@ -1,5 +1,7 @@
 package HomeTask2;
 
+import java.util.Calendar;
+
 /**
  * Created by vlas on 23.03.2015.
  */
@@ -9,6 +11,7 @@ public class Employee {
     private  String secondName;
     private  int age;
     private  String sex;
+    private Calendar DayofEmpl;
 
     public String getName() {
         return name;
@@ -49,7 +52,16 @@ public class Employee {
     public void setSalary(double salary) {
         this.salary = salary;
     }
-   Employee (){}
+
+    public Calendar getDayofEmpl() {
+        return DayofEmpl;
+    }
+
+    public void setDayofEmpl(Calendar dayofEmpl) {
+        DayofEmpl = dayofEmpl;
+    }
+
+    Employee (){}
 
     public String toString() {
         return name + " " + " " + secondName +
@@ -64,6 +76,7 @@ public class Employee {
         this.salary = salary;
         this.age = age;
         this.sex = sex;
+
 
     }
 }

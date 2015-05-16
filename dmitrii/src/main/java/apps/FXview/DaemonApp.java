@@ -150,7 +150,7 @@ public class DaemonApp extends Application implements IIdSearchable {
     }
 
     public void showInNewWindow (String windowTitle, Parent eatForScene){
-        Scene newWindowScene = new Scene(eatForScene);
+        Scene newWindowScene = new Scene(eatForScene);////////// ERROR HERE!!!
         Stage newWinStage = new Stage();
         newWinStage.setTitle(windowTitle);
         newWinStage.initModality(Modality.WINDOW_MODAL);

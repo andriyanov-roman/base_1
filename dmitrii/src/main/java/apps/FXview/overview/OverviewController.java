@@ -33,7 +33,7 @@ public class OverviewController implements IIdSearchable{
         title = (Label) getElementById("o_title",top);
         subTitle = (Label) getElementById("o_subTitle",top);
         cancelButton = (Button) getElementById("o_Cancel",bottom);
-        cancelButton.setOnAction(new CloseWindow(cancelButton));
+        //cancelButton.setOnAction(new CloseWindow(cancelButton));
         okButton = (Button) getElementById("o_OK",bottom);
     }
 

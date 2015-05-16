@@ -28,4 +28,7 @@ public class RegExpTest {
             }
         }
     }
+
+
+    // href='([^']+) - регул€рка дл€ ссылок
 }
