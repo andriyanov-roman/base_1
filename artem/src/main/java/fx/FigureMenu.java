@@ -37,12 +37,24 @@ public class FigureMenu extends Application{
                 }
             }
         });
+        MenuItem urlMenuItem = new MenuItem ("URL");
+        urlMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                   new Urldownloader().start(primaryStage);
+                } catch (Exception e)
+                {e.printStackTrace();}}
+        });
+
         MenuItem saveMenuItem = new MenuItem("Save");
         MenuItem exitMenuItem = new MenuItem("Exit");
         exitMenuItem.setOnAction(actionEvent -> Platform.exit());
 
-        fileMenu.getItems().addAll(newMenuItem, saveMenuItem,
+        fileMenu.getItems().addAll(newMenuItem, saveMenuItem,urlMenuItem,
                 new SeparatorMenuItem(), exitMenuItem);
+
+
 
         Menu webMenu = new Menu("Web");
         CheckMenuItem htmlMenuItem = new CheckMenuItem("HTML");
@@ -53,10 +65,16 @@ public class FigureMenu extends Application{
         cssMenuItem.setSelected(true);
         webMenu.getItems().add(cssMenuItem);
 
+//        Menu urlMenu = new Menu("URL");
+//        ToggleGroup tGroup = new ToggleGroup();
+//        RadioMenuItem saveURLsItem = new RadioMenuItem("save URL");
+//      saveURLsItem.setToggleGroup(tGroup);
+
         Menu sqlMenu = new Menu("SQL");
         ToggleGroup tGroup = new ToggleGroup();
         RadioMenuItem mysqlItem = new RadioMenuItem("MySQL");
         mysqlItem.setToggleGroup(tGroup);
+
 
         RadioMenuItem oracleItem = new RadioMenuItem("Oracle");
         oracleItem.setToggleGroup(tGroup);
