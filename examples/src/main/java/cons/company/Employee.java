@@ -1,10 +1,13 @@
 package cons.company;
 
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable {
+
     private String name;
     private String surname;
-    private double salary;
+    private transient double salary;
     private int age;
     private String sex;
 

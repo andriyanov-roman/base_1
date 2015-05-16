@@ -2,7 +2,6 @@ import fx.SimpleMenu;
 import fx.SimpleMenuBar;
 import pattern.MyInstance;
 import sun.util.resources.LocaleData;
-import utils.A;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
