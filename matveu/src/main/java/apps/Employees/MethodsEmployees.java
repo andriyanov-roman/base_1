@@ -922,6 +922,13 @@ public class MethodsEmployees {
         int day=today.get(Calendar.DAY_OF_YEAR)-calendarEmpl.get(Calendar.DAY_OF_YEAR);
         System.out.println(day);
         System.out.println(year);
+        double salary=0;
+        if(day<0){
+            int yearFull=year-1;
+            for(int i=0;i<yearFull;i++) {
+                salary = (salary) * 1.05;
+            }
+        }
 
 
     }
