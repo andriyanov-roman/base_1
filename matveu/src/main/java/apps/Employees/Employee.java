@@ -16,12 +16,16 @@ public class Employee {
 
     @Override
     public String toString() {
-        return name + " " + " " + secondName + '\'' +
-                ", sex=" + sex +
-                ", age=" + age + '\'' +", salary=" +salary+
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", sex='" + sex + '\'' +
+                ", age=" + age +
+                ", salary=" + salary +
+                ", DateToWork=" + DateToWork +
                 '}';
-
     }
+
     public String getName() {
         return name;
     }
@@ -71,11 +75,12 @@ public class Employee {
         DateToWork = dateToWork;
     }
 
-    public Employee(String name, String secondName,String sex,int age, double salary ) {  // создание конструктора
-        this.name=name;
-        this.secondName=secondName;
-        this.sex=sex;
-        this.age=age;
-        this.salary=salary;
+    public Employee(String name, String secondName, String sex, int age, double salary) {
+        this.name = name;
+        this.secondName = secondName;
+        this.sex = sex;
+        this.age = age;
+        this.salary = salary;
+       // this.DateToWork = dateToWork;
     }
 }
