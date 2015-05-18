@@ -31,7 +31,8 @@ public class Downloader {
     public static Set<String> loadUrls() {
         Set<String> urls = new HashSet<>();
         try {
-            URL url = new URL("http://www.ex.ua/82091884");
+            String path="";
+            URL url = new URL(path);
             BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
             String line;
             Pattern pattern = Pattern.compile("href='([^']+)");

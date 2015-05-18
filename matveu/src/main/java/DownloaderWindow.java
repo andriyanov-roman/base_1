@@ -12,8 +12,6 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-
 public class DownloaderWindow extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -44,11 +42,17 @@ public class DownloaderWindow extends Application {
         hbBtn.getChildren().add(btn);
         grid.add(hbBtn, 1, 4);
 
-        final Text actionTarget = new Text();
-        grid.add(actionTarget, 1, 6);
-        ArrayList<String> urls = new ArrayList<>(Downloader.loadUrls());
-        //btn.setOnAction();
+        if(URLTextField.equals("/^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$/")){
+           // String path=URLTextField;
+
+            //btn.setOnAction();
+        }else{
+            final Text actionTarget = new Text("Проверте правильность URL");
+            grid.add(actionTarget, 1, 6);
+        }
         primaryStage.show();
+
+
     }
 
 }
