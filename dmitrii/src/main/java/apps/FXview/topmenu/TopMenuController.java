@@ -1,7 +1,6 @@
 package apps.FXview.topmenu;
 
 import apps.FXview.DaemonApp;
-import apps.FXview.helpers.IIdSearchable;
 import apps.FXview.login.User;
 import apps.FXview.overview.OverviewHelper;
 import javafx.fxml.FXML;
@@ -12,7 +11,7 @@ import javafx.scene.control.MenuItem;
 /**
  * Created by mit_OK! on 29.04.2015.
  */
-public class TopMenuController implements IIdSearchable{
+public class TopMenuController {
     private DaemonApp app;
     private MenuBar menuBar;
     private User currentUser;

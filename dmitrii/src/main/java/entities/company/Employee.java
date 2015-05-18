@@ -1,11 +1,12 @@
 package entities.company;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
 /**
  * Created by user on 14.03.2015.
  */
-public class Employee {
+public class Employee implements Serializable{
     private String name;
     private String surname;
     private Double salary;

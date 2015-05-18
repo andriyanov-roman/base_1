@@ -1,15 +1,15 @@
 package apps.FXview.overview;
 
 import apps.FXview.helpers.CloseWindow;
-import apps.FXview.helpers.IIdSearchable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import static apps.FXview.helpers.IdFinder.getElementById;
 
-public class OverviewController implements IIdSearchable{
+public class OverviewController {
     private VBox mainPlaceHolder;
     private GridPane top;
     private GridPane center;

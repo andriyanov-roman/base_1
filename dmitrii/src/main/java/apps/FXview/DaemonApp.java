@@ -1,7 +1,6 @@
 package apps.FXview;
 
 import apps.FXview.helpers.CloseWindow;
-import apps.FXview.helpers.IIdSearchable;
 import apps.FXview.helpers.TableViewHelper;
 import apps.FXview.leftsidebar.LeftSideBarController;
 import apps.FXview.login.LoginFormController;
@@ -35,7 +34,7 @@ import java.util.ArrayList;
 /**
  * Created by mit_OK! on 28.04.2015.
  */
-public class DaemonApp extends Application implements IIdSearchable {
+public class DaemonApp extends Application {
     private Stage mainBackgroundStage;
     private Stage stage;
     private Scene scene;

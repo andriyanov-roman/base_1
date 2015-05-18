@@ -1,7 +1,5 @@
 package apps.FXview.login;
-
 import apps.FXview.DaemonApp;
-import apps.FXview.helpers.IIdSearchable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -13,10 +11,12 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static apps.FXview.helpers.IdFinder.getElementById;
+
 /**
  * Created by mit_OK! on 06.05.2015.
  */
-public class LoginFormController implements IIdSearchable{
+public class LoginFormController {
     private DaemonApp app;
     private GridPane loginPane;
     private TextField usernameField;
@@ -36,10 +36,10 @@ public class LoginFormController implements IIdSearchable{
 
     private void initialize() {
         ((Label) getElementById("a_lock", loginPane)).setText("\uf13e");
-        ((Button)getElementById("o_Cancel",loginPane)).setOnAction(event -> System.exit(0));
-        warning = (Label)getElementById("auth_warning",loginPane);
-        Button okButton = (Button) getElementById("o_OK",loginPane);
-        usernameField = (TextField) getElementById("username",loginPane);
+        ((Button) getElementById("o_Cancel", loginPane)).setOnAction(event -> System.exit(0));
+        warning = (Label) getElementById("auth_warning", loginPane);
+        Button okButton = (Button) getElementById("o_OK", loginPane);
+        usernameField = (TextField) getElementById("username", loginPane);
         usernameField.textProperty().addListener((observable, oldValue, newValue) -> {
             checkUsernameOnInput();
         });

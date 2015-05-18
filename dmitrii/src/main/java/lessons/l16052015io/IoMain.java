@@ -14,7 +14,7 @@ public class IoMain {
             InputStream io = new FileInputStream("dmitrii\\src\\main\\resources\\RegExpTest.txt");
             int i;
             while ((i=io.read()) != -1){
-                System.out.println((char)i);
+                System.out.print((char) i);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -29,7 +29,8 @@ public class IoMain {
         ArrayList<Employee> employees = new ArrayList<>();
         employees.add(e);
         try {
-            FileOutputStream outStream = new FileOutputStream("test.txt");
+            FileOutputStream outStream;
+            outStream = new FileOutputStream("test.txt");
             ObjectOutputStream o = new ObjectOutputStream(outStream);
             o.writeObject(employees);
 
@@ -37,8 +38,8 @@ public class IoMain {
             ObjectInputStream ois = new ObjectInputStream(inStream);
             ArrayList<Employee> test = (ArrayList)ois.readObject();
             System.out.println(test.toString());
-        } catch (IOException e1) {
-
+        } catch (IOException e0) {
+            e0.printStackTrace();
         } catch (ClassNotFoundException e1) {
             e1.printStackTrace();
         }
