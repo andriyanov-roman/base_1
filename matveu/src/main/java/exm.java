@@ -16,9 +16,9 @@ public class exm {
         String line;
         while ((line=bufferedReader.readLine())!=null){
             Matcher matcher=pattern.matcher(line);
-            if(matcher.find()){
+            if (matcher.find()){
                     String[] pool=line.split("[\\s]+");
-                    for(int i=0;i<3;i++) {
+                    for(int i=0;i<9;i++) {
                         System.out.print(pool[i]+" ");
                     }
                 //System.out.println(line);

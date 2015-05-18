@@ -582,6 +582,8 @@ public class MethodsEmployees {
             employee.setAge(scanner.nextInt());
             System.out.println("Введите зарплату сотрудника!");
             employee.setSalary(scanner.nextInt());
+            System.out.println("Введите зарплату сотрудника!");
+            //employee.setDateToWork();
             employees.add(employee);
             FileWriter writer = new FileWriter("matveu/src/EmployeesLuxsoft.txt", true);
             writer.write(employee.getName() + ":" + employee.getSecondName() + ":" + employee.getSex() +
@@ -915,24 +917,25 @@ public class MethodsEmployees {
         Employee employee=new Employee();
         Calendar calendarEmpl=Calendar.getInstance();
         calendarEmpl.set(2010, Calendar.JULY, 1, 9, 10);
-        employee.setSalary(2000);
+        employee.setSalary(1000);
         employee.setDateToWork(calendarEmpl.getTime());
         Calendar today=Calendar.getInstance();
         int year=today.get(Calendar.YEAR)-calendarEmpl.get(Calendar.YEAR);
         int day=today.get(Calendar.DAY_OF_YEAR)-calendarEmpl.get(Calendar.DAY_OF_YEAR);
+        int yearFull;
         System.out.println(day);
         System.out.println(year);
-        double salary=0;
+        double salaryFull=0;
         if(day<0){
-            int yearFull=year-1;
-            for(int i=0;i<yearFull;i++) {
-                salary = (salary) * 1.05;
-            }
+            yearFull=year-1;
+            salaryFull = employee.getSalary()* Math.pow(1.1,yearFull);
+            System.out.println(salaryFull);
+        }else{
+            yearFull=year;
+            salaryFull = employee.getSalary()* Math.pow(1.1,yearFull);
+            System.out.println(salaryFull);
         }
-
-
     }
-
 }
 
 
