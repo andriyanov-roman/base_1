@@ -144,24 +144,23 @@ public void loadFiles() throws Exception{
         grid.add(hbBtn, 1, 6);
 
         Button download = new Button ("Download");
-        HBox hbdownload = new HBox(10);
         hbBtn.setAlignment(Pos.BOTTOM_LEFT);
         hbBtn.getChildren().add(download);
-        grid.add(hbBtn, 1, 6);
 
-
-        final Text actionTargetField = new Text();
-        grid.add(actionTargetField, 1, 7);
-        download.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    loadFiles();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+//
+//
+//        final Text actionTargetField = new Text();
+//        grid.add(actionTargetField, 1, 7);
+//        download.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                try {
+//                    loadFiles();
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
         primaryStage.setTitle("Main Programs Menu");
         primaryStage.setScene(scene);
        ;
@@ -170,8 +169,12 @@ public void loadFiles() throws Exception{
 
         primaryStage.show();
     }
-    public void startFX(String [] args){
+    public static void startFX(String [] args){
         launch(args);
+    }
+
+    public static void main(String[] args) {
+        startFX(args);
     }
 
 
