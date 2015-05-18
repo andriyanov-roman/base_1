@@ -57,7 +57,7 @@ public class LoginFormController implements IIdSearchable{
         }
     }
     private void checkCredentials (){
-        ArrayList<User> users = JSONProcessor.getUsers("dmitrii\\src\\main\\resources\\Users.json");
+        ArrayList<User> users = JSONProcessor.getUsers("dmitrii/src/main/resources/Users.json");
         String username = ((TextField) getElementById("username", loginPane)).getText();
         String password = ((PasswordField) getElementById("password",loginPane)).getText();
         for (User user : users){

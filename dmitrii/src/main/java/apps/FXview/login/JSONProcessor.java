@@ -1,9 +1,9 @@
 package apps.FXview.login;
 
-import apps.FXview.login.org.json.simple.JSONArray;
-import apps.FXview.login.org.json.simple.JSONObject;
-import apps.FXview.login.org.json.simple.parser.JSONParser;
-import apps.FXview.login.org.json.simple.parser.ParseException;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import java.io.*;
 import java.util.ArrayList;

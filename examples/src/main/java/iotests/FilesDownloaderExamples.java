@@ -1,7 +1,5 @@
 package iotests;
 
-import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
-
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;

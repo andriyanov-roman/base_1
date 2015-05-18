@@ -40,7 +40,7 @@ public class DaemonApp extends Application implements IIdSearchable {
     private Stage stage;
     private Scene scene;
     private BorderPane rootLayout;
-    private String modulePath = "dmitrii\\src\\main\\java\\apps\\";
+    private String modulePath = "dmitrii/src/main/java/apps/";
     private Label alertNODE = new Label();
     private GridPane loginPane;
     private User currentUser;
@@ -84,7 +84,7 @@ public class DaemonApp extends Application implements IIdSearchable {
     public Boolean login (){
         Stage loginStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getDaemonURL("login\\LoginForm.fxml"));
+        loader.setLocation(getDaemonURL("login/LoginForm.fxml"));
         try {
             loginPane = loader.load();
         } catch (IOException e) {
@@ -116,14 +116,14 @@ public class DaemonApp extends Application implements IIdSearchable {
         rootLayout = new BorderPane();
         // =============== LOAD TOP MENU =================
         FXMLLoader topMenuLoader = new FXMLLoader();
-        topMenuLoader.setLocation(getDaemonURL("topmenu\\TopMenu.fxml"));
+        topMenuLoader.setLocation(getDaemonURL("topmenu/TopMenu.fxml"));
         MenuBar topMenu = topMenuLoader.load();
         TopMenuController topMenuController = topMenuLoader.getController();
         topMenuController.load(topMenu, currentUser,this);
         rootLayout.setTop(topMenu);
         //================== LOAD LEFT SIDEBAR ===========
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getDaemonURL("leftsidebar\\LeftSideBar.fxml"));
+        loader.setLocation(getDaemonURL("leftsidebar/LeftSideBar.fxml"));
         rootLayout.setLeft(loader.load());
         LeftSideBarController controller = loader.getController();
         controller.setMainApp(this);
@@ -161,7 +161,7 @@ public class DaemonApp extends Application implements IIdSearchable {
     public void showEntity (OverviewHelper<?> helper){
         VBox mainPlaceHolder = null;
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getDaemonURL("overview\\Overview.fxml"));
+        loader.setLocation(getDaemonURL("overview/Overview.fxml"));
         try {
             mainPlaceHolder = loader.load();
         } catch (IOException e) {
@@ -194,7 +194,7 @@ public class DaemonApp extends Application implements IIdSearchable {
         //getClass().getResource("MainWindow.fxml");
         URL url = null;
         try {
-            url = new File("dmitrii\\src\\main\\java\\apps\\FXview\\"+FXMLfileName).toURL();
+            url = new File("dmitrii/src/main/java/apps/FXview/"+FXMLfileName).toURL();
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
