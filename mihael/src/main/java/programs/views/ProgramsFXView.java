@@ -41,19 +41,68 @@ public class ProgramsFXView extends CommonFXView{
     private int windowsWidth = 300;
     private int windowsHeight = 300;
 
+
    /* private Scene createScene(){
         //Group root = new Group();
         Scene scene = new Scene(createGrid(), windowsWidth,windowsHeight);
         return scene;
     }*/
-    private  void createGrid(){
+
+
+public void loadFiles() throws Exception{
+    try {
+        FileOutputStream outputStream = null;
+        ArrayList<String> urls = new ArrayList<>(loadUrls());
+        for (int i = 0; i < urls.size(); i++) {
+            URL url = new URL(urls.get(i));
+            InputStream is = url.openStream();
+            outputStream = new FileOutputStream(new File(i + ".mp3"));
+            byte[] buffer = new byte[2048];
+            int length;
+            while ((length = is.read(buffer)) > 0) {
+                outputStream.write(buffer, 0, length);
+            }
+            outputStream.close();
+        }
+    } catch (MalformedURLException e) {
+        e.printStackTrace();
+    }
+}
+    public static Set<String> loadUrls() {
+        Set<String> urls = new HashSet<>();
+        try {
+            URL url = new URL("http://www.ex.ua/82091884");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
+            String line;
+            Pattern pattern = Pattern.compile("href='([^']+)");
+            while ((line = reader.readLine()) != null) {
+                Matcher matcher = pattern.matcher(line);
+                if (matcher.find()) {
+                    if (matcher.group(1).contains("/get/")) {
+                        urls.add("http://www.ex.ua" + matcher.group(1));
+                    }
+                }
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return urls;
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
+
+        Scene scene = new Scene(grid,300,300);
+
         //grid.setGridLinesVisible(true);
-        Scene scene = new Scene(grid, windowsWidth,windowsHeight);
+
 
         Text scenetitle = new Text("Add an employee");
         scenetitle.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
@@ -113,65 +162,17 @@ public class ProgramsFXView extends CommonFXView{
                 }
             }
         });
-
-    }
-
-
-public void loadFiles() throws Exception{
-    try {
-        FileOutputStream outputStream = null;
-        ArrayList<String> urls = new ArrayList<>(loadUrls());
-        for (int i = 0; i < urls.size(); i++) {
-            URL url = new URL(urls.get(i));
-            InputStream is = url.openStream();
-            outputStream = new FileOutputStream(new File(i + ".mp3"));
-            byte[] buffer = new byte[2048];
-            int length;
-            while ((length = is.read(buffer)) > 0) {
-                outputStream.write(buffer, 0, length);
-            }
-            outputStream.close();
-        }
-    } catch (MalformedURLException e) {
-        e.printStackTrace();
-    }
-}
-    public static Set<String> loadUrls() {
-        Set<String> urls = new HashSet<>();
-        try {
-            URL url = new URL("http://www.ex.ua/82091884");
-            BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
-            String line;
-            Pattern pattern = Pattern.compile("href='([^']+)");
-            while ((line = reader.readLine()) != null) {
-                Matcher matcher = pattern.matcher(line);
-                if (matcher.find()) {
-                    if (matcher.group(1).contains("/get/")) {
-                        urls.add("http://www.ex.ua" + matcher.group(1));
-                    }
-                }
-            }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return urls;
-    }
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Main Programs Menu");
+        primaryStage.setScene(scene);
+       ;
         //primaryStage.setScene(createScene());
 
 
         primaryStage.show();
     }
-    public void strartFXView(String args){
+    public void startFX(String [] args){
         launch(args);
     }
-    private Label createLabel(){
-        Label label = new Label();
-        return label;
-    }
+
+
 }
