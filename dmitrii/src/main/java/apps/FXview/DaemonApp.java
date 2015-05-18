@@ -24,12 +24,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
+
+import static apps.FXview.helpers.IdURLFinder.getDaemonURL;
 
 /**
  * Created by mit_OK! on 28.04.2015.
@@ -189,16 +187,7 @@ public class DaemonApp extends Application {
         vbox.getChildren().addAll(hb, table);
         showInNewWindow(helper.getWindowName(), vbox);
     }
-    public URL getDaemonURL (String FXMLfileName){
-        //getClass().getResource("MainWindow.fxml");
-        URL url = null;
-        try {
-            url = new File("dmitrii/src/main/java/apps/FXview/"+FXMLfileName).toURL();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        return url;
-    }
+
 
     public class Dialog {
         public String chooseFromList (String question, ArrayList<String> variants){
