@@ -16,11 +16,11 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <TextField id="address_field" />
-      <Button mnemonicParsing="false" text="Go!" GridPane.columnIndex="1" />
+      <TextField />
+      <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1" />
       <Button mnemonicParsing="false" text="Download" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-      <Label text="Current  Page" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
-      <WebView fx:id="browser" prefHeight="313.0" prefWidth="325.0" GridPane.rowIndex="1" GridPane.rowSpan="2" />
+      <Label text="Current Page" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
+      <WebView prefHeight="313.0" prefWidth="325.0" GridPane.rowIndex="1" GridPane.rowSpan="2" />
       <Button mnemonicParsing="false" text="Open in New Window" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
       <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
         <columnConstraints>

@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 /**
  * Created by mit_OK! on 17.05.2015.
  */
-public class DaemonDownloadManager {
+public class DaemonDownloaderModel {
     public static void main(String[] args) throws IOException {
         try {
             FileOutputStream outputStream;

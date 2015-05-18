@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import static apps.FXview.helpers.IdFinder.getElementById;
+import static apps.FXview.helpers.IdURLFinder.getElementById;
 
 public class OverviewController {
     private VBox mainPlaceHolder;

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static apps.FXview.helpers.IdFinder.getElementById;
+import static apps.FXview.helpers.IdURLFinder.getElementById;
 
 /**
  * Created by mit_OK! on 06.05.2015.
