@@ -1,3 +1,6 @@
+package download;
+
+
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -8,10 +11,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Downloader {
-    public void loader(String strUrl) throws IOException {
+    public static void main(String[] args) throws IOException {
         try {
             FileOutputStream outputStream = null;
-            ArrayList<String> urls = new ArrayList<>(loadUrls(strUrl));
+            ArrayList<String> urls = new ArrayList<>(loadUrls());
             for (int i = 0; i < urls.size(); i++) {
                 URL url = new URL(urls.get(i));
                 InputStream is = url.openStream();
@@ -28,10 +31,11 @@ public class Downloader {
         }
     }
 
-    public static Set<String> loadUrls(String urlString) {
+    public static Set<String> loadUrls() {
         Set<String> urls = new HashSet<>();
         try {
-            URL url = new URL(urlString);
+            String path = "";
+            URL url = new URL(path);
             BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
             String line;
             Pattern pattern = Pattern.compile("href='([^']+)");
@@ -52,4 +56,3 @@ public class Downloader {
     }
 
 }
-
