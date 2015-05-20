@@ -12,6 +12,7 @@ public class Employee implements Serializable {
     private String sex;
     private LocalDate dateOfEmployment;
 
+
     public LocalDate getDateOfEmployment() {
         return dateOfEmployment;
     }
@@ -68,5 +69,35 @@ public class Employee implements Serializable {
     @Override
     public String toString() {
         return name + " " + " " + surname + " " + " " + salary + " " + " " + age + " " + " " + sex;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee)) return false;
+
+        Employee employee = (Employee) o;
+
+        if (Double.compare(employee.getSalary(), getSalary()) != 0) return false;
+        if (getAge() != employee.getAge()) return false;
+        if (!getName().equals(employee.getName())) return false;
+        if (!getSurname().equals(employee.getSurname())) return false;
+        if (!getSex().equals(employee.getSex())) return false;
+        return getDateOfEmployment().equals(employee.getDateOfEmployment());
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = getName().hashCode();
+        result = 31 * result + getSurname().hashCode();
+        temp = Double.doubleToLongBits(getSalary());
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + getAge();
+        result = 31 * result + getSex().hashCode();
+        result = 31 * result + getDateOfEmployment().hashCode();
+        return result;
     }
 }
