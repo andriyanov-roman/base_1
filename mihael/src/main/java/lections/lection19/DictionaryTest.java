@@ -9,6 +9,7 @@ public class DictionaryTest
 {
     public static void main(String [] args ){
         Dictionary dictionary = new Dictionary();
+        /*
         dictionary.setEnWord("book");
         dictionary.setUaWord("knyga");
         Scanner scanner = new Scanner(System.in);
@@ -17,5 +18,6 @@ public class DictionaryTest
                 System.out.println(dictionary.getUaWord());
             }
         }
+        */
     }
 }
