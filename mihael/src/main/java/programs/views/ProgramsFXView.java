@@ -147,20 +147,20 @@ public void loadFiles() throws Exception{
         hbBtn.setAlignment(Pos.BOTTOM_LEFT);
         hbBtn.getChildren().add(download);
 
-//
-//
-//        final Text actionTargetField = new Text();
-//        grid.add(actionTargetField, 1, 7);
-//        download.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                try {
-//                    loadFiles();
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
+
+
+       final Text actionTargetField = new Text();
+       grid.add(actionTargetField, 1, 7);
+        download.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+               try {
+                   loadFiles();
+               } catch (Exception e) {
+                   e.printStackTrace();
+               }
+           }
+       });
         primaryStage.setTitle("Main Programs Menu");
         primaryStage.setScene(scene);
        ;
