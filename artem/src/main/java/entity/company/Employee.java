@@ -1,7 +1,13 @@
 package entity.company;
 
 
+import sun.util.resources.LocaleData;
+
+import java.util.Date;
+
 public class Employee { // Создаем класс-шаблон ("формочку для печенек")
+    private Date dateOfEmp;
+    private LocaleData dateOfFire;
     protected String name;
     protected String secondName; // Объявляем еще одно поле класса. Их может быть сколько угодно
     protected double salary;
@@ -17,6 +23,22 @@ public class Employee { // Создаем класс-шаблон ("формоч
     }
 
     public Employee(){} // Это конструктор ПО УМОЛЧАНИЮ, его нужно объявлять если создан искуственный конструктор
+
+    public Date getDateOfEmp() {
+        return dateOfEmp;
+    }
+
+    public void setDateOfEmp(Date dateOfEmp) {
+        this.dateOfEmp = dateOfEmp;
+    }
+
+    public LocaleData getDateOfFire() {
+        return dateOfFire;
+    }
+
+    public void setDateOfFire(LocaleData dateOfFire) {
+        this.dateOfFire = dateOfFire;
+    }
 
     public void setName(String name) { this.name = name; }
     public String getName() { return name; }
