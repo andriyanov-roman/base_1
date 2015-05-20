@@ -24,18 +24,43 @@ public class FactoryController {
         while (scanner.hasNext()) {
             switch (scanner.next()) {
                 case "0":
+                    makeAnOrder();
                     break;
                 case "1":
+                    showAllOrders();
                     break;
                 case "2":
+                    showTheMostExpensiveCar();
                     break;
                 case "3":
+                    showTheSameColorCar();
                     break;
                 case "4":
+                    showMonthOfProduction();
                     break;
                 case "Exit":
                     System.exit(0);
             }
         }
+    }
+
+    private void showMonthOfProduction() {
+
+    }
+
+    private void showTheSameColorCar() {
+
+    }
+
+    private void showTheMostExpensiveCar() {
+
+    }
+
+    private void showAllOrders() {
+
+    }
+
+    private void makeAnOrder() {
+
     }
 }
