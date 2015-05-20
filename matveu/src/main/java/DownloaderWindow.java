@@ -41,16 +41,18 @@ public class DownloaderWindow extends Application {
         grid.add(URLTextField, 1, 1);
 
         Button btn = new Button("Save on the Disk");
+
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    new Downloader().loader();
+                    new Downloader().loader("http://www.ex.ua/90834335?r=3,23776");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         });
+
         HBox hbBtn = new HBox(10);
         hbBtn.setAlignment(Pos.TOP_RIGHT);
         hbBtn.getChildren().add(btn);
