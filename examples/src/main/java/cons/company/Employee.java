@@ -2,14 +2,25 @@ package cons.company;
 
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public class Employee implements Serializable {
-
     private String name;
     private String surname;
     private transient double salary;
     private int age;
     private String sex;
+    private LocalDate dateOfEmployment;
+
+    public LocalDate getDateOfEmployment() {
+        return dateOfEmployment;
+    }
+
+    public void setDateOfEmployment(LocalDate dateOfEmployment) {
+        this.dateOfEmployment = dateOfEmployment;
+    }
+
+
 
     public Employee() {
 
