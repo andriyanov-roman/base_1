@@ -15,6 +15,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class DownloaderWindow extends Application {
     @Override
@@ -42,15 +44,30 @@ public class DownloaderWindow extends Application {
 
         Button btn = new Button("Save on the Disk");
 
+
+
+
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    new Downloader().loader("http://www.ex.ua/90834335?r=3,23776");
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    //new Downloader().loader(URLTextField.getText());
+
+                    Pattern pattern = Pattern.compile("/^(?:([a-z]+):(?:([a-z]*):)?\\/\\/)?(?:([^:@]*)(?::([^:@]*))?@)?((?:[a-z0-9_-]+\\.)+[a-z]{2,}|localhost|(?:(?:[01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.){3}(?:(?:[01]?\\d\\d?|2[0-4]\\d|25[0-5])))(?::(\\d+))?(?:([^:\\?\\#]+))?(?:\\?([^\\#]+))?(?:\\#([^\\s]+))?$/i");
+                    Matcher matcher = pattern.matcher(URLTextField.getText());
+                    if (matcher.matches() == true) {
+                        try {
+                            new Downloader().loader(URLTextField.getText());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                } catch (Exception e) {
+
                 }
             }
+
+
         });
 
         HBox hbBtn = new HBox(10);
@@ -58,14 +75,8 @@ public class DownloaderWindow extends Application {
         hbBtn.getChildren().add(btn);
         grid.add(hbBtn, 1, 4);
 
-        if(URLTextField.equals("/^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$/")){
-           // String path=URLTextField;
 
-            //btn.setOnAction();
-        }else{
-            final Text actionTarget = new Text("Проверте правильность URL");
-            grid.add(actionTarget, 1, 6);
-        }
+
         primaryStage.show();
 
 

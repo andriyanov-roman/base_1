@@ -22,11 +22,13 @@ import java.util.ArrayList;
 
 
 public class CarsMenu extends Application {
-    private ArrayList<Car> cars;
+    private ArrayList<Car> cars=new ArrayList<>();
+    private ArrayList<Car> test;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         loadDataOnStart();
+        Car car=new Car();
         primaryStage.setTitle("Cars");
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -45,6 +47,8 @@ public class CarsMenu extends Application {
         grid.add(userName, 0, 1);
         TextField userNameField = new TextField();
         grid.add(userNameField, 1, 1);
+
+
 
         Label brand = new Label("Введите марку автомобиля");
         grid.add(brand, 0, 2);
@@ -97,11 +101,23 @@ public class CarsMenu extends Application {
         hbBtn.getChildren().add(btn);
         grid.add(hbBtn, 1, 12);
 
+
+
+
+
+
+
+
+
+
+
         final Text actiontarget = new Text();
         grid.add(actiontarget, 1, 6);
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+
+
 
             }
         });
