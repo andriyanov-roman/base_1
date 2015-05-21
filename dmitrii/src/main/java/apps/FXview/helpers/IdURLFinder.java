@@ -32,7 +32,7 @@ public class IdURLFinder {
         //getClass().getResource("MainWindow.fxml");
         URL url = null;
         try {
-            url = new File("dmitrii/src/main/java/apps/FXview/"+FXMLfileName).toURL();
+            url = new File("dmitrii/src/main/java/apps/FXview/"+FXMLfileName).toURI().toURL();
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

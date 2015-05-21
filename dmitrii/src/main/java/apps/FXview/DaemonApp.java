@@ -24,6 +24,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -37,7 +38,6 @@ public class DaemonApp extends Application {
     private Stage stage;
     private Scene scene;
     private BorderPane rootLayout;
-    private String modulePath = "dmitrii/src/main/java/apps/";
     private Label alertNODE = new Label();
     private GridPane loginPane;
     private User currentUser;
@@ -46,37 +46,42 @@ public class DaemonApp extends Application {
     public Stage getMainBackgroundStage() {
         return mainBackgroundStage;
     }
-
     public Scene getScene() {
         return scene;
     }
-
     public Stage getStage() {
         return stage;
     }
-
     public BorderPane getRootLayout() {
         return rootLayout;
     }
-
     public Label getAlertNODE() {
         return alertNODE;
     }
-
     public void setAlertNODE(Label alertNODE) {
         this.alertNODE = alertNODE;
     }
-
     public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
     }
-
     public void setReLogin(Boolean reLogin) {
         this.reLogin = reLogin;
     }
-
     public static void main(String[] args) {
         launch(args);
+    }
+    @Override
+    public void start(Stage stage) {
+        do {
+            if (login()){
+                try {
+                    this.mainBackgroundStage = stage;
+                    runDaemonApp();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        } while (reLogin);
     }
     public Boolean login (){
         Stage loginStage = new Stage();
@@ -93,42 +98,14 @@ public class DaemonApp extends Application {
         loginStage.showAndWait();
         return controller.getIsAuthorized();
     }
-
-
-    @Override
-    public void start(Stage stage) {
-        do {
-            if (login()){
-                try {
-                    this.mainBackgroundStage = stage;
-                    runDaemonApp();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        } while (reLogin);
-    }
     private void runDaemonApp () throws IOException {
         reLogin = false;
         rootLayout = new BorderPane();
-        // =============== LOAD TOP MENU =================
-        FXMLLoader topMenuLoader = new FXMLLoader();
-        topMenuLoader.setLocation(getDaemonURL("topmenu/TopMenu.fxml"));
-        MenuBar topMenu = topMenuLoader.load();
-        TopMenuController topMenuController = topMenuLoader.getController();
-        topMenuController.load(topMenu, currentUser,this);
-        rootLayout.setTop(topMenu);
-        //================== LOAD LEFT SIDEBAR ===========
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getDaemonURL("leftsidebar/LeftSideBar.fxml"));
-        rootLayout.setLeft(loader.load());
-        LeftSideBarController controller = loader.getController();
-        controller.setMainApp(this);
-        //================== LOAD CENTER PANEL (IMAGE) ====
-        rootLayout.setCenter(FXMLLoader.load(getDaemonURL("CenterDefault.fxml")));
-        //================== LOAD BOTTOM ALERT PANE========
-        rootLayout.setBottom(createAlertPane());
-        //=====++++    LOAD CSS / STYLES ++++==============
+        rootLayout.setTop(loadTopMenu());
+        rootLayout.setLeft(loadLeftSideBar());
+        rootLayout.setCenter(FXMLLoader.load(getDaemonURL("CenterDefault.fxml")));// LOAD CENTER PANEL (IMAGE)
+        rootLayout.setBottom(loadAlertPane());
+        //=========  LOAD CSS / STYLES ==============
         rootLayout.getStyleClass().add("black-bg");
         scene = new Scene(rootLayout, 600, 400);
         scene.getStylesheets().add("daemon-style.css");
@@ -137,7 +114,39 @@ public class DaemonApp extends Application {
         stage.setScene(scene);
         stage.showAndWait();
     }
-    private Node createAlertPane (){// It situates on BOTTOM
+
+    private GridPane loadLeftSideBar() {
+        //================== LOAD LEFT SIDEBAR ===========
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getDaemonURL("leftsidebar/LeftSideBar.fxml"));
+        GridPane leftSideBar = null;
+        try {
+            leftSideBar = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        LeftSideBarController controller = loader.getController();
+        controller.setMainApp(this);
+        return leftSideBar;
+    }
+
+    private MenuBar loadTopMenu() {
+        // =============== LOAD TOP MENU =================
+        FXMLLoader topMenuLoader = new FXMLLoader();
+        topMenuLoader.setLocation(getDaemonURL("topmenu/TopMenu.fxml"));
+        MenuBar topMenu = null;
+        try {
+            topMenu = topMenuLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        TopMenuController topMenuController = topMenuLoader.getController();
+        topMenuController.load(topMenu, currentUser,this);
+        return topMenu;
+    }
+
+    private Node loadAlertPane(){// It situates on BOTTOM
+        //================== LOAD BOTTOM ALERT PANE========
         HBox bottomAlertPane = new HBox();
         alertNODE.getStyleClass().add("warning");
         bottomAlertPane.getChildren().add(alertNODE);
@@ -145,7 +154,6 @@ public class DaemonApp extends Application {
         bottomAlertPane.setPrefHeight(50);
         return bottomAlertPane;
     }
-
     public void showInNewWindow (String windowTitle, Parent eatForScene){
         Scene newWindowScene = new Scene(eatForScene);////////// ERROR HERE!!!
         Stage newWinStage = new Stage();
@@ -169,7 +177,6 @@ public class DaemonApp extends Application {
         controller.renderEntity(helper);
         showInNewWindow(helper.getWindowTitle(), mainPlaceHolder);
     }
-
     public void showTableWindow (TableViewHelper<?> helper){
         final HBox hb = new HBox();
         hb.getClass().getDeclaredFields();
@@ -187,8 +194,6 @@ public class DaemonApp extends Application {
         vbox.getChildren().addAll(hb, table);
         showInNewWindow(helper.getWindowName(), vbox);
     }
-
-
     public class Dialog {
         public String chooseFromList (String question, ArrayList<String> variants){
             GridPane gridPane = new GridPane();

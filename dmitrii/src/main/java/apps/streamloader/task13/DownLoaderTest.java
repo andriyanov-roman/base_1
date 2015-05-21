@@ -17,7 +17,7 @@ public class DownLoaderTest extends Application{
         DaemonDownloaderView view = new DaemonDownloaderView();
         DaemonDownloaderModel model = new DaemonDownloaderModel();
         view.getController().setModel(model);
-        Scene scene = new Scene(view.getRootGrid());
+        Scene scene = new Scene(view.getRootView());
         primaryStage.setScene(scene);
         primaryStage.show();
     }

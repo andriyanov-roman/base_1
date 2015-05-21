@@ -21,55 +21,55 @@ import java.net.URL;
  * Created by mit_OK! on 18.05.2015.
  */
 public class DaemonDownloaderView {
-    private GridPane rootGrid;
+    private GridPane rootView;
     private GridPane progressGrid;
     private DaemonDownLoaderController controller;
-    TextField addressField;
-    private static String FXMLpath = "dmitrii/src/main/java/apps/streamloader/task13/DaemonDownloader.fxml";
+    private TextField addressField;
+    private FXMLLoader fxmlLoader;
 
+    public DaemonDownloaderView() {
+        initFXMLloader();
+        try {
+            rootView = fxmlLoader.load();
+            controller = fxmlLoader.getController();
+            if (controller != null) {
+                initSubComponents();
+                if (controller != null) {
+                    controller.setProgressView(progressGrid);
+                    controller.setAddressField(addressField);
+                }
+            } else throw new NullPointerException("Controller DOESN'T load!");
+        } catch (IOException | NullPointerException e) {
+            e.printStackTrace();
+        }
+
+    }
     public DaemonDownLoaderController getController() {
         return controller;
     }
 
-    public GridPane getRootGrid() {
-        return rootGrid;
+    public GridPane getRootView() {
+        return rootView;
     }
-
-    public DaemonDownloaderView() {
-        loadRootGridWithController();
-        initializeSubComponents();
-        controller.setProgressView(progressGrid);
-        controller.setAddressField(addressField);
-    }
-
-    private void loadRootGridWithController() {
+    private void initFXMLloader() {
         URL url = null;
+        String FXMLpath = "dmitrii/src/main/java/apps/streamloader/task13/DaemonDownloader.fxml";
         try {
-            url = new File(FXMLpath).toURL();
+            url = new File(FXMLpath).toURI().toURL();
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        FXMLLoader loader = new FXMLLoader();
+        fxmlLoader = new FXMLLoader();
         if (url != null) {
-            loader.setLocation(url);
-        }
-        try {
-            rootGrid = loader.load();
-            if (rootGrid != null) {
-                controller = loader.getController();
-            } else {
-                throw new NullPointerException("Loading Panel from " + FXMLpath + " failed!");
-            }
-        } catch (IOException | NullPointerException e) {
-            e.printStackTrace();
+            fxmlLoader.setLocation(url);
         }
     }
 
-    private void initializeSubComponents() {
+    private void initSubComponents() {
         WebView browser = null;
         ProgressIndicator browserIndicator = null;
         Button goButton = null;
-        for (Node i : rootGrid.getChildren()) {
+        for (Node i : rootView.getChildren()) {
             if (i.getId() != null) {
                 switch (i.getId()) {
                     case "browser0":
@@ -86,12 +86,12 @@ public class DaemonDownloaderView {
                         break;
                     case "exit":
                         ((Button) i).setOnAction(event -> {
-                            Stage stage = (Stage) rootGrid.getScene().getWindow();
+                            Stage stage = (Stage) rootView.getScene().getWindow();
                             stage.close();
                         });
                         break;
                     case "progress_grid":
-                        progressGrid = (GridPane)i;
+                        progressGrid = (GridPane) i;
                         break;
                 }
             }
@@ -101,11 +101,11 @@ public class DaemonDownloaderView {
         assert addressField != null;
         assert goButton != null;
         assert progressGrid != null;
-        initBrowser(browser, browserIndicator, addressField,goButton);
+        initBrowser(browser, browserIndicator, addressField, goButton);
     }
 
     private void initBrowser(WebView browser, ProgressIndicator browserIndicator,
-                                    TextField addressField, Button goButton) {
+                             TextField addressField, Button goButton) {
         WebEngine webEngine = browser.getEngine();
         ScrollPane scrollPane = new ScrollPane();
         scrollPane.setContent(browser);
