@@ -2,10 +2,10 @@ package apps.FXview.events;
 
 import apps.FXview.DaemonApp;
 import apps.FXview.helpers.TableViewHelper;
+import apps.FXview.overview.NameFieldValidator;
 import apps.FXview.overview.OverviewHelper;
 import apps.company.CompanyModel;
-import entities.company.Company;
-import entities.company.Employee;
+import entities.company.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -28,7 +28,7 @@ public class CompanyEventContainer extends CommonEventContainer {
         companyEvents.add(new getMaxSalary("Get Highest salary by Company"));
         companyEvents.add(new getMaxSalaryByProfession("Get Highest salary by Proffesion"));
         companyEvents.add(new addEmployee("Fire and Increase Stuff"));
-        companyEvents.add(new addEmployee("New Task"));
+        companyEvents.add(new addEmployee("Add Employee"));
         companyEvents.add(new addEmployee("Test"));
         return companyEvents;
     }
@@ -47,7 +47,8 @@ public class CompanyEventContainer extends CommonEventContainer {
         return new ArrayList<>(Arrays.asList("Employee","Admin","Programmer","Manager"));
     }
     private OverviewHelper<Employee> createEmplForDisplaying (Employee e,Company com){
-        OverviewHelper<Employee> ohe = new OverviewHelper<>(e,true,"separator");
+        Boolean useSuperFields = !e.getClass().getSimpleName().equals("Employee");
+        OverviewHelper<Employee> ohe = new OverviewHelper<>(e,useSuperFields,"separator");
         ohe.setTitle(com.getCompanyName());
         ohe.setSubTitle(e.getClass().getSimpleName());
         ohe.setIconChar(e.getGender() ? OverviewHelper.MALE_ICON : OverviewHelper.FEMALE_ICON);
@@ -106,10 +107,10 @@ public class CompanyEventContainer extends CommonEventContainer {
         @Override
         public void handle(ActionEvent event) {
             dialog = mainApp.new Dialog();
-            String result = dialog.chooseFromList("Choose proffesion: ", getAvaliableProfessions());
+            String result = dialog.chooseFromList("Choose profession: ", getAvaliableProfessions());
             if (result.length()>0){
                 Company com = model.getMaxSalaryInCompanyWrapper(result);
-                OverviewHelper<Employee> ohe = createEmplForDisplaying(com.getWorkers().get(0),com);
+                OverviewHelper<Employee> ohe = createEmplForDisplaying(com.getWorkers().get(0), com);
                 ohe.setWindowTitle("HIGHEST SALARY BY PROFESSION");
                 mainApp.showEntity(ohe);
             }
@@ -123,7 +124,42 @@ public class CompanyEventContainer extends CommonEventContainer {
 
         @Override
         public void handle(ActionEvent event) {
-            //TODO
+            dialog = mainApp.new Dialog();
+            String result = dialog.chooseFromList("Choose company: ", getCompanyNamesList());
+            String resultJobTitle = dialog.chooseFromList("Choose profession: ", getAvaliableProfessions());
+            Employee e;
+            Boolean useSuperFields = false;
+            switch (resultJobTitle){
+                case "Admin": e = new Admin();
+                    useSuperFields = true;
+                    break;
+                case "Manager": e = new Manager();
+                    useSuperFields = true;
+                    break;
+                case "Programmer": e = new Programmer();
+                    useSuperFields = true;
+                    break;
+                default: e = new Employee();
+            }
+            e.setName("NewName");
+            e.setSurname("NewSurname");
+            e.setSalary(0);
+            e.setAge(18);
+            e.setGender(true);
+            if (result.length()>0){
+                Company com = getCompanyByName(result);
+                OverviewHelper<Employee> ohe = new OverviewHelper<>(e,useSuperFields,"separator");
+                ohe.setWindowTitle("Add employee");
+                ohe.setTitle(result);
+                ohe.setSubTitle(e.getClass().getSimpleName());
+                ohe.setForbidEditing(false);
+                ohe.setFieldValidatorByName("name", new NameFieldValidator());
+                mainApp.showEntity(ohe);
+                e = ohe.getEntity();
+                com.getWorkers().add(e);
+                model.updateCompanies(com);
+                model.saveChanges();
+            }
         }
     }
 }

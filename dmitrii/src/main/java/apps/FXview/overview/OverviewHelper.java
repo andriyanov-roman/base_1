@@ -1,5 +1,6 @@
 package apps.FXview.overview;
 
+import com.sun.corba.se.impl.io.TypeMismatchException;
 import javafx.util.Pair;
 
 import java.lang.reflect.Field;
@@ -28,8 +29,8 @@ public class OverviewHelper<T> {
     private Boolean forbidEditing;
 
     public OverviewHelper(String windowTitle, String title, String subTitle, String iconChar,
-                          T entity, Boolean useSuperFields, ArrayList<Pair<String,String>> replacedPairs,Boolean forbidEditing,
-                          String ... excludedFields) {
+                          T entity, Boolean useSuperFields, ArrayList<Pair<String, String>> replacedPairs, Boolean forbidEditing,
+                          String... excludedFields) {
         this.windowTitle = windowTitle;
         this.title = title;
         this.subTitle = subTitle;
@@ -43,17 +44,17 @@ public class OverviewHelper<T> {
         excludeFields(excludedFields);
     }
 
-    public OverviewHelper(T entity, Boolean useSuperFields,String ... excludedFields) {
+    public OverviewHelper(T entity, Boolean useSuperFields, String... excludedFields) {
         this.entity = entity;
         this.windowTitle = "";
         this.title = "";
         this.subTitle = "";
         this.iconChar = UNKNOWN_ICON;
-        this.useSuperFields = false;
+        this.useSuperFields = useSuperFields;
 
         this.forbidEditing = true;
         this.fields = new ArrayList<>();
-        if (useSuperFields){
+        if (useSuperFields) {
             makePairsFromFields(entity.getClass().getSuperclass().getDeclaredFields());
         }
         makePairsFromFields(entity.getClass().getDeclaredFields());
@@ -61,9 +62,9 @@ public class OverviewHelper<T> {
     }
 
     private void excludeFields(String[] excludedFields) {
-        for (String excludedF : excludedFields){
-            for (FieldsContainer fc : fields){
-                if (excludedF.equals(fc.getRealName())){
+        for (String excludedF : excludedFields) {
+            for (FieldsContainer fc : fields) {
+                if (excludedF.equals(fc.getRealName())) {
                     fc.setExclude(true);
                 }
             }
@@ -73,6 +74,7 @@ public class OverviewHelper<T> {
     public String getWindowTitle() {
         return windowTitle;
     }
+
     public void setWindowTitle(String windowTitle) {
         this.windowTitle = windowTitle;
     }
@@ -80,6 +82,7 @@ public class OverviewHelper<T> {
     public String getTitle() {
         return title;
     }
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -87,6 +90,7 @@ public class OverviewHelper<T> {
     public String getSubTitle() {
         return subTitle;
     }
+
     public void setSubTitle(String subTitle) {
         this.subTitle = subTitle;
     }
@@ -94,6 +98,7 @@ public class OverviewHelper<T> {
     public String getIconChar() {
         return iconChar;
     }
+
     public void setIconChar(String iconChar) {
         this.iconChar = iconChar;
     }
@@ -101,6 +106,7 @@ public class OverviewHelper<T> {
     public T getEntity() {
         return entity;
     }
+
     public void setEntity(T entity) {
         this.entity = entity;
     }
@@ -108,6 +114,7 @@ public class OverviewHelper<T> {
     public Boolean getUseSuperFields() {
         return useSuperFields;
     }
+
     public void setUseSuperFields(Boolean useSuperFields) {
         this.useSuperFields = useSuperFields;
     }
@@ -115,44 +122,105 @@ public class OverviewHelper<T> {
     public Boolean getForbidEditing() {
         return forbidEditing;
     }
+
     public void setForbidEditing(Boolean forbidEditing) {
         this.forbidEditing = forbidEditing;
     }
 
-    public ArrayList<FieldsContainer> getFields() {
+    public ArrayList<FieldsContainer> getAllFields() {
         ArrayList<FieldsContainer> fieldsWithoutExcluded = new ArrayList<>();
         for (FieldsContainer fc : fields) {
-            if (!fc.isExcluded()){
+            if (!fc.isExcluded()) {
                 fieldsWithoutExcluded.add(fc);
             }
         }
-        return fieldsWithoutExcluded ;
+        return fieldsWithoutExcluded;
     }
 
     public void replaceFieldDisplayName(String realName, String displayName) {
-        for (FieldsContainer fc : fields){
-            if (fc.getRealName().equals(realName)){
+        for (FieldsContainer fc : fields) {
+            if (fc.getRealName().equals(realName)) {
                 fc.setDisplayName(displayName);
             }
         }
     }
-    public void replaceFieldDisplayValue(String realName, String displayValue){
-        for (FieldsContainer fc : fields){
-            if (fc.getRealName().equals(realName)){
+
+    public void replaceFieldDisplayValue(String realName, String displayValue) {
+        for (FieldsContainer fc : fields) {
+            if (fc.getRealName().equals(realName)) {
                 fc.setDisplayValue(displayValue);
             }
         }
     }
+
     public void makePairsFromFields(Field[] fields) {
         for (int i = 0; i < fields.length; i++) {
             Field f = fields[i];
             f.setAccessible(true);
             try {
-                this.fields.add(new FieldsContainer(i+"_"+f.getName(),f.getName(),f.get(entity)));
+                this.fields.add(new FieldsContainer(i + "_" + f.getName(), f.getName(), f.get(entity)));
             } catch (IllegalAccessException e1) {
                 e1.printStackTrace();
             }
         }
+    }
+
+    public Boolean setFieldValidatorByName(String fieldRealName, FieldValidator validator) {
+        for (FieldsContainer fc : fields) {
+            if (fc.getRealName().equals(fieldRealName)) {
+                fc.setValidator(validator);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Boolean setNewRealValue(String fieldName, Object newValue) {
+        if (useSuperFields) {
+            for (Field f : entity.getClass().getSuperclass().getDeclaredFields()) {
+                if (f.getName().equals(fieldName)) {
+                    if (setFieldValueWithReflection(f, newValue)) return true;
+                }
+            }
+        } else {
+            for (Field f : entity.getClass().getDeclaredFields()) {
+                if (f.getName().equals(fieldName)) {
+                    if (setFieldValueWithReflection(f, newValue)) return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private Boolean setFieldValueWithReflection(Field f, Object newValue) {
+        f.setAccessible(true);
+        try {
+            Class requiredType = f.getType();
+            Class receivedType = newValue.getClass();
+            if (requiredType.equals(receivedType) || requiredType.equals(receivedType.getField("TYPE").get(null))) {
+                f.set(entity, newValue);
+                return true;
+            } else throw new TypeMismatchException("Type MISMATCH!");
+        } catch (IllegalAccessException | TypeMismatchException | NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public Class<?> getParameterType(String fieldName) {
+        if (useSuperFields) {
+            for (Field f : entity.getClass().getSuperclass().getDeclaredFields()) {
+                if (f.getName().equals(fieldName)) {
+                    return f.getType();
+                }
+            }
+        }
+        for (Field f : entity.getClass().getDeclaredFields()) {
+            if (f.getName().equals(fieldName)) {
+                return f.getType();
+            }
+        }
+        return null;
     }
 
 }

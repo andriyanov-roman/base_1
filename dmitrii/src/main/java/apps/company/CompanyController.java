@@ -75,7 +75,7 @@ public class CompanyController extends CommonController {
             case "E":
                     view.alertInline("Do You want to SAVE changes to File? (y/n): ");
                     if (CompanyView.next().equals("y")) {
-                        CompanyModel.writeChanges(comps);
+                        model.saveChanges();
                     }
                 return false;
             default:
@@ -84,14 +84,7 @@ public class CompanyController extends CommonController {
         return true;
     }
 
-    private static ArrayList<Company> updateCompany(Company com, ArrayList<Company> comps) {
-        for (int i = 0; i < comps.size(); i++) {
-            if (com.getCompanyName().equals(comps.get(i).getCompanyName())) {
-                comps.set(i, com);
-            }
-        }
-        return comps;
-    }
+
 
     public void getMaxSalary(ArrayList<Company> selectedComps) {
         String result = "";

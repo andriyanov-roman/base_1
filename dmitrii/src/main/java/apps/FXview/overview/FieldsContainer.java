@@ -3,15 +3,16 @@ package apps.FXview.overview;
 /**
  * Created by mit_OK! on 14.05.2015.
  */
-public class FieldsContainer {
+public class FieldsContainer<T> {
     private String id;
     private String realName;
-    private Object realValue;
+    private T realValue;
     private String displayName;
     private String displayValue;
     private Boolean excluded;
+    private FieldValidator<T> validator;
 
-    public FieldsContainer(String id, String realName, Object realValue, String displayName, String displayValue, Boolean excluded) {
+    public FieldsContainer(String id, String realName, T realValue, String displayName, String displayValue, Boolean excluded) {
         this.id = id;
         this.realName = realName;
         this.realValue = realValue;
@@ -20,7 +21,7 @@ public class FieldsContainer {
         this.excluded = excluded;
     }
 
-    public FieldsContainer(String id, String realName, Object realValue) {
+    public FieldsContainer(String id, String realName, T realValue) {
         this.id = id;
         this.realName = realName;
         this.realValue = realValue;
@@ -30,6 +31,18 @@ public class FieldsContainer {
     }
 
     public FieldsContainer() {
+    }
+
+    public void setValidator(FieldValidator<T> validator) {
+        this.validator = validator;
+    }
+
+    public FieldValidator<T> getValidator() {
+        return validator;
+    }
+
+    public Boolean isValidatorSet() {
+        return validator != null;
     }
 
     public void setId(String id) {
@@ -56,6 +69,11 @@ public class FieldsContainer {
     public Object getRealValue() {
         return realValue;
     }
+
+    public void setRealValue(T realValue) {
+        this.realValue = realValue;
+    }
+
     public Boolean isExcluded() {
         return excluded;
     }

@@ -70,10 +70,10 @@ public class CompanyModel extends CommonModel{
         return comPaths;
     }
 
-    public static void writeChanges(ArrayList<Company> comps, String... path) {
+    public void saveChanges(String... path) {
         ArrayList<String> comPaths = readConfig();
         Boolean wasFound = false;
-        for (Company comp : comps) {
+        for (Company comp : companies) {
             for (String comPath : comPaths) {
                 String compName = FileUtil.ReadFromFile(comPath, ":").get(0)[0];
                 if (compName.equals(comp.getCompanyName())) {
@@ -90,7 +90,13 @@ public class CompanyModel extends CommonModel{
             wasFound = false;
         }
     }
-
+    public void updateCompanies(Company com) {
+        for (int i = 0; i < companies.size(); i++) {
+            if (com.getCompanyName().equals(companies.get(i).getCompanyName())) {
+                companies.set(i, com);
+            }
+        }
+    }
     public Company companyParse(String filePath) throws IOException {
         Boolean noErrors;
         Company com = new Company();

@@ -155,7 +155,7 @@ public class DaemonApp extends Application {
         return bottomAlertPane;
     }
     public void showInNewWindow (String windowTitle, Parent eatForScene){
-        Scene newWindowScene = new Scene(eatForScene);////////// ERROR HERE!!!
+        Scene newWindowScene = new Scene(eatForScene);
         Stage newWinStage = new Stage();
         newWinStage.setTitle(windowTitle);
         newWinStage.initModality(Modality.WINDOW_MODAL);
@@ -174,7 +174,8 @@ public class DaemonApp extends Application {
         }
         OverviewController controller = loader.getController();
         controller.setMainPlaceHolder(mainPlaceHolder);
-        controller.renderEntity(helper);
+        controller.setHelper(helper);
+        controller.renderEntityOverview();
         showInNewWindow(helper.getWindowTitle(), mainPlaceHolder);
     }
     public void showTableWindow (TableViewHelper<?> helper){
