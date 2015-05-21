@@ -1,5 +1,4 @@
-import fxMatveu.CarsMenu;
-
+package fxMatveu;
 
 public class Main {
     public static void main(String[] args) {

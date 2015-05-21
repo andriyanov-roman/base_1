@@ -1,33 +1,45 @@
-import fx.SimpleMenu;
-import fx.SimpleMenuBar;
-import pattern.MyInstance;
-import sun.util.resources.LocaleData;
+import cons.company.Employee;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.spi.CalendarDataProvider;
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by Администратор on 25.04.2015.
  */
 public class Main {
-    public static void main(String[] args) {
-        Date date = new Date();
-        System.out.println(System.currentTimeMillis());
-        Calendar dateOfEmployment = Calendar.getInstance();
-        dateOfEmployment.set(2010, Calendar.JANUARY, 1, 9, 10);
-        Calendar today = Calendar.getInstance();
-        int year = today.get(Calendar.YEAR) - dateOfEmployment.get(Calendar.YEAR);
-        System.out.println(year);
-        System.out.println(dateOfEmployment.getTime());
-        LocalDate lc = LocalDate.now();
-        SimpleDateFormat sdf = new SimpleDateFormat("");
-        System.out.println(lc);
-        MyInstance instance = MyInstance.getInstance();
-        System.out.println(instance.getName());
+    private static final int PERCENTAGE = 5;
+    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+    public static void main(String[] args) throws ParseException {
+        ArrayList<Employee> employees = getFromFile();
+        for (int i = 0; i < employees.size(); i++) {
+            Random random = new Random();
+            int day = random.nextInt(28);
+            int month = random.nextInt(12);
+            employees.get(i).setDateOfEmployment(LocalDate.of(1999 + i, month, day));
+        }
+        writeToFile(employees);
+    }
+
+    private static void writeToFile(ArrayList<Employee> employees) {
+
+    }
+
+    private static ArrayList<Employee> getFromFile() {
+        return null;
+    }
+
+    public  ArrayList<ReportObject> getFullYears(Employee e) {
+        ArrayList<ReportObject> report = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            ReportObject object = new ReportObject();
+            if((i % 12) == 0) {
+                Integer percenteg = object.getPercentage();
+                object.setPercentage(percenteg += PERCENTAGE);
+            }
+        }
+        return report;
     }
 }

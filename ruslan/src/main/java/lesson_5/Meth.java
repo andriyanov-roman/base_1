@@ -1,3 +1,4 @@
+/*
 package lesson_5;
 
 import home_works.administrator.SystemAdmUtil;
@@ -19,7 +20,8 @@ public class Meth {
 //        getMaxSalaryFromAllEmployee();
     }
 
-   /* private static void getMaxSalaryFromAllEmployee() {
+   */
+/* private static void getMaxSalaryFromAllEmployee() {
         ArrayList<Developer> developer = DeveloperUtil.getDeveloper();
         ArrayList<SystemAdm> adms = SystemAdmUtil.getSystemAdm();
         ArrayList<Manager> manager = ManagerUtil.getManager();
@@ -41,7 +43,8 @@ public class Meth {
                 }
             }
         }
-    }*/
+    }*//*
+
 
     private static void getMaxSalaryDeveloper() {
         ArrayList<Developer> developer = DeveloperUtil.getDeveloper();
@@ -80,3 +83,4 @@ public class Meth {
 }
 
 
+*/
