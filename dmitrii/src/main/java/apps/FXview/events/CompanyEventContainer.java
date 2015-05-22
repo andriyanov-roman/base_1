@@ -155,8 +155,7 @@ public class CompanyEventContainer extends CommonEventContainer {
                 ohe.setForbidEditing(false);
                 ohe.setFieldValidatorByName("name", new NameFieldValidator());
                 mainApp.showEntity(ohe);
-                e = ohe.getEntity();
-                com.getWorkers().add(e);
+                com.getWorkers().add(ohe.getEntity());
                 model.updateCompanies(com);
                 model.saveChanges();
             }

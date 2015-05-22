@@ -182,13 +182,13 @@ public class OverviewHelper<T> {
                     if (setFieldValueWithReflection(f, newValue)) return true;
                 }
             }
-        } else {
-            for (Field f : entity.getClass().getDeclaredFields()) {
-                if (f.getName().equals(fieldName)) {
-                    if (setFieldValueWithReflection(f, newValue)) return true;
-                }
+        }
+        for (Field f : entity.getClass().getDeclaredFields()) {
+            if (f.getName().equals(fieldName)) {
+                if (setFieldValueWithReflection(f, newValue)) return true;
             }
         }
+
         return false;
     }
 

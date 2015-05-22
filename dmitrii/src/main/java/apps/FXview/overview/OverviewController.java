@@ -11,6 +11,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.NoSuchElementException;
+
 import static apps.FXview.helpers.IdURLFinder.getElementById;
 
 public class OverviewController {
@@ -38,12 +40,12 @@ public class OverviewController {
         top = (GridPane) getElementById("o_top", mainPlaceHolder);
         center = (GridPane) getElementById("o_center", mainPlaceHolder);
         bottom = (GridPane) getElementById("o_bottom", mainPlaceHolder);
-        icon = (Label) getElementById("o_icon",top);
-        title = (Label) getElementById("o_title",top);
-        subTitle = (Label) getElementById("o_subTitle",top);
-        cancelButton = (Button) getElementById("o_Cancel",bottom);
+        icon = (Label) getElementById("o_icon", top);
+        title = (Label) getElementById("o_title", top);
+        subTitle = (Label) getElementById("o_subTitle", top);
+        cancelButton = (Button) getElementById("o_Cancel", bottom);
         cancelButton.setOnAction(new CloseWindow(cancelButton));
-        okButton = (Button) getElementById("o_OK",bottom);
+        okButton = (Button) getElementById("o_OK", bottom);
         okButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -54,7 +56,7 @@ public class OverviewController {
         });
     }
 
-    public void renderEntityOverview(){
+    public void renderEntityOverview() {
         assert helper != null;
         icon.setText(helper.getIconChar());
         title.setText(helper.getTitle());
@@ -63,7 +65,7 @@ public class OverviewController {
         center.setVgap(5);
         for (int i = 0; i < helper.getAllFields().size(); i++) {
             FieldsContainer userField = helper.getAllFields().get(i);
-            if (!userField.isExcluded()){
+            if (!userField.isExcluded()) {
                 Label fieldName = new Label(userField.getDisplayName().toUpperCase());
                 fieldName.setPadding(new Insets(5, 5, 5, 15));
                 fieldName.getStyleClass().add("label-caption");
@@ -71,39 +73,50 @@ public class OverviewController {
                 // ===============================================================
                 TextField fieldValue = new TextField(userField.getDisplayValue());
                 fieldValue.setId(userField.getId());//!!!!!!!!!!!!!
-                fieldValue.setPadding(new Insets(5,5,5,5));
+                fieldValue.setPadding(new Insets(5, 5, 5, 5));
                 fieldValue.setDisable(helper.getForbidEditing());
-                if (userField.isValidatorSet()){
+                if (userField.isValidatorSet()) {
                     fieldValue.textProperty().addListener((observable, oldValue, newValue) -> {
-                        if (!userField.getValidator().validate(newValue)){
+                        if (!userField.getValidator().validate(newValue)) {
                             System.out.println(userField.getValidator().getErrDescription());
                         }
                     });
                 }
-                center.add(fieldValue,1,i);
+                center.add(fieldValue, 1, i);
             }
         }
         okButton.setDisable(helper.getForbidEditing());
     }
-    public void addEntity(){
-        for (FieldsContainer fc : helper.getAllFields()){
-            if (!fc.isExcluded()){
-                TextField newValue = (TextField) getElementById(fc.getId(),center);
-                assert newValue != null;
-                Class fieldType = helper.getParameterType(fc.getRealName());
-                if (fc.getValidator() != null){
-                    if (fc.getValidator().validate(newValue)){
-                    helper.setNewRealValue(fc.getRealName(),convertTypes(newValue.getText(),fieldType));
-                    } else System.out.println("NOT VALID :((( ");
-                } else {
-                    Object convertedValue = convertTypes(newValue.getText(), fieldType);
-                    helper.setNewRealValue(fc.getRealName(),convertedValue);
+
+    public void addEntity() {
+        for (FieldsContainer fc : helper.getAllFields()) {
+            if (!fc.isExcluded()) {
+                TextField newValue = (TextField) getElementById(fc.getId(), center);
+                try {
+                    assert newValue != null;
+                    Class fieldType = helper.getParameterType(fc.getRealName());
+                    if (fc.getValidator() != null) {
+                        if (fc.getValidator().validate(newValue)) {
+                            if(!helper.setNewRealValue(fc.getRealName(), convertTypes(newValue.getText(), fieldType))){
+                                throw new NoSuchElementException("CAN'T SET->"+fc.getRealName()+":"+newValue.getText());
+                            }
+                        } else System.out.println("NOT VALID :((( ");
+                    } else {
+                        Object convertedValue = convertTypes(newValue.getText(), fieldType);
+                        if (!helper.setNewRealValue(fc.getRealName(), convertedValue)){
+                            throw new NoSuchElementException("CAN'T SET->"+fc.getRealName()+":"+newValue.getText());
+                        }
+                    }
+                } catch (NullPointerException | NoSuchElementException e){
+                    e.printStackTrace();
                 }
+
             }
         }
     }
-    private Object convertTypes(String value, Class fieldType){
-        switch (fieldType.getSimpleName()){
+
+    private Object convertTypes(String value, Class fieldType) {
+        switch (fieldType.getSimpleName()) {
             case "int":
             case "Integer":
                 return Integer.parseInt(value);
