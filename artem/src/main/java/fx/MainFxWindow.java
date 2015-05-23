@@ -65,6 +65,7 @@ public class MainFxWindow extends Application{
     public void startProgram(String[] args) {
         launch(args);
     }
+
     private class SimpleMenuAction implements EventHandler<ActionEvent> {
         private Text actionTarget;
         private PasswordField pwBox;
