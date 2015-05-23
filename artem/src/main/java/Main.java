@@ -7,8 +7,7 @@ import java.io.IOException;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        AppNavigator appNavigator = new AppNavigator();
-        appNavigator.startProgram();
+        new AppNavigator().startProgram();
     }
     /*public static void main(String[] args) {
         MainFxWindow window = new MainFxWindow();
