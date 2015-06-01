@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -21,6 +23,8 @@ public class Main {
             employees.get(i).setDateOfEmployment(LocalDate.of(1999 + i, month, day));
         }
         writeToFile(employees);
+        List<Double> doubles = new ArrayList<>();
+        doSomething(doubles);
     }
 
     private static void writeToFile(ArrayList<Employee> employees) {
@@ -41,5 +45,11 @@ public class Main {
             }
         }
         return report;
+    }
+
+    public static List<? extends Number> doSomething(Collection<? extends Number> list) {
+        List<Integer> integerList = new ArrayList<>();
+        integerList.add(1);
+        return integerList;
     }
 }
