@@ -1,5 +1,6 @@
 package lessons.l23052015Collections;
 
+import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 /**
@@ -19,5 +20,6 @@ public class Queue060615 {
         String s1 = strings.poll();
         System.out.println(s1);
         System.out.println(strings.size());
+        ArrayList a = new ArrayList();
     }
 }
