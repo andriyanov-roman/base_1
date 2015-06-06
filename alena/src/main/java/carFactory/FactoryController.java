@@ -44,6 +44,7 @@ public class FactoryController {
         }
     }
 
+
     private void showMonthOfProduction() {
 
     }
