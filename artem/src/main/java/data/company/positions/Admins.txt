@@ -1,3 +1,0 @@
-Vasya:Ivanow:30150.00:Windows7
-Vasiliy:Petrov:55430.00:Windows8
-Sergey:Sidorov:70623.00:Linux
