@@ -3,10 +3,7 @@ import cons.company.Employee;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created by Администратор on 25.04.2015.
@@ -24,6 +21,7 @@ public class Main {
         }
         writeToFile(employees);
         List<Double> doubles = new ArrayList<>();
+        doubles = new LinkedList<>();
         doSomething(doubles);
     }
 
