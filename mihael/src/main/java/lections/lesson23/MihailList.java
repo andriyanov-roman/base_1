@@ -7,6 +7,6 @@ public interface MihailList <T>
 {
     public void add(T o);
     public  T get(int index);
-    public void  remove(T o);
-    public void  remove(int index);
+    public boolean  remove(T o);
+    public boolean  remove(int index);
 }
