@@ -11,10 +11,5 @@ public class DaemonList<E> {
         this.stack = new String[DEFAULT_CAPACITY];
     }
 
-    public Boolean pull (E element){
-        for (int i = 0; i < stack.length; i++) {
 
-        }
-        return null;
-    }
 }
