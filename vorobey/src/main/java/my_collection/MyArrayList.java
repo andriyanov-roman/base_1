@@ -9,6 +9,9 @@ public class MyArrayList<T> {
     }
 
     public void add(T element) throws Exception {
+        if (size >= 10) {
+            throw new Exception("MyArrayList is full");
+        }
         elements[size] = element;
         size++;
     }
@@ -29,6 +32,14 @@ public class MyArrayList<T> {
         list.add(2);
         list.add(3);
         list.add(4);
+        list.add(4);
+        list.add(4);
+        list.add(4);
+        list.add(4);
+        list.add(4);
+        list.add(4);
+        list.add(4);
+
         int element = list.get(0);
         System.out.println("This element = " + element);
 
