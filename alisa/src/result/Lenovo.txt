@@ -2,4 +2,3 @@ Lenovo:
 Vasya:Ivanow:3000.00:40:m
 Vasya:Petrov:5000.00:39:m
 Sergey:Sidorov:7000.00:23:m
-[hh  jj  6.0  6  f]

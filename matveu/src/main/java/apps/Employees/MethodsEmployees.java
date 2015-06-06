@@ -569,6 +569,7 @@ public class MethodsEmployees {
     public static void greatEmployeeLuxsoft() throws IOException {
         ArrayList<Employee> employees = EmployeesUtil.getEmployees();
         ArrayList<Company> companies = CompanyUtil.getCompanies();
+
         Employee employee = new Employee();
         try {
             scanner = new Scanner(System.in);
@@ -582,7 +583,7 @@ public class MethodsEmployees {
             employee.setAge(scanner.nextInt());
             System.out.println("Введите зарплату сотрудника!");
             employee.setSalary(scanner.nextInt());
-            System.out.println("Введите зарплату сотрудника!");
+            System.out.println("gfhrtjtdhjt!");
             //employee.setDateToWork();
             employees.add(employee);
             FileWriter writer = new FileWriter("matveu/src/EmployeesLuxsoft.txt", true);

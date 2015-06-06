@@ -7,7 +7,6 @@ public class DictionaryExample<K,V> {
     private K[] array;
     private K first;
     private V second;
-
     public K getFirst() {
         return first;
     }

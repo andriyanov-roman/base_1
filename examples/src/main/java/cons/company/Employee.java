@@ -3,15 +3,37 @@ package cons.company;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Random;
 
-public class Employee implements Serializable {
+public class Employee implements Serializable,Comparable<Employee> {
     private String name;
     private String surname;
     private transient double salary;
     private int age;
     private String sex;
     private LocalDate dateOfEmployment;
+    private int hashCode = 1000;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee)) return false;
+
+        Employee employee = (Employee) o;
+
+        if (Double.compare(employee.salary, salary) != 0) return false;
+        if (age != employee.age) return false;
+        if (!name.equals(employee.name)) return false;
+        if (!surname.equals(employee.surname)) return false;
+        if (!sex.equals(employee.sex)) return false;
+        return dateOfEmployment.equals(employee.dateOfEmployment);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return new Random().nextInt();
+    }
 
     public LocalDate getDateOfEmployment() {
         return dateOfEmployment;
@@ -72,32 +94,7 @@ public class Employee implements Serializable {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Employee)) return false;
-
-        Employee employee = (Employee) o;
-
-        if (Double.compare(employee.getSalary(), getSalary()) != 0) return false;
-        if (getAge() != employee.getAge()) return false;
-        if (!getName().equals(employee.getName())) return false;
-        if (!getSurname().equals(employee.getSurname())) return false;
-        if (!getSex().equals(employee.getSex())) return false;
-        return getDateOfEmployment().equals(employee.getDateOfEmployment());
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result;
-        long temp;
-        result = getName().hashCode();
-        result = 31 * result + getSurname().hashCode();
-        temp = Double.doubleToLongBits(getSalary());
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + getAge();
-        result = 31 * result + getSex().hashCode();
-        result = 31 * result + getDateOfEmployment().hashCode();
-        return result;
+    public int compareTo(Employee o) {
+        return 0;
     }
 }
