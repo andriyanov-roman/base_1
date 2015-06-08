@@ -14,7 +14,7 @@ public class MyListImpl<T> implements IMyList<T> {
     }
 
     @Override
-    public boolean add(T t) {
+    public boolean add(T t) { //smth
         if(!isSizeSufficient()) {
             Object[] newArray
                     = new Object[(elements.length * 3) / 2 + 1];

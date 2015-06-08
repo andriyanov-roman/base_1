@@ -1,3 +1,0 @@
-Irena:Carpa:23400:C#
-Vova:Poopkin:12400:Java
-Sasha:Grey:54300:Basic

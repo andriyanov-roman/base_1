@@ -1,9 +1,0 @@
-Aviacionniy:Artem:Samoshkin:Geoscience,70,Mathematics,75,Physics,80
-Aviacionniy:Oleksiy:Petrenko:Physics,60,Chemistry,70,Geoscience,80
-Aviacionniy:Oleksiy:Bratchuk:Chemistry,80,Mathematics,80,Physics,80,Economy,80
-Polytexnika:Katya:Osadchaya:Computer Architecture,60,Computer Science,70,Physics,80
-Polytexnika:Sasha:Grey:Mathematics,50,Physics,60,Computer Science,70
-Polytexnika:Kolya:Romanov:Computer Science,70,Computer Architecture,80,Physics,90
-Shevchenko:Alla:Ivanova:Chemistry,80,Physics,70,Biology,90
-Shevchenko:Roman:Kuznecov:Chemistry,70,Physics,80,Biochemistry,60
-Shevchenko:Ivetta:Long:Physics,90,Chemistry,90,Biochemistry,90,Mathematics,90
