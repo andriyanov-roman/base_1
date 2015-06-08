@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+        <company>
+    <companyname>IBM</companyname>
+    <employee id="1">
+    <name> Vasya</name>
+    <surname>Ivanow</surname>
+    <salary>3000.00</salary>
+    <age>40</age>
+    <sex>m</sex>
+</employee>
+
+    <employee id="2">
+        <name> Vasya</name>
+        <surname>Petrov</surname>
+        <salary>5000.00</salary>
+        <age>39</age>
+        <sex>m</sex>
+    </employee>
+
+    <employee id="3">
+        <name> Sergey</name>
+        <surname>Sidorov</surname>
+        <salary>10000.00</salary>
+        <age>20</age>
+        <sex>m</sex>
+    </employee>
+</company>
