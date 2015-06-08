@@ -20,7 +20,7 @@ public class ReadXmlFile {
 
             doc.getDocumentElement().normalize();
             System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
-            NodeList nList = doc.getElementsByTagName("company");
+            NodeList nList = doc.getElementsByTagName("employee");
             System.out.println("********************");
             for (int temp = 0; temp < nList.getLength(); temp++) {
                 Node nNode = nList.item(temp);
@@ -32,7 +32,7 @@ public class ReadXmlFile {
                     System.out.println("Telephone : " + eElement.getElementsByTagName("telephone").item(0).getTextContent());
                     System.out.println("Address : " + eElement.getElementsByTagName("address").item(0).getTextContent());
                     System.out.println("Country : " + eElement.getElementsByTagName("country").item(0).getTextContent());
-                    System.out.println("City : " + eElement.getElementsByTagName("City").item(0).getTextContent());
+                    System.out.println("City : " + eElement.getElementsByTagName("city").item(0).getTextContent());
                 }
             }
         } catch (Exception e) {
