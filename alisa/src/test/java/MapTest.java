@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -6,7 +8,7 @@ import java.util.Map;
  * Created by User on 06.06.2015.
  */
 public class MapTest {
-
+    @Test
     public void test() throws IOException {
         File f = new File("alisa\\src\\test\\java\\Text.txt");
         FileReader reader = new FileReader(f);
