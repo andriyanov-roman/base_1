@@ -1,0 +1,30 @@
+<company>
+    <employee>
+        <name> Vitalii </name>
+        <secondName> Klitchko </secondName>
+        <salary> 300.000 </salary>
+        <sex> male </sex>
+        <age> 39 </age>
+    </employee>
+    <employee>
+        <name> Petro </name>
+        <secondName> Poroshenko </secondName>
+        <salary> 500.000 </salary>
+        <sex> male </sex>
+        <age> 57 </age>
+    </employee>
+    <employee>
+        <name> Boris </name>
+        <secondName> Filatov </secondName>
+        <salary> 5.000 </salary>
+        <sex> male </sex>
+        <age> 37 </age>
+    </employee>
+    <employee>
+        <name> Julia </name>
+        <secondName> Timoshenko </secondName>
+        <salary> 15.000 </salary>
+        <sex> female </sex>
+        <age> 51 </age>
+    </employee>
+</company>
