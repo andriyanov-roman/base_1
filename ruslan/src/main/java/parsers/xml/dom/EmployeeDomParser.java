@@ -59,12 +59,12 @@ public class EmployeeDomParser {
                 if (admin.equals(eElement.getAttribute("position"))) {
                     Admin admin = new Admin();
                     admin.setName(eElement.getElementsByTagName("firstname").item(0).getTextContent());
+                    admin.setName(eElement.getElementsByTagName("secondname").item(0).getTextContent());
+                    admin.setName(eElement.getElementsByTagName("age").item(0).getTextContent());
+                    admin.setName(eElement.getElementsByTagName("salary").item(0).getTextContent());
+                    admin.setName(eElement.getElementsByTagName("gender").item(0).getTextContent());
+
                     admins.add(admin);
-                    System.out.println("Staff id : " + eElement.getAttribute("id"));
-                    System.out.println("First Name : " + eElement.getElementsByTagName("firstname").item(0).getTextContent());
-                    System.out.println("Last Name : " + eElement.getElementsByTagName("lastname").item(0).getTextContent());
-                    System.out.println("Nick Name : " + eElement.getElementsByTagName("nickname").item(0).getTextContent());
-                    System.out.println("Salary : " + eElement.getElementsByTagName("salary").item(0).getTextContent());
                 }
             }
         }
