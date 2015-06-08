@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<company>
+    <manager id="2001">
+    <employee id="1001">
+        <name>Sara</name>
+        <second>Slonim</second>
+        <salary>500</salary>
+    </employee>
+    <employee id="1002">
+        <name>Pesya</name>
+        <second>Furman</second>
+        <salary>1500</salary>
+    </employee>
+    <employee id="1003">
+        <name>Venya</name>
+        <second>Goldstein</second>
+        <salary>5000</salary>
+    </employee>
+    </manager>
+    <admin id="2002">
+        <employee id="1001">
+            <name>Misha</name>
+            <second>Slonim</second>
+            <salary>500</salary>
+        </employee>
+        <employee id="1002">
+            <name>Sasha</name>
+            <second>Furman</second>
+            <salary>1500</salary>
+        </employee>
+        <employee id="1003">
+            <name>Grisha</name>
+            <second>Goldstein</second>
+            <salary>5000</salary>
+        </employee>
+    </admin>
+    <programmer id="2003">
+        <employee id="1001">
+            <name>Dima</name>
+            <second>Slonim</second>
+            <salary>500</salary>
+        </employee>
+        <employee id="1002">
+            <name>Lesha</name>
+            <second>Furman</second>
+            <salary>1500</salary>
+        </employee>
+        <employee id="1003">
+            <name>Pasha</name>
+            <second>Goldstein</second>
+            <salary>5000</salary>
+        </employee>
+    </programmer>
+</company>
