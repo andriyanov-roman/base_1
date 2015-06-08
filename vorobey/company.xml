@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<company>
+    <employee login="Vorobey" srec="admin">
+        <name>Vorobey Evgeniu</name>
+        <telephone>0938588736</telephone>
+        <address>
+            <country>Ukraine</country>
+            <city>Kiev</city>
+
+        </address>
+    </employee>
+    <employee login="Popov" spec="programmer">
+        <name>Popov Alex</name>
+        <telephone>3453789</telephone>
+        <address>
+            <country>USA</country>
+            <city>NewYork</city>
+
+        </address>
+    </employee>
+</company>
