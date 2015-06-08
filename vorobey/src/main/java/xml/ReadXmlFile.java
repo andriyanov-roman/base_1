@@ -13,7 +13,7 @@ import java.io.File;
 public class ReadXmlFile {
     public static void main(String argv[]) {
         try {
-            File fXmlFile = new File("/vorobey/company.xml");
+            File fXmlFile = new File("vorobey/src/main/java/xml/company.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(fXmlFile);
