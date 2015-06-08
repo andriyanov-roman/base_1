@@ -15,7 +15,7 @@ import java.io.File;
 public class ReadXMLFile {
     public static void main(String argv[]) {
         try {
-            File fXmlFile = new File("/Users/mkyong/staff.xml");
+            File fXmlFile = new File("examples\\src\\main\\resources\\staff.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(fXmlFile);
