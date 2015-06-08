@@ -1,14 +1,16 @@
+import java.util.Arrays;
+
 /**
  * Created by User on 01.06.2015.
  */
 public class MyArrayListImpl<T> implements IMyList<T> {
-    private Object [] elements;
+    private Object[] elements;
     private int size = 0;
-    private int defaultCaapacity = 10;
-    private double loadFactor = 0.75;
+    private static final int DEFAULT_CAPACITY = 10;
+    private static final double LOAD_FACTOR = 0.75;
 
     public MyArrayListImpl() {
-        elements = new Object[defaultCaapacity];
+        elements = new Object[DEFAULT_CAPACITY];
 
     }
 
@@ -19,52 +21,94 @@ public class MyArrayListImpl<T> implements IMyList<T> {
         return true;
     }*/
 
-    private boolean isSufficient(){
-        double arrayLoad = (double) size/elements.length;
-        if (loadFactor > arrayLoad){
-return true;
-        }
-        return false;
-    }
-    private int checkCapacity(){
-        return (defaultCaapacity * 3)/2+1;
-    }
 
     @Override
     public boolean add(T t) {
-        if (!isSufficient()){
-
-            Object [] newArray = new Object[(elements.length*3)/2 +1];
-            System.arraycopy(elements,0,newArray,0,elements.length);
-            elements = newArray;
-
+        if (!isSufficient()) {
+            Object[] newElements = new Object[checkCapacity()];
+            System.arraycopy(elements, 0, newElements, 0, elements.length);
+            elements = newElements;
         }
         elements[size] = t;
         size++;
         return true;
     }
 
-    @Override
-    public void remove(T t) {
+    private boolean isSufficient() {
+        double arrayLoad = (double) size / elements.length;
+        return (LOAD_FACTOR > arrayLoad); /* return (LOAD_FACTOR > arrayLoad) ? true:false; - тернарный оператор*/
+    }
 
+    private int checkCapacity() {
+        return (DEFAULT_CAPACITY * 3) / 2 + 1;
     }
 
     @Override
-    public T getElement(T t) {
-        for (int i = 0; i <size ; i++) {
-            if(t.equals(elements[i])){
-                return (T)elements[i];
+    public boolean add(int index, T t) {
+        if (isSufficient()) {
+            Object[] newElements = new Object[checkCapacity()];
+            System.arraycopy(elements, 0, newElements, 0, elements.length);
+            elements = newElements;
+        }
+        Object[] newElements = new Object[size - index];
+        System.arraycopy(elements, index, newElements, size - index, elements.length);
+        elements[size] = t;
+        System.arraycopy(elements, 0, newElements, index + 1, elements.length);
+        size++;
+        return true;
+    }
+
+    @Override
+    public boolean remove(T t) {
+        for (int i = 0; i < size; i++) {
+            if (t.equals(elements[i])) {
+                 remove(t);
 
             }
-
         }
-        return null;
-    }
-    public  T  get (int index){
-        return (T) elements [index  ];
+        return true;
     }
 
-    public int size(){
+
+
+        @Override
+        public T getElement (T t){
+            for (int i = 0; i < size; i++) {
+                if (t.equals(elements[i])) {
+                    return (T) elements[i];
+
+                }
+
+            }
+            return null;
+        }
+
+        @Override
+        public T getElement ( int index){
+            return (T) elements[index];
+        }
+
+        @Override
+        public boolean remove ( int index){
+            Object[] newElements = new Object[size - index];
+            System.arraycopy(elements, index+1, newElements,0, size-index);
+            elements[size] = null;
+            System.arraycopy(elements, 0, newElements, index, newElements.length);
+            size --;
+            return true;
+        }
+
+
+    public int size() {
         return size;
     }
+
+    @Override
+    public String toString() {
+        return "MyArrayListImpl{" +
+                "elements=" + Arrays.toString(elements) +
+                ", size=" + size +
+                '}';
+    }
 }
+
