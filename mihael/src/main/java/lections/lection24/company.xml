@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<employees>
+    <employee>
+        <position>Sysadmin</position>
+        <name>Vitaly</name>
+        <secondName>Kichko</secondName>
+        <salary>2000</salary>
+        <sex>mail</sex>
+        <age>22</age>
+    </employee>
+    <employee>
+        <position>Manager</position>
+        <name>Vladimir</name>
+        <secondName>Kichko</secondName>
+        <salary>3000</salary>
+        <sex>mail</sex>
+        <age>33</age>
+    </employee>
+
+    <employee>
+        <position>Programmer</position>
+        <name>Artem</name>
+        <secondName>Kichko</secondName>
+        <salary>1000</salary>
+        <sex>mail</sex>
+        <age>44</age>
+    </employee>
+
+</employees>
