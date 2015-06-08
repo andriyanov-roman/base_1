@@ -41,10 +41,10 @@ public class MyArrayList<T> {
         list.add(4);
 
         int element = list.get(0);
-        System.out.println("This element = " + element);
+        System.out.println("Данній елемент = " + element);
 
         int size = list.size();
-        System.out.println("List size = " + size);
+        System.out.println("Размер списка = " + size);
     }
 
 }
