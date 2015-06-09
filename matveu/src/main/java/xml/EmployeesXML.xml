@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<company>
+    <employee id="1">
+        <name>Misha</name>
+        <secondName>Galystyan</secondName>
+        <sex>man</sex>
+        <age>21</age>
+        <salary>7000</salary>
+    </employee>
+    <employee id="2">
+        <name>Valera</name>
+        <secondName>Nastalo tvoe vremya</secondName>
+        <sex>man</sex>
+        <age>66</age>
+        <salary>20000</salary>
+    </employee>
+    <employee id="3">
+        <name>Lena</name>
+        <secondName>Pokoleno</secondName>
+        <sex>woman</sex>
+        <age>18</age>
+        <salary>3000</salary>
+    </employee>
+
+</company>
