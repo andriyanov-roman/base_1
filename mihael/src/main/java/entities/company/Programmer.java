@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by Администратор on 26.03.2015.
  */
-public class Programmer{
+public class Programmer extends Employee{
     private String name;
     private String secondName;
     private double salary;
