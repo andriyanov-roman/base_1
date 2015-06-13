@@ -54,14 +54,21 @@ public class ReadXMLFile {
                     Employee e = new Employee();
                     Element eElement = (Element) nNode;
                     e.setName(eElement.getElementsByTagName("name").item(0).getTextContent());
+                    e.setSurname(eElement.getElementsByTagName("surname").item(0).getTextContent());
+                    e.setSalary(Double.parseDouble(eElement.getElementsByTagName("salary").item(0).getTextContent()));
+                    e.setAge(Integer.parseInt(eElement.getElementsByTagName("age").item(0).getTextContent()));
+                    e.setSex(eElement.getElementsByTagName("sex").item(0).getTextContent());
+                   // eElement.setAttribute("id",String.valueOf());
+                    company.getEmployees().add(e);
+                    System.out.println(company);
+
+
                     //System.out.println("Employee id : " + eElement.getAttribute("id"));
                    /* System.out.println("Name : " + eElement.getElementsByTagName("name").item(0).getTextContent());
                     System.out.println("Surname : " + eElement.getElementsByTagName("surname").item(0).getTextContent());
                     System.out.println("Salary : " + eElement.getElementsByTagName("salary").item(0).getTextContent());
                     System.out.println("Age : " + eElement.getElementsByTagName("age").item(0).getTextContent());*/
-                   e.setSalary(Double.parseDouble(eElement.getElementsByTagName("salary").item(0).getTextContent()));
-                    company.getEmployees().add(e);
-                    System.out.println(company);
+
                 }
             }
         } catch (Exception e) {
