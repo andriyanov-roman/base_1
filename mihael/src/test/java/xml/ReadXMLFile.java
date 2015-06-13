@@ -1,9 +1,6 @@
 package xml;
 
-import entities.company.Employee;
-import entities.company.Manager;
-import entities.company.Programmer;
-import entities.company.Sysadmin;
+import entities.company.*;
 import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -23,7 +20,7 @@ import java.util.ArrayList;
  */
 public class ReadXMLFile {
     private File file = new File("src\\main\\resources\\xmlEmployees.xml");
-    private ArrayList<Employee> Employees;
+    private ArrayList<Employee> employees = new ArrayList<Employee>();
 
     private Document getDoc() {
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -38,6 +35,7 @@ public class ReadXMLFile {
         }
         return doc;
     }
+
     @Test
     public void parseXml() {
         try {
@@ -57,14 +55,12 @@ public class ReadXMLFile {
                     System.out.println("sex : " + eElement.getElementsByTagName("sex").item(0).getTextContent());
                     System.out.println("age : " + eElement.getElementsByTagName("age").item(0).getTextContent());
                     System.out.println("position : " + eElement.getElementsByTagName("position").item(0).getTextContent());
-                    String  position = eElement.getElementsByTagName("position").item(0).getTextContent();
+                    String position = eElement.getElementsByTagName("position").item(0).getTextContent();
                     Employee employee = getEmployeeBy(position);
-                    if(employee instanceof Employee) {System.out.println("instanceof Manager");}
-                    if(employee instanceof Manager) {System.out.println("instanceof Manager");}
-                    if(employee instanceof Employee) {System.out.println("instanceof Manager");}
-
-
-
+//                    if(employee instanceof Employee) {System.out.println("instanceof Employee");}
+//                    if(employee instanceof Manager) {System.out.println("instanceof Manager");}
+//                    if(employee instanceof Sysadmin) {System.out.println("instanceof Sysadmin");}
+//                    if(employee instanceof Programmer) {System.out.println("instanceof Programmer");}
 
 
                     employee.setName(eElement.getElementsByTagName("name").item(0).getTextContent());
@@ -73,7 +69,20 @@ public class ReadXMLFile {
                     employee.setSex(eElement.getElementsByTagName("sex").item(0).getTextContent());
                     employee.setAge(Integer.parseInt(eElement.getElementsByTagName("age").item(0).getTextContent()));
 
-                    Employees.add(employee);
+                    System.out.println(employee);
+
+                    Employee testEmployee = new Employee();
+                    testEmployee.setAge(3);
+                    testEmployee.setSalary(3);
+                    testEmployee.setSecondName("s");
+                    testEmployee.setName("a");
+                    testEmployee.setSex("m");
+
+                    System.out.println(testEmployee);
+
+                    employees.add(testEmployee);
+
+                    employees.add(employee);
                 }
             }
         } catch (Exception e) {
@@ -81,17 +90,14 @@ public class ReadXMLFile {
         }
     }
 
-    private  Employee getEmployeeBy (String position){
-        Employee employee = new Employee();
-        if(position.equals("Manager")){
-            employee = (Manager)employee;
-        }else
-        if(position.equals("Programmer")){
-            employee = (Programmer)employee;
-        }else
-        if(position.equals("Sysadmin")){
-            employee = (Sysadmin)employee;
+    private Employee getEmployeeBy(String position) throws XmlNotValidFormatException {
+        if (position.equals("Manager")) {
+            return new Manager();
+        } else if (position.equals("Programmer")) {
+            return new Programmer();
+        } else if (position.equals("Sysadmin")) {
+            return new Sysadmin();
         }
-        return employee;
+        throw new XmlNotValidFormatException();
     }
 }
