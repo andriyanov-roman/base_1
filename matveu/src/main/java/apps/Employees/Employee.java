@@ -9,6 +9,7 @@ public class Employee {
     private int age;
     private double salary;
     private Date DateToWork;
+    private int id;
 
     public Employee() {
 
@@ -24,6 +25,14 @@ public class Employee {
                 ", salary=" + salary +
                 ", DateToWork=" + DateToWork +
                 '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

@@ -1,20 +1,14 @@
-import cons.company.Employee;
-import xml.stax.StudentsStAXBuilder;
+package xml.stax;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.*;
 
 /**
- * Created by Администратор on 25.04.2015.
+ * Created by user on 6/13/2015.
  */
-public class Main {
-
+public class RunStudentsStax {
     public static void main(String[] args) throws ParseException {
         StudentsStAXBuilder staxBuilder = new StudentsStAXBuilder();
         staxBuilder.buildSetStudents("examples\\src\\main\\resources\\student.xml");
         System.out.println(staxBuilder.getStudents());
     }
-
 }

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<company>
+    <employee position="manager">
+        <name>Vasyl</name>
+        <surname>Simonenko</surname>
+        <salary>7800.0</salary>
+        <gender>true</gender>
+        <age>22</age>
+        <separator>:</separator>
+    </employee>
+    <employee position="admin">
+        <name>IHOR</name>
+        <surname>SEMIRENKO</surname>
+        <salary>4000.0</salary>
+        <gender>true</gender>
+        <age>27</age>
+        <separator>:</separator>
+    </employee>
+    <employee position="manager">
+        <name>Bella</name>
+        <surname>Ogurtsova</surname>
+        <salary>992800.0</salary>
+        <gender>false</gender>
+        <age>27</age>
+        <separator>:</separator>
+    </employee>
+    <employee position="admin">
+        <name>Evgeniy</name>
+        <surname>Gerashchenko</surname>
+        <salary>11200.0</salary>
+        <gender>true</gender>
+        <age>40</age>
+        <separator>:</separator>
+    </employee>
+    <employee/>
+    <employee position="admin">
+        <name>Dmitriy</name>
+        <surname>Korotkov</surname>
+        <salary>3200.0</salary>
+        <gender>true</gender>
+        <age>44</age>
+        <separator>:</separator>
+    </employee>
+    <employee/>
+    <employee position="programmer">
+        <name>Kondrat</name>
+        <surname>Kondratyev</surname>
+        <salary>900.0</salary>
+        <gender>true</gender>
+        <age>55</age>
+        <separator>:</separator>
+    </employee>
+    <employee position="programmer">
+        <name>Ilona</name>
+        <surname>Frolova</surname>
+        <salary>950.0</salary>
+        <gender>false</gender>
+        <age>85</age>
+        <separator>:</separator>
+    </employee>
+    <employee/>
+    <employee position="admin">
+        <name>Sergey</name>
+        <surname>Frolov</surname>
+        <salary>3330.0</salary>
+        <gender>true</gender>
+        <age>25</age>
+        <separator>:</separator>
+    </employee>
+    <employee/>
+</company>
