@@ -9,17 +9,5 @@ import java.io.InputStream;
  */
 public class IoMainTest {
     public static void main(String[] args)  {
-
-        InputStream io = new FileInputStream("tes");
-
-
-
-        catch(IOException e){
-            e.printStackTrace();
-
-        }
-
     }
-
 }
-public

@@ -8,3 +8,5 @@ Admin:Dmitriy:Korotkov:3200.0:true:44:FreBSD
 Employee:Mirriam:Carter:14375.0:false:53
 Programmer:Kondrat:Kondratyev:900.0:true:55:Python
 Programmer:Ilona:Frolova:950.0:false:85:Objective-C
+Employee:mhg:NewSurname:0.0:true:18
+Admin:Sergey:Frolov:3330.0:true:25:RedHat

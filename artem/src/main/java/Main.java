@@ -1,4 +1,3 @@
-import fx.MainFxWindow;
 
 import java.io.IOException;
 
@@ -7,7 +6,7 @@ import java.io.IOException;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        new AppNavigator().startProgram();
+//        new AppNavigator().startProgram();
     }
     /*public static void main(String[] args) {
         MainFxWindow window = new MainFxWindow();

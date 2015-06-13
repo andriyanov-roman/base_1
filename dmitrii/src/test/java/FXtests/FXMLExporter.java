@@ -225,7 +225,7 @@ public class FXMLExporter {
             if (fullName == null) {
 
                 // this short name is not used, so adding it to imports and
-                // to shortNames map
+                // to shortNames col_map
                 fullName = cls.getName();
                 imports.add(cls.getPackage().getName());
                 simpleNames.put(cls.getSimpleName(), fullName);

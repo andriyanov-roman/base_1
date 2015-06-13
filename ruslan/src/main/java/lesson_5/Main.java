@@ -1,8 +1,5 @@
 package lesson_5;
 
-import cons.company.*;
-
-
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;

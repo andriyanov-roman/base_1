@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<company>
+    <companyname>Volvo</companyname>
+    <workers>
+        <employee>
+            <name>Ivan</name>
+            <surname>Ivanov</surname>
+            <salary>3000</salary>
+            <gender>true</gender>
+            <age>20</age>
+        </employee>
+        <employee>
+            <name>Petro</name>
+            <surname>Petrov</surname>
+            <salary>4000</salary>
+            <gender>true</gender>
+            <age>40</age>
+        </employee>
+        <employee>
+            <name>Sidora</name>
+            <surname>Sidorova</surname>
+            <salary>5000</salary>
+            <gender>false</gender>
+            <age>75</age>
+        </employee>
+    </workers>
+</company>

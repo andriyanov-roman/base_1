@@ -42,10 +42,6 @@ public class CompanyModel extends CommonModel{
         return companies;
     }
 
-    public void setCompanies(ArrayList<Company> companies) {
-        this.companies = companies;
-    }
-
     public ArrayList<Company> initializeCompanies() {
         ArrayList<Company> companies = new ArrayList<>();
         try {
@@ -55,6 +51,7 @@ public class CompanyModel extends CommonModel{
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return companies;
     }
 
@@ -89,6 +86,8 @@ public class CompanyModel extends CommonModel{
             }
             wasFound = false;
         }
+        //TODO
+        CompanyDataKeeper.saveCompanyToXML(companies.get(0));
     }
     public void updateCompanies(Company com) {
         for (int i = 0; i < companies.size(); i++) {

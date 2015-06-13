@@ -1,4 +1,4 @@
-import entity.company.Employee;
+import entities.company.Employee;
 import org.junit.Test;
 
 /**

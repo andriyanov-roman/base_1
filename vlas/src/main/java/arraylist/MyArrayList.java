@@ -4,20 +4,31 @@ package arraylist;
  * Created by Programmer on 18.05.2015.
  */
 public class MyArrayList <E> {
-   private Object [] array = new Object[10];
+    private int size = 0;
+   private Object [] elements = new Object[10];
 
     public Object[] getArray() {
-        return array;
+        return elements;
     }
 
     public void setArray(Object[] array) {
-        this.array = array;
+        this.elements = array;
     }
-    public boolean add (E e){
-        array[0] =e;
-        return true;
+    public void add(E element) throws Exception {
+        if (size >= 10) {
+            throw new Exception("capasity is full");
+        }
+        elements[size] = element;
+        size++;
     }
-    public E get (int index) {
-        return  (E)array[index];
+    public E get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+        return (E) elements[index];
+    }
+
+    public int size() {
+        return size;
     }
 }
