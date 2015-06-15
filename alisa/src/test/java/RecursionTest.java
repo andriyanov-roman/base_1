@@ -14,7 +14,7 @@ public class RecursionTest {
         if(i<array.length){
             System.out.println(array[i]);
             i--;
-            showArray(i);
+            showArray(i);//smth
 
         }
     }
