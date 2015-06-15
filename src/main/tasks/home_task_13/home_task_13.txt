@@ -1,0 +1,17 @@
+1. Написать рекурсивную программу которая выводит в консоль все файлы
+файловой системы
+2. Записать все файлы в xml
+В след. формате
+<files>
+    <directory directoryName ="">
+        <mp3>10</mp3>
+        <txt>19</txt>
+        .....
+    <directory>
+    <directory directoryName ="">
+            <doc size="", hiden="" notHiden=""></doc>
+            <txt></txt>
+            .....
+    <directory>
+
+</files>
