@@ -45,7 +45,7 @@ public class RecTest {
     public void showFiles(String startFolder){
         File f = new File(startFolder);
         if (f.isDirectory()){
-            System.out.println(" ");
+            System.out.println("");
         }
 
     }
