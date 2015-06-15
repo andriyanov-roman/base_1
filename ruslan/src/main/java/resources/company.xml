@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<company>
+    <employees position="manager">
+        <firstname>ruslan</firstname>
+        <secondname>vankevich</secondname>
+        <age>26</age>
+        <salary>10000</salary>
+        <gender>male</gender>
+    </employees>
+    <employees position="admin">
+        <firstname>roman</firstname>
+        <secondname>vankevich</secondname>
+        <age>28</age>
+        <salary>7000</salary>
+        <gender>male</gender>
+    </employees>
+    <employees position="developer">
+        <firstname>natalia</firstname>
+        <secondname>vankevich</secondname>
+        <age>25</age>
+        <salary>5500</salary>
+        <gender>female</gender>
+    </employees>
+</company>
