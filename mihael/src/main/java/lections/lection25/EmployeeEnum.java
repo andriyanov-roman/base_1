@@ -8,7 +8,7 @@ public enum EmployeeEnum {
     EMPLOYEE("employee"),
     POSITION("position"),
     NAME("name"),
-    SECOND_NAME("secondName"),
+    SECONDNAME("secondName"),
     SALARY("salary"),
     SEX("sex"),
     AGE("age");

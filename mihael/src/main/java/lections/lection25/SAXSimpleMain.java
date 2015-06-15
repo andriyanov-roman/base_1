@@ -16,7 +16,7 @@ public class SAXSimpleMain {
             XMLReader reader = XMLReaderFactory.createXMLReader();
             EmployeeHandler handler = new EmployeeHandler();
             reader.setContentHandler(handler);
-            reader.parse("vault\\src\\main\\resources\\student.xml");
+            reader.parse("mihael\\src\\main\\resources\\xmlEmployees.xml");
 
 //            StudentsSAXBuilder saxBuilder = new StudentsSAXBuilder();
 //            saxBuilder.buildSetStudents("vault\\src\\main\\resources\\student.xml");
