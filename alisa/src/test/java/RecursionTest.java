@@ -5,17 +5,42 @@ import org.junit.Test;
  */
 public class RecursionTest {
     private int [] array = {1,2,3,4,5,6,7,8,9,10};
+    int i =array.length/2 -1;
+    int j =array.length/2;
     @Test
     public void testRecursion (){
-        int i =array.length/2 - 1;
-        showArray(i);
+       showFirstHalfArrayReverted();
+        System.out.println();
+       showSecondHalfReverted();
+        System.out.println();
+        System.out.println(factorial(3));
+
     }
-    public void showArray (int i){
-        if(i<array.length){
-            System.out.println(array[i]);
+   public void showFirstHalfArrayReverted (){
+
+        if(i>=0){
+            System.out.print(array[i]);
             i--;
-            showArray(i);//
+            showFirstHalfArrayReverted();
 
         }
     }
+   public void showSecondHalfReverted(){
+        if(j<=array.length - 1){
+            System.out.print(array[j]);
+            j++;
+            showSecondHalfReverted();
+        }
+    }
+
+    public int factorial (int i){
+        if( i == 0){
+            return 1;
+        }else{
+            return i* factorial(i -1);
+
+        }
+    }
+
+
 }
