@@ -1,7 +1,6 @@
 package hometasks.recursion;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,12 +16,45 @@ public class RecurFiles {
     public static void main (String[] args){
         RecurFiles recurFiles = new RecurFiles();
         recurFiles.readFileSystem();
+        recurFiles.countWords();
     }
     public void readFileSystem() {
         File currentDir = new File("D:\\test"); // current directory
         //displayDirectoryContents(currentDir);
         displayDirectoryContentsList(currentDir);
         System.out.println(map.toString());
+    }
+
+    public void countWords() {
+        //File f = new File("mihael/src/main/java/factory/test_cars.txt");
+        File f = new File ("C:\\Users\\Programmer\\IdeaProjects\\base_1\\mihael\\src\\main\\java\\factory\\test_cars.txt");
+        FileReader reader = null;
+        try {
+            reader = new FileReader(f);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Map<String, Integer> map = new HashMap<>();
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        String str;
+        try {
+            while((str = bufferedReader.readLine()) != null) {
+                String[] pool = str.split("\\W");
+                for (int i = 0; i < pool.length; i++) {
+                    if(!map.containsKey(pool[i])) {
+                        map.put(pool[i], 1);
+                    } else {
+                        int counter = map.get(pool[i]);
+                        counter++;
+                        map.put(pool[i], counter);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(map.toString());
+
     }
     public List<String> displayDirectoryContentsList(File dir) {
         try {
