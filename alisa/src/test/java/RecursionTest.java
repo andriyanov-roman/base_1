@@ -14,6 +14,7 @@ public class RecursionTest {
        showSecondHalfReverted();
         System.out.println();
         System.out.println(factorial(3));
+        System.out.println();
 
     }
    public void showFirstHalfArrayReverted (){
