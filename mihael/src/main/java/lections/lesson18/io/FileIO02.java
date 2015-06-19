@@ -13,6 +13,8 @@ public class FileIO02 {
     public static void main (String[] args) {
         File file = new File("mihael/src/main/java/lections/lesson18/io/FileIO02.txt");
         //Write your name and age to the file
+
+        /*
         try {
             PrintWriter output = new PrintWriter(file);
             output.println("Mike Fudge");
@@ -21,14 +23,16 @@ public class FileIO02 {
         }catch (IOException ex){
             System.out.printf("ERROR: %s\n,",ex);
         }
+        */
 
+        //Read from the file
         try{
             Scanner input = new Scanner(file);
             String name = input.nextLine();
-            String age = input.nextLine();
+            int age = input.nextInt();
             System.out.printf("Name: %s Age %d\n",name,age);
         }catch (FileNotFoundException ex){
-            System.out.printf("ERROR: %s\n,",ex);
+            System.out.printf("ERROR: %s\n",ex);
         }
 
     }
