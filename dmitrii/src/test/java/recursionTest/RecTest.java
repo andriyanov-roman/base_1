@@ -25,7 +25,7 @@ public class RecTest {
         System.out.println("======FAKTORIAL =======");
         System.out.println(fakt(3));
         System.out.println("======Show files =======");
-        showFiles("D:\\");
+        showFiles("D:\\");//smth
     }
 
     private void testShow() {
