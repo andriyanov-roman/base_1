@@ -11,10 +11,12 @@ public class RecurFiles {
     HashSet<String> directories = new HashSet<>();
     File[] files = new File("D:\\").listFiles();
     Map<String, List<String>> map = new HashMap<>();
+    public String s1 = "aa";
+    public String s2 = "aa";
 
     public static void main (String[] args){
         RecurFiles recurFiles = new RecurFiles();
-        System.out.println();
+        System.out.println(recurFiles.s1==recurFiles.s2);
         recurFiles.readFileSystem();
     }
     public void readFileSystem() {
