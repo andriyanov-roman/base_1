@@ -1,8 +1,246 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <files>
-    <dir dirName="TidyHTML"/>
-    <dir dirName="����� �����">
-        <file ext="exe" hidden="0" notHidden="1" size="337408">1</file>
-        <file ext="exe---" hidden="0" notHidden="1" size="111616">1</file>
+    <dir dirName="css">
+        <file ext="zip" hidden="0" notHidden="1" size="3319631">1</file>
+        <file ext="gitattributes" hidden="0" notHidden="1" size="363">1</file>
+        <file ext="7z" hidden="0" notHidden="1" size="235144">1</file>
+        <file ext="css" hidden="0" notHidden="4" size="319459">4</file>
+        <file ext="map" hidden="0" notHidden="2" size="438239">2</file>
+        <file ext="gitignore" hidden="0" notHidden="1" size="380">1</file>
+        <file ext="yml" hidden="0" notHidden="2" size="4326">2</file>
+        <file ext="md" hidden="0" notHidden="2" size="20486">2</file>
+        <file ext="" hidden="0" notHidden="2" size="1101">2</file>
+        <file ext="sql" hidden="0" notHidden="1" size="1476973">1</file>
+        <file ext="editorconfig" hidden="0" notHidden="1" size="191">1</file>
+        <file ext="xlsx" hidden="0" notHidden="1" size="55106">1</file>
+        <file ext="json" hidden="0" notHidden="3" size="3456">3</file>
+        <file ext="js" hidden="0" notHidden="2" size="15694">2</file>
     </dir>
+    <dir dirName="fonts">
+        <file ext="woff2" hidden="0" notHidden="1" size="18028">1</file>
+        <file ext="woff" hidden="0" notHidden="1" size="23424">1</file>
+        <file ext="eot" hidden="0" notHidden="1" size="20127">1</file>
+        <file ext="ttf" hidden="0" notHidden="1" size="45404">1</file>
+        <file ext="svg" hidden="0" notHidden="1" size="108738">1</file>
+    </dir>
+    <dir dirName="js">
+        <file ext="js" hidden="0" notHidden="3" size="106190">3</file>
+    </dir>
+    <dir dirName="dist"/>
+    <dir dirName="brand">
+        <file ext="" hidden="0" notHidden="1" size="19466">1</file>
+        <file ext="html" hidden="0" notHidden="9" size="45232">9</file>
+        <file ext="txt" hidden="0" notHidden="1" size="123">1</file>
+        <file ext="png" hidden="0" notHidden="1" size="6140">1</file>
+        <file ext="svg" hidden="0" notHidden="3" size="5137">3</file>
+        <file ext="ico" hidden="0" notHidden="1" size="5430">1</file>
+        <file ext="xml" hidden="0" notHidden="1" size="749">1</file>
+    </dir>
+    <dir dirName="src">
+        <file ext="css" hidden="0" notHidden="3" size="56642">3</file>
+    </dir>
+    <dir dirName="css"/>
+    <dir dirName="flash">
+        <file ext="swf" hidden="0" notHidden="1" size="2157">1</file>
+    </dir>
+    <dir dirName="img">
+        <file ext="png" hidden="0" notHidden="3" size="24352">3</file>
+    </dir>
+    <dir dirName="src">
+        <file ext="js" hidden="0" notHidden="8" size="2341054">8</file>
+    </dir>
+    <dir dirName="vendor">
+        <file ext="js" hidden="0" notHidden="9" size="1594404">9</file>
+    </dir>
+    <dir dirName="js"/>
+    <dir dirName="assets"/>
+    <dir dirName="css">
+        <file ext="map" hidden="0" notHidden="2" size="438239">2</file>
+        <file ext="css" hidden="0" notHidden="4" size="319459">4</file>
+    </dir>
+    <dir dirName="fonts">
+        <file ext="svg" hidden="0" notHidden="1" size="108738">1</file>
+        <file ext="woff" hidden="0" notHidden="1" size="23424">1</file>
+        <file ext="woff2" hidden="0" notHidden="1" size="18028">1</file>
+        <file ext="ttf" hidden="0" notHidden="1" size="45404">1</file>
+        <file ext="eot" hidden="0" notHidden="1" size="20127">1</file>
+    </dir>
+    <dir dirName="js">
+        <file ext="js" hidden="0" notHidden="3" size="106190">3</file>
+    </dir>
+    <dir dirName="dist"/>
+    <dir dirName="blog">
+        <file ext="html" hidden="0" notHidden="1" size="9559">1</file>
+        <file ext="css" hidden="0" notHidden="1" size="2409">1</file>
+    </dir>
+    <dir dirName="carousel">
+        <file ext="html" hidden="0" notHidden="1" size="11221">1</file>
+        <file ext="css" hidden="0" notHidden="1" size="2538">1</file>
+    </dir>
+    <dir dirName="cover">
+        <file ext="css" hidden="0" notHidden="1" size="2531">1</file>
+        <file ext="html" hidden="0" notHidden="1" size="2997">1</file>
+    </dir>
+    <dir dirName="dashboard">
+        <file ext="css" hidden="0" notHidden="1" size="1557">1</file>
+        <file ext="html" hidden="0" notHidden="1" size="9080">1</file>
+    </dir>
+    <dir dirName="grid">
+        <file ext="html" hidden="0" notHidden="1" size="6489">1</file>
+        <file ext="css" hidden="0" notHidden="1" size="362">1</file>
+    </dir>
+    <dir dirName="jumbotron">
+        <file ext="html" hidden="0" notHidden="1" size="4830">1</file>
+        <file ext="css" hidden="0" notHidden="1" size="127">1</file>
+    </dir>
+    <dir dirName="jumbotron-narrow">
+        <file ext="css" hidden="0" notHidden="1" size="1411">1</file>
+        <file ext="html" hidden="0" notHidden="1" size="3302">1</file>
+    </dir>
+    <dir dirName="justified-nav">
+        <file ext="css" hidden="0" notHidden="1" size="2257">1</file>
+        <file ext="html" hidden="0" notHidden="1" size="4141">1</file>
+    </dir>
+    <dir dirName="navbar">
+        <file ext="css" hidden="0" notHidden="1" size="90">1</file>
+        <file ext="html" hidden="0" notHidden="1" size="4301">1</file>
+    </dir>
+    <dir dirName="navbar-fixed-top">
+        <file ext="html" hidden="0" notHidden="1" size="4312">1</file>
+        <file ext="css" hidden="0" notHidden="1" size="52">1</file>
+    </dir>
+    <dir dirName="navbar-static-top">
+        <file ext="css" hidden="0" notHidden="1" size="78">1</file>
+        <file ext="html" hidden="0" notHidden="1" size="4316">1</file>
+    </dir>
+    <dir dirName="non-responsive">
+        <file ext="html" hidden="0" notHidden="1" size="5585">1</file>
+        <file ext="css" hidden="0" notHidden="1" size="5208">1</file>
+    </dir>
+    <dir dirName="offcanvas">
+        <file ext="css" hidden="0" notHidden="1" size="990">1</file>
+        <file ext="js" hidden="0" notHidden="1" size="140">1</file>
+        <file ext="html" hidden="0" notHidden="1" size="7065">1</file>
+    </dir>
+    <dir dirName="screenshots">
+        <file ext="jpg" hidden="0" notHidden="19" size="1302309">19</file>
+    </dir>
+    <dir dirName="signin">
+        <file ext="html" hidden="0" notHidden="1" size="2185">1</file>
+        <file ext="css" hidden="0" notHidden="1" size="793">1</file>
+    </dir>
+    <dir dirName="starter-template">
+        <file ext="html" hidden="0" notHidden="1" size="2957">1</file>
+        <file ext="css" hidden="0" notHidden="1" size="96">1</file>
+    </dir>
+    <dir dirName="sticky-footer">
+        <file ext="css" hidden="0" notHidden="1" size="602">1</file>
+        <file ext="html" hidden="0" notHidden="1" size="1981">1</file>
+    </dir>
+    <dir dirName="sticky-footer-navbar">
+        <file ext="html" hidden="0" notHidden="1" size="4032">1</file>
+        <file ext="css" hidden="0" notHidden="1" size="678">1</file>
+    </dir>
+    <dir dirName="theme">
+        <file ext="html" hidden="0" notHidden="1" size="26243">1</file>
+        <file ext="css" hidden="0" notHidden="1" size="255">1</file>
+    </dir>
+    <dir dirName="tooltip-viewport">
+        <file ext="html" hidden="0" notHidden="1" size="2959">1</file>
+        <file ext="css" hidden="0" notHidden="1" size="385">1</file>
+        <file ext="js" hidden="0" notHidden="1" size="511">1</file>
+    </dir>
+    <dir dirName="examples"/>
+    <dir dirName="_data">
+        <file ext="yml" hidden="0" notHidden="6" size="13848">6</file>
+    </dir>
+    <dir dirName="components">
+        <file ext="html" hidden="0" notHidden="26" size="279316">26</file>
+    </dir>
+    <dir dirName="css">
+        <file ext="html" hidden="0" notHidden="12" size="163081">12</file>
+    </dir>
+    <dir dirName="getting-started">
+        <file ext="html" hidden="0" notHidden="13" size="48415">13</file>
+    </dir>
+    <dir dirName="js">
+        <file ext="html" hidden="0" notHidden="13" size="136309">13</file>
+    </dir>
+    <dir dirName="nav">
+        <file ext="html" hidden="0" notHidden="8" size="22156">8</file>
+    </dir>
+    <dir dirName="_includes"/>
+    <dir dirName="_jade">
+        <file ext="jade" hidden="0" notHidden="2" size="1857">2</file>
+    </dir>
+    <dir dirName="_layouts">
+        <file ext="html" hidden="0" notHidden="2" size="2679">2</file>
+    </dir>
+    <dir dirName="_plugins">
+        <file ext="rb" hidden="0" notHidden="2" size="1183">2</file>
+    </dir>
+    <dir dirName="docs"/>
+    <dir dirName="fonts">
+        <file ext="ttf" hidden="0" notHidden="1" size="45404">1</file>
+        <file ext="svg" hidden="0" notHidden="1" size="108738">1</file>
+        <file ext="eot" hidden="0" notHidden="1" size="20127">1</file>
+        <file ext="woff2" hidden="0" notHidden="1" size="18028">1</file>
+        <file ext="woff" hidden="0" notHidden="1" size="23424">1</file>
+    </dir>
+    <dir dirName="grunt">
+        <file ext="yml" hidden="0" notHidden="1" size="1439">1</file>
+        <file ext="jshintrc" hidden="0" notHidden="1" size="119">1</file>
+        <file ext="js" hidden="0" notHidden="4" size="9819">4</file>
+        <file ext="json" hidden="0" notHidden="1" size="1344">1</file>
+    </dir>
+    <dir dirName="unit">
+        <file ext="jscsrc" hidden="0" notHidden="1" size="2154">1</file>
+        <file ext="jshintrc" hidden="0" notHidden="2" size="374">2</file>
+        <file ext="js" hidden="0" notHidden="24" size="233145">24</file>
+        <file ext="html" hidden="0" notHidden="1" size="4674">1</file>
+        <file ext="md" hidden="0" notHidden="1" size="2739">1</file>
+    </dir>
+    <dir dirName="vendor">
+        <file ext="css" hidden="0" notHidden="1" size="4991">1</file>
+        <file ext="js" hidden="0" notHidden="2" size="167678">2</file>
+    </dir>
+    <dir dirName="visual">
+        <file ext="html" hidden="0" notHidden="12" size="139287">12</file>
+    </dir>
+    <dir dirName="tests"/>
+    <dir dirName="js"/>
+    <dir dirName="mixins">
+        <file ext="json" hidden="0" notHidden="1" size="8099">1</file>
+        <file ext="csslintrc" hidden="0" notHidden="1" size="456">1</file>
+        <file ext="less" hidden="0" notHidden="71" size="211187">71</file>
+    </dir>
+    <dir dirName="less"/>
+    <dir dirName="test-infra">
+        <file ext="sh" hidden="0" notHidden="1" size="350">1</file>
+        <file ext="txt" hidden="0" notHidden="1" size="13">1</file>
+        <file ext="json" hidden="0" notHidden="2" size="219459">2</file>
+        <file ext="py" hidden="0" notHidden="1" size="5734">1</file>
+        <file ext="md" hidden="0" notHidden="1" size="6369">1</file>
+    </dir>
+    <dir dirName="bootstrap-3.3.5"/>
+    <dir dirName="newFolder">
+        <file ext="txt" hidden="1" notHidden="0" size="0">1</file>
+    </dir>
+    <dir dirName="img">
+        <file ext="less" hidden="0" notHidden="2" size="1004">2</file>
+        <file ext="png" hidden="0" notHidden="1" size="135852">1</file>
+        <file ext="css" hidden="0" notHidden="1" size="128412">1</file>
+        <file ext="html" hidden="0" notHidden="1" size="5217">1</file>
+    </dir>
+    <dir dirName="mixins">
+        <file ext="json" hidden="0" notHidden="1" size="8099">1</file>
+        <file ext="csslintrc" hidden="0" notHidden="1" size="456">1</file>
+        <file ext="less" hidden="0" notHidden="71" size="211187">71</file>
+    </dir>
+    <dir dirName="less"/>
+    <dir dirName="src"/>
+    <dir dirName="����">
+        <file ext="html" hidden="0" notHidden="4" size="395969">4</file>
+    </dir>
+    <dir dirName="VA-BANK"/>
 </files>

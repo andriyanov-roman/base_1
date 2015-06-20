@@ -51,9 +51,10 @@ public class FileFinder {
         dir = document.createElement("files");
         document.appendChild(dir);
         containerFileInfo = new HashSet<>();
+        currentDir = document.createElement("begin");
     }
 
-    public File findFiles(File file) {
+    public void findFiles(File file) {
         if (file.isDirectory()) {
             ArrayList<File> fileArrayList = new ArrayList<>(Arrays.asList(file.listFiles()));
             fileArrayList.sort(Comparator.comparing(File::isDirectory));
@@ -70,28 +71,22 @@ public class FileFinder {
             for (FileInfo fileInfo : containerFileInfo) {
                 if (fileInfo.getExtension().equals(extension)) {
                     fileInfo.plusFile(file);
-                    return null;//TODO
+                    return;
                 }
             }
             FileInfo fileInfo = new FileInfo(extension);
             fileInfo.plusFile(file);
             containerFileInfo.add(fileInfo);
-            return null;
+            return;
         }
-        generateDirNodes(file.getName());
-        return null;
-    }
-
-    private void generateDirNodes(String dirName) {
-        Element subDir = document.createElement(DIR_TAG);
-        subDir.setAttribute(DIR_ATTR, dirName);
-        if (containerFileInfo != null) {
-            for (FileInfo fileInfo : containerFileInfo) {
-                Element fileTag = generateFileTag(fileInfo);
-                subDir.appendChild(fileTag);
-            }
+        currentDir = document.createElement(DIR_TAG);
+        currentDir.setAttribute(DIR_ATTR, file.getName());
+        for (FileInfo fileInfo : containerFileInfo) {
+            Element fileTag = generateFileTag(fileInfo);
+            currentDir.appendChild(fileTag);
         }
-        dir.appendChild(subDir);
+        dir.appendChild(currentDir);
+        return;
     }
 
     private Element generateFileTag(FileInfo fileInfo) {
