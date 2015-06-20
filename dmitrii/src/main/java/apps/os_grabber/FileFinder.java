@@ -54,9 +54,7 @@ public class FileFinder {
     }
 
     public File findFiles(File file) {
-        if (file == null) return null;
         if (file.isDirectory()) {
-            generateDirNodes(file.getName());
             ArrayList<File> fileArrayList = new ArrayList<>(Arrays.asList(file.listFiles()));
             fileArrayList.sort(Comparator.comparing(File::isDirectory));
             for (File f : fileArrayList) {
@@ -78,7 +76,9 @@ public class FileFinder {
             FileInfo fileInfo = new FileInfo(extension);
             fileInfo.plusFile(file);
             containerFileInfo.add(fileInfo);
+            return null;
         }
+        generateDirNodes(file.getName());
         return null;
     }
 
