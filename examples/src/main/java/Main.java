@@ -12,9 +12,7 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) throws ParseException {
-        StudentsStAXBuilder staxBuilder = new StudentsStAXBuilder();
-        staxBuilder.buildSetStudents("examples\\src\\main\\resources\\student.xml");
-        System.out.println(staxBuilder.getStudents());
+        List<String> strings = new ArrayList<>();
     }
 
 }

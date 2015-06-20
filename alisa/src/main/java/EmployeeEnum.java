@@ -10,7 +10,7 @@ public enum EmployeeEnum {
     private String value;
 
     private EmployeeEnum (String value){
-        this.value = value;
+        this.value = value;//
     }
     public String getValue(){
         return value;

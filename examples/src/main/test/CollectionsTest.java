@@ -97,4 +97,21 @@ public class CollectionsTest {
                 .filter((s) -> s.startsWith("a"))
                 .collect(Collectors.toList());
     }
+
+    @Test
+    public void testThreeMap() {
+        Employee e = new Employee();
+        e.setName("Ivan");
+        Employee e1 = new Employee();
+        e1.setName("Petro");
+        Map<Employee, String> map = new TreeMap<>(new Comparator<Employee>() {
+            @Override
+            public int compare(Employee o1, Employee o2) {
+                return 1;
+            }
+        });
+
+        System.out.println(map.size());
+
+    }
 }
