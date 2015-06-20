@@ -18,12 +18,10 @@ import java.io.IOException;
 
 public class CreateDocument {
     public static void main(String[] args) {
-        DocumentBuilderFactory documentBuilderFactory =
-                DocumentBuilderFactory.newInstance();
+        DocumentBuilderFactory documentBuilderFactory =  DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = null;
         try {
-            documentBuilder =
-                    documentBuilderFactory.newDocumentBuilder();
+            documentBuilder = documentBuilderFactory.newDocumentBuilder();
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         }
