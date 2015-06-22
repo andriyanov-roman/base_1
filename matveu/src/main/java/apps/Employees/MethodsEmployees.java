@@ -2,9 +2,9 @@ package apps.Employees;
 
 
 
-import java.io.*;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Scanner;
 
 
@@ -105,7 +105,7 @@ public class MethodsEmployees {
                     maxSalaryFromAdminMenegerProgrammer();
                     break;
                 case "21":
-                    Date();
+                   // Date();
                     break;
                 case "Exit":
                     System.exit(0);
@@ -914,7 +914,7 @@ public class MethodsEmployees {
 
 
     }
-    public static void Date(){
+   /* public static void Date(){
         Employee employee=new Employee();
         Calendar calendarEmpl=Calendar.getInstance();
         calendarEmpl.set(2010, Calendar.JULY, 1, 9, 10);
@@ -936,7 +936,7 @@ public class MethodsEmployees {
             salaryFull = employee.getSalary()* Math.pow(1.1,yearFull);
             System.out.println(salaryFull);
         }
-    }
+    }*/
 }
 
 

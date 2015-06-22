@@ -1,14 +1,11 @@
 package apps.Employees;
 
-import java.util.Date;
-
 public class Employee {
     private String name;
     private String secondName;
     private String sex;
     private int age;
     private double salary;
-    private Date DateToWork;
     private int id;
 
     public Employee() {
@@ -22,9 +19,7 @@ public class Employee {
                 ", secondName='" + secondName + '\'' +
                 ", sex='" + sex + '\'' +
                 ", age=" + age +
-                ", salary=" + salary +
-                ", DateToWork=" + DateToWork +
-                '}';
+                ", salary=" + salary +'}';
     }
 
     public int getId() {
@@ -76,13 +71,7 @@ public class Employee {
         this.sex = sex;
     }
 
-    public Date getDateToWork() {
-        return DateToWork;
-    }
 
-    public void setDateToWork(Date dateToWork) {
-        DateToWork = dateToWork;
-    }
 
     public Employee(String name, String secondName, String sex, int age, double salary) {
         this.name = name;
