@@ -2,12 +2,21 @@
  * Created by Programmer on 20.06.2015.
  */
 public class B extends A {
+    int z;
 
-    public void doSomething(Number n) {
-        System.out.println("from b number");
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof B)) return false;
+
+        B b = (B) o;
+
+        return z == b.z;
+
     }
 
-    public void doSomething(Integer i) {
-        System.out.println("from b intger");
+    @Override
+    public int hashCode() {
+        return z;
     }
 }
