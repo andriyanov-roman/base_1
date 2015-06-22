@@ -14,9 +14,13 @@ VALUES ('John','Smith', 30),
        ('Thomas','Hardy', 30);
 
 UPDATE  Employees
-SET Age = 35, Age = 24 WHERE  EmployeeName  = 'Ana', EmployeeID  = 5;
+SET Age = 35, Age = 24 WHERE  EmployeeID  = 4 OR EmployeeID  = 5;#WHERE EmployeeID IN (1,2);
 
 
 SELECT * FROM Employees; 
 
+ALTER TABLE Employee ADD salary DECIMAL(16,4);
 
+UPDATE Employees e SET e.salary=5000; # e - alies
+
+SELECT NOW() FROM dual;#
