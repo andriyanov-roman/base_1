@@ -8,35 +8,32 @@ import java.sql.SQLException;
  * Created by Programmer on 26.06.2015.
  */
 public class ConnectionFactory {
-    private static final String URL="jdbc:mysql://localhost:3306/matveutest";
-    private static final String USERNAME="root";
-    private static final String PASSWORD="root";
-    public static Connection connection;
+    private static ConnectionFactory instance = new ConnectionFactory();
+    private static String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    private static String DB_URL = "jdbc:mysql://localhost/mydb";
+    private static String USER = "root";
+    private static String PASS = "root";
 
-
-    public static Connection createConnection()  {
+    //private constructor
+    private ConnectionFactory() {
         try {
-            connection= DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            if(!connection.isClosed()) {
-                System.out.println("Соединение с БД установлено!");
-            }
-
-            return connection;
-        } catch (SQLException e) {
-            System.err.println("Не удалось установить соединение с БД!");
-        } finally {
-            try {
-                if(connection!=null)
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
-        return null;
     }
 
+    private Connection createConnection() {
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection(DB_URL, USER, PASS);
+        } catch (SQLException e) {
+            System.out.println("ERROR: Unable to Connect to Database.");
+        }
+        return connection;
+    }
 
     public static Connection getConnection() {
-        return connection;
+        return instance.createConnection();
     }
 }

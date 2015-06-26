@@ -18,16 +18,16 @@ public class FromFileToDB {
         }
     }
     public static void selectFromBD() throws SQLException {
-        Statement statement=ConnectionFactory.createConnection().createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM matveutest.employee");
+        Statement statement=ConnectionFactory.getConnection().createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM employee");
         while (resultSet.next()){
             Employee employee=new Employee();
-            //employee.setId(resultSet.getInt("idemployee"));
-            employee.setName(resultSet.getString("name"));
-            employee.setSurname(resultSet.getString("secondname"));
-            employee.setSex(resultSet.getString("sex"));
+            employee.setId(resultSet.getInt("id"));
+            employee.setName(resultSet.getString("name_employee"));
+            employee.setSurname(resultSet.getString("second_name"));
+            //employee.setSex(resultSet.getString("sex"));
             employee.setAge(resultSet.getInt("age"));
-            employee.setSalary(resultSet.getInt("salary"));
+            //employee.setSalary(resultSet.getInt("salary"));
             System.out.println(employee.toString());
         }
     }
