@@ -2,6 +2,7 @@ package company;
 
 import entity.Employee;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -10,9 +11,12 @@ import java.sql.Statement;
  * Created by Programmer on 26.06.2015.
  */
 public class FromFileToDB {
+    private static final String INSERT_NEW="INSERT INTO employee VALUES(?,?,?,?,?)";
+
     public static void main(String [] args) {
         try {
             selectFromBD();
+            insertInToBD();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -30,5 +34,18 @@ public class FromFileToDB {
             //employee.setSalary(resultSet.getInt("salary"));
             System.out.println(employee.toString());
         }
+    }
+    public static void insertInToBD()throws SQLException{
+        PreparedStatement preparedStatement=ConnectionFactory.getConnection().prepareStatement(INSERT_NEW);
+        preparedStatement.setInt(1,6);
+        preparedStatement.setString(2,"Vika");
+        preparedStatement.setString(3,"Malina");
+        preparedStatement.setInt(4,27);
+        preparedStatement.setInt(5,277777);
+
+        preparedStatement.execute();
+
+
+
     }
 }
