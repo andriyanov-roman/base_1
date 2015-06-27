@@ -33,4 +33,7 @@ public class DataBaseSQLTest {
         }
 
     }
+    public void testPrepareSt(){
+
+    }
 }
