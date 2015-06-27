@@ -16,8 +16,8 @@ public class DBWorker {
                 System.out.println("Соединение с БД установлено!");
             }
            //MethodsEmployeeSql.selectFromBD();
-            MethodsEmployeeSql.insertInToBD();
-            connection.close();
+            //MethodsEmployeeSql.insertInToBD();
+            //connection.close();
         } catch (SQLException e) {
             System.err.println("Не удалось установить соединение с БД!");
         }

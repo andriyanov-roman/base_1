@@ -27,7 +27,7 @@ public class MethodsEmployeeSql {
         }
     }
     public static void insertInToBD()throws SQLException{
-        PreparedStatement preparedStatement=DBWorker.getConnection().prepareStatement(INSERT_NEW);
+        PreparedStatement preparedStatement=DBWorker.getConnection().prepareStatement("");
         preparedStatement.setString(1,"kjhhg");
         preparedStatement.setString(2,"Malina");
         preparedStatement.setString(3,"woman");
