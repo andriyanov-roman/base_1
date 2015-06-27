@@ -6,7 +6,7 @@ import java.util.Calendar;
  * Created by admin on 16.03.15.
  */
 public class Employee {
-
+    private int id;
     private String name;
     private String surname;
     private double salary;
@@ -24,6 +24,14 @@ public class Employee {
 
     public Employee() {
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
