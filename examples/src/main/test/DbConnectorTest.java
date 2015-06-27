@@ -45,9 +45,10 @@ public class DbConnectorTest {
              Statement stmt = conn.createStatement()) {
             StringBuilder builder = new StringBuilder();
             Employee e = new Employee();
-            e.setName("Ivan");
+            e.setName("'Ira' OR 1=1");
             e.setSecondName("Ivanov");
             e.setAge(21);
+            String sql = "SELECT * FROM employee WHERE second_name="+ e.getName();
             builder.append("insert into employee (name_employee, second_name,age) ")
                     .append("values (")
                     .append("'")
@@ -59,10 +60,10 @@ public class DbConnectorTest {
                     .append("'")
                     .append(",")
                     .append(e.getAge()).append(");");
-            stmt.executeUpdate(builder.toString());
-            String sql = "SELECT id,salary,name_employee FROM employee ";
+            //stmt.execute(sql);
+            //String sql = "SELECT id,salary,name_employee FROM employee ";
             ResultSet rs = stmt.executeQuery(sql);
-            System.out.println(rs.getClass());
+            System.out.println(rs.toString());
             //STEP 5: Extract data from result set
             while (rs.next()) {
                 //Retrieve by column name
@@ -76,9 +77,7 @@ public class DbConnectorTest {
                 System.out.println();
             }
         } catch (SQLException se) {
-            for (Throwable t : se.getNextException()) {
-                t.printStackTrace();
-            }
+            se.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
