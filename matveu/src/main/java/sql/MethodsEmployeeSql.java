@@ -8,12 +8,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class MethodsEmployeeSql {
-    private static final String INSERT_NEW="INSERT INTO matveutest.employee VALUES(?,?,?,?,?,?)";
+    private static final String INSERT_NEW="INSERT INTO matveuhome.employee (name,secondname,sex,age,salary) " +
+            "VALUES(?,?,?,?,?)";
 
 
     public static void selectFromBD() throws SQLException {
         Statement statement=DBWorker.getConnection().createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM matveutest.employee");
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM matveuhome.employee");
         while (resultSet.next()){
             Employee employee=new Employee();
             employee.setId(resultSet.getInt("idemployee"));
@@ -27,12 +28,11 @@ public class MethodsEmployeeSql {
     }
     public static void insertInToBD()throws SQLException{
         PreparedStatement preparedStatement=DBWorker.getConnection().prepareStatement(INSERT_NEW);
-        preparedStatement.setInt(1,5);
-        preparedStatement.setString(2,"Vika");
-        preparedStatement.setString(3,"Malina");
-        preparedStatement.setString(4,"woman");
-        preparedStatement.setInt(5,27);
-        preparedStatement.setInt(6,7500);
+        preparedStatement.setString(1,"kjhhg");
+        preparedStatement.setString(2,"Malina");
+        preparedStatement.setString(3,"woman");
+        preparedStatement.setInt(4,27);
+        preparedStatement.setInt(5,7500);
         preparedStatement.execute();
 
 

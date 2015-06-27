@@ -3,7 +3,7 @@ package sql;
 import java.sql.*;
 
 public class DBWorker {
-    private static final String URL="jdbc:mysql://localhost:3306/matveutest";
+    private static final String URL="jdbc:mysql://localhost:3306/matveuhome";
     private static final String USERNAME="root";
     private static final String PASSWORD="root";
     public static Connection connection;
@@ -15,7 +15,7 @@ public class DBWorker {
             if(!connection.isClosed()) {
                 System.out.println("Соединение с БД установлено!");
             }
-            //MethodsEmployeeSql.selectFromBD();
+           //MethodsEmployeeSql.selectFromBD();
             MethodsEmployeeSql.insertInToBD();
             connection.close();
         } catch (SQLException e) {
