@@ -1,13 +1,13 @@
-import cons.company.Employee;
+import entity.Employee;
 import db.ConnectionFactory;
+import entity.EmployeeDaoImpl;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.sql.*;
 
-/**
- * Created by Programmer on 22.06.2015.
- */
+
 public class DbConnectorTest {
 
     @Test
@@ -46,7 +46,7 @@ public class DbConnectorTest {
             StringBuilder builder = new StringBuilder();
             Employee e = new Employee();
             e.setName("Ivan");
-            e.setSurname("Ivanov");
+            e.setSecondName("Ivanov");
             e.setAge(21);
             builder.append("insert into employee (name_employee, second_name,age) ")
                     .append("values (")
@@ -55,12 +55,12 @@ public class DbConnectorTest {
                     .append("'")
                     .append(",")
                     .append("'")
-                    .append(e.getSurname())
+                    .append(e.getSecondName())
                     .append("'")
                     .append(",")
                     .append(e.getAge()).append(");");
             stmt.executeUpdate(builder.toString());
-            String sql = "SELECT id,salary,name_employee FROM employee";
+            String sql = "SELECT id,salary,name_employee FROM employee ";
             ResultSet rs = stmt.executeQuery(sql);
             System.out.println(rs.getClass());
             //STEP 5: Extract data from result set
@@ -83,5 +83,51 @@ public class DbConnectorTest {
             e.printStackTrace();
         }
         System.out.println("Hello!");
+    }
+
+    @Test
+    public void testPrepareSt() {
+        String sql = "insert into employee (name_employee, second_name,age)" +
+                " values (?,?,?)";
+        try (Connection conn = ConnectionFactory.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, "Ivan");
+            stmt.setString(2, "Petrovich");
+            stmt.setInt(3, 50);
+            stmt.execute();
+            //-------------
+
+            String sqlGet = "SELECT * FROM employee WHERE name_employee=?";
+            stmt.setString(1, "Ivan");
+            ResultSet rs = stmt.executeQuery(sqlGet);
+            //System.out.println(rs.getClass());
+            //STEP 5: Extract data from result set
+            while (rs.next()) {
+                //Retrieve by column name
+                int id = rs.getShort("id");
+                BigDecimal salary = rs.getBigDecimal("salary");
+                String first = rs.getString("name_employee");
+                //Display values
+                System.out.print("ID: " + id);
+                System.out.print(", Salary: " + salary);
+                System.out.println();
+            }
+        } catch (SQLException se) {
+           se.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("Goodbye!");
+    }
+
+    @Test
+    public void employeeDaoTest() {
+        Employee e = new Employee();
+        e.setAge(16);
+        e.setName("Ira");
+        e.setSecondName("Ivanova");
+        EmployeeDaoImpl impl = new EmployeeDaoImpl();
+        boolean result = impl.insertEntities(e);
+        Assert.assertTrue(result);
     }
 }
