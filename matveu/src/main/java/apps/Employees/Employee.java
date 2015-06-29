@@ -1,14 +1,15 @@
 package apps.Employees;
 
-import java.util.Date;
+import sql.EntityMatveu;
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee extends EntityMatveu implements Serializable {
     private String name;
     private String secondName;
     private String sex;
     private int age;
     private double salary;
-    private Date DateToWork;
     private int id;
 
     public Employee() {
@@ -22,17 +23,7 @@ public class Employee {
                 ", secondName='" + secondName + '\'' +
                 ", sex='" + sex + '\'' +
                 ", age=" + age +
-                ", salary=" + salary +
-                ", DateToWork=" + DateToWork +
-                '}';
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+                ", salary=" + salary +'}';
     }
 
     public String getName() {
@@ -76,13 +67,7 @@ public class Employee {
         this.sex = sex;
     }
 
-    public Date getDateToWork() {
-        return DateToWork;
-    }
 
-    public void setDateToWork(Date dateToWork) {
-        DateToWork = dateToWork;
-    }
 
     public Employee(String name, String secondName, String sex, int age, double salary) {
         this.name = name;

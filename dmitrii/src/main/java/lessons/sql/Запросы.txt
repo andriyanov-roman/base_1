@@ -1,0 +1,17 @@
+insert into employee (name_employee, second_name,age) values ('Ivan','Ivanov',20);
+insert into employee values (2,'Ivan','Ivanov',20);
+insert into employee (name_employee, second_name,age) values ('Ruslan','Vankevich',20);
+select * from employee;
+
+ALTER TABLE employee ADD salary DECIMAL(16,4);
+update employee e SET e.salary=500;
+update employee e SET e.salary=666 where e.id=1;
+#update employee e SET e.salary=444 where e.id=1 AND e.id=2;
+update employee e SET e.salary=333 where e.id=1 OR e.id=2;
+update employee e SET e.salary=222 where e.id IN (1,2);
+
+SELECT now() from dual;
+# dual - SQL creates Temporary table;
+
+select salary from employee;
+select salary from employee where id=3;

@@ -1,6 +1,7 @@
 package parsers.xml.dom;
 
-import home_works.Òompany.entities.company.Admin;
+
+import home_works.—Åompany.entities.company.Admin;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
