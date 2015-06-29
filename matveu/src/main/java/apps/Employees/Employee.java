@@ -1,6 +1,10 @@
 package apps.Employees;
 
-public class Employee {
+import sql.EntityMatveu;
+
+import java.io.Serializable;
+
+public class Employee extends EntityMatveu implements Serializable {
     private String name;
     private String secondName;
     private String sex;
@@ -20,14 +24,6 @@ public class Employee {
                 ", sex='" + sex + '\'' +
                 ", age=" + age +
                 ", salary=" + salary +'}';
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
