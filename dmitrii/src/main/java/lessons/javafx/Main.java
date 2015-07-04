@@ -6,6 +6,7 @@ package lessons.javafx;
 public class Main {
     public static void main(String[] args) {
         new SimpleMenu().startProgram(args);
+        int mas7 [][] = new int [4][];
     }
 
 
