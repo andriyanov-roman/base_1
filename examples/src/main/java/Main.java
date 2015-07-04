@@ -1,10 +1,15 @@
 import cons.company.Employee;
 import xml.stax.StudentsStAXBuilder;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) throws ParseException {
@@ -22,11 +27,24 @@ public class Main {
         System.out.println(Double.MAX_VALUE == Double.POSITIVE_INFINITY);
         float x = 1.0F;
         int numFloats = 0;
-        while (x <= 2.0) {
-            numFloats++;
-            System.out.println(x);
-            x = Math.nextUp(x);
+//        while (x <= 2.0) {
+//            numFloats++;
+//            System.out.println(x);
+//            x = Math.nextUp(x);
+//        }
+        try { FileReader fr1 = new FileReader("test1.txt");
+            try {	 FileReader fr2 = new FileReader("test2.txt");
+            } catch (IOException e) {
+                System.out.print("test2");
+            }
+            System.out.print("+");
+        } catch (FileNotFoundException e) {
+            System.out.print("test1");
         }
+        System.out.print("+");
+
+
+
     }
 
     public static strictfp double doSomething() {

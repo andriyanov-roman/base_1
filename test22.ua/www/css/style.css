@@ -1,0 +1,34 @@
+h1 {
+	color: #102EC7;
+}
+.first span {
+	color:red;
+}
+.first span b {
+	font-size: 40px;
+}
+.btn {
+	display: block;
+	text-align: center;
+	font-size: 14px;
+	text-shadow: 1px 1px 1px #fff;
+	width: 120px;
+	height: 50px;
+	background-color: red;
+	border-radius:5px;
+}
+.hello {
+	cursor: pointer;
+}
+.hello:hover {
+	color:blue;
+	text-decoration: underline;
+}
+.hello:after {
+	content: "Hello, Misha";
+	display: block;
+	width: 200px;
+	height: 100px;
+	background-color: #F66B0E;
+	color: #fff;
+}
